@@ -1,0 +1,40 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Path = relative filepath to parse from */ -}}
+{{- /* .Input.Decode = decision to decode the parsed data */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* clean up .Input.Path from OS-specific matter */ -}}
+{{- $ret = path.Clean .Input.Path -}}
+{{- $dataList = merge $dataList (dict "Path" $ret) -}}
+
+
+
+
+{{- /* read file */ -}}
+{{- $ret = readFile $ret -}}
+{{- $dataList = merge $dataList (dict "Content" $ret) -}}
+
+
+
+
+{{- /* decode data file when requested */ -}}
+{{- if and $dataList.Content .Input.Decode -}}
+	{{- $ret = transform.Unmarshal $dataList.Content -}}
+	{{- $dataList = merge $dataList (dict "Data" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

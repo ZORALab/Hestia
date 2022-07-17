@@ -1,0 +1,21 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = string for trimming */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* trim both sides */ -}}
+{{- $dataList = partial "Hestia/functions/data/trim/WhitespaceLeft" . -}}
+{{- $dataList = partial "Hestia/functions/data/trim/WhitespaceRight" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

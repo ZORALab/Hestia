@@ -1,0 +1,37 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Query = Hugo data query (e.g "Author.john.Name") */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict "Query" .Input.Query -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* start with baseline data */ -}}
+{{- $ret := .context.Site.Data -}}
+{{- range $v := (split (strings.TrimPrefix "." .Input.Query) ".") -}}
+	{{- if $ret -}}
+		{{- $ret = index $ret $v -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process queried data */ -}}
+{{- if eq $ret .context.Site.Data -}}
+	{{- /* DID NOT PROGRESS == no such data from the start */ -}}
+	{{- $ret = false -}}
+{{- end -}}
+{{- $dataList := merge $dataList (dict "Data" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

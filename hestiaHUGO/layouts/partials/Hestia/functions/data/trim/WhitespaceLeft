@@ -1,0 +1,14 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = string for trimming */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $constants := partial "Hestia/functions/data/trim/_constants" -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return strings.TrimLeft $constants.Charset . -}}

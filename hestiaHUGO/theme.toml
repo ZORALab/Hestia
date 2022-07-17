@@ -1,0 +1,23 @@
+name = "ZORALab's Hestia"
+license = "Apache-2.0"
+licenselink = "https://hestia.zoralab.com/en/license/"
+description = """
+Hestia focuses on uniting software library under a same family pattern to allow
+its user to have a peaceful development experiences. The goal is to structure
+the learning experience align to a single pattern and deployment, allowing
+anyone with different languages and understanding to shine at his/her own way
+without worrying about stability.
+"""
+homepage = "https://hestia.zoralab.com/"
+tags = ["zoralab", "hestia", "theme", "web", "ui", "design", "components"]
+features = ["CSS-Only",
+	"W3C Compliant HTML",
+	"Sass Design Module",
+	"Go Compatible Template Module",
+	"Configurable Theme"]
+min_version = "0.101.0"
+
+authors = [
+	{name = "ZORALab Enterprise", homepage = "https://www.zoralab.com"},
+	{name = "Holloway Chew Kean Ho", homepage = "https://www.hollowaykeanho.com"},
+]

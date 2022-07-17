@@ -1,0 +1,68 @@
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+
+{{- /* <a> and <link> COMMON ATTRIBUTES                                   */ -}}
+{{- /* .URL             = Link source URL value for href= attribute       */ -}}
+{{- /* .Rel             = Link relationship value for rel= attribute      */ -}}
+{{- /* .Lang            = Link language hinting for hreflang= attribute   */ -}}
+{{- /* .OnLoad          = Link onload= value                              */ -}}
+
+
+{{- /* <a> ELEMENT SPECIFIC ATTRIBUTES                                    */ -}}
+{{- /* .Content         = URL content                                     */ -}}
+{{- /* .ID              = ID attribute for the URL                        */ -}}
+{{- /* .Class           = Class attribute for the URL                     */ -}}
+{{- /* .Target          = Javascript action upon clicking the URL         */ -}}
+{{- /* .Download        = Download flag to set URL as download            */ -}}
+
+
+{{- /* <link> ELEMENT SPECIFIC ATTRIBUTES (VANILLA HTML5 ONLY)            */ -}}
+{{- /* .LinkElement     = set 'true' to render <link> instead of <a>      */ -}}
+{{- /* .Disabled        = Link disabled flag                              */ -}}
+{{- /* .Type            = Link type= value                                */ -}}
+{{- /* .As              = Link as= value                                  */ -}}
+{{- /* .CrossOrigin     = Link CORS ID (MUST have .Integrity)             */ -}}
+{{- /*                     1. 'anonymous' - no credential needed          */ -}}
+{{- /*                     2. 'use-credentials' - use credentials         */ -}}
+{{- /* .Integrity       = Link SRI (MUST have .CrossOrigin)               */ -}}
+{{- /* .ImageSizes      = Link imagesizes= value                          */ -}}
+{{- /* .ImageSrcSet     = Link imagesrcset= value                         */ -}}
+{{- /* .Media           = Link media= value                               */ -}}
+{{- /* .Sizes           = Link sizes= value                               */ -}}
+{{- /* .Title           = Link title= value                               */ -}}
+{{- /* .Referrer        = Link referrerpolicy= value                      */ -}}
+
+{{- if .LinkElement }}
+	<link href="{{- .URL -}}"
+		{{- if .Type }}{{ .Type -}}{{- end }}
+		{{- if .Rel }} rel="{{ .Rel -}}"{{- end }}
+		{{- if .Sizes }} sizes="{{ .Sizes -}}"{{- end }}
+		{{- if .As }} as="{{ .As -}}"{{- end }}
+		{{- if .Disabled }} disabled{{- end }}
+		{{- if .Lang }} hreflang="{{- .Lang -}}" {{- end }}
+		{{- if .ImageSizes }} imageSizes="{{- .ImageSizes -}}" {{- end }}
+		{{- if .ImageSrcSet }} imageSrcSet="{{- .ImageSrcSet -}}" {{- end }}
+		{{- if .Title }} title="{{- .Title -}}" {{- end }}
+		{{- if .Referrer }} referrer="{{- .Referrer -}}" {{- end }}
+		{{- if .Media }} media="{{- .Media -}}" {{- end }}
+		{{- if .OnLoad }} onload="{{- .OnLoad -}}" {{- end -}}
+
+		{{- if and .Integrity .CrossOrigin }}
+			integrity="{{- .Integrity -}}"
+			crossorigin="{{- .CrossOrigin -}}"
+		{{- end }}
+	/>
+{{- else -}}
+
+<a href="{{- .URL -}}"
+	{{- if .ID }} id="{{- .ID -}}"{{- end }}
+	{{- if .Class }} class="{{- .Class -}}"{{- end }}
+	{{- if .Rel }} rel="{{- .Rel -}}"{{- end }}
+	{{- if .Lang }} hreflang="{{- .Lang -}}"{{- end }}
+	{{- if .Target }} target="{{- .Target -}}"{{- end }}
+	{{- if .Download }} download{{- end }}
+	{{- if .OnLoad }} onload="{{- .OnLoad -}}"{{- end -}}
+>
+	{{ .Content -}}
+</a>
+
+{{- end }}

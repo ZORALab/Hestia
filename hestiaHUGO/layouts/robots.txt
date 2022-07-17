@@ -1,0 +1,1 @@
+{{- partial "Hestia/templates/robots.txt" . -}}

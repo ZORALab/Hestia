@@ -1,0 +1,48 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $file := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* get File */ -}}
+{{- $file = .context.Page.File -}}
+{{- if $file -}}
+	{{- /* get Page filepath */ -}}
+	{{- $ret = path.Clean $file.Path -}}
+	{{- $dataList = merge $dataList (dict "Path" $ret) -}}
+
+
+
+
+	{{- /* get Page filename */ -}}
+	{{- $ret = path.Clean $file.LogicalName -}}
+	{{- $dataList = merge $dataList (dict "Filename" $ret) -}}
+
+
+
+
+	{{- /* get Page directory path */ -}}
+	{{- $ret = path.Dir $file.Path -}}
+	{{- $dataList = merge $dataList (dict "Directory" $ret) -}}
+
+
+
+
+	{{- /* get Page file extension */ -}}
+	{{- $ret = printf ".%s" $file.Ext -}}
+	{{- $dataList = merge $dataList (dict "Extension" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

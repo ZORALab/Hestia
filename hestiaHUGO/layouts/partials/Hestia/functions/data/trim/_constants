@@ -1,0 +1,19 @@
+{{- /* INPUT PARAMETERS */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+
+
+
+
+{{- /* Declare whitespace .Charset */ -}}
+{{- $dataList = merge $dataList (dict "Charset" " \n\r\t") -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

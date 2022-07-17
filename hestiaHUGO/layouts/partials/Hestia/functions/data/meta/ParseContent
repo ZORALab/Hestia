@@ -1,0 +1,29 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse .Content.Rendered */ -}}
+{{- $ret = .context.Page.Content -}}
+{{- $dataList = merge $dataList (dict "Rendered" $ret) -}}
+
+
+
+
+{{- /* parse .Content.Raw */ -}}
+{{- $ret = .context.Page.RawContent -}}
+{{- $dataList = merge $dataList (dict "Raw" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

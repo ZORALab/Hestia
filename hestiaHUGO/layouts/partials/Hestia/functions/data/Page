@@ -1,0 +1,70 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .    = hugo page data context */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict "IsHestia" true -}}
+{{- $ret := false -}}
+
+
+
+{{- /* prepare Hestia .Page.context */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/Init" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Format */ -}}
+{{- $ret = partial "Hestia/functions/data/format/Init" $dataList -}}
+{{- $dataList = merge $dataList (dict "Format" $ret) -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Languages */ -}}
+{{- $ret = partial "Hestia/functions/data/meta/ParseLanguage" $dataList -}}
+{{- $dataList = merge $dataList (dict "Languages" $ret) -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Titles */ -}}
+{{- $ret = partial "Hestia/functions/data/meta/ParseTitle" $dataList -}}
+{{- $dataList = merge $dataList (dict "Titles" $ret) -}}
+
+
+
+
+{{- /* prepare Hestia .Page.URL */ -}}
+{{- $ret = partial "Hestia/functions/data/meta/ParseURL" $dataList -}}
+{{- $dataList = merge $dataList (dict "URL" $ret) -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Content */ -}}
+{{- $ret = partial "Hestia/functions/data/meta/ParseContent" $dataList -}}
+{{- $dataList = merge $dataList (dict "Content" $ret) -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Data */ -}}
+{{- $ret = partial "Hestia/functions/data/meta/ParseDatastore" $dataList -}}
+{{- $dataList = merge $dataList (dict "Data" $ret) -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Filesystem */ -}}
+{{- $ret = partial "Hestia/functions/data/meta/ParseFS" $dataList -}}
+{{- $dataList = merge $dataList (dict "Filesystem" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

@@ -1,0 +1,5 @@
+[Constants]
+Filename = ".hestia-wasm.toml"
+
+[Constants.Placeholder]
+URL = "[[< .URL >]]"

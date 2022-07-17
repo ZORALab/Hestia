@@ -1,0 +1,45 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = content to be rendered */ -}}
+
+
+{{- /* GLOBAL CONSTANTS */ -}}
+{{- $RAWTag := "[[ HestiaRaw ]]" -}}
+{{- $MARKDOWNTag := "[[ HestiaMarkdown ]]" -}}
+{{- $HTMLTag := "[[ HestiaHTML ]]" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $ret := false -}}
+{{- $inlineHTML := "<!-- raw HTML omitted -->" -}}
+
+
+
+
+{{- /* attempting to render the content */ -}}
+{{- $ret = partial "Hestia/functions/data/trim/WhitespaceLeft" . -}}
+{{- if hasPrefix $ret $RAWTag -}}
+	{{- $ret = strings.TrimLeft $RAWTag $ret -}}
+	{{- $ret = partial "Hestia/functions/data/trim/WhitespaceLeft" $ret -}}
+{{- else if hasPrefix $ret $MARKDOWNTag -}}
+	{{- $ret = strings.TrimLeft $MARKDOWNTag $ret -}}
+	{{- $ret = partial "Hestia/functions/data/trim/WhitespaceLeft" $ret -}}
+	{{- $ret = markdownify $ret -}}
+{{- else if hasPrefix $ret $HTMLTag -}}
+	{{- $ret = strings.TrimLeft $HTMLTag $ret -}}
+	{{- $ret = partial "Hestia/functions/data/trim/WhitespaceLeft" $ret -}}
+	{{- $ret = safeHTML $ret -}}
+{{- else -}}
+	{{- $ret = markdownify $ret -}}
+	{{- if or (eq $ret $inlineHTML) (gt (len (split $ret $inlineHTML)) 1) -}}
+		{{- $ret = safeHTML $ret -}}
+	{{- end -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/data/trim/WhitespaceRight" $ret -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $ret -}}

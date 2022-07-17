@@ -1,0 +1,27 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = string containing Javascript for compression */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $ret := "" -}}
+{{- $shasum := false -}}
+
+
+
+
+{{- /* compress */ -}}
+{{- if . -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" . -}}
+	{{- $shasum = printf "deletable-%s.js" now -}}
+	{{- $ret = resources.FromString $shasum $ret -}}
+	{{- $ret = resources.Minify $ret -}}
+	{{- $ret = $ret.Content -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $ret -}}

@@ -1,0 +1,77 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $url := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process URL.Base */ -}}
+{{- $url = urls.Parse .context.Site.BaseURL -}}
+{{- $ret = "http" -}}
+{{- if $url.Scheme -}}
+	{{- $ret = $url.Scheme -}}
+{{- end -}}
+{{- $ret = printf "%s://%s" $ret (default "localhost" $url.Host) -}}
+
+{{- if $url.Path -}}
+	{{- $ret = printf "%s/%s" $ret (strings.TrimPrefix "/" $url.Path) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Base" $ret) -}}
+
+
+
+
+{{- /* process URL.Current */ -}}
+{{- $list = dict -}}
+
+{{- $url = urls.Parse .context.Page.Permalink -}}
+{{- $ret = "http" -}}
+{{- if $url.Scheme -}}
+	{{- $ret = $url.Scheme -}}
+{{- end -}}
+{{- $ret = printf "%s://%s" $ret (default "localhost" $url.Host) -}}
+
+{{- if $url.Path -}}
+	{{- $ret = printf "%s/%s" $ret (strings.TrimPrefix "/" $url.Path) -}}
+{{- end -}}
+
+{{- if $url.RawQuery -}}
+	{{- $ret = printf "%s?%s" $ret $url.RawQuery -}}
+{{- end -}}
+
+{{- if $url.Fragment -}}
+	{{- $ret = printf "%s#%s" $ret $url.Fragment -}}
+{{- end -}}
+{{- $list = merge $list (dict "Absolute" $ret) -}}
+
+{{- $ret = strings.TrimPrefix $dataList.Base $list.Absolute -}}
+{{- if not $ret -}}
+	{{- $ret = "/" -}}
+{{- end -}}
+{{- $list = merge $list (dict "Relative" $ret) -}}
+
+{{- $dataList = merge $dataList (dict "Current" $list) -}}
+
+
+
+
+{{- /* process URL.Languages */ -}}
+{{- $list = dict -}}
+{{- range $v := .context.Page.AlternativeOutputFormats -}}
+	{{- $list = merge $list (dict (upper $v.Name) $v.Permalink) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Languages" $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

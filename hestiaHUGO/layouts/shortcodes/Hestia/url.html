@@ -1,0 +1,9 @@
+{{- /* activate .Inner to standardize all Hestia shortcodes */ -}}
+{{- $dataList := .Inner -}}
+
+
+
+
+{{- /* parse and render Hestia Shortcode */ -}}
+{{- $dataList = partial "Hestia/functions/data/shortcode/Init" . -}}
+{{- partial "Hestia/shortcodes/url" $dataList -}}

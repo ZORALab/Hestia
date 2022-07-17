@@ -1,0 +1,50 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = WASM data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $render := true -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* verify .Source is available */ -}}
+{{- if .Source -}}
+	{{- if not .Source.URL -}}
+		{{- $render = false -}}
+	{{- end -}}
+
+	{{- if not .Source.Content -}}
+		{{- $render = false -}}
+	{{- end -}}
+{{- else -}}
+	{{- $render = false -}}
+{{- end -}}
+
+
+
+
+{{- /* verify .JS is available */ -}}
+{{- if .JS -}}
+	{{- if and (not .JS.URL) (not .JS.Content) -}}
+		{{- $render = false -}}
+	{{- end -}}
+{{- else -}}
+	{{- $render = false -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- if $render -}}
+	{{- if .JS.Content -}}
+		<script>{{- .JS.Content -}}</script>
+	{{- else -}}
+		<script src="{{- .JS.URL -}}"></script>
+	{{- end -}}
+	<script>{{- .Source.Content -}}</script>
+{{- end -}}

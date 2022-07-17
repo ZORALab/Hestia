@@ -1,0 +1,49 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{{- range $page := .Data.Pages -}}
+	{{- $proceed := true -}}
+
+	{{- /* discard all pages that is layout against redirect pages */ -}}
+	{{- $ret := $page.Param "layout" -}}
+	{{- if eq $ret "redirect" -}}
+		{{- $proceed = false -}}
+	{{- end -}}
+
+	{{- if $proceed -}}
+	<url>
+		<loc>{{- $page.Permalink -}}</loc>
+
+		{{- if not $page.Lastmod.IsZero }}
+		<lastmod>
+			{{- $page.Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML -}}
+		</lastmod>
+		{{- end }}
+
+		{{- with $page.Sitemap.ChangeFreq }}
+		<changefreq>{{- . -}}</changefreq>
+		{{- end }}
+
+		{{- if ge $page.Sitemap.Priority 0.0 }}
+		<priority>{{- $page.Sitemap.Priority -}}</priority>
+		{{- end }}
+
+		{{- if $page.IsTranslated }}
+			{{- range $twin := $page.Translations }}
+			<xhtml:link
+				rel="alternate"
+				hreflang="{{ $twin.Lang }}"
+				href="{{ $twin.Permalink }}"
+			/>
+			{{- end }}
+
+			<xhtml:link
+			rel="alternate"
+			hreflang="{{ $page.Lang }}"
+			href="{{ $page.Permalink }}"
+			/>
+		{{- end }}
+	</url>
+	{{- end }}
+{{- end }}
+</urlset>

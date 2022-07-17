@@ -1,0 +1,50 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* obtain list of alternative formats  */ -}}
+{{- $list = dict -}}
+{{- range $format := .context.Page.AlternativeOutputFormats -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/ParseOutputFormat" $format -}}
+	{{- $list = merge $list (dict $ret.Name $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Alternatives" $list) -}}
+
+
+
+
+{{- /* scan for current output format */ -}}
+{{- $ret = false -}}
+{{- range $format := .context.Page.OutputFormats -}}
+	{{- if not (index $dataList.Alternatives $format.Name) -}}
+		{{- $ret = partial "Hestia/functions/data/hugo/ParseOutputFormat" $format -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Current" $ret) -}}
+
+
+
+
+{{- /* assemble all formats */ -}}
+{{- $list = dict -}}
+{{- range $format := .context.Page.OutputFormats -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/ParseOutputFormat" $format -}}
+	{{- $list = merge $list (dict $ret.Name $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "All" $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

@@ -1,0 +1,54 @@
+{{- $baseURL :=  strings.TrimSuffix "/" .Page.Site.BaseURL -}}
+{{- $baseURLPattern := "{{ .BaseURL }}" -}}
+{{- $lines := slice -}}
+
+
+
+
+{{- /* process each robot data file */ -}}
+{{- $isFirst := true -}}
+{{- range $agent, $rules := .Page.Site.Data.Hestia.robots -}}
+	{{- /* add new line if it is not the first */ -}}
+	{{- if not $isFirst -}}
+		{{- $lines = append "" $lines -}}
+	{{- end -}}
+
+
+	{{- /* process User-Agent */ -}}
+	{{- if eq $agent "all" -}}{{- $agent = "*" -}}{{- end -}}
+	{{- $lines = append (printf "User-agent: %s" $agent) $lines -}}
+
+
+	{{- /* process rules */ -}}
+	{{- range $order, $rule := $rules -}}
+		{{- if eq $order "Sitemap" -}}
+			{{- $ret := replace $rule $baseURLPattern $baseURL -}}
+			{{- $ret = printf "%s: %s" $order $ret -}}
+			{{- $lines = append $ret $lines -}}
+		{{- else if eq $order "Allow" -}}
+			{{- range $value := $rule -}}
+				{{- $ret := replace $value $baseURLPattern $baseURL -}}
+				{{- $ret = printf "%s: %s" $order $ret -}}
+				{{- $lines = append $ret $lines -}}
+			{{- end -}}
+		{{- else if eq $order "Disallow" -}}
+			{{- range $value := $rule -}}
+				{{- $ret := replace $value $baseURLPattern $baseURL -}}
+				{{- $ret = printf "%s: %s" $order $ret -}}
+				{{- $lines = append $ret $lines -}}
+			{{- end -}}
+		{{- else if eq $order "Crawl-delay" -}}
+			{{- $ret := printf "%s: %d" $order $rule -}}
+			{{- $lines = append $ret $lines -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- /* update loop configurations */ -}}
+	{{- $isFirst = false -}}
+{{- end -}}
+
+
+
+
+{{- /* render robots.txt */ -}}
+{{- delimit $lines "\n" -}}

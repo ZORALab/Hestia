@@ -1,0 +1,39 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $context := .context -}}
+{{- $list := dict -}}
+{{- $current := .context.Page.Lang -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* obtain list of all languages and current page language metadata  */ -}}
+{{- $list = dict -}}
+{{- range $v := .context.Site.Languages -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/ParseLanguage" $v -}}
+
+
+	{{- /* extract current language */ -}}
+	{{- if eq $v.Lang $current -}}
+		{{- $current = $ret -}}
+	{{- end -}}
+
+
+	{{- /* save into list */ -}}
+	{{- $list = merge $list (dict (upper $v.Lang) $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "List" $list) -}}
+{{- $dataList = merge $dataList (dict "Current" $current) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

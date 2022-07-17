@@ -1,0 +1,14 @@
+{{- $Page := partial "Hestia/functions/data/Page" . -}}
+{{- $WASM := partial "Hestia/functions/data/wasm/Init" $Page -}}
+
+<html {{ $Page.Languages.Current.Code }}>
+<head>
+	<title>{{- $Page.Titles.Page -}} | {{- $Page.Titles.Site -}}</title>
+	{{- partial "Presento/functions/render/html/meta/WASM" $WASM -}}
+</head>
+<body>
+	<main>
+		{{- $Page.Content.Rendered -}}
+	</main>
+</body>
+</html>

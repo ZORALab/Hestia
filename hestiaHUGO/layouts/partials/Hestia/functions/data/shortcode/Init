@@ -1,0 +1,29 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .    = hugo shortcode data context */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict "IsShortcode" true -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* prepare Hestia .Page */ -}}
+{{- $ret = partial "Hestia/functions/data/Page" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* prepare Hestia .Input */ -}}
+{{- $ret = partial "Hestia/functions/data/shortcode/ParseInputs" $dataList -}}
+{{- $dataList = merge $dataList (dict "Input" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

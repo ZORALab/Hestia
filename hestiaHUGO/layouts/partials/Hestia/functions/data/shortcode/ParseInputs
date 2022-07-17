@@ -1,0 +1,29 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Shortcode Data Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse .Params.KEY */ -}}
+{{- range $k, $v := .context.Params -}}
+	{{- $dataList = merge $dataList (dict $k $v) -}}
+{{- end -}}
+
+
+
+
+{{- /* prepare Hestia .Content */ -}}
+{{- $dataList = merge $dataList (dict "Content" .context.Inner) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

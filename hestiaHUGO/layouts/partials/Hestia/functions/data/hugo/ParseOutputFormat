@@ -1,0 +1,62 @@
+{{- /* .  = ONE (1) Hugo data structure for output format */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process Format.Name */ -}}
+{{- $dataList = merge $dataList (dict "Name" .Format.Name) -}}
+
+
+
+
+{{- /* process Format.Type */ -}}
+{{- $ret = .Format.MediaType.FirstSuffix.Suffix -}}
+{{- $dataList = merge $dataList (dict "Type" $ret) -}}
+
+
+
+
+{{- /* process Format.Filename */ -}}
+{{- $ret = .Format.BaseName -}}
+{{- $dataList = merge $dataList (dict "Filename" $ret) -}}
+
+
+
+
+{{- /* process Format.Ext */ -}}
+{{- $ret = .Format.MediaType.FirstSuffix.FullSuffix -}}
+{{- $dataList = merge $dataList (dict "Extension" $ret) -}}
+
+
+
+
+{{- /* process Format.IsText */ -}}
+{{- $ret = .Format.IsPlainText -}}
+{{- $dataList = merge $dataList (dict "IsText" $ret) -}}
+
+
+
+
+{{- /* process Format.IsHTML */ -}}
+{{- $ret = .Format.IsHTML -}}
+{{- $dataList = merge $dataList (dict "IsHTML" $ret) -}}
+
+
+
+
+{{- /* process Format.Format */ -}}
+{{- $ret = .Format.MediaType.SubType -}}
+{{- $dataList = merge $dataList (dict "FileType" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

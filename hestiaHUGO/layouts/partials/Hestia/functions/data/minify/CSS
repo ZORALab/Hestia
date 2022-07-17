@@ -1,0 +1,27 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = string containing CSS for compression */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $ret := "" -}}
+{{- $shasum := false -}}
+
+
+
+
+{{- /* compress */ -}}
+{{- if . -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" . -}}
+	{{- $shasum = printf "deletable-%s.css" (sha256 now) -}}
+	{{- $ret = resources.FromString $shasum $ret -}}
+	{{- $ret = resources.Minify $ret -}}
+	{{- $ret = $ret.Content -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $ret -}}

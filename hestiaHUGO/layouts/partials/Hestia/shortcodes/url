@@ -1,0 +1,274 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .URL.Current = Current Page URL. */ -}}
+{{- /* .URL.Base = Current Page's Base URL. */ -}}
+{{- /* .Format.Current.Extension = Current Page's Format File Type. */ -}}
+
+{{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
+{{- /* .Input.Format = given output format for synthesis. (optional, string) */ -}}
+{{- /* .Input.Content = rendered link content (optional, string) */ -}}
+{{- /* .Input.HRefLang = given hrefLang= attribute. (optional, string) */ -}}
+{{- /* .Input.Onload = given onLoad= attribute. (optional, string) */ -}}
+{{- /* .Input.Download = set URL to be downloadable. (optional, bool) */ -}}
+{{- /* .Input.Target = given target= attribute. (optional, string) */ -}}
+{{- /* .Input.Lang = given langauge for synthesis. (optional, string) */ -}}
+{{- /* .Input.Rel = given rel= attribute. (optional, string) */ -}}
+{{- /* .Input.Class = given class= attribute. (optional, string) */ -}}
+{{- /* .Input.ID = given id= attribute. (optional, string) */ -}}
+
+
+
+
+{{- /* RFC3986-COMPLIANCE IMPORTANT NOTE */ -}}
+{{- /* 1. The URL synthesizer here is only limited to parsing proper URL. */ -}}
+{{- /*    Any differences shall render unpredictable effects.             */ -}}
+{{- /*    Proper URL **SHALL** have the following:                        */ -}}
+{{- /*    1.1. ONE (1) scheme                                             */ -}}
+{{- /*    1.2. ONE (1) hier part                                          */ -}}
+{{- /*    1.3. ONE (1) query part                                         */ -}}
+{{- /*    1.4. ONE (1) fragment                                           */ -}}
+{{- /*    1.5. ONE (1) user authority                                     */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $url := dict -}}
+{{- $query := dict -}}
+{{- $IsCompleted := false -}}
+{{- $IsRelativeToPage := false -}}
+{{- $out := "" -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* Stage 1: Construct the URL */ -}}
+{{- $ret = .Input.URL -}}
+{{- $query = urls.Parse $ret -}}
+
+{{- if $query.Scheme -}}
+	{{- $out = $ret -}}
+	{{- $IsCompleted = true -}}
+{{- else -}}
+	{{- if not (hasPrefix $query.Path "/") -}}
+		{{- $IsRelativeToPage = true -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- if and (not $IsCompleted) -}}
+	{{- /* PART I - CONSTRUCT BASE URL */ -}}
+	{{- $ret = .URL.Base -}}
+	{{- if $IsRelativeToPage -}}
+		{{- $ret = .URL.Current.Absolute -}}
+	{{- end -}}
+
+	{{- $url = urls.Parse $ret -}}
+	{{- $ret = "http" -}}
+	{{- if $url.Scheme -}}
+		{{- $ret = $url.Scheme -}}
+	{{- end -}}
+	{{- $out = printf "%s://" $ret -}}
+
+	{{- if $url.User -}}
+		{{- $ret = $url.User.String -}}
+		{{- if $ret -}}
+			{{- $out = printf "%s%s" $out $ret -}}
+		{{- end -}}
+
+		{{- $out = printf "%s@" $out -}}
+	{{- end -}}
+	{{- $out = printf "%s%s" $out $url.Host -}}
+
+
+	{{- /* PART II - CONSTRUCT PATHING */ -}}
+	{{- $ret = $url.Path -}}
+	{{- if path.Ext $url.Path -}}
+		{{- $ret = path.Dir $url.Path -}}
+	{{- end -}}
+
+	{{- if and (not $IsRelativeToPage) .Input.Lang -}}
+		{{- $ret = strings.TrimSuffix "/" $url.Path -}}
+		{{- range $lang := .Languages.List -}}
+			{{- if strings.HasSuffix $ret $lang.Code -}}
+				{{- $ret = strings.TrimPrefix $lang.Code $ret -}}
+			{{- end -}}
+		{{- end -}}
+
+		{{- if $ret -}}
+			{{- $ret = strings.TrimPrefix "/" $ret -}}
+			{{- $out = printf "%s/%s/%s" $out $ret .Input.Lang -}}
+		{{- else -}}
+			{{- $out = printf "%s/%s" $out .Input.Lang -}}
+		{{- end -}}
+		{{- $out = strings.TrimSuffix "/" $out -}}
+	{{- else -}}
+		{{- if $ret -}}
+			{{- $ret = strings.TrimPrefix "/" $ret -}}
+			{{- $out = printf "%s/%s" $out $ret -}}
+		{{- end -}}
+		{{- $out = strings.TrimSuffix "/" $out -}}
+	{{- end -}}
+
+
+	{{- /* PART III - JOINING QUERY PATHING */ -}}
+	{{- $ret = false -}}
+	{{- if .Input.Format -}}
+		{{- $ret = index .Format.All .Input.Format -}}
+		{{- if $ret -}}
+			{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
+		{{- end -}}
+
+		{{- if and $ret (path.Ext $query.Path) -}}
+			{{- $ret = path.Join (path.Dir $query.Path) $ret -}}
+		{{- else -}}
+			{{- $ret = path.Join $query.Path $ret -}}
+		{{- end -}}
+	{{- else if $query.Path -}}
+		{{- $ret = $query.Path -}}
+	{{- end -}}
+	{{- if $ret -}}
+		{{- $ret = strings.TrimPrefix "/" $ret -}}
+		{{- $out = printf "%s/%s" $out $ret -}}
+		{{- $out = strings.TrimSuffix "/" $out -}}
+	{{- end -}}
+
+
+	{{- /* PART IV - JOINING QUERY */ -}}
+	{{- if not $IsCompleted -}}
+		{{- if $query.RawQuery -}}
+			{{- $ret = $query.RawQuery -}}
+
+			{{- $ret = strings.TrimPrefix "/" $ret -}}
+			{{- $out = printf "%s?%s" $out $ret -}}
+			{{- $out = strings.TrimSuffix "/" $out -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- /* PART V - JOINING FRAGMENT */ -}}
+	{{- if not $IsCompleted -}}
+		{{- if $query.Fragment -}}
+			{{- $ret = $query.Fragment -}}
+
+			{{- $ret = strings.TrimPrefix "/" $ret -}}
+			{{- $out = printf "%s#%s" $out $ret -}}
+			{{- $out = strings.TrimSuffix "/" $out -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- $dataList = merge $dataList (dict "URL" $out) -}}
+
+
+
+
+{{- /* STAGE 2 - Process .Input.ID */ -}}
+{{- if .Input.ID -}}
+	{{- $ret = safeHTML .Input.ID -}}
+	{{- $dataList = merge $dataList (dict "ID" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 3 - Process Input.Class */ -}}
+{{- if .Input.Class -}}
+	{{- $ret = safeHTML .Input.Class -}}
+	{{- $dataList = merge $dataList (dict "Class" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 4 - Process Input.Rel */ -}}
+{{- if .Input.Rel -}}
+	{{- $ret = safeHTML .Input.Rel -}}
+	{{- $dataList = merge $dataList (dict "Rel" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 5 - Process .Input.HrefLang */ -}}
+{{- if or (or .Input.Lang .Input.HrefLang) -}}
+	{{- $ret = false -}}
+	{{- range $lang := .Languages.List -}}
+		{{- if eq .Input.Lang $lang.Code -}}
+			{{- $ret = $lang.Code -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- if $IsRelativeToPage -}}
+		{{- $ret = .Languages.Current.Code -}}
+	{{- end -}}
+
+	{{- if .Input.HrefLang -}}
+		{{- $ret = .Input.HrefLang -}}
+	{{- end -}}
+
+	{{- $ret = safeHTML $ret -}}
+	{{- $dataList = merge $dataList (dict "Lang" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 6 - Process .Input.Download */ -}}
+{{- if .Input.Download -}}
+	{{- $dataList = merge $dataList (dict "Download" true) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 7 - Process Input.Target */ -}}
+{{- if .Input.Target -}}
+	{{- $ret = safeHTML .Input.Target -}}
+	{{- $dataList = merge $dataList (dict "Target" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 8 - Process Input.Onload */ -}}
+{{- if .Input.Target -}}
+	{{- $ret = safeJS .Input.Onload -}}
+	{{- $dataList = merge $dataList (dict "Onload" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 9 - Process Input.Content */ -}}
+{{- if .Input.Content -}}
+	{{- $ret = partial "Hestia/functions/render/Content" .Input.Content -}}
+	{{- $dataList = merge $dataList (dict "Content" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- if $dataList.Content -}}
+	{{- $ret = false -}}
+	{{- if .Input.Format -}}
+		{{- $ret = index .Format.All .Input.Format -}}
+	{{- end -}}
+
+	{{- if not $ret -}}
+		{{- $ret = .Format.Current -}}
+	{{- end -}}
+
+	{{- if eq (upper $ret.Name) .Data.Config.Format.HTML.ID -}}
+		{{- partial "Hestia/components/url.html" $dataList -}}
+	{{- else -}}
+		{{- errorf "Unknown format for: %s" (safeHTML $dataList.URL) -}}
+	{{- end -}}
+{{- else -}}
+	{{- safeHTML $dataList.URL -}}
+{{- end -}}
