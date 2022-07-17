@@ -1,0 +1,59 @@
+[Metadata]
+Name = 'Zip'
+Description = """
+Package application into .zip package file.
+"""
+Type = 'zip'
+
+
+
+
+[Variables]
+
+[FMTVariables]
+LicensePath = '{{- .RootDir -}}/docs/en/licenses/monteur-software-license.pdf'
+
+
+
+
+[[Dependencies]]
+
+
+
+
+[Packages.001]
+OS = [ 'windows' ]
+Arch = [ 'amd64' ]
+Name = '{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.001.Files]
+'{{- .PackageDir -}}/monteur' = '{{- .BuildDir -}}/windows-amd64'
+'{{- .PackageDir -}}/License.pdf' = '{{- .LicensePath -}}'
+
+[Packages.002]
+OS = [ 'windows' ]
+Arch = [ 'arm64' ]
+Name = '{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.002.Files]
+'{{- .PackageDir -}}/monteur' = '{{- .BuildDir -}}/windows-arm64'
+'{{- .PackageDir -}}/License.pdf' = '{{- .LicensePath -}}'
+
+
+
+
+[[CMD]]
+Name = 'Placeholder For Any Post CMD Development'
+Type = 'placeholder'
+Condition = [ 'all-all' ]
+Location = ''
+Source = ''
+Target = ''

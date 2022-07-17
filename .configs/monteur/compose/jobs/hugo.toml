@@ -1,0 +1,70 @@
+[Metadata]
+Name = 'Hugo'
+Description = """
+Using Hugo static site generator to compose Montuer's web documentations
+artifacts.
+"""
+
+[Variables]
+MainLang = 'en'
+PublishBranch = 'gh-pages'
+PublishCommitID='Will be overwritten by publish command sequences'
+
+[FMTVariables]
+SourceDir = '{{- .RootDir -}}/.configs/hugo'
+DestinationDir = '{{- .WorkingDir -}}/public'
+PublishDir = '{{- .WorkingDir -}}/{{- .PublishBranch -}}'
+
+
+
+
+[[Dependencies]]
+Name = 'Hugo'
+Condition = 'all-all'
+Type = 'command'
+Command = 'hugo'
+
+[[Dependencies]]
+Name = 'Git'
+Condition = 'all-all'
+Type = 'command'
+Command = 'git'
+
+
+
+
+[[CMD]]
+Name = "Delete Destination Directory for Clean Build"
+Type = 'delete-recursive-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .DestinationDir -}}'
+
+[[CMD]]
+Name = "Hugo Build with Minimifaction"
+Type = 'command'
+Condition = [ 'all-all' ]
+Location = '{{- .SourceDir -}}'
+Source = 'hugo --minify --destination "{{- .DestinationDir -}}"'
+
+[[CMD]]
+Name = "Hugo Workaround with 404"
+Type = 'copy-quiet'
+Condition = [ 'all-all' ]
+Location = '{{- .SourceDir -}}'
+Source = '{{- .DestinationDir -}}/{{- .MainLang -}}/404.html'
+Target = '{{- .DestinationDir -}}/404.html'
+
+[[CMD]]
+Name = "Script No Jekyll file for Github compatibility"
+Type = "script"
+Condition = [ 'all-all' ]
+Location = '{{- .SourceDir -}}'
+Source = 'No Jekyll'
+Target = '{{- .DestinationDir -}}/.nojekyll'
+
+[[CMD]]
+Name = "Copy GitLab CI if available"
+Type = 'copy-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .RootDir -}}/.gitlab-ci.yml'
+Target = '{{- .DestinationDir -}}/.gitlab-ci.yml'

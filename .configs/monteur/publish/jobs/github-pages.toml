@@ -1,0 +1,120 @@
+[Metadata]
+Name = 'GitHub Pages'
+Description = """
+Publish web documentations artifact into GitHub Pages.
+"""
+
+
+
+
+[Variables]
+PublishBranch = 'gh-pages'
+FirstCommitID = 'Will be overwritten by CMD'
+
+[FMTVariables]
+SourceDir = '{{- .DocsDir -}}/public'
+DestinationDir = '{{- .WorkingDir -}}/{{- .PublishBranch -}}'
+
+
+
+
+[[Dependencies]]
+Name = 'Git'
+Condition = 'all-all'
+Type = 'command'
+Command = 'git'
+
+
+
+
+[[CMD]]
+Name = 'Check Artifact Directory Exists and Ready'
+Condition = [ 'all-all' ]
+Type = 'is-exists'
+Source = '{{- .SourceDir -}}/index.html'
+
+[[CMD]]
+Name = 'Remove Git Workspace for Publishing Branch'
+Condition = [ 'all-all' ]
+Type = 'command-quiet'
+Source = 'git worktree remove "{{- .DestinationDir -}}"'
+
+[[CMD]]
+Name = 'Delete Publishing Directory Regardlessly'
+Condition = [ 'all-all' ]
+Type = 'delete-recursive-quiet'
+Source = '{{- .DestinationDir -}}'
+
+[[CMD]]
+Name = 'Create New Publishing Directory'
+Condition = [ 'all-all' ]
+Type = 'create-path'
+Source = '{{- .DestinationDir -}}'
+
+[[CMD]]
+Name = 'Add Git Worktree to Publishing Directory'
+Condition = [ 'all-all' ]
+Type = 'command'
+Source = 'git worktree add "{{- .DestinationDir -}}" "{{- .PublishBranch -}}"'
+
+[[CMD]]
+Name = 'Get Publish Branch First Commit for Cleaning'
+Condition = [ 'all-all' ]
+Type = 'command'
+Location = '{{- .DestinationDir -}}'
+Source = 'git rev-list --max-parents=0 --abbrev-commit HEAD'
+Save = 'FirstCommitID'
+
+[[CMD]]
+Name = 'Clean Up Publishing Directory for Publish Branch'
+Condition = [ 'all-all' ]
+Type = 'command'
+Location = '{{- .DestinationDir -}}'
+Source = 'git reset --hard "{{- .FirstCommitID -}}"'
+
+[[CMD]]
+Name = 'Remove All Existing Artifacts'
+Condition = [ 'all-all' ]
+Type = 'command'
+Location = '{{- .DestinationDir -}}'
+Source = 'git clean -fd'
+
+[[CMD]]
+Name = 'Copy All Publications to Publishing Directory'
+Condition = [ 'all-all' ]
+Type = 'copy'
+Source = '{{- .SourceDir -}}'
+Target = '{{- .DestinationDir -}}'
+
+[[CMD]]
+Name = 'Git Stage All Artifacts into Publishing Directory'
+Condition = [ 'all-all' ]
+Type = 'command'
+Location = '{{- .DestinationDir -}}'
+Source = 'git add .'
+
+[[CMD]]
+Name = 'Git Commit All Artifacts into Publishing Directory'
+Condition = [ 'all-all' ]
+Type = 'command'
+Location = '{{- .DestinationDir -}}'
+Source = 'git commit -m "Published as of $(git log "--format=format:%H" -1)"'
+
+[[CMD]]
+Name = 'Git Push By Force to Publish Branch'
+Condition = [ 'all-all' ]
+Type = 'command'
+Location = '{{- .DestinationDir -}}'
+Source = 'git push -f origin "{{- .PublishBranch -}}"'
+
+[[CMD]]
+Name = 'Remove Git Workspace for Publishing Branch'
+Condition = [ 'all-all' ]
+Type = 'command'
+Source = 'git worktree remove "{{- .DestinationDir -}}"'
+
+[[CMD]]
+Name = 'Delete Publishing Directory Regardlessly'
+Condition = [ 'all-all' ]
+Type = 'delete-recursive-quiet'
+Source = '{{- .DestinationDir -}}'

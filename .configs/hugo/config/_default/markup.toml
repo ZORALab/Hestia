@@ -1,0 +1,9 @@
+[highlight]
+codeFences = true		# code fencing for styling on-the-spot
+hl_Lines = ""			# highlight lines
+lineNoStart = 1			# starting line number
+lineNos = false			# line number
+lineNumbersInTable = false	# render line number in table
+noClasses = true		# avoid using css class
+tabWidth = 8			# tab width
+style = "pygments"		# default style

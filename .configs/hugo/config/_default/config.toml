@@ -1,0 +1,38 @@
+baseURL = "https://hestia.zoralab.com"
+canonifyURLs = true
+buildDrafts = false
+buildExpired = false
+buildFuture = false
+theme = [ ]
+metaDataFormat = "toml"
+paginate = 10
+summaryLength = 70
+sectionPagesMenu = "sections"
+enableEmoji = true
+pluralizeListTitles = false
+enableGitInfo = true
+enableRobotsTXT = true
+
+archetypeDir = "../../hestiaHugo/archetypes"
+assetDir = "../../hestiaHugo/assets"
+dataDir = "../../docs/.data"
+staticDir = [ "static", "../../docs/.static", "../../hestiaHugo/static" ]
+layoutDir = "../../hestiaHugo/layouts"
+themesDir = "themes"
+publishDir = "../../public"
+i18nDir = "../../hestiaHugo/i18n"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+hasCJKLanguage = true
+
+
+# Hugo injected generator as first line and broke HTML spec. Therefore, Bissetii
+# disables it and inject the generator statement in baseOf layout instead.
+disableHugoGeneratorInject = true
+
+
+# AMP disallowed javascript loading. Also, Hugo injects it as second line and
+# broke the HTML spec. Therefore, Bissetii disables it and inject the liveReload
+# in appropriate output.
+disableLiveReload = true

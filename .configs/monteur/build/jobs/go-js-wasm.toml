@@ -1,0 +1,147 @@
+[Metadata]
+Name = 'Go js-wasm'
+Description = """
+Build Go application for a specified operating system on a specified CPU
+architecture.
+"""
+
+
+
+
+[Variables]
+TargetOS = 'js'
+TargetCPU = 'wasm'
+TargetExt = '.wasm'
+CGO = false
+BuildMode = ''         # 'pie' not applicable for js/wasm
+CopyWASMJS = true      # for copying out the WASM Javascript glue script
+TrimPath = true
+LDFlags = '-s -w'
+GCFlags = ''
+ASMFlags = ''
+BuildTags = [
+]
+
+
+
+
+[FMTVariables]
+SourceDir = '{{- .RootDir -}}/wasmExpGo'
+SourcePath = '{{- .RootDir -}}/wasmExpGo/app/wasm/...'
+OutputDir = '{{- .WorkingDir -}}'
+OutputName = 'go-{{- .TargetOS -}}-{{- .TargetCPU -}}{{- .TargetExt -}}'
+# **DO NOT EDIT BELOW** - internal use variables for proper Go compilations
+BuildConditions = """
+CGO_ENABLED={{- if .CGO -}} 1 {{- else -}} 0 {{- end }} \
+GOOS="{{- .TargetOS -}}" \
+GOARCH="{{- .TargetCPU -}}"\
+"""
+BuildFlags = """
+{{- $isFirst := false -}}
+{{- $buildTags := "" -}}
+{{- $buildGCFlags := "" -}}
+{{- $buildASMFlags := "" -}}
+
+
+{{- /* PROCESS -ldflags */ -}}
+{{- if not (eq .LDFlags "") }} -ldflags="{{- .LDFlags -}}" {{- end -}}
+
+
+{{- /* PROCESS -buildmode */ -}}
+{{- if not (eq .BuildMode "") }} -buildmode={{- .BuildMode -}} {{- end -}}
+
+
+{{- /* PROCESS -trimpath */ -}}
+{{- if .TrimPath }} -trimpath
+	{{- $buildGCFlags = printf "%s" "-trimpath=${GOPATH}" -}}
+	{{- $buildASMFlags = printf "%s" "-trimpath=${GOPATH}" -}}
+{{- end -}}
+
+
+{{- /* PROCESS -gcflags */ -}}
+{{- if and (not (eq $buildGCFlags "")) (not (eq .GCFlags "")) -}}
+	{{- $buildGCFlags = printf "%s %s" $buildGCFlags .GCFlags -}}
+{{- else if and (eq $buildGCFlags "") (not (eq .GCFlags "")) -}}
+	{{- $buildGCFlags = .GCFlags -}}
+{{- else if and (not (eq $buildGCFlags "")) (eq .GCFlags "") -}}
+{{- else -}}
+	{{- $buildGCFlags = false -}}
+{{- end -}}
+{{- if $buildGCFlags }} -gcflags "{{- $buildGCFlags -}}" {{- end -}}
+
+
+{{- /* PROCESS -asmflags */ -}}
+{{- if and (not (eq $buildASMFlags "")) (not (eq .ASMFlags "")) -}}
+	{{- $buildASMFlags = printf "%s %s" $buildASMFlags .ASMFlags -}}
+{{- else if and (eq $buildASMFlags "") (not (eq .ASMFlags "")) -}}
+	{{- $buildASMFlags = .ASMFlags -}}
+{{- else if and (not (eq $buildASMFlags "")) (eq .ASMFlags "") -}}
+{{- else -}}
+	{{- $buildASMFlags = false -}}
+{{- end -}}
+{{- if $buildASMFlags }} -asmflags "{{- $buildASMFlags -}}" {{- end -}}
+
+
+{{- /* PROCESS -tags */ -}}
+{{- if .BuildTags -}}
+	{{- $isFirst = true -}}
+	{{- range $v := .BuildTags -}}
+		{{- if $isFirst -}}
+			{{- $buildTags = printf "%s" $v -}}
+			{{- $isFirst = false -}}
+		{{- else -}}
+			{{- $buildTags = printf "%s,%s" $buildTags $v -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+{{- if $buildTags }} -tags {{ $buildTags }} {{- end -}}
+"""
+BuildWASMJS = """
+{{- if .CopyWASMJS -}}
+	{{- .BinDir -}}/golang/misc/wasm/wasm_exec.js
+{{- end -}}
+"""
+# **DO NOT EDIT ABOVE** - internal use variables for proper Go compilations
+
+
+
+
+[[Dependencies]]
+Name = 'Go'
+Condition = 'all-all'
+Type = 'command'
+Command = 'go'
+
+
+
+
+[[CMD]]
+Name = "Create Build Directory to House the Compiled Target"
+Type = 'create-path'
+Condition = [ 'all-all' ]
+Source = '{{- .WorkingDir -}}'
+
+[[CMD]]
+Name = "Delete Any Existing Compiled Target"
+Type = 'delete-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .BuildPath -}}/{{- .BuildName -}}'
+
+[[CMD]]
+Name = "Build the Go Target"
+Type = 'command'
+Condition = [ 'all-all' ]
+Location = '{{- .SourceDir -}}'
+Source = """
+{{- .BuildConditions }} \
+go build {{- .BuildFlags }} \
+-o "{{- .OutputDir -}}/{{- .OutputName -}}" \
+"{{- .SourcePath -}}"
+"""
+
+[[CMD]]
+Name = "Copy Go WASM Javascript"
+Type = 'copy-quiet'
+Condition = [ 'all-all' ]
+Source = "{{- .BuildWASMJS -}}"
+Target = "{{- .OutputDir -}}/go-wasm_exec.js"

@@ -1,0 +1,74 @@
+[Metadata]
+Name = 'Archives'
+Description = """
+Monteur's .tar.gz and .zip packagers released to hosting repository.
+"""
+Type = 'archive'
+
+
+
+
+[Variables]
+
+[FMTVariables]
+
+
+
+
+[[Dependencies]]
+
+
+
+
+[Releases]
+Target = '{{- .ReleaseDir -}}/archives'
+Checksum = 'sha512'
+
+[Releases.Data]
+Path = '{{- .RootDir -}}/docs/.data/releases/archives'
+Format = 'toml'
+
+[Releases.Packages.darwin-amd64]
+OS = [ "darwin" ]
+Arch = [ "amd64" ]
+Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
+
+[Releases.Packages.darwin-arm64]
+OS = [ "darwin" ]
+Arch = [ "arm64" ]
+Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
+
+[Releases.Packages.linux-amd64]
+OS = [ "linux" ]
+Arch = [ "amd64" ]
+Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
+
+[Releases.Packages.linux-arm64]
+OS = [ "linux" ]
+Arch = [ "arm64" ]
+Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
+
+[Releases.Packages.linux-arm]
+OS = [ "linux" ]
+Arch = [ "arm" ]
+Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
+
+[Releases.Packages.windows-amd64]
+OS = [ "windows" ]
+Arch = [ "amd64" ]
+Source = '{{- .PackageDir -}}/zip/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.zip'
+
+[Releases.Packages.windows-arm64]
+OS = [ "windows" ]
+Arch = [ "arm64" ]
+Source = '{{- .PackageDir -}}/zip/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.zip'
+
+
+
+
+[[CMD]]
+Name = "Placeholder"
+Type = 'placeholder'
+Condition = [ 'all-all' ]
+Source = ''
+Target = ''

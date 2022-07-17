@@ -1,0 +1,11 @@
+[en]
+languageCode = "en"
+languageName = "English"
+contentDir = "../../docs/en"
+title = "ZORALab's Hestia"
+
+[zh-hans]
+languageCode = "zh-hans"
+languageName = "Chinese (Simplified)"
+contentDir = "../../docs/zh-hans"
+title = "ZORALab's Hestia"

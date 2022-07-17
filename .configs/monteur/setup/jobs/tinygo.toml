@@ -1,0 +1,93 @@
+[Metadata]
+Name = 'TinyGo'
+Description = """
+Setup TinyGo programming language for compiling TinyGo/Go source codes.
+"""
+Type = 'https-download'
+
+
+
+
+[Variables]
+Version = '0.24.0'
+BaseURL = 'https://github.com/tinygo-org/tinygo/releases/download'
+
+[FMTVariables]
+
+
+
+
+# Supported OS and CPU Architectures program sources. The Key for supported
+# OS and CPU complies to the format:
+#	[Sources.{GOOS}-{GOARCH}]
+# Only list out supported packages will do.
+[Sources.all-all]
+Format = 'tar.gz'
+Archive = 'tinygo{{- .Version -}}.{{- .ComputeSystem -}}.{{- .Format -}}'
+URL = '{{- .BaseURL -}}/v{{- .Version -}}/{{- .Archive -}}'
+Method = 'GET'
+[Sources.all-all.Checksum]
+[Sources.all-all.headers]
+
+
+[Sources.windows-amd64]
+Format = 'zip'
+[Sources.windows-amd64.Checksum]
+
+
+
+
+[[CMD]]
+Name = 'Delete Target for Installation'
+Type = 'delete-recursive-quiet'
+Condition = ['all-all']
+Source = '{{- .BinDir -}}/tinygo'
+
+[[CMD]]
+Name = 'Install Go Programming Language Entire Directory'
+Type = 'move'
+Condition = ['all-all']
+Source = '{{- .WorkingDir -}}/tinygo'
+Target = '{{- .BinDir -}}/tinygo'
+
+
+
+
+[Config]
+linux = """
+#!/bin/bash
+export LOCAL_BIN="${LOCAL_BIN:-{{- .BinDir -}}}"
+export GOROOT="${LOCAL_BIN}/golang"
+export GOPATH="${LOCAL_BIN}/gopath"
+export GOCACHE="${LOCAL_BIN}/gocache"
+export TINYGOROOT="${LOCAL_BIN}/tinygo"
+
+stop_go() {
+	PATH=:${PATH}:
+	GOROOT="${GOROOT}/bin"
+	TINYGOROOT="${TINYGOROOT}/bin"
+
+	PATH=${PATH//:$GOROOT:/:}
+	PATH=${PATH//:$GOPATH:/:}
+	PATH=${PATH//:$TINYGOROOT:/:}
+	PATH=${PATH%:}
+
+	unset GOROOT GOPATH GOCACHE TINYGOROOT
+}
+
+case $1 in
+--stop)
+	stop_go
+	;;
+*)
+	export PATH="${PATH}:${GOROOT}/bin:${TINYGOROOT}/bin:${GOPATH}"
+
+	if [ ! -z "$(type -p tinygo)" ] && [ ! -z "$(type -p wasm-opt)" ]; then
+		1>&2 printf "[ DONE  ] localized Go started.\\n"
+	else
+		1>&2 printf "[ ERROR ] localized Go failed to initalized.\\n"
+		stop_go
+	fi
+	;;
+esac
+"""

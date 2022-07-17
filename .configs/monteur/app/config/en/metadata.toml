@@ -1,0 +1,49 @@
+[Software]
+Name = 'Hestia'
+Command = 'hestia'
+ID = 'hestia'
+Version = 'v0.0.1'
+Category = 'devel'
+Suite = ''
+Abstract = 'unified software library for a stable and peaceful development.'
+Description = """
+Hestia focuses on uniting software library under a same family pattern to allow
+its user to have a peaceful development experiences. The goal is to structure
+the learning experience align to a single pattern and deployment, allowing
+anyone with different languages and understanding to shine at his/her own way
+without worrying about stability.
+"""
+Website = 'https://hestia.zoralab.com/'
+
+
+
+[Software.Contact]
+Name = 'ZORALab Enterprise'
+Email = [ 'hello@zoralab.com' ]
+
+
+
+
+[Software.Maintainers.zoralab]
+Name = 'ZORALab Enterprise'
+Email = [ 'tech@zoralab.com' ]
+[Software.Maintainers.zoralab.JointTime]
+Year = '2022'
+
+
+
+
+[Software.Contributors.zoralab]
+Name = 'ZORALab Enterprise'
+Email = [ 'tech@zoralab.com' ]
+[Software.Contributors.zoralab.JointTime]
+Year = '2022'
+
+
+
+
+[Software.Sponsors.zoralab]
+Name = 'ZORALab Enterprise'
+Email = [ 'tech@zoralab.com' ]
+[Software.Sponsors.zoralab.JointTime]
+Year = '2022'

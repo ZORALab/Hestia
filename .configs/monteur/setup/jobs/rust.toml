@@ -1,0 +1,107 @@
+[Metadata]
+Name = 'Rust'
+Description = """
+Setup Rust programming language for compiling Rust source codes.
+"""
+Type = 'https-download'
+
+
+
+
+[Variables]
+BaseURL = 'https://static.rust-lang.org/rustup'
+Toolchain = 'none'
+Profile = 'minimal'
+
+[FMTVariables]
+RustupPath = '{{- .BinDir -}}/rustUP'
+CargoPath = '{{- .BinDir -}}/rustCARGO'
+
+
+
+
+# Supported OS and CPU Architectures program sources. The Key for supported
+# OS and CPU complies to the format:
+#	[Sources.{GOOS}-{GOARCH}]
+# Only list out supported packages will do.
+[Sources.all-all]
+Format = 'raw'
+Archive = "rustup-init.sh"
+URL = '{{- .BaseURL -}}/{{- .Archive -}}'
+Method = 'GET'
+
+[Sources.all-all.Checksum]
+Type = 'sha256'
+Format = 'hex'
+Value = 'a3cb081f88a6789d104518b30d4aa410009cd08c3822a1226991d6cf0442a0f8'
+
+
+
+
+[[CMD]]
+Name = 'Delete Rustup Target for Installation'
+Type = 'delete-recursive-quiet'
+Condition = ['all-all']
+Source = '{{- .RustupPath -}}'
+
+[[CMD]]
+Name = 'Delete Cargo Target for Installation'
+Type = 'delete-recursive-quiet'
+Condition = ['all-all']
+Source = '{{- .CargoPath -}}'
+
+[[CMD]]
+Name = 'Install Rustup and Cargo for Rust Programming Language'
+Type = 'command'
+Condition = ['all-all']
+Source = """RUSTUP_HOME="{{- .RustupPath -}}" \
+CARGO_HOME="{{- .CargoPath -}}" \
+RUSTUP_TOOLCHAIN="{{- .Toolchain -}}" \
+sh {{ .BinDir -}}/rustup -y \
+"""
+
+
+
+
+[Config]
+linux = """
+#!/bin/bash
+export LOCAL_BIN="${LOCAL_BIN:-{{- .BinDir -}}}"
+export RUSTUP_HOME="{{- .RustupPath -}}"
+export CARGO_HOME="{{- .CargoPath -}}"
+export PATH_RUST="${CARGO_HOME}/bin"
+
+stop_rust() {
+	PATH=:${PATH}:
+	PATH=${PATH//:$PATH_RUST:/:}
+	PATH=${PATH%:}
+
+	unset RUSTUP_HOME CARGO_HOME PATH_RUST
+}
+
+case $1 in
+--stop)
+	stop_rust
+	1>&2 printf "[ DONE  ] localized Rust stopped.\\n"
+	;;
+*)
+	case :$PATH: in
+	*:$PATH_RUST:*)
+		;;
+	*)
+		export PATH="${PATH}:${PATH_RUST}"
+		;;
+	esac
+
+	if [ ! -z "$(type -p rustc)" ] && \
+		[ ! -z "$(type -p rustup)" ] && \
+		[ ! -z "$(type -p cargo)" ]; then
+		rustup set profile {{ .Profile }}
+		1>&2 printf "[ DONE  ] localized Rust started.\\n"
+	else
+		1>&2 printf "[ ERROR ] localized Rust failed to initalized.\\n"
+		stop_rust
+	fi
+	;;
+esac
+"""

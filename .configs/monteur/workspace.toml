@@ -1,0 +1,25 @@
+[Filesystem]
+BaseDir = 'gopkg/'
+WorkingDir = '.monteurFS/tmp/'
+BuildDir = '.monteurFS/build/'
+ScriptDir = '.scripts/'
+BinDir = '.monteurFS/bin/'
+BinCfgDir = '.monteurFS/config'
+LogDir = '.monteurFS/log'
+DataDir = '.configs/monteur/app/data'
+ReleaseDir = 'docs/.static/releases'
+SecretsDir = [
+	'{{ .HomeDir }}/.secrets',
+	'{{ .RootDir }}/.configs/monteur/secrets',
+]
+
+[Language]
+Name = 'English'
+Code = 'en'
+
+
+
+
+[Variables]
+
+[FMTVariables]

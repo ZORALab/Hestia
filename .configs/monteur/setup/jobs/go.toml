@@ -1,0 +1,135 @@
+[Metadata]
+Name = 'Go'
+Description = """
+Setup Go programming language for compiling Go source codes.
+"""
+Type = 'https-download'
+
+
+
+
+[Variables]
+Version = '1.18.3'
+BaseURL = 'https://golang.org/dl/'
+
+[FMTVariables]
+
+
+
+
+# Supported OS and CPU Architectures program sources. The Key for supported
+# OS and CPU complies to the format:
+#	[Sources.{GOOS}-{GOARCH}]
+# Only list out supported packages will do.
+[Sources.all-all]
+Format = 'tar.gz'
+URL = '{{- .BaseURL -}}{{- .Archive -}}'
+Archive = 'go{{- .Version -}}.{{- .ComputeSystem -}}.{{- .Format -}}'
+Method = 'GET'
+[Sources.all-all.Checksum]
+Type = 'sha256'
+Format = 'hex'
+[Sources.all-all.headers]
+
+[Sources.darwin-amd64.Checksum]
+Value = 'd9dcf8fc35da54c6f259be41954783a9f4984945a855d03a003a7fd6ea4c5ca1'
+
+[Sources.darwin-arm64.Checksum]
+Value = '40ecd383c941cc9f0682e6a6f2a333539d58c7dea15c842434d03afafe2f7242'
+
+[Sources.linux-386.Checksum]
+Value = '72b73da021397a3a1ce182c19d2a890a5346bfe80885d9dd7d1ff04ce6597938'
+
+[Sources.linux-amd64.Checksum]
+Value = '956f8507b302ab0bb747613695cdae10af99bbd39a90cae522b7c0302cc27245'
+
+[Sources.linux-arm64.Checksum]
+Value = 'beacbe1441bee4d7978b900136d1d6a71d150f0a9bb77e9d50c822065623a35a'
+
+[Sources.linux-arm]
+Archive = 'go{{- .Version -}}.linux-armv6l.{{- .Format -}}'
+[Sources.linux-arm.Checksum]
+Value = 'b8f0b5db24114388d5dcba7ca0698510ea05228b0402fcbeb0881f74ae9cb83b'
+
+[Sources.windows-386]
+Format = 'zip'
+[Sources.windows-386.Checksum]
+Value = '6661798e9669c3f03498a2e018ed948d9f53a90c5ccbd05b4e4b36303facb33e'
+
+[Sources.windows-amd64]
+Format = 'zip'
+[Sources.windows-amd64.Checksum]
+Value = '9c46023f3ad0300fcfd1e62f2b6c2dfd9667b1f2f5c7a720b14b792af831f071'
+
+[Sources.freebsd-386.Checksum]
+Value = 'dbf06c8b76f7e9bd2f2b8d47d8c748e9867c2bbbdb2e90240d54df3e5766ad18'
+
+[Sources.freebsd-amd64.Checksum]
+Value = 'b1c60641aa175aa92edf494e942e37db28086b9d534f072ad9609d081b614d39'
+
+[Sources.linux-ppc64le.Checksum]
+Value = '5d42bd252e7af9f854df92e46bb2e88be7b2fb310cc937c0fe091afd8c4f2016'
+
+[Sources.linux-s390x.Checksum]
+Value = 'ebb4efddec5bbd22bdd9c87137cb3dd59e874b5dfcf93d00bef351c60d2c7401'
+
+[Sources.windows-arm64]
+Format = 'zip'
+[Sources.windows-arm64.Checksum]
+Value = 'ea8fab36a03e5a62b747e2ab0977be2d0f3e2f04b41397b4abf57a8c24f0034c'
+
+
+
+
+[[CMD]]
+Name = 'Delete Target for Installation'
+Type = 'delete-recursive-quiet'
+Condition = ['all-all']
+Source = '{{- .BinDir -}}/golang'
+
+[[CMD]]
+Name = 'Install Go Programming Language Entire Directory'
+Type = 'move'
+Condition = ['all-all']
+Source = '{{- .WorkingDir -}}/go'
+Target = '{{- .BinDir -}}/golang'
+
+
+
+
+[Config]
+linux = """
+#!/bin/bash
+export LOCAL_BIN="${LOCAL_BIN:-{{- .BinDir -}}}"
+export GOROOT="${LOCAL_BIN}/golang"
+export GOPATH="${LOCAL_BIN}/gopath"
+export GOBIN="${GOPATH}/bin"
+export GOCACHE="${LOCAL_BIN}/gocache"
+export GOENV="${LOCAL_BIN}/goenv"
+
+stop_go() {
+	PATH=:${PATH}:
+	GOROOT="${GOROOT}/bin"
+	PATH=${PATH//:$GOROOT:/:}
+	PATH=${PATH//:$GOBIN:/:}
+	PATH=${PATH//:$GOPATH:/:}
+	PATH=${PATH%:}
+	unset GOROOT GOPATH GOBIN GOCACHE GOENV
+}
+
+case $1 in
+--stop)
+	stop_go
+	;;
+*)
+	export PATH="${PATH}:${GOROOT}/bin:${GOPATH}:${GOBIN}"
+
+	if [ ! -z "$(type -p go)" ] && [ ! -z "$(type -p gofmt)" ]; then
+		1>&2 printf "[ DONE  ] localized Go started.\\n"
+	else
+		1>&2 printf "[ ERROR ] localized Go failed to initalized.\\n"
+		stop_go
+	fi
+	;;
+esac
+"""

@@ -1,0 +1,134 @@
+[Metadata]
+Name = 'TinyGo js-wasm'
+Description = """
+Build TinyGo application for a specified operating system on a specified CPU
+architecture.
+"""
+
+
+
+
+[Variables]
+TargetCPU = 'wasm'
+TargetExt = '.wasm'
+CGO = true
+Optimization = 'z' # -opt string (can be: '0', '1', '2', 's', 'z')
+CopyWASMJS = true # for copying out the WASM Javascript glue script
+LDFlags = ''
+GarbageCollector = 'conservative' # can be: 'none', 'leaking', 'conservative'
+Panic = 'print' # can be: 'print', 'trap'
+PrintAlloc = '.' # regex to print out memory allocations
+Scheduler = 'asyncify' # can be: 'none', 'tasks', 'asyncify'
+BuildTags = [
+]
+
+
+
+
+[FMTVariables]
+SourceDir = '{{- .RootDir -}}/wasmExpGo'
+SourcePath = '{{- .RootDir -}}/wasmExpGo/app/wasm/...'
+OutputDir = '{{- .WorkingDir -}}'
+OutputName = 'tinygo-{{- .TargetCPU -}}{{- .TargetExt -}}'
+# **DO NOT EDIT BELOW** - internal use variables for proper Go compilations
+BuildConditions = """
+CGO_ENABLED={{- if .CGO -}} 1 {{- else -}} 0 {{- end }} \
+"""
+BuildFlags = """
+{{- $isFirst := false -}}
+{{- $buildTags := "" -}}
+
+
+{{- /* PROCESS -ldflags */ -}}
+{{- if .LDFlags }} -ldflags="{{- .LDFlags -}}" {{- end -}}
+
+
+{{- /* PROCESS -gc */ -}}
+{{- if eq .GarbageCollector "none" }} -gc none
+{{- else if eq .GarbageCollector "leaking" }} -gc leaking
+{{- else }} -gc conservative
+{{- end -}}
+
+
+{{- /* PROCESS -panic */ -}}
+{{- if eq .Panic "trap" }} -panic trap {{- else }} -panic print {{- end -}}
+
+
+{{- /* PROCESS -print-allocs */ -}}
+{{- if .PrintAlloc }} -print-allocs "{{- .PrintAlloc -}}" {{- end -}}
+
+
+{{- /* PROCESS -scheduler */ -}}
+{{- if eq .Scheduler "none" }} -scheduler none
+{{- else if eq .Scheduler "asyncify" }} -scheduler asyncify
+{{- else }} -scheduler tasks
+{{- end -}}
+
+
+{{- /* PROCESS -target */ -}}
+{{- if .TargetCPU }} -target {{ .TargetCPU -}} {{- end -}}
+
+
+{{- /* PROCESS -tags */ -}}
+{{- if .BuildTags -}}
+	{{- $isFirst = true -}}
+	{{- range $v := .BuildTags -}}
+		{{- if $isFirst -}}
+			{{- $buildTags = printf "%s" $v -}}
+			{{- $isFirst = false -}}
+		{{- else -}}
+			{{- $buildTags = printf "%s %s" $buildTags $v -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+{{- if $buildTags }} -tags {{ $buildTags }} {{- end -}}
+"""
+BuildWASMJS = """
+{{- if .CopyWASMJS -}}
+	{{- .BinDir -}}/tinygo/targets/wasm_exec.js
+{{- end -}}
+"""
+# **DO NOT EDIT ABOVE** - internal use variables for proper Go compilations
+
+
+
+
+[[Dependencies]]
+Name = 'TinyGo'
+Condition = 'all-all'
+Type = 'command'
+Command = 'tinygo'
+
+
+
+
+[[CMD]]
+Name = "Create Build Directory to House the Compiled Target"
+Type = 'create-path'
+Condition = [ 'all-all' ]
+Source = '{{- .WorkingDir -}}'
+
+[[CMD]]
+Name = "Delete Any Existing Compiled Target"
+Type = 'delete-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .OutputDir -}}/{{- .OutputName -}}'
+
+[[CMD]]
+Name = "Build the TinyGo Target"
+Type = 'command'
+Condition = [ 'all-all' ]
+Location = '{{- .SourceDir -}}'
+Source = """
+{{- .BuildConditions }} \
+tinygo build {{- .BuildFlags }} \
+-o "{{- .OutputDir -}}/{{- .OutputName -}}" \
+"{{- .SourcePath -}}"
+"""
+
+[[CMD]]
+Name = "Copy TinyGo WASM Javascript"
+Type = 'copy-quiet'
+Condition = [ 'all-all' ]
+Source = "{{- .BuildWASMJS -}}"
+Target = "{{- .OutputDir -}}/tinygo-wasm_exec.js"

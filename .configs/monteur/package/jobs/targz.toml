@@ -1,0 +1,102 @@
+[Metadata]
+Name = 'Tar Gunzip'
+Description = """
+Package application into a single .tar.gz package.
+"""
+Type = 'targz'
+
+
+
+
+[Variables]
+
+[FMTVariables]
+LicensePath = '{{- .RootDir -}}/docs/en/licenses/monteur-software-license.pdf'
+
+
+
+
+[[Dependencies]]
+
+
+
+
+[Packages.001]
+OS = [ 'linux' ]
+Arch = [ 'amd64' ]
+Name = '{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.001.Files]
+'{{- .PackageDir -}}/monteur' = '{{- .BuildDir -}}/{{- .PkgOS -}}-{{- .PkgArch -}}'
+'{{- .PackageDir -}}/License.pdf' = '{{- .LicensePath -}}'
+
+
+[Packages.002]
+OS = [ 'linux' ]
+Arch = [ 'arm64' ]
+Name = '{{- .App.ID -}}-{{- .App.Version -}}-{{- .PkgOS -}}-{{- .PkgArch -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.002.Files]
+'{{- .PackageDir -}}/monteur' = '{{- .BuildDir -}}/{{- .PkgOS -}}-{{- .PkgArch -}}'
+'{{- .PackageDir -}}/License.pdf' = '{{- .LicensePath -}}'
+
+
+[Packages.003]
+OS = [ 'linux' ]
+Arch = [ 'arm' ]
+Name = '{{- .App.ID -}}-{{- .App.Version -}}-{{- .PkgOS -}}-{{- .PkgArch -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.003.Files]
+'{{- .PackageDir -}}/monteur' = '{{- .BuildDir -}}/{{- .PkgOS -}}-{{- .PkgArch -}}'
+'{{- .PackageDir -}}/License.pdf' = '{{- .LicensePath -}}'
+
+
+[Packages.004]
+OS = [ 'darwin' ]
+Arch = [ 'amd64' ]
+Name = '{{- .App.ID -}}-{{- .App.Version -}}-{{- .PkgOS -}}-{{- .PkgArch -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.004.Files]
+'{{- .PackageDir -}}/monteur' = '{{- .BuildDir -}}/{{- .PkgOS -}}-{{- .PkgArch -}}'
+'{{- .PackageDir -}}/License.pdf' = '{{- .LicensePath -}}'
+
+
+[Packages.005]
+OS = [ 'darwin' ]
+Arch = [ 'arm64' ]
+Name = '{{- .App.ID -}}-{{- .App.Version -}}-{{- .PkgOS -}}-{{- .PkgArch -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.005.Files]
+'{{- .PackageDir -}}/monteur' = '{{- .BuildDir -}}/{{- .PkgOS -}}-{{- .PkgArch -}}'
+'{{- .PackageDir -}}/License.pdf' = '{{- .LicensePath -}}'
+
+
+
+
+[[CMD]]
+Name = 'Placeholder For Any Post CMD Development'
+Type = 'placeholder'
+Condition = [ 'all-all' ]
+Location = ''
+Source = ''
+Target = ''
