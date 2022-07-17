@@ -33,7 +33,7 @@ Method = 'GET'
 [Sources.all-all.Checksum]
 Type = 'sha256'
 Format = 'hex'
-Value = 'a3cb081f88a6789d104518b30d4aa410009cd08c3822a1226991d6cf0442a0f8'
+Value = '173f4881e2de99ba9ad1acb59e65be01b2a44979d83b6ec648d0d22f8654cbce'
 
 
 
@@ -51,13 +51,13 @@ Condition = ['all-all']
 Source = '{{- .CargoPath -}}'
 
 [[CMD]]
-Name = 'Install Rustup and Cargo for Rust Programming Language'
+Name = 'Install Rust Programming Language'
 Type = 'command'
 Condition = ['all-all']
 Source = """RUSTUP_HOME="{{- .RustupPath -}}" \
 CARGO_HOME="{{- .CargoPath -}}" \
 RUSTUP_TOOLCHAIN="{{- .Toolchain -}}" \
-sh {{ .BinDir -}}/rustup -y \
+sh {{ .WorkingDir -}}/{{- .Archive }} -y \
 """
 
 
@@ -96,8 +96,8 @@ case $1 in
 	if [ ! -z "$(type -p rustc)" ] && \
 		[ ! -z "$(type -p rustup)" ] && \
 		[ ! -z "$(type -p cargo)" ]; then
-		rustup set profile {{ .Profile }}
 		1>&2 printf "[ DONE  ] localized Rust started.\\n"
+		rustup set profile {{ .Profile }}
 	else
 		1>&2 printf "[ ERROR ] localized Rust failed to initalized.\\n"
 		stop_rust
