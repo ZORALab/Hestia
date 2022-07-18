@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .    = hugo shortcode data context */ -}}
+{{- /* .    = Hugo data structure from shortcode scope */ -}}
 
 
 
@@ -19,7 +19,7 @@
 
 
 {{- /* prepare Hestia .Input */ -}}
-{{- $ret = partial "Hestia/functions/data/shortcode/ParseInputs" $dataList -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseShortcode" . -}}
 {{- $dataList = merge $dataList (dict "Input" $ret) -}}
 
 

@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data in Hestia Shortcode Data Structure  */ -}}
+{{- /* .  = Hugo data structure  */ -}}
 
 
 
@@ -12,15 +12,21 @@
 
 
 {{- /* parse .Params.KEY */ -}}
-{{- range $k, $v := .context.Params -}}
+{{- range $k, $v := .Params -}}
 	{{- $dataList = merge $dataList (dict $k $v) -}}
 {{- end -}}
 
 
 
 
-{{- /* prepare Hestia .Content */ -}}
-{{- $dataList = merge $dataList (dict "Content" .context.Inner) -}}
+{{- /* prepare .Content */ -}}
+{{- $dataList = merge $dataList (dict "Content" .Inner) -}}
+
+
+
+
+{{- /* prepare .Name */ -}}
+{{- $dataList = merge $dataList (dict "Shortcode" .Name) -}}
 
 
 
