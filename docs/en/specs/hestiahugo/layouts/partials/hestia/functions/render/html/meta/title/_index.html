@@ -1,0 +1,193 @@
++++
+date = "2022-07-18T18:11:27+08:00"
+title = "Render HTML Meta Title - HestiaHUGO's Internal Partial Function"
+description = """
+HestiaHUGO's internal partial function 'Title' is responsible for
+rendering HTML output for HTML meta title code snippet. This is its technical
+specification intended for future maintenances and development usage.
+"""
+Keywords = [
+	"Title",
+	"Meta",
+	"HTML",
+	"Render",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+draft = false
+layout = "single"
+
+[menu.main]
+parent = "Hestia's Partial Functions"
+identifer = "hestia-partials-functions-render-html-meta-title"
+name = "Render | HTML Meta -Title"
+Pre = ""
+weight = 1
++++
+
+<section id="introduction">
+	<h1>{{% param "title" %}}</h1>
+	<p>
+		{{% param "description" %}}
+	</p>
+</section>
+
+
+
+
+<section id="objective-and-purposes">
+	<h2>Objective and Purposes</h2>
+	<p>
+		The primary objective is to systematically and uniformly renders
+		the page title according to a given pattern.
+		<br/><br/>
+		This is primarily used for HTML codes in
+		<code>&#60;head&#62;</code> section.
+	</p>
+</section>
+
+
+
+
+<section id="how-it-works">
+	<h2>How It Works</h2>
+	<p>
+		By default, the function obtains a standard format from
+		<code>data/Hestia/Internal/Meta.toml - Title.HTML</code> field.
+		It then checks the <code>.Titles.Pattern</code> overrides
+		availability and will use the latter if available. Should both
+		of them are unavailable, the function resorts to the default
+		<code>"{{- .Titles.Page -}}"</code> format.
+		<br/><br/>
+		Once done, it shall process with
+		<a href="{{< Hestia/url URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
+		Lang="en" />}}">HestiaHUGO's Go Template Function Data Scanner
+		Partial Functions</a> to process the string. It shall render the
+		<code>&#60;title&#62;</code> tag as a result without any return
+		values.
+	</p>
+
+
+	<section id="input">
+		<h3>Input</h3>
+		<p>
+			This partial function accepts the following inputs:
+			<ul>
+				<li><p>
+					<b><code>.Page</b></code> - required
+					Hestia Page data structure.
+				</p></li>
+			</ul>
+		</p>
+	</section>
+
+
+	<section id="algorithm">
+		<h3>Working Algorithm</h3>
+		<p>
+			This partial function works in the following manner:
+			<ol>
+				<li><p>
+					Obtain the default format from
+					<code>.Data.Hestia.Internal.Meta.Title.HTML</code>
+					field. Check for <code>.Titles.Pattern</code>
+					format overrides and if available, take
+					the latter instead. If both are
+					unavailable, use the built-in default
+					format (<code>"{{- .Titles.Page -}}"</code>).
+				</p></li>
+				<li><p>
+					Process the obtained format string with
+					<a href="{{< Hestia/url URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
+						Lang="en" />}}">HestiaHUGO's Go
+					Template Function Data Scanner Partial
+					Functions</a>.
+				</p></li>
+				<li><p>
+					Render the title in HTML format.
+				</p></li>
+			</ol>
+		</p>
+	</section>
+
+
+	<section id="output">
+		<h3>Output</h3>
+		<p>
+			This function returns all the following possible
+			outputs:
+		</p>
+		<ul>
+			<li><p>
+				<code>OK</code> - HTML title code rendered with
+				values.
+			</p></li>
+			<li><p>
+				<code>ERROR - missing partial function</code> -
+				a template clause calls a missing or invalid
+				Hestia partial shortcode function. Returned
+				string is unusable and chaotic in nature.
+			</p></li>
+			<li><p>
+				<code>ERROR - improper clauses</code> -
+				a template clause is usable but the clause
+				pattern does not conforms with Go Template
+				formatting pattern. Returned string is usable
+				if good since this error is a notice and it is
+				not a rejection.
+			</p></li>
+		</ul>
+	</section>
+
+
+	<section id="known-issues">
+		<h3>Known Issues</h3>
+		<p>
+			Here are some of the known issues.
+		</p>
+		<ul>
+			<li><p>
+				None identified.
+			</p></li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section id="usage">
+	<h2>Usage</h2>
+	<p>
+		As simple as feeding the Hestia Page data as partial argument.
+		Assuming the Page context is a processed Hestia data structure,
+		here is an example for rendering the HTML meta title:
+	</p>
+{{% highlight html "linenos=table,hl_lines=,linenostart=1" %}}
+{{- $Page := . -}}
+...
+<head>
+	{{- partial "Hestia/functions/render/html/meta/Title" $Page -}}
+	...
+</head>
+...
+{{% /highlight %}}
+</section>
+
+
+
+
+<section id="epilogue">
+	<h2>Epilogue</h2>
+	<p>
+		That's all for {{% param "title" %}}.
+	</p>
+</section>

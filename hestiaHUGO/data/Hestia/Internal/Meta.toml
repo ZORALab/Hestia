@@ -1,0 +1,2 @@
+[Title]
+HTML = "{{ .Titles.Page }} | {{ .Titles.Site }}"
