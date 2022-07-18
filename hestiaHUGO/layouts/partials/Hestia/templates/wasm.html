@@ -3,7 +3,7 @@
 
 <html {{ $Page.Languages.Current.Code }}>
 <head>
-	<title>{{- $Page.Titles.Page -}} | {{- $Page.Titles.Site -}}</title>
+	{{- partial "Hestia/functions/render/html/meta/Title" $Page -}}
 	{{- partial "Presento/functions/render/html/meta/WASM" $WASM -}}
 </head>
 <body>
