@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .  = Hugo data structure  */ -}}
 
 
 
@@ -12,20 +12,20 @@
 
 
 {{- /* process Title.Page */ -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .context.Page.Title -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Page.Title -}}
 {{- $dataList = merge $dataList (dict "Page" $ret) -}}
 
 
 
 
 {{- /* process Title.Site */ -}}
-{{- $ret = .context.Page.Lang -}}
-{{- range $v := .context.Site.Languages -}}
+{{- $ret = .Page.Lang -}}
+{{- range $v := .Site.Languages -}}
 	{{- if eq $v.Lang $ret -}}
 		{{- $ret = $v.Title -}}
 	{{- end -}}
 {{- end -}}
-{{- if eq $ret .context.Page.Lang -}}
+{{- if eq $ret .Page.Lang -}}
 	{{- $ret = .Site.Title -}}
 {{- end -}}
 {{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}

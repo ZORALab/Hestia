@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .  = Hugo data structure  */ -}}
 
 
 
@@ -12,19 +12,19 @@
 
 
 {{- /* process .Data.Store */ -}}
-{{- $dataList = merge $dataList (dict "Store" .context.Site.Data) -}}
+{{- $dataList = merge $dataList (dict "Store" .Site.Data) -}}
 
 
 
 
 {{- /* process .Data.Config */ -}}
-{{- $dataList = merge $dataList (dict "Config" .context.Site.Data.Hestia.Internal) -}}
+{{- $dataList = merge $dataList (dict "Config" .Site.Data.Hestia.Internal) -}}
 
 
 
 
 {{- /* process .Data.Hestia */ -}}
-{{- $dataList = merge $dataList (dict "Hestia" .context.Site.Data.Hestia) -}}
+{{- $dataList = merge $dataList (dict "Hestia" .Site.Data.Hestia) -}}
 
 
 

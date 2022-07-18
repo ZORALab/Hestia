@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .  = Hugo data structure  */ -}}
 
 
 
@@ -12,14 +12,14 @@
 
 
 {{- /* parse .Content.Rendered */ -}}
-{{- $ret = .context.Page.Content -}}
+{{- $ret = .Page.Content -}}
 {{- $dataList = merge $dataList (dict "Rendered" $ret) -}}
 
 
 
 
 {{- /* parse .Content.Raw */ -}}
-{{- $ret = .context.Page.RawContent -}}
+{{- $ret = .Page.RawContent -}}
 {{- $dataList = merge $dataList (dict "Raw" $ret) -}}
 
 

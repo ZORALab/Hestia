@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data  */ -}}
+{{- /* .  = Hugo data  */ -}}
 
 
 
@@ -14,7 +14,7 @@
 
 {{- /* obtain list of alternative formats  */ -}}
 {{- $list = dict -}}
-{{- range $format := .context.Page.AlternativeOutputFormats -}}
+{{- range $format := .Page.AlternativeOutputFormats -}}
 	{{- $ret = partial "Hestia/functions/data/hugo/ParseOutputFormat" $format -}}
 	{{- $list = merge $list (dict $ret.Name $ret) -}}
 {{- end -}}
@@ -25,7 +25,7 @@
 
 {{- /* scan for current output format */ -}}
 {{- $ret = false -}}
-{{- range $format := .context.Page.OutputFormats -}}
+{{- range $format := .Page.OutputFormats -}}
 	{{- if not (index $dataList.Alternatives $format.Name) -}}
 		{{- $ret = partial "Hestia/functions/data/hugo/ParseOutputFormat" $format -}}
 	{{- end -}}
@@ -37,7 +37,7 @@
 
 {{- /* assemble all formats */ -}}
 {{- $list = dict -}}
-{{- range $format := .context.Page.OutputFormats -}}
+{{- range $format := .Page.OutputFormats -}}
 	{{- $ret = partial "Hestia/functions/data/hugo/ParseOutputFormat" $format -}}
 	{{- $list = merge $list (dict $ret.Name $ret) -}}
 {{- end -}}

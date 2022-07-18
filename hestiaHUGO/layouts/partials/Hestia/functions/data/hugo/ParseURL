@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .  = Hugo data structure  */ -}}
 
 
 
@@ -14,7 +14,7 @@
 
 
 {{- /* process URL.Base */ -}}
-{{- $url = urls.Parse .context.Site.BaseURL -}}
+{{- $url = urls.Parse .Site.BaseURL -}}
 {{- $ret = "http" -}}
 {{- if $url.Scheme -}}
 	{{- $ret = $url.Scheme -}}
@@ -32,7 +32,7 @@
 {{- /* process URL.Current */ -}}
 {{- $list = dict -}}
 
-{{- $url = urls.Parse .context.Page.Permalink -}}
+{{- $url = urls.Parse .Page.Permalink -}}
 {{- $ret = "http" -}}
 {{- if $url.Scheme -}}
 	{{- $ret = $url.Scheme -}}
@@ -65,7 +65,7 @@
 
 {{- /* process URL.Languages */ -}}
 {{- $list = dict -}}
-{{- range $v := .context.Page.AlternativeOutputFormats -}}
+{{- range $v := .Page.AlternativeOutputFormats -}}
 	{{- $list = merge $list (dict (upper $v.Name) $v.Permalink) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Languages" $list) -}}
