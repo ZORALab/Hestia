@@ -1,0 +1,30 @@
+# Regex: ((?:\{\{|\s*\{\{\-)(.*?)(?:\}\}|-\}\}\s*))
+
+
+
+
+Brown fox     {{ .Page }}      calls
+Brown fox {{- .Page }}      calls
+Brown fox     {{- .Page }} calls
+Brown fox     {{- .Page }}     calls
+Brown fox     {{ .Page -}}      calls
+Brown fox {{ .Page -}}      calls
+Brown fox     {{ .Page -}} calls
+Brown fox     {{- .Page -}}     calls
+Brown fox     {{- .Page -}}   {{- .Site -}}  calls
+Brown fox     {{- .Page }}   {{- .Site -}}  calls
+Brown fox     {{- .Page }}   {{ .Site -}}  calls
+Brown fox     {{ .Page }}   {{ .Site }}  calls
+Brown fox     {{- string "hello" -}}     calls
+Brown fox     {{- string "hello" -}}    {{- string "world" -}}     calls
+Brown fox     {{- string "hello" . -}}     calls
+Brown fox     {{- string "hello" . -}}    {{- string "world" . -}}     calls
+Brown fox     {{- string "hello" .Page -}}     calls
+Brown fox     {{- string "hello" .Page -}}    {{- string "world" .Page -}}     calls
+Brown fox     {{- string "hello" $Page -}}     calls
+Brown fox     {{- string "hello" $Page -}}    {{- string "world" $Page -}}     calls
+Brown fox {{- url URL='/ret/lan.html' Content='Whatever' -}} calls
+Brown fox {{- printf "Value %s %#v\n" $k $v -}} calls
+Brown fox {{ printf "Value %s %#v\n" $k $v }} calls
+Brown fox {{- printf "Value %s %#v\n" $k $v }} calls
+Brown fox {{ printf "Value %s %#v\n" $k $v -}} calls
