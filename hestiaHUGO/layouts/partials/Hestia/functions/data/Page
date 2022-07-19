@@ -60,5 +60,17 @@
 
 
 
+{{- /* prepare Hestia .Page.Thumbnails */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseThumbnails" . -}}
+{{- $dataList = merge $dataList (dict "Thumbnails" $ret) -}}
+
+
+
+
+{{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/Thumbnails" $dataList -}}
+
+
+
 {{- /* render output */ -}}
 {{- return $dataList -}}

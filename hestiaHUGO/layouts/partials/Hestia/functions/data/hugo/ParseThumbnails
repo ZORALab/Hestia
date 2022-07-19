@@ -1,0 +1,139 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".thumbnails.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $context := . -}}
+{{- $dataList := slice -}}
+{{- $media := dict -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source data from file */ -}}
+{{- if .Page.File -}}
+	{{- /* get Page directory path */ -}}
+	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $data = path.Clean $data -}}
+
+
+
+
+	{{- /* source the thumbnail file */ -}}
+	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
+		{{- $data = readFile $data -}}
+		{{- $data = transform.Unmarshal $data -}}
+		{{- range $i, $v := $data.Thumbnails -}}
+			{{- if $v.URL -}}
+				{{- /* process .URL */ -}}
+				{{- $media = dict "URL" $v.URL -}}
+
+
+				{{- /* process .Type */ -}}
+				{{- $ret = "" -}}
+				{{- if $v.Type -}}
+					{{- $ret = $v.Type -}}
+				{{- end -}}
+				{{- $media = merge $media (dict "Type" $ret) -}}
+
+
+				{{- /* process .Width */ -}}
+				{{- $ret = "" -}}
+				{{- if $v.Width -}}
+					{{- $ret = $v.Width -}}
+				{{- end -}}
+				{{- $media = merge $media (dict "Width" $ret) -}}
+
+
+				{{- /* process .Height */ -}}
+				{{- $ret = "" -}}
+				{{- if $v.Height -}}
+					{{- $ret = $v.Height -}}
+				{{- end -}}
+				{{- $media = merge $media (dict "Height" $ret) -}}
+
+
+				{{- /* process .AltText */ -}}
+				{{- $ret = "" -}}
+				{{- if $v.AltText -}}
+					{{- $ret = $v.AltText -}}
+				{{- end -}}
+				{{- $media = merge $media (dict "AltText" $ret) -}}
+
+
+				{{- /* merge into $list */ -}}
+				{{- $dataList = append $dataList (slice $media) -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* source data from site data if thumbnail is empty */ -}}
+{{- if and (not $dataList) (.Site.Data.Hestia.Thumbnails.Thumbnails) -}}
+	{{- range $i, $v := .Site.Data.Hestia.Thumbnails.Thumbnails -}}
+		{{- if $v.URL -}}
+			{{- /* process .URL */ -}}
+			{{- $media = dict "URL" $v.URL -}}
+
+
+			{{- /* process .Media */ -}}
+			{{- $ret = "" -}}
+			{{- if $v.Media -}}
+				{{- $ret = $v.Media -}}
+			{{- end -}}
+			{{- $media = merge $media (dict "Media" $ret) -}}
+
+
+			{{- /* process .Type */ -}}
+			{{- $ret = "" -}}
+			{{- if $v.Type -}}
+				{{- $ret = $v.Type -}}
+			{{- end -}}
+			{{- $media = merge $media (dict "Type" $ret) -}}
+
+
+			{{- /* process .Width */ -}}
+			{{- $ret = "" -}}
+			{{- if $v.Width -}}
+				{{- $ret = $v.Width -}}
+			{{- end -}}
+			{{- $media = merge $media (dict "Width" $ret) -}}
+
+
+			{{- /* process .Height */ -}}
+			{{- $ret = "" -}}
+			{{- if $v.Height -}}
+				{{- $ret = $v.Height -}}
+			{{- end -}}
+			{{- $media = merge $media (dict "Height" $ret) -}}
+
+
+			{{- /* process .AltText */ -}}
+			{{- $ret = "" -}}
+			{{- if $v.AltText -}}
+				{{- $ret = $v.AltText -}}
+			{{- end -}}
+			{{- $media = merge $media (dict "AltText" $ret) -}}
+
+
+			{{- /* merge into $list */ -}}
+			{{- $dataList = append $dataList (slice $media) -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

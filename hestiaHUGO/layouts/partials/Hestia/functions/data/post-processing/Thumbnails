@@ -1,0 +1,29 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* run through each thumbnails */ -}}
+{{- range $i, $v := .Thumbnails -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/Thumbnail" $ret -}}
+	{{- if $ret -}}
+		{{- $dataList = append $dataList (slice $ret) -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge . (dict "Thumbnails" $dataList) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
