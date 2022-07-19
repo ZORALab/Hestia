@@ -1,0 +1,14 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+{{- /* .Console.Message = the output messages in string */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+
+
+
+
+{{- /* output to console */ -}}
+{{- errorf (partial "Hestia/functions/console/_commonf" .) -}}

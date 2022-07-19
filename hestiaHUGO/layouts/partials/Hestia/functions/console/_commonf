@@ -1,0 +1,60 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+{{- /* .Console.Message = the output messages in string */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := "\n" -}}
+{{- $ret := "" -}}
+
+
+
+
+{{- if (partial "Hestia/functions/IsHestia" .) -}}
+	{{- /* states the Page relative URL */ -}}
+	{{- $dataList = printf "%sOn Page     : %s\n" $dataList .URL.Current.Relative -}}
+
+
+
+
+	{{- /* states the Filepath if available */ -}}
+	{{- $ret = "not available" -}}
+	{{- if .Filesystem.Path -}}
+		{{- $ret = .Filesystem.Path -}}
+	{{- end -}}
+	{{- $dataList = printf "%sFile        : %s\n" $dataList $ret -}}
+
+
+
+
+	{{- /* states shortcode if available */ -}}
+	{{- $ret = "not applicable" -}}
+	{{- if .Input.Shortcode -}}
+		{{- $ret = .Input.Shortcode -}}
+	{{- end -}}
+	{{- $dataList = printf "%sShortcode   : %s\n" $dataList $ret -}}
+{{- else -}}
+	{{- /* states the Page relative URL */ -}}
+	{{- $ret = "[ ERROR ] GIVEN DATA TO WarningF IS NOT HESTIA STRUCTURED!!" -}}
+	{{- $dataList = printf "%s%s\n" $dataList $ret -}}
+{{- end -}}
+
+
+
+
+{{- /* states the Message */ -}}
+{{- $dataList = printf "%s══════════════════════\n" $dataList -}}
+{{- $ret = "<Missing Message. False Alarm?>" -}}
+{{- if .Console.Message -}}
+	{{- $ret = .Console.Message -}}
+{{- end -}}
+{{- $dataList = printf "%s%s" $dataList $ret -}}
+{{- $dataList = printf "%s══════════════════════\n\n\n" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
