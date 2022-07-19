@@ -13,6 +13,7 @@
 {{- $dataList := .Input.Query -}}
 {{- $args := dict -}}
 {{- $list := dict -}}
+{{- $msg := false -}}
 {{- $ret := false -}}
 {{- $fx := false -}}
 
@@ -25,9 +26,13 @@
 {{- range $i, $v := $ret -}}
 	{{- $fx = partial "Hestia/functions/data/trim/Whitespace" $v -}}
 	{{- if not (or (hasPrefix $fx "{{- ") (hasPrefix $fx "{{ ")) -}}
-		{{- errorf "improper template clause (missing '{{- ' or '{{ '): %#v" $fx -}}
+		{{- $msg = printf "missing '{{- ' or '{{ ' for: %#v" $fx -}}
+		{{- $msg = dict "Console" (dict "Message" $msg) -}}
+		{{- partial "Hestia/functions/console/Errorf" $msg -}}
 	{{- else if not (or (strings.HasSuffix $fx " -}}") (strings.HasSuffix $fx " }}")) -}}
-		{{- errorf "improper template clause (missing ' -}}' or ' }}'): %#v" $fx -}}
+		{{- $msg = printf "missing ' -}}' or ' }}' for: %#v" $fx -}}
+		{{- $msg = dict "Console" (dict "Message" $msg) -}}
+		{{- partial "Hestia/functions/console/Errorf" $msg -}}
 	{{- end -}}
 
 	{{- /* process anyway because Go partial function cannot exit early */ -}}
