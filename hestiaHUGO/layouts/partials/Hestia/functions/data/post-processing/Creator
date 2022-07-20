@@ -1,0 +1,150 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Type = Creator entity type */ -}}
+{{- /* .Input.Name = Creator name */ -}}
+{{- /* .Input.Title = Creator title or brand tag */ -}}
+{{- /* .Input.Phone = Creator phone contact */ -}}
+{{- /* .Input.Email = Creator email contact */ -}}
+{{- /* .Input.LinkedIn = Creator linkedin URL */ -}}
+{{- /* .Input.Facebook = Creator facebook URL */ -}}
+{{- /* .Input.Instagram = Creator instagram URL */ -}}
+{{- /* .Input.Twitter = Creator twitter URL */ -}}
+{{- /* .Input.TikTok = Creator tiktok URL */ -}}
+{{- /* .Input.Web = Creator web URL */ -}}
+{{- /* .Input.Description = Creator description URL */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Type */ -}}
+{{- if not .Input.Type -}}
+	{{- $dataList = merge $dataList (dict "Type" "") -}}
+{{- else if eq (lower .Input.Type) "person" -}}
+	{{- $dataList = merge $dataList (dict "Type" "person") -}}
+{{- else if eq (lower .Input.Type) "organization" -}}
+	{{- $dataList = merge $dataList (dict "Type" "organization") -}}
+{{- else -}}
+	{{- $dataList = merge $dataList (dict "Type" (lower .Input.Type)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Name */ -}}
+{{- $dataList = merge $dataList (dict "Name" .Input.Name) -}}
+
+
+
+
+{{- /* process .Title */ -}}
+{{- $dataList = merge $dataList (dict "Title" .Input.Title) -}}
+
+
+
+
+{{- /* process .Phone */ -}}
+{{- $dataList = merge $dataList (dict "Phone" .Input.Phone) -}}
+
+
+
+
+{{- /* process .Email */ -}}
+{{- $dataList = merge $dataList (dict "Email" .Input.Email) -}}
+
+
+
+
+{{- /* process .LinkedIn */ -}}
+{{- $ret = .Input.LinkedIn -}}
+{{- if $ret -}}
+	{{- $ret = dict "Input" (dict "URL" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- $ret = partial "Hestia/shortcodes/url" $ret -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "LinkedIn" $ret) -}}
+
+
+
+
+{{- /* process .Facebook */ -}}
+{{- $ret = .Input.Facebook -}}
+{{- if $ret -}}
+	{{- $ret = dict "Input" (dict "URL" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- $ret = partial "Hestia/shortcodes/url" $ret -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Facebook" $ret) -}}
+
+
+
+
+{{- /* process .Instagram */ -}}
+{{- $ret = .Input.Instagram -}}
+{{- if $ret -}}
+	{{- $ret = dict "Input" (dict "URL" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- $ret = partial "Hestia/shortcodes/url" $ret -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Instagram" $ret) -}}
+
+
+
+
+{{- /* process .Twitter */ -}}
+{{- $ret = .Input.Twitter -}}
+{{- if $ret -}}
+	{{- $ret = dict "Input" (dict "URL" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- $ret = partial "Hestia/shortcodes/url" $ret -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Twitter" $ret) -}}
+
+
+
+
+{{- /* process .TikTok */ -}}
+{{- $ret = .Input.TikTok -}}
+{{- if $ret -}}
+	{{- $ret = dict "Input" (dict "URL" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- $ret = partial "Hestia/shortcodes/url" $ret -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "TikTok" $ret) -}}
+
+
+
+
+{{- /* process .Web */ -}}
+{{- $ret = .Input.Web -}}
+{{- if $ret -}}
+	{{- $ret = dict "Input" (dict "URL" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- $ret = partial "Hestia/shortcodes/url" $ret -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Web" $ret) -}}
+
+
+
+
+{{- /* process .Description */ -}}
+{{- $ret = dict "Input" (dict "Query" .Input.Description) -}}
+{{- $ret = merge . $ret -}}
+{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+{{- $dataList = merge $dataList (dict "Description" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- if or (not $dataList.Type) (not $dataList.Name) -}}
+	{{- $dataList = dict -}}
+{{- end -}}
+{{- return $dataList -}}

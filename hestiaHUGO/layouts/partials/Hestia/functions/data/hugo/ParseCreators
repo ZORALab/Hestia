@@ -1,0 +1,122 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".creators.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $category := dict -}}
+{{- $list := dict -}}
+{{- $data := false -}}
+{{- $preset := false -}}
+{{- $creator := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process Creators.Site */ -}}
+{{- range $k, $v := .Site.Data.Hestia.Creators -}}
+	{{- $creator = dict "Type" (default "" $v.Type) -}}
+	{{- $creator = merge $creator (dict "Name" (default "" $v.Name)) -}}
+	{{- $creator = merge $creator (dict "Title" (default "" $v.Title)) -}}
+	{{- $creator = merge $creator (dict "Phone" (default "" $v.Phone)) -}}
+	{{- $creator = merge $creator (dict "Email" (default "" $v.Email)) -}}
+	{{- $creator = merge $creator (dict "LinkedIn" (default "" $v.LinkedIn)) -}}
+	{{- $creator = merge $creator (dict "Facebook" (default "" $v.Facebook)) -}}
+	{{- $creator = merge $creator (dict "Instagram" (default "" $v.Instagram)) -}}
+	{{- $creator = merge $creator (dict "Twitter" (default "" $v.Twitter)) -}}
+	{{- $creator = merge $creator (dict "TikTok" (default "" $v.TikTok)) -}}
+	{{- $creator = merge $creator (dict "Web" (default "" $v.Web)) -}}
+	{{- $creator = merge $creator (dict "Description" (default "" $v.Description)) -}}
+	{{- $list = merge $list (dict (lower $k) $creator) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Site" $list) -}}
+
+
+
+
+{{- /* process Creators.Page */ -}}
+{{- $list = dict -}}
+{{- if .Page.File -}}
+	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $data = path.Clean $data -}}
+
+	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
+		{{- $data = readFile $data -}}
+		{{- $data = transform.Unmarshal $data -}}
+		{{- range $k, $v := $data -}}
+			{{- $preset = index $dataList.Site (lower $k) -}}
+			{{- if not $preset -}}
+				{{- $preset  = dict "Type" "" -}}
+				{{- $preset = merge $preset (dict "Name" "") -}}
+				{{- $preset = merge $preset (dict "Title" "") -}}
+				{{- $preset = merge $preset (dict "Phone" "") -}}
+				{{- $preset = merge $preset (dict "Email" "") -}}
+				{{- $preset = merge $preset (dict "LinkedIn" "") -}}
+				{{- $preset = merge $preset (dict "Facebook" "") -}}
+				{{- $preset = merge $preset (dict "Instagram" "") -}}
+				{{- $preset = merge $preset (dict "Twitter" "") -}}
+				{{- $preset = merge $preset (dict "TikTok" "") -}}
+				{{- $preset = merge $preset (dict "Web" "") -}}
+				{{- $preset = merge $preset (dict "Description" "") -}}
+			{{- end -}}
+
+			{{- $ret = default $preset.Type $v.Type -}}
+			{{- $creator = dict "Type" $ret -}}
+
+			{{- $ret = default $preset.Name $v.Name -}}
+			{{- $creator = merge $creator (dict "Name" $ret) -}}
+
+			{{- $ret = default $preset.Title $v.Title -}}
+			{{- $creator = merge $creator (dict "Title" $ret) -}}
+
+			{{- $ret = default $preset.Phone $v.Phone -}}
+			{{- $creator = merge $creator (dict "Phone" $ret) -}}
+
+			{{- $ret = default $preset.Email $v.Email -}}
+			{{- $creator = merge $creator (dict "Email" $ret) -}}
+
+			{{- $ret = default $preset.LinkedIn $v.LinkedIn -}}
+			{{- $creator = merge $creator (dict "LinkedIn" $ret) -}}
+
+			{{- $ret = default $preset.Facebook $v.Facebook -}}
+			{{- $creator = merge $creator (dict "Facebook" $ret) -}}
+
+			{{- $ret = default $preset.Instagram $v.Instagram -}}
+			{{- $creator = merge $creator (dict "Instagram" $ret) -}}
+
+			{{- $ret = default $preset.Twitter $v.Twitter -}}
+			{{- $creator = merge $creator (dict "Twitter" $ret) -}}
+
+			{{- $ret = default $preset.TikTok $v.TikTok -}}
+			{{- $creator = merge $creator (dict "TikTok" $ret) -}}
+
+			{{- $ret = default $preset.Web $v.Web -}}
+			{{- $creator = merge $creator (dict "Web" $ret) -}}
+
+			{{- $ret = default $preset.Description $v.Description -}}
+			{{- $creator = merge $creator (dict "Description" $ret) -}}
+
+			{{- $list = merge $list (dict (lower $k) $creator) -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Page" $list) -}}
+
+
+
+
+{{- /* process Creators.All */ -}}
+{{- $list = merge $dataList.Site $dataList.Page -}}
+{{- $dataList = merge $dataList (dict "All" $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

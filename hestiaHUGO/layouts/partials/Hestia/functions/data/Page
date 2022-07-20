@@ -67,8 +67,17 @@
 
 
 
+{{- /* prepare Hestia .Page.Creators */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseCreators" . -}}
+{{- $dataList = merge $dataList (dict "Creators" $ret) -}}
+
+
+
+
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Thumbnails" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/Creators" $dataList -}}
+
 
 
 

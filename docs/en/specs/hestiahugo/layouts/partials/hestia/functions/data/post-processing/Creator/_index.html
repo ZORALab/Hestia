@@ -1,0 +1,305 @@
++++
+date = "2022-07-20T13:41:17+08:00"
+title = "Post-Processing/Creator - HestiaHUGO's Internal Partial Function"
+description = """
+HestiaHUGO's internal partial functions responsible for post-processing Hestia
+Creator data right after parsing from Hugo data structure. This is its
+technical specification intended for future maintenances and development usage.
+"""
+Keywords = [
+	"Creator",
+	"Post-Processing",
+	"Data",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+draft = false
+layout = "single"
+
+[menu.main]
+parent = "Hestia's Partial Functions"
+identifer = "hestiahugo-layouts-partials-hestia-functions-data-post-processing-creator"
+name = "Post-Processing/Creator"
+Pre = ""
+weight = 1
++++
+
+<section id="introduction">
+	<h1>{{% param "title" %}}</h1>
+	<p>
+		{{% param "description" %}}
+	</p>
+</section>
+
+
+
+
+<section id="objective-and-purposes">
+	<h2>Objective and Purposes</h2>
+	<p>
+		The primary objective is to process a given Hestia's Page
+		Creator data into its final form, ready for use.
+	</p>
+</section>
+
+
+
+
+<section id="how-it-works">
+	<h2>How It Works</h2>
+	<p>
+		By default, the algorithm process each fields of a given
+		Creator data. It shall process all the URLs with
+		<a href="{{< Hestia/url
+		URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+		Lang="en" />}}">Hestia URL</a> partial shortcode. It also
+		process <code>.Description</code> with <a href="{{< Hestia/url
+		URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
+		Lang="en" />}}">Hestia GoTemplateFunction Data Scanner</a>
+		partial function.
+		<br/><br/>
+		The algorithm <b>SHALL discard the entire creator data list
+		when <code>.Type</code> and <code>.Name</code> empty</b>.
+	</p>
+
+
+	<section id="input">
+		<h3>Input</h3>
+		<p>
+			This partial function accepts the following inputs:
+			<ul>
+				<li><p>
+					<b><code>.Page</b></code> - required
+					Hestia Page data structure.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Type</b></code> -
+					the creator type like
+					<code>person</code> and
+					<code>organization</code>.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Name</b></code> -
+					the creator's (displaying) full name.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Title</b></code> -
+					the creator's associated branding like
+					job title or company brand tag.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Phone</b></code> -
+					the creator's contactable phone number.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Email</b></code> -
+					the creator's contactable email address.
+				</p></li>
+				<li><p>
+					<b><code>.Input.LinkedIn</b></code> -
+					the creator's LinkedIn URL.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Facebook</b></code> -
+					the creator's Facebook URL.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Instagram</b></code> -
+					the creator's Instagram URL.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Twitter</b></code> -
+					the creator's Twitter URL.
+				</p></li>
+				<li><p>
+					<b><code>.Input.TikTok</b></code> -
+					the creator's TikTok URL.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Web</b></code> -
+					the creator's Website URL.
+				</p></li>
+				<li><p>
+					<b><code>.Input.Description</b></code> -
+					the creator's short description.
+				</p></li>
+			</ul>
+		</p>
+	</section>
+
+
+	<section id="algorithm">
+		<h3>Working Algorithm</h3>
+		<p>
+			This partial function works in the following manner:
+			<ol>
+				<li><p>
+					Process the <code>.Input.Type</code>.
+					It shall identify and covert its value
+					to lowercase.
+				</p></li>
+				<li><p>
+					Copy over <code>.Input.Name</code>.
+				</p></li>
+				<li><p>
+					Copy over <code>.Input.Phone</code>.
+				</p></li>
+				<li><p>
+					Copy over <code>.Input.Email</code>.
+				</p></li>
+				<li><p>
+					Process the <code>.Input.LinkedIn</code>
+					with <a href="{{< Hestia/url
+						URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+						Lang="en"
+					/>}}">
+					Hestia URL</a> partial shortcode.
+				</p></li>
+				<li><p>
+					Process the <code>.Input.Facebook</code>
+					with <a href="{{< Hestia/url
+						URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+						Lang="en"
+					/>}}">
+					Hestia URL</a> partial shortcode.
+				</p></li>
+				<li><p>
+					Process the <code>.Input.Instagram</code>
+					with <a href="{{< Hestia/url
+						URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+						Lang="en"
+					/>}}">
+					Hestia URL</a> partial shortcode.
+				</p></li>
+				<li><p>
+					Process the <code>.Input.Twitter</code>
+					with <a href="{{< Hestia/url
+						URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+						Lang="en"
+					/>}}">
+					Hestia URL</a> partial shortcode.
+				</p></li>
+				<li><p>
+					Process the <code>.Input.TikTok</code>
+					with <a href="{{< Hestia/url
+						URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+						Lang="en"
+					/>}}">
+					Hestia URL</a> partial shortcode.
+				</p></li>
+				<li><p>
+					Process the <code>.Input.Web</code>
+					with <a href="{{< Hestia/url
+						URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+						Lang="en"
+					/>}}">
+					Hestia URL</a> partial shortcode.
+				</p></li>
+				<li><p>
+					Process the
+					<code>.Input.Description</code> with
+					<a href="{{< Hestia/url
+						URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
+						Lang="en"
+					/>}}">
+					Hestia GoTemplateFunction Data
+					Scanner</a> partial function.
+				</p></li>
+				<li><p>
+					Remove the Creator data if any of the
+					following are empty:
+					<ul>
+						<li><p>
+							<code>.Type</code>
+						</p></li>
+						<li><p>
+							<code>.Name</code>
+						</p></li>
+					</ul>
+				</p></li>
+				<li><p>
+					Return the processed data.
+				</p></li>
+			</ol>
+		</p>
+	</section>
+
+
+	<section id="output">
+		<h3>Output</h3>
+		<p>
+			This function returns all the following possible
+			outputs:
+		</p>
+		<ul>
+			<li><p>
+				<code>OK</code> - The contact data has been
+				successfully processed.
+			</p></li>
+			<li><p>
+				<code>ERROR - missing critical fields</code> -
+				Given creator data is having 1 or more missing
+				critical fields. An empty data structure is
+				returned.
+			</p></li>
+		</ul>
+	</section>
+
+
+	<section id="known-issues">
+		<h3>Known Issues</h3>
+		<p>
+			Here are some of the known issues:
+		</p>
+		<ul>
+			<li><p>
+				None identified.
+			</p></li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section id="usage">
+	<h2>Usage</h2>
+	<p>
+		To use such partial function, assuming the Page context is a
+		processed Hestia data structure, here is an example:
+	</p>
+{{% highlight html "linenos=table,hl_lines=,linenostart=1" %}}
+{{- $Page := . -}}
+{{- $list := dict -}}
+{{- $dataList := dict -}}
+
+{{- /* run through each creator in .Creators.All */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Creators.All -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/Creator" $ret -}}
+	{{- $list = merge $list (dict $k $ret) -}}
+{{- end -}}
+{{- $dataList = (dict "All" $list) -}}
+
+...
+{{% /highlight %}}
+</section>
+
+
+
+
+<section id="epilogue">
+	<h2>Epilogue</h2>
+	<p>
+		That's all for {{% param "title" %}}.
+	</p>
+</section>

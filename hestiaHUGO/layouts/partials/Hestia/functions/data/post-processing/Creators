@@ -1,0 +1,54 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* run through each creator in .Creators.All */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Creators.All -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/Creator" $ret -}}
+	{{- $list = merge $list (dict $k $ret) -}}
+{{- end -}}
+{{- $dataList = (dict "All" $list) -}}
+
+
+
+
+{{- /* run through each creator in .Creators.Site */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Creators.Site -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/Creator" $ret -}}
+	{{- $list = merge $list (dict $k $ret) -}}
+{{- end -}}
+{{- $dataList = (dict "Site" $list) -}}
+
+
+
+
+{{- /* run through each creator in .Creators.Page */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Creators.Page -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/Creator" $ret -}}
+	{{- $list = merge $list (dict $k $ret) -}}
+{{- end -}}
+{{- $dataList = (dict "Page" $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge . (dict "Creators" $dataList) -}}
+{{- return $dataList -}}
