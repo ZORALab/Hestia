@@ -1,0 +1,72 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".components.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $context := . -}}
+{{- $dataList := dict -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source components list from .Site.Data.Hestia.Components */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := .Site.Data.Hestia.Components -}}
+	{{- if $v.Enabled -}}
+		{{- $ret = $v.Variables -}}
+		{{- if not $ret -}}
+			{{- $ret = dict -}}
+		{{- end -}}
+		{{- $ret = dict "CSS" (dict "Variables" $ret) -}}
+
+
+		{{- $dataList = merge $dataList (dict $k $ret) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* source components list file */ -}}
+{{- if .Page.File -}}
+	{{- /* get Page directory path */ -}}
+	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $data = path.Clean $data -}}
+
+
+	{{- /* source the component file at page level */ -}}
+	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
+		{{- $data = transform.Unmarshal (readFile $data) -}}
+		{{- range $k, $v := $data -}}
+			{{- if $v.Enabled -}}
+				{{- $data = index $dataList $k -}}
+
+
+				{{- $ret = $v.Variables -}}
+				{{- if not $ret -}}
+					{{- $ret = dict -}}
+				{{- end -}}
+				{{- if $data -}}
+					{{- $ret = merge $data.Variables $ret -}}
+				{{- end -}}
+				{{- $ret = dict "CSS" (dict "Variables" $ret) -}}
+
+
+				{{- $dataList = merge $dataList (dict $k $ret) -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

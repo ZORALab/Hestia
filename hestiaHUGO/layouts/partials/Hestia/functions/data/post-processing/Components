@@ -1,0 +1,30 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* run through each creator in .Creators.All */ -}}
+{{- range $k, $v := .Components -}}
+	{{- $ret = merge $v (dict "Name" $k) -}}
+	{{- $ret = merge $Page (dict "Input" $ret) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/Component" $ret -}}
+	{{- if $ret -}}
+		{{- $dataList = merge $dataList (dict $k $ret) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge . (dict "Components" $dataList) -}}
+{{- return $dataList -}}

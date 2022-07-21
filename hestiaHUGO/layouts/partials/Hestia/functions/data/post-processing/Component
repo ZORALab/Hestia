@@ -1,0 +1,75 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Name = Component name */ -}}
+{{- /* .Input.CSS.Variables = Component's CSS variables for overwrite */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $part := dict -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* get Hestia UI component internally */ -}}
+{{- $data = index .Data.Hestia.Internal.Components .Input.Name -}}
+{{- if $data -}}
+	{{- /* process .CSS part */ -}}
+	{{- $part = dict -}}
+	{{- $ret = default "" $data.CSS.Code -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $part = merge $part (dict "Code" $ret) -}}
+
+
+	{{- $ret = $data.CSS.Variables -}}
+	{{- if not $ret -}}
+		{{- $ret = dict -}}
+	{{- end -}}
+	{{- $ret = merge $ret .Input.CSS.Variables -}}
+	{{- $part = merge $part (dict "Variables" $ret) -}}
+
+
+	{{- $dataList = merge $dataList (dict "CSS" $part) -}}
+
+
+
+
+	{{- /* process .HTML part */ -}}
+	{{- $part = dict -}}
+	{{- $ret = default "" $data.HTML.Code -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $part = merge $part (dict "Code" $ret) -}}
+
+
+	{{- $dataList = merge $dataList (dict "HTML" $part) -}}
+
+
+
+
+	{{- /* process .JS part */ -}}
+	{{- $part = dict -}}
+	{{- $ret = default "" $data.JS.Code -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $part = merge $part (dict "Code" $ret) -}}
+
+
+	{{- $dataList = merge $dataList (dict "JS" $part) -}}
+{{- else -}}
+	{{- $ret = printf "unknown HestiaUI component: '%s'\n" .Input.Name -}}
+	{{- $ret = merge . (dict "Console" (dict "Message" $ret)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $ret -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- if not $data -}}
+	{{- $dataList = dict -}}
+{{- end -}}
+{{- return $dataList -}}

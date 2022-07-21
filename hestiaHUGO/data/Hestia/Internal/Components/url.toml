@@ -1,5 +1,27 @@
-{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+# WARNING: Auto-generated file. DO NOT EDIT!
+# Look for hestiaLIBS/hestiaUI/hestiaURL software package for editing.
+[CSS]
+Code = """\
+a {
+	text-color: var(--url-color);
+}
+"""
+[CSS.Variables]
+"--url-color" = "blue"
 
+
+
+
+[JS]
+Code = """\
+console.log("hestiaURL compoment loaded!");
+"""
+
+
+
+
+[HTML]
+Code = """\
 {{- /* <a> and <link> COMMON ATTRIBUTES                                   */ -}}
 {{- /* .URL             = Link source URL value for href= attribute       */ -}}
 {{- /* .Rel             = Link relationship value for rel= attribute      */ -}}
@@ -66,3 +88,4 @@
 </a>
 
 {{- end }}
+"""

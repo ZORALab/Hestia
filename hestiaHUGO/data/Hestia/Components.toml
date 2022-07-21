@@ -1,0 +1,12 @@
+# [Component].Enabled = set to false to temporarily disable the component.
+# [Componnet].Variables = overwrites the variables.
+
+[core]
+Enabled = false
+[core.Variables]
+
+
+[url]
+Enabled = true
+[url.Variables]
+"--url-color" = "red"
