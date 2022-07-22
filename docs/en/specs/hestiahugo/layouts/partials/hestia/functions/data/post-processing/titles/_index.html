@@ -31,8 +31,13 @@ layout = "single"
 		<code>.Titles.Site</code> with <a href="{{< Hestia/url
 		URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
 		Lang="en" />}}">Hestia GoTemplateFunction Data
-		Scanner</a> partial function. Then, the algorithm process the
-		<code>.Titles.Page</code> with the same partial function.
+		Scanner</a> partial function. Then, the same process is repeated
+		for <code>.Titles.Page</code>.
+		<br/><br/>
+		<code>.Titles.Site</code> goes first because it can be used for
+		value insertion for <code>.Titles.Page</code> for some users
+		(e.g. appending a tailing <code>| {{ .Titles.Site -}}</code>
+		pattern.
 	</p>
 
 
