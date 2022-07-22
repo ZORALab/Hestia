@@ -1,0 +1,136 @@
++++
+draft = false
+layout = "single"
++++
+
+<section id="introduction">
+	<h1>{{% param "title" %}}</h1>
+	<p>
+		{{%/* param "description" */%}}
+	</p>
+</section>
+
+
+
+
+<section id="objective-and-purposes">
+	<h2>Objective and Purposes</h2>
+	<p>
+		The primary objective is to process all Hestia's Page Titles
+		data into its final form, ready for use.
+	</p>
+</section>
+
+
+
+
+<section id="how-it-works">
+	<h2>How It Works</h2>
+	<p>
+		By default, the algorithm first processes
+		<code>.Titles.Site</code> with <a href="{{< Hestia/url
+		URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
+		Lang="en" />}}">Hestia GoTemplateFunction Data
+		Scanner</a> partial function. Then, the algorithm process the
+		<code>.Titles.Page</code> with the same partial function.
+	</p>
+
+
+	<section id="input">
+		<h3>Input</h3>
+		<p>
+			This partial function accepts the following inputs:
+			<ul>
+				<li><p>
+					<b><code>.</b></code> - required
+					Hestia Page data structure.
+				</p></li>
+			</ul>
+		</p>
+	</section>
+
+
+	<section id="algorithm">
+		<h3>Working Algorithm</h3>
+		<p>
+			This partial function works in the following manner:
+			<ol>
+				<li><p>
+					Process <code>.Titles.Site</code> with
+					<a href="{{< Hestia/url
+					URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
+					Lang="en" />}}">
+					Hestia GoTemplateFunction Data
+					Scanner</a> partial function.
+				</p></li>
+				<li><p>
+					Process <code>.Titles.Page</code> with
+					<a href="{{< Hestia/url
+					URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
+					Lang="en" />}}">
+					Hestia GoTemplateFunction Data
+					Scanner</a> partial function.
+				</p></li>
+			</ol>
+		</p>
+	</section>
+
+
+	<section id="output">
+		<h3>Output</h3>
+		<p>
+			This function returns all the following possible
+			outputs:
+		</p>
+		<ul>
+			<li><p>
+				<code>OK</code> -
+				The titles data list has been successfully
+				processed.
+			</p></li>
+			<li><p>
+				<code>ERROR - bad formatting</code> -
+				one or more given title data has a malformed
+				GoTemplateFunction formatting clause.
+			</p></li>
+		</ul>
+	</section>
+
+
+	<section id="known-issues">
+		<h3>Known Issues</h3>
+		<p>
+			Here are some of the known issues:
+		</p>
+		<ul>
+			<li><p>
+				None identified.
+			</p></li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section id="usage">
+	<h2>Usage</h2>
+	<p>
+		To use such partial function, assuming the Page context is a
+		processed Hestia data structure, here is an example:
+	</p>
+{{% highlight html "linenos=table,hl_lines=,linenostart=1" %}}
+{{- $Page := . -}}
+{{- $Page = partial "Hestia/functions/data/post-processing/Titles" $Page -}}
+{{% /highlight %}}
+</section>
+
+
+
+
+<section id="epilogue">
+	<h2>Epilogue</h2>
+	<p>
+		That's all for {{% param "title" %}}.
+	</p>
+</section>

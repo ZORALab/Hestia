@@ -4,31 +4,5 @@
 
 
 
-{{- /* prepare working variables for this function */ -}}
-{{- $ret := false -}}
-
-
-
-
-{{- /* Parse title format from data file */ -}}
-{{- $ret := .Data.Hestia.Internal.Meta.Title.HTML -}}
-{{- if .Titles.Pattern -}}
-	{{- $ret = .Titles.Pattern -}}
-{{- end -}}
-{{- if not $ret -}}
-	{{- $ret = "{{- .Titles.Page -}}" -}}
-{{- end -}}
-
-
-
-
-{{- /* render the format */ -}}
-{{- $ret = dict "Input" (dict "Query" $ret) -}}
-{{- $ret = merge . $ret -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-
-
-
-
 {{- /* return render */ -}}
-<title>{{- safeHTML $ret -}}</title>
+<title>{{- safeHTML .Titles.Page -}}</title>

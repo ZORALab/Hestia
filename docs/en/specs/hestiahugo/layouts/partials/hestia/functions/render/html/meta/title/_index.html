@@ -1,42 +1,12 @@
 +++
-date = "2022-07-18T18:11:27+08:00"
-title = "Render HTML Meta Title - HestiaHUGO's Internal Partial Function"
-description = """
-HestiaHUGO's internal partial function 'Title' is responsible for
-rendering HTML output for HTML meta title code snippet. This is its technical
-specification intended for future maintenances and development usage.
-"""
-Keywords = [
-	"Title",
-	"Meta",
-	"HTML",
-	"Render",
-	"Functions",
-	"Hestia",
-	"Partials",
-	"Layouts",
-	"Specifications",
-	"HestiaHUGO",
-	"ZORALab's Hestia",
-	"Official Website",
-	"ZORALab Enterprise",
-	"ZORALab",
-]
 draft = false
 layout = "single"
-
-[menu.main]
-parent = "Hestia's Partial Functions"
-identifer = "hestia-partials-functions-render-html-meta-title"
-name = "Render | HTML Meta -Title"
-Pre = ""
-weight = 1
 +++
 
 <section id="introduction">
 	<h1>{{% param "title" %}}</h1>
 	<p>
-		{{% param "description" %}}
+		{{%/* param "description" */%}}
 	</p>
 </section>
 
@@ -60,19 +30,8 @@ weight = 1
 <section id="how-it-works">
 	<h2>How It Works</h2>
 	<p>
-		By default, the function obtains a standard format from
-		<code>data/Hestia/Internal/Meta.toml - Title.HTML</code> field.
-		It then checks the <code>.Titles.Pattern</code> overrides
-		availability and will use the latter if available. Should both
-		of them are unavailable, the function resorts to the default
-		<code>"{{- .Titles.Page -}}"</code> format.
-		<br/><br/>
-		Once done, it shall process with
-		<a href="{{< Hestia/url URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
-		Lang="en" />}}">HestiaHUGO's Go Template Function Data Scanner
-		Partial Functions</a> to process the string. It shall render the
-		<code>&#60;title&#62;</code> tag as a result without any return
-		values.
+		By default, this function renders the <code>Titles.Page</code>
+		into HTML <code>&#60;title&#62;</code> code.
 	</p>
 
 
@@ -96,23 +55,8 @@ weight = 1
 			This partial function works in the following manner:
 			<ol>
 				<li><p>
-					Obtain the default format from
-					<code>.Data.Hestia.Internal.Meta.Title.HTML</code>
-					field. Check for <code>.Titles.Pattern</code>
-					format overrides and if available, take
-					the latter instead. If both are
-					unavailable, use the built-in default
-					format (<code>"{{- .Titles.Page -}}"</code>).
-				</p></li>
-				<li><p>
-					Process the obtained format string with
-					<a href="{{< Hestia/url URL="/specs/hestiahugo/layouts/partials/hestia/functions/data/scan/gotemplatefunction/"
-						Lang="en" />}}">HestiaHUGO's Go
-					Template Function Data Scanner Partial
-					Functions</a>.
-				</p></li>
-				<li><p>
-					Render the title in HTML format.
+					Render the <code>.Titles.Page</code>
+					into HTML format.
 				</p></li>
 			</ol>
 		</p>
@@ -129,20 +73,6 @@ weight = 1
 			<li><p>
 				<code>OK</code> - HTML title code rendered with
 				values.
-			</p></li>
-			<li><p>
-				<code>ERROR - missing partial function</code> -
-				a template clause calls a missing or invalid
-				Hestia partial shortcode function. Returned
-				string is unusable and chaotic in nature.
-			</p></li>
-			<li><p>
-				<code>ERROR - improper clauses</code> -
-				a template clause is usable but the clause
-				pattern does not conforms with Go Template
-				formatting pattern. Returned string is usable
-				if good since this error is a notice and it is
-				not a rejection.
 			</p></li>
 		</ul>
 	</section>
@@ -167,9 +97,9 @@ weight = 1
 <section id="usage">
 	<h2>Usage</h2>
 	<p>
-		As simple as feeding the Hestia Page data as partial argument.
-		Assuming the Page context is a processed Hestia data structure,
-		here is an example for rendering the HTML meta title:
+		To use this partial function, Assuming the Page context is a
+		processed Hestia data structure, here is an example for
+		rendering the HTML meta title:
 	</p>
 {{% highlight html "linenos=table,hl_lines=,linenostart=1" %}}
 {{- $Page := . -}}

@@ -1,0 +1,35 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process site title */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Query" .Titles.Site)) -}}
+{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Site" $ret) -}}
+
+
+
+
+{{- /* process page title */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Query" .Titles.Page)) -}}
+{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Page" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge . (dict "Titles" $dataList) -}}
+{{- return $dataList -}}
