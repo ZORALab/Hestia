@@ -1,0 +1,10 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */ -}}
+{{- if .Keywords -}}
+	<meta name="keywords" content="{{- delimit .Keywords ", " -}}">
+{{- end -}}

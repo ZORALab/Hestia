@@ -32,6 +32,13 @@
 
 
 
+{{- /* prepare Hestia .Page.Keywords */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseKeywords" . -}}
+{{- $dataList = merge $dataList (dict "Keywords" $ret) -}}
+
+
+
+
 {{- /* prepare Hestia .Page.URL */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseURL" . -}}
 {{- $dataList = merge $dataList (dict "URL" $ret) -}}
@@ -83,6 +90,7 @@
 
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Titles" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/Keywords" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Creators" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Components" $dataList -}}

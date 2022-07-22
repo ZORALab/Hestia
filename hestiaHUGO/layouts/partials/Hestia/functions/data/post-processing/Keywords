@@ -1,0 +1,45 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* run through each thumbnails */ -}}
+{{- range $i, $v := .Keywords -}}
+	{{- /* process and built-in functions */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Query" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+
+
+	{{- /* clean up whitespace */ -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $v -}}
+
+
+	{{- /* merge into map list to make the list unique */ -}}
+	{{- $dataList = merge $dataList (dict $v true) -}}
+{{- end -}}
+
+
+
+
+{{- /* change the list back to slice */ -}}
+{{- $ret = slice -}}
+{{- range $k, $v := $dataList -}}
+	{{- $ret = append $ret (slice $k) -}}
+{{- end -}}
+{{- $dataList = $ret -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge . (dict "Keywords" $dataList) -}}
+{{- return $dataList -}}
