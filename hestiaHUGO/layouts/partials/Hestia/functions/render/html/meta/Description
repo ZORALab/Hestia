@@ -1,0 +1,8 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */ -}}
+<meta name="description" content="{{- safeHTML .Descriptions.Pitch -}}">

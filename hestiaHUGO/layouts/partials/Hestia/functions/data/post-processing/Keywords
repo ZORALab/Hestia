@@ -15,16 +15,16 @@
 {{- /* run through each thumbnails */ -}}
 {{- range $i, $v := .Keywords -}}
 	{{- /* process and built-in functions */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $ret)) -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Query" $v)) -}}
 	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
 
 
 	{{- /* clean up whitespace */ -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $v -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
 
 
 	{{- /* merge into map list to make the list unique */ -}}
-	{{- $dataList = merge $dataList (dict $v true) -}}
+	{{- $dataList = merge $dataList (dict $ret true) -}}
 {{- end -}}
 
 

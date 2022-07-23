@@ -1,0 +1,47 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".page.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process and remove duplicated keywords from page metadata file */ -}}
+{{- if .Page.File -}}
+	{{- /* get Page directory path */ -}}
+	{{- $ret = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $ret = path.Clean $ret -}}
+
+
+	{{- /* source the page metadata file */ -}}
+	{{- if (partial "Hestia/functions/data/scan/FileExists" $ret) -}}
+		{{- $ret = readFile $ret -}}
+		{{- $ret = transform.Unmarshal $ret -}}
+
+
+		{{- $dataList = merge $dataList (dict "Pitch" $ret.Description.Pitch) -}}
+		{{- $dataList = merge $dataList (dict "Summary" $ret.Description.Summary) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* merge descriptions from front-matters */ -}}
+{{- if .Page.Description -}}
+	{{- $dataList = merge $dataList (dict "Detailed" .Page.Summary) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

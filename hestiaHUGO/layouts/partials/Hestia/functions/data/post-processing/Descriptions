@@ -1,0 +1,63 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $MAX_CHAR_PITCH  := 160 -}}
+{{- $MAX_CHAR_SUMMARY  := 250 -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+{{- $console := false -}}
+
+
+
+
+{{- /* run through each thumbnails */ -}}
+{{- range $k, $v := .Descriptions -}}
+	{{- /* process and built-in functions */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Query" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+
+
+	{{- /* clean up whitespace */ -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+
+
+	{{- /* replace new lines with space */ -}}
+	{{- $ret = replace $ret "\r\n" " " -}}
+	{{- $ret = replace $ret "\n" " " -}}
+
+
+	{{- /* count length and raise error if it is too long */ -}}
+	{{- if eq (lower $k) "pitch" -}}
+		{{- if gt (strings.RuneCount $ret) $MAX_CHAR_PITCH -}}
+			{{- $console = printf "'.Descriptions.Pitch' is longer than %d characters!\n" $MAX_CHAR_PITCH -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+	{{- else if eq (lower $k) "summary" -}}
+		{{- if gt (strings.RuneCount $ret) $MAX_CHAR_SUMMARY -}}
+			{{- $console = printf "'.Descriptions.Summary' is longer than %d characters!\n" $MAX_CHAR_SUMMARY -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- /* merge into dataList */ -}}
+	{{- $dataList = merge $dataList (dict $k $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge . (dict "Descriptions" $dataList) -}}
+{{- return $dataList -}}
