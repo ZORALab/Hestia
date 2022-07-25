@@ -1,50 +1,79 @@
-{{- $baseURL :=  strings.TrimSuffix "/" .Page.Site.BaseURL -}}
-{{- $baseURLPattern := "{{ .BaseURL }}" -}}
+{{- $data := partial "Hestia/functions/data/hugo/ParseRobotsTXT" . -}}
+{{- $data = partial "Hestia/functions/data/post-processing/RobotsTXT" $data -}}
 {{- $lines := slice -}}
+{{- $ret := false -}}
 
 
 
 
-{{- /* process each robot data file */ -}}
-{{- $isFirst := true -}}
-{{- range $agent, $rules := .Page.Site.Data.Hestia.robots -}}
-	{{- /* add new line if it is not the first */ -}}
-	{{- if not $isFirst -}}
-		{{- $lines = append "" $lines -}}
-	{{- end -}}
+{{- /* process .Sitemap */ -}}
+{{- range $i, $v := $data.Sitemaps -}}
+	{{- $lines = append (printf "Sitemap: %s" $v) $lines -}}
+{{- end -}}
+{{- $lines = append "" $lines -}}
 
 
-	{{- /* process User-Agent */ -}}
-	{{- if eq $agent "all" -}}{{- $agent = "*" -}}{{- end -}}
-	{{- $lines = append (printf "User-agent: %s" $agent) $lines -}}
 
 
-	{{- /* process rules */ -}}
-	{{- range $order, $rule := $rules -}}
-		{{- if eq $order "Sitemap" -}}
-			{{- $ret := replace $rule $baseURLPattern $baseURL -}}
-			{{- $ret = printf "%s: %s" $order $ret -}}
-			{{- $lines = append $ret $lines -}}
-		{{- else if eq $order "Allow" -}}
-			{{- range $value := $rule -}}
-				{{- $ret := replace $value $baseURLPattern $baseURL -}}
-				{{- $ret = printf "%s: %s" $order $ret -}}
-				{{- $lines = append $ret $lines -}}
-			{{- end -}}
-		{{- else if eq $order "Disallow" -}}
-			{{- range $value := $rule -}}
-				{{- $ret := replace $value $baseURLPattern $baseURL -}}
-				{{- $ret = printf "%s: %s" $order $ret -}}
-				{{- $lines = append $ret $lines -}}
-			{{- end -}}
-		{{- else if eq $order "Crawl-delay" -}}
-			{{- $ret := printf "%s: %d" $order $rule -}}
-			{{- $lines = append $ret $lines -}}
+{{- /* process user-agent 'All' (*) first */ -}}
+{{- range $i, $v := $data.List -}}
+	{{- if eq $v.Name "*" -}}
+		{{- $lines = append (printf "User-agent: %s" $v.Name) $lines -}}
+
+
+		{{- range $j, $x := $v.Allow -}}
+			{{- $lines = append (printf "Allow: %s" $x) $lines -}}
+		{{- end -}}
+
+
+		{{- range $j, $x := $v.Disallow -}}
+			{{- $lines = append (printf "Disallow: %s" $x) $lines -}}
+		{{- end -}}
+
+
+		{{- $ret = index $v "Crawl-delay" -}}
+		{{- if $ret -}}
+			{{- $lines = append (printf "Crawl-delay: %s" $ret) $lines -}}
 		{{- end -}}
 	{{- end -}}
+{{- end -}}
 
-	{{- /* update loop configurations */ -}}
-	{{- $isFirst = false -}}
+
+
+
+{{- /* process all other non user-agent 'All' (*) */ -}}
+{{- range $i, $v := $data.List -}}
+	{{- if eq $v.Name "*" -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* append new line for each user-agent */ -}}
+	{{- $lines = append "" $lines -}}
+
+
+	{{- $lines = append (printf "User-agent: %s" $v.Name) $lines -}}
+
+
+	{{- if $v.Sitemap -}}
+		{{- $lines = append (printf "Sitemap: %s" $v.Sitemap) $lines -}}
+	{{- end -}}
+
+
+	{{- range $j, $x := $v.Allow -}}
+		{{- $lines = append (printf "Allow: %s" $x) $lines -}}
+	{{- end -}}
+
+
+	{{- range $j, $x := $v.Disallow -}}
+		{{- $lines = append (printf "Disallow: %s" $x) $lines -}}
+	{{- end -}}
+
+
+	{{- $ret = index $v "Crawl-delay" -}}
+	{{- if $ret -}}
+		{{- $lines = append (printf "Crawl-delay: %s" $ret) $lines -}}
+	{{- end -}}
 {{- end -}}
 
 

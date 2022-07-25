@@ -1,0 +1,81 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = RobotsTXT Hestia Data Structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $baseURLPattern := "{{ .BaseURL }}" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $agent := dict -}}
+{{- $list := slice -}}
+{{- $value := slice -}}
+{{- $ret := false -}}
+{{- $baseURL :=  strings.TrimSuffix "/" .BaseURL -}}
+
+
+
+
+{{- /* process .Sitemaps */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := .Sitemaps -}}
+	{{- $ret = replace $v $baseURLPattern $baseURL -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Sitemaps" $list) -}}
+
+
+
+
+{{- /* process list */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := .List -}}
+	{{- $agent = dict -}}
+
+
+	{{- /* process .Name */ -}}
+	{{- $ret = replace $v.Name "All" "*" -}}
+	{{- $ret = replace $ret "all" "*" -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $agent = merge $agent (dict "Name" $ret) -}}
+
+
+	{{- /* process .Allow */ -}}
+	{{- $value = slice -}}
+	{{- range $k, $x := $v.Allow -}}
+		{{- $ret = replace $x $baseURLPattern $baseURL -}}
+		{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+		{{- $value = append $ret $value -}}
+	{{- end -}}
+	{{- $agent = merge $agent (dict "Allow" $value) -}}
+
+
+	{{- /* process .Disallow */ -}}
+	{{- $value = slice -}}
+	{{- range $k, $x := $v.Disallow -}}
+		{{- $ret = replace $x $baseURLPattern $baseURL -}}
+		{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+		{{- $value = append $ret $value -}}
+	{{- end -}}
+	{{- $agent = merge $agent (dict "Disallow" $value) -}}
+
+
+	{{- /* process ."Crawl-delay" */ -}}
+	{{- $ret = index $v "Crawl-delay" -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $agent = merge $agent (dict "Crawl-delay" $ret) -}}
+
+
+	{{- /* merge into $list */ -}}
+	{{- $list = append $agent $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "List" $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

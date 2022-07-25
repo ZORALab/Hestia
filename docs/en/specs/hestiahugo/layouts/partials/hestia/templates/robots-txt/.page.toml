@@ -1,0 +1,42 @@
+[Date]
+Created = "Mon 25 Jul 2022 10:49:08 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Mon 25 Jul 2022 10:49:08 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Robots.txt Templater - Hestia Internal Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Robots.txt",
+	"Templates",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+Consistent content robots.txt rendering with HestiaHUGO's
+'Hestia/templates/robots.txt' partial function.
+"""
+Summary = """
+Make consistent robots.txt file rendering with HestiaHUGO's
+'Hestia/templates/robots.txt' internal template partial function.
+"""
+
+
+
+
+[Redirect]
+Delay = "0" # second
+URL = ""

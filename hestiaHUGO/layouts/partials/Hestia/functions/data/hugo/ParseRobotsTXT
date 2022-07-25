@@ -1,0 +1,77 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := slice -}}
+{{- $data := dict -}}
+{{- $value := slice -}}
+{{- $maps := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source data from robots.txt files data source */ -}}
+{{- range $agent, $rules := .Page.Site.Data.Hestia.Robots -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process .Name */ -}}
+	{{- $data = dict "Name" $agent -}}
+
+
+	{{- /* process rules and orders */ -}}
+	{{- range $order, $rule := $rules -}}
+		{{- if eq (lower $order) "sitemap" -}}
+			{{- $value = slice -}}
+			{{- range $i, $v := $rule -}}
+				{{- $maps = merge $maps (dict $v true) -}}
+			{{- end -}}
+		{{- else if eq (lower $order) "allow" -}}
+			{{- $value = slice -}}
+			{{- range $i, $v := $rule -}}
+				{{- $value = append $v $value -}}
+			{{- end -}}
+
+			{{- $data = merge $data (dict "Allow" $value) -}}
+		{{- else if eq (lower $order) "disallow" -}}
+			{{- $value = slice -}}
+			{{- range $i, $v := $rule -}}
+				{{- $value = append $v $value -}}
+			{{- end -}}
+
+			{{- $data = merge $data (dict "Disallow" $value) -}}
+		{{- else if eq (lower $order) "crawl-delay" -}}
+			{{- $data = merge $data (dict "Crawl-delay" $rule) -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+{{- $dataList = dict "List" $dataList -}}
+
+
+
+
+{{- /* process sitemaps */ -}}
+{{- $data = slice -}}
+{{- range $k, $v := $maps -}}
+	{{- $data = append $k $data -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Sitemaps" $data) -}}
+
+
+
+
+{{- /* process .BaseURL */ -}}
+{{- $dataList = merge $dataList (dict "BaseURL" .Page.Site.BaseURL) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
