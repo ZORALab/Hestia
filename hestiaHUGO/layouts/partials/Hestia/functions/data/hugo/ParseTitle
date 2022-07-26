@@ -16,6 +16,7 @@
 
 
 {{- /* process Title.Page */ -}}
+{{- $ret = "" -}}
 {{- if .Page.File -}}
 	{{- /* get Page directory path */ -}}
 	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
@@ -26,7 +27,9 @@
 	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
 		{{- $data = readFile $data -}}
 		{{- $data = transform.Unmarshal $data -}}
-		{{- $ret = $data.Title.Value -}}
+		{{- if $data.Content -}}
+			{{- $ret = $data.Content.Title -}}
+		{{- end -}}
 	{{- end -}}
 {{- end -}}
 
