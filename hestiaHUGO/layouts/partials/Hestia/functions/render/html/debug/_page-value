@@ -1,0 +1,48 @@
+{{- /* . = Hestia Page data structure */ -}}
+
+
+
+
+{{- /* CONSTANTS */ -}}
+{{- $KEY := "DebugKey" -}}
+{{- $VALUE := "DebugValue" -}}
+
+
+
+{{- /* prepare variables */ -}}
+{{- $context := . -}}
+{{- $key := false -}}
+{{- $type := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- range $k, $v := .DebugValue -}}
+	{{- /* process necessary keys and values */ -}}
+	{{- if $context.DebugKey -}}
+		{{- $key = printf "%s.%v" $context.DebugKey $k -}}
+	{{- else -}}
+		{{- $key = printf ".%s" $k -}}
+	{{- end -}}
+
+
+	{{- /* process list by data type */ -}}
+	{{- $type = printf "%T" $v -}}
+	{{- if hasPrefix $type "map" -}}
+		{{- $ret = dict $KEY $key $VALUE $v -}}
+		{{- partial "Hestia/functions/render/html/debug/_page-value" $ret -}}
+	{{- else if hasPrefix $type "[]" -}}
+		{{- $ret = dict $KEY $key $VALUE $v -}}
+		{{- partial "Hestia/functions/render/html/debug/_page-value" $ret -}}
+	{{- else -}}
+		<tr>
+			<td>
+				<code>{{- $key -}}</code>
+			</td>
+			<td>
+				<code>{{- printf "%v" $v -}}</code>
+			</td>
+		</tr>
+	{{- end -}}
+{{- end -}}

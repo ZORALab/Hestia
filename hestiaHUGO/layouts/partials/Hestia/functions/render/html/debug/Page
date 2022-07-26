@@ -1,0 +1,24 @@
+{{- /* . = Hestia Page data structure */ -}}
+
+
+
+
+{{- /* prepare variables */ -}}
+{{- $ret := false -}}
+
+
+
+
+{{- if .IsServerMode -}}
+<aside id="hestia-debug-page">
+	<h2>Page Variables Debug Interface</h2>
+	<p>
+		HestiaHUGO's page variable debug interface to print-out all Page
+		runtime <code>key:value</code> data.
+	</p>
+	<table>
+		{{- $ret = dict "DebugKey" "" "DebugValue" . -}}
+		{{ partial "Hestia/functions/render/html/debug/_page-value" $ret -}}
+	</table>
+</aside>
+{{- end -}}

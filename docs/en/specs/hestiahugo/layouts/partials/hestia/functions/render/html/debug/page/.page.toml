@@ -1,0 +1,45 @@
+[Date]
+Created = "Tue 26 Jul 2022 12:04:00 PM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Tue 26 Jul 2022 12:04:00 PM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Render Page Data Debug Interface - HestiaHUGO's Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Page",
+	"Debug",
+	"HTML",
+	"Render",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+Uniformly render Page data HTML debug interface with HestiaHUGO's
+'html/debug/page'.
+"""
+Summary = """
+Renders Page data into HTML debug interface uniformly with HestiaHUGO's
+'html/debug/page' internal partial function.
+"""
+
+
+
+
+[Redirect]
+Delay = "0" # second
+URL = ""
