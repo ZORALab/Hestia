@@ -95,6 +95,13 @@
 
 
 
+{{- /* prepare Hestia .Page.Robots */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseRobots" . -}}
+{{- $dataList = merge $dataList (dict "Robots" $ret) -}}
+
+
+
+
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Titles" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Descriptions" $dataList -}}
@@ -102,6 +109,7 @@
 {{- $dataList = partial "Hestia/functions/data/post-processing/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Creators" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Components" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/Robots" $dataList -}}
 
 
 

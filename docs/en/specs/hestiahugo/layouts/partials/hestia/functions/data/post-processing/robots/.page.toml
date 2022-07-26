@@ -1,0 +1,43 @@
+[Date]
+Created = "Tue 26 Jul 2022 09:11:23 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Tue 26 Jul 2022 09:11:23 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Post-Processing Robots - Hestia Internal Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Robots",
+	"Post-Processing",
+	"Data",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+Post-process Robots with HestiaHUGO's 'data/post-processing/Robots'.
+"""
+Summary = """
+Post-process Hestia Robots data structure ready for use with HestiaHUGO's
+'data/post-processing/Robots' internal partial function.
+"""
+
+
+
+
+[Redirect]
+Delay = "0" # second
+URL = ""

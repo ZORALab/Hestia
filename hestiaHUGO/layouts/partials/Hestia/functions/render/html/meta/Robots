@@ -1,0 +1,10 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */ -}}
+{{- range $i, $v := .Robots }}
+<meta name="{{- safeHTML $v.Name -}}" content="{{- safeHTML $v.Content -}}">
+{{ end -}}

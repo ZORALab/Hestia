@@ -1,0 +1,44 @@
+[Date]
+Created = "Tue 26 Jul 2022 09:42:14 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Tue 26 Jul 2022 09:42:14 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Robots Meta - Hestia Internal Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Robots",
+	"Meta",
+	"HTML",
+	"Render",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+Uniformly render HTML robots meta tag with HestiaHUGO's 'html/meta/robots'.
+"""
+Summary = """
+Renders HTML robots meta tag uniformly with HestiaHUGO's 'html/meta/robots'
+internal partial function.
+"""
+
+
+
+
+[Redirect]
+Delay = "0" # second
+URL = ""

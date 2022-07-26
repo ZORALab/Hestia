@@ -1,0 +1,44 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := slice -}}
+{{- $bot := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process list of robots */ -}}
+{{- range $i, $v := .Robots -}}
+	{{- $bot = dict -}}
+
+
+	{{- /* process .Name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Name)) -}}
+	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $bot = merge $bot (dict "Name" $ret) -}}
+
+
+	{{- /* process .Content */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Content)) -}}
+	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $bot = merge $bot (dict "Content" $ret) -}}
+
+
+	{{- /* append to list */ -}}
+	{{- $dataList = append $bot $dataList -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge . (dict "Robots" $dataList) -}}
+{{- return $dataList -}}

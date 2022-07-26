@@ -1,0 +1,53 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".robots.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $context := . -}}
+{{- $dataList := slice -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source data from file */ -}}
+{{- if .Page.File -}}
+	{{- /* get Page directory path */ -}}
+	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $data = path.Clean $data -}}
+
+
+
+
+	{{- /* source the thumbnail file */ -}}
+	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
+		{{- $data = readFile $data -}}
+		{{- $data = transform.Unmarshal $data -}}
+		{{- range $i, $v := $data.Meta -}}
+			{{- if and $v.Name $v.Content -}}
+				{{- /* process .Name */ -}}
+				{{- $ret = dict "Name" $v.Name -}}
+
+
+				{{- /* process .Content */ -}}
+				{{- $ret = merge $ret (dict "Content" $v.Content) -}}
+
+
+				{{- /* merge into $list */ -}}
+				{{- $dataList = append $dataList (slice $ret) -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
