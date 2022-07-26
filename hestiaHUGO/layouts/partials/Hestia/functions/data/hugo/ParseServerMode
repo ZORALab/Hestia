@@ -1,0 +1,20 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* process .IsServer */ -}}
+{{- $dataList = .Site.IsServer -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
