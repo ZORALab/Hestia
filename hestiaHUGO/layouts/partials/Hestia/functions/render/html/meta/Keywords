@@ -5,6 +5,6 @@
 
 
 {{- /* return render */ -}}
-{{- if .Keywords -}}
-	<meta name="keywords" content="{{- delimit .Keywords ", " -}}">
+{{- if .Keywords }}
+	<meta name="keywords" content="{{- delimit .Keywords ", " -}}" />
 {{- end -}}

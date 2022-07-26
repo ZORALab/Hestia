@@ -5,4 +5,5 @@
 
 
 {{- /* return render */ -}}
-<title>{{- safeHTML .Titles.Page -}}</title>
+{{/* */}}	<title>{{- safeHTML .Titles.Page -}}</title>
+{{- /* clean up */ -}}
