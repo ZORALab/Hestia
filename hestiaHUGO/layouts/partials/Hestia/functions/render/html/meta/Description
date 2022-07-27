@@ -4,6 +4,6 @@
 
 
 
-{{- /* return render */ -}}
-{{/* */}}	<meta name="description" content="{{- safeHTML .Descriptions.Pitch -}}" />
+{{- /* return render */}}
+	<meta name="description" content="{{- safeHTML .Descriptions.Pitch -}}" />
 {{- /* clean up */ -}}

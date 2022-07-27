@@ -4,6 +4,6 @@
 
 
 
-{{- /* return render */ -}}
-{{/* */}}	<title>{{- safeHTML .Titles.Page -}}</title>
+{{- /* return render */}}
+	<title>{{- safeHTML .Titles.Page -}}</title>
 {{- /* clean up */ -}}

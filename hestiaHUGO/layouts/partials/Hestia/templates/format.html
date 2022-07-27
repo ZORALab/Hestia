@@ -2,13 +2,18 @@
 
 <html {{ $Page.Languages.Current.Code }}>
 <head>
-{{/* */}}
 	{{- partial "Hestia/functions/render/html/meta/Title" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/Thumbnails" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Description" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Title" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Site-Name" $Page -}}
 	{{- partial "Hestia/functions/render/html/meta/Keywords" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Locale" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Locale-Alternate" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/Description" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Description" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Thumbnails" $Page -}}
 	{{- partial "Hestia/functions/render/html/meta/Robots" $Page -}}
-{{/* */}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/URL" $Page -}}
+{{/* Prevent new line clean up */}}
 </head>
 <body>
 	<main>
