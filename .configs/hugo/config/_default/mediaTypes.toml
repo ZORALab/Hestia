@@ -1,2 +1,5 @@
 ["text/amphtml"]
 suffixes = [ "amp.html" ]
+
+["application/json"]
+suffixes = [ "json" ]

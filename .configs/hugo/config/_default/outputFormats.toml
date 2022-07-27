@@ -1,6 +1,37 @@
 [HTML]
+name = "HTML"
+mediaType = "text/html"
+baseName = "index"
 rel="canonical"
+protocol = ""
+path = ""
+isPlainText = false
+isHTML = true
+noUgly = false
+permalinkable = true
+
 
 [AMP]
+name = "AMP"
 mediaType = "text/amphtml"
+baseName = "index"
+rel="canonical"
+protocol = ""
 path = ""
+isPlainText = false
+isHTML = true
+noUgly = false
+permalinkable = true
+
+
+[JSON]
+name = "JSON"
+mediaType = "application/json"
+baseName = "index"
+rel = "alternate"
+protocol = ""
+path = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = true

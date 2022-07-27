@@ -1,0 +1,6 @@
+{{- $Page := partial "Hestia/functions/data/Page" . -}}
+
+{
+	"Title": "{{- $Page.Titles.Page -}}",
+	"Site": "{{- $Page.Titles.Site -}}"
+}
