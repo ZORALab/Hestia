@@ -1,0 +1,9 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+	<meta property="og:description" content="{{- safeHTML .Descriptions.Pitch -}}" />
+{{- /* clean up */ -}}
