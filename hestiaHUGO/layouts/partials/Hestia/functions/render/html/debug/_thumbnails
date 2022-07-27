@@ -9,9 +9,8 @@
 
 
 
-{{- if .IsServerMode -}}
-<aside id="hestia-debug-thumbnails">
-	<h2>Thumbnails</h2>
+<div id="hestia-debug-thumbnails">
+	<h3>Thumbnails</h3>
 	<p>
 		HestiaHUGO's thumbnails debug rendering interface.
 	</p>
@@ -72,5 +71,4 @@
 	</table>
 	<br/>
 	{{- end -}}
-</aside>
-{{- end -}}
+</div>
