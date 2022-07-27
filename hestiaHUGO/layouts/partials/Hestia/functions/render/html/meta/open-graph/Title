@@ -1,0 +1,9 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+	<meta property="og:title" content="{{- safeHTML .Titles.Page -}}" />
+{{- /* clean up */ -}}
