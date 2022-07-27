@@ -1,0 +1,126 @@
++++
+draft = false
+layout = "single"
++++
+
+<section id="introduction">
+	<h1>{{% param "title" %}}</h1>
+	<p>
+		{{%/* param "description" */%}}
+	</p>
+</section>
+
+
+
+
+<section id="objective-and-purposes">
+	<h2>Objective and Purposes</h2>
+	<p>
+		The primary objective is to make <code>.Thumbnails</code>
+		variables data easily accessible to content creators for visual
+		debugging.
+		<br/><br/>
+		This debug interface only appears when Hugo is opreating as
+		server mode (e.g. <code>$ hugo server</code>) for content
+		development.
+	</p>
+</section>
+
+
+
+
+<section id="how-it-works">
+	<h2>How It Works</h2>
+	<p>
+		By default, this function renders the entire
+		<code>.Thumbnails</code> variables into
+		a table of <code>key:value</code> list, allowing one to check
+		all the rendered thumbnails data.
+	</p>
+
+
+	<section id="input">
+		<h3>Input</h3>
+		<p>
+			This partial function accepts the following inputs:
+			<ul>
+				<li><p>
+					<b><code>.</b></code> - required
+					Hestia Page data structure.
+				</p></li>
+			</ul>
+		</p>
+	</section>
+
+
+	<section id="algorithm">
+		<h3>Working Algorithm</h3>
+		<p>
+			This partial function works in the following manner:
+			<ol>
+				<li><p>
+					When <code>.IsServerMode</code> value is
+					<code>true</code>, render the entire
+					<code>.Thumbnails</code> page into a
+					list of <code>KEY:Value</code> table.
+				</p></li>
+			</ol>
+		</p>
+	</section>
+
+
+	<section id="output">
+		<h3>Output</h3>
+		<p>
+			This function returns all the following possible
+			outputs:
+		</p>
+		<ul>
+			<li><p>
+				<code>OK</code> - The page variable is rendered.
+			</p></li>
+		</ul>
+	</section>
+
+
+	<section id="known-issues">
+		<h3>Known Issues</h3>
+		<p>
+			Here are some of the known issues.
+		</p>
+		<ul>
+			<li><p>
+				None identified.
+			</p></li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section id="usage">
+	<h2>Usage</h2>
+	<p>
+		To use this partial function, Assuming the Page context is a
+		processed Hestia data structure, here is an example for
+		rendering the HTML meta title:
+	</p>
+{{% highlight html "linenos=table,hl_lines=,linenostart=1" %}}
+{{- $Page := . -}}
+
+{{- partial "Hestia/functions/render/html/debug/Thumbnails" $Page -}}
+</head>
+...
+{{% /highlight %}}
+</section>
+
+
+
+
+<section id="epilogue">
+	<h2>Epilogue</h2>
+	<p>
+		That's all for {{% param "title" %}}.
+	</p>
+</section>

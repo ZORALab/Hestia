@@ -1,0 +1,76 @@
+{{- /* . = Hestia Page data structure */ -}}
+
+
+
+
+{{- /* prepare variables */ -}}
+{{- $ret := false -}}
+
+
+
+
+{{- if .IsServerMode -}}
+<aside id="hestia-debug-thumbnails">
+	<h2>Thumbnails</h2>
+	<p>
+		HestiaHUGO's thumbnails debug rendering interface.
+	</p>
+	{{- range $i, $v := .Thumbnails -}}
+	<table>
+		<tr>
+			<td>
+				URL
+			</td>
+			<td>
+				<p><code>{{- $v.URL -}}</code></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Alternate Text
+			</td>
+			<td>
+				<p><code>{{- $v.AltText -}}</code></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Height
+			</td>
+			<td>
+				<p><code>{{- $v.Height -}}</code></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Width
+			</td>
+			<td>
+				<p><code>{{- $v.Width -}}</code></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Render as:
+			</td>
+			<td>
+				{{- if eq $v.Media "image" -}}
+				<img src="{{- $v.URL -}}" />
+				{{- else if eq $v.Media "video" -}}
+				<video controls>
+					<source src="{{- $v.URL -}}" type ="{{- $v.Type -}}">
+					Video not supported in your browser.
+				</video>
+				{{- else if eq $v.Media "audio" -}}
+				<audio controls>
+					<source src="{{- $v.URL -}}" type ="{{- $v.Type -}}">
+					Audio not supported in your browser.
+				</audio>
+				{{- end -}}
+			</td>
+		</tr>
+	</table>
+	<br/>
+	{{- end -}}
+</aside>
+{{- end -}}
