@@ -1,0 +1,9 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+	<meta property="og:locale" content="{{- safeHTML .Languages.Current.Code -}}" />
+{{- /* clean up */ -}}

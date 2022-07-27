@@ -1,0 +1,127 @@
++++
+draft = false
+layout = "single"
++++
+
+<section id="introduction">
+	<h1>{{% param "title" %}}</h1>
+	<p>
+		{{%/* param "description" */%}}
+	</p>
+</section>
+
+
+
+
+<section id="objective-and-purposes">
+	<h2>Objective and Purposes</h2>
+	<p>
+		The primary objective is to systematically and uniformly renders
+		the <a href="https://ogp.me/">Open Graph Protocol's</a>
+		Locale implementations according to a given pattern.
+		<br/><br/>
+		This is primarily used for HTML codes in
+		<code>&#60;head&#62;</code> section.
+	</p>
+</section>
+
+
+
+
+<section id="how-it-works">
+	<h2>How It Works</h2>
+	<p>
+		By default, this function renders the
+		<code>.Languages.Current.Code</code> into HTML
+		<code>&#60;meta property="og:locale"
+		content="..."&#62;</code> code.
+	</p>
+
+
+	<section id="input">
+		<h3>Input</h3>
+		<p>
+			This partial function accepts the following inputs:
+			<ul>
+				<li><p>
+					<b><code>.</b></code> - required
+					Hestia Page data structure.
+				</p></li>
+			</ul>
+		</p>
+	</section>
+
+
+	<section id="algorithm">
+		<h3>Working Algorithm</h3>
+		<p>
+			This partial function works in the following manner:
+			<ol>
+				<li><p>
+					Render the
+					<code>.Languages.Current.Code</code>
+					into Open Graph HTML format.
+				</p></li>
+			</ol>
+		</p>
+	</section>
+
+
+	<section id="output">
+		<h3>Output</h3>
+		<p>
+			This function returns all the following possible
+			outputs:
+		</p>
+		<ul>
+			<li><p>
+				<code>OK</code> - Open Graph HTML code rendered
+				with values.
+			</p></li>
+		</ul>
+	</section>
+
+
+	<section id="known-issues">
+		<h3>Known Issues</h3>
+		<p>
+			Here are some of the known issues.
+		</p>
+		<ul>
+			<li><p>
+				None identified.
+			</p></li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section id="usage">
+	<h2>Usage</h2>
+	<p>
+		To use this partial function, Assuming the Page context is a
+		processed Hestia data structure, here is an example for
+		rendering the HTML meta code:
+	</p>
+{{% highlight html "linenos=table,hl_lines=,linenostart=1" %}}
+{{- $Page := . -}}
+...
+<head>
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Locale" $Page -}}
+	...
+</head>
+...
+{{% /highlight %}}
+</section>
+
+
+
+
+<section id="epilogue">
+	<h2>Epilogue</h2>
+	<p>
+		That's all for {{% param "title" %}}.
+	</p>
+</section>
