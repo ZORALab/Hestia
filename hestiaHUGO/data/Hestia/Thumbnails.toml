@@ -1,5 +1,5 @@
 [[Thumbnails]]
-URL = "/thumbnails/default-1200x628.png"
+URL = "/thumbnails/thumbnail-1200x628.png"
 Media = "image"
 Type = "image/png"
 Width = "1200"
@@ -8,7 +8,7 @@ AltText = "{{- .Titles.Site -}}"
 
 
 [[Thumbnails]]
-URL = "/thumbnails/default-1200x1200.png"
+URL = "/thumbnails/thumbnail-1200x1200.png"
 Media = "image"
 Type = "image/png"
 Width = "1200"
@@ -17,7 +17,7 @@ AltText = "{{- .Titles.Site -}}"
 
 
 [[Thumbnails]]
-URL = "/thumbnails/default-480x480.png"
+URL = "/thumbnails/thumbnail-480x480.png"
 Media = "image"
 Type = "image/png"
 Width = "480"
