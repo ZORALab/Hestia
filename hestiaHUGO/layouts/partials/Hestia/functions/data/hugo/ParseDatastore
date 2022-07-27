@@ -23,11 +23,5 @@
 
 
 
-{{- /* process .Data.Hestia */ -}}
-{{- $dataList = merge $dataList (dict "Hestia" .Site.Data.Hestia) -}}
-
-
-
-
 {{- /* render output */ -}}
 {{- return $dataList -}}

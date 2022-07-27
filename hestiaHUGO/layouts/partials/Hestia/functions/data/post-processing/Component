@@ -17,7 +17,7 @@
 
 
 {{- /* get Hestia UI component internally */ -}}
-{{- $data = index .Data.Hestia.Internal.Components .Input.Name -}}
+{{- $data = index .Data.Store.Hestia.Internal.Components .Input.Name -}}
 {{- if $data -}}
 	{{- /* process .CSS part */ -}}
 	{{- $part = dict -}}
