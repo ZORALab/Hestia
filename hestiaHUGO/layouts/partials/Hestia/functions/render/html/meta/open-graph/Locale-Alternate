@@ -1,0 +1,23 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare variables for work */ -}}
+{{- $Page := . -}}
+
+
+
+
+{{- /* return render */ -}}
+{{- range $k, $v := .Languages.List -}}
+
+
+	{{- if not (eq $v.Code $Page.Languages.Current.Code) }}
+	<meta property="og:locale:alternate" content="{{- safeHTML $v.Code -}}" />
+	{{- end -}}
+
+
+{{- end -}}
+{{- /* clean up */ -}}
