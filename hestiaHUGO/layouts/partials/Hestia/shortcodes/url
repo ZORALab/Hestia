@@ -114,18 +114,35 @@
 	{{- end -}}
 
 
-	{{- /* PART III - JOINING QUERY PATHING */ -}}
+	{{- /* PART III - JOINING PATHING */ -}}
 	{{- $ret = false -}}
 	{{- if .Input.Format -}}
-		{{- $ret = index .Format.All .Input.Format -}}
-		{{- if $ret -}}
-			{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
+		{{- /* determine the base name is replacable */ -}}
+		{{- $ret = "" -}}
+		{{- if path.Ext $query.Path -}}
+			{{- $ret = path.Base $query.Path -}}
+			{{- range $k, $v := .Format.All -}}
+				{{- if eq (printf "%s%s" $v.Filename $v.Extension) $ret -}}
+					{{- $ret = "" -}}
+				{{- end -}}
+			{{- end -}}
 		{{- end -}}
+
+
+		{{- if not $ret -}}
+			{{- $ret = index .Format.All .Input.Format.Type -}}
+			{{- if $ret -}}
+				{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
+			{{- end -}}
+		{{- end -}}
+
 
 		{{- if and $ret (path.Ext $query.Path) -}}
 			{{- $ret = path.Join (path.Dir $query.Path) $ret -}}
-		{{- else -}}
+		{{- else if and $ret (not (path.Ext $query.Path)) -}}
 			{{- $ret = path.Join $query.Path $ret -}}
+		{{- else -}}
+			{{- $ret = $query.Path -}}
 		{{- end -}}
 	{{- else if $query.Path -}}
 		{{- $ret = $query.Path -}}
