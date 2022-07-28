@@ -23,7 +23,7 @@
 	{{- $data = path.Clean $data -}}
 
 
-	{{- /* source the thumbnail file */ -}}
+	{{- /* source the data file */ -}}
 	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
 		{{- $data = readFile $data -}}
 		{{- $data = transform.Unmarshal $data -}}

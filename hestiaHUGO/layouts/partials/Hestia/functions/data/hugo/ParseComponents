@@ -41,7 +41,7 @@
 	{{- $data = path.Clean $data -}}
 
 
-	{{- /* source the component file at page level */ -}}
+	{{- /* source the data file */ -}}
 	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
 		{{- $data = transform.Unmarshal (readFile $data) -}}
 		{{- range $k, $v := $data -}}

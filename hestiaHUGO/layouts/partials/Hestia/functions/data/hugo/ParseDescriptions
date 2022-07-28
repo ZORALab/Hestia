@@ -21,7 +21,7 @@
 	{{- $ret = path.Clean $ret -}}
 
 
-	{{- /* source the page metadata file */ -}}
+	{{- /* source the data file */ -}}
 	{{- if (partial "Hestia/functions/data/scan/FileExists" $ret) -}}
 		{{- $ret = readFile $ret -}}
 		{{- $ret = transform.Unmarshal $ret -}}
