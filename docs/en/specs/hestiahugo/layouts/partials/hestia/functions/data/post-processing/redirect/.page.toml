@@ -1,0 +1,44 @@
+[Date]
+Created = "Thu 28 Jul 2022 08:56:41 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Thu 28 Jul 2022 08:56:41 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Post-Processing Redirect - Hestia Internal Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Redirect",
+	"Post-Processing",
+	"Data",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+Post-process Redirect with HestiaHUGO's 'data/post-processing/Redirect'.
+"""
+Summary = """
+Post-process Hestia Redirect data structure ready for use with HestiaHUGO's
+'data/post-processing/Redirect' internal partial function.
+"""
+
+
+
+
+[Redirect]
+URL = ""
+Delay = 0 # second
+Enabled = false

@@ -1,0 +1,45 @@
+[Date]
+Created = "Thu 28 Jul 2022 11:02:23 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Thu 28 Jul 2022 11:02:23 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Render HTML Meta Redirect - HestiaHUGO's Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Redirect",
+	"Meta",
+	"HTML",
+	"Render",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+Uniformly render HTML redirect with HestiaHUGO's 'html/meta/Redirect'.
+"""
+Summary = """
+Renders HTML Redirect uniformly with HestiaHUGO's 'html/meta/Redirect' internal
+partial function.
+"""
+
+
+
+
+[Redirect]
+URL = ""
+Delay = 0 # second
+Enabled = false

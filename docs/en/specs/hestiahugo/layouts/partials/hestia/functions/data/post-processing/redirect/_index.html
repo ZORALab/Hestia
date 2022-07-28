@@ -1,0 +1,160 @@
++++
+draft = false
+layout = "single"
++++
+
+<section id="introduction">
+	<h1>{{% param "title" %}}</h1>
+	<p>
+		{{%/* param "description" */%}}
+	</p>
+</section>
+
+
+
+
+<section id="objective-and-purposes">
+	<h2>Objective and Purposes</h2>
+	<p>
+		The primary objective is to process all Hestia's Page
+		Redirect data into its final form, ready for use.
+	</p>
+</section>
+
+
+
+
+<section id="how-it-works">
+	<h2>How It Works</h2>
+	<p>
+		By default, the algorithm runs through each element of the
+		<code>.Redirect</code> data. It first processes the
+		<code>.Redirect.URL</code> with <a href="{{< Hestia/url
+		URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+		Lang="en"
+		/>}}">Hestia URL Partial Shortcode</a>. It then processes the
+		<code>.Redirect.Delay</code> data and
+		<code>.Redirect.Enabled</code> for type checking and their
+		value's checking. Once done, the algorithm determines the
+		enabling is valid and shall append the necessary page robots
+		data accordingly. Otherwise, by default, regardless of any
+		error occured, the redirect shall always be disabled.
+	</p>
+
+
+	<section id="input">
+		<h3>Input</h3>
+		<p>
+			This partial function accepts the following inputs:
+			<ul>
+				<li><p>
+					<b><code>.</b></code> - required Hestia
+					data structure.
+				</p></li>
+			</ul>
+		</p>
+	</section>
+
+
+	<section id="algorithm">
+		<h3>Working Algorithm</h3>
+		<p>
+			This partial function works in the following manner:
+			<ol>
+				<li><p>
+					Process the <code>.Redirect.URL</code>
+					with <a href="{{< Hestia/url
+					URL="/specs/hestiahugo/layouts/partials/hestia/shortcodes/url"
+					Lang="en" />}}">Hestia URL</a> Partial
+					Shortcode.
+				</p></li>
+				<li><p>
+					Process the <code>.Redirect.Delay</code>
+					against its <code>int*</code> type and
+					its value validity.
+				</p></li>
+				<li><p>
+					Process the
+					<code>.Redirect.Enabled</code> data.
+				</p></li>
+				<li><p>
+					Process the necessary configurations
+					(e.g. adding
+					<code>robots:noindex</code> data field)
+					when <code>.Redirect.Enabled</code> is
+					<code>true</code>.
+				</p></li>
+			</ol>
+		</p>
+	</section>
+
+
+	<section id="output">
+		<h3>Output</h3>
+		<p>
+			This function returns all the following possible
+			outputs:
+		</p>
+		<ul>
+			<li><p>
+				<code>OK</code> - The redirect data structure
+				has been successfully processed.
+			</p></li>
+			<li><p>
+				<code>ERROR - invalid delay data type</code> -
+				The given <code>.Redirect.Delay</code> is not
+				a number. Remove quotation if you're providing
+				it as a string.
+			</p></li>
+			<li><p>
+				<code>ERROR - bad/invalid url</code> -
+				The given <code>.Redirect.URL</code> is has
+				bad or invalid.
+			</p></li>
+			<li><p>
+				<code>ERROR - enabled but missing URL</code> -
+				The <code>.Redirect.Enabled</code> is set to
+				enabled but the given <code>.Redirect.URL</code>
+				is missing.
+			</p></li>
+		</ul>
+	</section>
+
+
+	<section id="known-issues">
+		<h3>Known Issues</h3>
+		<p>
+			Here are some of the known issues:
+		</p>
+		<ul>
+			<li><p>
+				None identified.
+			</p></li>
+		</ul>
+	</section>
+</section>
+
+
+
+
+<section id="usage">
+	<h2>Usage</h2>
+	<p>
+		To use such partial function, assuming the page context is a
+		processed Hestia data structure, here is an example:
+	</p>
+{{% highlight html "linenos=table,hl_lines=,linenostart=1" %}}
+{{- $Page := . -}}
+{{- $Page = partial "Hestia/functions/data/post-processing/Redirect" $Page -}}
+{{% /highlight %}}
+</section>
+
+
+
+
+<section id="epilogue">
+	<h2>Epilogue</h2>
+	<p>
+		That's all for {{% param "title" %}}.
+	</p>
+</section>

@@ -45,5 +45,6 @@ specification intended for future maintenances and development usage.
 
 
 [Redirect]
-Delay = "0" # second
 URL = ""
+Delay = 0 # second
+Enabled = false

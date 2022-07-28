@@ -1,0 +1,52 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".page.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process default values */ -}}
+{{- $dataList = dict "Delay" 0 "URL" "" "Enabled" false -}}
+
+
+
+
+{{- /* process .Redirect */ -}}
+{{- if .Page.File -}}
+	{{- /* get Page directory path */ -}}
+	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $data = path.Clean $data -}}
+
+
+	{{- /* source the data file */ -}}
+	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
+		{{- $data = readFile $data -}}
+		{{- $data = transform.Unmarshal $data -}}
+		{{- if $data.Content -}}
+			{{- $ret = $data.Redirect.Delay -}}
+			{{- $dataList = merge $dataList (dict "Delay" $ret) -}}
+
+			{{- $ret = $data.Redirect.URL -}}
+			{{- $dataList = merge $dataList (dict "URL" $ret) -}}
+
+			{{- $ret = $data.Redirect.Enabled -}}
+			{{- $dataList = merge $dataList (dict "Enabled" $ret) -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

@@ -1,0 +1,76 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process destination URL */ -}}
+{{- $ret = default "" .Redirect.URL -}}
+{{- if $ret -}}
+	{{- $ret = dict "Input" (dict "URL" $ret "Format" .Format.Current) -}}
+	{{- $ret = merge . $ret -}}
+	{{- $ret = partial "Hestia/shortcodes/url" $ret -}}
+	{{- $dataList = merge $dataList (dict "URL" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* process delay */ -}}
+{{- $ret = printf "%T" .Redirect.Delay -}}
+{{- if not (or (hasPrefix $ret "int") (hasPrefix $ret "float")) -}}
+	{{- $ret = printf ".Redirect.Delay is not a number: %#v\n" .Redirect.Delay -}}
+	{{- $ret = dict "Console" (dict "Message" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- partial "Hestia/functions/console/Errorf" $ret -}}
+	{{- $ret = 0 -}}
+{{- else -}}
+	{{- $ret = .Redirect.Delay -}}
+{{- end -}}
+
+
+{{- if lt $ret 0 -}}
+	{{- $ret = 0 -}}
+{{- end -}}
+
+
+{{- $dataList = merge $dataList (dict "Delay" $ret) -}}
+
+
+
+
+{{- /* process enabled flag */ -}}
+{{- $dataList = merge $dataList (dict "Enabled" false) -}}
+{{- if and .Redirect.Enabled $dataList.URL -}}
+	{{- $dataList = merge $dataList (dict "Enabled" true) -}}
+{{- else if and .Redirect.Enabled (not $dataList.URL) -}}
+	{{- $ret = printf "Redirect enabled with missing URL\n" -}}
+	{{- $ret = dict "Console" (dict "Message" $ret) -}}
+	{{- $ret = merge . $ret -}}
+	{{- partial "Hestia/functions/console/Errorf" $ret -}}
+{{- end -}}
+
+
+
+
+{{- /* assemble necessary data */ -}}
+{{- $dataList = merge . (dict "Redirect" $dataList) -}}
+{{- if $dataList.Redirect.Enabled -}}
+	{{- $ret = dict "Name" "robots" "Content" "noindex" -}}
+	{{- $ret = append $ret $dataList.Robots -}}
+	{{- $dataList = merge $dataList (dict "Robots" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

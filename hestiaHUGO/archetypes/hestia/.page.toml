@@ -27,5 +27,6 @@ Elaborate based on your pitch. Keep it short for SEO.
 
 
 [Redirect]
-Delay = "0" # second
+Delay = 0 # second
 URL = ""
+Enabled = false

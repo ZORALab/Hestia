@@ -109,6 +109,13 @@
 
 
 
+{{- /* prepare Hestia .Page.Redirect */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseRedirect" . -}}
+{{- $dataList = merge $dataList (dict "Redirect" $ret) -}}
+
+
+
+
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Titles" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Descriptions" $dataList -}}
@@ -117,6 +124,7 @@
 {{- $dataList = partial "Hestia/functions/data/post-processing/Creators" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Components" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Robots" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/Redirect" $dataList -}}
 
 
 

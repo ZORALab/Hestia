@@ -1,0 +1,10 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */ -}}
+{{- if .Redirect.Enabled }}
+	<meta http-equiv="refresh" content="{{- .Redirect.Delay -}}; url={{- .Redirect.URL -}}" />
+{{- end -}}
