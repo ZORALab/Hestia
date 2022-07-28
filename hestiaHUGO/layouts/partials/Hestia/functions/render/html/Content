@@ -1,0 +1,17 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+	<main>
+	{{- if .Redirect.Enabled }}
+		{{- partial "Hestia/functions/render/html/_content-redirect" . -}}
+	{{- else if .Is404 }}
+		{{- partial "Hestia/functions/render/html/_content-404" . -}}
+	{{- else }}
+		{{- .Content.Rendered -}}
+	{{- end }}
+	</main>
+{{- /* clean up */ -}}

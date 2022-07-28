@@ -1,0 +1,15 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+	<main>
+		<h2>Redirecting to {{ .Redirect.URL -}}</h2>
+		<p>
+			You are currently being redirected to the designated new
+			location. Please stand-by...
+		</p>
+	</main>
+{{- /* clean up */ -}}

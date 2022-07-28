@@ -17,9 +17,8 @@
 	{{- /* Prevent new line clean up */}}
 </head>
 <body>
-	<main>
-		{{- $Page.Content.Rendered -}}
-	</main>
+	{{- partial "Hestia/functions/render/html/Content" $Page -}}
 	{{- partial "Hestia/functions/render/html/debug/Init" $Page -}}
+	{{- /* Prevent new line clean up */}}
 </body>
 </html>

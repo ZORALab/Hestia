@@ -1,0 +1,15 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+	<h2>404 Not Found.</h2>
+	<p>
+		Sorry, can't find what you're looking for! Head back?
+	<a href="{{- .URL.Base -}}">
+		Head back?
+	</a>
+	</p>
+{{- /* clean up */ -}}
