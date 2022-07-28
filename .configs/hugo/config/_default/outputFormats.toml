@@ -14,7 +14,7 @@ permalinkable = true
 [AMP]
 name = "AMP"
 mediaType = "text/amphtml"
-baseName = "format"
+baseName = "index"
 rel="canonical"
 protocol = ""
 path = ""
@@ -27,7 +27,7 @@ permalinkable = true
 [JSON]
 name = "JSON"
 mediaType = "application/json"
-baseName = "format"
+baseName = "index"
 rel = "alternate"
 protocol = ""
 path = ""
