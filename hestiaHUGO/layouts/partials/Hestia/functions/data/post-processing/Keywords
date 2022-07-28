@@ -12,7 +12,7 @@
 
 
 
-{{- /* run through each thumbnails */ -}}
+{{- /* run through each .Keyword */ -}}
 {{- range $i, $v := .Keywords -}}
 	{{- /* process and built-in functions */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Query" $v)) -}}

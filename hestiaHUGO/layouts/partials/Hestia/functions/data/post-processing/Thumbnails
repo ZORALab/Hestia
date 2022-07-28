@@ -12,7 +12,7 @@
 
 
 
-{{- /* run through each thumbnails */ -}}
+{{- /* run through each .Thumbnail */ -}}
 {{- range $i, $v := .Thumbnails -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
 	{{- $ret = partial "Hestia/functions/data/post-processing/Thumbnail" $ret -}}

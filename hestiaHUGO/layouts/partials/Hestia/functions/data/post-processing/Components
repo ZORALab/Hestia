@@ -12,7 +12,7 @@
 
 
 
-{{- /* run through each creator in .Creators.All */ -}}
+{{- /* run through each .Component */ -}}
 {{- range $k, $v := .Components -}}
 	{{- $ret = merge $v (dict "Name" $k) -}}
 	{{- $ret = merge $Page (dict "Input" $ret) -}}
