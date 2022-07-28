@@ -3,14 +3,14 @@
 
 
 
-{{- if .IsServerMode -}}
-<aside id="hestia-debug-console">
-	<h2>Hestia Debug Interface</h2>
-	<p>
-		All HestiaHUGO debug interfaces in one place.
-	</p>
+{{- if .IsServerMode }}
+	<aside id="hestia-debug-console">
+		<h2>Hestia Debug Interface</h2>
+		<p>
+			All HestiaHUGO debug interfaces in one place.
+		</p>
 
-	{{- partial "Hestia/functions/render/html/debug/_page" . -}}
-	{{- partial "Hestia/functions/render/html/debug/_thumbnails" . -}}
-</aside>
+		{{- partial "Hestia/functions/render/html/debug/_page" . -}}
+		{{- partial "Hestia/functions/render/html/debug/_thumbnails" . -}}
+	</aside>
 {{- end -}}
