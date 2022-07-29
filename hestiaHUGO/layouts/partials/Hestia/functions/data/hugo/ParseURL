@@ -83,7 +83,7 @@
 
 
 	{{- /* merge into .Formats.All */ -}}
-	{{- $list = dict "All" $ret -}}
+	{{- $list = dict "List" $ret -}}
 	{{- $dataList = merge $dataList (dict "Formats" $list) -}}
 {{- end -}}
 
@@ -113,6 +113,18 @@
 
 	{{- /* merge into .Languages.List */ -}}
 	{{- $list = dict "List" $ret -}}
+	{{- $dataList = merge $dataList (dict "Languages" $list) -}}
+{{- end -}}
+
+
+{{- $list = dict -}}
+{{- range $k, $v := .Page.Translations -}}
+	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict (upper $v.Lang) $ret -}}
+
+
+	{{- /* merge into .Languages.List */ -}}
+	{{- $list = dict "Alternatives" $ret -}}
 	{{- $dataList = merge $dataList (dict "Languages" $list) -}}
 {{- end -}}
 

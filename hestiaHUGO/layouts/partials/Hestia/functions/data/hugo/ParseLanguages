@@ -16,7 +16,7 @@
 
 {{- /* obtain list of all languages and current page language metadata  */ -}}
 {{- $list = dict -}}
-{{- range $v := .Site.Languages -}}
+{{- range $k, $v := .Site.Languages -}}
 	{{- /* extract current language */ -}}
 	{{- $ret = partial "Hestia/functions/data/hugo/ParseLanguage" $v -}}
 	{{- if eq $v.Lang $current -}}
@@ -29,6 +29,21 @@
 {{- end -}}
 {{- $dataList = merge $dataList (dict "List" $list) -}}
 {{- $dataList = merge $dataList (dict "Current" $current) -}}
+
+
+
+
+{{- /* obtain list of translated languages  */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Page.Translations -}}
+	{{- /* extract translated languages */ -}}
+	{{- $ret = index $dataList.List (upper $v.Language.Lang) -}}
+
+
+	{{- /* save into list */ -}}
+	{{- $list = merge $list (dict (upper $ret.Code) $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Alternatives" $list) -}}
 
 
 

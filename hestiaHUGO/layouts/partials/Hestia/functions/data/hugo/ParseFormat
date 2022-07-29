@@ -37,7 +37,7 @@
 
 	{{- $list = merge $list (dict $ret.Name $ret) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "All" $list) -}}
+{{- $dataList = merge $dataList (dict "List" $list) -}}
 
 
 
