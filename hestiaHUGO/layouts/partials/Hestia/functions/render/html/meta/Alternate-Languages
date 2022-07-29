@@ -1,0 +1,16 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+
+
+
+
+{{- /* return render */ -}}
+{{- range $i, $v := .Languages.Alternatives }}
+	<link rel="alternate" hrefLang="{{- $v.Code -}}" href="{{- $v.URL -}}" />
+{{- end -}}

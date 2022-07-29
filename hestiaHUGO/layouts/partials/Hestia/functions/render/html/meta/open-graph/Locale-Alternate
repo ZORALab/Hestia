@@ -11,12 +11,6 @@
 
 
 {{- /* return render */ -}}
-{{- range $k, $v := .Languages.List -}}
-
-
-	{{- if not (eq $v.Code $Page.Languages.Current.Code) }}
+{{- range $k, $v := .Languages.Alternatives }}
 	<meta property="og:locale:alternate" content="{{- safeHTML $v.Code -}}" />
-	{{- end -}}
-
-
 {{- end -}}
