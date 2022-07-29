@@ -17,11 +17,6 @@
 
 
 
-{{- /* process .Data.Config */ -}}
-{{- $dataList = merge $dataList (dict "Config" .Site.Data.Hestia.Internal) -}}
-
-
-
-
 {{- /* render output */ -}}
+{{- $dataList = dict "Data" $dataList -}}
 {{- return $dataList -}}

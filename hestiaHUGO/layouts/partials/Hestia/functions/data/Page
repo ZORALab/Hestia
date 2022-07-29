@@ -25,6 +25,13 @@
 
 
 
+{{- /* prepare Hestia .Page.Data */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseDatastore" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.Titles */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseTitle" . -}}
 {{- $dataList = merge $dataList (dict "Titles" $ret) -}}
@@ -56,13 +63,6 @@
 {{- /* prepare Hestia .Page.Content */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseContent" . -}}
 {{- $dataList = merge $dataList (dict "Content" $ret) -}}
-
-
-
-
-{{- /* prepare Hestia .Page.Data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseDatastore" . -}}
-{{- $dataList = merge $dataList (dict "Data" $ret) -}}
 
 
 
