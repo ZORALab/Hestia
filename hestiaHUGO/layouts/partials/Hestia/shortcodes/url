@@ -2,7 +2,7 @@
 {{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .URL.Current = Current Page URL. */ -}}
 {{- /* .URL.Base = Current Page's Base URL. */ -}}
-{{- /* .Format.Current.Extension = Current Page's Format File Type. */ -}}
+{{- /* .Formats.Current.Extension = Current Page's Format File Type. */ -}}
 
 {{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
 {{- /* .Input.Format = given output format for synthesis. (optional, string) */ -}}
@@ -60,19 +60,29 @@
 
 
 {{- if and (not $IsCompleted) -}}
-	{{- /* PART I - CONSTRUCT BASE URL */ -}}
+	{{- /* PART I - CONSTRUCT PROTOCOL SEGMENT */ -}}
 	{{- $ret = .URL.Base -}}
 	{{- if $IsRelativeToPage -}}
 		{{- $ret = .URL.Current.Absolute -}}
 	{{- end -}}
 
 	{{- $url = urls.Parse $ret -}}
-	{{- $ret = "http" -}}
+	{{- $ret = "https" -}}
 	{{- if $url.Scheme -}}
 		{{- $ret = $url.Scheme -}}
 	{{- end -}}
 	{{- $out = printf "%s://" $ret -}}
 
+	{{- if .Input.Format -}}
+		{{- if not (eq .Input.Format.Protocol $out) -}}
+			{{- $out = .Input.Format.Protocol -}}
+		{{- end -}}
+	{{- end -}}
+
+
+
+
+	{{- /* PART II - CONSTRUCT USER CREDENTIAL SEGMENT */ -}}
 	{{- if $url.User -}}
 		{{- $ret = $url.User.String -}}
 		{{- if $ret -}}
@@ -84,7 +94,9 @@
 	{{- $out = printf "%s%s" $out $url.Host -}}
 
 
-	{{- /* PART II - CONSTRUCT PATHING */ -}}
+
+
+	{{- /* PART III - CONSTRUCT PATHING SEGMENT */ -}}
 	{{- $ret = $url.Path -}}
 	{{- if path.Ext $url.Path -}}
 		{{- $ret = path.Dir $url.Path -}}
@@ -114,14 +126,16 @@
 	{{- end -}}
 
 
-	{{- /* PART III - JOINING PATHING */ -}}
+
+
+	{{- /* PART IV - JOINING GIVEN PATHING SEGMENT */ -}}
 	{{- $ret = false -}}
 	{{- if .Input.Format -}}
-		{{- /* determine the base name is replacable */ -}}
+		{{- /* determine the replaceability for file */ -}}
 		{{- $ret = "" -}}
 		{{- if path.Ext $query.Path -}}
 			{{- $ret = path.Base $query.Path -}}
-			{{- range $k, $v := .Format.All -}}
+			{{- range $k, $v := .Formats.List -}}
 				{{- if eq (printf "%s%s" $v.Filename $v.Extension) $ret -}}
 					{{- $ret = "" -}}
 				{{- end -}}
@@ -130,7 +144,7 @@
 
 
 		{{- if not $ret -}}
-			{{- $ret = index .Format.All .Input.Format.Type -}}
+			{{- $ret = index .Formats.List .Input.Format.Type -}}
 			{{- if $ret -}}
 				{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
 			{{- end -}}
@@ -154,7 +168,9 @@
 	{{- end -}}
 
 
-	{{- /* PART IV - JOINING QUERY */ -}}
+
+
+	{{- /* PART V - CONSTRUCT QUERY */ -}}
 	{{- if not $IsCompleted -}}
 		{{- if $query.RawQuery -}}
 			{{- $ret = $query.RawQuery -}}
@@ -166,7 +182,9 @@
 	{{- end -}}
 
 
-	{{- /* PART V - JOINING FRAGMENT */ -}}
+
+
+	{{- /* PART VI - CONSTRUCT FRAGMENT */ -}}
 	{{- if not $IsCompleted -}}
 		{{- if $query.Fragment -}}
 			{{- $ret = $query.Fragment -}}
@@ -186,7 +204,8 @@
 
 {{- /* STAGE 2 - Process .Input.ID */ -}}
 {{- if .Input.ID -}}
-	{{- $ret = safeHTML .Input.ID -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.ID -}}
+	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "ID" $ret) -}}
 {{- end -}}
 
@@ -195,7 +214,8 @@
 
 {{- /* STAGE 3 - Process Input.Class */ -}}
 {{- if .Input.Class -}}
-	{{- $ret = safeHTML .Input.Class -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Class -}}
+	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Class" $ret) -}}
 {{- end -}}
 
@@ -204,7 +224,8 @@
 
 {{- /* STAGE 4 - Process Input.Rel */ -}}
 {{- if .Input.Rel -}}
-	{{- $ret = safeHTML .Input.Rel -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Rel -}}
+	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Rel" $ret) -}}
 {{- end -}}
 
@@ -214,9 +235,9 @@
 {{- /* STAGE 5 - Process .Input.HrefLang */ -}}
 {{- if or (or .Input.Lang .Input.HrefLang) -}}
 	{{- $ret = false -}}
-	{{- range $lang := .Languages.List -}}
-		{{- if eq .Input.Lang $lang.Code -}}
-			{{- $ret = $lang.Code -}}
+	{{- range $k, $v := .Languages.List -}}
+		{{- if eq .Input.Lang $v.Code -}}
+			{{- $ret = $v.Code -}}
 		{{- end -}}
 	{{- end -}}
 
@@ -228,6 +249,7 @@
 		{{- $ret = .Input.HrefLang -}}
 	{{- end -}}
 
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
 	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Lang" $ret) -}}
 {{- end -}}
@@ -245,7 +267,8 @@
 
 {{- /* STAGE 7 - Process Input.Target */ -}}
 {{- if .Input.Target -}}
-	{{- $ret = safeHTML .Input.Target -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Target -}}
+	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Target" $ret) -}}
 {{- end -}}
 
@@ -254,7 +277,8 @@
 
 {{- /* STAGE 8 - Process Input.Onload */ -}}
 {{- if .Input.Target -}}
-	{{- $ret = safeJS .Input.Onload -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Onload -}}
+	{{- $ret = safeJS $ret -}}
 	{{- $dataList = merge $dataList (dict "Onload" $ret) -}}
 {{- end -}}
 
@@ -263,7 +287,8 @@
 
 {{- /* STAGE 9 - Process Input.Content */ -}}
 {{- if .Input.Content -}}
-	{{- $ret = partial "Hestia/functions/render/Content" .Input.Content -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Content -}}
+	{{- $ret = partial "Hestia/functions/render/Content" $ret -}}
 	{{- $dataList = merge $dataList (dict "Content" $ret) -}}
 {{- end -}}
 
@@ -274,17 +299,23 @@
 {{- if $dataList.Content -}}
 	{{- $ret = false -}}
 	{{- if .Input.Format -}}
-		{{- $ret = index .Format.All .Input.Format -}}
+		{{- $ret = index .Formats.List .Input.Format -}}
 	{{- end -}}
 
 	{{- if not $ret -}}
-		{{- $ret = .Format.Current -}}
+		{{- $ret = .Formats.Current -}}
 	{{- end -}}
 
-	{{- if eq (upper $ret.Name) .Data.Config.Format.HTML.ID -}}
-		{{- partial "Hestia/components/url.html" $dataList -}}
+	{{- $ret = index .Components.url (upper $ret.Name) -}}
+	{{- if $ret -}}
+		{{- $ret = $ret.Code -}}
+		{{- $ret = merge $dataList (dict "Input" (dict "Query" $ret)) -}}
+		{{- partial "Hestia/functions/scan/GoTemplateFunction" $ret -}}
 	{{- else -}}
-		{{- errorf "Unknown format for: %s" (safeHTML $dataList.URL) -}}
+		{{- $ret = printf "Unknown format '%s'" (safeHTML (upper $ret.Name)) -}}
+		{{- $ret = printf "%s for URL:\n%s\n" $ret (safeHTML $dataList.URL) -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
 	{{- end -}}
 {{- else -}}
 	{{- safeHTML $dataList.URL -}}
