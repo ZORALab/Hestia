@@ -11,8 +11,8 @@
 
 
 
-{{- /* prepare Hestia .Page.Format */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseFormat" . -}}
+{{- /* prepare Hestia .Page.Formats */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseFormats" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
@@ -117,6 +117,7 @@
 
 
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/Formats" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Titles" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Descriptions" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Keywords" $dataList -}}

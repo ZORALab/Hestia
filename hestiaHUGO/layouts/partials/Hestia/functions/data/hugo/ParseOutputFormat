@@ -11,13 +11,13 @@
 
 
 {{- /* process Format.Name */ -}}
-{{- $dataList = merge $dataList (dict "Name" .Format.Name) -}}
+{{- $dataList = merge $dataList (dict "Name" (upper .Format.Name)) -}}
 
 
 
 
 {{- /* process Format.Type */ -}}
-{{- $ret = .Format.MediaType.FirstSuffix.Suffix -}}
+{{- $ret = .Format.MediaType -}}
 {{- $dataList = merge $dataList (dict "Type" $ret) -}}
 
 
@@ -51,9 +51,9 @@
 
 
 
-{{- /* process Format.Format */ -}}
-{{- $ret = .Format.MediaType.SubType -}}
-{{- $dataList = merge $dataList (dict "FileType" $ret) -}}
+{{- /* process Format.Protocol */ -}}
+{{- $ret = .Format.Protocol -}}
+{{- $dataList = merge $dataList (dict "Protocol" $ret) -}}
 
 
 

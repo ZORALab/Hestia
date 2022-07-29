@@ -1,0 +1,114 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Format = The format for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $ret := false -}}
+{{- $protocol := false -}}
+
+
+
+
+{{- /* obtain default protocol */ -}}
+{{- $protocol = urls.Parse .URL.Base -}}
+{{- $ret = "https" -}}
+{{- if $protocol.Scheme -}}
+	{{- $ret = $protocol.Scheme -}}
+{{- end -}}
+{{- $protocol = printf "%s://" $ret -}}
+
+
+
+
+{{- /* process .Extension */ -}}
+{{- $ret = .Input.Format.Extension -}}
+{{- if not (hasPrefix $ret ".") -}}
+	{{- $ret = printf ".%s" $ret -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Extension" $ret) -}}
+
+
+
+
+{{- /* process .Filename */ -}}
+{{- $ret = .Input.Format.Filename -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Filename" $ret) -}}
+
+
+
+
+{{- /* process .IsHTML */ -}}
+{{- $ret = false -}}
+{{- if .Input.Format.IsHTML -}}
+	{{- $ret = true -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "IsHTML" $ret) -}}
+
+
+
+
+{{- /* process .IsText */ -}}
+{{- $ret = false -}}
+{{- if .Input.Format.IsText -}}
+	{{- $ret = true -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "IsText" $ret) -}}
+
+
+
+
+{{- /* process .Name */ -}}
+{{- $ret = upper .Input.Format.Name -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Name" $ret) -}}
+
+
+
+
+{{- /* process .Protocol */ -}}
+{{- $ret = .Input.Format.Protocol -}}
+{{- if not $ret -}}
+	{{- $ret = $protocol -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Protocol" $ret) -}}
+
+
+
+
+{{- /* process .Relationship */ -}}
+{{- $ret = .Input.Format.Relationship -}}
+{{- if not $ret -}}
+	{{- $ret = "alternate" -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Relationship" $ret) -}}
+
+
+
+
+{{- /* process .Type */ -}}
+{{- $ret = .Input.Format.Type -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Type" $ret) -}}
+
+
+
+
+{{- /* process .URL */ -}}
+{{- $ret = .Input.Format.URL -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "URL" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

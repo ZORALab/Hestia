@@ -1,0 +1,49 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* run through each .Format in .Formats.List */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Formats.List -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Format" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/_format" $ret -}}
+	{{- $list = merge $list (dict $ret.Name $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "List" $list) -}}
+
+
+
+
+{{- /* run through each .Format in .Formats.Alternatives */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Formats.Alternatives -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Format" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/post-processing/_format" $ret -}}
+	{{- $list = merge $list (dict $ret.Name $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Alternatives" $list) -}}
+
+
+
+
+{{- /* run through .Formats.Current */ -}}
+{{- $ret = index $dataList.List (upper .Formats.Current.Name) -}}
+{{- $dataList = merge $dataList (dict "Current" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge . (dict "Formats" $dataList) -}}
+{{- return $dataList -}}
