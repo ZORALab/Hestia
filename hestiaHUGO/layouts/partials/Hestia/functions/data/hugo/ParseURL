@@ -55,6 +55,8 @@
 {{- $ret = strings.TrimPrefix $dataList.Base $list.Absolute -}}
 {{- if not $ret -}}
 	{{- $ret = "/" -}}
+{{- else -}}
+	{{- $ret = printf "/%s" $ret -}}
 {{- end -}}
 {{- $list = merge $list (dict "Relative" $ret) -}}
 
@@ -63,12 +65,56 @@
 
 
 
-{{- /* process URL.Languages */ -}}
+{{- /* promote into hestia Page data structure level */ -}}
+{{- $dataList = dict "URL" $dataList -}}
+
+
+
+
+{{- /* process URL.Formats */ -}}
+{{- $ret = dict "Current" (dict "URL" $dataList.URL.Current.Absolute) -}}
+{{- $dataList = merge $dataList (dict "Formats" $ret) -}}
+
+
 {{- $list = dict -}}
-{{- range $v := .Page.AlternativeOutputFormats -}}
-	{{- $list = merge $list (dict (upper $v.Name) $v.Permalink) -}}
+{{- range $v := .Page.OutputFormats -}}
+	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict (upper $v.Name) $ret -}}
+
+
+	{{- /* merge into .Formats.All */ -}}
+	{{- $list = dict "All" $ret -}}
+	{{- $dataList = merge $dataList (dict "Formats" $list) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Languages" $list) -}}
+
+
+{{- range $v := .Page.AlternativeOutputFormats -}}
+	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict (upper $v.Name) $ret -}}
+
+	{{- /* merge into .Formats.Alternatives */ -}}
+	{{- $list = dict "Alternatives" $ret -}}
+	{{- $dataList = merge $dataList (dict "Formats" $list) -}}
+{{- end -}}
+
+
+
+
+{{- /* process URL.Languages */ -}}
+{{- $ret = dict "Current" (dict "URL" $dataList.URL.Current.Absolute) -}}
+{{- $dataList = merge $dataList (dict "Languages" $ret) -}}
+
+
+{{- $list = dict -}}
+{{- range $k, $v := .Site.Home.AllTranslations -}}
+	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict (upper $v.Lang) $ret -}}
+
+
+	{{- /* merge into .Languages.List */ -}}
+	{{- $list = dict "List" $ret -}}
+	{{- $dataList = merge $dataList (dict "Languages" $list) -}}
+{{- end -}}
 
 
 

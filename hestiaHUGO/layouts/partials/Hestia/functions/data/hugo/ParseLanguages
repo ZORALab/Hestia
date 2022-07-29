@@ -17,10 +17,8 @@
 {{- /* obtain list of all languages and current page language metadata  */ -}}
 {{- $list = dict -}}
 {{- range $v := .Site.Languages -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/ParseLanguage" $v -}}
-
-
 	{{- /* extract current language */ -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/ParseLanguage" $v -}}
 	{{- if eq $v.Lang $current -}}
 		{{- $current = $ret -}}
 	{{- end -}}
@@ -36,4 +34,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "Languages" $dataList -}}
 {{- return $dataList -}}

@@ -13,14 +13,14 @@
 
 {{- /* prepare Hestia .Page.Format */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseFormat" . -}}
-{{- $dataList = merge $dataList (dict "Format" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Languages */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseLanguages" . -}}
-{{- $dataList = merge $dataList (dict "Languages" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
@@ -48,7 +48,7 @@
 
 {{- /* prepare Hestia .Page.URL */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseURL" . -}}
-{{- $dataList = merge $dataList (dict "URL" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
