@@ -1,0 +1,16 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+
+
+
+
+{{- /* return render */ -}}
+{{- range $i, $v := .Formats.List }}
+	<link rel="{{- $v.Relationship -}}" type="{{- $v.Type -}}" href="{{- $v.URL -}}" />
+{{- end -}}
