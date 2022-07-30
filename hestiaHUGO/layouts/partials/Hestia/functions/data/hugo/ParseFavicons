@@ -1,0 +1,110 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := slice -}}
+{{- $data := false -}}
+{{- $original := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* prepare list of favicon data */ -}}
+{{- $list = slice (dict
+	"Filename" "apple-icon-60x60.png"
+	"Width" 60
+	"Height" 60
+	"Dimension" "60x60"
+	) (dict
+	"Filename" "apple-icon-72x72.png"
+	"Width" 72
+	"Height" 72
+	"Dimension" "72x72"
+	) (dict
+	"Filename" "apple-icon-76x76.png"
+	"Width" 76
+	"Height" 76
+	"Dimension" "76x76"
+	) (dict
+	"Filename" "apple-icon-114x114.png"
+	"Width" 114
+	"Height" 114
+	"Dimension" "114x114"
+	) (dict
+	"Filename" "apple-icon-120x120.png"
+	"Width" 120
+	"Height" 120
+	"Dimension" "120x120"
+	) (dict
+	"Filename" "apple-icon-144x144.png"
+	"Width" 144
+	"Height" 144
+	"Dimension" "144x144"
+	) (dict
+	"Filename" "apple-icon-152x152.png"
+	"Width" 152
+	"Height" 152
+	"Dimension" "152x152"
+	) (dict
+	"Filename" "apple-icon-180x180.png"
+	"Width" 180
+	"Height" 180
+	"Dimension" "180x180"
+	) (dict
+	"Filename" "android-icon-192x192.png"
+	"Width" 192
+	"Height" 192
+	"Dimension" "192x192"
+	) (dict
+	"Filename" "favicon-icon-32x32.png"
+	"Width" 192
+	"Height" 192
+	"Dimension" "192x192"
+	) (dict
+	"Filename" "favicon-icon-96x96.png"
+	"Width" 96
+	"Height" 96
+	"Dimension" "96x96"
+	) (dict
+	"Filename" "favicon-icon-16x16.png"
+	"Width" 16
+	"Height" 16
+	"Dimension" "16x16"
+	) (dict
+	"Filename" "ms-icon-144x144.png"
+	"Width" 16
+	"Height" 16
+	"Dimension" "16x16"
+)
+-}}
+
+
+
+
+{{- /* process favicon */ -}}
+{{- $original = .Site.Data.Hestia.Favicons.Source.Path -}}
+{{- $original = resources.GetMatch $original -}}
+{{- if $original -}}
+	{{- range $i, $v := $list -}}
+		{{- $data = dict "Filename" $v.Filename -}}
+		{{- $data = merge $data (dict "Width" $v.Width) -}}
+		{{- $data = merge $data (dict "Height" $v.Height) -}}
+		{{- $data = merge $data (dict "Dimension" $v.Dimension) -}}
+		{{- $data = merge $data (dict "ID" (upper (path.BaseName $data.Filename))) -}}
+		{{- $ret = $original.Resize $data.Dimension | resources.Copy $data.Filename -}}
+		{{- $data = merge $data (dict "URL" $ret.Permalink) -}}
+		{{- $dataList = merge $dataList (dict $data.ID $data) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Favicons" $dataList -}}
+{{- return $dataList -}}
