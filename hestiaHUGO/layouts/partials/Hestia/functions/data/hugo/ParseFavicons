@@ -8,7 +8,6 @@
 {{- $dataList := dict -}}
 {{- $list := slice -}}
 {{- $data := false -}}
-{{- $original := false -}}
 {{- $ret := false -}}
 
 
@@ -180,14 +179,12 @@
 
 
 	{{- /* process the image */ -}}
-	{{- $original = resources.GetMatch $v.Source -}}
-	{{- if $original -}}
+	{{- $ret = resources.GetMatch $v.Source -}}
+	{{- if $ret -}}
 		{{- if $v.Resize -}}
-			{{- $ret = $original.Resize $data.Dimension -}}
-		{{- else -}}
-			{{- $ret = $original -}}
+			{{- $ret = $ret.Resize $data.Dimension -}}
 		{{- end -}}
-		{{- $ret = resources.Copy $data.Filename $ret -}}
+		{{- $ret = resources.FromString $data.Filename $ret.Content -}}
 		{{- $data = merge $data (dict "URL" $ret.Permalink) -}}
 		{{- $dataList = merge $dataList (dict $data.ID $data) -}}
 	{{- end -}}

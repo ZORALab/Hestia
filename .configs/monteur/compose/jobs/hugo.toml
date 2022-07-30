@@ -55,6 +55,7 @@ Source = """\
 hugo --cacheDir "{{- .CacheDir -}}" \
 	--cleanDestinationDir \
 	--forceSyncStatic \
+	--ignoreCache \
 	--minify \
 	--destination "{{- .DestinationDir -}}" \
 """
