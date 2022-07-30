@@ -1,4 +1,44 @@
-[Source]
+[Sources]
+[Sources.Main]
+# strictly PNG image, beyond or equal to 1200x1200 square-only size.
 Path = 'images/favicon.png'
 Width = 1200
 Height = 1200
+
+
+[Sources.iOS]
+# strictly PNG image, beyond or equal to 1200x1200 square-only size, WITHOUT
+# transparent pixels.
+# NOTE:
+#   1. Apple iOS app icons automatically recolor transparent to black (#000000).
+#      Please make sure you supply a no-transparent square PNG image.
+Path = 'images/ios.png'
+Width = 1200
+Height = 1200
+
+
+[Sources.Safari]
+# strictly SVG image, beyond or equal to 1500x1500 square-only size, ONLY
+# monochrome color (e.g. greyscale / black-white color).
+# NOTE:
+#  1. Apple Safari automatically process the monochrome logo where transprent is
+#     equal to pixel. For a lot of cases, the Hugo image processing can yields
+#     artistically invalid output. Since this is a brand / trademark image,
+#     it can leads to potentially causing unwanted copyright legal proceedings.
+#  2. Therefore, it's better to supply a dedicated SVG image instead of relying
+#      solely on Hugo automated image processing.
+Path = 'images/safari-monochrome.svg'
+Width = 1500
+Height = 1500
+
+
+
+
+[Color]
+# Theme color uses for monocromatic the logo. Recommend the highest contrast
+# color against the background color.
+Theme = '#FFFFFF'
+
+# Background color uses for overlaying the favicon. Example usage:
+#   1. Windows tile background color.
+Background = '#0055FF'
