@@ -5,5 +5,6 @@
 
 
 {{- /* return render */}}
-	<meta property="og:locale" content="{{- safeHTML .Languages.Current.Code -}}" />
+	<meta property="og:locale"
+		content="{{- safeHTML .Languages.Current.Code -}}" />
 {{- /* clean up */ -}}

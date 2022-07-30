@@ -12,5 +12,7 @@
 
 {{- /* return render */ -}}
 {{- range $i, $v := .Formats.List }}
-	<link rel="{{- $v.Relationship -}}" type="{{- $v.Type -}}" href="{{- $v.URL -}}" />
+	<link rel="{{- $v.Relationship -}}"
+		type="{{- $v.Type -}}"
+		href="{{- $v.URL -}}" />
 {{- end -}}

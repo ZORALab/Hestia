@@ -12,5 +12,7 @@
 
 {{- /* return render */ -}}
 {{- range $i, $v := .Languages.Alternatives }}
-	<link rel="alternate" hrefLang="{{- $v.Code -}}" href="{{- $v.URL -}}" />
+	<link rel="alternate"
+		hrefLang="{{- $v.Code -}}"
+		href="{{- $v.URL -}}" />
 {{- end -}}
