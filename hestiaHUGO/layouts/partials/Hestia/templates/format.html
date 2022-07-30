@@ -1,7 +1,9 @@
 {{- $Page := partial "Hestia/functions/data/Page" . -}}
 
-<html {{ $Page.Languages.Current.Code }}>
+<!DOCTYPE html>
+<html lang="{{- $Page.Languages.Current.Code -}}">
 <head>
+	<meta charset="UTF-8" />
 	{{- partial "Hestia/functions/render/html/meta/Title" $Page -}}
 	{{- partial "Hestia/functions/render/html/meta/Robots" $Page -}}
 	{{- partial "Hestia/functions/render/html/meta/Redirect" $Page -}}
