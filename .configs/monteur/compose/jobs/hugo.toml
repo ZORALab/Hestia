@@ -13,6 +13,7 @@ PublishCommitID='Will be overwritten by publish command sequences'
 [FMTVariables]
 SourceDir = '{{- .RootDir -}}/.configs/hugo'
 DestinationDir = '{{- .WorkingDir -}}/public'
+CacheDir = '{{- .WorkingDir -}}/caches'
 PublishDir = '{{- .WorkingDir -}}/{{- .PublishBranch -}}'
 
 
@@ -40,11 +41,23 @@ Condition = [ 'all-all' ]
 Source = '{{- .DestinationDir -}}'
 
 [[CMD]]
+Name = "Delete Cache Directory for Clean Build"
+Type = 'delete-recursive-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .CacheDir -}}'
+
+[[CMD]]
 Name = "Hugo Build with Minimifaction"
 Type = 'command'
 Condition = [ 'all-all' ]
 Location = '{{- .SourceDir -}}'
-Source = 'hugo --ignoreCache --minify --destination "{{- .DestinationDir -}}"'
+Source = """\
+hugo --cacheDir "{{- .CacheDir -}}" \
+	--cleanDestinationDir \
+	--forceSyncStatic \
+	--minify \
+	--destination "{{- .DestinationDir -}}" \
+"""
 
 [[CMD]]
 Name = "Hugo Workaround with 404"
