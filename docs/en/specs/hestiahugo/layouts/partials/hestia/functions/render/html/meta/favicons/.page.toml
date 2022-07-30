@@ -1,0 +1,45 @@
+[Date]
+Created = "Sat 30 Jul 2022 08:17:34 PM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Sat 30 Jul 2022 08:17:34 PM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Render HTML Meta Favicons - HestiaHUGO's Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Favicons",
+	"Meta",
+	"HTML",
+	"Render",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+Uniformly render HTML favicons meta tags with HestiaHUGO's 'html/meta/Favicons'.
+"""
+Summary = """
+Renders HTML favicons meta tags uniformly with HestiaHUGO's
+'html/meta/Favicons' internal partial function.
+"""
+
+
+
+
+[Redirect]
+URL = ""
+Delay = 0 # second
+Enabled = false

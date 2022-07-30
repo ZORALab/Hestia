@@ -1,0 +1,38 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare variables for function */ -}}
+{{- $favicons := .Favicons -}}
+
+
+
+
+{{- /* return render */ -}}
+{{- range $k, $v := $favicons.Icons -}}
+	{{- if or (eq $v.Relationship "apple-touch-icon") (eq $v.Relationship "icon") }}
+	<link rel="{{- safeHTML $v.Relationship -}}"
+		type="{{- safeHTML $v.Type -}}"
+		sizes="{{- safeHTML $v.Dimension -}}"
+		href="{{- safeHTML $v.URL -}}" />
+	{{- else if eq $v.Relationship "mask-icon" }}
+	<link rel="{{- safeHTML $v.Relationship -}}"
+		type="{{- safeHTML $v.Type -}}"
+		href="{{- safeHTML $v.URL -}}"
+		color="{{- safeHTML $favicons.Color.Background -}}" />
+	{{- else if hasPrefix $v.Relationship "msapplication" }}
+	<meta name="{{- safeHTML $v.Relationship -}}"
+		content="{{- safeHTML $v.URL -}}" />
+	<meta name="msapplication-TileColor"
+		content="{{- safeHTML $favicons.Color.Background -}}" />
+	{{- else }}
+	<link rel="{{- safeHTML $v.Relationship -}}"
+		type="{{- safeHTML $v.Type -}}"
+		href="{{- safeHTML $v.URL -}}" />
+	{{- end -}}
+{{- end }}
+	<meta name="theme-color"
+		content="{{- safeHTML $favicons.Color.Theme -}}" />
+{{- /* clean up */ -}}
