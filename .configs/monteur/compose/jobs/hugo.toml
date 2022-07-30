@@ -44,7 +44,7 @@ Name = "Hugo Build with Minimifaction"
 Type = 'command'
 Condition = [ 'all-all' ]
 Location = '{{- .SourceDir -}}'
-Source = 'hugo --minify --destination "{{- .DestinationDir -}}"'
+Source = 'hugo --ignoreCache --minify --destination "{{- .DestinationDir -}}"'
 
 [[CMD]]
 Name = "Hugo Workaround with 404"
