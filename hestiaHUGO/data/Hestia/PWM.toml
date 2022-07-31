@@ -1,0 +1,237 @@
+# Progressive Web App (PWA) Configurations
+#
+# Manuals:
+#   1. https://web.dev/
+#   2. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+
+
+
+
+[Names]
+# Short name used in displaying brand and app name. Recommended maximum 2 words.
+Short = "ZORALab's Hestia"
+
+# Full name used in displaying articles or pages.
+Full = "ZORALab's Hestia"
+
+
+
+
+[Configurations]
+# Use as 'start_url' field. This page shall be loaded as app landing page after
+# the loading splash screen.
+URL = '{{- url URL="/" -}}'
+
+# Scope is to limit the navigation scope of your app. Should any link falls
+# outside of the scope, a normal browser tab is opened instead (e.g. external
+# link).
+Scope = '{{- .URL.Base -}}'
+
+
+
+
+[Display]
+# Main Display PWA mode. Arrange in fallback priorities:
+#   1. 'fullscreen' - basically takes over the entire screen.
+#   2. 'standalone' - open like a native app (with no browser UI feels).
+#   3. 'minimal-ui' - with minimum UI (e.g. refresh and back buttons).
+#   4. 'browser'    - shows in browser mode.
+#
+# NOTE:
+#   1. Safari iOS and ipadOS both does not support 'minimal-ui' and will
+#      fallback to 'browser' automatically. See:
+#      https://web.dev/learn/pwa/app-design/
+#
+# To check for support, please see:
+#   1. https://caniuse.com/web-app-manifest
+#   2. https://developer.mozilla.org/en-US/docs/Web/Manifest#browser_compatibility
+#   3. https://w3c.github.io/manifest/#dfn-fallback-display-mode
+Main = 'standalone'
+
+# Set display orientation.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/orientation
+#
+# Known values are:
+#   1. 'any'       - responsive adaptation
+#   2. 'natural'   - natural orientation
+#   3. 'landscape' - landscape mode
+#   4. 'landscape-primary' - landscape mode as primary display orientation
+#   5. 'landscape-secondary' - landscape mode as secondary display orientation
+#   6. 'portrait' - portrait mode
+#   7. 'portrait-primary' - portrait mode as primary display orientation
+#   8. 'portrait-secondary' - portrait mode as secondary display orientation
+Orientation = 'any'
+
+# Overrides Display from highest priority to main display. Leaving the .Value
+# empty shall discards that entire .DisplayOverride entry.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/display_override
+#
+# To add more overrides, just add more '[[Display.Overrides]]' dataset below
+# (TOML version of expanding an array list).
+[[Display.Overrides]]
+Value = ''
+
+
+
+
+[Descriptions]
+# Very short, on-point, sale-pitch like statement describing your app. This
+# description is used in store contents or catalog. Keep it below 160
+# characters.
+Pitch = """\
+"""
+
+# Expanded from your Pitch description. A more detailed, expanding description
+# of your app used in documentations or page rendering. Keep it below 250
+# characters as an overall.
+Summary = """\
+"""
+
+
+
+
+# Categories is the list of catalog your app is associated with.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/categories
+#
+# To add more categories, just add more '[[Categories]]' dataset below
+# (TOML version of expanding an array list).
+[[Categories]]
+Value = ""
+
+
+
+
+[Color]
+# Theme color uses for monocromatic the logo. Recommend the highest contrast
+# color against the background color.
+Theme = '#FFFFFF'
+
+# Background color uses for overlaying the favicon. Example usage:
+#   1. Windows tile background color.
+#   2. Loading splash screen background color.
+Background = '#0055FF'
+
+
+
+
+# Shortcuts are the list of shortcut items allowing easier interactions.
+# The list is grouped by numeric key (e.g. '0') for setting the order of the
+# Shortcuts list.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts
+#
+# To add more shortcut, simply append a new set of [Shortcuts.X] and increase
+# the numeric key matching to it. Same key will make the latter overwrites the
+# former ones.
+[Shortcuts.0]
+# A short description of the shortcut. Recommended max 80 characters active
+# voice approach (e.g. "Get Today's Weather")
+Description = """\
+"""
+
+# The activation URL. If left empty, the Shortcut shall be completely discarded.
+URL = '{{- url URL="" -}}'
+
+# The shortcut display name. If any of them left empty, the Shortcut shall be
+# completely discarded.
+[Shortcuts.0.Name]
+# Full is the full shortcut name to display in a context menu.
+Full = "ZORALab's Hestia - HUGO"
+
+# Short is the shortest shortcut name to display in a context menu where .Full
+# is not applicable due to insufficient spaces. Recommended Max 2 words.
+Short = "HestiaHUGO"
+
+# Icons are an array list of icon images for the shortcut.
+#
+# If facilitated, size '96x96' pixel icon MUST be facilitated as one of the icon
+# images.
+#
+# A shortcut can have many icons with different sizes. Recommended dimension is
+# square.
+[[Shortcuts.0.Icons]]
+# The downloadable source URL location.
+URL = '{{- url URL="" -}}'
+
+# The MIME Type of the image. If left empty, the entire .Icon is discarded.
+Type = ''
+
+# The Sizes of the image in '{width}x{height}' pattern. E.g. '1980x1080'.
+Sizes = ''
+
+# The Purpose of the image. Can be any of the following:
+#   1. 'any'        - used in any context (default)
+#   2. 'maskable'   - used for masked icons. Favicons with 'mask icon' is
+#                     included.
+#   3. 'monochrome' - used for monochromatic context. Only alpha level is used.
+Purpose = 'any'
+
+
+
+
+# Screenshots are used for platform distributions promotional usage (e.g. App
+# Store).
+#
+# To add more screenshots, just add more '[[Screenshots]]' dataset below
+# (TOML version of expanding an array list).
+[[Screenshots]]
+# The downloadable source URL location.
+URL = '{{- url URL="" -}}'
+
+# The MIME Type of the image. If left empty, the entire .Screenshot is
+# discarded.
+Type = ''
+
+# The Sizes of the image in '{width}x{height}' pattern. E.g. '1980x1080'.
+Sizes = '' # '{width}x{height}'
+
+# The platform where the screenshot is associated to. Known values can be:
+#   1. 'wide'             - wide screen only (e.g. status board)
+#   2. 'narrow'           - narrow screen only (e.g. mobile devices, wearables)
+#   3. 'android'          - android devices only.
+#   4. 'chromeos'         - chromeOS devices only.
+#   5. 'ios'              - iOS devices only.
+#   6. 'kaios'            - kaiOS devices only.
+#   7. 'macos'            - macOS devices only.
+#   8. 'windows'          - Windows devices only.
+#   9. 'xbox'             - xBox devices only.
+#  10. 'chrome_web_store' - Chrome web store only.
+#  11. 'play'             - Google Play Store only.
+#  12. 'itunes'           - Apple iTunes store only.
+#  13. 'microsoft-inbox'  - Microsoft Inbox only.
+#  14. 'microsoft-store'  - Microsoft Store only.
+Platform = 'narrow'
+
+
+
+
+# Icons are the additional icons append after the site favicons.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/icons
+#
+# To add more icons, just add more '[[Icons]]' dataset below (TOML version of
+# expanding an array list).
+[[Icons]]
+# The downloadable source URL location.
+URL = '{{- url URL="" -}}'
+
+# The MIME Type of the image. If left empty, the entire .Icon is discarded.
+Type = ''
+
+# The Sizes of the image in '{width}x{height}' pattern. E.g. '1980x1080'.
+Sizes = ''
+
+# The Purpose of the image. Can be any of the following:
+#   1. 'any'        - used in any context (default)
+#   2. 'maskable'   - used for masked icons. Favicons with 'mask icon' is
+#                     included.
+#   3. 'monochrome' - used for monochromatic context. Only alpha level is used.
+Purpose = 'any'
+
+
+
+
+# Relation are all the related applications for inter-linking.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/related_applications
+[[Relation]]
+Platform = ''
+URL = '{{- url URL="" -}}'
+ID = ''
