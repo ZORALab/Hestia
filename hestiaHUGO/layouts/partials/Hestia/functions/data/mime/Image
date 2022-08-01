@@ -1,24 +1,25 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure  */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .Input.Type = image MIME type */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
 {{- $dataList := dict -}}
+{{- $console := dict -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* STAGE 1 - PROCESS FOR OUTPUT */ -}}
-{{- $ret = partial "Hestia/functions/data/mime/_clean" . -}}
+{{- $ret = partial "Hestia/functions/data/mime/Init" . -}}
+{{- $dataList = merge $dataList (dict "Output" $ret.Output) -}}
 {{- if $ret.Console -}}
-	{{- $dataList = merge $dataList (dict "Console" $ret.Console) -}}
+	{{- $console = printf "image MIME: '%s'\n" $ret.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Output" $ret) -}}
 
 
 
@@ -30,10 +31,11 @@
 	{{- /* FAIL - reset to empty string */ -}}
 	{{- $dataList = merge $dataList (dict "Output" "") -}}
 
-	{{- if not $dataList.Console -}}
-		{{- $ret = printf "invalid image MIME: '%v'\n" .Input.type -}}
-		{{- $ret = dict "Console" (dict "Message" $ret) -}}
-		{{- $dataList = merge $dataList $ret -}}
+
+	{{- if not $console -}}
+		{{- $console = printf "image MIME: unknown type '%v'\n"
+			.Input.Type -}}
+		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 {{- end -}}
 
@@ -41,4 +43,4 @@
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList "Console" $console -}}
