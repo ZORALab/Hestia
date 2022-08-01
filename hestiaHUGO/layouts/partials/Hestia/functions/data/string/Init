@@ -1,0 +1,27 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = string for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* cleans up and standardize all string data */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Query" .Input.Data)) -}}
+{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Output" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
