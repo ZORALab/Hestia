@@ -123,6 +123,13 @@
 
 
 
+{{- /* prepare Hestia .Page.PWA */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParsePWA" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Formats" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Titles" $dataList -}}

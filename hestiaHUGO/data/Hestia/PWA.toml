@@ -7,12 +7,12 @@
 
 
 
-[Names]
+[Name]
 # Short name used in displaying brand and app name. Recommended maximum 2 words.
-Short = "ZORALab's Hestia"
+Short = "{{- .Titles.Site -}}"
 
 # Full name used in displaying articles or pages.
-Full = "ZORALab's Hestia"
+Full = "{{- .Titles.Site -}}"
 
 
 
@@ -20,7 +20,7 @@ Full = "ZORALab's Hestia"
 [Configurations]
 # Use as 'start_url' field. This page shall be loaded as app landing page after
 # the loading splash screen.
-URL = '{{- url URL="/" -}}'
+URL = '{{- .URL.Base -}}'
 
 # Scope is to limit the navigation scope of your app. Should any link falls
 # outside of the scope, a normal browser tab is opened instead (e.g. external
@@ -30,7 +30,7 @@ Scope = '{{- .URL.Base -}}'
 
 
 
-[Display]
+[Displays]
 # Main Display PWA mode. Arrange in fallback priorities:
 #   1. 'fullscreen' - basically takes over the entire screen.
 #   2. 'standalone' - open like a native app (with no browser UI feels).
@@ -52,14 +52,14 @@ Main = 'standalone'
 # See: https://developer.mozilla.org/en-US/docs/Web/Manifest/orientation
 #
 # Known values are:
-#   1. 'any'       - responsive adaptation
-#   2. 'natural'   - natural orientation
-#   3. 'landscape' - landscape mode
-#   4. 'landscape-primary' - landscape mode as primary display orientation
+#   1. 'any'                 - responsive adaptation
+#   2. 'natural'             - natural orientation
+#   3. 'landscape'           - landscape mode
+#   4. 'landscape-primary'   - landscape mode as primary display orientation
 #   5. 'landscape-secondary' - landscape mode as secondary display orientation
-#   6. 'portrait' - portrait mode
-#   7. 'portrait-primary' - portrait mode as primary display orientation
-#   8. 'portrait-secondary' - portrait mode as secondary display orientation
+#   6. 'portrait'            - portrait mode
+#   7. 'portrait-primary'    - portrait mode as primary display orientation
+#   8. 'portrait-secondary'  - portrait mode as secondary display orientation
 Orientation = 'any'
 
 # Overrides Display from highest priority to main display. Leaving the .Value
@@ -68,23 +68,30 @@ Orientation = 'any'
 #
 # To add more overrides, just add more '[[Display.Overrides]]' dataset below
 # (TOML version of expanding an array list).
-[[Display.Overrides]]
-Value = ''
+[[Displays.Overrides]]
+Value = 'natural'
 
 
 
 
 [Descriptions]
 # Very short, on-point, sale-pitch like statement describing your app. This
-# description is used in store contents or catalog. Keep it below 160
+# description is used in store contents or catalog. Keep it maximum 160
 # characters.
 Pitch = """\
+Seamless and profressionally done static site web development with
+ZORALab's Hestia.
 """
 
 # Expanded from your Pitch description. A more detailed, expanding description
-# of your app used in documentations or page rendering. Keep it below 250
-# characters as an overall.
+# of your app used in documentations or page rendering. Keep it maximum 250
+# characters as overall.
 Summary = """\
+{{- .PWA.Descriptions.Pitch }}
+
+Focus on developing your contents and user experiences, ZORALab's Hestia handles
+the rest of the standard compliances, coding, and content composition and
+publications.
 """
 
 
@@ -96,12 +103,15 @@ Summary = """\
 # To add more categories, just add more '[[Categories]]' dataset below
 # (TOML version of expanding an array list).
 [[Categories]]
-Value = ""
+Value = "Web"
+
+[[Categories]]
+Value = "Tech"
 
 
 
 
-[Color]
+[Colors]
 # Theme color uses for monocromatic the logo. Recommend the highest contrast
 # color against the background color.
 Theme = '#FFFFFF'
@@ -126,20 +136,21 @@ Background = '#0055FF'
 # A short description of the shortcut. Recommended max 80 characters active
 # voice approach (e.g. "Get Today's Weather")
 Description = """\
+Straight to dashboard for current status.
 """
 
 # The activation URL. If left empty, the Shortcut shall be completely discarded.
-URL = '{{- url URL="" -}}'
+URL = '{{- .URL.Base -}}'
 
 # The shortcut display name. If any of them left empty, the Shortcut shall be
 # completely discarded.
 [Shortcuts.0.Name]
 # Full is the full shortcut name to display in a context menu.
-Full = "ZORALab's Hestia - HUGO"
+Full = "ZORALab's Hestia Dashboard"
 
 # Short is the shortest shortcut name to display in a context menu where .Full
 # is not applicable due to insufficient spaces. Recommended Max 2 words.
-Short = "HestiaHUGO"
+Short = "Dashboard"
 
 # Icons are an array list of icon images for the shortcut.
 #
@@ -149,7 +160,8 @@ Short = "HestiaHUGO"
 # A shortcut can have many icons with different sizes. Recommended dimension is
 # square.
 [[Shortcuts.0.Icons]]
-# The downloadable source URL location.
+# The downloadable source URL location. If left empty, the entire .Icon is
+# discarded.
 URL = '{{- url URL="" -}}'
 
 # The MIME Type of the image. If left empty, the entire .Icon is discarded.
@@ -174,7 +186,8 @@ Purpose = 'any'
 # To add more screenshots, just add more '[[Screenshots]]' dataset below
 # (TOML version of expanding an array list).
 [[Screenshots]]
-# The downloadable source URL location.
+# The downloadable source URL location. If left empty, the entire .Screenshot is
+# discarded.
 URL = '{{- url URL="" -}}'
 
 # The MIME Type of the image. If left empty, the entire .Screenshot is
@@ -210,7 +223,8 @@ Platform = 'narrow'
 # To add more icons, just add more '[[Icons]]' dataset below (TOML version of
 # expanding an array list).
 [[Icons]]
-# The downloadable source URL location.
+# The downloadable source URL location. If left empty, the entire .Icon is
+# discarded.
 URL = '{{- url URL="" -}}'
 
 # The MIME Type of the image. If left empty, the entire .Icon is discarded.
@@ -229,9 +243,31 @@ Purpose = 'any'
 
 
 
-# Relation are all the related applications for inter-linking.
+# Relations are all the related stores for inter-linking.
 # See: https://developer.mozilla.org/en-US/docs/Web/Manifest/related_applications
-[[Relation]]
-Platform = ''
-URL = '{{- url URL="" -}}'
-ID = ''
+[[Relations]]
+# Platform is the store where your app is available. Acceptable values are:
+#   1. 'chrome_web_store' - Google Chrome Web Store:
+#                           https://chrome.google.com/webstore
+#   2. 'play'             - Google Play Store:
+#                           https://play.google.com/
+#   3. 'itunes'           - Apple App Store:
+#                           https://www.apple.com/app-store/
+#   4. 'webapp'           - Web Apps:
+#                           https://www.w3.org/TR/appmanifest/
+#   5. 'windows'          - Windows Store:
+#                           https://www.microsoft.com/store/apps
+#   6. 'f-droid'          - F-Droid:
+#                           https://f-droid.org/
+#   7. 'amazon'           - Amazon App Store:
+#                           https://www.amazon.com/gp/browse.html?node=2350149011
+#   8. ''                 - disabled this entry
+Platform = 'webapp'
+
+# The URL of to download your related store. If left empty, the entire .Relation
+# is discarded.
+URL = '{{- .URL.Base -}}'
+
+# The ID of your app in the related store. If left empty, the entire .Relation
+# is discarded.
+ID = '{{- .URL.Base -}}'
