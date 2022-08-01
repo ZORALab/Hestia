@@ -26,4 +26,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "Content" $dataList -}}
 {{- return $dataList -}}

@@ -136,4 +136,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "Thumbnails" $dataList -}}
 {{- return $dataList -}}

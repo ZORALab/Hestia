@@ -32,23 +32,9 @@
 
 
 
-{{- /* prepare Hestia .Page.Titles */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseTitle" . -}}
-{{- $dataList = merge $dataList (dict "Titles" $ret) -}}
-
-
-
-
-{{- /* prepare Hestia .Page.Descriptions */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseDescriptions" . -}}
-{{- $dataList = merge $dataList (dict "Descriptions" $ret) -}}
-
-
-
-
-{{- /* prepare Hestia .Page.Keywords */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseKeywords" . -}}
-{{- $dataList = merge $dataList (dict "Keywords" $ret) -}}
+{{- /* prepare Hestia .Page.IsServerMode */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseServerMode" . -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
@@ -60,58 +46,72 @@
 
 
 
-{{- /* prepare Hestia .Page.Content */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseContent" . -}}
-{{- $dataList = merge $dataList (dict "Content" $ret) -}}
-
-
-
-
 {{- /* prepare Hestia .Page.Filesystem */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseFS" . -}}
-{{- $dataList = merge $dataList (dict "Filesystem" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Thumbnails */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseThumbnails" . -}}
-{{- $dataList = merge $dataList (dict "Thumbnails" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Titles */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseTitle" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Descriptions */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseDescriptions" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Keywords */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseKeywords" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* prepare Hestia .Page.Content */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/ParseContent" . -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Creators */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseCreators" . -}}
-{{- $dataList = merge $dataList (dict "Creators" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Components */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseComponents" . -}}
-{{- $dataList = merge $dataList (dict "Components" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Robots */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseRobots" . -}}
-{{- $dataList = merge $dataList (dict "Robots" $ret) -}}
-
-
-
-
-{{- /* prepare Hestia .Page.Robots */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseServerMode" . -}}
-{{- $dataList = merge $dataList (dict "IsServerMode" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Redirect */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/ParseRedirect" . -}}
-{{- $dataList = merge $dataList (dict "Redirect" $ret) -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
@@ -132,10 +132,10 @@
 
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Formats" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Titles" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Descriptions" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Keywords" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Creators" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Components" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Robots" $dataList -}}

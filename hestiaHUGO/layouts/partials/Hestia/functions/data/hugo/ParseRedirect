@@ -49,4 +49,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "Redirect" $dataList -}}
 {{- return $dataList -}}

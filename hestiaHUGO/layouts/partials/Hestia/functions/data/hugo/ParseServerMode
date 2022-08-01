@@ -17,4 +17,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "IsServerMode" $dataList -}}
 {{- return $dataList -}}

@@ -119,4 +119,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "Creators" $dataList -}}
 {{- return $dataList -}}

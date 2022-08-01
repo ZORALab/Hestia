@@ -44,4 +44,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "Descriptions" $dataList -}}
 {{- return $dataList -}}

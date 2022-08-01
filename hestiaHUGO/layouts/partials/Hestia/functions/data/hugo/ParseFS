@@ -45,4 +45,5 @@
 
 
 {{- /* render output */ -}}
+{{- $dataList = dict "Filesystem" $dataList -}}
 {{- return $dataList -}}
