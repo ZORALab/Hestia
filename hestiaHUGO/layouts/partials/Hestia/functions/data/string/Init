@@ -15,10 +15,17 @@
 
 
 {{- /* cleans up and standardize all string data */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .Input.Data)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
-{{- $dataList = merge $dataList (dict "Output" $ret) -}}
+{{- $ret = partial "Hestia/functions/data/string/IsString" .Input.Data -}}
+{{- if $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Query" .Input.Data)) -}}
+	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- else -}}
+	{{- $ret = "" -}}
+	{{- $console = printf "init string: not a string '%v'" .Input.Data -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+{{- $dataList = $ret -}}
 
 
 
