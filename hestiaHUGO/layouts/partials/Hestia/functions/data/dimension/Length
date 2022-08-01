@@ -6,20 +6,21 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict -}}
+{{- $dataList := 0 -}}
+{{- $console := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- $dataList = merge $dataList (dict "Output" (int .Input.Dimension)) -}}
-{{- if le $ret 0 -}}
-	{{- $ret = printf "bad dimension: '%v'\n" .Input.Dimension -}}
-	{{- $ret = merge $dataList (dict "Console" (dict "Message" $ret)) -}}
+{{- $dataList = int .Input.Dimension -}}
+{{- if and (le $dataList 0) (not $console) -}}
+	{{- $console = printf "bad dimension: '%v'\n" .Input.Dimension -}}
+	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList "Console" $console -}}
