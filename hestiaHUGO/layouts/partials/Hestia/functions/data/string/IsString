@@ -11,7 +11,7 @@
 
 
 {{- /* cleans up and standardize all string data */ -}}
-{{- if hasPrefix (printf "%T") "str" -}}
+{{- if hasPrefix (printf "%T" .) "str" -}}
 	{{- $dataList = true -}}
 {{- end -}}
 
