@@ -1,0 +1,25 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Height = image height dimension */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := 0 -}}
+{{- $ret := false -}}
+
+
+
+
+{{- $ret = merge . (dict "Input" (dict "Query" .Input.Height)) -}}
+{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = merge . (dict "Input" (dict "Dimension" $ret)) -}}
+{{- $dataList = partial "Hestia/functions/data/dimension/Length" $ret -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
