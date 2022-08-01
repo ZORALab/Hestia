@@ -1,0 +1,65 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := slice -}}
+{{- $inQuote := "" -}}
+{{- $isSpaced := false -}}
+
+
+
+
+{{- /* cleans up and standardize all string data */ -}}
+{{- if (partial "Hestia/functions/data/string/IsString" .) -}}
+	{{- range $i, $v := (split . "") -}}
+		{{- /* seek return carrier */ -}}
+		{{- if eq $v "\r" -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- /* seek quotation to ignore or otherwise */ -}}
+		{{- if or (or (eq $v "'") (eq $v "\"")) (eq $v "`") -}}
+			{{- if eq $v $inQuote -}}
+				{{- $inQuote = "" -}}
+			{{- else -}}
+				{{- $inQuote = $v -}}
+			{{- end -}}
+
+			{{- $dataList = append $v $dataList -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- /* seek the correct whitespace */ -}}
+		{{- if or (or (eq $v " ") (eq $v "\t")) (eq $v "\n") -}}
+			{{- if $inQuote -}}
+				{{- $dataList = append $v $dataList -}}
+			{{- else if $isSpaced -}}
+				{{- /* DO NOTHING */ -}}
+			{{- else -}}
+				{{- $isSpaced = true -}}
+				{{- $dataList = append " " $dataList -}}
+			{{- end -}}
+
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- /* not a quote or whitespace */ -}}
+		{{- $dataList = append $v $dataList -}}
+		{{- $isSpaced = false -}}
+	{{- end -}}
+	{{- $dataList = delimit $dataList "" -}}
+{{- else -}}
+	{{- $dataList = . -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
