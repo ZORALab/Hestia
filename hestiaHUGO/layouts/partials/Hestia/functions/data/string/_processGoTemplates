@@ -1,0 +1,100 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Query = string data to process inline functions */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $GO_TEMPLATE_PATTERN := `((?:\{\{|\s*\{\{\-)(.*?)(?:\}\}|-\}\}\s*))` -}}
+{{- $GO_TEMPLATE_COMMENT_PATTERN := `(\/\*.*?(?:\*\/|$))` -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := .Input.Query -}}
+{{- $args := dict -}}
+{{- $list := dict -}}
+{{- $ret := false -}}
+{{- $fx := false -}}
+
+
+
+
+{{- /* STAGE 1 - parse all Go template functions */ -}}
+{{- $ret = findRE $GO_TEMPLATE_PATTERN .Input.Query -}}
+{{- $list = dict -}}
+{{- range $i, $v := $ret -}}
+	{{- $fx = strings.TrimLeft " {-" $fx -}}
+	{{- $fx = strings.TrimRight " }-" $fx -}}
+
+
+	{{- /* remove Go template comment */ -}}
+	{{- $fx = findRE $GO_TEMPLATE_COMMENT_PATTERN "" -}}
+	{{- $fx = partial "Hestia/functions/data/trim/Whitespace" $fx -}}
+
+
+	{{- /* split template functions segments if available */ -}}
+	{{- if $fx -}}
+		{{- $fx = split $fx " " -}}
+	{{- end -}}
+
+
+	{{- /* add to list */ -}}
+	{{- $list = merge $list (dict $v $fx) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 2 - execute each Go template functions */ -}}
+{{- range $k, $v := $list -}}
+	{{- $args := dict -}}
+	{{- $fx = index $v 0 -}}
+
+
+	{{- /* check if it is data filler */ -}}
+	{{- if hasPrefix $fx "." -}}
+		{{- $ret = dict "Input" (dict "Query" $fx) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- $ret = partial "Hestia/functions/data/scan/Variable" $ret -}}
+		{{- $list = merge $list (dict $k $ret.Data) -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* assumes it is a function */ -}}
+	{{- $fx = printf "Hestia/shortcodes/%s" $fx -}}
+
+	{{- /* process argument list */ -}}
+	{{- range $i, $x := $v -}}
+		{{- if not (eq $i 0) -}}
+			{{- $ret = split $x "=" -}}
+			{{- $ret = dict (index $ret 0) (index $ret 1) -}}
+			{{- $args = merge $args $ret -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- /* search and executes Hestia/shortcodes */ -}}
+	{{- $args = dict "Input" $args -}}
+	{{- $args = merge $Page $args -}}
+	{{- $ret = partial $fx $args -}}
+
+
+	{{- /* replace list value with processed values */ -}}
+	{{- $list = merge $list (dict $k $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 3 - replace every processed clauses */ -}}
+{{- range $k, $v := $list -}}
+	{{- $dataList = replace $dataList $k $v -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
