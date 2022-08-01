@@ -1,0 +1,26 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Type = image MIME type */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* cleans up and standardize all MIME type data */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Query" .Input.Type)) -}}
+{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $dataList = merge $dataList (dict "Output" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
