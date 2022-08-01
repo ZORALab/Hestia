@@ -30,15 +30,3 @@ Height = 1200
 Path = 'images/safari-monochrome.svg'
 Width = 1500
 Height = 1500
-
-
-
-
-[Color]
-# Theme color uses for monocromatic the logo. Recommend the highest contrast
-# color against the background color.
-Theme = '#FFFFFF'
-
-# Background color uses for overlaying the favicon. Example usage:
-#   1. Windows tile background color.
-Background = '#0055FF'

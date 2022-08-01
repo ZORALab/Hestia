@@ -15,151 +15,151 @@
 
 {{- /* prepare list of favicon data */ -}}
 {{- $list = slice (dict
-	"Filename" "apple-icon-57x57.png"
-	"Type" "image/png"
-	"Width" 57
-	"Height" 57
-	"Dimension" "57x57"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-57x57.png"
+		"Type" "image/png"
+		"Width" 57
+		"Height" 57
+		"Dimension" "57x57"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-60x60.png"
-	"Type" "image/png"
-	"Width" 60
-	"Height" 60
-	"Dimension" "60x60"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-60x60.png"
+		"Type" "image/png"
+		"Width" 60
+		"Height" 60
+		"Dimension" "60x60"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-72x72.png"
-	"Type" "image/png"
-	"Width" 72
-	"Height" 72
-	"Dimension" "72x72"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-72x72.png"
+		"Type" "image/png"
+		"Width" 72
+		"Height" 72
+		"Dimension" "72x72"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-76x76.png"
-	"Type" "image/png"
-	"Width" 76
-	"Height" 76
-	"Dimension" "76x76"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-76x76.png"
+		"Type" "image/png"
+		"Width" 76
+		"Height" 76
+		"Dimension" "76x76"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-114x114.png"
-	"Type" "image/png"
-	"Width" 114
-	"Height" 114
-	"Dimension" "114x114"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-114x114.png"
+		"Type" "image/png"
+		"Width" 114
+		"Height" 114
+		"Dimension" "114x114"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-120x120.png"
-	"Type" "image/png"
-	"Width" 120
-	"Height" 120
-	"Dimension" "120x120"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-120x120.png"
+		"Type" "image/png"
+		"Width" 120
+		"Height" 120
+		"Dimension" "120x120"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-144x144.png"
-	"Type" "image/png"
-	"Width" 144
-	"Height" 144
-	"Dimension" "144x144"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-144x144.png"
+		"Type" "image/png"
+		"Width" 144
+		"Height" 144
+		"Dimension" "144x144"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-152x152.png"
-	"Type" "image/png"
-	"Width" 152
-	"Height" 152
-	"Dimension" "152x152"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-152x152.png"
+		"Type" "image/png"
+		"Width" 152
+		"Height" 152
+		"Dimension" "152x152"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "apple-icon-180x180.png"
-	"Type" "image/png"
-	"Width" 180
-	"Height" 180
-	"Dimension" "180x180"
-	"Resize" true
-	"Relationship" "apple-touch-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
+		"Filename" "apple-icon-180x180.png"
+		"Type" "image/png"
+		"Width" 180
+		"Height" 180
+		"Dimension" "180x180"
+		"Resize" true
+		"Relationship" "apple-touch-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.iOS.Path
 	) (dict
-	"Filename" "safari-pinned-tab.svg"
-	"Type" "image/svg+xml"
-	"Width" .Site.Data.Hestia.Favicons.Sources.Safari.Width
-	"Height" .Site.Data.Hestia.Favicons.Sources.Safari.Height
-	"Dimension" (printf "%vx%v"
-		.Site.Data.Hestia.Favicons.Sources.Safari.Width
-		.Site.Data.Hestia.Favicons.Sources.Safari.Height)
-	"Resize" false
-	"Relationship" "mask-icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.Safari.Path
+		"Filename" "safari-pinned-tab.svg"
+		"Type" "image/svg+xml"
+		"Width" .Site.Data.Hestia.Favicons.Sources.Safari.Width
+		"Height" .Site.Data.Hestia.Favicons.Sources.Safari.Height
+		"Dimension" (printf "%vx%v"
+			.Site.Data.Hestia.Favicons.Sources.Safari.Width
+			.Site.Data.Hestia.Favicons.Sources.Safari.Height)
+		"Resize" false
+		"Relationship" "mask-icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.Safari.Path
 	) (dict
-	"Filename" "favicon-icon-512x512.png"
-	"Type" "image/png"
-	"Width" 512
-	"Height" 512
-	"Dimension" "512x512"
-	"Resize" true
-	"Relationship" "icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
+		"Filename" "favicon-icon-512x512.png"
+		"Type" "image/png"
+		"Width" 512
+		"Height" 512
+		"Dimension" "512x512"
+		"Resize" true
+		"Relationship" "icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
 	) (dict
-	"Filename" "favicon-icon-192x192.png"
-	"Type" "image/png"
-	"Width" 192
-	"Height" 192
-	"Dimension" "192x192"
-	"Resize" true
-	"Relationship" "icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
+		"Filename" "favicon-icon-192x192.png"
+		"Type" "image/png"
+		"Width" 192
+		"Height" 192
+		"Dimension" "192x192"
+		"Resize" true
+		"Relationship" "icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
 	) (dict
-	"Filename" "favicon-icon-96x96.png"
-	"Type" "image/png"
-	"Width" 96
-	"Height" 96
-	"Dimension" "96x96"
-	"Resize" true
-	"Relationship" "icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
+		"Filename" "favicon-icon-96x96.png"
+		"Type" "image/png"
+		"Width" 96
+		"Height" 96
+		"Dimension" "96x96"
+		"Resize" true
+		"Relationship" "icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
 	) (dict
-	"Filename" "favicon-icon-32x32.png"
-	"Type" "image/png"
-	"Width" 32
-	"Height" 32
-	"Dimension" "32x32"
-	"Resize" true
-	"Relationship" "icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
+		"Filename" "favicon-icon-32x32.png"
+		"Type" "image/png"
+		"Width" 32
+		"Height" 32
+		"Dimension" "32x32"
+		"Resize" true
+		"Relationship" "icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
 	) (dict
-	"Filename" "favicon-icon-16x16.png"
-	"Type" "image/png"
-	"Width" 16
-	"Height" 16
-	"Dimension" "16x16"
-	"Resize" true
-	"Relationship" "icon"
-	"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
+		"Filename" "favicon-icon-16x16.png"
+		"Type" "image/png"
+		"Width" 16
+		"Height" 16
+		"Dimension" "16x16"
+		"Resize" true
+		"Relationship" "icon"
+		"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
 	) (dict
-	"Filename" "ms-icon-144x144.png"
-	"Type" "image/png"
-	"Width" 144
-	"Height" 144
-	"Dimension" "144x144"
-	"Resize" true
-	"Relationship" "msapplication-TileImage"
-	"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
+		"Filename" "ms-icon-144x144.png"
+		"Type" "image/png"
+		"Width" 144
+		"Height" 144
+		"Dimension" "144x144"
+		"Resize" true
+		"Relationship" "msapplication-TileImage"
+		"Source" .Site.Data.Hestia.Favicons.Sources.Main.Path
 )
 -}}
 
@@ -189,29 +189,6 @@
 		{{- $dataList = merge $dataList (dict $data.ID $data) -}}
 	{{- end -}}
 {{- end -}}
-{{- $dataList = dict "Icons" $dataList -}}
-
-
-
-
-{{- /* process .Color.Theme */ -}}
-{{- $ret = "#FFFFFF" -}}
-{{- if .Site.Data.Hestia.Favicons.Color.Theme  -}}
-	{{- $ret = .Site.Data.Hestia.Favicons.Color.Theme -}}
-{{- end -}}
-{{- $ret = dict "Theme" (upper $ret) -}}
-{{- $dataList = merge $dataList (dict "Color" $ret) -}}
-
-
-
-
-{{- /* process .Color.Background */ -}}
-{{- $ret = "#000000" -}}
-{{- if .Site.Data.Hestia.Favicons.Color.Background  -}}
-	{{- $ret = .Site.Data.Hestia.Favicons.Color.Background -}}
-{{- end -}}
-{{- $ret = dict "Background" (upper $ret) -}}
-{{- $dataList = merge $dataList (dict "Color" $ret) -}}
 
 
 

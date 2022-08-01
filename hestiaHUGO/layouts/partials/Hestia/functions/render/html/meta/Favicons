@@ -5,13 +5,14 @@
 
 
 {{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
 {{- $favicons := .Favicons -}}
 
 
 
 
 {{- /* return render */ -}}
-{{- range $k, $v := $favicons.Icons -}}
+{{- range $k, $v := $favicons -}}
 	{{- if or (eq $v.Relationship "apple-touch-icon") (eq $v.Relationship "icon") }}
 	<link rel="{{- safeHTML $v.Relationship -}}"
 		type="{{- safeHTML $v.Type -}}"
@@ -21,12 +22,12 @@
 	<link rel="{{- safeHTML $v.Relationship -}}"
 		type="{{- safeHTML $v.Type -}}"
 		href="{{- safeHTML $v.URL -}}"
-		color="{{- safeHTML $favicons.Color.Background -}}" />
+		color="{{- safeHTML $Page.PWA.Colors.Background -}}" />
 	{{- else if hasPrefix $v.Relationship "msapplication" }}
 	<meta name="{{- safeHTML $v.Relationship -}}"
 		content="{{- safeHTML $v.URL -}}" />
 	<meta name="msapplication-TileColor"
-		content="{{- safeHTML $favicons.Color.Background -}}" />
+		content="{{- safeHTML $Page.PWA.Colors.Background -}}" />
 	{{- else }}
 	<link rel="{{- safeHTML $v.Relationship -}}"
 		type="{{- safeHTML $v.Type -}}"
@@ -34,5 +35,5 @@
 	{{- end -}}
 {{- end }}
 	<meta name="theme-color"
-		content="{{- safeHTML $favicons.Color.Theme -}}" />
+		content="{{- safeHTML $Page.PWA.Colors.Theme -}}" />
 {{- /* clean up */ -}}
