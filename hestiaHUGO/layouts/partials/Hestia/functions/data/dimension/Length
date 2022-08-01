@@ -1,0 +1,25 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure  */ -}}
+{{- /* .Input.Dimension = Dimension value to check */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- $dataList = merge $dataList (dict "Output" (int .Input.Dimension)) -}}
+{{- if le $ret 0 -}}
+	{{- $ret = printf "bad dimension: '%v'\n" .Input.Dimension -}}
+	{{- $ret = merge $dataList (dict "Console" (dict "Message" $ret)) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
