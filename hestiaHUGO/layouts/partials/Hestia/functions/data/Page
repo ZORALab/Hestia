@@ -140,6 +140,7 @@
 {{- $dataList = partial "Hestia/functions/data/post-processing/Components" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/post-processing/Redirect" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/post-processing/PWA" $dataList -}}
 
 
 
