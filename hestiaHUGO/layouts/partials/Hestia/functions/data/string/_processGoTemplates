@@ -55,11 +55,15 @@
 
 {{- /* STAGE 2 - execute each Go template functions */ -}}
 {{- range $k, $v := $list -}}
-	{{- $args := dict -}}
-	{{- $fx = index $v 0 -}}
-
+	{{- if not $v -}}
+		{{- $list = merge $list (dict $k "") -}}
+		{{- continue -}}
+	{{- end -}}
 
 	{{- /* check if it is data filler */ -}}
+	{{- $args = dict -}}
+	{{- $fx = index $v 0 -}}
+
 	{{- if hasPrefix $fx "." -}}
 		{{- $ret = dict "Input" (dict "Query" $fx) -}}
 		{{- $ret = merge $Page $ret -}}
@@ -99,6 +103,7 @@
 {{- /* STAGE 3 - replace every processed clauses */ -}}
 {{- range $k, $v := $list -}}
 	{{- $dataList = replace $dataList $k $v -}}
+-}}
 {{- end -}}
 
 
