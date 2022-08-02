@@ -17,45 +17,45 @@
 
 
 {{- /* process .PWA.Name.Short */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Name.Short)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Name.Short)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Name" (dict "Short" $ret)) -}}
 
 
 
 
 {{- /* process .PWA.Name.Full */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Name.Full)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Name.Full)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Name" (dict "Full" $ret)) -}}
 
 
 
 
 {{- /* process .PWA.Configurations.URL */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Configurations.URL)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Configurations.URL)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Configurations" (dict "URL" $ret)) -}}
 
 
 
 
 {{- /* process .PWA.Configurations.Scope */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Configurations.Scope)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Configurations.Scope)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Configurations" (dict "Scope" $ret)) -}}
 
 
 
 
 {{- /* process .PWA.Display.Orientation */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Displays.Orientation)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Displays.Orientation)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Displays" (dict "Orientation" $ret)) -}}
 
 
@@ -64,9 +64,10 @@
 {{- /* process .PWA.Display.Overrides */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .PWA.Displays.Overrides -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 	{{- $list = append $ret $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Displays" (dict "Overrides" $list)) -}}
@@ -75,18 +76,18 @@
 
 
 {{- /* process .PWA.Descriptions.Pitch */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Descriptions.Pitch)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Pitch)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Descriptions" (dict "Pitch" $ret)) -}}
 
 
 
 
 {{- /* process .PWA.Descriptions.Summary */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Descriptions.Summary)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Summary)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Descriptions" (dict "Summary" $ret)) -}}
 
 
@@ -95,9 +96,10 @@
 {{- /* process .PWA.Categories */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .PWA.Categories -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 	{{- $list = append $ret $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Categories" $list) -}}
@@ -106,18 +108,18 @@
 
 
 {{- /* process .PWA.Colors.Theme */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Colors.Theme)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Colors.Theme)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Colors" (dict "Theme" $ret)) -}}
 
 
 
 
 {{- /* process .PWA.Colors.Background */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Query" .PWA.Colors.Background)) -}}
-{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Colors.Background)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Colors" (dict "Background" $ret)) -}}
 
 
@@ -130,9 +132,10 @@
 
 
 	{{- /* process .PWA.Shortcuts.N.URL */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.URL)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given PWA Shortcut URL is invalid: %v\n"
@@ -146,9 +149,10 @@
 
 
 	{{- /* process .PWA.Shortcuts.N.Name.Full */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Name.Full)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name.Full)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given PWA .Shortcut.Name.Full is invalid: %v\n"
@@ -162,9 +166,10 @@
 
 
 	{{- /* process .PWA.Shortcuts.N.Name.Short */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Name.Short)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name.Short)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given PWA .Shortcut.Name.Short is invalid: %v\n"
@@ -178,9 +183,10 @@
 
 
 	{{- /* process .PWA.Shortcuts.N.Description */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Description)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Description)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given PWA .Shortcut.Description is invalid: %v\n"
@@ -199,9 +205,10 @@
 		{{- $image = dict -}}
 
 		{{- /* process .PWA.Shortcuts.N.Icons.M.URL */ -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Query" $w.URL)) -}}
-		{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.URL)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+			$ret.Output -}}
 
 		{{- if not $ret -}}
 			{{- $ret = printf "given PWA .Shortcut.%v.Icon.URL is invalid: %v\n"
@@ -215,9 +222,10 @@
 
 
 		{{- /* process .PWA.Shortcuts.N.Icons.M.Type */ -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Query" $w.Type)) -}}
-		{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Type)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+			$ret.Output -}}
 
 		{{- if not $ret -}}
 			{{- $ret = printf "given PWA .Shortcut.%v.Icon.Type is invalid: %v\n"
@@ -231,9 +239,10 @@
 
 
 		{{- /* process .PWA.Shortcuts.N.Icons.M.Sizes */ -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Query" $w.Sizes)) -}}
-		{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Sizes)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+			$ret.Output -}}
 
 		{{- if not $ret -}}
 			{{- $ret = printf "given PWA .Shortcut.%v.Icon.Sizes is invalid: %v\n"
@@ -247,9 +256,10 @@
 
 
 		{{- /* process .PWA.Shortcuts.N.Icons.M.Purpose */ -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Query" $w.Purpose)) -}}
-		{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Purpose)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+			$ret.Output -}}
 
 		{{- if not $ret -}}
 			{{- $ret = printf "given PWA .Shortcut.%v.Icon.Purpose is invalid: %v\n"
@@ -278,9 +288,10 @@
 	{{- $image = dict -}}
 
 	{{- /* process .PWA.Screenshots.N.URL */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.URL)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Screenshots.%v.URL is invalid: %v\n"
@@ -294,9 +305,10 @@
 
 
 	{{- /* process .PWA.Screenshots.N.Type */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Type)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Type)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Screenshots.%v.Type is invalid: %v\n"
@@ -310,9 +322,10 @@
 
 
 	{{- /* process .PWA.Screenshots.N.Sizes */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Sizes)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Sizes)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Screenshots.%v.Sizes is invalid: %v\n"
@@ -326,9 +339,10 @@
 
 
 	{{- /* process .PWA.Screenshots.N.Platform */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Platform)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Platform)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Screenshots.%v.Platform is invalid: %v\n"
@@ -355,9 +369,10 @@
 	{{- $image = dict -}}
 
 	{{- /* process .PWA.Icons.N.URL */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.URL)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Icons.%v.URL is invalid: %v\n"
@@ -371,9 +386,10 @@
 
 
 	{{- /* process .PWA.Icons.N.Type */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Type)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Type)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Icons.%v.Type is invalid: %v\n"
@@ -387,9 +403,10 @@
 
 
 	{{- /* process .PWA.Icons.N.Sizes */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Sizes)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Sizes)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Icons.%v.Sizes is invalid: %v\n"
@@ -403,9 +420,10 @@
 
 
 	{{- /* process .PWA.Icons.N.Purpose */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Platform)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Platform)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Icons.%v.Purpose is invalid: %v\n"
@@ -433,9 +451,10 @@
 
 
 	{{- /* process .PWA.Relations.N.URL */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.URL)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Relations.%v.URL is invalid: %v\n"
@@ -450,9 +469,10 @@
 
 
 	{{- /* process .PWA.Relations.N.Platform */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.Platform)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Platform)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Relations.%v.Platform is invalid: %v\n"
@@ -467,9 +487,10 @@
 
 
 	{{- /* process .PWA.Relations.N.ID */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v.ID)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.ID)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 	{{- if not $ret -}}
 		{{- $ret = printf "given .PWA.Relations.%v.Platform is invalid: %v\n"

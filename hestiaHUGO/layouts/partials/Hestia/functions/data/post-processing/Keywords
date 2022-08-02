@@ -15,12 +15,13 @@
 {{- /* run through each .Keyword */ -}}
 {{- range $i, $v := .Keywords -}}
 	{{- /* process and built-in functions */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Query" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 
 
 	{{- /* clean up whitespace */ -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
 
 
 	{{- /* merge into map list to make the list unique */ -}}
