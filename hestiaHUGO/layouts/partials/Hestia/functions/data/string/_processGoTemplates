@@ -2,9 +2,6 @@
 {{- /* .context  = Page data in Hestia Structure  */ -}}
 {{- /* .Input.Query = string data to process inline functions */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $GO_TEMPLATE_COMMENT_PATTERN := `(\/\*.*?(?:\*\/|$))` -}}
-
 
 
 
@@ -37,7 +34,8 @@
 
 
 	{{- /* remove Go template comment */ -}}
-	{{- $fx = replaceRE $GO_TEMPLATE_COMMENT_PATTERN "" $fx -}}
+	{{- $fx = partial "Hestia/functions/data/string/__removeGoTemplateComments"
+		$fx -}}
 	{{- $fx = partial "Hestia/functions/data/trim/Whitespace" $fx -}}
 
 

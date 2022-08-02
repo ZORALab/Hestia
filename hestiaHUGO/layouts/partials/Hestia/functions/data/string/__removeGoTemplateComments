@@ -1,0 +1,50 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := . -}}
+{{- $inComment := false -}}
+{{- $prev := false -}}
+{{- $output := slice -}}
+
+
+
+
+{{- /* cleans up all comments */ -}}
+{{- range $i, $v := (split . "") -}}
+	{{- if eq $v "/" -}}
+		{{- if and (not $inComment) (not $prev) -}}
+			{{- $prev = "/" -}}
+		{{- else if eq $prev "*" -}}
+			{{- $inComment = false -}}
+			{{- $prev = "" -}}
+		{{- else if eq $prev "/" -}}
+			{{- $output = append "//" $output -}}
+			{{- $prev = "" -}}
+		{{- end -}}
+	{{- else if eq $v "*" -}}
+		{{- if eq $prev "/" -}}
+			{{- $inComment = true -}}
+			{{- $prev = "" -}}
+		{{- else if and $inComment (not $prev) -}}
+			{{- $prev = "*" -}}
+		{{- else if and $inComment (eq $prev "*") -}}
+			{{- $output = append "**" $output -}}
+			{{- $prev = "" -}}
+		{{- end -}}
+	{{- else -}}
+		{{- if not $inComment -}}
+			{{- $output = append $v $output -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = delimit $output "" -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
