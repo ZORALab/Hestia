@@ -33,7 +33,7 @@
 	{{- $fx = strings.TrimRight "\r\n\t }-" $fx -}}
 
 
-	{{- /* remove Go template comment */ -}}
+	{{- /* remove Go template comments */ -}}
 	{{- $fx = partial "Hestia/functions/data/string/__removeGoTemplateComments"
 		$fx -}}
 	{{- $fx = partial "Hestia/functions/data/trim/Whitespace" $fx -}}
@@ -43,6 +43,11 @@
 	{{- if $fx -}}
 		{{- $fx = partial "Hestia/functions/data/string/__splitArgs"
 			$fx -}}
+		{{- if and $fx.Console (not $console) -}}
+			{{- $console = $fx.Console.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+		{{- $fx = $fx.Output -}}
 	{{- end -}}
 
 
@@ -67,7 +72,8 @@
 	{{- if hasPrefix $fx "." -}}
 		{{- $ret = dict "Input" (dict "Query" $fx) -}}
 		{{- $ret = merge $Page $ret -}}
-		{{- $ret = partial "Hestia/functions/data/scan/Variable" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/scan/Variable"
+			$ret -}}
 		{{- $list = merge $list (dict $k $ret.Data) -}}
 		{{- continue -}}
 	{{- end -}}
@@ -90,7 +96,15 @@
 	{{- /* search and executes Hestia/shortcodes */ -}}
 	{{- $args = dict "Input" $args -}}
 	{{- $args = merge $Page $args -}}
-	{{- $ret = partial $fx $args -}}
+
+	{{- if partial "Hestia/functions/data/scan/FileExists"
+			(printf "layouts/partials/%s" $fx) -}}
+		{{- $ret = partial $fx $args -}}
+	{{- else if not $console -}}
+		{{- $console = printf "missing Hestia partial shortcode: %v\n"
+			$k -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
 
 
 	{{- /* replace list value with processed values */ -}}
@@ -103,7 +117,6 @@
 {{- /* STAGE 3 - replace every processed clauses */ -}}
 {{- range $k, $v := $list -}}
 	{{- $dataList = replace $dataList $k $v -}}
--}}
 {{- end -}}
 
 

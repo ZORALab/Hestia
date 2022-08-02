@@ -17,14 +17,17 @@
 {{- /* standardize string data */ -}}
 {{- if partial "Hestia/functions/data/string/IsString" .Input.Data -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Query" .Input.Data)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/_processGoTemplates" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/_processGoTemplates"
+		$ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = dict "Message" $ret.Console.Message -}}
+		{{- $console = printf "string: %s" $ret.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- else -}}
 	{{- $ret = "" -}}
-	{{- $console = printf "init string: not a string '%v'" .Input.Data -}}
+	{{- $console = printf "string: given data is not a string: '%v'\n"
+		.Input.Data -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 

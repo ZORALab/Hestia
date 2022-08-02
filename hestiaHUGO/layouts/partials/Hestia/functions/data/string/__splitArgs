@@ -6,6 +6,7 @@
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := slice -}}
+{{- $console := dict -}}
 {{- $fx := slice -}}
 {{- $inQuote := "" -}}
 {{- $isSpaced := false -}}
@@ -55,7 +56,10 @@
 
 
 
-{{- if not $inQuote -}}
+{{- if $inQuote -}}
+	{{- $console = printf "unterminated quote: %v\n" (delimit $fx "") -}}
+	{{- $console = dict "Message" $console -}}
+{{- else -}}
 	{{- $dataList = append (string (delimit $fx "")) $dataList -}}
 {{- end -}}
 
@@ -63,4 +67,4 @@
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList "Console" $console -}}
