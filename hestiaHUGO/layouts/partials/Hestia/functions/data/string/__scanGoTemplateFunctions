@@ -97,6 +97,9 @@
 			{{- $ret = append $v $ret -}}
 			{{- $prev = "" -}}
 		{{- end -}}
+
+		{{- /* reset whitespace tracker since it's invalid */ -}}
+		{{- $whitespace = slice -}}
 	{{- end -}}
 {{- end -}}
 
