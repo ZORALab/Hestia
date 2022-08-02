@@ -23,20 +23,13 @@
 		{{- $console = printf "string: %s" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
-	{{- $ret = $ret.Output -}}
+	{{- $dataList = $ret.Output -}}
 {{- else -}}
-	{{- $ret = "" -}}
+	{{- $dataList = "" -}}
 	{{- $console = printf "string: given data is not a string: '%v'\n"
 		.Input.Data -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
-
-
-
-
-{{- /* cleans up string data */ -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
-{{- $dataList = $ret -}}
 
 
 
