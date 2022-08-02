@@ -1,0 +1,37 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Name = name or alt-text or title of the image */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* restructure .Input */ -}}
+{{- $ret = .Input.Name -}}
+{{- $Page = merge . (dict "Input" false) -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+
+
+
+
+{{- /* process .Name */ -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = $ret.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList $ret.Output -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
