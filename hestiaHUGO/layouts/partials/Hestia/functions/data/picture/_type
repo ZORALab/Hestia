@@ -1,0 +1,28 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Type = image MIME type */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := "" -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- $ret = partial "Hestia/functions/data/mime/Image" . -}}
+{{- if $ret.Console -}}
+	{{- $console = $ret.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList $ret.Output -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
