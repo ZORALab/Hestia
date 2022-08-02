@@ -24,7 +24,15 @@
 {{- /* cleans up and standardize all string data */ -}}
 {{- range $i, $v := (split . "") -}}
 	{{- if eq $v "{" -}}
-		{{- if eq $state $STATE_FX_FREE -}}
+		{{- if and (eq $state $STATE_FX_FREE) (eq $prev "-") -}}
+			{{- $ret = append $whitespace $ret -}}
+			{{- $ret = delimit $ret "" -}}
+			{{- $dataList = append (string $ret) $dataList -}}
+			{{- $whitespace = slice -}}
+			{{- $prev = "" -}}
+			{{- $ret = slice -}}
+			{{- $state = $STATE_FX_OPEN -}}
+		{{- else if eq $state $STATE_FX_FREE -}}
 			{{- $state = $STATE_FX_OPEN -}}
 		{{- else if eq $state $STATE_FX_OPEN -}}
 			{{- $state = $STATE_FX_INSIDE -}}
