@@ -16,22 +16,19 @@
 {{- /* cleans up and standardize all string data */ -}}
 {{- range $i, $v := (split . "") -}}
 	{{- /* seek quotation to ignore or otherwise */ -}}
-	{{- if or (or (eq $v "'") (eq $v "\"")) (eq $v "`") -}}
+	{{- if (eq $v "'") | or (eq $v "\"") | or (eq $v "`") -}}
 		{{- if eq $v $inQuote -}}
 			{{- $inQuote = false -}}
-			{{- $dataList = append (string (delimit $fx "")) $dataList -}}
+			{{- $dataList = append (string (delimit $fx ""))
+				$dataList -}}
 			{{- $fx = slice -}}
 		{{- else if not $inQuote -}}
 			{{- $inQuote = $v -}}
 		{{- end -}}
-
-
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- /* seek the correct whitespace */ -}}
-	{{- if or (or (or (eq $v " ") (eq $v "\t")) (eq $v "\n")) (eq $v "\r") -}}
+	{{- else if (eq $v " ")
+			| or (eq $v "\t")
+			| or (eq $v "\n")
+			| or (eq $v "\r") -}}
 		{{- if $inQuote -}}
 			{{- $fx = append $v $fx -}}
 		{{- else if $isSpaced -}}
@@ -49,15 +46,17 @@
 
 			{{- $fx = slice -}}
 		{{- end -}}
-
-
-		{{- continue -}}
+	{{- else -}}
+		{{- /* not a quote or whitespace */ -}}
+		{{- $fx = append $v $fx -}}
+		{{- $isSpaced = false -}}
 	{{- end -}}
+{{- end -}}
 
 
-	{{- /* not a quote or whitespace */ -}}
-	{{- $fx = append $v $fx -}}
-	{{- $isSpaced = false -}}
+
+{{- if not $inQuote -}}
+	{{- $dataList = append (string (delimit $fx "")) $dataList -}}
 {{- end -}}
 
 
