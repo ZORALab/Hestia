@@ -17,7 +17,7 @@
 {{- $ret = partial "Hestia/functions/data/mime/Init" . -}}
 {{- $dataList = merge $dataList (dict "Output" $ret.Output) -}}
 {{- if $ret.Console -}}
-	{{- $console = printf "image MIME: '%s'\n" $ret.Console.Message -}}
+	{{- $console = printf "Image: '%s'" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -33,7 +33,7 @@
 
 
 	{{- if not $console -}}
-		{{- $console = printf "image MIME: unknown type '%v'\n"
+		{{- $console = printf "Image: MIME Type: unknown type '%v'\n"
 			.Input.Type -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
