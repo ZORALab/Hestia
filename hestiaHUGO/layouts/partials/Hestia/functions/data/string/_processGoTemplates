@@ -3,7 +3,6 @@
 {{- /* .Input.Query = string data to process inline functions */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $GO_TEMPLATE_PATTERN := `((?:\{\{|\s*\{\{\-).*?(?:\}\}|-\}\}\s*))` -}}
 {{- $GO_TEMPLATE_COMMENT_PATTERN := `(\/\*.*?(?:\*\/|$))` -}}
 
 
@@ -12,6 +11,7 @@
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := . -}}
 {{- $dataList := .Input.Query -}}
+{{- $console := dict -}}
 {{- $args := dict -}}
 {{- $list := dict -}}
 {{- $ret := false -}}
@@ -21,11 +21,19 @@
 
 
 {{- /* STAGE 1 - parse all Go template functions */ -}}
-{{- $ret = findRE $GO_TEMPLATE_PATTERN .Input.Query -}}
+{{- $ret = partial "Hestia/functions/data/string/__scanGoTemplateFunctions"
+	.Input.Query -}}
+{{- if $ret.Console -}}
+	{{- $console = dict "Message" $ret.Console.Message -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+
 {{- $list = dict -}}
 {{- range $i, $v := $ret -}}
-	{{- $fx = strings.TrimLeft " {-" $v -}}
-	{{- $fx = strings.TrimRight " }-" $fx -}}
+	{{- /* remove Go template braces and whitespace */ -}}
+	{{- $fx = strings.TrimLeft "\r\n\t {-" $v -}}
+	{{- $fx = strings.TrimRight "\r\n\t }-" $fx -}}
 
 
 	{{- /* remove Go template comment */ -}}
@@ -99,4 +107,4 @@
 
 
 {{- /* render output */ -}}
-{{- return (string $dataList) -}}
+{{- return dict "Output" (string $dataList) "Console" $console -}}
