@@ -1,0 +1,80 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Name                    = image alternate text or title */ -}}
+{{- /* .Input.Type                    = image MIME type */ -}}
+{{- /* .Input.Width                   = image width */ -}}
+{{- /* .Input.Height                  = image height */ -}}
+{{- /* .Input.Sources.[ARRAY_N].URL   = image source set URL */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Query = image source set applicable query */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* STAGE 1: PROCESS */ -}}
+{{- /* process .Name */ -}}
+{{- $ret = partial "Hestia/functions/data/image/_name" . -}}
+{{- $dataList = merge $dataList (dict "Name" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Picture.Name: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Type */ -}}
+{{- $ret = partial "Hestia/functions/data/image/_type" . -}}
+{{- $dataList = merge $dataList (dict "Type" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Picture.Type: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Width */ -}}
+{{- $ret = partial "Hestia/functions/data/image/_width" . -}}
+{{- $dataList = merge $dataList (dict "Width" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Picture.Width: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Height */ -}}
+{{- $ret = partial "Hestia/functions/data/image/_height" . -}}
+{{- $dataList = merge $dataList (dict "Height" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Picture.Height: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 2: POST-PROCESS */ -}}
+{{- /* process .Sizes */ -}}
+{{- $ret = "" -}}
+{{- if and $dataList.Width $dataList.Height -}}
+	{{- $ret = printf "%dx%d" $dataList.Width $dataList.Height -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Sizes" $ret) -}}
+
+{{- if and (not $dataList.Sizes) (not $console) -}}
+	{{- $console = printf "Picture.Sizes: bad sizes '%v'"
+		$dataList.Sizes -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Output" $dataList "Console" $console -}}
+{{- return $dataList -}}
