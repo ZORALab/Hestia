@@ -15,7 +15,7 @@
 {{- /* process site title */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Query" .Titles.Site)) -}}
 {{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Site" $ret) -}}
 
 
@@ -24,7 +24,7 @@
 {{- /* process page title */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Query" .Titles.Page)) -}}
 {{- $ret = partial "Hestia/functions/data/scan/GoTemplateFunction" $ret -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Page" $ret) -}}
 
 

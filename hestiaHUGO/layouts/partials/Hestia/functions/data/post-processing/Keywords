@@ -20,7 +20,7 @@
 
 
 	{{- /* clean up whitespace */ -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 
 
 	{{- /* merge into map list to make the list unique */ -}}

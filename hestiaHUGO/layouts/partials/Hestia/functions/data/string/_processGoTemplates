@@ -36,7 +36,7 @@
 	{{- /* remove Go template comments */ -}}
 	{{- $fx = partial "Hestia/functions/data/string/__removeGoTemplateComments"
 		$fx -}}
-	{{- $fx = partial "Hestia/functions/data/trim/Whitespace" $fx -}}
+	{{- $fx = partial "Hestia/functions/data/string/TrimWhitespace" $fx -}}
 
 
 	{{- /* split template functions segments when available */ -}}

@@ -204,7 +204,7 @@
 
 {{- /* STAGE 2 - Process .Input.ID */ -}}
 {{- if .Input.ID -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.ID -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.ID -}}
 	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "ID" $ret) -}}
 {{- end -}}
@@ -214,7 +214,7 @@
 
 {{- /* STAGE 3 - Process Input.Class */ -}}
 {{- if .Input.Class -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Class -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Class -}}
 	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Class" $ret) -}}
 {{- end -}}
@@ -224,7 +224,7 @@
 
 {{- /* STAGE 4 - Process Input.Rel */ -}}
 {{- if .Input.Rel -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Rel -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Rel -}}
 	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Rel" $ret) -}}
 {{- end -}}
@@ -249,7 +249,7 @@
 		{{- $ret = .Input.HrefLang -}}
 	{{- end -}}
 
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Lang" $ret) -}}
 {{- end -}}
@@ -267,7 +267,7 @@
 
 {{- /* STAGE 7 - Process Input.Target */ -}}
 {{- if .Input.Target -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Target -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Target -}}
 	{{- $ret = safeHTML $ret -}}
 	{{- $dataList = merge $dataList (dict "Target" $ret) -}}
 {{- end -}}
@@ -277,7 +277,7 @@
 
 {{- /* STAGE 8 - Process Input.Onload */ -}}
 {{- if .Input.Target -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Onload -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Onload -}}
 	{{- $ret = safeJS $ret -}}
 	{{- $dataList = merge $dataList (dict "Onload" $ret) -}}
 {{- end -}}
@@ -287,7 +287,7 @@
 
 {{- /* STAGE 9 - Process Input.Content */ -}}
 {{- if .Input.Content -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" .Input.Content -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Content -}}
 	{{- $ret = partial "Hestia/functions/render/Content" $ret -}}
 	{{- $dataList = merge $dataList (dict "Content" $ret) -}}
 {{- end -}}

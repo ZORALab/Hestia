@@ -22,7 +22,7 @@
 	{{- /* process .CSS part */ -}}
 	{{- $part = dict -}}
 	{{- $ret = default "" $data.CSS.Code -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 	{{- $part = merge $part (dict "Code" $ret) -}}
 
 
@@ -42,7 +42,7 @@
 	{{- /* process .HTML part */ -}}
 	{{- $part = dict -}}
 	{{- $ret = default "" $data.HTML.Code -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 	{{- $part = merge $part (dict "Code" $ret) -}}
 
 
@@ -54,7 +54,7 @@
 	{{- /* process .JS part */ -}}
 	{{- $part = dict -}}
 	{{- $ret = default "" $data.JS.Code -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 	{{- $part = merge $part (dict "Code" $ret) -}}
 
 

@@ -25,7 +25,7 @@
 
 
 	{{- /* clean up whitespace */ -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 
 
 	{{- /* replace new lines with space */ -}}

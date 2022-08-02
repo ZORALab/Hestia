@@ -24,7 +24,7 @@
 {{- $ret = findRE $GO_TEMPLATE_PATTERN .Input.Query -}}
 {{- $list = dict -}}
 {{- range $i, $v := $ret -}}
-	{{- $fx = partial "Hestia/functions/data/trim/Whitespace" $v -}}
+	{{- $fx = partial "Hestia/functions/data/string/TrimWhitespace" $v -}}
 	{{- if not (or (hasPrefix $fx "{{- ") (hasPrefix $fx "{{ ")) -}}
 		{{- $msg = printf "missing '{{- ' or '{{ ' for: %#v" $fx -}}
 		{{- $msg = dict "Console" (dict "Message" $msg) -}}

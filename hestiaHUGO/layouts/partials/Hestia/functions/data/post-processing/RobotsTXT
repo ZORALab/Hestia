@@ -22,7 +22,7 @@
 {{- $list = slice -}}
 {{- range $i, $v := .Sitemaps -}}
 	{{- $ret = replace $v $baseURLPattern $baseURL -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 	{{- $list = append $ret $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Sitemaps" $list) -}}
@@ -39,7 +39,7 @@
 	{{- /* process .Name */ -}}
 	{{- $ret = replace $v.Name "All" "*" -}}
 	{{- $ret = replace $ret "all" "*" -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 	{{- $agent = merge $agent (dict "Name" $ret) -}}
 
 
@@ -47,7 +47,7 @@
 	{{- $value = slice -}}
 	{{- range $k, $x := $v.Allow -}}
 		{{- $ret = replace $x $baseURLPattern $baseURL -}}
-		{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 		{{- $value = append $ret $value -}}
 	{{- end -}}
 	{{- $agent = merge $agent (dict "Allow" $value) -}}
@@ -57,7 +57,7 @@
 	{{- $value = slice -}}
 	{{- range $k, $x := $v.Disallow -}}
 		{{- $ret = replace $x $baseURLPattern $baseURL -}}
-		{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 		{{- $value = append $ret $value -}}
 	{{- end -}}
 	{{- $agent = merge $agent (dict "Disallow" $value) -}}
@@ -65,7 +65,7 @@
 
 	{{- /* process ."Crawl-delay" */ -}}
 	{{- $ret = index $v "Crawl-delay" -}}
-	{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 	{{- $agent = merge $agent (dict "Crawl-delay" $ret) -}}
 
 

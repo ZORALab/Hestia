@@ -35,7 +35,7 @@
 
 
 {{- /* cleans up string data */ -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = $ret -}}
 
 

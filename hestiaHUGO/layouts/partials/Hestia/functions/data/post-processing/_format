@@ -30,7 +30,7 @@
 {{- if not (hasPrefix $ret ".") -}}
 	{{- $ret = printf ".%s" $ret -}}
 {{- end -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Extension" $ret) -}}
 
 
@@ -38,7 +38,7 @@
 
 {{- /* process .Filename */ -}}
 {{- $ret = .Input.Format.Filename -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Filename" $ret) -}}
 
 
@@ -66,7 +66,7 @@
 
 {{- /* process .Name */ -}}
 {{- $ret = upper .Input.Format.Name -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Name" $ret) -}}
 
 
@@ -77,7 +77,7 @@
 {{- if not $ret -}}
 	{{- $ret = $protocol -}}
 {{- end -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Protocol" $ret) -}}
 
 
@@ -88,7 +88,7 @@
 {{- if not $ret -}}
 	{{- $ret = "alternate" -}}
 {{- end -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Relationship" $ret) -}}
 
 
@@ -96,7 +96,7 @@
 
 {{- /* process .Type */ -}}
 {{- $ret = .Input.Format.Type -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Type" $ret) -}}
 
 
@@ -104,7 +104,7 @@
 
 {{- /* process .URL */ -}}
 {{- $ret = .Input.Format.URL -}}
-{{- $ret = partial "Hestia/functions/data/trim/Whitespace" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "URL" $ret) -}}
 
 
