@@ -3,7 +3,7 @@
 {{- /* .Input.Query = string data to process inline functions */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $GO_TEMPLATE_PATTERN := `((?:\{\{|\s*\{\{\-)(.*?)(?:\}\}|-\}\}\s*))` -}}
+{{- $GO_TEMPLATE_PATTERN := `((?:\{\{|\s*\{\{\-).*?(?:\}\}|-\}\}\s*))` -}}
 {{- $GO_TEMPLATE_COMMENT_PATTERN := `(\/\*.*?(?:\*\/|$))` -}}
 
 
@@ -24,18 +24,19 @@
 {{- $ret = findRE $GO_TEMPLATE_PATTERN .Input.Query -}}
 {{- $list = dict -}}
 {{- range $i, $v := $ret -}}
-	{{- $fx = strings.TrimLeft " {-" $fx -}}
+	{{- $fx = strings.TrimLeft " {-" $v -}}
 	{{- $fx = strings.TrimRight " }-" $fx -}}
 
 
 	{{- /* remove Go template comment */ -}}
-	{{- $fx = findRE $GO_TEMPLATE_COMMENT_PATTERN "" -}}
+	{{- $fx = replaceRE $GO_TEMPLATE_COMMENT_PATTERN "" $fx -}}
 	{{- $fx = partial "Hestia/functions/data/trim/Whitespace" $fx -}}
 
 
-	{{- /* split template functions segments if available */ -}}
+	{{- /* split template functions segments when available */ -}}
 	{{- if $fx -}}
-		{{- $fx = split $fx " " -}}
+		{{- $fx = partial "Hestia/functions/data/string/__splitArgs"
+			$fx -}}
 	{{- end -}}
 
 
@@ -64,6 +65,7 @@
 
 	{{- /* assumes it is a function */ -}}
 	{{- $fx = printf "Hestia/shortcodes/%s" $fx -}}
+
 
 	{{- /* process argument list */ -}}
 	{{- range $i, $x := $v -}}
@@ -97,4 +99,4 @@
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return (string $dataList) -}}

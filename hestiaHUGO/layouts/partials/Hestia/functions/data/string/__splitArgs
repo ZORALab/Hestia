@@ -1,0 +1,67 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := slice -}}
+{{- $fx := slice -}}
+{{- $inQuote := "" -}}
+{{- $isSpaced := false -}}
+
+
+
+
+{{- /* cleans up and standardize all string data */ -}}
+{{- range $i, $v := (split . "") -}}
+	{{- /* seek quotation to ignore or otherwise */ -}}
+	{{- if or (or (eq $v "'") (eq $v "\"")) (eq $v "`") -}}
+		{{- if eq $v $inQuote -}}
+			{{- $inQuote = false -}}
+			{{- $dataList = append (string (delimit $fx "")) $dataList -}}
+			{{- $fx = slice -}}
+		{{- else if not $inQuote -}}
+			{{- $inQuote = $v -}}
+		{{- end -}}
+
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* seek the correct whitespace */ -}}
+	{{- if or (or (or (eq $v " ") (eq $v "\t")) (eq $v "\n")) (eq $v "\r") -}}
+		{{- if $inQuote -}}
+			{{- $fx = append $v $fx -}}
+		{{- else if $isSpaced -}}
+			{{- /* DO NOTHING */ -}}
+		{{- else -}}
+			{{- if eq $v "\r" -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- $isSpaced = true -}}
+			{{- $fx = delimit $fx "" -}}
+			{{- if $fx -}}
+				{{- $dataList = append (string $fx) $dataList -}}
+			{{- end -}}
+
+			{{- $fx = slice -}}
+		{{- end -}}
+
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* not a quote or whitespace */ -}}
+	{{- $fx = append $v $fx -}}
+	{{- $isSpaced = false -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
