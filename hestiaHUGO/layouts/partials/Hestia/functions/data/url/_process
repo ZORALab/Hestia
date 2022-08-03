@@ -6,8 +6,10 @@
 {{- /* .Languages.Current = Current Page's Language. */ -}}
 
 {{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
-{{- /* .Input.Format = desired output format. (optional, string) */ -}}
-{{- /* .Input.Lang = desired language. (optional, string) */ -}}
+{{- /* .Input.Format.Protocol = selected format protocol. (optional, string) */ -}}
+{{- /* .Input.Format.Filename = selected format filename. (optional, string) */ -}}
+{{- /* .Input.Format.Extension = selected format extension. (optional, string) */ -}}
+{{- /* .Input.Lang = overrides language code. (optional, string) */ -}}
 
 
 
@@ -32,28 +34,13 @@
 {{- $base := dict -}}
 {{- $given := dict -}}
 {{- $lang := false -}}
-{{- $format := false -}}
 {{- $IsRelativeToPage := false -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* STAGE 1: PROCESS REQUIREMENTS */ -}}
-{{- $format = false -}}
-{{- if .Input.Format -}}
-	{{- /* make sure it is the correct one */ -}}
-	{{- range $k, $v := .Formats.List -}}
-		{{- if eq .Input.Format.Name $v.Format.Name -}}
-			{{- $format = $v -}}
-		{{- end -}}
-	{{- end -}}
-{{- end -}}
-
-
-
-
-{{- /* STAGE 2: PROCESS URL */ -}}
+{{- /* STAGE 1: PROCESS URL */ -}}
 {{- $given = urls.Parse .Input.URL -}}
 {{- if $given.Scheme -}}
 	{{- /* IT IS A COMPLETE AND UNRELATED URL. DO NO EDIT ANYTHING */ -}}
@@ -82,9 +69,9 @@
 	{{- $dataList = printf "%s://" $ret -}}
 
 
-	{{- if $format -}}
-		{{- if not (eq $format.Protocol $dataList) -}}
-			{{- $dataList = $format.Protocol -}}
+	{{- if .Input.Format -}}
+		{{- if not (eq .Input.Format.Protocol $dataList) -}}
+			{{- $dataList = .Input.Format.Protocol -}}
 		{{- end -}}
 	{{- end -}}
 
@@ -164,26 +151,27 @@
 
 
 	{{- /* PART VII - PROCESS FILEPATH SEGMENT */ -}}
-	{{- $ret = false -}}
+	{{- $ret = "" -}}
 	{{- if path.Ext $given.Path -}}
 		{{- $ret = path.Base $given.Path -}}
 	{{- end -}}
 
 
-	{{- if $format -}}
-		{{- if not $ret -}}
-			{{- $ret = printf "%s%s" $format.Filename
-				$format.Extension -}}
-		{{- else -}}
-			{{- /* determine file replaceability */ -}}
-			{{- range $k, $v := .Formats.List -}}
-				{{- if eq $ret (printf "%s%s"
+	{{- if .Input.Format -}}
+		{{- /* clear replacable filename and extension */ -}}
+		{{- range $k, $v := .Formats.List -}}
+			{{- if not $ret -}}
+				{{- continue -}}
+			{{- else if eq $ret (printf "%s%s"
 						$v.Filename $v.Extension) -}}
-					{{- $ret = printf "%s%s"
-						$format.Filename
-						$format.Extension -}}
-				{{- end -}}
+				{{- $ret = false -}}
 			{{- end -}}
+		{{- end -}}
+
+		{{- if not $ret -}}
+			{{- $ret = printf "%s%s"
+				.Input.Format.Filename
+				.Input.Format.Extension -}}
 		{{- end -}}
 	{{- end -}}
 
@@ -220,7 +208,7 @@
 
 
 
-{{- /* STAGE 3 - CONVERT TO URL TYPE */ -}}
+{{- /* STAGE 2 - CONVERT TO URL TYPE */ -}}
 {{- $dataList = urls.Parse $dataList -}}
 
 

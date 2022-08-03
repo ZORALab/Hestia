@@ -1,0 +1,135 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .URL.Current = Current Page URL. */ -}}
+{{- /* .URL.Base = Current Page's Base URL. */ -}}
+{{- /* .Formats.Current = Current Page's Format File Type. */ -}}
+{{- /* .Languages.Current = Current Page's Language. */ -}}
+
+{{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
+{{- /* .Input.Format = desired output format. (optional, string) */ -}}
+{{- /* .Input.Lang = desired language. (optional, string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := merge . (dict "Input" false) -}}
+{{- $Args := dict -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Input.URL */ -}}
+{{- if (partial "Hestia/functions/data/string/IsString" .Input.URL)
+	| or (partial "Hestia/functions/data/url/IsURL" .Input.URL) -}}
+	{{- $ret = string .Input.URL -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "URL: .Input.URL: %s" $ret.Console -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+
+	{{- $ret = dict "URL" $ret.Output -}}
+	{{- $ret = dict "Input" $ret -}}
+	{{- $Args = merge $Page $ret -}}
+{{- else -}}
+	{{- $console = printf "URL: unknown .Input.URL type: %T for %v\n"
+		.Input.URL .Input.URL -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Input.Lang */ -}}
+{{- if and .Input.Lang (not $console) -}}
+	{{- $ret = string .Input.Lang -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $Args = merge $Args (dict "Input" (dict "Lang" $ret.Output)) -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "URL: .Input.Lang: %s" $ret.Console -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Input.Format */ -}}
+{{- if and .Input.Format (not $console) -}}
+	{{- range $k, $v := .Formats.List -}}
+		{{- if not (eq .Input.Format.Name $v.Format.Name) -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- /* process .Input.Format.Protocol */ -}}
+		{{- $ret = string $v.Protocol -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- if and $ret.Console (not $console) -}}
+			{{- $console = printf "URL: .Input.Format.Protocol: %s"
+				$ret.Console -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+		{{- $ret = dict "Protocol" $ret.Output -}}
+		{{- $ret = dict "Format" $ret -}}
+		{{- $ret = dict "Input" $ret -}}
+		{{- $Args = merge $Args $ret -}}
+
+
+		{{- /* process .Input.Format.Filename */ -}}
+		{{- $ret = string $v.Filename -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- if and $ret.Console (not $console) -}}
+			{{- $console = printf "URL: .Input.Format.Filename: %s"
+				$ret.Console -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+		{{- $ret = dict "Filename" $ret.Output -}}
+		{{- $ret = dict "Format" $ret -}}
+		{{- $ret = dict "Input" $ret -}}
+		{{- $Args = merge $Args $ret -}}
+
+
+		{{- /* process .Input.Format.Extension */ -}}
+		{{- $ret = string $v.Extension -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- if and $ret.Console (not $console) -}}
+			{{- $console = printf "URL: .Input.Format.Extension: %s"
+				$ret.Console -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+		{{- $ret = dict "Extension" $ret.Output -}}
+		{{- $ret = dict "Format" $ret -}}
+		{{- $ret = dict "Input" $ret -}}
+		{{- $Args = merge $Args $ret -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* allow to process the URL */ -}}
+{{- if not $console -}}
+	{{- $ret = partial "Hestia/functions/data/url/_process" $Args -}}
+	{{- if and $ret.Console (not $console) -}}
+		{{- $console = printf "URL: %s" $ret.Console -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+
+	{{- $dataList = $ret.Output -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
