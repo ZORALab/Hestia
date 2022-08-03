@@ -1,5 +1,5 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .Input.Path = relative filepath to parse from */ -}}
 {{- /* .Input.Decode = decision to decode the parsed data */ -}}
 
@@ -8,6 +8,7 @@
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
+{{- $console := dict -}}
 {{- $ret := false -}}
 
 
@@ -21,7 +22,13 @@
 
 
 {{- /* read file */ -}}
-{{- $ret = readFile $ret -}}
+{{- if partial "Hestia/functions/data/filesystem/IsFileExists" $ret -}}
+	{{- $ret = readFile $ret -}}
+{{- else -}}
+	{{- $console = printf "filesystem: missing file: %v\n" $ret -}}
+	{{- $console = dict "Message" $console -}}
+	{{- $ret = "" -}}
+{{- end -}}
 {{- $dataList = merge $dataList (dict "Content" $ret) -}}
 
 
@@ -30,11 +37,13 @@
 {{- /* decode data file when requested */ -}}
 {{- if and $dataList.Content .Input.Decode -}}
 	{{- $ret = transform.Unmarshal $dataList.Content -}}
-	{{- $dataList = merge $dataList (dict "Data" $ret) -}}
+{{- else -}}
+	{{- $ret = dict -}}
 {{- end -}}
+{{- $dataList = merge $dataList (dict "Data" $ret) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList "Console" $console -}}
