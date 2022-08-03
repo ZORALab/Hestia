@@ -22,7 +22,7 @@
 
 
 	{{- /* source the data file */ -}}
-	{{- if (partial "Hestia/functions/data/scan/FileExists" $ret) -}}
+	{{- if fileExists $ret -}}
 		{{- $ret = readFile $ret -}}
 		{{- $ret = transform.Unmarshal $ret -}}
 

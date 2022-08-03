@@ -42,7 +42,7 @@
 
 
 	{{- /* source the data file */ -}}
-	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
+	{{- if fileExists $data -}}
 		{{- $data = transform.Unmarshal (readFile $data) -}}
 		{{- range $k, $v := $data -}}
 			{{- if $v.Enabled -}}

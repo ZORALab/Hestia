@@ -46,7 +46,7 @@
 	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
 	{{- $data = path.Clean $data -}}
 
-	{{- if (partial "Hestia/functions/data/scan/FileExists" $data) -}}
+	{{- if fileExists $data -}}
 		{{- $data = readFile $data -}}
 		{{- $data = transform.Unmarshal $data -}}
 		{{- range $k, $v := $data -}}
