@@ -1,0 +1,64 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = string for processing */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONST_NUMBER_FORMAT := `^((0?b[01]+$)|(0x[0-9a-fA-F]+$)|(0o[0-7]+$)|([0-9]+$)|(\d+\.?\d+((?:e|E)?-?\d+)?$))` -}}
+{{- $CONST_INT_FORMAT := `^((0?b[01]+$)|(0x[0-9a-fA-F]+$)|(0o[0-7]+$)|([0-9]+$))` -}}
+{{- $CONST_FLOAT_FORMAT := `^\d+\.?\d+((?:e|E)?-?\d+)?$` -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := false -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* pre-process string */ -}}
+{{- if partial "Hestia/functions/data/string/IsString" .Input.Data -}}
+	{{- /* pre-process string */ -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" . -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "bad string: '%v'\n" .Input.Data -}}
+		{{- $ret = false -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+{{- else -}}
+	{{- $console = printf "unknown data type: '%T' '%v'\n"
+		.Input.Data .Input.Data -}}
+{{- end -}}
+
+
+
+
+{{- /* process number */ -}}
+{{- if $ret -}}
+	{{- /* scan for convertable number */ -}}
+	{{- $dataList = findRE $CONST_NUMBER_FORMAT $ret -}}
+
+
+	{{- /* attempt to convert into number */ -}}
+	{{- if findRE $CONST_INT_FORMAT (index $dataList 0) -}}
+		{{- $dataList = int (index $dataList 0) -}}
+	{{- else if findRE $CONST_FLOAT_FORMAT (index $dataList 0) -}}
+		{{- $dataList = float (index $dataList 0) -}}
+	{{- else -}}
+		{{- $dataList = false -}}
+		{{- if not $console -}}
+			{{- $console = printf
+				"not a usable number: '%v'\n"
+				.Input.Data -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" (dict "Message" $console) -}}
