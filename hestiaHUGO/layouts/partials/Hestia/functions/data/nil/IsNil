@@ -1,0 +1,22 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for checking */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* cleans up and standardize all string data */ -}}
+{{- if eq (printf "%T" .) "<nil>" -}}
+	{{- $dataList = true -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
