@@ -25,6 +25,7 @@
 	{{- $ret = partial "Hestia/functions/data/string/Init" . -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "bad string: '%v'\n" .Input.Data -}}
+		{{- $console = dict "Message" $console -}}
 		{{- $ret = false -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
@@ -51,8 +52,8 @@
 		{{- $dataList = false -}}
 		{{- if not $console -}}
 			{{- $console = printf
-				"not a usable number: '%v'\n"
-				.Input.Data -}}
+				"usable string: '%v'\n" .Input.Data -}}
+			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 	{{- end -}}
 {{- end -}}
@@ -61,4 +62,4 @@
 
 
 {{- /* render output */ -}}
-{{- return dict "Output" $dataList "Console" (dict "Message" $console) -}}
+{{- return dict "Output" $dataList "Console" $console -}}

@@ -1,0 +1,43 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = data for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := false -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* standardize number data */ -}}
+{{- if partial "Hestia/functions/data/string/IsString" .Input.Data -}}
+	{{- $ret = partial "Hestia/functions/data/number/_convertString" . -}}
+	{{- $dataList = $ret.Output -}}
+
+
+	{{- if $ret.Console -}}
+		{{- $dataList = false -}}
+		{{- $console = printf "number: %s" $ret.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+{{- else if partial "Hestia/functions/data/number/IsInt" .Input.Data -}}
+	{{- $dataList = int .Input.Data -}}
+{{- else if partial "Hestia/functions/data/number/IsFloat" .Input.Data -}}
+	{{- $dataList = float .Input.Data -}}
+{{- else -}}
+	{{- $dataList = false -}}
+	{{- $console = printf "number: unknown data type: '%T' of '%v'\n"
+		.Input.Data .Input.Data -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
