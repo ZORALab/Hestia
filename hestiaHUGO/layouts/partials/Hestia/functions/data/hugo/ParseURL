@@ -22,15 +22,20 @@
 {{- $ret = printf "%s://%s" $ret (default "localhost" $url.Host) -}}
 
 {{- if $url.Path -}}
-	{{- $ret = printf "%s/%s" $ret (strings.TrimPrefix "/" $url.Path) -}}
+	{{- $ret = printf "%s/%s"
+		(strings.TrimSuffix "/" $ret)
+		(strings.TrimPrefix "/" $url.Path)
+	-}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Base" $ret) -}}
+
+{{- $dataList = merge $dataList (dict "Base" (urls.Parse $ret)) -}}
 
 
 
 
 {{- /* process URL.Current */ -}}
 {{- $list = dict -}}
+
 
 {{- $url = urls.Parse .Page.Permalink -}}
 {{- $ret = "http" -}}
@@ -39,18 +44,22 @@
 {{- end -}}
 {{- $ret = printf "%s://%s" $ret (default "localhost" $url.Host) -}}
 
+
 {{- if $url.Path -}}
 	{{- $ret = printf "%s/%s" $ret (strings.TrimPrefix "/" $url.Path) -}}
 {{- end -}}
+
 
 {{- if $url.RawQuery -}}
 	{{- $ret = printf "%s?%s" $ret $url.RawQuery -}}
 {{- end -}}
 
+
 {{- if $url.Fragment -}}
 	{{- $ret = printf "%s#%s" $ret $url.Fragment -}}
 {{- end -}}
-{{- $list = merge $list (dict "Absolute" $ret) -}}
+{{- $list = merge $list (dict "Absolute" (urls.Parse $ret)) -}}
+
 
 {{- $ret = strings.TrimPrefix $dataList.Base $list.Absolute -}}
 {{- if not $ret -}}
@@ -58,7 +67,8 @@
 {{- else -}}
 	{{- $ret = printf "/%s" $ret -}}
 {{- end -}}
-{{- $list = merge $list (dict "Relative" $ret) -}}
+{{- $list = merge $list (dict "Relative" (urls.Parse $ret)) -}}
+
 
 {{- $dataList = merge $dataList (dict "Current" $list) -}}
 
@@ -78,7 +88,7 @@
 
 {{- $list = dict -}}
 {{- range $v := .Page.OutputFormats -}}
-	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
 	{{- $ret = dict (upper $v.Name) $ret -}}
 
 
@@ -89,7 +99,7 @@
 
 
 {{- range $v := .Page.AlternativeOutputFormats -}}
-	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
 	{{- $ret = dict (upper $v.Name) $ret -}}
 
 	{{- /* merge into .Formats.Alternatives */ -}}
@@ -107,7 +117,7 @@
 
 {{- $list = dict -}}
 {{- range $k, $v := .Site.Home.AllTranslations -}}
-	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
 	{{- $ret = dict (upper $v.Lang) $ret -}}
 
 
@@ -119,7 +129,7 @@
 
 {{- $list = dict -}}
 {{- range $k, $v := .Page.Translations -}}
-	{{- $ret = dict "URL" $v.Permalink -}}
+	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
 	{{- $ret = dict (upper $v.Lang) $ret -}}
 
 
