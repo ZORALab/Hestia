@@ -1,0 +1,34 @@
+# List of your site-level creators
+# ================================
+# QUICK NOTE:
+#   1. These are the supported entity types:
+#      1.1. 'Person'
+#      1.2. 'Organization'
+#   2. Leaving the field empty indicates as unused, similary to removing the
+#      field. That being said, it is recommended to leave it empty rather than
+#      commented out (unless the entire entry is commented out as below.
+#   3. All the entries listed here shall be appended to the page creators for
+#      every pages.
+#   4. Example entries:
+#         [holloway]
+#         Type = "Person"
+#         Name = "(Holloway) Chew Kean Ho"
+#         Title = "The Tech Guy"
+#         Phone = "+12-3456-789"
+#         Email = "hollowaykeanho@gmail.com"
+#         LinkedIn = "https://www.linkedin.com/in/hollowaykeanho/"
+#         Facebook = ""
+#         Instagram = ""
+#         Twitter = "https://www.twitter.com/hollowaykeanho/"
+#         TikTok = ""
+#         Web = "https://www.hollowaykeanho.com/"
+#         Description = """
+#         A passionate individual over techologies, process development and
+#         continuous imporvements, and adventuring to new experiences!
+#         """
+#
+#         [zoralab]
+#         Type = "Organization"
+#         Name = "ZORALab"
+#         Title = "Through Knowledge, We Serve"
+#         ... similar to above ...

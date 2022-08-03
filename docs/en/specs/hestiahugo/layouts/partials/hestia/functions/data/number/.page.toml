@@ -1,0 +1,45 @@
+[Date]
+Created = "Wed 03 Aug 2022 11:10:25 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Published = "Wed 03 Aug 2022 11:10:25 AM +08" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+
+
+
+
+[Content]
+Title = "Number Data Type - HestiaHUGO Partial Function | {{ .Titles.Site -}}"
+Keywords = [
+	"Number",
+	"Data",
+	"Functions",
+	"Hestia",
+	"Partials",
+	"Layouts",
+	"Specifications",
+	"HestiaHUGO",
+	"ZORALab's Hestia",
+	"Official Website",
+	"ZORALab Enterprise",
+	"ZORALab",
+]
+
+
+
+
+[Description]
+Pitch = """
+All numeric data (be it integer or float) in Hugo standardized with Hestia's
+Number Data Type.
+"""
+Summary = """
+{{- .Descriptions.Pitch }}
+
+Designed to make sure all numbers are indeed numbers before consumptions!
+"""
+
+
+
+
+[Redirect]
+Delay = 0 # second
+URL = ""
+Enabled = false
