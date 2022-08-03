@@ -1,0 +1,28 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for checking */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* check given data is an int */ -}}
+{{- $dataList = partial "Hestia/functions/data/number/IsInt" . -}}
+
+
+
+
+{{- /* otherwise, check given data is a float */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = partial "Hestia/functions/data/number/IsFloat" . -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

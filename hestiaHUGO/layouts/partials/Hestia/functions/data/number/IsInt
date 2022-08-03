@@ -1,0 +1,22 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for checking */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* check given data is an int */ -}}
+{{- if hasPrefix (printf "%T" .) "int" -}}
+	{{- $dataList = true -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
