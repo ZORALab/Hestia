@@ -1,0 +1,230 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .URL.Current = Current Page URL. */ -}}
+{{- /* .URL.Base = Current Page's Base URL. */ -}}
+{{- /* .Formats.Current = Current Page's Format File Type. */ -}}
+{{- /* .Languages.Current = Current Page's Language. */ -}}
+
+{{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
+{{- /* .Input.Format = desired output format. (optional, string) */ -}}
+{{- /* .Input.Lang = desired language. (optional, string) */ -}}
+
+
+
+
+{{- /* RFC3986-COMPLIANCE IMPORTANT NOTE */ -}}
+{{- /* 1. The URL synthesizer here is only limited to parsing proper URL. */ -}}
+{{- /*    Any differences shall render unpredictable effects.             */ -}}
+{{- /*    Proper URL **SHALL** have the following in sequence:            */ -}}
+{{- /*    1.1. ONE (1) scheme                                             */ -}}
+{{- /*    1.2. ONE (1) hier part                                          */ -}}
+{{- /*    1.3. ONE (1) query part                                         */ -}}
+{{- /*    1.4. ONE (1) fragment                                           */ -}}
+{{- /*    1.5. ONE (1) user authority                                     */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := "" -}}
+{{- $console := dict -}}
+{{- $list := dict -}}
+{{- $base := dict -}}
+{{- $given := dict -}}
+{{- $lang := false -}}
+{{- $format := false -}}
+{{- $IsRelativeToPage := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* STAGE 1: PROCESS REQUIREMENTS */ -}}
+{{- $format = false -}}
+{{- if .Input.Format -}}
+	{{- /* make sure it is the correct one */ -}}
+	{{- range $k, $v := .Formats.List -}}
+		{{- if eq .Input.Format.Name $v.Format.Name -}}
+			{{- $format = $v -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 2: PROCESS URL */ -}}
+{{- $given = urls.Parse .Input.URL -}}
+{{- if $given.Scheme -}}
+	{{- /* IT IS A COMPLETE AND UNRELATED URL. DO NO EDIT ANYTHING */ -}}
+	{{- $dataList = .Input.URL -}}
+{{- else -}}
+	{{- /* PART I - CHECK CURRENT PAGE RELATIVITY */ -}}
+	{{- if not (hasPrefix $given.Path "/") -}}
+		{{- $IsRelativeToPage = true -}}
+	{{- end -}}
+
+
+
+
+	{{- /* PART II - CONSTRUCT PROTOCOL SEGMENT */ -}}
+	{{- $ret = .URL.Base -}}
+	{{- if $IsRelativeToPage -}}
+		{{- $ret = .URL.Current.Absolute -}}
+	{{- end -}}
+
+
+	{{- $base = urls.Parse $ret -}}
+	{{- $ret = "https" -}}
+	{{- if $base.Scheme -}}
+		{{- $ret = $base.Scheme -}}
+	{{- end -}}
+	{{- $dataList = printf "%s://" $ret -}}
+
+
+	{{- if $format -}}
+		{{- if not (eq $format.Protocol $dataList) -}}
+			{{- $dataList = $format.Protocol -}}
+		{{- end -}}
+	{{- end -}}
+
+
+
+
+	{{- /* PART III - CONSTRUCT USER CREDENTIALS SEGMENT */ -}}
+	{{- if $base.User -}}
+		{{- $ret = $base.User.String -}}
+		{{- if $ret -}}
+			{{- $dataList = printf "%s%s@" $dataList $ret -}}
+		{{- end -}}
+	{{- end -}}
+
+
+
+
+	{{- /* PART IV - CONSTRUCT BASE PATHING SEGMENT */ -}}
+	{{- $dataList = printf "%s%s" $dataList $base.Host -}}
+
+
+	{{- $ret = $base.Path -}}
+	{{- if path.Ext $base.Path -}}
+		{{- $ret = path.Dir $base.Path -}}
+	{{- end -}}
+	{{- $ret = strings.TrimPrefix "/" $ret -}}
+
+
+	{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+	{{- $dataList = printf "%s/%s" $dataList $ret -}}
+
+
+
+
+	{{- /* PART V - CONFIGURE LANGUAGE PATHING SEGMENT */ -}}
+	{{- $lang = .Languages.Current.Code -}}
+	{{- $ret = strings.TrimPrefix "/" $given.Path -}}
+	{{- range $k, $v := .Languages.List -}}
+		{{- if $IsRelativeToPage -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- if strings.HasPrefix $ret $v.Code -}}
+			{{- $lang = $v.Code -}}
+		{{- end -}}
+	{{- end -}}
+	{{- if .Input.Lang -}}
+		{{- $lang = .Input.Lang -}}
+	{{- end -}}
+
+
+	{{- if not $IsRelativeToPage -}}
+		{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+		{{- $lang = strings.TrimPrefix "/" $lang -}}
+		{{- $dataList = printf "%s/%s" $dataList $lang -}}
+	{{- end -}}
+
+
+
+
+	{{- /* PART VI - JOINING GIVEN PATHING SEGMENT */ -}}
+	{{- $ret = $given.Path -}}
+	{{- if path.Ext $ret -}}
+		{{- $ret = path.Dir $ret -}}
+	{{- end -}}
+
+
+	{{- $ret = strings.TrimPrefix "/" $ret -}}
+	{{- if not $IsRelativeToPage -}}
+		{{- $ret = strings.TrimPrefix $lang $ret -}}
+	{{- end -}}
+	{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+	{{- $dataList = printf "%s/%s" $dataList $ret -}}
+
+
+
+
+	{{- /* PART VII - PROCESS FILEPATH SEGMENT */ -}}
+	{{- $ret = false -}}
+	{{- if path.Ext $given.Path -}}
+		{{- $ret = path.Base $given.Path -}}
+	{{- end -}}
+
+
+	{{- if $format -}}
+		{{- if not $ret -}}
+			{{- $ret = printf "%s%s" $format.Filename
+				$format.Extension -}}
+		{{- else -}}
+			{{- /* determine file replaceability */ -}}
+			{{- range $k, $v := .Formats.List -}}
+				{{- if eq $ret (printf "%s%s"
+						$v.Filename $v.Extension) -}}
+					{{- $ret = printf "%s%s"
+						$format.Filename
+						$format.Extension -}}
+				{{- end -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- if $ret -}}
+		{{- $ret = strings.TrimPrefix "/" $ret -}}
+		{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+		{{- $dataList = printf "%s/%s" $dataList $ret -}}
+	{{- end -}}
+
+
+
+
+	{{- /* PART VIII - CONSTRUCT QUERY SEGMENT */ -}}
+	{{- if $given.RawQuery -}}
+		{{- $ret = $given.RawQuery -}}
+
+		{{- $ret = strings.TrimPrefix "/" $ret -}}
+		{{- $dataList = printf "%s?%s" $dataList $ret -}}
+	{{- end -}}
+
+
+
+
+	{{- /* PART IX - CONSTRUCT FRAGMENT SEGEMENT */ -}}
+	{{- if $given.Fragment -}}
+		{{- $ret = $given.Fragment -}}
+
+		{{- $ret = strings.TrimPrefix "/" $ret -}}
+		{{- $dataList = printf "%s#%s" $dataList $ret -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 3 - CONVERT TO URL TYPE */ -}}
+{{- $dataList = urls.Parse $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
