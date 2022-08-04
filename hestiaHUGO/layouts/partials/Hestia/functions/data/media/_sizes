@@ -1,0 +1,45 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Sizes = given .Sizes for overriding (optional,string) */ -}}
+{{- /* .Input.Width = given media width (number) */ -}}
+{{- /* .Input.Height = given media height (number) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page = merge . (dict "Input" false) -}}
+{{- $dataList := string -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* process default pattern */ -}}
+{{- $dataList = "" -}}
+{{- if and (gt .Input.Width 0) (gt .Input.Height 0) -}}
+	{{- $dataList = printf "%dx%d" .Input.Width .Input.Height -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Sizes overrides */ -}}
+{{- if .Input.Sizes -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" .Input.Sizes)) -}}
+	{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- $console = printf "given overriding .Sizes is bad - %s"
+			$dataList.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataList = .Input.Sizes -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
