@@ -1,6 +1,6 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Width = image width dimension */ -}}
+{{- /* .Input.Width = image width dimension (number) */ -}}
 
 
 
