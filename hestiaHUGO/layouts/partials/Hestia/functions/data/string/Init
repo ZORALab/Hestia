@@ -6,7 +6,7 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
 {{- $ret := false -}}
@@ -15,9 +15,17 @@
 
 
 {{- /* standardize string data */ -}}
-{{- if partial "Hestia/functions/data/string/IsString" .Input.Data -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
+{{- end -}}
+
+
+{{- if partial "Hestia/functions/data/string/IsString" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/_processGoTemplates"
-		. -}}
+		$ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "string: %s" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
