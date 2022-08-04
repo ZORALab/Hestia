@@ -1,0 +1,31 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+
+
+
+
+{{- /* clean up .Page data */ -}}
+{{- if .IsHestia -}}
+	{{- $dataList = merge . (dict "Input" false) -}}
+	{{- $dataList = merge $dataList (dict "Output" false) -}}
+	{{- $dataList = merge $dataList (dict "Console" false) -}}
+
+
+	{{- $dataList = merge $dataList (dict "Input" dict) -}}
+	{{- $dataList = merge $dataList (dict "Output" dict) -}}
+	{{- $dataList = merge $dataList (dict "Console" dict) -}}
+{{- else -}}
+	{{- $dataList = . -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
