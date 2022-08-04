@@ -1,6 +1,6 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Type = image type to validate (string) */ -}}
+{{- /* .Input.Type = MIME type data to validate (string) */ -}}
 {{- /* .Input.Expect = expected MIME type (string) */ -}}
 
 

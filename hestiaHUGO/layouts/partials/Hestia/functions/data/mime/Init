@@ -1,6 +1,6 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Type = image MIME type (string) */ -}}
+{{- /* .Input.Type = MIME type data (string) */ -}}
 
 
 

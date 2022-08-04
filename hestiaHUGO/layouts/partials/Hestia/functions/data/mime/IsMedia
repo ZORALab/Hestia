@@ -1,6 +1,6 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Type = input type for processing (string) */ -}}
+{{- /* .Input.Type = input type for validation (string) */ -}}
 
 
 
