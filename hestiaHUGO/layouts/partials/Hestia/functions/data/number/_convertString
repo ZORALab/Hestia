@@ -22,7 +22,8 @@
 {{- /* pre-process string */ -}}
 {{- if partial "Hestia/functions/data/string/IsString" .Input.Data -}}
 	{{- /* pre-process string */ -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" . -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" . -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "bad string: '%v'\n" .Input.Data -}}
 		{{- $console = dict "Message" $console -}}
