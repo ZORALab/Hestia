@@ -1,22 +1,21 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .context  = Page data in Hestia Structure  */ -}}
+{{- /* .  = Page data in Hestia Structure */ -}}
 {{- /* .Input.Query = Hugo data query (e.g "Author.john.Name") */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict "Query" .Input.Query -}}
-{{- $ret := false -}}
+{{- $dataList := false -}}
 
 
 
 
 {{- /* start with baseline data */ -}}
-{{- $ret := .context.Site.Data -}}
+{{- $dataList := . -}}
 {{- range $v := (split (strings.TrimPrefix "." .Input.Query) ".") -}}
-	{{- if $ret -}}
-		{{- $ret = index $ret $v -}}
+	{{- if $dataList -}}
+		{{- $dataList = index $dataList $v -}}
 	{{- end -}}
 {{- end -}}
 
@@ -24,14 +23,13 @@
 
 
 {{- /* process queried data */ -}}
-{{- if eq $ret .context.Site.Data -}}
+{{- if eq $dataList . -}}
 	{{- /* DID NOT PROGRESS == no such data from the start */ -}}
-	{{- $ret = false -}}
+	{{- $dataList = false -}}
 {{- end -}}
-{{- $dataList := merge $dataList (dict "Data" $ret) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList -}}

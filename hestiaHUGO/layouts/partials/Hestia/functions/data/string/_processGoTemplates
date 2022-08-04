@@ -72,9 +72,8 @@
 	{{- if hasPrefix $fx "." -}}
 		{{- $ret = dict "Input" (dict "Query" $fx) -}}
 		{{- $ret = merge $Page $ret -}}
-		{{- $ret = partial "Hestia/functions/data/scan/Variable"
-			$ret -}}
-		{{- $list = merge $list (dict $k $ret.Data) -}}
+		{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+		{{- $list = merge $list (dict $k $ret.Output) -}}
 		{{- continue -}}
 	{{- end -}}
 
