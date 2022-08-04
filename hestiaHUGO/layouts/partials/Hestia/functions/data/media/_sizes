@@ -9,7 +9,8 @@
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $dataList := string -}}
+{{- $dataList := "" -}}
+{{- $ret := "" -}}
 {{- $console := dict -}}
 
 
@@ -25,16 +26,22 @@
 
 
 {{- /* process .Sizes overrides */ -}}
-{{- if .Input.Sizes -}}
-	{{- $dataList = merge $Page (dict "Input" (dict "Data" .Input.Sizes)) -}}
-	{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
-	{{- if $dataList.Console -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Sizes")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
+{{- end -}}
+
+
+{{- if $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
 		{{- $console = printf "given overriding .Sizes is bad - %s"
-			$dataList.Console.Message -}}
+			$ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
-		{{- $dataList = .Input.Sizes -}}
 	{{- else -}}
-		{{- $dataList = $dataList.Output -}}
+		{{- $dataList = $ret.Output -}}
 	{{- end -}}
 {{- end -}}
 

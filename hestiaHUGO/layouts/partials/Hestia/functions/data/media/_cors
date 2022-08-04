@@ -7,42 +7,50 @@
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $dataList := string -}}
+{{- $dataList := "" -}}
 {{- $console := dict -}}
 
 
 
 
 {{- /* process CORS data when given */ -}}
-{{- if .Input.CORS -}}
-	{{- $dataList = merge $Page (dict "Input" (dict "CORS" .Input.CORS)) -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.CORS")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = "" -}}
+{{- end -}}
+
+
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "CORS" $dataList)) -}}
 	{{- $dataList = partial "Hestia/functions/data/cors/Init" $dataList -}}
 	{{- if $dataList.Console -}}
-		{{- $console = printf "media: %s" $dataList.Console.Message -}}
+		{{- $console = printf "bad .CORS: %s"
+			$dataList.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
-		{{- $dataList = string -}}
+		{{- $dataList = "" -}}
 	{{- else -}}
 		{{- $dataList = $dataList.Output -}}
 	{{- end -}}
 
 
+
+
 	{{- /* validate media CORS type */ -}}
-	{{- if $dataList -}}
-		{{- if (partial
-				"Hestia/functions/data/cors/IsAnonymous"
-				$dataList)
-			| or (partial
-				"Hestia/functions/data/cors/IsUseCredentials"
-				$dataList)
-		-}}
-			{{- /* PASS - keep the value */ -}}
-		{{- else -}}
-			{{- $console = printf "media: invalid .CORS - %v\n"
-					$dataList
-			-}}
+	{{- if (partial "Hestia/functions/data/cors/IsAnonymous"
+		$dataList)
+		| or (partial "Hestia/functions/data/cors/IsUseCredentials"
+		$dataList)
+	-}}
+		{{- /* PASS - keep the value */ -}}
+	{{- else -}}
+		{{ if not $console -}}
+			{{- $console = printf "invalid .CORS - %v\n"
+				$dataList -}}
 			{{- $console = dict "Message" $console -}}
-			{{- $dataList = string -}}
 		{{- end -}}
+
+		{{- $dataList = "" -}}
 	{{- end -}}
 {{- end -}}
 
