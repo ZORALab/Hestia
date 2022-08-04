@@ -6,6 +6,7 @@
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := 0 -}}
 {{- $console := dict -}}
 {{- $ret := false -}}
@@ -29,7 +30,7 @@
 
 
 {{- if not $console -}}
-	{{- $ret = merge . (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/number/Length" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "bad .Input.Height: %s"

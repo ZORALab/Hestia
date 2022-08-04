@@ -6,6 +6,7 @@
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := string -}}
 {{- $console := dict -}}
 
@@ -13,7 +14,8 @@
 
 
 {{- /* process into mime data type */ -}}
-{{- $dataList = partial "Hestia/functions/data/mime/Init" . -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Type" .Input.Type)) -}}
+{{- $dataList = partial "Hestia/functions/data/mime/Init" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf "media: %s" $dataList.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
