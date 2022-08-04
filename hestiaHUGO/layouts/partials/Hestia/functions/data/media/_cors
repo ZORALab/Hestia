@@ -1,0 +1,53 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.CORS = media CORS (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := merge . (dict "Input" false) -}}
+{{- $dataList := string -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* process CORS data when given */ -}}
+{{- if .Input.CORS -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "CORS" .Input.CORS)) -}}
+	{{- $dataList = partial "Hestia/functions/data/cors/Init" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- $console = printf "media: %s" $dataList.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataList = string -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
+	{{- end -}}
+
+
+	{{- /* validate media CORS type */ -}}
+	{{- if $dataList -}}
+		{{- if (partial
+				"Hestia/functions/data/cors/IsAnonymous"
+				$dataList)
+			| or (partial
+				"Hestia/functions/data/cors/IsUseCredentials"
+				$dataList)
+		-}}
+			{{- /* PASS - keep the value */ -}}
+		{{- else -}}
+			{{- $console = printf "media: invalid .CORS - %v\n"
+					$dataList
+			-}}
+			{{- $console = dict "Message" $console -}}
+			{{- $dataList = string -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
