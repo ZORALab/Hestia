@@ -1,12 +1,12 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Data = Dimension data to process */ -}}
+{{- /* .Input.Data = (length) number data to process */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := -1 -}}
+{{- $dataList := 0 -}}
 {{- $console := dict -}}
 {{- $ret := false -}}
 
@@ -16,10 +16,12 @@
 {{- /* convert data into number */ -}}
 {{- $ret = partial "Hestia/functions/data/number/Init" . -}}
 {{- if $ret.Console -}}
-	{{- $console = printf "length: bad number data: %s" $ret.Console -}}
+	{{- $console = printf "length: %s" $ret.Console -}}
 	{{- $console = dict "Message" $console -}}
+	{{- $ret = 0 -}}
+{{- else -}}
+	{{- $ret = $ret.Output -}}
 {{- end -}}
-{{- $ret = $ret.Output -}}
 
 
 
@@ -28,13 +30,12 @@
 {{- if not $console -}}
 	{{ if ge $ret 0 -}}
 		{{- $dataList = $ret -}}
-	{{- else if (not $console) -}}
-		{{- $console = printf "length: negative value: '%v'\n" $ret -}}
+	{{- else  -}}
+		{{- $console = printf "length: bad/negative number: '%v'\n"
+			$ret -}}
 		{{- $console = dict "Message" $console -}}
+		{{- $dataList = 0 -}}
 	{{- end -}}
-{{- end -}}
-
-{{- if and (le $dataList 0) (not $console) -}}
 {{- end -}}
 
 

@@ -11,7 +11,6 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
 {{- $dataList := false -}}
 {{- $console := dict -}}
 {{- $ret := false -}}

@@ -1,38 +1,44 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Data = data for processing */ -}}
+{{- /* .Input.Data = int/float number data for processing */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := false -}}
 {{- $console := dict -}}
-{{- $ret := false -}}
 
 
 
 
-{{- /* standardize number data */ -}}
-{{- if partial "Hestia/functions/data/string/IsString" .Input.Data -}}
-	{{- $ret = partial "Hestia/functions/data/number/_convertString" . -}}
-	{{- $dataList = $ret.Output -}}
+{{- /* standardize string data */ -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = false -}}
+{{- end -}}
 
 
-	{{- if $ret.Console -}}
+{{- if partial "Hestia/functions/data/string/IsString" $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "Hestia/functions/data/number/_convertString"
+		$dataList -}}
+	{{- if $dataList.Console -}}
 		{{- $dataList = false -}}
-		{{- $console = printf "number: %s" $ret.Console.Message -}}
+		{{- $console = printf "number: %s" $dataList.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
 	{{- end -}}
-{{- else if partial "Hestia/functions/data/number/IsInt" .Input.Data -}}
-	{{- $dataList = int .Input.Data -}}
-{{- else if partial "Hestia/functions/data/number/IsFloat" .Input.Data -}}
-	{{- $dataList = float .Input.Data -}}
+{{- else if partial "Hestia/functions/data/number/IsInt" $dataList -}}
+	{{- $dataList = int $dataList -}}
+{{- else if partial "Hestia/functions/data/number/IsFloat" $dataList -}}
+	{{- $dataList = float $dataList -}}
 {{- else -}}
 	{{- $dataList = false -}}
-	{{- $console = printf "number: unknown data type: '%T' of '%v'\n"
-		.Input.Data .Input.Data -}}
+	{{- $console = printf "number: missing/bad .Input.Data data\n" -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
