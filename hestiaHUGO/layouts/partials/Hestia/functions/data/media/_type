@@ -1,25 +1,41 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Type = image MIME type */ -}}
+{{- /* .Input.Type = media MIME type (string) */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
-{{- $dataList := "" -}}
+{{- $dataList := string -}}
 {{- $console := dict -}}
-{{- $ret := false -}}
 
 
 
 
-{{- $ret = partial "Hestia/functions/data/mime/Image" . -}}
-{{- if $ret.Console -}}
-	{{- $console = $ret.Console.Message -}}
+{{- /* process into mime data type */ -}}
+{{- $dataList = partial "Hestia/functions/data/mime/Init" . -}}
+{{- if $dataList.Console -}}
+	{{- $console = printf "media: %s" $dataList.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
+	{{- $dataList = string -}}
+{{- else -}}
+	{{- $dataList = $dataList.Output -}}
 {{- end -}}
-{{- $dataList = merge $dataList $ret.Output -}}
+
+
+
+
+{{- /* validate media mime type */ -}}
+{{- if $dataList -}}
+	{{- if not partial "Hestia/functions/data/mime/IsMedia" $dataList -}}
+		{{- $console = printf "media: not a video/image/audio type - %v"
+				$dataList
+		-}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+{{- else -}}
+	{{- $dataList = .Input.Type -}}
+{{- end -}}
 
 
 
