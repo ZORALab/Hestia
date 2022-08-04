@@ -13,19 +13,27 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := merge . (dict "Input" false) -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $Args := dict -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
 {{- $ret := false -}}
+{{- $list := false -}}
 
 
 
 
 {{- /* process .Input.URL */ -}}
-{{- if (partial "Hestia/functions/data/string/IsString" .Input.URL)
-	| or (partial "Hestia/functions/data/url/IsURL" .Input.URL) -}}
-	{{- $ret = string .Input.URL -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.URL")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
+{{- end -}}
+
+
+{{- if (partial "Hestia/functions/data/string/IsString" $ret)
+	| or (partial "Hestia/functions/data/url/IsURL" $ret) -}}
+	{{- $ret = string $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
@@ -46,8 +54,13 @@
 
 
 {{- /* process .Input.Lang */ -}}
-{{- if and .Input.Lang (not $console) -}}
-	{{- $ret = string .Input.Lang -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Lang")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
+{{- end -}}
+{{- if and $ret (not $console) -}}
+	{{- $ret = string $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- $Args = merge $Args (dict "Input" (dict "Lang" $ret.Output)) -}}
@@ -60,58 +73,89 @@
 
 
 
-{{- /* process .Input.Format */ -}}
-{{- if and .Input.Format (not $console) -}}
-	{{- range $k, $v := .Formats.List -}}
-		{{- if not (eq .Input.Format.Name $v.Format.Name) -}}
-			{{- continue -}}
-		{{- end -}}
+{{- /* scan for supported .Input.Format */ -}}
+{{- $list = merge . (dict "Input" (dict "Query" ".Input.Format")) -}}
+{{- $list = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $list -}}
+	{{- $list = dict -}}
+{{- end -}}
 
-
-		{{- /* process .Input.Format.Protocol */ -}}
-		{{- $ret = string $v.Protocol -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-		{{- if and $ret.Console (not $console) -}}
-			{{- $console = printf "URL: .Input.Format.Protocol: %s"
-				$ret.Console -}}
-			{{- $console = dict "Message" $console -}}
-		{{- end -}}
-		{{- $ret = dict "Protocol" $ret.Output -}}
-		{{- $ret = dict "Format" $ret -}}
-		{{- $ret = dict "Input" $ret -}}
-		{{- $Args = merge $Args $ret -}}
-
-
-		{{- /* process .Input.Format.Filename */ -}}
-		{{- $ret = string $v.Filename -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-		{{- if and $ret.Console (not $console) -}}
-			{{- $console = printf "URL: .Input.Format.Filename: %s"
-				$ret.Console -}}
-			{{- $console = dict "Message" $console -}}
-		{{- end -}}
-		{{- $ret = dict "Filename" $ret.Output -}}
-		{{- $ret = dict "Format" $ret -}}
-		{{- $ret = dict "Input" $ret -}}
-		{{- $Args = merge $Args $ret -}}
-
-
-		{{- /* process .Input.Format.Extension */ -}}
-		{{- $ret = string $v.Extension -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-		{{- if and $ret.Console (not $console) -}}
-			{{- $console = printf "URL: .Input.Format.Extension: %s"
-				$ret.Console -}}
-			{{- $console = dict "Message" $console -}}
-		{{- end -}}
-		{{- $ret = dict "Extension" $ret.Output -}}
-		{{- $ret = dict "Format" $ret -}}
-		{{- $ret = dict "Input" $ret -}}
-		{{- $Args = merge $Args $ret -}}
+{{- $ret = dict -}}
+{{- range $k, $v := .Formats.List -}}
+	{{- if eq $list.Name $v.Format.Name -}}
+		{{- $ret = $v -}}
 	{{- end -}}
+{{- end -}}
+{{- $list = $ret -}}
+
+
+
+
+{{- /* process .Input.Format */ -}}
+{{- if and $list (not $console) -}}
+	{{- /* process .Input.Format.Protocol */ -}}
+	{{- $ret = merge $list (dict "Input" (dict "Query" ".Protocol")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+	{{- $ret = string $ret -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if and $ret.Console (not $console) -}}
+		{{- $console = printf "URL: .Input.Format.Protocol: %s"
+			$ret.Console -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+	{{- $ret = dict "Protocol" $ret.Output -}}
+	{{- $ret = dict "Format" $ret -}}
+	{{- $ret = dict "Input" $ret -}}
+	{{- $Args = merge $Args $ret -}}
+
+
+	{{- /* process .Input.Format.Filename */ -}}
+	{{- $list = $ret -}}
+	{{- $ret = merge $list (dict "Input" (dict "Query" ".Filename")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+	{{- $ret = string $ret -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if and $ret.Console (not $console) -}}
+		{{- $console = printf "URL: .Input.Format.Filename: %s"
+			$ret.Console -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+	{{- $ret = dict "Filename" $ret.Output -}}
+	{{- $ret = dict "Format" $ret -}}
+	{{- $ret = dict "Input" $ret -}}
+	{{- $Args = merge $Args $ret -}}
+
+
+	{{- /* process .Input.Format.Extension */ -}}
+	{{- $list = $ret -}}
+	{{- $ret = merge $list (dict "Input" (dict "Query" ".Extension")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+	{{- $ret = string $ret -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if and $ret.Console (not $console) -}}
+		{{- $console = printf "URL: .Input.Format.Extension: %s"
+			$ret.Console -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+	{{- $ret = dict "Extension" $ret.Output -}}
+	{{- $ret = dict "Format" $ret -}}
+	{{- $ret = dict "Input" $ret -}}
+	{{- $Args = merge $Args $ret -}}
 {{- end -}}
 
 
