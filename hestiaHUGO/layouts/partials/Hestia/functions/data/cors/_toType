@@ -1,0 +1,26 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.CORS = input CORS data for processing (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* STAGE 1 - PRE-PROCESS FOR CONSISTENCY */ -}}
+{{- $dataList = partial "Hestia/functions/data/cors/Init" . -}}
+{{- if $dataList.Console -}}
+	{{- $dataList = false -}}
+{{- else -}}
+	{{- $dataList = $dataList.Output -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
