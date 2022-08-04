@@ -21,7 +21,7 @@
 
 {{- /* STAGE 1: PROCESS */ -}}
 {{- /* process .Name */ -}}
-{{- $ret = partial "Hestia/functions/data/image/_name" . -}}
+{{- $ret = partial "Hestia/functions/data/media/_name" . -}}
 {{- $dataList = merge $dataList (dict "Name" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
 	{{- $console = printf "Picture.Name: %s" $ret.Console -}}
@@ -30,7 +30,7 @@
 
 
 {{- /* process .Type */ -}}
-{{- $ret = partial "Hestia/functions/data/image/_type" . -}}
+{{- $ret = partial "Hestia/functions/data/media/_type" . -}}
 {{- $dataList = merge $dataList (dict "Type" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
 	{{- $console = printf "Picture.Type: %s" $ret.Console -}}
@@ -39,7 +39,7 @@
 
 
 {{- /* process .Width */ -}}
-{{- $ret = partial "Hestia/functions/data/image/_width" . -}}
+{{- $ret = partial "Hestia/functions/data/media/_width" . -}}
 {{- $dataList = merge $dataList (dict "Width" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
 	{{- $console = printf "Picture.Width: %s" $ret.Console -}}
@@ -48,7 +48,7 @@
 
 
 {{- /* process .Height */ -}}
-{{- $ret = partial "Hestia/functions/data/image/_height" . -}}
+{{- $ret = partial "Hestia/functions/data/media/_height" . -}}
 {{- $dataList = merge $dataList (dict "Height" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
 	{{- $console = printf "Picture.Height: %s" $ret.Console -}}
