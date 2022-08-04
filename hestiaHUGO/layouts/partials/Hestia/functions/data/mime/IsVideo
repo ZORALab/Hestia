@@ -1,0 +1,31 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Type = input type for processing (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* validate data type */ -}}
+{{- $dataList = partial "Hestia/functions/data/mime/_toType" . -}}
+{{- if $dataList -}}
+	{{- $dataList = dict "Expect" "video/" "Type" $dataList -}}
+	{{- $dataList = dict "Input" $dataList -}}
+	{{- $dataList = merge . $dataList -}}
+	{{- $dataList = partial "Hestia/functions/data/mime/_isType"
+		$dataList -}}
+	{{- if not $dataList.Console -}}
+		{{- $dataList = true -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

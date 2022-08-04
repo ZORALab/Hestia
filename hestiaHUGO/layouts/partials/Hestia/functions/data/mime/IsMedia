@@ -1,0 +1,37 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Type = input type for processing (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* STAGE 1 - CHECK FOR IMAGE TYPE */ -}}
+{{- $dataList = partial "Hestia/functions/data/mime/IsImage" . -}}
+
+
+
+
+{{- /* STAGE 2 - CHECK FOR VIDEO TYPE */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = partial "Hestia/functions/data/mime/IsVideo" . -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 3 - CHECK FOR AUDIO TYPE */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = partial "Hestia/functions/data/mime/IsAudio" . -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

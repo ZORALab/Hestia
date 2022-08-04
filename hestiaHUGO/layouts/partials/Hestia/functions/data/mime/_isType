@@ -1,0 +1,33 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Type = image type to validate (string) */ -}}
+{{- /* .Input.Expect = expected MIME type (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := string -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* validate the given type against the expected type */ -}}
+{{- if hasPrefix .Input.Type .Input.Expect -}}
+	{{- /* PASS */ -}}
+	{{- $dataList = .Input.Type -}}
+{{- else -}}
+	{{- /* FAIL - reset to empty string */ -}}
+	{{- $console = printf "MIME Type: not a '%v' type - %v\n"
+		.Input.Expect
+		.Input.Type
+	-}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
