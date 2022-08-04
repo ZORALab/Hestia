@@ -1,11 +1,23 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Name                    = image alternate text or title */ -}}
-{{- /* .Input.Type                    = image MIME type */ -}}
-{{- /* .Input.Width                   = image width */ -}}
-{{- /* .Input.Height                  = image height */ -}}
-{{- /* .Input.Sources.[ARRAY_N].URL   = image source set URL */ -}}
-{{- /* .Input.Sources.[ARRAY_N].Query = image source set applicable query */ -}}
+{{- /* .Input.Name                    = media alternate text or title */ -}}
+{{- /* .Input.Type                    = media MIME type */ -}}
+{{- /* .Input.Width                   = media width */ -}}
+{{- /* .Input.Height                  = media height */ -}}
+{{- /* .Input.CORS                    = media cross-origin value */ -}}
+{{- /* .Input.PreLoad                 = media pre-load value */ -}}
+{{- /* .Input.Control                 = media control flag */ -}}
+{{- /* .Input.Autoplay                = media autoplay flag */ -}}
+{{- /* .Input.Loop                    = media looping flag */ -}}
+{{- /* .Input.Mute                    = media audio mute flag */ -}}
+{{- /* .Input.Inline                  = media play inline flag */ -}}
+{{- /* .Input.Tracks.[LANG].Label     = media track label */ -}}
+{{- /* .Input.Tracks.[LANG].Kind      = media track kind */ -}}
+{{- /* .Input.Tracks.[LANG].Default   = media track default flag */ -}}
+{{- /* .Input.Tracks.[LANG].Source    = media track file (e.g. VTT) URL */ -}}
+{{- /* .Input.Sources.[ARRAY_N].URL   = media source URL */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Type  = media source MIME type */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Media = media source media query */ -}}
 
 
 
@@ -65,12 +77,6 @@
 	{{- $ret = printf "%dx%d" $dataList.Width $dataList.Height -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Sizes" $ret) -}}
-
-{{- if and (not $dataList.Sizes) (not $console) -}}
-	{{- $console = printf "Picture.Sizes: bad sizes '%v'"
-		$dataList.Sizes -}}
-	{{- $console = dict "Message" $console -}}
-{{- end -}}
 
 
 
