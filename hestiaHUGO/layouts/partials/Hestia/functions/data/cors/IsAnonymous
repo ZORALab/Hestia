@@ -6,26 +6,10 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := false -}}
-
-
-
-
-{{- /* validate data type */ -}}
-{{- $dataList = partial "Hestia/functions/data/cors/_toType" . -}}
-{{- if $dataList -}}
-	{{- $dataList = dict "Expect" "anonymous" "Type" $dataList -}}
-	{{- $dataList = dict "Input" $dataList -}}
-	{{- $dataList = merge . $dataList -}}
-	{{- $dataList = partial "Hestia/functions/data/cors/_isType"
-		$dataList -}}
-	{{- if not $dataList.Console -}}
-		{{- $dataList = true -}}
-	{{- end -}}
-{{- end -}}
+{{- $dataList := merge . (dict "Input" (dict "Expect" "anonymous")) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return partial "Hestia/functions/data/cors/IsCORS" $dataList -}}

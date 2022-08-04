@@ -11,8 +11,22 @@
 
 
 
-{{- /* validate data type */ -}}
-{{- $dataList = partial "Hestia/functions/data/cors/_toType" . -}}
+{{- /* check 'anonymous' CORS */ -}}
+{{- $dataList = partial "Hestia/functions/data/cors/IsAnonymous" . -}}
+
+
+
+
+{{- /* check 'use-credentials' CORS */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = partial "Hestia/functions/data/cors/IsUseCredentials"
+		. -}}
+{{- end -}}
+
+
+
+
+{{- /* invert the finding where 'none' is false for all the cases */ -}}
 {{- if not $dataList -}}
 	{{- $dataList = true -}}
 {{- else -}}
