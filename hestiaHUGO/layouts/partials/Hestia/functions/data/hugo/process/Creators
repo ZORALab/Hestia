@@ -17,7 +17,7 @@
 {{- $list = dict -}}
 {{- range $k, $v := .Creators.All -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
-	{{- $ret = partial "Hestia/functions/data/post-processing/Creator" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Creator" $ret -}}
 	{{- $list = merge $list (dict $k $ret) -}}
 {{- end -}}
 {{- $dataList = (dict "All" $list) -}}
@@ -29,7 +29,7 @@
 {{- $list = dict -}}
 {{- range $k, $v := .Creators.Site -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
-	{{- $ret = partial "Hestia/functions/data/post-processing/Creator" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Creator" $ret -}}
 	{{- $list = merge $list (dict $k $ret) -}}
 {{- end -}}
 {{- $dataList = (dict "Site" $list) -}}
@@ -41,7 +41,7 @@
 {{- $list = dict -}}
 {{- range $k, $v := .Creators.Page -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
-	{{- $ret = partial "Hestia/functions/data/post-processing/Creator" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Creator" $ret -}}
 	{{- $list = merge $list (dict $k $ret) -}}
 {{- end -}}
 {{- $dataList = (dict "Page" $list) -}}

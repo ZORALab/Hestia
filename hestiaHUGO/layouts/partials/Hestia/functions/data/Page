@@ -12,135 +12,135 @@
 
 
 {{- /* prepare Hestia .Page.Formats */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseFormats" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Formats" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Languages */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseLanguages" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Languages" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseDatastore" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Datastore" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.IsServerMode */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseServerMode" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/ServerMode" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.URL */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseURL" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/URL" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Filesystem */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseFS" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Filesystems" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Thumbnails */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseThumbnails" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Thumbnails" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Titles */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseTitle" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Title" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Descriptions */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseDescriptions" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Descriptions" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Keywords */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseKeywords" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Keywords" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Content */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseContent" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Content" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Creators */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseCreators" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Creators" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Components */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseComponents" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Components" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Robots */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseRobots" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Robots" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Redirect */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseRedirect" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Redirect" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.Favicons */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseFavicons" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Favicons" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .Page.PWA */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParsePWA" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Formats" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Thumbnails" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Titles" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Descriptions" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Keywords" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Creators" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Components" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Robots" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/Redirect" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/post-processing/PWA" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Titles" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Creators" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Components" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Robots" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/PWA" $dataList -}}
 
 
 

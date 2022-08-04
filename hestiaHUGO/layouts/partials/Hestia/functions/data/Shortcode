@@ -19,7 +19,7 @@
 
 
 {{- /* prepare Hestia .Input */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/ParseShortcode" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Shortcode" . -}}
 {{- $dataList = merge $dataList (dict "Input" $ret) -}}
 
 

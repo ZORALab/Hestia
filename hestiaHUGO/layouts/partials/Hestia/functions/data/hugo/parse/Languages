@@ -18,7 +18,7 @@
 {{- $list = dict -}}
 {{- range $k, $v := .Site.Languages -}}
 	{{- /* extract current language */ -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/ParseLanguage" $v -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/parse/Language" $v -}}
 	{{- if eq $v.Lang $current -}}
 		{{- $current = $ret -}}
 	{{- end -}}

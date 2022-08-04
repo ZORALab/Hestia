@@ -16,7 +16,7 @@
 {{- range $k, $v := .Components -}}
 	{{- $ret = merge $v (dict "Name" $k) -}}
 	{{- $ret = merge $Page (dict "Input" $ret) -}}
-	{{- $ret = partial "Hestia/functions/data/post-processing/Component" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Component" $ret -}}
 	{{- if $ret -}}
 		{{- $dataList = merge $dataList (dict $k $ret) -}}
 	{{- end -}}

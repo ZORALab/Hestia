@@ -17,7 +17,7 @@
 {{- $list = dict -}}
 {{- range $k, $v := .Formats.List -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Format" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/post-processing/_format" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_format" $ret -}}
 	{{- $list = merge $list (dict $ret.Name $ret) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "List" $list) -}}
@@ -29,7 +29,7 @@
 {{- $list = dict -}}
 {{- range $k, $v := .Formats.Alternatives -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Format" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/post-processing/_format" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_format" $ret -}}
 	{{- $list = merge $list (dict $ret.Name $ret) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Alternatives" $list) -}}

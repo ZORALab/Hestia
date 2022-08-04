@@ -1,0 +1,92 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = RobotsTXT page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $lines := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Sitemap */ -}}
+{{- range $i, $v := .Sitemaps -}}
+	{{- $lines = append (printf "Sitemap: %s" $v) $lines -}}
+{{- end -}}
+{{- $lines = append "" $lines -}}
+
+
+
+
+{{- /* process user-agent 'All' (*) first */ -}}
+{{- range $i, $v := .List -}}
+	{{- if eq $v.Name "*" -}}
+		{{- $lines = append (printf "User-agent: %s" $v.Name)
+			$lines -}}
+
+
+		{{- range $j, $x := $v.Allow -}}
+			{{- $lines = append (printf "Allow: %s" $x)
+				$lines -}}
+		{{- end -}}
+
+
+		{{- range $j, $x := $v.Disallow -}}
+			{{- $lines = append (printf "Disallow: %s" $x)
+				$lines -}}
+		{{- end -}}
+
+
+		{{- $ret = index $v "Crawl-delay" -}}
+		{{- if $ret -}}
+			{{- $lines = append (printf "Crawl-delay: %s" $ret)
+				$lines -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process all other non user-agent 'All' (*) */ -}}
+{{- range $i, $v := .List -}}
+	{{- if eq $v.Name "*" -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* append new line for each user-agent */ -}}
+	{{- $lines = append "" $lines -}}
+
+
+	{{- $lines = append (printf "User-agent: %s" $v.Name) $lines -}}
+
+
+	{{- if $v.Sitemap -}}
+		{{- $lines = append (printf "Sitemap: %s" $v.Sitemap) $lines -}}
+	{{- end -}}
+
+
+	{{- range $j, $x := $v.Allow -}}
+		{{- $lines = append (printf "Allow: %s" $x) $lines -}}
+	{{- end -}}
+
+
+	{{- range $j, $x := $v.Disallow -}}
+		{{- $lines = append (printf "Disallow: %s" $x) $lines -}}
+	{{- end -}}
+
+
+	{{- $ret = index $v "Crawl-delay" -}}
+	{{- if $ret -}}
+		{{- $lines = append (printf "Crawl-delay: %s" $ret) $lines -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render robots.txt */ -}}
+{{- delimit $lines "\n" -}}
