@@ -1,13 +1,13 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* .context  = Page data in Hestia Structure  */ -}}
-{{- /* .Input.Query = string data to process inline functions */ -}}
+{{- /* .Input.Data = string data to process inline functions */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := . -}}
-{{- $dataList := .Input.Query -}}
+{{- $dataList := .Input.Data -}}
 {{- $console := dict -}}
 {{- $args := dict -}}
 {{- $list := dict -}}
@@ -19,7 +19,7 @@
 
 {{- /* STAGE 1 - parse all Go template functions */ -}}
 {{- $ret = partial "Hestia/functions/data/string/__scanGoTemplateFunctions"
-	.Input.Query -}}
+	.Input.Data -}}
 {{- if $ret.Console -}}
 	{{- $console = dict "Message" $ret.Console.Message -}}
 {{- end -}}
