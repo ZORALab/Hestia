@@ -1,0 +1,41 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Inline = media inline value (optional,bool) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := false -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* process inline data when given */ -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Inline")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = false -}}
+{{- end -}}
+
+
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "Hestia/functions/data/boolean/Init" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- $console = printf "given .Inline is bad: %s"
+			$dataList.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataList = false -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
