@@ -1,0 +1,22 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for checking */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* check data type */ -}}
+{{- if hasPrefix (printf "%T" .) "bool" -}}
+	{{- $dataList = true -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

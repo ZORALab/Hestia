@@ -1,0 +1,56 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = boolean for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := false -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* standardize boolean data */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = false -}}
+{{- end -}}
+
+
+{{- if partial "Hestia/functions/data/boolean/IsBoolean" $ret -}}
+	{{- $dataList = $ret -}}
+{{- else if partial "Hestia/functions/data/string/IsString" $ret -}}
+	{{- if eq $ret "true" -}}
+		{{- $dataList = true -}}
+	{{- else if eq $ret "false" -}}
+		{{- $dataList = false -}}
+	{{- else -}}
+		{{- $dataList = false -}}
+		{{- $console = printf
+			"boolean: given data is not a boolean: '%v'\n"
+			.Input.Data -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+{{- else if partial "Hestia/functions/data/number/IsNumber" $ret -}}
+	{{- if gt $ret 0 -}}
+		{{- $dataList = true -}}
+	{{- else -}}
+		{{- $dataList = false -}}
+	{{- end -}}
+{{- else -}}
+	{{- $dataList = false -}}
+	{{- $console = printf "boolean: given data is not a boolean: '%v'\n"
+		.Input.Data -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
