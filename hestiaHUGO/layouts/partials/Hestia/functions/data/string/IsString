@@ -10,7 +10,7 @@
 
 
 
-{{- /* cleans up and standardize all string data */ -}}
+{{- /* check data type */ -}}
 {{- if hasPrefix (printf "%T" .) "str" -}}
 	{{- $dataList = true -}}
 {{- end -}}
