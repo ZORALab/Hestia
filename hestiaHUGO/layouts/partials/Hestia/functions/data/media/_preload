@@ -1,0 +1,62 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Preload = media preload value (optional,string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := "" -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* process preload data when given */ -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Preload")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = "" -}}
+{{- end -}}
+
+
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- $console = printf "given .Preload is bad: %s"
+			$dataList.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataList = "" -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* validate preload data when available */ -}}
+{{- if $dataList -}}
+	{{- if (eq $dataList "none")
+		| or (eq $dataList "metadata")
+		| or (eq $dataList "auto")
+	 -}}
+		{{- /* PASS - retain value */ -}}
+	{{- else -}}
+		{{- if not $console -}}
+			{{- $console = printf "given .Preload is invalid: %s\n"
+				$dataList -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- $dataList = "" -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
