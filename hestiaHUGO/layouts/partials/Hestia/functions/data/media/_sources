@@ -1,0 +1,156 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Sources = media sources (slice) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].URL = source's URL (url) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Type = source's MIME Type (string) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Media = source's media query (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $ret := false -}}
+{{- $list := dict -}}
+{{- $entry := dict -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* process sources data when given */ -}}
+{{- $list = merge . (dict "Input" (dict "Query" ".Input.Sources")) -}}
+{{- $list = partial "Hestia/functions/data/Get" $list -}}
+{{- if not $list -}}
+	{{- $list = dict -}}
+{{- end -}}
+
+
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "Hestia/functions/data/list/Init" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- $console = printf ".Sources: %s"
+			$dataList.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataList = dict -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* validate sources data */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := $dataList -}}
+	{{- $entry = dict -}}
+
+
+
+
+	{{- /* process .source.URL */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".URL")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Source.%d.URL is missing."
+				$k -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Source.%d.URL: %s"
+				$k
+				$ret.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+	{{- $entry = merge $entry (dict "URL" $ret.Output) -}}
+
+
+
+
+	{{- /* process .source.Type */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".Type")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Source.%d.Type is missing."
+				$k -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Type" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/mime/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Source.%d.Type: %s"
+				$k
+				$ret.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+	{{- $entry = merge $entry (dict "Type" $ret.Output) -}}
+
+
+
+
+	{{- /* process .source.Media */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".Media")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Source.%d.Media: %s"
+				$k
+				$ret.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+	{{- $entry = merge $entry (dict "Media" $ret.Output) -}}
+
+
+
+
+	{{- /* merge into $list */ -}}
+	{{- $list = merge $list (dict $k $entry) -}}
+{{- end -}}
+{{- $dataList = $list -}}
+
+
+{{- if and (not $dataList) (not $console) -}}
+	{{- $console = printf "media has no sources." -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
