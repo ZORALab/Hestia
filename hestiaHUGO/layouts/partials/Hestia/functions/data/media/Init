@@ -1,29 +1,33 @@
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Name                    = media alternate text or title */ -}}
-{{- /* .Input.Type                    = media MIME type */ -}}
-{{- /* .Input.Width                   = media width */ -}}
-{{- /* .Input.Height                  = media height */ -}}
-{{- /* .Input.CORS                    = media cross-origin value */ -}}
-{{- /* .Input.PreLoad                 = media pre-load value */ -}}
-{{- /* .Input.Control                 = media control flag */ -}}
-{{- /* .Input.Autoplay                = media autoplay flag */ -}}
-{{- /* .Input.Loop                    = media looping flag */ -}}
-{{- /* .Input.Mute                    = media audio mute flag */ -}}
-{{- /* .Input.Inline                  = media play inline flag */ -}}
-{{- /* .Input.Tracks.[LANG].Label     = media track label */ -}}
-{{- /* .Input.Tracks.[LANG].Kind      = media track kind */ -}}
-{{- /* .Input.Tracks.[LANG].Default   = media track default flag */ -}}
-{{- /* .Input.Tracks.[LANG].Source    = media track file (e.g. VTT) URL */ -}}
-{{- /* .Input.Sources.[ARRAY_N].URL   = media source URL */ -}}
-{{- /* .Input.Sources.[ARRAY_N].Type  = media source MIME type */ -}}
-{{- /* .Input.Sources.[ARRAY_N].Media = media source media query */ -}}
+{{- /* .Input.Name                    = alt-text or title (string) */ -}}
+{{- /* .Input.Type                    = MIME type (string) */ -}}
+{{- /* .Input.Width                   = frame width (number/string) */ -}}
+{{- /* .Input.Height                  = frame height (number/string) */ -}}
+{{- /* .Input.Sources                 = media download source (slice) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].URL   = source URL (url) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Type  = source MIME type (string) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Media = source media query (string) */ -}}
+{{- /* .Input.Sizes                   = frame sizes (optional,string) */ -}}
+{{- /* .Input.CORS                    = cross-origin data (optional,string) */ -}}
+{{- /* .Input.Relationship            = relationship data (optional,string) */ -}}
+{{- /* .Input.Preload                 = pre-load value (optional,string) */ -}}
+{{- /* .Input.Control                 = control interface flag (optional,bool) */ -}}
+{{- /* .Input.Autoplay                = autoplay flag (optional,bool) */ -}}
+{{- /* .Input.Loop                    = looping flag (optional,bool) */ -}}
+{{- /* .Input.Mute                    = mute audio flag (optional,bool) */ -}}
+{{- /* .Input.Inline                  = inline playing flag (optional,bool) */ -}}
+{{- /* .Input.Tracks                  = track (e.g. VTT) list (optional,map) */ -}}
+{{- /* .Input.Tracks.[LANG].URL       = track source file URL (url) */ -}}
+{{- /* .Input.Tracks.[LANG].Kind      = track kind (string) */ -}}
+{{- /* .Input.Tracks.[LANG].Label     = track label (string) */ -}}
+{{- /* .Input.Tracks.[LANG].Default   = track default flag (optional,bool) */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
 {{- $ret := false -}}
@@ -31,12 +35,12 @@
 
 
 
-{{- /* STAGE 1: PROCESS */ -}}
+{{- /* STAGE 1: PROCESS EACH FIELDS */ -}}
 {{- /* process .Name */ -}}
 {{- $ret = partial "Hestia/functions/data/media/_name" . -}}
 {{- $dataList = merge $dataList (dict "Name" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Picture.Name: %s" $ret.Console -}}
+	{{- $console = printf "Media.Name: %s" $ret.Console -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -45,7 +49,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_type" . -}}
 {{- $dataList = merge $dataList (dict "Type" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Picture.Type: %s" $ret.Console -}}
+	{{- $console = printf "Media.Type: %s" $ret.Console -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -54,7 +58,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_width" . -}}
 {{- $dataList = merge $dataList (dict "Width" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Picture.Width: %s" $ret.Console -}}
+	{{- $console = printf "Media.Width: %s" $ret.Console -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -63,7 +67,99 @@
 {{- $ret = partial "Hestia/functions/data/media/_height" . -}}
 {{- $dataList = merge $dataList (dict "Height" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Picture.Height: %s" $ret.Console -}}
+	{{- $console = printf "Media.Height: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Sources */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_sources" . -}}
+{{- $dataList = merge $dataList (dict "Sources" false) -}}
+{{- $dataList = merge $dataList (dict "Sources" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Sources: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .CORS */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_cors" . -}}
+{{- $dataList = merge $dataList (dict "CORS" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.CORS: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Relationship */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_relationship" . -}}
+{{- $dataList = merge $dataList (dict "Relationship" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Relationship: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Preload */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_preload" . -}}
+{{- $dataList = merge $dataList (dict "Preload" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Preload: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Control */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_control" . -}}
+{{- $dataList = merge $dataList (dict "Control" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Control: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Autoplay */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_autoplay" . -}}
+{{- $dataList = merge $dataList (dict "Autoplay" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Autoplay: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Loop */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_loop" . -}}
+{{- $dataList = merge $dataList (dict "Loop" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Loop: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Mute */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_mute" . -}}
+{{- $dataList = merge $dataList (dict "Mute" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Mute: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Inline */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_inline" . -}}
+{{- $dataList = merge $dataList (dict "Inline" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Inline: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Tracks */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_tracks" . -}}
+{{- $dataList = merge $dataList (dict "Tracks" false) -}}
+{{- $dataList = merge $dataList (dict "Tracks" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Tracks: %s" $ret.Console -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -72,9 +168,13 @@
 
 {{- /* STAGE 2: POST-PROCESS */ -}}
 {{- /* process .Sizes */ -}}
-{{- $ret = "" -}}
-{{- if and $dataList.Width $dataList.Height -}}
-	{{- $ret = printf "%dx%d" $dataList.Width $dataList.Height -}}
+{{- $ret = merge $Page (dict "Input" $dataList) -}}
+{{- $ret = merge $ret (dict "Input" (dict "Sizes" .Input.Sizes)) -}}
+{{- $ret = partial "Hestia/functions/data/media/_sizes" $ret -}}
+{{- $dataList = merge $dataList (dict "Sizes" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Sizes: %s" $ret.Console -}}
+	{{- $console = dict "Message" $console -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Sizes" $ret) -}}
 
