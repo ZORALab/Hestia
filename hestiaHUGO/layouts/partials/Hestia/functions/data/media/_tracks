@@ -1,0 +1,238 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Tracks = media sources (map) */ -}}
+{{- /* .Input.Tracks.[LANG].URL = track's source URL (url) */ -}}
+{{- /* .Input.Tracks.[LANG].Kind = track's kind (string) */ -}}
+{{- /* .Input.Tracks.[LANG].Label = track's label text (string) */ -}}
+{{- /* .Input.Tracks.[LANG].Default = track's default flag (optional,bool) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $ret := false -}}
+{{- $list := dict -}}
+{{- $entry := dict -}}
+{{- $defaultSet := false -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* process sources data when given */ -}}
+{{- $list = merge . (dict "Input" (dict "Query" ".Input.Tracks")) -}}
+{{- $list = partial "Hestia/functions/data/Get" $list -}}
+{{- if not $list -}}
+	{{- $list = dict -}}
+{{- end -}}
+
+
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "Hestia/functions/data/list/Init" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- $console = printf ".Tracks: %s" $dataList.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataList = dict -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* validate tracks data */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := $dataList -}}
+	{{- $entry = dict -}}
+
+
+
+
+	{{- /* process .track.Lang */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $k)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks: unknown language %s"
+				$k -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $entry = merge $entry (dict "Lang" $ret.Output) -}}
+
+
+
+
+	{{- /* process .track.URL */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".URL")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.URL is missing."
+				$k -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.URL: %s"
+				$k
+				$ret.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+	{{- $entry = merge $entry (dict "URL" $ret.Output) -}}
+
+
+
+
+	{{- /* process .track.Kind */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".Kind")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.Kind is missing."
+				$k -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.Kind: %s"
+				$k
+				$ret.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if eq $ret.Output "subtitles" -}}
+	{{- else if eq $ret.Output "captions" -}}
+	{{- else if eq $ret.Output "descriptions" -}}
+	{{- else if eq $ret.Output "chapters" -}}
+	{{- else if eq $ret.Output "metadata" -}}
+	{{- else -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.Kind: %s"
+				$k
+				"unknown and unrecongized kind type." -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $entry = merge $entry (dict "Kind" $ret.Output) -}}
+
+
+
+
+	{{- /* process .track.Label */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".Label")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.Label is missing."
+				$k -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.Label: %s"
+				$k
+				$ret.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $entry = merge $entry (dict "Label" $ret.Output) -}}
+
+
+
+
+	{{- /* process .track.Default */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".Default")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- $ret = false -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.Default: %s"
+				$k
+				$ret.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if and $ret.Output (not $defaultSet) -}}
+		{{- $defaultSet = true -}}
+	{{- else -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Tracks.%s.Default: %s"
+				$k
+				"multiple tracks are set as default." -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- $ret = merge $ret (dict "Output" false) -}}
+	{{- end -}}
+
+
+	{{- $entry = merge $entry (dict "Default" $ret.Output) -}}
+
+
+
+
+	{{- /* merge into $list */ -}}
+	{{- $list = merge $list (dict $k $entry) -}}
+{{- end -}}
+{{- $dataList = $list -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
