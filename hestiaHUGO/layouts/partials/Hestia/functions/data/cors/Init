@@ -17,12 +17,11 @@
 {{- $dataList = merge . (dict "Input" (dict "Query" ".Input.CORS")) -}}
 {{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
 {{- if not $dataList -}}
-	{{- $console = printf "CORS: missing/bad .Input.CORS\n" -}}
+	{{- $console = printf "CORS: missing .Input.CORS\n" -}}
 	{{- $console = dict "Message" $console -}}
 	{{- $dataList = "" -}}
 {{- end -}}
-{{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace"
-	$dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList -}}
 
 
 
@@ -34,8 +33,22 @@
 	{{- if $dataList.Console -}}
 		{{- $console = printf "CORS: %s" $dataList.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
+		{{- $dataList = "anonymous" -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
 	{{- end -}}
-	{{- $dataList = $dataList.Output -}}
+
+	{{- if not $dataList -}}
+		{{- $dataList = "anonymous" -}}
+	{{- else if partial "Hestia/functions/data/cors/IsAnonymous" $dataList -}}
+		{{- /* PASS - do nothing */ -}}
+	{{- else if partial "Hestia/functions/data/cors/IsUseCredentials" $dataList -}}
+		{{- /* PASS - do nothing */ -}}
+	{{- else -}}
+		{{- $console = printf "CORS: unknown value '%v'\n" $dataList -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataList = "anonymous" -}}
+	{{- end -}}
 {{- end -}}
 
 

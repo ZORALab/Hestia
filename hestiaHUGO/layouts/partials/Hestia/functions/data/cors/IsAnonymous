@@ -1,15 +1,24 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.CORS = CORS data for validation (string) */ -}}
+{{- /* . = CORS data for validaiton (string) */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := merge . (dict "Input" (dict "Expect" "anonymous")) -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* validate data */ -}}
+{{- if partial "Hestia/functions/data/string/IsString" . -}}
+	{{- if eq (lower .) "anonymous" -}}
+		{{- $dataList = true -}}
+	{{- end -}}
+{{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return partial "Hestia/functions/data/cors/IsCORS" $dataList -}}
+{{- return $dataList -}}
