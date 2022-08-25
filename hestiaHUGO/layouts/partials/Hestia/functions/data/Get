@@ -6,36 +6,37 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := false -}}
+{{- $dataList := dict -}}
 {{- $list := slice -}}
 
 
 
 
-{{- /* process query list */ -}}
-{{- $list = .Input.Query -}}
-{{- $list = partial "Hestia/functions/data/string/TrimWhitespace" $list -}}
-{{- $list = strings.TrimPrefix "." $list -}}
-{{- $list = split $list "." -}}
+{{- if partial "Hestia/functions/data/list/IsList" . -}}
+	{{- /* process query list */ -}}
+	{{- $list = .Input.Query -}}
+	{{- $list = partial "Hestia/functions/data/string/TrimWhitespace" $list -}}
+	{{- $list = strings.TrimPrefix "." $list -}}
+	{{- $list = split $list "." -}}
 
 
 
 
-{{- /* begin querying data structure */ -}}
-{{- $dataList := . -}}
-{{- range $i, $v := $list -}}
-	{{- if $dataList -}}
-		{{- $dataList = index $dataList $v -}}
+	{{- /* begin querying data structure */ -}}
+	{{- $dataList = . -}}
+	{{- range $i, $v := $list -}}
+		{{- if $dataList -}}
+			{{- $dataList = index $dataList $v -}}
+		{{- end -}}
 	{{- end -}}
-{{- end -}}
 
 
 
-
-{{- /* process queried data */ -}}
-{{- if eq $dataList . -}}
-	{{- /* DID NOT PROGRESS == no such data from the start */ -}}
-	{{- $dataList = dict -}}
+	{{- /* process queried data */ -}}
+	{{- if eq $dataList . -}}
+		{{- /* DID NOT PROGRESS == no such data from the start */ -}}
+		{{- $dataList = dict -}}
+	{{- end -}}
 {{- end -}}
 
 
