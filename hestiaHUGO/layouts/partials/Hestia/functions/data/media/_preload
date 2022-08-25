@@ -25,28 +25,25 @@
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 	{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
 	{{- if $dataList.Console -}}
-		{{- $console = printf "given .Preload is bad: %s"
-			$dataList.Console.Message -}}
-		{{- $console = dict "Message" $console -}}
+		{{- $console = dict "Message" $dataList.Console.Message -}}
 		{{- $dataList = "" -}}
 	{{- else -}}
 		{{- $dataList = $dataList.Output -}}
 	{{- end -}}
-{{- end -}}
 
 
-
-
-{{- /* validate preload data when available */ -}}
-{{- if $dataList -}}
-	{{- if (eq $dataList "none")
-		| or (eq $dataList "metadata")
-		| or (eq $dataList "auto")
-	 -}}
+	{{- /* validate preload data when available */ -}}
+	{{- if not $dataList -}}
+		{{- $dataList = "" -}}
+	{{- else if eq $dataList "none" -}}
+		{{- /* PASS - retain value */ -}}
+	{{- else if eq $dataList "metadata" -}}
+		{{- /* PASS - retain value */ -}}
+	{{- else if eq $dataList "auto" -}}
 		{{- /* PASS - retain value */ -}}
 	{{- else -}}
 		{{- if not $console -}}
-			{{- $console = printf "given .Preload is invalid: %s\n"
+			{{- $console = printf "unknown .Preload value: '%v'\n"
 				$dataList -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}

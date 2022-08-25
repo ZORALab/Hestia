@@ -25,32 +25,10 @@
 	{{- $dataList = merge $Page (dict "Input" (dict "CORS" $dataList)) -}}
 	{{- $dataList = partial "Hestia/functions/data/cors/Init" $dataList -}}
 	{{- if $dataList.Console -}}
-		{{- $console = printf "bad .CORS: %s"
-			$dataList.Console.Message -}}
-		{{- $console = dict "Message" $console -}}
-		{{- $dataList = "" -}}
+		{{- $console = dict "Message" $dataList.Console.Message -}}
+		{{- $dataList = "anonymous" -}}
 	{{- else -}}
 		{{- $dataList = $dataList.Output -}}
-	{{- end -}}
-
-
-
-
-	{{- /* validate media CORS type */ -}}
-	{{- if (partial "Hestia/functions/data/cors/IsAnonymous"
-		$dataList)
-		| or (partial "Hestia/functions/data/cors/IsUseCredentials"
-		$dataList)
-	-}}
-		{{- /* PASS - keep the value */ -}}
-	{{- else -}}
-		{{ if not $console -}}
-			{{- $console = printf "invalid .CORS - %v\n"
-				$dataList -}}
-			{{- $console = dict "Message" $console -}}
-		{{- end -}}
-
-		{{- $dataList = "" -}}
 	{{- end -}}
 {{- end -}}
 

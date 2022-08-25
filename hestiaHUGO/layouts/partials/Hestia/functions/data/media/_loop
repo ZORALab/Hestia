@@ -25,9 +25,7 @@
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 	{{- $dataList = partial "Hestia/functions/data/boolean/Init" $dataList -}}
 	{{- if $dataList.Console -}}
-		{{- $console = printf "given .Loop is bad: %s"
-			$dataList.Console.Message -}}
-		{{- $console = dict "Message" $console -}}
+		{{- $console = dict "Message" $dataList.Console.Message -}}
 		{{- $dataList = false -}}
 	{{- else -}}
 		{{- $dataList = $dataList.Output -}}

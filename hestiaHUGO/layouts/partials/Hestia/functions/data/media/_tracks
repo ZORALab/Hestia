@@ -14,7 +14,7 @@
 {{- $ret := false -}}
 {{- $list := dict -}}
 {{- $entry := dict -}}
-{{- $defaultSet := false -}}
+{{- $IsDefaultSet := false -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
 
@@ -22,10 +22,10 @@
 
 
 {{- /* process sources data when given */ -}}
-{{- $list = merge . (dict "Input" (dict "Query" ".Input.Tracks")) -}}
-{{- $list = partial "Hestia/functions/data/Get" $list -}}
-{{- if not $list -}}
-	{{- $list = dict -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Tracks")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = dict -}}
 {{- end -}}
 
 
@@ -33,8 +33,7 @@
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 	{{- $dataList = partial "Hestia/functions/data/list/Init" $dataList -}}
 	{{- if $dataList.Console -}}
-		{{- $console = printf ".Tracks: %s" $dataList.Console.Message -}}
-		{{- $console = dict "Message" $console -}}
+		{{- $console = dict "Message" $dataList.Console.Message -}}
 		{{- $dataList = dict -}}
 	{{- else -}}
 		{{- $dataList = $dataList.Output -}}
@@ -55,9 +54,10 @@
 	{{- /* process .track.Lang */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $k)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-	{{- if $ret.console -}}
+	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks: unknown language %s"
+			{{- $console = printf ".Tracks.%v: bad language '%v'\n"
+				$k
 				$k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
@@ -76,7 +76,7 @@
 	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.URL is missing."
+			{{- $console = printf ".Tracks.%v: .URL is missing.\n"
 				$k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
@@ -87,16 +87,18 @@
 
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
-	{{- if $ret.console -}}
+	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.URL: %s"
+			{{- $console = printf ".Tracks.%v.URL: %s"
 				$k
-				$ret.Message -}}
+				$ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
+
+
 	{{- $entry = merge $entry (dict "URL" $ret.Output) -}}
 
 
@@ -107,7 +109,7 @@
 	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.Kind is missing."
+			{{- $console = printf ".Tracks.%v: .Kind is missing.\n"
 				$k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
@@ -118,11 +120,11 @@
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-	{{- if $ret.console -}}
+	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.Kind: %s"
+			{{- $console = printf ".Tracks.%v.Kind: %s"
 				$k
-				$ret.Message -}}
+				$ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
@@ -137,9 +139,10 @@
 	{{- else if eq $ret.Output "metadata" -}}
 	{{- else -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.Kind: %s"
+			{{- $console = printf
+				".Tracks.%v.Kind: unknown value '%v'\n"
 				$k
-				"unknown and unrecongized kind type." -}}
+				$ret.Output -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
@@ -157,7 +160,7 @@
 	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.Label is missing."
+			{{- $console = printf ".Tracks.%v: .Label is missing.\n"
 				$k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
@@ -168,11 +171,11 @@
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-	{{- if $ret.console -}}
+	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.Label: %s"
+			{{- $console = printf ".Tracks.%v.Label: %s"
 				$k
-				$ret.Message -}}
+				$ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
@@ -197,7 +200,7 @@
 	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
 	{{- if $ret.console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.Default: %s"
+			{{- $console = printf ".Tracks.%v.Default: %s"
 				$k
 				$ret.Message -}}
 			{{- $console = dict "Message" $console -}}
@@ -207,13 +210,13 @@
 	{{- end -}}
 
 
-	{{- if and $ret.Output (not $defaultSet) -}}
-		{{- $defaultSet = true -}}
-	{{- else -}}
+	{{- if and $ret.Output (not $IsDefaultSet) -}}
+		{{- $IsDefaultSet = true -}}
+	{{- else if and $ret.Output $IsDefaultSet -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%s.Default: %s"
-				$k
-				"multiple tracks are set as default." -}}
+			{{- $console = printf
+				".Tracks.%v.Default: default is already set.\n"
+				$k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 

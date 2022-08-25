@@ -20,10 +20,10 @@
 
 
 {{- /* process sources data when given */ -}}
-{{- $list = merge . (dict "Input" (dict "Query" ".Input.Sources")) -}}
-{{- $list = partial "Hestia/functions/data/Get" $list -}}
-{{- if not $list -}}
-	{{- $list = dict -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Sources")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = dict -}}
 {{- end -}}
 
 
@@ -31,9 +31,7 @@
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 	{{- $dataList = partial "Hestia/functions/data/list/Init" $dataList -}}
 	{{- if $dataList.Console -}}
-		{{- $console = printf ".Sources: %s"
-			$dataList.Console.Message -}}
-		{{- $console = dict "Message" $console -}}
+		{{- $console = dict "Message" $dataList.Console.Message -}}
 		{{- $dataList = dict -}}
 	{{- else -}}
 		{{- $dataList = $dataList.Output -}}
@@ -47,8 +45,6 @@
 {{- $list = dict -}}
 {{- range $k, $v := $dataList -}}
 	{{- $entry = dict -}}
-
-
 
 
 	{{- /* process .source.URL */ -}}
@@ -67,11 +63,11 @@
 
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
-	{{- if $ret.console -}}
+	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Source.%d.URL: %s"
 				$k
-				$ret.Message -}}
+				$ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
@@ -98,11 +94,11 @@
 
 	{{- $ret = merge $Page (dict "Input" (dict "Type" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/mime/Init" $ret -}}
-	{{- if $ret.console -}}
+	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Source.%d.Type: %s"
 				$k
-				$ret.Message -}}
+				$ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
@@ -123,11 +119,11 @@
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-	{{- if $ret.console -}}
+	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Source.%d.Media: %s"
 				$k
-				$ret.Message -}}
+				$ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
@@ -144,8 +140,8 @@
 {{- $dataList = $list -}}
 
 
-{{- if and (not $dataList) (not $console) -}}
-	{{- $console = printf "media has no sources." -}}
+{{- if and (eq (len $dataList) 0) (not $console) -}}
+	{{- $console = printf "media has no sources.\n" -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
