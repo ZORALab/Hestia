@@ -46,7 +46,7 @@
 
 {{- /* states the Message */ -}}
 {{- $dataList = printf "%s══════════════════════\n" $dataList -}}
-{{- $ret = "<Missing Message. False Alarm?>" -}}
+{{- $ret = "<Missing Message. False Alarm?>\n" -}}
 {{- if .Console.Message -}}
 	{{- $ret = .Console.Message -}}
 {{- end -}}
