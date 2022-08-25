@@ -35,6 +35,7 @@
 {{- $given := dict -}}
 {{- $lang := false -}}
 {{- $IsRelativeToPage := false -}}
+{{- $replaceLang := false -}}
 {{- $ret := false -}}
 
 
@@ -112,11 +113,9 @@
 	{{- range $k, $v := .Languages.List -}}
 		{{- if $IsRelativeToPage -}}
 			{{- continue -}}
-		{{- end -}}
-
-
-		{{- if strings.HasPrefix $ret $v.Code -}}
+		{{- else if strings.HasPrefix $ret $v.Code -}}
 			{{- $lang = $v.Code -}}
+			{{- $replaceLang = true -}}
 		{{- end -}}
 	{{- end -}}
 	{{- if .Input.Lang -}}
@@ -125,9 +124,11 @@
 
 
 	{{- if not $IsRelativeToPage -}}
-		{{- $dataList = strings.TrimSuffix "/" $dataList -}}
-		{{- $lang = strings.TrimPrefix "/" $lang -}}
-		{{- $dataList = printf "%s/%s" $dataList $lang -}}
+		{{- if $replaceLang -}}
+			{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+			{{- $lang = strings.TrimPrefix "/" $lang -}}
+			{{- $dataList = printf "%s/%s" $dataList $lang -}}
+		{{- end -}}
 	{{- end -}}
 
 
