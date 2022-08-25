@@ -16,7 +16,7 @@
 {{- /* convert data into number */ -}}
 {{- $ret = partial "Hestia/functions/data/number/Init" . -}}
 {{- if $ret.Console -}}
-	{{- $console = printf "length: %s" $ret.Console -}}
+	{{- $console = printf "length: %s" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 	{{- $ret = 0 -}}
 {{- else -}}
@@ -26,13 +26,12 @@
 
 
 
-{{- /* process valid length number */ -}}
+{{- /* process valid length value */ -}}
 {{- if not $console -}}
 	{{ if ge $ret 0 -}}
 		{{- $dataList = $ret -}}
 	{{- else  -}}
-		{{- $console = printf "length: bad/negative number: '%v'\n"
-			$ret -}}
+		{{- $console = printf "length: invalid value '%v'\n" $ret -}}
 		{{- $console = dict "Message" $console -}}
 		{{- $dataList = 0 -}}
 	{{- end -}}

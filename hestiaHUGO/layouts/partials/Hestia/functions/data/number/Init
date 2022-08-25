@@ -13,7 +13,7 @@
 
 
 
-{{- /* standardize string data */ -}}
+{{- /* standardizes number data */ -}}
 {{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
 {{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
 {{- if not $dataList -}}
@@ -38,7 +38,10 @@
 	{{- $dataList = float $dataList -}}
 {{- else -}}
 	{{- $dataList = false -}}
-	{{- $console = printf "number: missing/bad .Input.Data data\n" -}}
+	{{- $console = printf "number: missing/bad .Input.Data: '%T => %v'\n"
+		.Input.Data
+		.Input.Data
+	-}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
