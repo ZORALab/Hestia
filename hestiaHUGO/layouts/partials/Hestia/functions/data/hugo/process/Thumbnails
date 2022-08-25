@@ -5,22 +5,31 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
-{{- $dataList := slice -}}
+{{- $Page := merge . (dict "Thumbnails" false) -}}
+{{- $console := false -}}
+{{- $list := dict -}}
+{{- $dataList := dict -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* run through each .Thumbnail */ -}}
+{{- $list = dict -}}
 {{- range $i, $v := .Thumbnails -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/Thumbnail" $ret -}}
-	{{- if $ret -}}
-		{{- $dataList = append $dataList (slice $ret) -}}
+	{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Thumbnails.%v: %v"
+			$i $ret.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $console = merge $Page (dict "Console" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- else -}}
+		{{- $list = merge $list (dict $i $ret.Output) -}}
 	{{- end -}}
 {{- end -}}
-{{- $dataList = merge . (dict "Thumbnails" $dataList) -}}
+{{- $dataList = merge $Page (dict "Thumbnails" $list) -}}
 
 
 
