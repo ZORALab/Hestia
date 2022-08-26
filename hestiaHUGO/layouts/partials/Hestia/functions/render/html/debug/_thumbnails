@@ -15,13 +15,14 @@
 		HestiaHUGO's thumbnails debug rendering interface.
 	</p>
 	{{- range $i, $v := .Thumbnails -}}
+		{{- $source := index $v.Sources "0" -}}
 	<table>
 		<tr>
 			<td>
 				URL
 			</td>
 			<td>
-				<p><code>{{- $v.URL -}}</code></p>
+				<p><code>{{- $source.URL -}}</code></p>
 			</td>
 		</tr>
 		<tr>
@@ -29,7 +30,7 @@
 				Alternate Text
 			</td>
 			<td>
-				<p><code>{{- $v.AltText -}}</code></p>
+				<p><code>{{- $v.Name -}}</code></p>
 			</td>
 		</tr>
 		<tr>
@@ -53,16 +54,16 @@
 				Render as:
 			</td>
 			<td>
-				{{- if eq $v.Media "image" -}}
-				<img src="{{- $v.URL -}}" />
-				{{- else if eq $v.Media "video" -}}
+				{{- if hasPrefix $source.Type "image" -}}
+				<img src="{{- $source.URL -}}" />
+				{{- else if hasPrefix $source.Type "video" -}}
 				<video controls>
-					<source src="{{- $v.URL -}}" type ="{{- $v.Type -}}">
+					<source src="{{- $source.URL -}}" type ="{{- $source.Type -}}">
 					Video not supported in your browser.
 				</video>
-				{{- else if eq $v.Media "audio" -}}
+				{{- else if hasPrefix $source.Type "audio" -}}
 				<audio controls>
-					<source src="{{- $v.URL -}}" type ="{{- $v.Type -}}">
+					<source src="{{- $source.URL -}}" type ="{{- $source.Type -}}">
 					Audio not supported in your browser.
 				</audio>
 				{{- end -}}
