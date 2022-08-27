@@ -1,0 +1,38 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $console := false -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* run through each .Screenshot */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := .PWA.Screenshots -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: Screenshot.%v: %v"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Message" $console -}}
+		{{- $console = merge $Page (dict "Console" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- else -}}
+		{{- $dataList = merge $dataList (dict (upper (string $i)) $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Screenshots" $dataList -}}

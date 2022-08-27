@@ -1,0 +1,45 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Relations */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Relations.Contents -}}
+	{{- if not $v.Platform -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not $v.ID -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = dict "URL" $v.URL -}}
+	{{- $ret = merge $ret (dict "Platform" $v.Platform) -}}
+	{{- $ret = merge $ret (dict "ID" $v.ID) -}}
+
+
+	{{- $dataList = merge $dataList (dict (upper (string $i)) $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Relations" $dataList -}}
+{{- return $dataList -}}

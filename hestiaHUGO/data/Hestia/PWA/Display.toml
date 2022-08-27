@@ -1,0 +1,43 @@
+[Settings]
+# Main PWA settings. Arranged in fallback priorities:
+#   1. 'fullscreen' - basically takes over the entire screen.
+#   2. 'standalone' - open like a native app (with no browser UI feels).
+#   3. 'minimal-ui' - with minimum UI (e.g. refresh and back buttons).
+#   4. 'browser'    - shows in browser mode.
+#
+# NOTE:
+#   1. Safari iOS and ipadOS both does not support 'minimal-ui' and will
+#      fallback to 'browser' automatically. See:
+#      https://web.dev/learn/pwa/app-design/
+#
+# To check for support, please see:
+#   1. https://caniuse.com/web-app-manifest
+#   2. https://developer.mozilla.org/en-US/docs/Web/Manifest#browser_compatibility
+#   3. https://w3c.github.io/manifest/#dfn-fallback-display-mode
+Main = 'standalone'
+
+
+
+
+# Set display orientation.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/orientation
+#
+# Known values are:
+#   1. 'any'                 - responsive adaptation
+#   2. 'natural'             - natural orientation
+#   3. 'landscape'           - landscape mode
+#   4. 'landscape-primary'   - landscape mode as primary display orientation
+#   5. 'landscape-secondary' - landscape mode as secondary display orientation
+#   6. 'portrait'            - portrait mode
+#   7. 'portrait-primary'    - portrait mode as primary display orientation
+#   8. 'portrait-secondary'  - portrait mode as secondary display orientation
+#
+# .Overrides are the list of orientation for overridding the main display
+# orientation whenever applicable. The position denotes their respective
+# priorities. See:
+#       https://developer.mozilla.org/en-US/docs/Web/Manifest/display_override
+[Orientation]
+Main = 'any'
+Overrides = [
+        'natural',
+]

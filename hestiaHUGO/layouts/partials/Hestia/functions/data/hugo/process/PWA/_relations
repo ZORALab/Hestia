@@ -1,0 +1,129 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $data := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Relations */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := .PWA.Relations -}}
+	{{- $data = dict -}}
+
+
+
+
+	{{- /* process .Relations.N.Platform */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Platform)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Relations.%v.Platform: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
+	{{- $ret = lower $ret -}}
+
+
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- else if eq $ret "chrome_web_store" -}}
+	{{- else if eq $ret "play" -}}
+	{{- else if eq $ret "itunes" -}}
+	{{- else if eq $ret "webapp" -}}
+	{{- else if eq $ret "windows" -}}
+	{{- else if eq $ret "f-droid" -}}
+	{{- else if eq $ret "amazon" -}}
+	{{- else -}}
+		{{- $console = printf "PWA: .Relations.%v.Platform: unknown value '%v'\n"
+			$i
+			$ret
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $data = merge $data (dict "Platform" $ret) -}}
+
+
+
+
+	{{- /* process .Relations.N.URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Relations.%v.URL: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $data = merge $data (dict "URL" $ret) -}}
+
+
+
+
+	{{- /* process .Relations.N.ID */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.ID)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+
+
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Relations.%v.ID: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
+	{{- if not $ret -}}
+		{{- $console = printf "PWA: .Relations.%v.ID is bad: '%v'\n"
+			$i
+			$ret -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $data = merge $data (dict "ID" $ret) -}}
+
+
+
+
+	{{- /* merge into list */ -}}
+	{{- $dataList = merge $dataList (dict (upper (string $i)) $data) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Relations" $dataList -}}

@@ -1,0 +1,66 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $image := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Shortcuts */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Shortcuts.Contents -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not $v.Name -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not $v.Name.Full -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not $v.Name.Short -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = dict "URL" $v.URL -}}
+	{{- $ret = merge $ret (dict "Name" (dict "Full" $v.Name.Full)) -}}
+	{{- $ret = merge $ret (dict "Name" (dict "Short" $v.Name.Short)) -}}
+	{{- $ret = merge $ret (dict "Description" (default "" $v.Description)) -}}
+
+
+	{{- $list = dict -}}
+	{{- range $j, $w := $v.Icons -}}
+		{{- $image = partial "Hestia/functions/data/hugo/parse/_media" $w -}}
+		{{- if $ret.Console -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- $list = merge $list (dict (upper (string $j)) $image) -}}
+	{{- end -}}
+	{{- $ret = merge $ret (dict "Icons" $list) -}}
+
+
+	{{- $dataList = merge $dataList (dict (upper (string $i)) $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Shortcuts" $dataList -}}
+{{- return $dataList -}}

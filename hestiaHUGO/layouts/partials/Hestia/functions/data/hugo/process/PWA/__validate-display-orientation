@@ -1,0 +1,54 @@
+{{- /* . = string value for validation */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := "" -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* validate display orientation */ -}}
+{{- if not . -}}
+	{{- $dataList = "any" -}}
+	{{- $console = printf "missing orientation value.\n" -}}
+	{{- $console = dict "Message" $console -}}
+{{- else if not (partial "Hestia/functions/data/string/IsString" .) -}}
+	{{- $dataList = "any" -}}
+	{{- $console = printf "bad orientation value: %T => '%v'\n"
+		.
+		.
+	-}}
+	{{- $console = dict "Message" $console -}}
+{{- else if eq (lower .) "any" -}}
+	{{- $dataList = "any" -}}
+{{- else if eq (lower .) "natural" -}}
+	{{- $dataList = "natural" -}}
+{{- else if eq (lower .) "landscape" -}}
+	{{- $dataList = "landscape" -}}
+{{- else if eq (lower .) "landscape-primary" -}}
+	{{- $dataList = "landscape-primary" -}}
+{{- else if eq (lower .) "landscape-secondary" -}}
+	{{- $dataList = "landscape-secondary" -}}
+{{- else if eq (lower .) "portrait" -}}
+	{{- $dataList = "portrait" -}}
+{{- else if eq (lower .) "portrait-primary" -}}
+	{{- $dataList = "portrait-primary" -}}
+{{- else if eq (lower .) "portrait-secondary" -}}
+	{{- $dataList = "portrait-secondary" -}}
+{{- else -}}
+	{{- $dataList = "any" -}}
+	{{- $console = printf "unknown orientation value: %T => '%v'\n"
+		.
+		.
+	-}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}

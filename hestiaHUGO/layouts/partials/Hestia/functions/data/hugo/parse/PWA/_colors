@@ -1,0 +1,30 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Colors.Theme */ -}}
+{{- $ret = default "#FFFFFF" .Site.Data.Hestia.PWA.Colors.Main.Theme -}}
+{{- $dataList = merge $dataList (dict "Theme" $ret) -}}
+
+
+
+
+{{- /* process .Colors.Background */ -}}
+{{- $ret = default "#000000" .Site.Data.Hestia.PWA.Colors.Main.Background -}}
+{{- $dataList = merge $dataList (dict "Background" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Colors" $dataList -}}
+{{- return $dataList -}}

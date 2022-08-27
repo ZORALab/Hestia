@@ -1,0 +1,42 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Display.Main */ -}}
+{{- $ret = default "standalone" .Site.Data.Hestia.PWA.Display.Settings.Main -}}
+{{- $dataList = merge $dataList (dict "Main" $ret) -}}
+
+
+
+
+{{- /* process .Display.Orientation.Main */ -}}
+{{- $ret = default "any" .Site.Data.Hestia.PWA.Display.Orientation.Main -}}
+{{- $dataList = merge $dataList (dict "Orientation" (dict "Main" $ret)) -}}
+
+
+
+
+{{- /* process .Display.Orientation.Overrides */ -}}
+{{- $ret = dict -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Display.Orientation.Overrides -}}
+	{{- if $v -}}
+		{{- $ret = merge $ret (dict (upper (string $i)) $v) -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Orientation" (dict "Overrides" $ret)) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Display" $dataList -}}
+{{- return $dataList -}}

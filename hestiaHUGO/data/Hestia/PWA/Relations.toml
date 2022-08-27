@@ -1,0 +1,31 @@
+# Relations are all the related stores for inter-linking.
+# See: https://developer.mozilla.org/en-US/docs/Web/Manifest/related_applications
+#
+# Platform is the store where your app is available. Acceptable values are:
+#   1. 'chrome_web_store' - Google Chrome Web Store:
+#                           https://chrome.google.com/webstore
+#   2. 'play'             - Google Play Store:
+#                           https://play.google.com/
+#   3. 'itunes'           - Apple App Store:
+#                           https://www.apple.com/app-store/
+#   4. 'webapp'           - Web Apps:
+#                           https://www.w3.org/TR/appmanifest/
+#   5. 'windows'          - Windows Store:
+#                           https://www.microsoft.com/store/apps
+#   6. 'f-droid'          - F-Droid:
+#                           https://f-droid.org/
+#   7. 'amazon'           - Amazon App Store:
+#                           https://www.amazon.com/gp/browse.html?node=2350149011
+#   8. ''                 - disabled this entry
+#
+# To add more Relations to your PWA site, simply duplicates `[[Contents]]` table
+# and update the values accordingly.
+#
+# URL   -  The URL to download your app in the related store. If left empty, the
+#          entire Relation is discarded.
+# ID    -  The ID of your app in the related store. If left empty, the entire
+#          Relation is discarded.
+[[Contents]]
+Platform = 'webapp'
+URL = '{{- .URL.Base -}}'
+ID = '{{- .URL.Base -}}'

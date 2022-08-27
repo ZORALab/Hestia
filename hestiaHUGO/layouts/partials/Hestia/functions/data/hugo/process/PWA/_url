@@ -1,0 +1,39 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .URL.Base */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" .PWA.URL.Base)) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- partial "Hestia/functions/console/Errorf" (merge $Page $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Base" $ret.Output) -}}
+
+
+
+
+{{- /* process .URL.Scope */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" .PWA.URL.Scope)) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- partial "Hestia/functions/console/Errorf" (merge $Page $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Scope" $ret.Output) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "URL" $dataList -}}
+{{- return $dataList -}}

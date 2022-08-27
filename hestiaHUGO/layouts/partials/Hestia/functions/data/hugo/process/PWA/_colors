@@ -1,0 +1,60 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Colors.Theme */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Colors.Theme)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $ret = upper $ret -}}
+
+
+{{- if not $ret -}}
+	{{- $console = printf "PWA: missing .Colors.Theme.\n" -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- $ret = "#FFFFFF" -}}
+{{- end -}}
+
+
+{{- $dataList = merge $dataList (dict "Main" $ret) -}}
+
+
+
+
+{{- /* process .Colors.Background */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Colors.Background)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $ret = upper $ret -}}
+
+
+{{- if not $ret -}}
+	{{- $console = printf "PWA: missing .Colors.Background.\n" -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- $ret = "#000000" -}}
+{{- end -}}
+
+
+{{- $dataList = merge $dataList (dict "Background" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Colors" $dataList -}}
+{{- return $dataList -}}

@@ -1,0 +1,167 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $imageList := dict -}}
+{{- $data := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Relations */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := .PWA.Shortcuts -}}
+	{{- $data = dict -}}
+
+
+
+
+	{{- /* process .Shortcuts.N.URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Shortcuts.%v.URL: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+
+
+	{{- /* process .Shortcuts.N.Name.Full */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name.Full)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Shortcuts.%v.Name.Full: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
+	{{- if not $ret -}}
+		{{- $console = printf "PWA: .Shortcuts.%v.Name.Full is missing.\n"
+			$i
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" (dict "Full" $ret)) -}}
+
+
+
+
+	{{- /* process .Shortcuts.N.Name.Short */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name.Short)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Shortcuts.%v.Name.Short: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
+	{{- if not $ret -}}
+		{{- $console = printf "PWA: .Shortcuts.%v.Name.Short is missing.\n"
+			$i
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" (dict "Short" $ret)) -}}
+
+
+
+
+	{{- /* process .Shortcuts.N.Description */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Description)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Shortcuts.%v.Description: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
+		$ret.Output -}}
+	{{- if not $ret -}}
+		{{- $console = printf "PWA: .Shortcuts.%v.Description is missing.\n"
+			$i
+		-}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $data = merge $data (dict "Description" $ret) -}}
+
+
+
+
+	{{- /* process .Shortcuts.N.Icons */ -}}
+	{{- $imageList = dict -}}
+	{{- range $j, $w := $v.Icons -}}
+		{{- $ret = merge $Page (dict "Input" $w) -}}
+		{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf "PWA: .Shortcuts.%v.Icons.%v: %s"
+				$i
+				$j
+				$ret.Console.Message
+			-}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- $imageList = merge $imageList (dict (upper (string $j)) $ret) -}}
+	{{- end -}}
+
+
+	{{- $data = merge $data (dict "Icons" $imageList) -}}
+
+
+
+
+	{{- /* merge into list */ -}}
+	{{- $dataList = merge $dataList (dict (upper (string $i)) $data) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Shortcuts" $dataList -}}

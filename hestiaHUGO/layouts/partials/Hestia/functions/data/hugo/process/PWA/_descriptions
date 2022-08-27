@@ -1,0 +1,35 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Descriptions.Pitch */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Pitch)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Pitch" $ret) -}}
+
+
+
+
+{{- /* process .Descriptions.Summary */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Summary)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Summary" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Descriptions" $dataList -}}
+{{- return $dataList -}}

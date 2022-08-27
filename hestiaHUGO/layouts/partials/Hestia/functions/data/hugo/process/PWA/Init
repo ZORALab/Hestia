@@ -1,0 +1,80 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := (merge (merge . (dict "PWA" false)) (dict "PWA" dict)) -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .PWA.Name */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_name" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.Descriptions */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_descriptions" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.URL */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_url" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.Display */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_display" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.Categories */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_categories" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.Colors */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_colors" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.Relations */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_relations" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.Screenshots */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_screenshots" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .PWA.Shortcuts */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_shortcuts" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = merge $Page (dict "PWA" $dataList) -}}
+{{- return $dataList -}}

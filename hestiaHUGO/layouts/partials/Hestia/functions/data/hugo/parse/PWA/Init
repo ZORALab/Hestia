@@ -1,0 +1,58 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process Metadata */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_metadata" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .Display */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_display" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .Colors */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_colors" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .Shortcuts */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_shortcuts" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .Screenshots */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_screenshots" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .Relations */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_relations" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "PWA" $dataList -}}
+{{- return $dataList -}}
