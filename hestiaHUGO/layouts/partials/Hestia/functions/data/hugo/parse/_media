@@ -76,6 +76,12 @@
 
 
 
+{{- /* parse .Design */ -}}
+{{- $dataList = merge $dataList (dict "Design" (default "any" .Design)) -}}
+
+
+
+
 {{- /* parse .Preload */ -}}
 {{- $dataList = merge $dataList (dict "Preload" (default "metadata" .Preload)) -}}
 
