@@ -6,5 +6,5 @@
 #               highest contrast color against the background color (e.g.
 #               #00000 against #FFFFF or vice versa).
 [Main]
-Background = '#0055FF'
-Theme = '#FFFFFF'
+Background = '#FFFFFF'
+Theme = '#0055FF'
