@@ -6,34 +6,149 @@
 
 {{- /* prepare variables for function */ -}}
 {{- $Page := . -}}
-{{- $favicons := .Favicons -}}
+{{- $source := false -}}
+{{- $favicons := .PWA.Icons -}}
 
 
 
 
 {{- /* return render */ -}}
 {{- range $k, $v := $favicons -}}
-	{{- if or (eq $v.Relationship "apple-touch-icon") (eq $v.Relationship "icon") }}
-	<link rel="{{- safeHTML $v.Relationship -}}"
-		type="{{- safeHTML $v.Type -}}"
-		sizes="{{- safeHTML $v.Dimension -}}"
-		href="{{- safeHTML $v.URL -}}" />
-	{{- else if eq $v.Relationship "mask-icon" }}
-	<link rel="{{- safeHTML $v.Relationship -}}"
-		type="{{- safeHTML $v.Type -}}"
-		href="{{- safeHTML $v.URL -}}"
-		color="{{- safeHTML $Page.PWA.Colors.Background -}}" />
-	{{- else if hasPrefix $v.Relationship "msapplication" }}
-	<meta name="{{- safeHTML $v.Relationship -}}"
-		content="{{- safeHTML $v.URL -}}" />
+	{{- $source = index $v.Sources "0" -}}
+
+
+{{- if eq $k "16X16" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "32X32" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "57X57" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "60X60" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "72X72" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "76X76" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "96X96" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "114X114" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "120X120" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "144X144" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<meta name='msapplication-TileImage'
+		content='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "152X152" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "180X180" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "192X192" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "384X384" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "512X512" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "1024X1024" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "VECTOR" }}
+	<link rel='icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- else if eq $k "MONOCHROME" }}
+	<link rel='mask-icon'
+		type='{{- safeHTML $source.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $source.URL -}}' />
+{{- end -}}
+{{- end }}
 	<meta name="msapplication-TileColor"
 		content="{{- safeHTML $Page.PWA.Colors.Background -}}" />
-	{{- else }}
-	<link rel="{{- safeHTML $v.Relationship -}}"
-		type="{{- safeHTML $v.Type -}}"
-		href="{{- safeHTML $v.URL -}}" />
-	{{- end -}}
-{{- end }}
 	<meta name="theme-color"
 		content="{{- safeHTML $Page.PWA.Colors.Theme -}}" />
 {{- /* clean up */ -}}
