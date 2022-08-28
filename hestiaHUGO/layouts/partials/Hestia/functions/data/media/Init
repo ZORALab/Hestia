@@ -176,7 +176,7 @@
 	{{- $console = printf "Media.Sizes: %s" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Sizes" $ret) -}}
+{{- $dataList = merge $dataList (dict "Sizes" $ret.Output) -}}
 
 
 

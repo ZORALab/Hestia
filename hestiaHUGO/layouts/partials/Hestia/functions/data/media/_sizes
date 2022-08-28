@@ -40,9 +40,9 @@
 		{{- $console = printf "given overriding .Sizes is bad - %s"
 			$ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
-	{{- else -}}
-		{{- $dataList = $ret.Output -}}
 	{{- end -}}
+
+	{{- $dataList = $ret.Output -}}
 {{- end -}}
 
 
