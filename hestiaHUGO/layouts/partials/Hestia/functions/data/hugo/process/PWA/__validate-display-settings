@@ -1,0 +1,48 @@
+{{- /* . = string value for validation */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := "" -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* validate display settings */ -}}
+{{- if not . -}}
+	{{- $dataList = "standalone" -}}
+	{{- $console = printf "missing display settings value.\n" -}}
+	{{- $console = dict "Message" $console -}}
+{{- else if not (partial "Hestia/functions/data/string/IsString" .) -}}
+	{{- $dataList = "standalone" -}}
+	{{- $console = printf "bad display settings value: %T => '%v'\n"
+		.
+		.
+	-}}
+	{{- $console = dict "Message" $console -}}
+{{- else if eq (lower .) "fullscreen" -}}
+	{{- $dataList = "fullscreen" -}}
+{{- else if eq (lower .) "standalone" -}}
+	{{- $dataList = "standalone" -}}
+{{- else if eq (lower .) "minimal-ui" -}}
+	{{- $dataList = "minimal-ui" -}}
+{{- else if eq (lower .) "browser" -}}
+	{{- $dataList = "browser" -}}
+{{- else if eq (lower .) "window-controls-overlay" -}}
+	{{- $dataList = "window-controls-overlay" -}}
+{{- else -}}
+	{{- $dataList = "standalone" -}}
+	{{- $console = printf "bad display settings value: %T => '%v'\n"
+		.
+		.
+	-}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}

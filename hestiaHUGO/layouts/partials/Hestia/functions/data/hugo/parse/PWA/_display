@@ -18,21 +18,21 @@
 
 
 
-{{- /* process .Display.Orientation.Main */ -}}
-{{- $ret = default "any" .Site.Data.Hestia.PWA.Display.Orientation.Main -}}
-{{- $dataList = merge $dataList (dict "Orientation" (dict "Main" $ret)) -}}
-
-
-
-
-{{- /* process .Display.Orientation.Overrides */ -}}
+{{- /* process .Display.Overrides */ -}}
 {{- $ret = dict -}}
-{{- range $i, $v := .Site.Data.Hestia.PWA.Display.Orientation.Overrides -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Display.Settings.Overrides -}}
 	{{- if $v -}}
 		{{- $ret = merge $ret (dict (upper (string $i)) $v) -}}
 	{{- end -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Orientation" (dict "Overrides" $ret)) -}}
+{{- $dataList = merge $dataList (dict "Overrides" $ret) -}}
+
+
+
+
+{{- /* process .Display.Orientation */ -}}
+{{- $ret = default "any" .Site.Data.Hestia.PWA.Display.Orientation.Main -}}
+{{- $dataList = merge $dataList (dict "Orientation" $ret) -}}
 
 
 
