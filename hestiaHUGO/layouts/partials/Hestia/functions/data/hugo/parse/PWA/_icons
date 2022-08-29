@@ -19,6 +19,7 @@
 		"Type" "image/png"
 		"Width" 16
 		"Height" 16
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -26,6 +27,7 @@
 		"Type" "image/png"
 		"Width" 32
 		"Height" 32
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -33,6 +35,7 @@
 		"Type" "image/png"
 		"Width" 57
 		"Height" 57
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -40,6 +43,7 @@
 		"Type" "image/png"
 		"Width" 60
 		"Height" 60
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -47,6 +51,7 @@
 		"Type" "image/png"
 		"Width" 72
 		"Height" 72
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -54,6 +59,7 @@
 		"Type" "image/png"
 		"Width" 76
 		"Height" 76
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -61,6 +67,7 @@
 		"Type" "image/png"
 		"Width" 96
 		"Height" 96
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -68,6 +75,7 @@
 		"Type" "image/png"
 		"Width" 114
 		"Height" 114
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -75,6 +83,7 @@
 		"Type" "image/png"
 		"Width" 120
 		"Height" 120
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -82,6 +91,7 @@
 		"Type" "image/png"
 		"Width" 144
 		"Height" 144
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -89,6 +99,7 @@
 		"Type" "image/png"
 		"Width" 144
 		"Height" 144
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -96,6 +107,7 @@
 		"Type" "image/png"
 		"Width" 152
 		"Height" 152
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -103,6 +115,7 @@
 		"Type" "image/png"
 		"Width" 180
 		"Height" 180
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -110,6 +123,7 @@
 		"Type" "image/png"
 		"Width" 192
 		"Height" 192
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -117,6 +131,7 @@
 		"Type" "image/png"
 		"Width" 384
 		"Height" 384
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -124,6 +139,7 @@
 		"Type" "image/png"
 		"Width" 512
 		"Height" 512
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -131,6 +147,7 @@
 		"Type" "image/png"
 		"Width" 1024
 		"Height" 1024
+		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
@@ -138,6 +155,7 @@
 		"Type" "image/svg+xml"
 		"Width" .Site.Data.Hestia.PWA.Icons.Vector.Width
 		"Height" .Site.Data.Hestia.PWA.Icons.Vector.Height
+		"Design" "any"
 		"Resize" false
 		"Source" .Site.Data.Hestia.PWA.Icons.Vector
 	) (dict
@@ -145,6 +163,7 @@
 		"Type" "image/svg+xml"
 		"Width" .Site.Data.Hestia.PWA.Icons.Monochrome.Width
 		"Height" .Site.Data.Hestia.PWA.Icons.Monochrome.Height
+		"Design" "maskable"
 		"Resize" false
 		"Source" .Site.Data.Hestia.PWA.Icons.Monochrome
 	)
@@ -192,6 +211,7 @@
 	{{- $data = merge $data (dict "Name" (path.BaseName $v.Filename)) -}}
 	{{- $data = merge $data (dict "Width" $v.Width) -}}
 	{{- $data = merge $data (dict "Height" $v.Height) -}}
+	{{- $data = merge $data (dict "Design" $v.Design) -}}
 	{{- $data = partial "Hestia/functions/data/hugo/parse/_media" $data -}}
 
 
