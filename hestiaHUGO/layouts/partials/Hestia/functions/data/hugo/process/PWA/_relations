@@ -80,7 +80,7 @@
 	{{- end -}}
 
 
-	{{- $data = merge $data (dict "URL" $ret) -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
 
 
 
