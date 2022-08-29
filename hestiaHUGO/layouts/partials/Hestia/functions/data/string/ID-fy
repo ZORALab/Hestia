@@ -1,0 +1,44 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = string for processing */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* standardize string data */ -}}
+{{- $dataList = partial "Hestia/functions/data/string/Init" . -}}
+{{- if $dataList.Console -}}
+	{{- $console = printf "string: %s" $dataList.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+{{- $dataList = $dataList.Output -}}
+
+
+{{- $dataList = replace $dataList "'" "" -}}
+{{- $dataList = replace $dataList "\"" "" -}}
+{{- $dataList = replace $dataList "$" "-" -}}
+{{- $dataList = replace $dataList "%" "-" -}}
+{{- $dataList = replace $dataList "!" "-" -}}
+{{- $dataList = replace $dataList "@" "-" -}}
+{{- $dataList = replace $dataList "_" "-" -}}
+{{- $dataList = replace $dataList " " "-" -}}
+{{- $dataList = replace $dataList "&" "-" -}}
+{{- $dataList = replace $dataList "^" "-" -}}
+{{- $dataList = replace $dataList "(" "-" -}}
+{{- $dataList = replace $dataList ")" "-" -}}
+{{- $dataList = replace $dataList "~" "-" -}}
+{{- $dataList = replace $dataList "---" "-" -}}
+{{- $dataList = replace $dataList "--" "-" -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
