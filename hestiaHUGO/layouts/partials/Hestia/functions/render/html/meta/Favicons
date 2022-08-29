@@ -138,12 +138,10 @@
 {{- else if eq $k "VECTOR" }}
 	<link rel='icon'
 		type='{{- safeHTML $source.Type -}}'
-		sizes='{{- safeHTML $v.Sizes -}}'
 		href='{{- safeHTML $source.URL -}}' />
 {{- else if eq $k "MONOCHROME" }}
 	<link rel='mask-icon'
 		type='{{- safeHTML $source.Type -}}'
-		sizes='{{- safeHTML $v.Sizes -}}'
 		href='{{- safeHTML $source.URL -}}'
 		color='{{- safeHTML $Page.PWA.Colors.Theme -}}' />
 {{- end -}}
