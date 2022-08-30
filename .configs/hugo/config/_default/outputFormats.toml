@@ -79,7 +79,7 @@ permalinkable = true
 [WEBAPPMANIFEST]
 name = "WEBAPPMANIFEST"
 mediaType = "application/manifest+json"
-baseName = "manifest"
+baseName = "app"
 rel = "manifest"
 protocol = ""
 path = ""

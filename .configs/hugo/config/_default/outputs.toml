@@ -1,4 +1,4 @@
-home = [ "HTML", "JSON" ]
+home = [ "HTML", "JSON", "WEBAPPMANIFEST" ]
 page = [ "HTML", "JSON" ]
 section = [ "HTML", "JSON" ]
 taxonomy = [ "HTML", "JSON" ]

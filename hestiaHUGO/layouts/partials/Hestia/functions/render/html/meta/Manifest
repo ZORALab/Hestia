@@ -1,0 +1,9 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+	<link rel='manifest' href='{{- .Languages.Current.URL -}}app.webmanifest' />
+{{- /* clean up */ -}}
