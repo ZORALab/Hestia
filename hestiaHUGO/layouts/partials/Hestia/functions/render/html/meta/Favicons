@@ -143,11 +143,13 @@
 	<link rel='mask-icon'
 		type='{{- safeHTML $source.Type -}}'
 		href='{{- safeHTML $source.URL -}}'
-		color='{{- safeHTML $Page.PWA.Colors.Theme -}}' />
+		color='{{- safeHTML $Page.PWA.Colors.Main -}}' />
 {{- end -}}
+
+
 {{- end }}
 	<meta name="msapplication-TileColor"
 		content="{{- safeHTML $Page.PWA.Colors.Background -}}" />
 	<meta name="theme-color"
-		content="{{- safeHTML $Page.PWA.Colors.Theme -}}" />
+		content="{{- safeHTML $Page.PWA.Colors.Main -}}" />
 {{- /* clean up */ -}}
