@@ -1,0 +1,17 @@
+# Protocols allow local OS URI application call
+#
+# .Protocol    - the custom protocol that will launch your application for data
+#                processing (e.g. 'mailto' will launch the client email app).
+#                You do not need to supply the '://' protocol suffix as the PWA
+#                supported browser shall handle them accordingly.
+#
+# .URL         - the URL to service the local OS URI application call. The '%s'
+#                is the placeholder value for local OS URI to feed into your
+#                app. Hence, you can use URL's parameters to manage the input to
+#                the page that is in-charge of processing the data. The default
+#                here is set to 'query' against the base URL.
+#
+# To add more protocols, simply add more `[[Contents]]` dataset below.
+[[Contents]]
+Protocol = 'web+{{- .Titles.Site.Current -}}'
+URL = '{{- .URL.Base -}}?query=%s'

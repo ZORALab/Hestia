@@ -1,0 +1,36 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Protocols */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Protocols.Contents -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not $v.Protocol -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = dict "Protocol" $v.Protocol "URL" $v.URL -}}
+	{{- $dataList = merge $dataList (dict (string $i) $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Protocols" $dataList -}}
+{{- return $dataList -}}

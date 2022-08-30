@@ -53,6 +53,13 @@
 
 
 
+{{- /* process .Protocols */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_protocols" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* process .Icons */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_icons" . -}}
 {{- $dataList = merge $dataList $ret -}}

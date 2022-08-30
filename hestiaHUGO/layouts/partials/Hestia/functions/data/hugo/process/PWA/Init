@@ -82,6 +82,13 @@
 
 
 
+{{- /* process .PWA.Protocols */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_protocols" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- $dataList = merge $Page (dict "PWA" $dataList) -}}
 {{- return $dataList -}}
