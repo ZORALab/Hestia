@@ -12,7 +12,7 @@
 #                        words (e.g. Namespace + product).
 # Name.Full            - used to display brand and app in articles or pages.
 [Name]
-ID = '{{- .URL.Base -}}'
+ID = '{{- .Languages.Current.Code -}}'
 Short = '{{- .Titles.Site.Current -}}'
 Full = '{{- .Titles.Site.Current -}}'
 
