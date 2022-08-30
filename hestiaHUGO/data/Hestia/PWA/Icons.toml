@@ -1,17 +1,16 @@
-[Main]
-# Strictly beyond or equal to 1200x1200 square-only size, without transparent
-# pixels whenever possible.
+# Strictly beyond or equal to 1200x1200 square-only size, 20% padding of each
+# sides, with no transparent pixels whenever possible.
 # NOTE:
-#   1. Apple iOS app icons automatically recolor transparent to black (#000000).
-#      Please make sure you supply a no-transparent square PNG image.
-#   2. Some stylish browser may have customizable tab color or background that
+#   1. Some stylish browser may have customizable tab color or background that
 #      can recolor the favicon transparent pixels, making the brand logo outside
 #      of your control.
+#   2. This will only be used in web app manifest file.
 #   3. Hestia will recolor transparent background with the color defined in
 #      .Hestia.PWA.Colors.Background upon creating all the various icon sizes.
 #   4. It was a known issue that Hugo's image processing cannot convert SVG into
 #      PNG type. Hence, please supply non-vector image here. For vector format,
 #      use the .Vector dataset.
+[Main]
 Name = ""
 Width = "1200"
 Height = "1200"
@@ -27,7 +26,7 @@ Inline = false
 
 
 [[Main.Sources]]
-URL = "images/favicon-main.png"
+URL = "images/icon-main.png"
 Type = "image/png"
 Media = "all"
 
@@ -41,11 +40,12 @@ Default = false
 
 
 
-[Vector]
 # Strictly beyond or equal to 1200x1200 square-only size, without transparent
-# pixels whenever possible and SVG format.
+# pixels whenever possible and in SVG format.
 # NOTE:
 #   1. Hestia will copy the icon over to applicable icons.
+#   2. This will only be used in web app manifest file.
+[Vector]
 Name = ""
 Width = "1200"
 Height = "1200"
@@ -61,7 +61,7 @@ Inline = false
 
 
 [[Vector.Sources]]
-URL = "images/favicon-vector.svg"
+URL = "images/icon-vector.svg"
 Type = "image/svg+xml"
 Media = "all"
 
@@ -75,17 +75,19 @@ Default = false
 
 
 
-[Monochrome]
 # Strictly beyond or equal to 1500x1500 square-only size, ONLY monochrome color
-# (e.g. greyscale / black-white color).
+# (e.g. greyscale / black-white color) and in SVG vector format.
 # NOTE:
-#  1. Apple Safari automatically process the monochrome logo where transprent is
-#     equal to pixel. For a lot of cases, the Hugo image processing can yields
-#     artistically invalid output. Since this is a brand / trademark image,
-#     it can leads to potentially causing unwanted copyright legal proceedings.
-#  2. Therefore, it's better to supply a dedicated SVG image instead of relying
-#      solely on Hugo automated image processing.
-Name = "Favicon Monochrome Image"
+#  1. Due to the monochrome requirement, for a lot of cases, the Hugo image
+#     processing can yields invalid artistic error. Since this is a brand /
+#     trademark image, it is your responsbility to provide the required artwork
+#     for this requirement.
+#  2. Apple Safari automatically process the monochrome logo complying to the
+#     PWA.Colors.Main color. Therefore, it's better to supply a dedicated SVG
+#     image instead.
+#  3. This will only be used in website favicon rendering.
+[Monochrome]
+Name = ""
 Width = "1500"
 Height = "1500"
 CORS = ""
@@ -106,6 +108,88 @@ Media = "all"
 
 
 [Monochrome.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+
+
+[Favicon]
+# Strictly beyond or equal to 1200x1200 square-only size.
+# NOTE:
+#   1. Hestia will copy the icon over to applicable icons.
+#   2. Apple iOS app icons automatically recolor transparent to black (#000000).
+#      It is highly recommended to supply non-transparent square PNG image.
+#   3. Some stylish browser may have customizable tab color or background that
+#      can recolor the favicon transparent pixels, making the brand logo outside
+#      of your control.
+#   4. Hestia will recolor transparent background with the color defined in
+#      .Hestia.PWA.Colors.Background upon creating all the various icon sizes.
+#   5. It was a known issue that Hugo's image processing cannot convert SVG into
+#      PNG type. Hence, please supply non-vector image here. For vector format,
+#      use the .Vector dataset.
+Name = ""
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+
+[[Favicon.Sources]]
+URL = "images/favicon-main.png"
+Type = "image/png"
+Media = "all"
+
+
+[Favicon.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+
+
+[FaviconVector]
+# Strictly beyond or equal to 1200x1200 square-only size, and SVG format.
+# Recommend no transparent pixels.
+# NOTE:
+#   1. Hestia will copy the icon over to applicable icons.
+#   2. Apple iOS app icons automatically recolor transparent to black (#000000).
+#      It is highly recommended to supply non-transparent square PNG image.
+#   3. Some stylish browser may have customizable tab color or background that
+#      can recolor the favicon transparent pixels, making the brand logo outside
+#      of your control.
+Name = ""
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+
+[[FaviconVector.Sources]]
+URL = "images/favicon-vector.svg"
+Type = "image/svg+xml"
+Media = "all"
+
+
+[FaviconVector.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"

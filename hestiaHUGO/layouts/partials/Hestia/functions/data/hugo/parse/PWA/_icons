@@ -15,109 +15,109 @@
 
 {{- /* prepare list of icon data */ -}}
 {{- $list = slice (dict
-		"Filename" "icon-16x16.png"
+		"Filename" "favicon-16x16.png"
 		"Type" "image/png"
 		"Width" 16
 		"Height" 16
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-32x32.png"
+		"Filename" "favicon-32x32.png"
 		"Type" "image/png"
 		"Width" 32
 		"Height" 32
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-57x57.png"
+		"Filename" "favicon-57x57.png"
 		"Type" "image/png"
 		"Width" 57
 		"Height" 57
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-60x60.png"
+		"Filename" "favicon-60x60.png"
 		"Type" "image/png"
 		"Width" 60
 		"Height" 60
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-72x72.png"
+		"Filename" "favicon-72x72.png"
 		"Type" "image/png"
 		"Width" 72
 		"Height" 72
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-76x76.png"
+		"Filename" "favicon-76x76.png"
 		"Type" "image/png"
 		"Width" 76
 		"Height" 76
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-96x96.png"
+		"Filename" "favicon-96x96.png"
 		"Type" "image/png"
 		"Width" 96
 		"Height" 96
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-114x114.png"
+		"Filename" "favicon-114x114.png"
 		"Type" "image/png"
 		"Width" 114
 		"Height" 114
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-120x120.png"
+		"Filename" "favicon-120x120.png"
 		"Type" "image/png"
 		"Width" 120
 		"Height" 120
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-144x144.png"
+		"Filename" "favicon-144x144.png"
 		"Type" "image/png"
 		"Width" 144
 		"Height" 144
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-144x144.png"
-		"Type" "image/png"
-		"Width" 144
-		"Height" 144
-		"Design" "any"
-		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
-	) (dict
-		"Filename" "icon-152x152.png"
+		"Filename" "favicon-152x152.png"
 		"Type" "image/png"
 		"Width" 152
 		"Height" 152
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "icon-180x180.png"
+		"Filename" "favicon-180x180.png"
 		"Type" "image/png"
 		"Width" 180
 		"Height" 180
 		"Design" "any"
 		"Resize" true
-		"Source" .Site.Data.Hestia.PWA.Icons.Main
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
+	) (dict
+		"Filename" "favicon-192x192.png"
+		"Type" "image/png"
+		"Width" 192
+		"Height" 192
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
 		"Filename" "icon-192x192.png"
 		"Type" "image/png"
@@ -127,6 +127,14 @@
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
+		"Filename" "favicon-384x384.png"
+		"Type" "image/png"
+		"Width" 384
+		"Height" 384
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
+	) (dict
 		"Filename" "icon-384x384.png"
 		"Type" "image/png"
 		"Width" 384
@@ -135,6 +143,14 @@
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
+		"Filename" "favicon-512x512.png"
+		"Type" "image/png"
+		"Width" 512
+		"Height" 512
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
+	) (dict
 		"Filename" "icon-512x512.png"
 		"Type" "image/png"
 		"Width" 512
@@ -142,6 +158,14 @@
 		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
+	) (dict
+		"Filename" "favicon-1024x1024.png"
+		"Type" "image/png"
+		"Width" 1024
+		"Height" 1024
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
 		"Filename" "icon-1024x1024.png"
 		"Type" "image/png"
@@ -159,11 +183,19 @@
 		"Resize" false
 		"Source" .Site.Data.Hestia.PWA.Icons.Vector
 	) (dict
-		"Filename" "icon-monochrome.svg"
+		"Filename" "favicon-vector.svg"
+		"Type" "image/svg+xml"
+		"Width" .Site.Data.Hestia.PWA.Icons.FaviconVector.Width
+		"Height" .Site.Data.Hestia.PWA.Icons.FaviconVector.Height
+		"Design" "any"
+		"Resize" false
+		"Source" .Site.Data.Hestia.PWA.Icons.FaviconVector
+	) (dict
+		"Filename" "favicon-monochrome.svg"
 		"Type" "image/svg+xml"
 		"Width" .Site.Data.Hestia.PWA.Icons.Monochrome.Width
 		"Height" .Site.Data.Hestia.PWA.Icons.Monochrome.Height
-		"Design" "maskable"
+		"Design" "monochrome"
 		"Resize" false
 		"Source" .Site.Data.Hestia.PWA.Icons.Monochrome
 	)
@@ -173,7 +205,7 @@
 
 
 {{- /* process .Icons */ -}}
-{{- $dataList = dict -}}
+{{- $dataList = slice -}}
 {{- range $i, $v := $list -}}
 	{{- $data = dict -}}
 
@@ -218,9 +250,7 @@
 
 
 	{{- /* merge into dataList */ -}}
-	{{- $ret = path.BaseName $v.Filename -}}
-	{{- $ret = strings.TrimPrefix "icon-" $ret -}}
-	{{- $dataList = merge $dataList (dict $ret $data) -}}
+	{{- $dataList = append $data $dataList -}}
 {{- end -}}
 
 

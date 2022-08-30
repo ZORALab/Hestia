@@ -7,14 +7,14 @@
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := . -}}
 {{- $console := false -}}
-{{- $dataList := dict -}}
+{{- $dataList := slice -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* run through each .Icon */ -}}
-{{- $dataList = dict -}}
+{{- $dataList = slice -}}
 {{- range $i, $v := .PWA.Icons -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
 	{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
@@ -27,7 +27,7 @@
 		{{- $console = merge $Page (dict "Console" $console) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- else -}}
-		{{- $dataList = merge $dataList (dict (upper (string $i)) $ret.Output) -}}
+		{{- $dataList = append $ret.Output $dataList -}}
 	{{- end -}}
 {{- end -}}
 

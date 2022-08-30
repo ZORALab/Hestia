@@ -68,7 +68,21 @@
 
 {{- $list = slice -}}
 {{- range $i, $v := .PWA.Icons -}}
+	{{- if hasPrefix $v.Name "favicon" -}}
+		{{- continue -}}
+	{{- end -}}
+
 	{{- $source = index $v.Sources "0" -}}
+
+	{{- if eq $v.Sizes "192x192" -}}
+	{{- else if eq $v.Sizes "384x384" -}}
+	{{- else if eq $v.Sizes "512x512" -}}
+	{{- else if eq $v.Sizes "1024x1024" -}}
+	{{- else if hasPrefix $source.Type "image/svg" -}}
+	{{- else -}}
+		{{- continue -}}
+	{{- end -}}
+
 	{{- $data = dict -}}
 
 	{{- $ret = string $source.URL -}}
