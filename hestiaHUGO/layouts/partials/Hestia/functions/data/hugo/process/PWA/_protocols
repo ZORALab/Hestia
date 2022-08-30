@@ -54,7 +54,9 @@
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $list = merge $list (dict "Protocol" $ret.Output) -}}
+	{{- $ret = replace $ret.Output "-" "" -}}
+	{{- $ret = lower $ret -}}
+	{{- $list = merge $list (dict "Protocol" $ret) -}}
 
 
 
