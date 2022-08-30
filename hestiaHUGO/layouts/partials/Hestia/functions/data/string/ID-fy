@@ -33,9 +33,13 @@
 {{- $dataList = replace $dataList "^" "-" -}}
 {{- $dataList = replace $dataList "(" "-" -}}
 {{- $dataList = replace $dataList ")" "-" -}}
+{{- $dataList = replace $dataList "/" "-" -}}
+{{- $dataList = replace $dataList ":" "-" -}}
 {{- $dataList = replace $dataList "~" "-" -}}
 {{- $dataList = replace $dataList "---" "-" -}}
 {{- $dataList = replace $dataList "--" "-" -}}
+{{- $dataList = strings.TrimRight "-" $dataList -}}
+{{- $dataList = strings.TrimLeft "-" $dataList -}}
 
 
 
