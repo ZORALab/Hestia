@@ -45,14 +45,9 @@
 
 
 {{- /* process Title.Site */ -}}
-{{- $ret = .Page.Lang -}}
+{{- $ret = dict -}}
 {{- range $v := .Site.Languages -}}
-	{{- if eq $v.Lang $ret -}}
-		{{- $ret = $v.Title -}}
-	{{- end -}}
-{{- end -}}
-{{- if eq $ret .Page.Lang -}}
-	{{- $ret = .Site.Title -}}
+	{{- $ret = merge $ret (dict (string $v.Lang) $v.Params.title) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Site" $ret) -}}
 

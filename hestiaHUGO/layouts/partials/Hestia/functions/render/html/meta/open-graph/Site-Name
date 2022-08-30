@@ -6,5 +6,5 @@
 
 {{- /* return render */}}
 	<meta property="og:site_name"
-		content="{{- safeHTML .Titles.Site -}}" />
+		content="{{- safeHTML .Titles.Site.Current -}}" />
 {{- /* clean up */ -}}

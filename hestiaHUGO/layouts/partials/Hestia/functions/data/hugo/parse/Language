@@ -40,11 +40,5 @@
 
 
 
-{{- /* process LANG.Site */ -}}
-{{- $dataList = merge $dataList (dict "Titles" (dict "Site" .Params.Title)) -}}
-
-
-
-
 {{- /* render output */ -}}
 {{- return $dataList -}}
