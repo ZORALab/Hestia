@@ -4,10 +4,15 @@
 #   1. https://web.dev/
 #   2. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
 #
+# Name.ID              - the application unique ID consist of alphanumeric,
+#                        period (.) and dash only. Non-compliant characters
+#                        shall be automatically be removed or replaced with
+#                        dashes. Use sensible ID like 'com.example.app'.
 # Name.Short           - used in displaying brand and app name. Recommends max 2
 #                        words (e.g. Namespace + product).
 # Name.Full            - used to display brand and app in articles or pages.
 [Name]
+ID = '{{- .URL.Base -}}'
 Short = '{{- .Titles.Site -}}'
 Full = '{{- .Titles.Site -}}'
 

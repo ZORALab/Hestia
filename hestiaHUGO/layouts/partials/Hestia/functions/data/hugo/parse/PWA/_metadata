@@ -12,6 +12,13 @@
 
 
 
+{{- /* process .Name.ID */ -}}
+{{- $ret = default "" .Site.Data.Hestia.PWA.Metadata.Name.ID -}}
+{{- $dataList = merge $dataList (dict "Name" (dict "ID" $ret)) -}}
+
+
+
+
 {{- /* process .Name.Short */ -}}
 {{- $ret = default "" .Site.Data.Hestia.PWA.Metadata.Name.Short -}}
 {{- $dataList = merge $dataList (dict "Name" (dict "Short" $ret)) -}}
