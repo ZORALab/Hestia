@@ -36,17 +36,8 @@ Scope = '{{- .URL.Base -}}'
 # Descriptions.Summary - Expands from your pitch and elaborate your app. Keep it
 #                        max 250 characters overall (including Pitch if used).
 [Descriptions]
-Pitch = """\
-Seamless and profressionally done static site web development with
-ZORALab's Hestia.
-"""
-Summary = """\
-{{- .PWA.Descriptions.Pitch }}
-
-Focusing on developing your contents and user experiences, ZORALab's Hestia
-handles the rest of the standard compliances, coding, and content composition
-and publications.
-"""
+Pitch = '{{- .Descriptions.Site.Current -}}'
+Summary = '{{- .Titles.Site }} - {{ .Descriptions.Site.Current -}}'
 
 
 

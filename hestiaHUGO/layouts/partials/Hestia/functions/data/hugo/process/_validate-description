@@ -1,0 +1,57 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $MAX_CHAR_PITCH  := 160 -}}
+{{- $MAX_CHAR_SUMMARY  := 250 -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* process given description */ -}}
+{{- $dataList = partial "Hestia/functions/data/string/Init" . -}}
+{{- if $dataList.Console -}}
+	{{- $console = dict "Message" $dataList.Console.Message -}}
+{{- end -}}
+{{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
+
+
+
+
+{{- /* replace new lines with space */ -}}
+{{- $dataList = replace $dataList "\r\n" " " -}}
+{{- $dataList = replace $dataList "\n" " " -}}
+
+
+
+
+{{- /* count length and raise error if it is too long */ -}}
+{{- if eq (lower .Input.Type) "pitch" -}}
+	{{- if gt (strings.RuneCount $dataList) $MAX_CHAR_PITCH -}}
+		{{- if not $console -}}
+			{{- $console = printf "text is >%d characters!\n" $MAX_CHAR_PITCH -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+	{{- end -}}
+{{- else if eq (lower .Input.Type) "summary" -}}
+	{{- if gt (strings.RuneCount $dataList) $MAX_CHAR_SUMMARY -}}
+		{{- if not $console -}}
+			{{- $console = printf "text is >%d characters!\n" $MAX_CHAR_SUMMARY -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}

@@ -9,56 +9,71 @@
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := . -}}
+{{- $Page := merge . (dict "Descriptions" false) -}}
+{{- $Page := merge $Page (dict "Descriptions" dict) -}}
+{{- $Page := partial "Hestia/functions/data/Clean" $Page -}}
 {{- $dataList := dict -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 {{- $console := false -}}
 
 
 
 
-{{- /* run through each thumbnails */ -}}
-{{- range $k, $v := .Descriptions -}}
-	{{- /* process and built-in functions */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- /* validate page descriptions */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Descriptions.Page -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Limit" $k "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_validate-description" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Description.Page.%v: %s"
+			$k
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
 
 
-	{{- /* clean up whitespace */ -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace"
-		$ret.Output -}}
-
-
-	{{- /* replace new lines with space */ -}}
-	{{- $ret = replace $ret "\r\n" " " -}}
-	{{- $ret = replace $ret "\n" " " -}}
-
-
-	{{- /* count length and raise error if it is too long */ -}}
-	{{- if eq (lower $k) "pitch" -}}
-		{{- if gt (strings.RuneCount $ret) $MAX_CHAR_PITCH -}}
-			{{- $console = printf "'.Descriptions.Pitch' is longer than %d characters!\n" $MAX_CHAR_PITCH -}}
-			{{- $console = dict "Console" (dict "Message" $console) -}}
-			{{- $console = merge $Page $console -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
-		{{- end -}}
-	{{- else if eq (lower $k) "summary" -}}
-		{{- if gt (strings.RuneCount $ret) $MAX_CHAR_SUMMARY -}}
-			{{- $console = printf "'.Descriptions.Summary' is longer than %d characters!\n" $MAX_CHAR_SUMMARY -}}
-			{{- $console = dict "Console" (dict "Message" $console) -}}
-			{{- $console = merge $Page $console -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
-		{{- end -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 
-
-	{{- /* merge into dataList */ -}}
-	{{- $dataList = merge $dataList (dict $k $ret) -}}
+	{{- $list = merge $list (dict $k $ret.Output) -}}
 {{- end -}}
+{{- $dataList = merge $dataList (dict "Page" $list) -}}
+
+
+
+
+{{- /* validate site descriptions */ -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Descriptions.Site -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Limit" "pitch" "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_validate-description" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Description.Site.%v: %s"
+			$k
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+
+
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+
+	{{- $list = merge $list (dict (upper (string $k)) $ret.Output) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Site" $list) -}}
+
+
+
+
+{{- /* process current language site description */ -}}
+{{- $ret = index $dataList.Site .Languages.Current.ID -}}
+{{- $dataList = merge $dataList (dict "Site" (dict "Current" $ret)) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- $dataList = merge . (dict "Descriptions" $dataList) -}}
-{{- return $dataList -}}
+{{- return merge $Page (dict "Descriptions" $dataList) -}}
