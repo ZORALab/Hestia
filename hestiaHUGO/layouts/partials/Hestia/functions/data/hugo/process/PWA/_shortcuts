@@ -147,7 +147,7 @@
 		{{- end -}}
 
 
-		{{- $imageList = merge $imageList (dict (upper (string $j)) $ret) -}}
+		{{- $imageList = merge $imageList (dict (upper (string $j)) $ret.Output) -}}
 	{{- end -}}
 
 
