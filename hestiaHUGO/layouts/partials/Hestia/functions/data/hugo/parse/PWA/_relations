@@ -36,6 +36,17 @@
 
 	{{- $dataList = merge $dataList (dict (upper (string $i)) $ret) -}}
 {{- end -}}
+{{- $dataList = dict "List" $dataList -}}
+
+
+
+
+{{- /* process .Relations.Installations */ -}}
+{{- $ret = false -}}
+{{- if .Site.Data.Hestia.PWA.Relations.Settings.Install.Prefer -}}
+	{{- $ret = true -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "PreferInstall" $ret) -}}
 
 
 

@@ -1,3 +1,13 @@
+# Configurations settings to related applications listed in [[Contents]].
+[Settings]
+
+[Settings.Install]
+# Prefers installing the listed related app instead of web PWA install.
+Prefer = false
+
+
+
+
 # Relations are all the related stores for inter-linking.
 # See: https://developer.mozilla.org/en-US/docs/Web/Manifest/related_applications
 #

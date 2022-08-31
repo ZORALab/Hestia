@@ -16,7 +16,7 @@
 
 {{- /* process .Relations */ -}}
 {{- $dataList = dict -}}
-{{- range $i, $v := .PWA.Relations -}}
+{{- range $i, $v := .PWA.Relations.List -}}
 	{{- $data = dict -}}
 
 
@@ -121,6 +121,22 @@
 	{{- /* merge into list */ -}}
 	{{- $dataList = merge $dataList (dict (upper (string $i)) $data) -}}
 {{- end -}}
+{{- $dataList = dict "List" $dataList -}}
+
+
+
+
+{{- /* process .Relations.Settings */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Relations.PreferInstall)) -}}
+{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "PWA: .Relations.PreferInstall: %s"
+		$ret.Console.Message
+	-}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "PreferInstall" $ret.Output) -}}
 
 
 

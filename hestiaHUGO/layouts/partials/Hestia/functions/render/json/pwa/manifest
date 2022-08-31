@@ -135,10 +135,10 @@
 {{- end -}}
 
 
-{{- if .PWA.Relations -}}
+{{- if .PWA.Relations.List -}}
 	{{- $list = slice -}}
 
-	{{- range $i, $v := .PWA.Relations -}}
+	{{- range $i, $v := .PWA.Relations.List -}}
 		{{- $data = dict -}}
 
 		{{- $ret = string $v.Platform -}}
@@ -154,6 +154,13 @@
 	{{- end -}}
 
 	{{- $dataList = merge $dataList (dict "related_applications" $list) -}}
+
+
+	{{- $ret = false -}}
+	{{- if .PWA.Relations.PreferInstall -}}
+		{{- $ret = true -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict "prefer_related_applications" $ret) -}}
 {{- end -}}
 
 
