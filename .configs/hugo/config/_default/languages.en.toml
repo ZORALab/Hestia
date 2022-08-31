@@ -1,11 +1,25 @@
+languageCode = "en"
+languageName = "English"
+contentDir = "../../docs/en"
+
+
+
+
+[params]
+Title = "ZORALab's Hestia"
+Description = """\
+One peaceful library for building infinite possibilities.
+"""
+
+
 # Shortcuts are the list of shortcut items for easier PWA interactions.
 # The list is grouped by numeric key (e.g. '0') for setting the order of the
 # Shortcuts list. See:
 #       https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts
 #
-# To add more shortcut, simply add additional [Contents.N] data entries with
-# unique 'N'. Having the same 'N' will make the latter overwrites the former
-# one.
+# To add more shortcut, simply add additional [params.PWA.Shortcuts.0] data
+# entries with by adding unique 'N' (e.g. 0, 1, 2 ...). Having the same 'N' will
+# make the latter overwrites the former.
 #
 # Helper for 1 content dataset:
 # Description - A short description of the shortcut. Recommended max 80
@@ -25,23 +39,23 @@
 # Icons.X.Design - it is the art purpose of the image which can be any of the
 #                  following:
 #                  1. 'any'        - used in any context (default)
-#                  2. 'maskable'   - used for masked icons. Favicons with
-#                                    'mask icon' is included.
+#                  2. 'maskable'   - used for masked icons.
 #                  3. 'monochrome' - used for monochromatic context. Only alpha
 #                                    level is used.
-[Contents.0]
+[params.PWA.Shortcuts.0]
 Description = """\
 To main page with current status.
 """
 URL = '{{- .URL.Base -}}'
 
-[Contents.0.Name]
-Full = "ZORALab's Hestia Homepage"
-Short = "Home"
+
+[params.PWA.Shortcuts.0.Name]
+Full = "Dashboard and Homepage"
+Short = "Dashboard"
 
 
-[Contents.0.Icons.0]
-Name = "ZORALab's Hestia"
+[params.PWA.Shortcuts.0.Icons.0]
+Name = ''
 Width = '1200'
 Height = '1200'
 CORS = ''
@@ -54,7 +68,7 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Contents.0.Icons.0.Sources]]
+[[params.PWA.Shortcuts.0.Icons.0.Sources]]
 URL = '/thumbnails/thumbnail-1200x1200.png'
 Type = 'image/png'
 Media = 'all'

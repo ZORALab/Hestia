@@ -5,6 +5,7 @@
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $source := dict -}}
 {{- $dataList := dict -}}
 {{- $list := dict -}}
 {{- $image := false -}}
@@ -14,8 +15,16 @@
 
 
 {{- /* process .Shortcuts */ -}}
+{{- $dataList = .Page.Lang -}}
+{{- range $i, $v := .Site.Languages -}}
+	{{- if eq $v.Lang $dataList -}}
+		{{- $source = $v.Params.PWA.Shortcuts -}}
+	{{- end -}}
+{{- end -}}
+
+
 {{- $dataList = dict -}}
-{{- range $i, $v := .Site.Data.Hestia.PWA.Shortcuts.Contents -}}
+{{- range $i, $v := $source -}}
 	{{- if not $v.URL -}}
 		{{- continue -}}
 	{{- end -}}
