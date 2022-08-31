@@ -89,6 +89,13 @@
 
 
 
+{{- /* process .PWA.Offline */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_offline" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* post processing - utilize .PWA data structure for rendering */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_generate-worker" . -}}
 {{- $dataList = merge $dataList $ret -}}

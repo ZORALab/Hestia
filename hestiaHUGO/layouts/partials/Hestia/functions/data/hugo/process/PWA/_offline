@@ -1,0 +1,39 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $console := false -}}
+{{- $dataList := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* run through each .Offline URL */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := .PWA.Offline.URL -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: Offline.%v: %v"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Message" $console -}}
+		{{- $console = merge $Page (dict "Console" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $dataList = append $ret.Output $dataList -}}
+{{- end -}}
+{{- $dataList = dict "URL" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Offline" $dataList -}}

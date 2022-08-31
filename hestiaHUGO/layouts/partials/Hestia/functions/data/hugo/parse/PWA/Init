@@ -67,6 +67,13 @@
 
 
 
+{{- /* process .Offline */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_offline" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- $dataList = dict "PWA" $dataList -}}
 {{- return $dataList -}}

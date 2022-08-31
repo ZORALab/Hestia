@@ -1,0 +1,9 @@
+# Offline Resources and Page URL list.
+#
+# Hestia compatible URL is available for URL formulations. All URLs must be
+# bounded within the base URL and PWA scope URL pathing.
+[[Contents]]
+URL = "/en"
+
+[[Contents]]
+URL = "/zh-hans"

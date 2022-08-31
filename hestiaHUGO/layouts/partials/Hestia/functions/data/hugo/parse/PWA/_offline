@@ -1,0 +1,28 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse .Offline */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Offline.Contents -}}
+	{{- if $v -}}
+		{{- $dataList = append $v.URL $dataList -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = dict "URL" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "Offline" $dataList -}}
+{{- return $dataList -}}
