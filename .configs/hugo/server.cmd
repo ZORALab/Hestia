@@ -4,9 +4,6 @@ echo >/dev/null # >nul & GOTO WINDOWS & rem ^
 ################################################################################
 pwd="$PWD"
 ################################################################################
-# Linux Variables                                                              #
-################################################################################
-################################################################################
 # Linux Library Codes                                                          #
 ################################################################################
 _print_status() {
@@ -80,14 +77,11 @@ return_to_current_directory() {
 
 
 run_hugo() {
-        HOSTNAME="${HOSTNAME:-"localhost"}"
-        PORT="${PORT:-"8080"}"
-
         hugo server --buildDrafts \
                 --disableFastRender \
-                --bind "$HOSTNAME" \
-                --baseURL "http://$HOSTNAME" \
-                --port "$PORT" \
+                --bind "localhost" \
+                --baseURL "http://localhost" \
+                --port 8080 \
                 --cleanDestinationDir \
                 --gc
 }
