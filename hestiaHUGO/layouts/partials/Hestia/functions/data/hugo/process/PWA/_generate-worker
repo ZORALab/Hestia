@@ -1,0 +1,35 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* generate service worker javascript file */ -}}
+{{- $ret = partial "Hestia/functions/render/js/pwa/worker.js" . -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret))) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "PWA: service worker: %v" $ret.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+
+
+{{- $ret = resources.FromString "app.js" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "URL" $ret.Permalink) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Worker" $dataList -}}
