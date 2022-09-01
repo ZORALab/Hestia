@@ -1,0 +1,14 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = MIME data to validate (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict "Input" (dict "Type" . "Expect" "image/svg+xml") -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return partial "Hestia/functions/data/mime/IsType" $dataList -}}
