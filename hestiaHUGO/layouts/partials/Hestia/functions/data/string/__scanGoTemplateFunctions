@@ -53,25 +53,35 @@
 		{{- if eq $state $STATE_FX_INSIDE -}}
 			{{- $state = $STATE_FX_CLOSE -}}
 		{{- else if and (eq $state $STATE_FX_CLOSE) (eq $prev "-") -}}
-			{{- $state = $STATE_FX_FREE -}}
 			{{- $ret = append "}}" $ret -}}
-		{{- else if eq $state $STATE_FX_CLOSE -}}
 			{{- $state = $STATE_FX_FREE -}}
+		{{- else if eq $state $STATE_FX_CLOSE -}}
 			{{- $ret = append "}}" $ret -}}
 			{{- $ret = delimit $ret "" -}}
 			{{- $dataList = append (string $ret) $dataList -}}
 			{{- $ret = slice -}}
+			{{- $state = $STATE_FX_FREE -}}
+		{{- else if eq $state $STATE_FX_OPEN -}}
+			{{- $ret = append $v $ret -}}
+			{{- $ret = delimit $ret "" -}}
+			{{- $dataList = append (string $ret) $dataList -}}
+			{{- $ret = slice -}}
+			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 	{{- else if eq $v "-" -}}
 		{{- if and (eq $state $STATE_FX_INSIDE) (eq $prev "{") -}}
 			{{- $ret = append (slice "{{" "-") $whitespace -}}
 			{{- $whitespace = slice -}}
 			{{- $prev = "" -}}
-
 		{{- else if eq $state $STATE_FX_INSIDE -}}
 			{{- $ret = append $v $ret -}}
 			{{- $prev = "-" -}}
-
+		{{- else if eq $state $STATE_FX_OPEN -}}
+			{{- $ret = append $v $ret -}}
+			{{- $ret = delimit $ret "" -}}
+			{{- $dataList = append (string $ret) $dataList -}}
+			{{- $ret = slice -}}
+			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 	{{- else if eq $v " "
 			| or (eq $v "\t")
@@ -84,6 +94,12 @@
 			{{- $ret = append $v $ret -}}
 		{{- else if eq $state $STATE_FX_FREE -}}
 			{{- $whitespace = append $v $whitespace -}}
+		{{- else if eq $state $STATE_FX_OPEN -}}
+			{{- $ret = append $v $ret -}}
+			{{- $ret = delimit $ret "" -}}
+			{{- $dataList = append (string $ret) $dataList -}}
+			{{- $ret = slice -}}
+			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 	{{- else -}}
 		{{- if and (eq $state $STATE_FX_FREE) (eq $prev "-") -}}
@@ -96,6 +112,12 @@
 		{{- else if eq $state $STATE_FX_INSIDE -}}
 			{{- $ret = append $v $ret -}}
 			{{- $prev = "" -}}
+		{{- else if eq $state $STATE_FX_OPEN -}}
+			{{- $ret = append $v $ret -}}
+			{{- $ret = delimit $ret "" -}}
+			{{- $dataList = append (string $ret) $dataList -}}
+			{{- $ret = slice -}}
+			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 
 		{{- /* reset whitespace tracker since it's invalid */ -}}
