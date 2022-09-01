@@ -68,7 +68,7 @@
 
 {{- $list = slice -}}
 {{- range $i, $v := .PWA.Icons -}}
-	{{- if hasPrefix $v.Name "favicon" -}}
+	{{- if not (hasPrefix $v.Name "icon") -}}
 		{{- continue -}}
 	{{- end -}}
 

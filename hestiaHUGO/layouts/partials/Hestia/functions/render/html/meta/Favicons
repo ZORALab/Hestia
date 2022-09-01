@@ -13,7 +13,7 @@
 
 {{- /* return render */ -}}
 {{- range $k, $v := .PWA.Icons -}}
-	{{- if hasPrefix $v.Name "icon" -}}
+	{{- if not (hasPrefix $v.Name "favicon") -}}
 		{{- continue -}}
 	{{- end -}}
 
