@@ -124,8 +124,6 @@ self.addEventListener("install", event => {
 		const cache = await caches.open(OFFLINE_CACHE);
 		return cache.addAll(resources);
 	});
-
-	console.log("[  INFO  ] Service worker installed.");
 });
 
 
@@ -133,5 +131,5 @@ self.addEventListener("install", event => {
 
 // PWA Activate Mechanism
 self.addEventListener("activate", event => {
-	console.log("[  INFO  ] Service worker activated.");
+	console.log("[  PWA  ] Service worker activated.");
 });

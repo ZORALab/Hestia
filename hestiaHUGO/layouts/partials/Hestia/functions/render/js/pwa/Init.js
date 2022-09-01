@@ -1,14 +1,20 @@
 if('serviceWorker' in navigator) {
 	navigator.serviceWorker
 	.register('{{- safeJS .PWA.Worker.URL -}}')
-	.then(function(registration) {
-		console.log('[   OK   ] - Service Worker Registered.');
-	});
+	.then(registration => {
+		if (registration.active) {
+			console.log('[  PWA  ] SERVICE WORKER: active');
+			return
+		} else if (registration.installing) {
+			worker = registration.installing;
+		} else if (registration.waiting) {
+			worker = registration.waiting;
+		}
 
-
-	navigator.serviceWorker
-	.ready
-	.then(function(registration) {
-		console.log('[   OK   ] - Service Worker Ready.');
+		if (worker) {
+			worker.addEventListener("statechange", (e) => {
+				console.log('[  PWA  ] SERVICE WORKER: ' + e.target.state);
+			});
+		}
 	});
 }
