@@ -7,21 +7,6 @@
 {{- /* return render */ -}}
 {{- if .PWA.Worker.URL }}
 	<script defer>
-		if('serviceWorker' in navigator) {
-			navigator.serviceWorker
-			.register(
-				'{{- safeJS .PWA.Worker.URL -}}'
-			)
-			.then(function(registration) {
-				console.log('[   OK   ] - Service Worker Registered.');
-			});
-
-
-			navigator.serviceWorker
-			.ready
-			.then(function(registration) {
-				console.log('[   OK   ] - Service Worker Ready.');
-			});
-		}
+		{{- partial "Hestia/functions/render/js/pwa/Init.js" . -}}
 	</script>
 {{- end -}}
