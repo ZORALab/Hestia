@@ -26,9 +26,11 @@
 		{{- $console = dict "Message" $console -}}
 		{{- $console = merge $Page (dict "Console" $console) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- else -}}
-		{{- $dataList = merge $dataList (dict (upper (string $i)) $ret.Output) -}}
+		{{- continue -}}
 	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict (upper (string $i)) $ret.Output) -}}
 {{- end -}}
 
 
