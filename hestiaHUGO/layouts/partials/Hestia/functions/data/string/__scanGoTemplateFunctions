@@ -62,10 +62,6 @@
 			{{- $ret = slice -}}
 			{{- $state = $STATE_FX_FREE -}}
 		{{- else if eq $state $STATE_FX_OPEN -}}
-			{{- $ret = append $v $ret -}}
-			{{- $ret = delimit $ret "" -}}
-			{{- $dataList = append (string $ret) $dataList -}}
-			{{- $ret = slice -}}
 			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 	{{- else if eq $v "-" -}}
@@ -77,10 +73,6 @@
 			{{- $ret = append $v $ret -}}
 			{{- $prev = "-" -}}
 		{{- else if eq $state $STATE_FX_OPEN -}}
-			{{- $ret = append $v $ret -}}
-			{{- $ret = delimit $ret "" -}}
-			{{- $dataList = append (string $ret) $dataList -}}
-			{{- $ret = slice -}}
 			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 	{{- else if eq $v " "
@@ -95,10 +87,6 @@
 		{{- else if eq $state $STATE_FX_FREE -}}
 			{{- $whitespace = append $v $whitespace -}}
 		{{- else if eq $state $STATE_FX_OPEN -}}
-			{{- $ret = append $v $ret -}}
-			{{- $ret = delimit $ret "" -}}
-			{{- $dataList = append (string $ret) $dataList -}}
-			{{- $ret = slice -}}
 			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 	{{- else -}}
@@ -113,10 +101,6 @@
 			{{- $ret = append $v $ret -}}
 			{{- $prev = "" -}}
 		{{- else if eq $state $STATE_FX_OPEN -}}
-			{{- $ret = append $v $ret -}}
-			{{- $ret = delimit $ret "" -}}
-			{{- $dataList = append (string $ret) $dataList -}}
-			{{- $ret = slice -}}
 			{{- $state = $STATE_FX_FREE -}}
 		{{- end -}}
 
