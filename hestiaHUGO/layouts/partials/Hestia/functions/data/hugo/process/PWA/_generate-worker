@@ -24,8 +24,8 @@
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
 
-
 {{- $ret = resources.FromString "app.js" $ret.Output -}}
+{{- $ret = resources.Minify $ret -}}
 {{- $dataList = merge $dataList (dict "URL" $ret.Permalink) -}}
 
 
