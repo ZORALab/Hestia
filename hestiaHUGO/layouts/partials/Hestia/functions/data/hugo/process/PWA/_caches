@@ -78,5 +78,23 @@
 
 
 
+{{- /* process .Caches.ID */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Name.Short)) -}}
+{{- $ret = partial "Hestia/functions/data/string/ID-fy" $ret -}}
+{{- if $ret.Console -}}
+	{{- $ret = "pwa" -}}
+{{- else -}}
+	{{- $ret = $ret.Output -}}
+{{- end -}}
+
+
+{{- $ret = printf "%s-%s" $ret .Datetime.Current.ID -}}
+
+
+{{- $dataList = merge $dataList (dict "ID" $ret) -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "Caches" $dataList -}}

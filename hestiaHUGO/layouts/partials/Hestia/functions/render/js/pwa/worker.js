@@ -27,8 +27,8 @@ const POLICY_NETWORK_ONLY = 'network-only';
 
 
 // Generated PWA Definitions
-let OFFLINE_CACHE = "pwa-assets";  // Cache suite name
-let OFFLINE_RESOURCES = {};        // List of offline resources and their caching policies;
+let OFFLINE_CACHE = '{{- safeJS .PWA.Caches.ID -}}';
+let OFFLINE_RESOURCES = {};
 
 {{- range $i, $v := .PWA.Caches.List }}
 OFFLINE_RESOURCES['{{ safeJS (string $v.URL) -}}'] = '{{- safeJS (string $v.Cache) -}}';
