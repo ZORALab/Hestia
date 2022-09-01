@@ -14,9 +14,9 @@
 
 
 
-{{- /* run through each .Caches */ -}}
+{{- /* run through each .Caches.List */ -}}
 {{- $dataList = slice -}}
-{{- range $i, $v := .PWA.Caches -}}
+{{- range $i, $v := .PWA.Caches.List -}}
 	{{- $data = dict -}}
 
 
@@ -73,6 +73,7 @@
 
 	{{- $dataList = append $data $dataList -}}
 {{- end -}}
+{{- $dataList = dict "List" $dataList -}}
 
 
 

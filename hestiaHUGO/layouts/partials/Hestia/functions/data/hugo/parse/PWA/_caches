@@ -12,7 +12,7 @@
 
 
 
-{{- /* parse .Caches */ -}}
+{{- /* parse .Caches.List */ -}}
 {{- $dataList = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.PWA.Caches.Contents -}}
 	{{- if not $v.URL -}}
@@ -32,6 +32,7 @@
 	{{- $data = merge $data (dict "Cache" $v.Cache) -}}
 	{{- $dataList = append $data $dataList -}}
 {{- end -}}
+{{- $dataList = dict "List" $dataList -}}
 
 
 
