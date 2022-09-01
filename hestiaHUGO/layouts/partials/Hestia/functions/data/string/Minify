@@ -1,21 +1,87 @@
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = string containing CSS for compression */ -}}
+{{- /* . = Hestia data structure */ -}}
+{{- /* .Input.Data = string for compression */ -}}
+{{- /* .Input.Type = compressor mime type */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := . -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := dict -}}
+{{- $console := false -}}
 {{- $filename := false -}}
+{{- $ret := false -}}
 
 
 
 
-{{- /* minify the string content */ -}}
-{{- if partial "Hestia/functions/data/string/IsString" $dataList -}}
-	{{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace"
-		$dataList -}}
-	{{- $filename = printf "deletable-content-%s.tmp" (sha256 now) -}}
+{{- /* validate .Input.Data */ -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = "" -}}
+{{- end -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "Minify: data: %s" $ret.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
+{{- else -}}
+	{{- $dataList = $ret.Output -}}
+{{- end -}}
+
+
+
+
+{{- /* validate .Input.Type */ -}}
+{{- $filename = merge . (dict "Input" (dict "Query" ".Input.Type")) -}}
+{{- $filename = partial "Hestia/functions/data/Get" $filename -}}
+{{- if not $filename -}}
+	{{- $filename = "" -}}
+{{- end -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "Data" $filename)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- if not $console -}}
+		{{- $console = printf "Minify: type: %s" $ret.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $filename = "" -}}
+	{{- end -}}
+{{- else -}}
+	{{- $filename = $ret.Output -}}
+{{- end -}}
+
+
+
+
+{{- /* process filename by type */ -}}
+{{- if partial "Hestia/functions/data/mime/IsJavascript" $filename -}}
+	{{- $filename = printf "deletable-content-%s.js" (sha256 now) -}}
+{{- else if partial "Hestia/functions/data/mime/IsCSS" $filename -}}
+	{{- $filename = printf "deletable-content-%s.min.css" (sha256 now) -}}
+{{- else if partial "Hestia/functions/data/mime/IsHTML" $filename -}}
+	{{- $filename = printf "deletable-content-%s.html" (sha256 now) -}}
+{{- else if partial "Hestia/functions/data/mime/IsJSON" $filename -}}
+	{{- $filename = printf "deletable-content-%s.json" (sha256 now) -}}
+{{- else if partial "Hestia/functions/data/mime/IsSVG" $filename -}}
+	{{- $filename = printf "deletable-content-%s.svg" (sha256 now) -}}
+{{- else if partial "Hestia/functions/data/mime/IsXML" $filename -}}
+	{{- $filename = printf "deletable-content-%s.xml" (sha256 now) -}}
+{{- else -}}
+	{{- if not $console -}}
+		{{- $console = printf "Minify: unsupported type: '%v'\n" $filename -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $filename = "" -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- if and (and $dataList $filename) (not $console) -}}
 	{{- $dataList = resources.FromString $filename $dataList -}}
 	{{- $dataList = resources.Minify $dataList -}}
 	{{- $dataList = $dataList.Content -}}
@@ -25,4 +91,4 @@
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList "Console" $console -}}
