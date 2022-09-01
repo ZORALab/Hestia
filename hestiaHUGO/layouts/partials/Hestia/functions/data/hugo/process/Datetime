@@ -1,0 +1,54 @@
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := merge . (dict "Datetime" false) -}}
+{{- $Page = merge $Page (dict "Datetime" dict) -}}
+{{- $Page = partial "Hestia/functions/data/Clean" $Page -}}
+{{- $dataList := dict -}}
+{{- $data := dict -}}
+{{- $console := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process all .Datetime */ -}}
+{{- range $k, $v := .Datetime -}}
+	{{- $data = dict "HUGO" $v -}}
+
+	{{- $ret = $v.UnixNano -}}
+	{{- $data = merge $data (dict "UNIX" $ret) -}}
+
+
+	{{- $ret = $v.Format "200601261504050700" -}}
+	{{- $data = merge $data (dict "ID" $ret) -}}
+
+
+	{{- $ret = $v.Format "2006-01-26T15:04:05Z07:00" -}}
+	{{- $data = merge $data (dict "RFC3339" $ret) -}}
+
+
+	{{- $ret = $v.Format "Mon, 02 Jan 2006 15:04:05 -0700" -}}
+	{{- $data = merge $data (dict "RFC1123Z" $ret) -}}
+
+
+	{{- $ret = $v.Format "2006-01-02T15:04:05-07:00" -}}
+	{{- $data = merge $data (dict "ISO8601" $ret) -}}
+
+
+	{{- $ret = $v.Format "Monday, January 02, 2006 15:04:05 -07:00" -}}
+	{{- $data = merge $data (dict "LONG" $ret) -}}
+
+
+	{{- $dataList = merge $dataList (dict (title $k) $data) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return merge $Page (dict "Datetime" $dataList) -}}

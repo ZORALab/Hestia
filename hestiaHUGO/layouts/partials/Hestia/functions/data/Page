@@ -67,6 +67,13 @@
 
 
 
+{{- /* prepare Hestia .Page.Datetime */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Datetime" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.Descriptions */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Descriptions" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -127,6 +134,7 @@
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Titles" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Datetime" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Creators" $dataList -}}
