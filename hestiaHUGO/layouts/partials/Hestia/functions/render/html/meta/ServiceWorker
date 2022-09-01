@@ -6,7 +6,7 @@
 
 {{- /* return render */ -}}
 {{- if .PWA.Worker.URL }}
-	<script defer>
-		{{- partial "Hestia/functions/render/js/pwa/Init.js" . -}}
+	<script>
+		{{- safeJS (partial "Hestia/functions/render/js/pwa/Init.js" .) -}}
 	</script>
 {{- end -}}

@@ -8,18 +8,23 @@
 {{- $Page := . -}}
 {{- $console := false -}}
 {{- $dataList := slice -}}
+{{- $data := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* run through each .Offline URL */ -}}
+{{- /* run through each .Offline */ -}}
 {{- $dataList = slice -}}
-{{- range $i, $v := .PWA.Offline.URL -}}
-	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
+{{- range $i, $v := .PWA.Offline -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process .URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: Offline.%v: %v"
+		{{- $console = printf "PWA: Offline.%v.URL: %v"
 			$i
 			$ret.Console.Message
 		-}}
@@ -28,9 +33,46 @@
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $dataList = append $ret.Output $dataList -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- /* process .Cache policy */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Cache)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: Offline.%v.Cache: %v"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Message" $console -}}
+		{{- $console = merge $Page (dict "Console" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = lower $ret.Output -}}
+
+	{{- if eq $ret "cache-first" -}}
+	{{- else if eq $ret "network-first" -}}
+	{{- else if eq $ret "network-only" -}}
+	{{- else if eq $ret "cache-only" -}}
+	{{- else if not $ret -}}
+		{{- $ret = "cache-first" -}}
+	{{- else -}}
+		{{- $console = printf "PWA: Offline.%v.Cache: unknown policy '%v'\n"
+			$i
+			$ret
+		-}}
+		{{- $console = dict "Message" $console -}}
+		{{- $console = merge $Page (dict "Console" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $data = merge $data (dict "Cache" $ret) -}}
+
+
+	{{- $dataList = append $data $dataList -}}
 {{- end -}}
-{{- $dataList = dict "URL" $dataList -}}
 
 
 

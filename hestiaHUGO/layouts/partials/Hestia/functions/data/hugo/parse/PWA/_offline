@@ -6,6 +6,7 @@
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := slice -}}
+{{- $data := dict -}}
 {{- $ret := false -}}
 
 
@@ -14,11 +15,23 @@
 {{- /* parse .Offline */ -}}
 {{- $dataList = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.PWA.Offline.Contents -}}
-	{{- if $v -}}
-		{{- $dataList = append $v.URL $dataList -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
 	{{- end -}}
+
+
+	{{- if not $v.Cache -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $data = dict -}}
+
+
+	{{- $data = merge $data (dict "URL" $v.URL) -}}
+	{{- $data = merge $data (dict "Cache" $v.Cache) -}}
+	{{- $dataList = append $data $dataList -}}
 {{- end -}}
-{{- $dataList = dict "URL" $dataList -}}
 
 
 

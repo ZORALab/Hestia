@@ -96,13 +96,18 @@
 
 
 
+{{- /* render output */ -}}
+{{- $dataList = merge $Page (dict "PWA" $dataList) -}}
+
+
+
+
 {{- /* post processing - utilize .PWA data structure for rendering */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_generate-worker" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_generate-worker" $dataList -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* render output */ -}}
-{{- $dataList = merge $Page (dict "PWA" $dataList) -}}
+{{- /* return output */ -}}
 {{- return $dataList -}}
