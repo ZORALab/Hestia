@@ -131,5 +131,15 @@ self.addEventListener("install", event => {
 
 // PWA Activate Mechanism
 self.addEventListener("activate", event => {
-	console.log("[  PWA  ] Service worker activated.");
+	event.waitUntil(caches
+	.keys()
+	.then(keyList => {
+		return Promise.all(keyList.map(key => {
+			if (key === OFFLINE_CACHE) {
+				return;
+			}
+
+			return caches.delete(key);
+		}));
+	}));
 });
