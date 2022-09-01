@@ -1,8 +1,10 @@
-# Offline Resources and Page URL list.
+# Resources and Page Caching URL list.
 #
 # Hestia compatible URL is available for URL formulations. All URLs must be
 # bounded within the base URL and PWA scope URL pathing. You need to decide what
-# kind of resources to be served offline or cached during work.
+# kind of resources to be served offline or cached during work. To fully
+# implement PWA, you **MUST** assemble and support offline resources when
+# network is not available.
 #
 # For each dataset:
 #   URL     - The URL that is required for local offline caching before use.

@@ -12,9 +12,9 @@
 
 
 
-{{- /* parse .Offline */ -}}
+{{- /* parse .Caches */ -}}
 {{- $dataList = slice -}}
-{{- range $i, $v := .Site.Data.Hestia.PWA.Offline.Contents -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Caches.Contents -}}
 	{{- if not $v.URL -}}
 		{{- continue -}}
 	{{- end -}}
@@ -37,5 +37,5 @@
 
 
 {{- /* render output */ -}}
-{{- $dataList = dict "Offline" $dataList -}}
+{{- $dataList = dict "Caches" $dataList -}}
 {{- return $dataList -}}

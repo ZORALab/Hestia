@@ -89,8 +89,8 @@
 
 
 
-{{- /* process .PWA.Offline */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_offline" . -}}
+{{- /* process .PWA.Caches */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_caches" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
