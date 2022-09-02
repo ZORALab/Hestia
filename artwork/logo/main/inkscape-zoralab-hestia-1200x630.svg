@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    width="1200"
-   height="628"
-   viewBox="0 0 1200 628"
+   height="630"
+   viewBox="0 0 1200 630"
    version="1.1"
    id="svg8"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="inkscape-zoralab-monteur-1200x628.svg"
+   sodipodi:docname="inkscape-zoralab-hestia-1200x630.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -18,27 +18,27 @@
   <defs
      id="defs2">
     <rect
-       x="725.06817"
-       y="372.60174"
+       x="725.06818"
+       y="372.60175"
        width="561.11285"
-       height="220.87319"
+       height="220.87318"
        id="rect3940" />
     <rect
        x="583.47614"
        y="219.14748"
-       width="739.12533"
-       height="185.219"
+       width="739.12531"
+       height="185.21899"
        id="rect5106" />
     <rect
-       x="1167.9179"
-       y="614.68296"
+       x="1167.9178"
+       y="614.68298"
        width="5.9581952"
        height="152.74063"
        id="rect74026" />
     <rect
        x="489.44931"
        y="514.74097"
-       width="919.09867"
+       width="919.09869"
        height="673.68329"
        id="rect15891" />
     <linearGradient
@@ -65,7 +65,7 @@
        x="131.14299"
        y="13.856486"
        width="183.27824"
-       height="61.868104"
+       height="61.868103"
        id="rect1495" />
     <rect
        x="271.99814"
@@ -118,7 +118,7 @@
        xlink:href="#linearGradient2289"
        id="linearGradient95494"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(4.8682821,0,0,3.779527,-345.65086,0.00161305)"
+       gradientTransform="matrix(4.8682791,0,0,3.7913981,-345.65009,0.01416693)"
        x1="-0.00010338426"
        y1="83.079071"
        x2="317.49988"
@@ -252,31 +252,31 @@
          id="path1599-9" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1Lend-7"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1602-5" />
     </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Lstart-3"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lstart"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1599-5" />
     </marker>
     <rect
@@ -332,31 +332,31 @@
          id="path1599-2" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1Lend-7-6"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1602-5-1" />
     </marker>
     <marker
        style="overflow:visible"
        id="Arrow1Lstart-3-8"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lstart"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1599-5-7" />
     </marker>
   </defs>
@@ -367,16 +367,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.39303183"
-     inkscape:cx="13.993778"
-     inkscape:cy="206.09018"
+     inkscape:zoom="0.69346038"
+     inkscape:cx="594.84293"
+     inkscape:cy="379.25743"
      inkscape:document-units="px"
-     inkscape:current-layer="g12114"
+     inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1019"
+     inkscape:window-height="1005"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -406,10 +406,11 @@
        y="0.10080718" />
     <path
        id="rect2283-5"
-       style="fill:#00002b;fill-opacity:1;stroke:url(#linearGradient95494);stroke-width:0.226986;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 891.6446,0.10080718 C 772.47097,48.638917 659.9339,100.39327 644.80632,118.72776 c -31.25881,37.8854 -31.81239,399.80216 -0.66919,437.73438 10.13713,12.34696 64.39633,39.90886 134.98281,71.43945 H 1199.9 V 0.10080718 Z" />
+       style="fill:#00002b;fill-opacity:1;stroke:url(#linearGradient95494);stroke-width:0.227342;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 891.64461,0.11367262 C 772.47105,48.804237 659.93405,100.72115 644.80648,119.11323 c -31.25879,38.00439 -31.81237,401.0579 -0.66919,439.10927 10.13713,12.38574 64.39629,40.03421 134.98273,71.66383 H 1199.8998 V 0.11367262 Z" />
     <g
-       id="g2967">
+       id="g2967"
+       transform="translate(0,1.0000004)">
       <g
          id="g92050"
          transform="matrix(3.7795276,0,0,3.779527,4.0339319e-4,-66.867239)"
@@ -530,10 +531,10 @@
        y="0"><tspan
          x="163.02148"
          y="92.685156"
-         id="tspan11173"><tspan
+         id="tspan1449"><tspan
            dx="0 10.763212 19.621441 11.461691 17.906975 19.526245 12.477676"
            style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';text-align:end;text-anchor:end;fill:#ffffff"
-           id="tspan11171">Integra</tspan></tspan></text>
+           id="tspan1447">Integra</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text1481"
@@ -548,7 +549,7 @@
        style="font-weight:100;font-size:13.3333px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Thin';white-space:pre;shape-inside:url(#rect15891)"><tspan
          x="489.44922"
          y="526.87187"
-         id="tspan11175">`</tspan></text>
+         id="tspan1451">`</tspan></text>
     <text
        xml:space="preserve"
        id="text1481-5"
@@ -574,7 +575,8 @@
        transform="matrix(0.52333334,0,0,0.52333334,-136.21574,8.8802591)"
        style="opacity:0.99;fill:none" />
     <g
-       id="g1097">
+       id="g1097"
+       transform="matrix(0.99999921,0,0,1.0031857,8.2129101e-5,-5.5025358e-4)">
       <path
          id="path1259-3-5"
          style="fill:#ffffff;stroke:#b3b3b3;stroke-width:0.197153;stroke-linecap:round;stroke-linejoin:round"
@@ -603,7 +605,7 @@
     <g
        inkscape:label="Layer 1"
        id="layer1-0"
-       transform="matrix(0.39113713,0,0,0.39113713,29.373164,79.317722)">
+       transform="matrix(0.39113713,0,0,0.39113713,29.373164,80.317722)">
       <g
          id="g15160">
         <circle
