@@ -1,0 +1,117 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".wasm.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $context := . -}}
+{{- $dataList := dict -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source data from file */ -}}
+{{- if .Page.File -}}
+	{{- /* get Page directory path */ -}}
+	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $data = path.Clean $data -}}
+
+
+	{{- /* source the data file */ -}}
+	{{- if fileExists $data -}}
+		{{- $data = readFile $data -}}
+		{{- $data = transform.Unmarshal $data -}}
+
+		{{- if not (index $data "Settings") -}}
+			{{- $data = dict -}}
+		{{- end -}}
+	{{- else -}}
+		{{- $data = dict -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- if not $data -}}
+	{{- $data = dict "Settings" (dict
+		"URL" ""
+		"Setup" ""
+		"Import" ""
+		"Init" ""
+		"Embed" ""
+		"Dependencies" slice
+	) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .URL */ -}}
+{{- $ret = default "" (index $data.Settings "URL") -}}
+{{- $dataList = merge $dataList (dict "URL" $ret) -}}
+
+
+
+
+{{- /* parse .Setup */ -}}
+{{- $ret = default "" (index $data.Settings "Setup") -}}
+{{- $dataList = merge $dataList (dict "Setup" $ret) -}}
+
+
+
+
+{{- /* parse .Import */ -}}
+{{- $ret = default "" (index $data.Settings "Import") -}}
+{{- $dataList = merge $dataList (dict "Import" $ret) -}}
+
+
+
+
+{{- /* parse .Init */ -}}
+{{- $ret = default "" (index $data.Settings "Init") -}}
+{{- $dataList = merge $dataList (dict "Init" $ret) -}}
+
+
+
+
+{{- /* parse .Embed */ -}}
+{{- $ret = default "" (index $data.Settings "Embed") -}}
+{{- $dataList = merge $dataList (dict "Embed" $ret) -}}
+
+
+
+
+{{- /* parse .Dependencies */ -}}
+{{- $ret = slice -}}
+{{- range $i, $v := index $data.Settings "Dependencies" -}}
+	{{- $ret = append $v $ret -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Dependencies" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $dataList = dict "WASM" $dataList -}}
+{{- return $dataList -}}

@@ -123,6 +123,13 @@
 
 
 
+{{- /* prepare Hestia .Page.WASM */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/WASM" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.PWA */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/Init" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -140,6 +147,7 @@
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Components" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/WASM" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/XMLBrowserConfig" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}

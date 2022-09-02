@@ -1,0 +1,115 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := merge . (dict "WASM" false) -}}
+{{- $Page = merge $Page (dict "WASM" dict) -}}
+{{- $Page = partial "Hestia/functions/data/Clean" $Page -}}
+{{- $console := false -}}
+{{- $list := dict -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .URL */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" .WASM.URL)) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "WASM.URL: %v" $ret.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "URL" $ret.Output) -}}
+
+
+
+
+{{- /* process .Setup */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Setup)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "WASM.Setup: %v" $ret.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Setup" $ret.Output) -}}
+
+
+
+
+{{- /* process .Import */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Import)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "WASM.Import: %v" $ret.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Import" $ret.Output) -}}
+
+
+
+
+{{- /* process .Init */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Init)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "WASM.Init: %v" $ret.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Init" $ret.Output) -}}
+
+
+
+
+{{- /* process .Dependencies */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := .WASM.Dependencies -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "WASM.Dependencies.%v: %v"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+
+
+	{{- $list = append $ret.Output $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Dependencies" $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return merge $Page (dict "WASM" $dataList) -}}
