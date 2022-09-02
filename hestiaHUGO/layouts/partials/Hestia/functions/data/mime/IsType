@@ -32,7 +32,7 @@
 
 
 {{- /* sanitize .Input.Expect */ -}}
-{{- $expect = merge . (dict "Input" (dict "Query" ".Input.Type")) -}}
+{{- $expect = merge . (dict "Input" (dict "Query" ".Input.Expect")) -}}
 {{- $expect = partial "Hestia/functions/data/Get" $expect -}}
 {{- if $expect -}}
 	{{- $expect = merge $Page (dict "Input" (dict "Type" $expect)) -}}
