@@ -1,5 +1,6 @@
 # Strictly beyond or equal to 1200x1200 square-only size, 20% padding of each
 # sides, with no transparent pixels whenever possible.
+#
 # NOTE:
 #   1. Some stylish browser may have customizable tab color or background that
 #      can recolor the favicon transparent pixels, making the brand logo outside
@@ -40,6 +41,7 @@ Default = false
 
 # Strictly beyond or equal to 1200x1200 square-only size, without transparent
 # pixels whenever possible and in SVG format.
+#
 # NOTE:
 #   1. Hestia will copy the icon over to applicable icons.
 #   2. This will only be used in web app manifest file.
@@ -75,6 +77,7 @@ Default = false
 
 # Strictly beyond or equal to 1500x1500 square-only size, ONLY monochrome color
 # (e.g. greyscale / black-white color) and in SVG vector format.
+#
 # NOTE:
 #  1. Due to the monochrome requirement, for a lot of cases, the Hugo image
 #     processing can yields invalid artistic error. Since this is a brand /
@@ -119,6 +122,7 @@ Default = false
 
 [Favicon]
 # Strictly beyond or equal to 1200x1200 square-only size.
+#
 # NOTE:
 #   1. Hestia will copy the icon over to applicable icons.
 #   2. Apple iOS app icons automatically recolor transparent to black (#000000).
@@ -161,6 +165,7 @@ Default = false
 [FaviconVector]
 # Strictly beyond or equal to 1200x1200 square-only size, and SVG format.
 # Recommend no transparent pixels.
+#
 # NOTE:
 #   1. Hestia will copy the icon over to applicable icons.
 #   2. Apple iOS app icons automatically recolor transparent to black (#000000).
