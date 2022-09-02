@@ -175,6 +175,14 @@
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
 	) (dict
+		"Filename" "favicon-480x480.png"
+		"Type" "image/png"
+		"Width" 480
+		"Height" 480
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
+	) (dict
 		"Filename" "favicon-512x512.png"
 		"Type" "image/png"
 		"Width" 512
@@ -195,6 +203,22 @@
 		"Type" "image/png"
 		"Width" 1024
 		"Height" 1024
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
+	) (dict
+		"Filename" "banner-1200x628.png"
+		"Type" "image/png"
+		"Width" 1200
+		"Height" 628
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Banner
+	) (dict
+		"Filename" "favicon-1200x1200.png"
+		"Type" "image/png"
+		"Width" 1200
+		"Height" 1200
 		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Favicon

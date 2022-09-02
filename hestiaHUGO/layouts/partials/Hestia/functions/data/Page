@@ -132,7 +132,6 @@
 
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Titles" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Datetime" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions" $dataList -}}
@@ -143,6 +142,7 @@
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/XMLBrowserConfig" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
 
 
 

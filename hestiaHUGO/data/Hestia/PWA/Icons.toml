@@ -244,3 +244,44 @@ URL = ""
 Kind = "subtitles"
 Label = "English"
 Default = false
+
+
+
+
+# Strictly beyond or equal to 1200x630 square-only size, 20% padding of each
+# sides, with no transparent pixels whenever possible.
+#
+# NOTE:
+#   1. Some stylish browser may have customizable tab color or background that
+#      can recolor the favicon transparent pixels, making the brand logo outside
+#      of your control.
+#   2. This will only be used in pages without any banner thumbnail.
+#   3. It was a known issue that Hugo's image processing cannot convert SVG into
+#      PNG type. Hence, please supply non-vector image here. For vector format,
+#      use the .Vector dataset.
+[Banner]
+Name = ""
+Width = "1200"
+Height = "630"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+
+[[Banner.Sources]]
+URL = "images/banner-main.png"
+Type = "image/png"
+Media = "all"
+
+
+[Banner.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
