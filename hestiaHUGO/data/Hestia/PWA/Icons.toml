@@ -84,6 +84,9 @@ Default = false
 #     PWA.Colors.Main color. Therefore, it's better to supply a dedicated SVG
 #     image instead.
 #  3. This will only be used in website favicon rendering.
+#
+# More info:
+#   https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 [Monochrome]
 Name = ""
 Width = "1500"
