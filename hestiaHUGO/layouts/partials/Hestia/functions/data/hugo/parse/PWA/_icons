@@ -47,6 +47,14 @@
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
+		"Filename" "mstile-70x70.png"
+		"Type" "image/png"
+		"Width" 70
+		"Height" 70
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
+	) (dict
 		"Filename" "favicon-72x72.png"
 		"Type" "image/png"
 		"Width" 72
@@ -95,6 +103,14 @@
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
+		"Filename" "mstile-150x150.png"
+		"Type" "image/png"
+		"Width" 150
+		"Height" 150
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
+	) (dict
 		"Filename" "favicon-152x152.png"
 		"Type" "image/png"
 		"Width" 152
@@ -126,6 +142,22 @@
 		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Main
+	) (dict
+		"Filename" "mstile-310x150.png"
+		"Type" "image/png"
+		"Width" 310
+		"Height" 150
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.MSBanner
+	) (dict
+		"Filename" "mstile-310x310.png"
+		"Type" "image/png"
+		"Width" 310
+		"Height" 310
+		"Design" "any"
+		"Resize" true
+		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
 		"Filename" "favicon-384x384.png"
 		"Type" "image/png"

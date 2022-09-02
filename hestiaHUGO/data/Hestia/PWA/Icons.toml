@@ -5,9 +5,7 @@
 #      can recolor the favicon transparent pixels, making the brand logo outside
 #      of your control.
 #   2. This will only be used in web app manifest file.
-#   3. Hestia will recolor transparent background with the color defined in
-#      .Hestia.PWA.Colors.Background upon creating all the various icon sizes.
-#   4. It was a known issue that Hugo's image processing cannot convert SVG into
+#   3. It was a known issue that Hugo's image processing cannot convert SVG into
 #      PNG type. Hence, please supply non-vector image here. For vector format,
 #      use the .Vector dataset.
 [Main]
@@ -125,9 +123,7 @@ Default = false
 #   3. Some stylish browser may have customizable tab color or background that
 #      can recolor the favicon transparent pixels, making the brand logo outside
 #      of your control.
-#   4. Hestia will recolor transparent background with the color defined in
-#      .Hestia.PWA.Colors.Background upon creating all the various icon sizes.
-#   5. It was a known issue that Hugo's image processing cannot convert SVG into
+#   4. It was a known issue that Hugo's image processing cannot convert SVG into
 #      PNG type. Hence, please supply non-vector image here. For vector format,
 #      use the .Vector dataset.
 Name = ""
@@ -190,6 +186,52 @@ Media = "all"
 
 
 [FaviconVector.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+
+
+[MSBanner]
+# Strictly beyond or equal to 1200x580.65 rectangular size, png format, and no
+# transparent pixel.
+#
+# NOTE:
+#   1. Hestia will resize the icon over to applicable icons.
+#   2. Acutal wide banner is 310x150 size. Providing larger size is for Hugo
+#      to maintain decent and acceptable quality after its resizing compression.
+#   3. Windows OS tile uses 2 sqaure lots with padding on start menu. Make it
+#      stylish without any transparent background. Note that it might recolor
+#      recolor transparent to unpredictable color.
+#   4. Avoid spending too much effort in this banner since Microsoft deprecated
+#      IE browser and also browserconfig.xml implementations. They have yet to
+#      remove them so we still have to support said feature.
+#
+# More info:
+#  https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)
+Name = ""
+Width = "1200"
+Height = "580.65"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+
+[[MSBanner.Sources]]
+URL = "images/banner-mstile.png"
+Type = "image/png"
+Media = "all"
+
+
+[MSBanner.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"
