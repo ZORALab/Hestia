@@ -141,6 +141,11 @@
 	{{- end -}}
 
 
+	{{- if or (eq $ret ".") (eq $ret "./") -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+
+
 	{{- $ret = strings.TrimPrefix "/" $ret -}}
 	{{- if not $IsRelativeToPage -}}
 		{{- $ret = strings.TrimPrefix $lang $ret -}}
@@ -176,7 +181,6 @@
 		{{- end -}}
 	{{- end -}}
 
-
 	{{- if $ret -}}
 		{{- $ret = strings.TrimPrefix "/" $ret -}}
 		{{- $dataList = strings.TrimSuffix "/" $dataList -}}
@@ -204,6 +208,13 @@
 		{{- $ret = strings.TrimPrefix "/" $ret -}}
 		{{- $dataList = printf "%s#%s" $dataList $ret -}}
 	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- if not .Input.URL -}}
+	{{- $dataList = "" -}}
 {{- end -}}
 
 
