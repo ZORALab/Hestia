@@ -111,5 +111,45 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* generate WASM initialization codes */ -}}
+{{- if and $dataList.URL $dataList.Init -}}
+	{{- $ret = merge $Page (dict "WASM" $dataList) -}}
+	{{- $ret = partial "Hestia/functions/render/js/wasm/Init.js" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret))) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "WASM: %v" $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+
+	{{- if not .IsServerMode -}}
+		{{- $ret = dict "Type" "application/javascript" "Data" $ret -}}
+		{{- $ret = merge $Page (dict "Input" $ret) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Minify" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf "WASM: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+{{- else -}}
+	{{- $ret = "" -}}
+{{- end -}}
+
+
+
+
+{{- /* conclude final data structure output */ -}}
+{{- $dataList = dict "Init" $ret "Dependencies" $dataList.Dependencies -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return merge $Page (dict "WASM" $dataList) -}}

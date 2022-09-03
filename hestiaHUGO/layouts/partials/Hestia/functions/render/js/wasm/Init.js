@@ -14,18 +14,26 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
-{{- /* INPUT PARAMETERS */ -}}
-{{- /* . = WASM data in Hestia Structure  */ -}}
-
-
-
-
-{{- /* render output */ -}}
-{{- if .WASM.Init -}}
-{{- range $i, $v := .WASM.Dependencies }}
-	<script defer src="{{- safeJS (string $v) -}}"></script>
+{{- if .WASM.Setup }}
+{{ safeJS .WASM.Setup -}}
 {{- end }}
-	<script type="module">
-		{{ safeJS .WASM.Init }}
-	</script>
-{{- end -}}
+
+
+
+
+// Initialize WASM
+if (!WebAssembly.instantiateStreaming) { // polyfill
+	WebAssembly.instantiateStreaming = async (resp, importObject) => {
+		const source = await (await resp).arrayBuffer();
+		return await WebAssembly.instantiate(source, importObject);
+	};
+}
+
+
+WebAssembly
+.instantiateStreaming(fetch('{{- safeJS .WASM.URL -}}')
+	{{- if .WASM.Import -}}, {{ safeJS .WASM.Import -}}{{- end -}}
+)
+.then(result => {
+	{{ safeJS .WASM.Init }}
+});
