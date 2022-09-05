@@ -14,6 +14,23 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
+{{- if .WASM.Embed }}
+var source = new Response(
+	Uint8Array.from('{{- safeJS (printf "%X" (readFile .WASM.Embed)) -}}'
+		.match(/.{1,2}/g)
+		.map((byte) => {
+			return parseInt(byte, 16);
+		})
+	),
+	{headers: { 'Content-Type': 'application/wasm'}}
+);
+{{- else }}
+var source = fetch('{{- safeJS .WASM.URL -}}');
+{{- end }}
+
+
+
+
 {{- if .WASM.Setup }}
 {{ safeJS .WASM.Setup -}}
 {{- end }}
@@ -31,7 +48,7 @@ if (!WebAssembly.instantiateStreaming) { // polyfill
 
 
 WebAssembly
-.instantiateStreaming(fetch('{{- safeJS .WASM.URL -}}')
+.instantiateStreaming(source
 	{{- if .WASM.Import -}}, {{ safeJS .WASM.Import -}}{{- end -}}
 )
 .then(result => {

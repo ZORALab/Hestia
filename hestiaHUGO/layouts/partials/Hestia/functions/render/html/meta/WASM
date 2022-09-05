@@ -21,11 +21,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- if .WASM.Init -}}
+{{- if and (or .WASM.URL .WASM.Embed) .WASM.Init -}}
 {{- range $i, $v := .WASM.Dependencies }}
 	<script defer src="{{- safeJS (string $v) -}}"></script>
 {{- end }}
 	<script type="module">
-		{{ safeJS .WASM.Init }}
+		{{ safeJS (partial "Hestia/functions/render/js/wasm/Init.js" .) }}
 	</script>
 {{- end -}}

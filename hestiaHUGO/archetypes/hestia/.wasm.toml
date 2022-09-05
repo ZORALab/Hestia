@@ -1,5 +1,23 @@
 # WASM Settings for This Page
 [Settings]
+# URL - the WASM source URL location. Recommended place it inside the same
+#       directory. Hestia formatting URL is acceptable. This field shall be
+#       ignored if Embed field is set.
+#
+#       This field is REQUIRED.
+URL = ''
+
+
+
+
+# Embed - the WASM Hugo Pipe's filepath location. If this field is provided,
+#         the targeted WASM file shall be read and embedded into the HTML file
+#         itself. The URL field, regardless empty or with value, shall be
+#         ignored. The file location is **SHALL ALWAYS** be next to the HTML
+#         page or within its sub-directory.
+#
+#       This field is OPTIONAL.
+Embed = ''
 
 
 
@@ -7,16 +25,11 @@
 # Dependencies - list of javascript dependencies to be loaded before executing
 #                WASM stream instruction. Hestia formatting URL is acceptable.
 #                This field is OPTIONAL.
+#
+#                When Embed is set, all the dependencies shall be sourced,
+#                concatenated, minified, and inline embed into the HTML file.
 Dependencies = [
 ]
-
-
-
-
-# URL - the WASM source URL. Recommended place it inside the same directory.
-#       Hestia formatting URL is acceptable.
-#       This field is REQUIRED.
-URL = ''
 
 
 
@@ -49,10 +62,3 @@ Import = ''
 Init = """\
 // Your WASM Javascript Init Codes Here.
 """
-
-
-
-
-# Embed - Decision to embed all WASM artifacts into the page for independent
-#         rendering.
-Embed = false

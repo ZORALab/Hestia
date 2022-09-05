@@ -32,16 +32,48 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .URL */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "URL" .WASM.URL)) -}}
-{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- /* process .Embed */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Embed)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 {{- if $ret.Console -}}
-	{{- $console = printf "WASM.URL: %v" $ret.Console.Message -}}
+	{{- $console = printf "WASM.Embed: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "URL" $ret.Output) -}}
+{{- $ret = $ret.Output -}}
+
+
+{{- if $ret -}}
+	{{- $ret = path.Join .Filesystem.Directory $ret -}}
+	{{- if not (fileExists $ret) -}}
+		{{- $console = printf
+			"WASM.Embed: given file is missing: '%v'\n"
+			$ret
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Embed" $ret) -}}
+
+
+
+
+{{- /* process .URL */ -}}
+{{- if not $dataList.Embed -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" .WASM.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "WASM.URL: %v" $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict "URL" $ret.Output) -}}
+{{- end -}}
 
 
 
@@ -107,46 +139,6 @@ specific language governing permissions and limitations under the License.
 	{{- $list = append $ret.Output $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Dependencies" $list) -}}
-
-
-
-
-{{- /* generate WASM initialization codes */ -}}
-{{- if and $dataList.URL $dataList.Init -}}
-	{{- $ret = merge $Page (dict "WASM" $dataList) -}}
-	{{- $ret = partial "Hestia/functions/render/js/wasm/Init.js" $ret -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret))) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $console = printf "WASM: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- end -}}
-	{{- $ret = $ret.Output -}}
-
-
-	{{- if not .IsServerMode -}}
-		{{- $ret = dict "Type" "application/javascript" "Data" $ret -}}
-		{{- $ret = merge $Page (dict "Input" $ret) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Minify" $ret -}}
-		{{- if $ret.Console -}}
-			{{- $console = printf "WASM: %v" $ret.Console.Message -}}
-			{{- $console = dict "Console" (dict "Message" $console) -}}
-			{{- $console = merge $Page $console -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
-		{{- end -}}
-		{{- $ret = $ret.Output -}}
-	{{- end -}}
-{{- else -}}
-	{{- $ret = "" -}}
-{{- end -}}
-
-
-
-
-{{- /* conclude final data structure output */ -}}
-{{- $dataList = dict "Init" $ret "Dependencies" $dataList.Dependencies -}}
 
 
 
