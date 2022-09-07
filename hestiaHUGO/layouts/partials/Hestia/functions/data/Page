@@ -25,6 +25,13 @@
 
 
 
+{{- /* prepare Hestia .Page.Filesystem */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Filesystems" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.Languages */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Languages" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -48,13 +55,6 @@
 
 {{- /* prepare Hestia .Page.URL */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/URL" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* prepare Hestia .Page.Filesystem */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Filesystems" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
@@ -139,8 +139,8 @@
 
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Languages" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Datetime" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Languages" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Titles" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords" $dataList -}}
