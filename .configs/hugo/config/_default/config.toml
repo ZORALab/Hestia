@@ -12,8 +12,12 @@ enableEmoji = true
 pluralizeListTitles = false
 enableGitInfo = true
 enableRobotsTXT = true
+hasCJKLanguage = true
 
+
+# content pathing
 archetypeDir = "../../docs/.archetypes"
+contentDir = "../../docs"
 assetDir = "../../docs/.assets"
 dataDir = "../../docs/.data"
 staticDir = [ "static", "../../docs/.static" ]
@@ -22,17 +26,13 @@ themesDir = "../../"
 publishDir = "../../public"
 i18nDir = "../../docs/.i18n"
 
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = true
-hasCJKLanguage = true
 
-
-# Hugo injected generator as first line and broke HTML spec. Therefore, Bissetii
-# disables it and inject the generator statement in baseOf layout instead.
+# Hugo injected generator as first line and broke HTML spec. Therefore, Hestia
+# disables it and inject later using its renderer.
 disableHugoGeneratorInject = true
 
 
 # AMP disallowed javascript loading. Also, Hugo injects it as second line and
-# broke the HTML spec. Therefore, Bissetii disables it and inject the liveReload
-# in appropriate output.
+# broke its HTML spec. Therefore, Hestia disables it and inject the liveReload
+# in appropriate output using its renderer.
 disableLiveReload = true
