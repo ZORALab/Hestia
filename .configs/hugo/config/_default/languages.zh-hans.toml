@@ -1,12 +1,3 @@
 languageCode = "zh-hans"
 languageName = "Chinese (Simplified)"
 contentDir = "../../docs/zh-hans"
-
-
-
-
-[params]
-title = "ZORALab - 赫斯提亚"
-description = """\
-一个平静代码库来建设眼无限的可能。
-"""

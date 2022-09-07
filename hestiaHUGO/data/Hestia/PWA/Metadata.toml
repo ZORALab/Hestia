@@ -13,8 +13,8 @@
 # Name.Full            - used to display brand and app in articles or pages.
 [Name]
 ID = '{{- .Languages.Current.Code -}}'
-Short = '{{- .Titles.Site.Current -}}'
-Full = '{{- .Titles.Site.Current -}}'
+Short = '{{- .Titles.Site.Current.Short -}}'
+Full = '{{- .Titles.Site.Current.Full -}}'
 
 
 
@@ -36,8 +36,8 @@ Scope = '{{- .URL.Base -}}'
 # Descriptions.Summary - Expands from your pitch and elaborate your app. Keep it
 #                        max 250 characters overall (including Pitch if used).
 [Descriptions]
-Pitch = '{{- .Descriptions.Site.Current -}}'
-Summary = '{{- .Titles.Site.Current }} - {{ .Descriptions.Site.Current -}}'
+Pitch = '{{- .Descriptions.Site.Current.Pitch -}}'
+Summary = '{{- .Titles.Site.Current.Short }} - {{ .Descriptions.Site.Current.Pitch -}}'
 
 
 

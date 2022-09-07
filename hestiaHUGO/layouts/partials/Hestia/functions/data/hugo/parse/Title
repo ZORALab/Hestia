@@ -10,6 +10,7 @@
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
 {{- $data := false -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 
 
@@ -45,11 +46,26 @@
 
 
 {{- /* process Title.Site */ -}}
-{{- $ret = dict -}}
-{{- range $v := .Site.Languages -}}
-	{{- $ret = merge $ret (dict (string $v.Lang) $v.Params.title) -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Site.Data.Hestia.Metadata -}}
+	{{- $ret = dict -}}
+
+
+	{{- /* parse full name */ -}}
+	{{- $ret = merge $ret (dict "Full" (default "" $v.Name.Full)) -}}
+
+
+	{{- /* parse short name */ -}}
+	{{- $ret = merge $ret (dict "Short" (default "" $v.Name.Short)) -}}
+
+
+	{{- /* parse ID */ -}}
+	{{- $ret = merge $ret (dict "ID" (default "" $v.Name.ID)) -}}
+
+
+	{{- $list = merge $list (dict (string $k) $ret) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Site" $ret) -}}
+{{- $dataList = merge $dataList (dict "Site" $list) -}}
 
 
 

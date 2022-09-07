@@ -1,0 +1,34 @@
+# 网站元数据配置
+# ==============
+# 网站级别的元数据配置。 资料配合Progressive Web App (PWA)用户。
+#
+# Name.ID              - 网站的独特ID只能有英语字母，英语句号(.)和英语破折号(-)
+#                        而已。不符合的字母将会被自动删除或被破折号代替。请使用
+#                        适合的ID如'com.example.app'。ID是在各种不同的APP购物中
+#                        心寻找这网站或网络APP。
+# Name.Short           - 短名来直接称呼这网站或网络APP。推荐最多2个字（如：
+#                        公司名+物品名）。
+# Name.Full            - 全名来称呼这网站或网络APP。官方网站使用。
+[Name]
+ID = "com.zoralab.hestia"
+Short = "赫斯提亚"
+Full = "ZORALab赫斯提亚"
+
+
+
+
+# Descriptions.Pitch   - 短，直接，讲重点，和宣传性的陈述。最多160字母。
+# Descriptions.Summary - 扩大Description.Pitch的陈述。最多250字母。
+[Descriptions]
+Pitch = '一个平静代码库来建设眼无限的可能。'
+Summary = '一个平静代码库来建设眼无限的可能 - ZORALab赫斯提亚'
+
+
+
+
+# Categories           - 关网站的键主题菜单。
+[Categories]
+List = [
+        '网站',
+        '科技',
+]

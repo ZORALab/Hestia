@@ -10,6 +10,7 @@
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := . -}}
 {{- $dataList := dict -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 
 
@@ -46,13 +47,22 @@
 
 
 {{- /* parse site descriptions */ -}}
-{{- $ret = dict -}}
-{{- range $i, $v := .Site.Languages -}}
-	{{- $ret = merge $ret (dict (string $v.Lang) $v.Params.description) -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Site.Data.Hestia.Metadata -}}
+	{{- $ret = dict -}}
+
+
+	{{- /* parse .Pitch */ -}}
+	{{- $ret = merge $ret (dict "Pitch" $v.Descriptions.Pitch) -}}
+
+
+	{{- /* parse .Summary */ -}}
+	{{- $ret = merge $ret (dict "Summary" $v.Descriptions.Summary) -}}
+
+
+	{{- $list = merge $list (dict (string $k) $ret) -}}
 {{- end -}}
-
-
-{{- $dataList = merge $dataList (dict "Site" $ret) -}}
+{{- $dataList = merge $dataList (dict "Site" $list) -}}
 
 
 

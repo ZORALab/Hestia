@@ -10,10 +10,11 @@
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := merge . (dict "Descriptions" false) -}}
-{{- $Page := merge $Page (dict "Descriptions" dict) -}}
-{{- $Page := partial "Hestia/functions/data/Clean" $Page -}}
+{{- $Page = merge $Page (dict "Descriptions" dict) -}}
+{{- $Page = partial "Hestia/functions/data/Clean" $Page -}}
 {{- $dataList := dict -}}
 {{- $list := dict -}}
+{{- $data := false -}}
 {{- $ret := false -}}
 {{- $console := false -}}
 
@@ -47,10 +48,14 @@
 {{- /* validate site descriptions */ -}}
 {{- $list = dict -}}
 {{- range $k, $v := .Descriptions.Site -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Limit" "pitch" "Data" $v)) -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process .Pitch */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Limit" "pitch" "Data" $v.Pitch)) -}}
 	{{- $ret = partial "Hestia/functions/data/hugo/process/_validate-description" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "Description.Site.%v: %s"
+		{{- $console = printf "Description.Site.%v.Pitch: %s"
 			$k
 			$ret.Console.Message
 		-}}
@@ -60,8 +65,27 @@
 
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
+	{{- $data = merge $data (dict "Pitch" $ret.Output) -}}
 
-	{{- $list = merge $list (dict (upper (string $k)) $ret.Output) -}}
+
+	{{- /* process .Summary */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Limit" "summary" "Data" $v.Summary)) -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_validate-description" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Description.Site.%v.Summary: %s"
+			$k
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+
+
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Summary" $ret.Output) -}}
+
+
+	{{- $list = merge $list (dict (upper $k) $data) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Site" $list) -}}
 

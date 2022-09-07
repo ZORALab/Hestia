@@ -1,5 +1,5 @@
 [Contents.0]
-Name = "{{- .Titles.Site.Current -}}"
+Name = "{{- .Titles.Site.Current.Full -}}"
 Width = "1200"
 Height = "628"
 CORS = ""
@@ -27,7 +27,7 @@ Default = false
 
 
 [Contents.1]
-Name = "{{- .Titles.Site.Current -}}"
+Name = "{{- .Titles.Site.Current.Full -}}"
 Width = "1200"
 Height = "1200"
 CORS = ""
@@ -55,7 +55,7 @@ Default = false
 
 
 [Contents.2]
-Name = "{{- .Titles.Site.Current -}}"
+Name = "{{- .Titles.Site.Current.Full -}}"
 Width = "480"
 Height = "480"
 CORS = ""

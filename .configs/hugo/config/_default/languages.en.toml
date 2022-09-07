@@ -1,12 +1,3 @@
 languageCode = "en"
 languageName = "English"
 contentDir = "../../docs/en"
-
-
-
-
-[params]
-Title = "ZORALab's Hestia"
-Description = """\
-One peaceful library for building infinite possibilities.
-"""
