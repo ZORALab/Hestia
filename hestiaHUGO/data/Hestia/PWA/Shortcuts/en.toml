@@ -1,0 +1,59 @@
+# Shortcuts are the list of shortcut items for easier PWA interactions.
+# The list is grouped by numeric key (e.g. '0') for setting the order of the
+# Shortcuts list. See:
+#       https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts
+#
+# To add more shortcut, simply add additional [params.PWA.Shortcuts.0] data
+# entries with by adding unique 'N' (e.g. 0, 1, 2 ...). Having the same 'N' will
+# make the latter overwrites the former.
+#
+# Helper for 1 content dataset:
+# Description - A short description of the shortcut. Recommended max 80
+#               characters active voice approach (e.g. "Get Today's Weather").
+# URL         - The activation URL. If left empty, the Shortcut shall be
+#               completely discarded.
+# Name        - The shortcut display name. If any of them left empty, the
+#               Shortcut shall be completely discarded.
+# Name.Full   - Full is the full shortcut name to display in a context menu.
+# Name.Short  - Short is the shortest shortcut name to display in a context menu
+#               where Name.Full is not applicable due to insufficient spaces.
+#               Recommended Max 2 words.
+# Icons       - Array list of icon images for the shortcut. If facilitated, the
+#               '96x96' pixel sized icon is compulsory to be one of them.
+#               A shortcut can have many icons with different sizes. Recommended
+#               dimension is square.
+# Icons.X.Design - it is the art purpose of the image which can be any of the
+#                  following:
+#                  1. 'any'        - used in any context (default)
+#                  2. 'maskable'   - used for masked icons.
+#                  3. 'monochrome' - used for monochromatic context. Only alpha
+#                                    level is used.
+[Contents.0]
+Description = 'To Main Dashboard'
+URL = '{{- .Languages.Current.URL -}}'
+
+
+[Contents.0.Name]
+Full = 'Home & Dashboard'
+Short = 'Dashboard'
+
+
+[Contents.0.Icons.0]
+Name = ''
+Width = '1200'
+Height = '1200'
+CORS = ''
+Relationship = ''
+Design = 'any'
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+
+[[Contents.0.Icons.0.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = 'all'

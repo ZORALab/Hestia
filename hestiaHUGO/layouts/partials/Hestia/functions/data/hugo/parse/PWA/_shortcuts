@@ -16,9 +16,9 @@
 
 {{- /* process .Shortcuts */ -}}
 {{- $dataList = .Page.Lang -}}
-{{- range $i, $v := .Site.Languages -}}
-	{{- if eq $v.Lang $dataList -}}
-		{{- $source = $v.Params.PWA.Shortcuts -}}
+{{- range $i, $v := .Site.Data.Hestia.PWA.Shortcuts -}}
+	{{- if eq $i $dataList -}}
+		{{- $source = $v.Contents -}}
 	{{- end -}}
 {{- end -}}
 
