@@ -149,6 +149,7 @@
 	{{- $ret = strings.TrimPrefix "/" $ret -}}
 	{{- if not $IsRelativeToPage -}}
 		{{- $ret = strings.TrimPrefix $lang $ret -}}
+		{{- $ret = strings.TrimPrefix "/" $ret -}}
 	{{- end -}}
 	{{- $dataList = strings.TrimSuffix "/" $dataList -}}
 	{{- $dataList = printf "%s/%s" $dataList $ret -}}
