@@ -207,10 +207,10 @@
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Favicon
 	) (dict
-		"Filename" "banner-1200x628.png"
+		"Filename" "banner-1200x630.png"
 		"Type" "image/png"
 		"Width" 1200
-		"Height" 628
+		"Height" 630
 		"Design" "any"
 		"Resize" true
 		"Source" .Site.Data.Hestia.PWA.Icons.Banner

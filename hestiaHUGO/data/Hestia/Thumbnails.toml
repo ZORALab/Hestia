@@ -1,7 +1,7 @@
 [Contents.0]
 Name = "{{- .Titles.Site.Current.Full -}}"
 Width = "1200"
-Height = "628"
+Height = "630"
 CORS = ""
 Relationship = ""
 Design = ""
@@ -13,7 +13,7 @@ Mute = false
 Inline = false
 
 [[Contents.0.Sources]]
-URL = "/banner-1200x628.png"
+URL = "/banner-1200x630.png"
 Type = "image/png"
 Media = "all"
 
