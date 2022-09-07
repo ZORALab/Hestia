@@ -11,8 +11,15 @@
 
 
 {{- /* return render */ -}}
-{{- range $i, $v := .Languages.Alternatives }}
+{{- range $i, $v := .Languages.List -}}
+	{{- if eq $v.Code $Page.Languages.Current.Code -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not $v.URL.PAGE -}}
+		{{- continue -}}
+	{{- end }}
 	<link rel="alternate"
 		hrefLang="{{- $v.Code -}}"
-		href="{{- $v.URL -}}" />
+		href="{{- $v.URL.PAGE -}}" />
 {{- end -}}

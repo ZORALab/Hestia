@@ -110,36 +110,5 @@
 
 
 
-{{- /* process URL.Languages */ -}}
-{{- $ret = dict "Current" (dict "URL" $dataList.URL.Current.Absolute) -}}
-{{- $dataList = merge $dataList (dict "Languages" $ret) -}}
-
-
-{{- $list = dict -}}
-{{- range $k, $v := .Site.Home.AllTranslations -}}
-	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
-	{{- $ret = dict (upper $v.Lang) $ret -}}
-
-
-	{{- /* merge into .Languages.List */ -}}
-	{{- $list = dict "List" $ret -}}
-	{{- $dataList = merge $dataList (dict "Languages" $list) -}}
-{{- end -}}
-
-
-{{- $list = dict -}}
-{{- range $k, $v := .Page.Translations -}}
-	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
-	{{- $ret = dict (upper $v.Lang) $ret -}}
-
-
-	{{- /* merge into .Languages.List */ -}}
-	{{- $list = dict "Alternatives" $ret -}}
-	{{- $dataList = merge $dataList (dict "Languages" $list) -}}
-{{- end -}}
-
-
-
-
 {{- /* render output */ -}}
 {{- return $dataList -}}

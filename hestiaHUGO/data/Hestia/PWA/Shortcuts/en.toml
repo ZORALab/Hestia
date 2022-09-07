@@ -30,7 +30,7 @@
 #                                    level is used.
 [Contents.0]
 Description = 'To Main Dashboard'
-URL = '{{- .Languages.Current.URL -}}'
+URL = '{{- .Languages.EN.URL.HOME -}}'
 
 
 [Contents.0.Name]

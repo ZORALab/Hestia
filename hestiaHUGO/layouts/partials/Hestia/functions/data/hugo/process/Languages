@@ -1,0 +1,217 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := merge . (dict "Languages" false) -}}
+{{- $Page = merge $Page (dict "Languages" dict) -}}
+{{- $Page = partial "Hestia/functions/data/Clean" $Page -}}
+{{- $data := dict -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $console := false -}}
+{{- $lang := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Languages.List */ -}}
+{{- $list := dict -}}
+{{- range $k, $v := .Languages.List -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process .Code */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Lang" $k)) -}}
+	{{- $ret = partial "Hestia/functions/data/language/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Languages.List.%v.Code: %s"
+			(upper $k)
+			$ret.Console.Message
+		-}}
+
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict "Code" $ret) -}}
+	{{- $data = merge $data (dict "ID" (upper $ret)) -}}
+
+
+	{{- /* process .Name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Languages.List.%v.Name: %s"
+			(upper $k)
+			$ret.Console.Message
+		-}}
+
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict "Name" $ret) -}}
+
+
+	{{- /* process .Directory */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Directory)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Languages.List.%v.Name: %s"
+			(upper $k)
+			$ret.Console.Message
+		-}}
+
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict "Directory" $ret) -}}
+
+
+	{{- /* process .Direction */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Direction)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Languages.List.%v.Name: %s"
+			(upper $k)
+			$ret.Console.Message
+		-}}
+
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict "Direction" $ret) -}}
+
+
+	{{- /* park .URL for URL processor to process later */ -}}
+	{{- $data = merge $data (dict "URL" (dict "ERROR_404" $v.URL.ERROR_404)) -}}
+	{{- $data = merge $data (dict "URL" (dict "ERROR_OFFLINE" $v.URL.ERROR_OFFLINE)) -}}
+	{{- $data = merge $data (dict "URL" (dict "HOME" (printf "/%s" $data.Directory))) -}}
+
+
+	{{- /* save to list */ -}}
+	{{- $list = merge $list (dict $data.ID $data) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "List" $list) -}}
+
+
+
+
+{{- /* process translate languages */ -}}
+{{- range $k, $v := .Languages.Alternatives -}}
+	{{- /* process .Code */ -}}
+	{{- $lang = merge $Page (dict "Input" (dict "Lang" $k)) -}}
+	{{- $lang = partial "Hestia/functions/data/language/Init" $lang -}}
+	{{- if $lang.Console -}}
+		{{- $console = printf "Languages: translation: %s"
+			(upper $k)
+			$lang.Console.Message
+		-}}
+
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+
+		{{- continue -}}
+	{{- end -}}
+	{{- $lang = partial "Hestia/functions/data/string/TrimWhitespace" $lang.Output -}}
+	{{- $lang = upper $lang -}}
+
+
+	{{- /* query from language list */ -}}
+	{{- $data = index $dataList.List $lang -}}
+	{{- if not $data -}}
+		{{- $console = printf
+			"Languages: translation: unsupported language code '%v'\n"
+			$lang
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* park .URL.Page for URL processor to process later */ -}}
+	{{- $data = merge $data (dict "URL" (dict "PAGE" $v.URL)) -}}
+
+
+	{{- /* merge into $dataList */ -}}
+	{{- $dataList = merge $dataList (dict "List" (dict $lang $data)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process current page's language */ -}}
+{{- /* TODO: CREATE AN ALGORITHM TO DETECT CURRENT PAGE LANGUAGE */ -}}
+{{- $ret = index $dataList.List "EN" -}}
+{{- $dataList = merge $dataList (dict "Current" $ret) -}}
+
+
+
+
+{{- /* process all URLs */ -}}
+{{- $dataList = merge $Page (dict "Languages" $dataList) -}}
+{{- range $k, $v := $dataList.Languages.List -}}
+	{{- $list = dict -}}
+
+
+	{{- range $j, $w := $v.URL -}}
+		{{- /* process url to full */ -}}
+		{{- $ret = merge $dataList (dict "Input" (dict "URL" $w)) -}}
+		{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf ".Languages.List.%v.URL.%v: %s"
+				$k
+				$j
+				$ret.Console.Message
+			-}}
+
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+
+		{{- $list = merge $list (dict $j $ret.Output) -}}
+	{{- end -}}
+
+
+	{{- if not $list.PAGE -}}
+		{{- $list = merge $list (dict "PAGE" (urls.Parse "")) -}}
+	{{- end -}}
+
+
+	{{- $list = dict "URL" $list -}}
+	{{- $list = merge $v $list -}}
+	{{- $list = dict "Languages" (dict "List" (dict $k $list)) -}}
+	{{- $dataList = merge $dataList $list -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
