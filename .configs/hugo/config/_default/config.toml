@@ -16,15 +16,15 @@ hasCJKLanguage = true
 
 
 # content pathing
-archetypeDir = "../../docs/.archetypes"
+archetypeDir = "archetypes"
 contentDir = "../../docs"
-assetDir = "../../docs/.assets"
+assetDir = "assets"
 dataDir = "../../docs/.data"
-staticDir = [ "static", "../../docs/.static" ]
-layoutDir = "../../docs/.layouts"
+staticDir = [ "../../docs/.static" ]
+layoutDir = "layouts"
 themesDir = "../../"
 publishDir = "../../public"
-i18nDir = "../../docs/.i18n"
+i18nDir = "i18n"
 
 
 # Hugo injected generator as first line and broke HTML spec. Therefore, Hestia
