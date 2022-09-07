@@ -1,0 +1,1039 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for checking (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* check given data is ISO3166 */ -}}
+{{- $ret = upper (strings.TrimLeft "-_" (string .)) -}}
+{{- if not $ret -}}
+{{- else if (eq $ret "AF")
+	| or (eq $ret "AFG") -}}
+	{{- /* Afghanistan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AX")
+	| or (eq $ret "ALA") -}}
+	{{- /* Åland Islands */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AL")
+	| or (eq $ret "ALB") -}}
+	{{- /* Albania */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "DZ")
+	| or (eq $ret "DZA") -}}
+	{{- /* Algeria */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AS")
+	| or (eq $ret "ASM") -}}
+	{{- /* American Samoa */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AD")
+	| or (eq $ret "AND") -}}
+	{{- /* Andorra */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AO")
+	| or (eq $ret "AO") -}}
+	{{- /* Angola */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AI")
+	| or (eq $ret "AIA") -}}
+	{{- /* Anguilla */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AQ")
+	| or (eq $ret "ATA") -}}
+	{{- /* Antarctica */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AG")
+	| or (eq $ret "ATG") -}}
+	{{- /* Antigua and Barbuda */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AR")
+	| or (eq $ret "ARG") -}}
+	{{- /* Argentina */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AM")
+	| or (eq $ret "ARM") -}}
+	{{- /* Armenia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AW")
+	| or (eq $ret "ABW") -}}
+	{{- /* Aruba */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AU")
+	| or (eq $ret "AUS") -}}
+	{{- /* Australia, Ashmore, and Cartier Islands */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AT")
+	| or (eq $ret "AUT") -}}
+	{{- /* Austria */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AZ")
+	| or (eq $ret "AZE") -}}
+	{{- /* Azerbaijan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BS")
+	| or (eq $ret "BHS") -}}
+	{{- /* Bahamas (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BH")
+	| or (eq $ret "BHR") -}}
+	{{- /* Bahrain */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BD")
+	| or (eq $ret "BGD") -}}
+	{{- /* Bangladesh */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BB")
+	| or (eq $ret "BRB") -}}
+	{{- /* Barbados */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BY")
+	| or (eq $ret "BLR") -}}
+	{{- /* Belarus */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BE")
+	| or (eq $ret "BEL") -}}
+	{{- /* Belgium */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BZ")
+	| or (eq $ret "BLZ") -}}
+	{{- /* Belize */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BJ")
+	| or (eq $ret "BEN") -}}
+	{{- /* Benin */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BM")
+	| or (eq $ret "BMU") -}}
+	{{- /* Bermuda */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BT")
+	| or (eq $ret "BTN") -}}
+	{{- /* Bhutan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BO")
+	| or (eq $ret "BOL") -}}
+	{{- /* Bolivia (Plurinational State of) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BQ")
+	| or (eq $ret "BES") -}}
+	{{- /* Bonaire, Sint Eustatius Sint Eustatius, and Saba Saba */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BA")
+	| or (eq $ret "BIH") -}}
+	{{- /* Bosnia and Herzegovina */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BW")
+	| or (eq $ret "BWA") -}}
+	{{- /* Botswana */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BV")
+	| or (eq $ret "BVT") -}}
+	{{- /* Bouvet Island */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BR")
+	| or (eq $ret "BRA") -}}
+	{{- /* Brazil */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IO")
+	| or (eq $ret "IOT") -}}
+	{{- /* British Indian Ocean Territory (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BN")
+	| or (eq $ret "BRN") -}}
+	{{- /* Brunei Darussalam */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BG")
+	| or (eq $ret "BGR") -}}
+	{{- /* Bulgaria */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BF")
+	| or (eq $ret "BFA") -}}
+	{{- /* Burkina Faso */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BI")
+	| or (eq $ret "BDI") -}}
+	{{- /* Burundi */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CV")
+	| or (eq $ret "CPV") -}}
+	{{- /* Cabo Verde */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KH")
+	| or (eq $ret "KHM") -}}
+	{{- /* Cambodia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CM")
+	| or (eq $ret "CMR") -}}
+	{{- /* Cameroon */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CA")
+	| or (eq $ret "CAN") -}}
+	{{- /* Canada */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KY")
+	| or (eq $ret "CYM") -}}
+	{{- /* Cayman Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CF")
+	| or (eq $ret "CAF") -}}
+	{{- /* Central African Republic (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TD")
+	| or (eq $ret "TCD") -}}
+	{{- /* Chad */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CL")
+	| or (eq $ret "CHL") -}}
+	{{- /* Chile */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CN")
+	| or (eq $ret "CHN") -}}
+	{{- /* China */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CX")
+	| or (eq $ret "CXR") -}}
+	{{- /* Christmas Island */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CC")
+	| or (eq $ret "CCK") -}}
+	{{- /* Cocos (Keeling) Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CO")
+	| or (eq $ret "COL") -}}
+	{{- /* Colombia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KM")
+	| or (eq $ret "COM") -}}
+	{{- /* Comoros (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CD")
+	| or (eq $ret "COD") -}}
+	{{- /* Congo (the Democratic Republic of the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CG")
+	| or (eq $ret "COG") -}}
+	{{- /* Congo (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CK")
+	| or (eq $ret "COK") -}}
+	{{- /* Cook Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CR")
+	| or (eq $ret "CRI") -}}
+	{{- /* Costa Rica */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CI")
+	| or (eq $ret "CIV") -}}
+	{{- /* Côte d'Ivoire */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "HR")
+	| or (eq $ret "HRV") -}}
+	{{- /* Croatia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CU")
+	| or (eq $ret "CUB") -}}
+	{{- /* Cuba */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CW")
+	| or (eq $ret "CUW") -}}
+	{{- /* Curaçao */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CY")
+	| or (eq $ret "CYP") -}}
+	{{- /* Cyprus */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CZ")
+	| or (eq $ret "CZE") -}}
+	{{- /* Czechia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "DK")
+	| or (eq $ret "DNK") -}}
+	{{- /* Denmark */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "DJ")
+	| or (eq $ret "DJI") -}}
+	{{- /* Djibouti */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "DM")
+	| or (eq $ret "DMA") -}}
+	{{- /* Dominica */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "DO")
+	| or (eq $ret "DOM") -}}
+	{{- /* Dominican Republic (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "EC")
+	| or (eq $ret "ECU") -}}
+	{{- /* Ecuador */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "EG")
+	| or (eq $ret "EGY") -}}
+	{{- /* Egypt */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SV")
+	| or (eq $ret "SLV") -}}
+	{{- /* El Salvador */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GQ")
+	| or (eq $ret "GNQ") -}}
+	{{- /* Equatorial Guinea */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ER")
+	| or (eq $ret "ERI") -}}
+	{{- /* Eritrea */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "EE")
+	| or (eq $ret "EST") -}}
+	{{- /* Estonia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SZ")
+	| or (eq $ret "SWZ") -}}
+	{{- /* Eswatini */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ET")
+	| or (eq $ret "ETH") -}}
+	{{- /* Ethiopia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "FK")
+	| or (eq $ret "FLK") -}}
+	{{- /* Falkland Islands (the) [Malvinas] */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "FO")
+	| or (eq $ret "FRO") -}}
+	{{- /* Faroe Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "FJ")
+	| or (eq $ret "FJI") -}}
+	{{- /* Fiji */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "FI")
+	| or (eq $ret "FIN") -}}
+	{{- /* Finland */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "FR")
+	| or (eq $ret "FRA") -}}
+	{{- /* France */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GF")
+	| or (eq $ret "GUF") -}}
+	{{- /* French Guiana */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PF")
+	| or (eq $ret "PYF") -}}
+	{{- /* French Polynesia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TF")
+	| or (eq $ret "ATF") -}}
+	{{- /* French Southern Territories (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GA")
+	| or (eq $ret "GAB") -}}
+	{{- /* Gabon */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GM")
+	| or (eq $ret "GMB") -}}
+	{{- /* Gambia (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GE")
+	| or (eq $ret "GEO") -}}
+	{{- /* Georgia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "DE")
+	| or (eq $ret "DEU") -}}
+	{{- /* Germany */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GH")
+	| or (eq $ret "GHA") -}}
+	{{- /* Ghana */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GI")
+	| or (eq $ret "GIB") -}}
+	{{- /* Gibraltar */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GR")
+	| or (eq $ret "GRC") -}}
+	{{- /* Greece */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GL")
+	| or (eq $ret "GRL") -}}
+	{{- /* Greenland */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GD")
+	| or (eq $ret "GRD") -}}
+	{{- /* Grenada */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GP")
+	| or (eq $ret "GLP") -}}
+	{{- /* Guadeloupe */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GU")
+	| or (eq $ret "GUM") -}}
+	{{- /* Guam */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GT")
+	| or (eq $ret "GTM") -}}
+	{{- /* Guatemala */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GG")
+	| or (eq $ret "GGY") -}}
+	{{- /* Guernsey */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GN")
+	| or (eq $ret "GIN") -}}
+	{{- /* Guinea */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GW")
+	| or (eq $ret "GNB") -}}
+	{{- /* Guinea-Bissau */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GY")
+	| or (eq $ret "GUY") -}}
+	{{- /* Guyana */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "HT")
+	| or (eq $ret "HTI") -}}
+	{{- /* Haiti */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "HM")
+	| or (eq $ret "HMD") -}}
+	{{- /* Heard Island and McDonald Islands */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "VA")
+	| or (eq $ret "VAT") -}}
+	{{- /* Holy See (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "HN")
+	| or (eq $ret "HND") -}}
+	{{- /* Honduras */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "HK")
+	| or (eq $ret "HKG") -}}
+	{{- /* Hong Kong */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "HU")
+	| or (eq $ret "HUN") -}}
+	{{- /* Hungary */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IS")
+	| or (eq $ret "ISL") -}}
+	{{- /* Iceland */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IN")
+	| or (eq $ret "IND") -}}
+	{{- /* India */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ID")
+	| or (eq $ret "IDN") -}}
+	{{- /* Indonesia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IR")
+	| or (eq $ret "IRN") -}}
+	{{- /* Iran (Islamic Republic of) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IQ")
+	| or (eq $ret "IRQ") -}}
+	{{- /* Iraq */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IE")
+	| or (eq $ret "IRL") -}}
+	{{- /* Ireland */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IM")
+	| or (eq $ret "IMN") -}}
+	{{- /* Isle of Man */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IL")
+	| or (eq $ret "ISR") -}}
+	{{- /* Israel */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "IT")
+	| or (eq $ret "ITA") -}}
+	{{- /* Italy */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "JM")
+	| or (eq $ret "JAM") -}}
+	{{- /* Jamaica */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "JP")
+	| or (eq $ret "JPN") -}}
+	{{- /* Japan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "JE")
+	| or (eq $ret "JEY") -}}
+	{{- /* Jersey */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "JO")
+	| or (eq $ret "JOR") -}}
+	{{- /* Jordan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KZ")
+	| or (eq $ret "KAZ") -}}
+	{{- /* Kazakhstan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KE")
+	| or (eq $ret "KEN") -}}
+	{{- /* Kenya */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KI")
+	| or (eq $ret "KIR") -}}
+	{{- /* Kiribati */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KP")
+	| or (eq $ret "PRK") -}}
+	{{- /* Korea (the Democratic People's Republic of) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KR")
+	| or (eq $ret "KOR") -}}
+	{{- /* Korea (the Republic of) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KW")
+	| or (eq $ret "KWT") -}}
+	{{- /* Kuwait */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KG")
+	| or (eq $ret "KGZ") -}}
+	{{- /* Kyrgyzstan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LA")
+	| or (eq $ret "LAO") -}}
+	{{- /* Lao People's Democratic Republic (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LV")
+	| or (eq $ret "LVA") -}}
+	{{- /* Latvia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LB")
+	| or (eq $ret "LBN") -}}
+	{{- /* Lebanon */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LS")
+	| or (eq $ret "LSO") -}}
+	{{- /* Lesotho */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LR")
+	| or (eq $ret "LBR") -}}
+	{{- /* Liberia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LY")
+	| or (eq $ret "LBY") -}}
+	{{- /* Libya */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LI")
+	| or (eq $ret "LIE") -}}
+	{{- /* Liechtenstein */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LT")
+	| or (eq $ret "LTU") -}}
+	{{- /* Lithuania */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LU")
+	| or (eq $ret "LUX") -}}
+	{{- /* Luxembourg */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MO")
+	| or (eq $ret "MAC") -}}
+	{{- /* Macao */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MK")
+	| or (eq $ret "MKD") -}}
+	{{- /* North Macedonia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MG")
+	| or (eq $ret "MDG") -}}
+	{{- /* Madagascar */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MW")
+	| or (eq $ret "MWI") -}}
+	{{- /* Malawi */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MY")
+	| or (eq $ret "MYS") -}}
+	{{- /* Malaysia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MV")
+	| or (eq $ret "MDV") -}}
+	{{- /* Maldives */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ML")
+	| or (eq $ret "MLI") -}}
+	{{- /* Mali */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MT")
+	| or (eq $ret "MLT") -}}
+	{{- /* Malta */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MH")
+	| or (eq $ret "MHL") -}}
+	{{- /* Marshall Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MQ")
+	| or (eq $ret "MTQ") -}}
+	{{- /* Martinique */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MR")
+	| or (eq $ret "MRT") -}}
+	{{- /* Mauritania */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MU")
+	| or (eq $ret "MUS") -}}
+	{{- /* Mauritius */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "YT")
+	| or (eq $ret "MYT") -}}
+	{{- /* Mayotte */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MX")
+	| or (eq $ret "MEX") -}}
+	{{- /* Mexico */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "FM")
+	| or (eq $ret "FSM") -}}
+	{{- /* Micronesia (Federated States of) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MD")
+	| or (eq $ret "MDA") -}}
+	{{- /* Moldova (the Republic of) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MC")
+	| or (eq $ret "MCO") -}}
+	{{- /* Monaco */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MN")
+	| or (eq $ret "MNG") -}}
+	{{- /* Mongolia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ME")
+	| or (eq $ret "MNE") -}}
+	{{- /* Montenegro */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MS")
+	| or (eq $ret "MSR") -}}
+	{{- /* Montserrat */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MA")
+	| or (eq $ret "MAR") -}}
+	{{- /* Morocco */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MZ")
+	| or (eq $ret "MOZ") -}}
+	{{- /* Mozambique */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MM")
+	| or (eq $ret "MMR") -}}
+	{{- /* Myanmar */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NA")
+	| or (eq $ret "NAM") -}}
+	{{- /* Namibia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NR")
+	| or (eq $ret "NRU") -}}
+	{{- /* Nauru */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NP")
+	| or (eq $ret "NPL") -}}
+	{{- /* Nepal */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NL")
+	| or (eq $ret "NLD") -}}
+	{{- /* Netherlands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NC")
+	| or (eq $ret "NCL") -}}
+	{{- /* New Caledonia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NC")
+	| or (eq $ret "NCL") -}}
+	{{- /* New Caledonia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NZ")
+	| or (eq $ret "NZL") -}}
+	{{- /* New Zealand */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NI")
+	| or (eq $ret "NIC") -}}
+	{{- /* Nicaragua */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NE")
+	| or (eq $ret "NER") -}}
+	{{- /* Niger (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NG")
+	| or (eq $ret "NGA") -}}
+	{{- /* Nigeria */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NU")
+	| or (eq $ret "NIU") -}}
+	{{- /* Niue */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NF")
+	| or (eq $ret "NFK") -}}
+	{{- /* Norfolk Island */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MP")
+	| or (eq $ret "MNP") -}}
+	{{- /* Northern Mariana Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "NO")
+	| or (eq $ret "NOR") -}}
+	{{- /* Norway */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "OM")
+	| or (eq $ret "OMN") -}}
+	{{- /* Oman */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PK")
+	| or (eq $ret "PAK") -}}
+	{{- /* Pakistan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PW")
+	| or (eq $ret "PLW") -}}
+	{{- /* Palau */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PS")
+	| or (eq $ret "PSE") -}}
+	{{- /* Palestine, State of */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PA")
+	| or (eq $ret "PAN") -}}
+	{{- /* Panama */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PG")
+	| or (eq $ret "PNG") -}}
+	{{- /* Papua New Guinea */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PY")
+	| or (eq $ret "PRY") -}}
+	{{- /* Paraguay */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PE")
+	| or (eq $ret "PER") -}}
+	{{- /* Peru */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PH")
+	| or (eq $ret "PHL") -}}
+	{{- /* Philippines (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PN")
+	| or (eq $ret "PCN") -}}
+	{{- /* Pitcairn */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PL")
+	| or (eq $ret "POL") -}}
+	{{- /* Poland */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PT")
+	| or (eq $ret "PRT") -}}
+	{{- /* Portugal */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PR")
+	| or (eq $ret "PRI") -}}
+	{{- /* Puerto Rico */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "QA")
+	| or (eq $ret "QAT") -}}
+	{{- /* Qatar */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "RE")
+	| or (eq $ret "REU") -}}
+	{{- /* Réunion */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "RO")
+	| or (eq $ret "ROU") -}}
+	{{- /* Romania */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "RU")
+	| or (eq $ret "RUS") -}}
+	{{- /* Russian Federation (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "RW")
+	| or (eq $ret "RWA") -}}
+	{{- /* Rwanda */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "BL")
+	| or (eq $ret "BLM") -}}
+	{{- /* Saint Barthélemy */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SH")
+	| or (eq $ret "SHN") -}}
+	{{- /* Saint Helena, Ascension Island, and Tristan da Cunha */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "KN")
+	| or (eq $ret "KNA") -}}
+	{{- /* Saint Kitts and Nevis */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LC")
+	| or (eq $ret "LCA") -}}
+	{{- /* Saint Lucia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "MF")
+	| or (eq $ret "MAF") -}}
+	{{- /* Saint Martin (French part) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "PM")
+	| or (eq $ret "SPM") -}}
+	{{- /* Saint Pierre and Miquelon */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "VC")
+	| or (eq $ret "VCT") -}}
+	{{- /* Saint Vincent and the Grenadines */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "WS")
+	| or (eq $ret "WSM") -}}
+	{{- /* Samoa */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SM")
+	| or (eq $ret "SMR") -}}
+	{{- /* San Marino */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ST")
+	| or (eq $ret "STP") -}}
+	{{- /* Sao Tome and Principe */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SA")
+	| or (eq $ret "SAU") -}}
+	{{- /* Saudi Arabia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SN")
+	| or (eq $ret "SEN") -}}
+	{{- /* Senegal */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "RS")
+	| or (eq $ret "SRB") -}}
+	{{- /* Serbia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SC")
+	| or (eq $ret "SYC") -}}
+	{{- /* Seychelles */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SL")
+	| or (eq $ret "SLE") -}}
+	{{- /* Sierra Leone */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SG")
+	| or (eq $ret "SGP") -}}
+	{{- /* Singapore */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SX")
+	| or (eq $ret "SXM") -}}
+	{{- /* Sint Maarten (Dutch part) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SK")
+	| or (eq $ret "SVK") -}}
+	{{- /* Slovakia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SI")
+	| or (eq $ret "SVN") -}}
+	{{- /* Slovenia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SB")
+	| or (eq $ret "SLB") -}}
+	{{- /* Solomon Islands */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SO")
+	| or (eq $ret "SOM") -}}
+	{{- /* Somalia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ZA")
+	| or (eq $ret "ZAF") -}}
+	{{- /* South Africa */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GS")
+	| or (eq $ret "SGS") -}}
+	{{- /* South Georgia and the South Sandwich Islands */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SS")
+	| or (eq $ret "SSD") -}}
+	{{- /* South Sudan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ES")
+	| or (eq $ret "ESP") -}}
+	{{- /* Spain */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "LK")
+	| or (eq $ret "LKA") -}}
+	{{- /* Sri Lanka */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SD")
+	| or (eq $ret "SDN") -}}
+	{{- /* Sudan (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SR")
+	| or (eq $ret "SUR") -}}
+	{{- /* Suriname */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SJ")
+	| or (eq $ret "SJM") -}}
+	{{- /* Svalbard, and Jan Mayen */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SE")
+	| or (eq $ret "SWE") -}}
+	{{- /* Sweden */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "CH")
+	| or (eq $ret "CHE") -}}
+	{{- /* Switzerland */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "SY")
+	| or (eq $ret "SYR") -}}
+	{{- /* Syrian Arab Republic (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TW")
+	| or (eq $ret "TWN") -}}
+	{{- /* Taiwan (Province of China) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TJ")
+	| or (eq $ret "TJK") -}}
+	{{- /* Tajikistan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TZ")
+	| or (eq $ret "TZA") -}}
+	{{- /* Tanzania, the United Republic of */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TH")
+	| or (eq $ret "THA") -}}
+	{{- /* Thailand */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TL")
+	| or (eq $ret "TLS") -}}
+	{{- /* Timor-Leste */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TG")
+	| or (eq $ret "TGO") -}}
+	{{- /* Togo */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TK")
+	| or (eq $ret "TKL") -}}
+	{{- /* Tokelau */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TO")
+	| or (eq $ret "TON") -}}
+	{{- /* Tonga */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TT")
+	| or (eq $ret "TTO") -}}
+	{{- /* Trinidad and Tobago */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TN")
+	| or (eq $ret "TUN") -}}
+	{{- /* Tunisia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TR")
+	| or (eq $ret "TUR") -}}
+	{{- /* Türkiye */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TM")
+	| or (eq $ret "TKM") -}}
+	{{- /* Turkmenistan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TC")
+	| or (eq $ret "TCA") -}}
+	{{- /* Turks and Caicos Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "TV")
+	| or (eq $ret "TUV") -}}
+	{{- /* Tuvalu */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "UG")
+	| or (eq $ret "UGA") -}}
+	{{- /* Uganda */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "UA")
+	| or (eq $ret "UKR") -}}
+	{{- /* Ukraine */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "AE")
+	| or (eq $ret "ARE") -}}
+	{{- /* United Arab Emirates (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "GB")
+	| or (eq $ret "GBR") -}}
+	{{- /* United Kingdom of Great Britain and Northern Ireland (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "UM")
+	| or (eq $ret "UMI") -}}
+	{{- /* United States Minor Outlying Islands (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "US")
+	| or (eq $ret "USA") -}}
+	{{- /* United States of America (the) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "UY")
+	| or (eq $ret "URY") -}}
+	{{- /* Uruguay */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "UZ")
+	| or (eq $ret "UZB") -}}
+	{{- /* Uzbekistan */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "VU")
+	| or (eq $ret "VUT") -}}
+	{{- /* Vanuatu */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "VE")
+	| or (eq $ret "VEN") -}}
+	{{- /* Venezuela (Bolivarian Republic of) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "VN")
+	| or (eq $ret "VNM") -}}
+	{{- /* Viet Nam */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "VG")
+	| or (eq $ret "VGB") -}}
+	{{- /* Virgin Islands (British) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "VI")
+	| or (eq $ret "VIR") -}}
+	{{- /* Virgin Islands (U.S.) */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "WF")
+	| or (eq $ret "WLF") -}}
+	{{- /* Wallis and Futuna */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "EH")
+	| or (eq $ret "ESH") -}}
+	{{- /* Western Sahara */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "YE")
+	| or (eq $ret "YEM") -}}
+	{{- /* Yemen */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ZM")
+	| or (eq $ret "ZMB") -}}
+	{{- /* Zambia */ -}}
+	{{- $dataList = true -}}
+{{- else if (eq $ret "ZW")
+	| or (eq $ret "ZWE") -}}
+	{{- /* Zimbabwe */ -}}
+	{{- $dataList = true -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

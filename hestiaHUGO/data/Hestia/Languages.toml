@@ -6,38 +6,47 @@
 # depends on Hugo's multilingual feature for said flexibility and keeping the
 # Hugo module development and communications consistent.
 #
-# This i18n multiple languages settings were designed to comply with:
-#   1. RFC5646 (https://www.rfc-editor.org/rfc/rfc5646.html)
-#   2. ISO639 (https://www.iso.org/iso-639-language-codes.html)
-#   3. Searchable ISO639 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
-#   4. ISO3166 (https://www.iso.org/iso-3166-country-codes.html)
-#   5. Searchable ISO3166 (https://www.iso.org/obp/ui/#search)
-#   6. ISO15924 (https://www.iso.org/standard/81905.html)
-#   7. Searchable ISO15924 (https://en.wikipedia.org/wiki/ISO_159240)
-#
 #
 #
 #
 # CODE FIELD
+# This i18n multiple languages settings were designed to comply with:
+#   1. ISO639 (https://www.iso.org/iso-639-language-codes.html)
+#   2. Searchable ISO639 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+#   3. ISO15924 (https://www.iso.org/standard/81905.html)
+#   4. Searchable ISO15924 (https://en.wikipedia.org/wiki/ISO_159240)
+#   5. ISO3166 (https://www.iso.org/iso-3166-country-codes.html)
+#   6. Searchable ISO3166 (https://www.iso.org/obp/ui/#search)
 # To comply all the standards above, the .Code field shall be in this pattern:
-#                           [LANG]{-[COUNTRY]}
-# Where [LANG] can be ISO639 or ISO15924 value while [COUNTRY] is ISO3166 value.
-# It is optional to provie COUNTRY field. Should that is done, the final dash
-# separating them can be removed. Example:
-#     English (International)            = 'en'
-#     English (United States)            = 'en-us'
-#     English (China)                    = 'en-cn'
-#     English (Malaysia)                 = 'en-my'
-#     Simplified Chinese (International) = 'zh-hans'
-#     Simplified Chinese (United States) = 'zh-hans-us'
-#     Simplified Chinese (China)         = 'zh-hans-cn'
-#     Simplified Chinese (Malaysia)      = 'zh-hans-my'
+#                        [lang]{-[Script]}{-[COUNTRY]}
+# Where:
+#    1. [lang] is the ISO639 lowercase value;
+#    2. [Script] is the ISO15924 compliant titlecase value;
+#    3. [COUNTRY] is the ISO3166 compliant UPPERCASE value.
+# It is optional to provide [Script] and [COUNTRY] fields. Should any of them
+# be absent, their corresponding dash before them can be removed. Example:
+#     English (International)             = 'en'
+#     English (United States)             = 'en-US'
+#     English (China)                     = 'en-CN'
+#     English (Malaysia)                  = 'en-MY'
+#     Chinese (International)             = 'zh'
+#     Chinese (United States)             = 'zh-US'
+#     Chinese (China)                     = 'zh-CN'
+#     Chinese (Malaysia)                  = 'zh-MY'
+#     Simplified Chinese (International)  = 'zh-Hans'
+#     Simplified Chinese (United States)  = 'zh-Hans-US'
+#     Simplified Chinese (China)          = 'zh-Hans-CN'
+#     Simplified Chinese (Malaysia)       = 'zh-Hans-MY'
+#     Traditional Chinese (International) = 'zh-Hant'
+#     Traditional Chinese (United States) = 'zh-Hant-US'
+#     Traditional Chinese (China)         = 'zh-Hant-CN'
+#     Traditional Chinese (Malaysia)      = 'zh-Hant-MY'
 #
 #
 # ID FIELD
 # The grouping id is mainly for internal use for language identification. It can
-# be anything but it's recommended to stick to .Code field for consistency
-# purposes.
+# be anything but it's recommended to stick to .Code field in all lowercase
+# format for consistency purposes.
 #
 #
 # NAME FIELD
@@ -67,7 +76,7 @@
 #
 # The data structure pattern for a language is as follows:
 #                [ID]
-#                Code        = "[CODE]{-[COUNTRY]}"
+#                Code        = "[code]{-[Script]}{-[COUNTRY]}"
 #                Name        = "[NAME]"
 #                Directory   = "[DIRECTORY]"
 #                Direction   = "[DIRECTION]"
@@ -87,7 +96,7 @@ URL_Offline = "/en/offline"
 
 
 [zh-hans]
-Code = "zh-hans"
+Code = "zh-Hans"
 Name = "简体中文（国际）"
 Directory = "zh-hans"
 Direction = "left-to-right"

@@ -1,0 +1,651 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for checking (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* check given data is ISO15924 */ -}}
+{{- $ret = string . -}}
+{{- $ret = strings.TrimLeft "-_" $ret -}}
+{{- $ret = strings.TrimRight "-_" $ret -}}
+{{- $ret = title $ret -}}
+{{- if not $ret -}}
+	{{- /* Missing Input */ -}}
+{{- else if eq $ret "Adlm" -}}
+	{{- /* Adlam */ -}}
+{{- else if eq $ret "Afak" -}}
+	{{- /* Afaka */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Aghb" -}}
+	{{- /* Caucasian Albanian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Ahom" -}}
+	{{- /* Ahom, Tai Ahom */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Arab" -}}
+	{{- /* Arabic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Aran" -}}
+	{{- /* Arabic (Nastaliq variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Armi" -}}
+	{{- /* Imperial Aramaic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Armn" -}}
+	{{- /* Armenian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Avst" -}}
+	{{- /* Avestan */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Bali" -}}
+	{{- /* Balinese */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Bamu" -}}
+	{{- /* Bamum */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Bass" -}}
+	{{- /* Bassa Vah */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Batk" -}}
+	{{- /* Batak */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Beng" -}}
+	{{- /* Bengali (Bangla) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Bhks" -}}
+	{{- /* Bhaiksuki */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Blis" -}}
+	{{- /* Blissymbols */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Bopo" -}}
+	{{- /* Bopomofo */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Brah" -}}
+	{{- /* Brahmi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Brai" -}}
+	{{- /* Braille */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Bugi" -}}
+	{{- /* Buginese */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Buhd" -}}
+	{{- /* Buhid */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cakm" -}}
+	{{- /* Chakma */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cans" -}}
+	{{- /* Unified Canadian Aboriginal Syllabics */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cari" -}}
+	{{- /* Carian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cham" -}}
+	{{- /* Cham */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cher" -}}
+	{{- /* Cherokee */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Chrs" -}}
+	{{- /* Chorasmian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cirt" -}}
+	{{- /* Cirth */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Copt" -}}
+	{{- /* Coptic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cpmn" -}}
+	{{- /* Cypro-Minoan */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cprt" -}}
+	{{- /* Cypriot syllabary */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cyrl" -}}
+	{{- /* Cyrillic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Cyrs" -}}
+	{{- /* Cyrillic (Old Church Slavonic variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Deva" -}}
+	{{- /* Devanagari (Nagari) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Diak" -}}
+	{{- /* Dives Akuru */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Dogr" -}}
+	{{- /* Dogra */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Dsrt" -}}
+	{{- /* Deseret (Mormon) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Dupl" -}}
+	{{- /* Duployan shorthand, Duployan stenography */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Egyd" -}}
+	{{- /* Egyptian demotic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Egyh" -}}
+	{{- /* Egyptian hieratic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Egyp" -}}
+	{{- /* Egyptian hieroglyphs */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Elba" -}}
+	{{- /* Elbasan */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Elym" -}}
+	{{- /* Elymaic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Ethi" -}}
+	{{- /* Ethiopic (Geʻez) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Geok" -}}
+	{{- /* Khutsuri (Asomtavruli and Nuskhuri) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Geor" -}}
+	{{- /* Georgian (Mkhedruli and Mtavruli) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Glag" -}}
+	{{- /* Glagolitic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Gong" -}}
+	{{- /* Gunjala Gondi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Gonm" -}}
+	{{- /* Masaram Gondi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Goth" -}}
+	{{- /* Gothic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Gran" -}}
+	{{- /* Grantha */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Grek" -}}
+	{{- /* Greek */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Gujr" -}}
+	{{- /* Gujarati */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Guru" -}}
+	{{- /* Gurmukhi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hanb" -}}
+	{{- /* Han with Bopomofo (alias for Han + Bopomofo) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hang" -}}
+	{{- /* Hangul (Hangŭl, Hangeul) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hani" -}}
+	{{- /* Han (Hanzi, Kanji, Hanja) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hano" -}}
+	{{- /* Hanunoo (Hanunóo) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hans" -}}
+	{{- /* Han (Simplified variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hant" -}}
+	{{- /* Han (Traditional variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hatr" -}}
+	{{- /* Hatran */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hebr" -}}
+	{{- /* Hebrew */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hira" -}}
+	{{- /* Hiragana */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hluw" -}}
+	{{- /* Anatolian Hieroglyphs (Luwian Hieroglyphs, Hittite Hieroglyphs) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hmng" -}}
+	{{- /* Pahawh Hmong */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hmnp" -}}
+	{{- /* Nyiakeng Puachue Hmong */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hrkt" -}}
+	{{- /* Japanese syllabaries (alias for Hiragana + Katakana) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Hung" -}}
+	{{- /* Old Hungarian (Hungarian Runic) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Inds" -}}
+	{{- /* Indus (Harappan) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Ital" -}}
+	{{- /* Old Italic (Etruscan, Oscan, etc.) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Jamo" -}}
+	{{- /* Jamo (alias for Jamo subset of Hangul) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Java" -}}
+	{{- /* Javanese */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Jpan" -}}
+	{{- /* Japanese (alias for Han + Hiragana + Katakana) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Jurc" -}}
+	{{- /* Jurchen */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kali" -}}
+	{{- /* Kayah Li */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kana" -}}
+	{{- /* Katakana */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kawi" -}}
+	{{- /* Kawi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kharoshthi" -}}
+	{{- /* Kharoshthi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Khmr" -}}
+	{{- /* Khmer */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Khoj" -}}
+	{{- /* Khojki */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kitl" -}}
+	{{- /* Khitan large script */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kits" -}}
+	{{- /* Khitan small script */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Knda" -}}
+	{{- /* Kannada */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kore" -}}
+	{{- /* Korean (alias for Hangul + Han) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kpel" -}}
+	{{- /* Kpelle */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Kthi" -}}
+	{{- /* Kaithi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Lana" -}}
+	{{- /* Tai Tham (Lanna) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Laoo" -}}
+	{{- /* Lao */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Latf" -}}
+	{{- /* Latin (Fraktur variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Latg" -}}
+	{{- /* Latin (Gaelic variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Latn" -}}
+	{{- /* Latin */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Leke" -}}
+	{{- /* Leke */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Lepc" -}}
+	{{- /* Lepcha (Róng) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Limb" -}}
+	{{- /* Limbu */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Lina" -}}
+	{{- /* Linear A */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Linb" -}}
+	{{- /* Linear B */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Lisu" -}}
+	{{- /* Lisu (Fraser) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Loma" -}}
+	{{- /* Loma */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Lyci" -}}
+	{{- /* Lycian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Lydi" -}}
+	{{- /* Lydian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mahj" -}}
+	{{- /* Mahajani */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Maka" -}}
+	{{- /* Makasar */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mand" -}}
+	{{- /* Mandaic, Mandaean */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mani" -}}
+	{{- /* Manichaean */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Marc" -}}
+	{{- /* Marchen */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Maya" -}}
+	{{- /* Mayan hieroglyphs */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Medf" -}}
+	{{- /* Medefaidrin (Oberi Okaime, Oberi Ɔkaimɛ) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Merc" -}}
+	{{- /* Meroitic Cursive */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mero" -}}
+	{{- /* Meroitic Hieroglyphs */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mlym" -}}
+	{{- /* Malayalam */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Modi" -}}
+	{{- /* Modi, Moḍī */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mong" -}}
+	{{- /* Mongolian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Moon" -}}
+	{{- /* Moon (Moon code, Moon script, Moon type) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mroo" -}}
+	{{- /* Mro, Mru */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mtei" -}}
+	{{- /* Meitei Mayek (Meithei, Meetei) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mult" -}}
+	{{- /* Multani */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Mymr" -}}
+	{{- /* Myanmar (Burmese) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Nagm" -}}
+	{{- /* Nag Mundari */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Nand" -}}
+	{{- /* Nandinagari */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Narb" -}}
+	{{- /* Old North Arabian (Ancient North Arabian) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Nbat" -}}
+	{{- /* Nabataean */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Newa" -}}
+	{{- /* Newa, Newar, Newari, Nepāla lipi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Nkdb" -}}
+	{{- /* Naxi Dongba (na²¹ɕi³³ to³³ba²¹, Nakhi Tomba) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Nkgb" -}}
+	{{- /* Nakhi Geba (na²¹ɕi³³ gʌ²¹ba²¹, 'Na-'Khi ²Ggŏ-¹baw, Nakhi Geba) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Nkoo" -}}
+	{{- /* N’Ko */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Nshu" -}}
+	{{- /* Nüshu */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Ogam" -}}
+	{{- /* Ogham */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Olck" -}}
+	{{- /* Ol Chiki (Ol Cemet’, Ol, Santali) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Orkh" -}}
+	{{- /* Old Turkic, Orkhon Runic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Orya" -}}
+	{{- /* Oriya (Odia) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Osge" -}}
+	{{- /* Osage */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Osma" -}}
+	{{- /* Osmanya */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Ougr" -}}
+	{{- /* Old Uyghur */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Palm" -}}
+	{{- /* Palmyrene */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Pauc" -}}
+	{{- /* Pau Cin Hau */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Pcun" -}}
+	{{- /* Proto-Cuneiform */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Pelm" -}}
+	{{- /* Proto-Elamite */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Perm" -}}
+	{{- /* Old Permic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Phag" -}}
+	{{- /* Phags-pa */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Phli" -}}
+	{{- /* Inscriptional Pahlavi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Phlp" -}}
+	{{- /* Psalter Pahlavi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Phlv" -}}
+	{{- /* Book Pahlavi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Phnx" -}}
+	{{- /* Phoenician */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Piqd" -}}
+	{{- /* Klingon (KLI pIqaD) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Plrd" -}}
+	{{- /* Miao (Pollard) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Prti" -}}
+	{{- /* Inscriptional Parthian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Psin" -}}
+	{{- /* Proto-Sinaitic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Ranj" -}}
+	{{- /* Ranjana */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Rjng" -}}
+	{{- /* Rejang (Redjang, Kaganga) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Rohg" -}}
+	{{- /* Hanifi Rohingya */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Roro" -}}
+	{{- /* Rongorongo */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Runr" -}}
+	{{- /* Runic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Samr" -}}
+	{{- /* Samaritan */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sara" -}}
+	{{- /* Sarati */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sarb" -}}
+	{{- /* Old South Arabian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Saur" -}}
+	{{- /* Saurashtra */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sgnw" -}}
+	{{- /* SignWriting */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Shaw" -}}
+	{{- /* Shavian (Shaw) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Shrd" -}}
+	{{- /* Sharada, Śāradā */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Shui" -}}
+	{{- /* Shuishu */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sidd" -}}
+	{{- /* Siddham, Siddhaṃ, Siddhamātṛkā */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sind" -}}
+	{{- /* Khudawadi, Sindhi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sinh" -}}
+	{{- /* Sinhala */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sogd" -}}
+	{{- /* Sogdian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sogo" -}}
+	{{- /* Old Sogdian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sora" -}}
+	{{- /* Sora Sompeng */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Soyo" -}}
+	{{- /* Soyombo */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sund" -}}
+	{{- /* Sundanese */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sunu" -}}
+	{{- /* Sunuwar */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Sylo" -}}
+	{{- /* Syloti Nagri */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Syrc" -}}
+	{{- /* Syriac */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Syre" -}}
+	{{- /* Syriac (Estrangelo variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Syrj" -}}
+	{{- /* Syriac (Western variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Syrn" -}}
+	{{- /* Syriac (Eastern variant) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tagb" -}}
+	{{- /* Tagbanwa */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Takr" -}}
+	{{- /* Takri, Ṭākrī, Ṭāṅkrī */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tale" -}}
+	{{- /* Tai Le */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Talu" -}}
+	{{- /* New Tai Lue */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Taml" -}}
+	{{- /* Tamil */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tang" -}}
+	{{- /* Tangut */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tavt" -}}
+	{{- /* Tai Viet */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Telu" -}}
+	{{- /* Telugu */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Teng" -}}
+	{{- /* Tengwar */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tfng" -}}
+	{{- /* Tifinagh (Berber) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tglg" -}}
+	{{- /* Tagalog (Baybayin, Alibata) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Thaa" -}}
+	{{- /* Thaana */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Thai" -}}
+	{{- /* Thai */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tibt" -}}
+	{{- /* Tibetan */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tirh" -}}
+	{{- /* Tirhuta */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Tnsa" -}}
+	{{- /* Tangsa */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Toto" -}}
+	{{- /* Toto */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Ugar" -}}
+	{{- /* Ugaritic */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Vaii" -}}
+	{{- /* Vai */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Visp" -}}
+	{{- /* Visible Speech */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Vith" -}}
+	{{- /* Vithkuqi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Wara" -}}
+	{{- /* Warang Citi (Varang Kshiti) */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Wcho" -}}
+	{{- /* Wancho */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Wole" -}}
+	{{- /* Woleai */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Xpeo" -}}
+	{{- /* Old Persian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Xsux" -}}
+	{{- /* Cuneiform, Sumero-Akkadian */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Yezi" -}}
+	{{- /* Yezidi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Yiii" -}}
+	{{- /* Yi */ -}}
+	{{- $dataList = true -}}
+{{- else if eq $ret "Zanb" -}}
+	{{- /* Zanabazar Square (Zanabazarin Dörböljin Useg, Xewtee Dörböljin Bicig, Horizontal Square Script) */ -}}
+	{{- $dataList = true -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
