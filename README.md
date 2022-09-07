@@ -1,5 +1,5 @@
 # ZORALab's Hestia
-![Banner](artwork/logo/zoralab-hestia-1200x628.svg)
+![Banner](artwork/logo/zoralab-hestia-1200x630.svg)
 
 Hestia focuses on uniting software library under a same family pattern to allow
 its user to have a peaceful development experiences. The goal is to structure
