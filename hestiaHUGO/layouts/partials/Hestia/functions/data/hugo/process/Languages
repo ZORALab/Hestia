@@ -127,17 +127,19 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 	{{- $data = merge $data (dict "Default" $ret.Output) -}}
 
-	{{- if and $data.Default $isDefaultSet -}}
-		{{- $console = printf
-			".Languages.List.%v.Default: multiple default set!\n"
-			(upper $k)
-		-}}
+	{{- if $data.Default -}}
+		{{- if $isDefaultSet -}}
+			{{- $console = printf
+				".Languages.List.%v.Default: multiple default set!\n"
+				(upper $k)
+			-}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
 
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $isDefaultSet = true -}}
 	{{- end -}}
-	{{- $isDefaultSet = true -}}
 
 
 	{{- /* park .URL for URL processor to process later */ -}}
