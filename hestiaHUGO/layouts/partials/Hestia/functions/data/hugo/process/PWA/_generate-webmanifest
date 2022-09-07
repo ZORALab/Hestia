@@ -13,12 +13,12 @@
 
 
 
-{{- /* generate service worker javascript file */ -}}
-{{- $dataList = partial "Hestia/functions/render/js/pwa/worker.js" . -}}
+{{- /* generate web manifest file */ -}}
+{{- $dataList = partial "Hestia/functions/render/json/pwa/manifest" . -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" (string $dataList))) -}}
 {{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
 {{- if $dataList.Console -}}
-	{{- $console = printf "PWA: service worker: %v" $dataList.Console.Message -}}
+	{{- $console = printf "PWA: web manifest: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
@@ -27,11 +27,11 @@
 
 
 {{- if not .IsServerMode -}}
-	{{- $ret = dict "Type" "application/javascript" "Data" $dataList -}}
+	{{- $ret = dict "Type" "application/json" "Data" $dataList -}}
 	{{- $ret = merge $Page (dict "Input" $ret) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Minify" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: service worker: %v" $ret.Console.Message -}}
+		{{- $console = printf "PWA: web manifest: %v" $ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
@@ -40,8 +40,8 @@
 	{{- end -}}
 {{- end -}}
 
-{{- $dataList = resources.FromString "app.js" $dataList -}}
-{{- $dataList = dict "Worker" $dataList.Permalink -}}
+{{- $dataList = resources.FromString "app.webmanifest" $dataList -}}
+{{- $dataList = dict "Manifest" $dataList.Permalink -}}
 
 
 

@@ -5,5 +5,5 @@
 
 
 {{- /* return render */}}
-	<link rel='manifest' href='{{- .Languages.Current.URL -}}app.webmanifest' />
+	<link rel='manifest' href='{{- .PWA.URL.Manifest -}}' />
 {{- /* clean up */ -}}

@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* return render */ -}}
-{{- if .PWA.Worker.URL }}
+{{- if .PWA.URL.Worker }}
 	<script type="module">
 		{{ safeJS (partial "Hestia/functions/render/js/pwa/Init.js" .) }}
 	</script>
