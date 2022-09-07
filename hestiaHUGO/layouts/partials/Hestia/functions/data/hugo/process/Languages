@@ -29,6 +29,7 @@ specific language governing permissions and limitations under the License.
 {{- $list := dict -}}
 {{- $console := false -}}
 {{- $lang := false -}}
+{{- $isDefaultSet := false -}}
 {{- $ret := false -}}
 
 
@@ -50,6 +51,7 @@ specific language governing permissions and limitations under the License.
 		-}}
 
 		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 
 		{{- continue -}}
@@ -69,6 +71,7 @@ specific language governing permissions and limitations under the License.
 		-}}
 
 		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -79,12 +82,13 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Directory)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf ".Languages.List.%v.Name: %s"
+		{{- $console = printf ".Languages.List.%v.Directory: %s"
 			(upper $k)
 			$ret.Console.Message
 		-}}
 
 		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -95,16 +99,45 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Direction)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf ".Languages.List.%v.Name: %s"
+		{{- $console = printf ".Languages.List.%v.Direction: %s"
 			(upper $k)
 			$ret.Console.Message
 		-}}
 
 		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 	{{- $data = merge $data (dict "Direction" $ret) -}}
+
+
+	{{- /* process .Default */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Default)) -}}
+	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Languages.List.%v.Default: %s"
+			(upper $k)
+			$ret.Console.Message
+		-}}
+
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Default" $ret.Output) -}}
+
+	{{- if and $data.Default $isDefaultSet -}}
+		{{- $console = printf
+			".Languages.List.%v.Default: multiple default set!\n"
+			(upper $k)
+		-}}
+
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $isDefaultSet = true -}}
 
 
 	{{- /* park .URL for URL processor to process later */ -}}
@@ -133,6 +166,7 @@ specific language governing permissions and limitations under the License.
 		-}}
 
 		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 
 		{{- continue -}}
@@ -149,6 +183,7 @@ specific language governing permissions and limitations under the License.
 			$lang
 		-}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 
 		{{- continue -}}
@@ -162,14 +197,6 @@ specific language governing permissions and limitations under the License.
 	{{- /* merge into $dataList */ -}}
 	{{- $dataList = merge $dataList (dict "List" (dict $lang $data)) -}}
 {{- end -}}
-
-
-
-
-{{- /* process current page's language */ -}}
-{{- /* TODO: CREATE AN ALGORITHM TO DETECT CURRENT PAGE LANGUAGE */ -}}
-{{- $ret = index $dataList.List "EN" -}}
-{{- $dataList = merge $dataList (dict "Current" $ret) -}}
 
 
 
@@ -192,6 +219,7 @@ specific language governing permissions and limitations under the License.
 			-}}
 
 			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
 			{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- end -}}
 
@@ -209,6 +237,20 @@ specific language governing permissions and limitations under the License.
 	{{- $list = dict "Languages" (dict "List" (dict $k $list)) -}}
 	{{- $dataList = merge $dataList $list -}}
 {{- end -}}
+
+
+
+
+{{- /* process current page's language */ -}}
+{{- $ret = dict -}}
+{{- range $k, $v := $dataList.Languages.List -}}
+	{{- if hasPrefix $dataList.Filesystem.Directory $v.Directory -}}
+		{{- $ret = $v -}}
+	{{- else if and (not $ret) $v.Default -}}
+		{{- $ret = $v -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Languages" (dict "Current" $ret)) -}}
 
 
 

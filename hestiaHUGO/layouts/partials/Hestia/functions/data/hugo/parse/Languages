@@ -55,6 +55,14 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Direction" $ret) -}}
 
 
+	{{- /* parse language default */ -}}
+	{{- $ret = false -}}
+	{{- if $v.Default -}}
+		{{- $ret = true -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Default" $ret) -}}
+
+
 	{{- /* parse language ERROR_404 URL */ -}}
 	{{- $ret = default "" $v.URL.ERROR_404 -}}
 	{{- $data = merge $data (dict "URL" (dict "ERROR_404" $ret)) -}}

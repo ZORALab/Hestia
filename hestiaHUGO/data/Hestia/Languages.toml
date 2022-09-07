@@ -60,6 +60,10 @@
 # 'right-to-left' ONLY depending on the language. Default is 'left-to-right'.
 #
 #
+# DEFAULT FIELD
+# Denotes the default language. ONLY ONE (1) of all can be set to true.
+#
+#
 # URL.ERROR_404 FIELD
 # The Hestia compatible 404 page URL for that specific language.
 #
@@ -83,6 +87,7 @@
 Name = "English (International)"
 Directory = "en"
 Direction = "left-to-right"
+Default = true
 
 [en.URL]
 ERROR_404 = "/en/404"
@@ -95,6 +100,7 @@ ERROR_Offline = "/en/offline"
 Name = "简体中文（国际）"
 Directory = "zh-hans"
 Direction = "left-to-right"
+Default = false
 
 [zh-Hans.URL]
 ERROR_404 = "/zh-hans/404"
