@@ -11,6 +11,13 @@
 
 
 
+{{- /* prepare Hestia .Page.URL */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/URL" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.Formats */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Formats" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -27,13 +34,6 @@
 
 {{- /* prepare Hestia .Page.Filesystem */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Filesystems" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* prepare Hestia .Page.URL */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/URL" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
