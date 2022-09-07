@@ -60,11 +60,11 @@
 # 'right-to-left' ONLY depending on the language. Default is 'left-to-right'.
 #
 #
-# URL_404 FIELD
+# URL.ERROR_404 FIELD
 # The Hestia compatible 404 page URL for that specific language.
 #
 #
-# URL_Offline FIELD
+# URL.ERROR_Offline FIELD
 # The Hestia compatible offline page URL for that specific language.
 #
 #
@@ -73,16 +73,20 @@
 #                Name        = "[NAME]"
 #                Directory   = "[DIRECTORY]"
 #                Direction   = "[DIRECTION]"
-#                URL_404     = "[URL_404]"
-#                URL_Offline = "[URL_Offline]"
+#
+#                [{[code]}{-[Script]}{-[COUNTRY]}.URL]
+#                ERROR_404     = "[URL.ERROR_404]"
+#                ERROR_Offline = "[URL.ERROR_Offline]"
 # By default, Hestia supplies international English and Simplified Chinese. You
 # can add|modify|remove them according to your site content and design.
 [en]
 Name = "English (International)"
 Directory = "en"
 Direction = "left-to-right"
-URL_404 = "/en/404"
-URL_Offline = "/en/offline"
+
+[en.URL]
+ERROR_404 = "/en/404"
+ERROR_Offline = "/en/offline"
 
 
 
@@ -91,5 +95,7 @@ URL_Offline = "/en/offline"
 Name = "简体中文（国际）"
 Directory = "zh-hans"
 Direction = "left-to-right"
-URL_404 = "/zh-hans/404"
-URL_Offline = "/zh-hans/offline"
+
+[zh-Hans.URL]
+ERROR_404 = "/zh-hans/404"
+ERROR_Offline = "/zh-hans/offline"
