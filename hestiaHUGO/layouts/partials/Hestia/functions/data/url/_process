@@ -144,6 +144,8 @@
 	{{- if or (eq $ret ".") (eq $ret "./") -}}
 		{{- $ret = "" -}}
 	{{- end -}}
+	{{- $ret = strings.TrimSuffix "/" $ret -}}
+	{{- $ret = printf "%s/" $ret -}}
 
 
 	{{- $ret = strings.TrimPrefix "/" $ret -}}
