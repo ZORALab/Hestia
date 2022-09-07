@@ -75,40 +75,5 @@
 
 
 
-{{- /* promote into hestia Page data structure level */ -}}
-{{- $dataList = dict "URL" $dataList -}}
-
-
-
-
-{{- /* process URL.Formats */ -}}
-{{- $ret = dict "Current" (dict "URL" $dataList.URL.Current.Absolute) -}}
-{{- $dataList = merge $dataList (dict "Formats" $ret) -}}
-
-
-{{- $list = dict -}}
-{{- range $v := .Page.OutputFormats -}}
-	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
-	{{- $ret = dict (upper $v.Name) $ret -}}
-
-
-	{{- /* merge into .Formats.All */ -}}
-	{{- $list = dict "List" $ret -}}
-	{{- $dataList = merge $dataList (dict "Formats" $list) -}}
-{{- end -}}
-
-
-{{- range $v := .Page.AlternativeOutputFormats -}}
-	{{- $ret = dict "URL" (urls.Parse $v.Permalink) -}}
-	{{- $ret = dict (upper $v.Name) $ret -}}
-
-	{{- /* merge into .Formats.Alternatives */ -}}
-	{{- $list = dict "Alternatives" $ret -}}
-	{{- $dataList = merge $dataList (dict "Formats" $list) -}}
-{{- end -}}
-
-
-
-
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "URL" $dataList -}}

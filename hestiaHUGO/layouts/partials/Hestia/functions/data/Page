@@ -32,6 +32,13 @@
 
 
 
+{{- /* prepare Hestia .Page.URL */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/URL" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.Languages */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Languages" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -48,13 +55,6 @@
 
 {{- /* prepare Hestia .Page.IsServerMode */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/ServerMode" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* prepare Hestia .Page.URL */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/URL" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
