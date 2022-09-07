@@ -18,7 +18,7 @@
 #   5. ISO3166 (https://www.iso.org/iso-3166-country-codes.html)
 #   6. Searchable ISO3166 (https://www.iso.org/obp/ui/#search)
 # To comply all the standards above, the .Code field shall be in this pattern:
-#                        [lang]{-[Script]}{-[COUNTRY]}
+#                        {[lang]}{-[Script]}{-[COUNTRY]}
 # Where:
 #    1. [lang] is the ISO639 lowercase value;
 #    2. [Script] is the ISO15924 compliant titlecase value;
@@ -43,12 +43,6 @@
 #     Traditional Chinese (Malaysia)      = 'zh-Hant-MY'
 #
 #
-# ID FIELD
-# The grouping id is mainly for internal use for language identification. It can
-# be anything but it's recommended to stick to .Code field in all lowercase
-# format for consistency purposes.
-#
-#
 # NAME FIELD
 # The full name of the language in the targeted language. This is used for
 # displaying translation options (e.g. a translator selector box to redirect
@@ -56,7 +50,7 @@
 #
 #
 # DIRECTORY FIELD
-# The directory pathing for the selected language inside Hugo's 'docs/'
+# The relative directory pathing for the selected language inside Hugo's 'docs/'
 # directory. Hestia learns this and setup necessary utilities (e.g. sitemap,
 # 404 language redirect, etc).
 #
@@ -75,17 +69,15 @@
 #
 #
 # The data structure pattern for a language is as follows:
-#                [ID]
-#                Code        = "[code]{-[Script]}{-[COUNTRY]}"
+#                [{[code]}{-[Script]}{-[COUNTRY]}]
 #                Name        = "[NAME]"
 #                Directory   = "[DIRECTORY]"
 #                Direction   = "[DIRECTION]"
 #                URL_404     = "[URL_404]"
 #                URL_Offline = "[URL_Offline]"
 # By default, Hestia supplies international English and Simplified Chinese. You
-# can add/modify/remove them according to your site content and design.
+# can add|modify|remove them according to your site content and design.
 [en]
-Code = "en"
 Name = "English (International)"
 Directory = "en"
 Direction = "left-to-right"
@@ -95,8 +87,7 @@ URL_Offline = "/en/offline"
 
 
 
-[zh-hans]
-Code = "zh-Hans"
+[zh-Hans]
 Name = "简体中文（国际）"
 Directory = "zh-hans"
 Direction = "left-to-right"
