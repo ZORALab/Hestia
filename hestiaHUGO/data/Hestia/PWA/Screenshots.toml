@@ -23,9 +23,9 @@
 #  13. 'microsoft-inbox'  - Microsoft Inbox only.
 #  14. 'microsoft-store'  - Microsoft Store only.
 [Contents.0]
-Name = "ZORALab's Hestia Screenshot"
+Name = "{{- .Titles.Site.Current.Full }} Official"
 Width = '1200'
-Height = '1200'
+Height = '630'
 CORS = ''
 Relationship = 'wide'
 Design = ''
@@ -37,6 +37,6 @@ Mute = false
 Inline = false
 
 [[Contents.0.Sources]]
-URL = '/banner-1200x628.png'
+URL = '/banner-1200x630.png'
 Type = 'image/png'
 Media = 'all'
