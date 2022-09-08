@@ -1,0 +1,20 @@
+# CSS ARTIFACTS INLINE COMPLIATION LIST
+# =====================================
+#
+# All CSS files shall be stored inside Hugo assets/ directory. Recommended place
+# everything under assets/css/ directory for tidiness.
+#
+# Then map the CSS artifacts here in the sequences you wanted. The .Path is the
+# relative pathing inside assets/ directory. Example, for the artifact placed in
+#          assets storage directory:    assets/
+#          artifact location       :    assets/css/my-site.min.css
+#          .Path value             :           css/my-site.min.css
+#
+# The data pattern is as follows:
+#                        [[Contents]]
+#                        Path = '{.Path}'
+#
+# To add more CSS artifacts, simply append more data patterns below. Note that
+# the position of the artifact dictates the sequences of its compilations.
+[[Contents]]
+Path = ''
