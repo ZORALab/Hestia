@@ -1,0 +1,90 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* .  = Hugo data structure  */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".css.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := slice -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source page data */ -}}
+{{- if .Page.File -}}
+	{{- /* get Page directory path */ -}}
+	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $data = path.Clean $data -}}
+
+
+	{{- /* source the data file */ -}}
+	{{- if fileExists $data -}}
+		{{- $data = readFile $data -}}
+		{{- $data = transform.Unmarshal $data -}}
+		{{- if $data -}}
+			{{- $data = $data.Assets -}}
+		{{- else -}}
+			{{- $data = dict "Inline" slice "Include" slice -}}
+		{{- end -}}
+	{{- end -}}
+{{- else -}}
+	{{- $data = dict "Inline" slice "Include" slice -}}
+{{- end -}}
+
+
+
+
+{{- /* parse site level inline CSS */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := .Site.Data.Hestia.CSS.Inline.Contents -}}
+	{{- $list = append $v.Path $list -}}
+{{- end -}}
+
+
+{{- range $i, $v := $data.Inline -}}
+	{{- $list = append $v $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Inline" $list) -}}
+
+
+
+
+{{- /* parse site level include CSS */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := .Site.Data.Hestia.CSS.Include.Contents -}}
+	{{- $list = append $v.URL $list -}}
+{{- end -}}
+
+
+{{- range $i, $v := $data.Include -}}
+	{{- $list = append $v $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Include" $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "CSS" $dataList -}}
