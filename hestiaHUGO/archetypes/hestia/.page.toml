@@ -1,10 +1,25 @@
+# PAGE CONTENT METADATA
+# =====================
+# Date fields.
+#
+# NOTE:
+#   1. You can generate date easily on linux using '$ date' command.
+#   2. If date field is left blank, the current time shall be used instead.
+#   3. Date should ONLY comply to this pattern when manually constructed:
+#                    Thu 21 Jul 2022 04:27:39 PM +08
 [Date]
-Created = "" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
-Published = "" # e.g.: "Thu 21 Jul 2022 04:27:39 PM +08"
+Created   = ""
+Published = ""
 
 
 
 
+# Content fields.
+# NOTE:
+#   1. For .Title, Hestia's string processing using page variables are allowed
+#      and only limited to .Titles sub-fields.
+#   2. For .Keywords, Hestia's string processing using page variables are
+#      allowed but strongly discouraged.
 [Content]
 Title = "My Page Title Here | {{ .Titles.Site -}}"
 Keywords = [
@@ -15,6 +30,12 @@ Keywords = [
 
 
 
+# Description fields.
+# NOTE:
+#   1. Hestia's string processing using page variables are allowed.
+#   2. The .Description.Pitch is at maximum 160 characters.
+#   3. The .Description.Summary is at maximum of 250 characters.
+#   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = """
 Straight up sales pitch!
@@ -26,6 +47,12 @@ Elaborate based on your pitch. Keep it short for SEO.
 
 
 
+# Redirect fields.
+# NOTE:
+#   1. Hestia's URL processing is allowed for .URL field.
+#   2. .Delay timing sets the delay time before redirect. Setting to '0' means
+#      an immediate redirect is requested.
+#   3. Redirect is only available if .Enabled is set to 'true'.
 [Redirect]
 Delay = 0 # second
 URL = ""

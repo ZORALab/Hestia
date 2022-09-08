@@ -18,15 +18,15 @@
 
 
 
-{{- /* prepare Hestia .Page.Formats */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Formats" . -}}
+{{- /* prepare Hestia .Page.Time */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Time" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* prepare Hestia .Page.Datetime */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Datetime" . -}}
+{{- /* prepare Hestia .Page.Formats */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Formats" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
@@ -138,8 +138,8 @@
 
 
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Time" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Datetime" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Languages" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Titles" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions" $dataList -}}
