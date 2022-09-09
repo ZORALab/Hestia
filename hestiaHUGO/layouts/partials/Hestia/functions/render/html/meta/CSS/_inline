@@ -21,23 +21,46 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
 {{- $ret := "" -}}
+{{- $data := "" -}}
+{{- $console := dict -}}
 {{- $name := false -}}
 
 
 
 
 {{- /* render output */ -}}
+{{- $data = "" -}}
 {{- range $i, $v := .CSS.Inline -}}
-	{{- $ret = printf "%s%s" $ret (string (readFile $v)) -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Render: CSS.%v: %s"
+			$i
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "" -}}
+	{{- else -}}
+		{{- $ret = string $ret.Output -}}
+	{{- end -}}
+	{{- $data = printf "%s%s" $data $ret -}}
 {{- end -}}
-{{- $name = printf "deletable-inline-%s.css" (sha256 $ret) -}}
-{{- $ret = resources.FromString $name $ret -}}
+{{- $ret = false -}}
+
+
+{{- $name = printf "deletable-inline-%s.css" (sha256 $data) -}}
+{{- $data = resources.FromString $name $data -}}
 {{- if not .IsServerMode -}}
-	{{- $ret = resources.Minify $ret -}}
+	{{- $data = resources.Minify $data -}}
 {{- end -}}
-{{- if $ret.Content }}
+
+
+{{- if $data.Content }}
 	<style>
-		{{ safeCSS $ret.Content }}
+		{{ safeCSS $data.Content }}
 	</style>
 {{- end -}}
