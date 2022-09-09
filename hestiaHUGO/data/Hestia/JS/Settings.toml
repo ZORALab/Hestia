@@ -19,5 +19,5 @@ IncludeFirst = true
 
 
 
-[Timing]
-Inline = 'defer'
+[Inline]
+Timing = 'defer'

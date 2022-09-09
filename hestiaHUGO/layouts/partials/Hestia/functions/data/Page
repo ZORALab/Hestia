@@ -116,6 +116,13 @@
 
 
 
+{{- /* prepare Hestia .Page.JS */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/JS" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.Robots */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Robots" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -154,6 +161,7 @@
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Creators" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Components" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/CSS" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/JS" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/WASM" $dataList -}}
