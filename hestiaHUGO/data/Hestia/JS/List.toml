@@ -1,0 +1,57 @@
+# JAVASCRIPT ARTIFACTS SITE-LEVEL ASSETS LIST
+# ===========================================
+# You can include or inline JS assets into this specific page only by listing
+# out their .URL or relative file .PATH sources respectively.
+#
+# All .Inline JS artifacts shall only be provided with Hugo's virtual pathing
+# only.
+#
+# As for .Include JS artifacts, Hestia's URL processing is available for
+# dynamic relative pathing constructions. As long as the URL is accessible,
+# storing location is not restricted to any single location.
+#
+# Example, for the artifact placed in:
+#          assets storage directory =    assets/
+#          artifact location        =    assets/js/my-site.min.js
+#          .Inline value            =    assets/js/my-site.min.js
+#          .Include value           =    NOT APPLICABLE
+#
+#          page storage directory   =    en/my-page-here/
+#          artifact location        =    en/my-page-here/my-page.min.js
+#          .Inline value            =    en/my-page-here/my-page.min.js
+#          .Include value           =    /en/my-page-here/my-page.min.js
+#
+#          static storage directory =    static/js/
+#          artifact location        =    static/js/my-page.min.js
+#          .Inline value            =    NOT APPLICABLE
+#          .Include value           =    /js/my-page.min.js
+#
+# The data structure pattern is as follows:
+#                  [[Inline]]
+#                  Path = '{{ .Inline }}'
+#
+#                         OR
+#
+#                  [[Include]]
+#                  URL = '{{ .Include }}'
+#                  Timing = '...'
+#
+# To add more entries into either list, simply append new data structure below.
+# The position of the entries dictates the rendering sequence of its statement.
+#
+# For the .Include List, the .Timing value can be any of the following:
+#     1. 'defer' - download the asset first and execute after DOM (default).
+#     2. 'async' - download the asset in parallel to DOM and execute immediately
+#                  regardless of DOM completion status.
+#     3. 'sync'  - block DOM and synchonously download and execute the asset.
+# When in doubt, stick to 'defer' as you would not want to block the page from
+# DOM rendering completion at all time.
+[[Inline]]
+Path = ''
+
+
+
+
+[[Include]]
+URL = ''
+Timing = 'defer'

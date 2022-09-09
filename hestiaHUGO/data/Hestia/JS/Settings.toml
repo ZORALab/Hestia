@@ -1,0 +1,23 @@
+# JAVSCRIPT RENDERING CONFIGURATIONS
+# ==================================
+# To configure all JS rendering settings at site-level.
+#
+# Position.InlineFirst    - set renderer to render JS .Include List first
+#                           before JS Inline List. Default is true.
+#
+# Timing.Inline           - set the timing for rendering inline Javascript. Only
+#                           accepts the following values:
+#                              1. 'defer' - set it to "type='module'" and
+#                                           execute the asset in sequenced with
+#                                           other JS assets only after DOM
+#                                           completion.
+#                              2. 'sync'  - block DOM rendering and execute the
+#                                           assets immediately and regardlessly.
+[Position]
+IncludeFirst = true
+
+
+
+
+[Timing]
+Inline = 'defer'
