@@ -16,7 +16,20 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- if .WASM.Embed }}
 var source = new Response(
-	Uint8Array.from('{{- safeJS (printf "%X" (readFile .WASM.Embed)) -}}'
+	{{- $ret := merge . (dict "Input" (dict "Path" .WASM.Embed)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console := printf "render: .WASM.Embed: %s"
+			$ret.Console.Message
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge . $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "" -}}
+	{{- else -}}
+		{{- $ret = $ret.Output -}}
+	{{- end }}
+	Uint8Array.from('{{- safeJS (printf "%X" (readFile $ret)) -}}'
 		.match(/.{1,2}/g)
 		.map((byte) => {
 			return parseInt(byte, 16);
@@ -24,6 +37,7 @@ var source = new Response(
 	),
 	{headers: { 'Content-Type': 'application/wasm'}}
 );
+	{{- $ret = false -}}
 {{- else }}
 var source = fetch('{{- safeJS .WASM.URL -}}');
 {{- end }}
