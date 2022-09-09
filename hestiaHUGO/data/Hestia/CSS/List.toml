@@ -1,0 +1,54 @@
+# CSS ARTIFACTS SITE-LEVEL ASSETS LIST
+# =====================================
+# You can include or inline CSS assets into this specific page only by listing
+# out their .URL or relative file .PATH sources respectively.
+#
+# All .Inline CSS artifacts shall only be provided with Hugo's virtual pathing
+# only.
+#
+# As For .Include CSS artifacts, Hestia's URL processing is available for
+# dynamic relative pathing constructions. As long as the URL is accessible,
+# storing location is not restricted to any single location.
+#
+# Example, for the artifact placed in:
+#          assets storage directory =    assets/
+#          artifact location        =    assets/css/my-site.min.css
+#          .Inline value            =    assets/css/my-site.min.css
+#          .Include value           =    NOT APPLICABLE
+#
+#          page storage directory   =    en/my-page-here/
+#          artifact location        =    en/my-page-here/my-page.min.css
+#          .Inline value            =    en/my-page-here/my-page.min.css
+#          .Include value           =    /en/my-page-here/my-page.min.css
+#
+#          static storage directory =    static/css/
+#          artifact location        =    static/css/my-page.min.css
+#          .Inline value            =    NOT APPLICABLE
+#          .Include value           =    /css/my-page.min.css
+#
+# The data structure pattern is as follows:
+#                  [[Inline]]
+#                  Path = '{{ .Inline }}'
+#
+#                         OR
+#
+#                  [[Include]]
+#                  URL = '{{ .Include }}'
+#                  Media = '{{ .Include.Media }}'
+#                  OnLoad = '{{ .Include.OnLoad }}'
+#
+# To add more entries into either list, simply append new data structure below.
+# The position of the entries dictates the rendering sequence of its statement.
+#
+# For .Include list, should .Media or .Onload is used for asynchonous loading,
+# there is no guarentee for the actual CSS loading sequences (see:
+# https://web.dev/critical-rendering-path-render-blocking-css/). When in doubt,
+# leaving them blank will be the wisest choice.
+[[Inline]]
+Path = ''
+
+
+[[Include]]
+URL = ''
+Media = ''
+OnLoad = ''

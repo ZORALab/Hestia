@@ -1,25 +1,13 @@
 # PAGE LEVEL CSS ASSETS
-#
-# You can include or inline CSS assets into this specific page only by listing
-# out their URL or relative PATH sources respectively. The position of the
-# assets denotes their position of its inclusion or inline compilation.
-#
-# All CSS files shall be stored inside Hugo assets/ directory or next to the
-# page file itself (in same directory).
-#
-# Then map the CSS artifacts here in the sequences you wanted. The .Path is the
-# relative pathing inside assets/ directory. Example, for the artifact placed in
-#          assets storage directory:    assets/
-#          artifact location       :    assets/css/my-site.min.css
-#          .Inline value           :    assets/css/my-site.min.css
-#          .Include value          :    NOT APPLICABLE
-#
-#          page storage directory  :    en/my-page-here/
-#          artifact location       :    en/my-page-here/my-page.min.css
-#          .Inline value           :    en/my-page-here/my-page.min.css
-#          .Include value          :    my-page.min.css
-[Assets]
-Include = [
-]
-Inline = [
-]
+# =====================
+# See: .Data.Hestia.CSS.List data file for helpers.
+[[Inline]]
+Path = ''
+
+
+
+
+[[Include]]
+URL = ''
+Media = ''
+OnLoad = ''

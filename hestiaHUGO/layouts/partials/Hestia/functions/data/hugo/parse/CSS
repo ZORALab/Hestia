@@ -43,9 +43,7 @@ specific language governing permissions and limitations under the License.
 	{{- if fileExists $data -}}
 		{{- $data = readFile $data -}}
 		{{- $data = transform.Unmarshal $data -}}
-		{{- if $data -}}
-			{{- $data = $data.Assets -}}
-		{{- else -}}
+		{{- if not $data -}}
 			{{- $data = dict "Inline" slice "Include" slice -}}
 		{{- end -}}
 	{{- end -}}
@@ -58,13 +56,13 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse site level inline CSS */ -}}
 {{- $list = slice -}}
-{{- range $i, $v := .Site.Data.Hestia.CSS.Inline.Contents -}}
+{{- range $i, $v := .Site.Data.Hestia.CSS.List.Inline -}}
 	{{- $list = append $v.Path $list -}}
 {{- end -}}
 
 
 {{- range $i, $v := $data.Inline -}}
-	{{- $list = append $v $list -}}
+	{{- $list = append $v.Path $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Inline" $list) -}}
 
@@ -73,13 +71,25 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse site level include CSS */ -}}
 {{- $list = slice -}}
-{{- range $i, $v := .Site.Data.Hestia.CSS.Include.Contents -}}
-	{{- $list = append $v.URL $list -}}
+{{- range $i, $v := .Site.Data.Hestia.CSS.List.Include -}}
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "URL" (default "" $v.URL)) -}}
+	{{- $ret = merge $ret (dict "Media" (default "" $v.Media)) -}}
+	{{- $ret = merge $ret (dict "OnLoad" (default "" $v.OnLoad)) -}}
+
+
+	{{- $list = append $ret $list -}}
 {{- end -}}
 
 
 {{- range $i, $v := $data.Include -}}
-	{{- $list = append $v $list -}}
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "URL" (default "" (index $v "URL"))) -}}
+	{{- $ret = merge $ret (dict "Media" (default "" (index $v "Media"))) -}}
+	{{- $ret = merge $ret (dict "OnLoad" (default "" (index $v "OnLoad"))) -}}
+
+
+	{{- $list = append $ret $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Include" $list) -}}
 
