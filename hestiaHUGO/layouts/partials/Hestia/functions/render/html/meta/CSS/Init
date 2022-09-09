@@ -21,6 +21,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
+{{- if .CSS.Settings.IncludeFirst -}}
 	{{- partial "Hestia/functions/render/html/meta/CSS/_include" . -}}
 	{{- partial "Hestia/functions/render/html/meta/CSS/_inline" . -}}
+{{- else -}}
+	{{- partial "Hestia/functions/render/html/meta/CSS/_inline" . -}}
+	{{- partial "Hestia/functions/render/html/meta/CSS/_include" . -}}
+{{- end -}}
 {{- /* clean up */ -}}

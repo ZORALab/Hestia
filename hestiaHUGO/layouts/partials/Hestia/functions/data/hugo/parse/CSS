@@ -96,5 +96,16 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* parse .IncludeFirst flag */ -}}
+{{- $ret = true -}}
+{{- if not .Site.Data.Hestia.CSS.Settings.Position.IncludeFirst -}}
+	{{- $ret = false -}}
+{{- end -}}
+{{- $ret = dict "IncludeFirst" $ret -}}
+{{- $dataList = merge $dataList (dict "Settings" $ret) -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "CSS" $dataList -}}

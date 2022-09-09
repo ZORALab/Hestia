@@ -1,0 +1,8 @@
+# CSS RENDERING CONFIGURATIONS
+# ============================
+# To configure all CSS rendering settings at site-level.
+#
+# Position.InlineFirst    - set renderer to render CSS .Include List first
+#                           before CSS Inline List. Default is true.
+[Position]
+IncludeFirst = true

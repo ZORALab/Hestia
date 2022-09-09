@@ -33,7 +33,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process all .CSS.Include */ -}}
+{{- /* process all .Include */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .CSS.Include -}}
 	{{- $data = dict -}}
@@ -90,7 +90,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process all .CSS.Inline */ -}}
+{{- /* process all .Inline */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .CSS.Inline -}}
 	{{- if not $v -}}
@@ -133,6 +133,17 @@ specific language governing permissions and limitations under the License.
 	{{- $list = append $ret $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Inline" $list) -}}
+
+
+
+
+{{- /* process .Settings.IncludeFirst */ -}}
+{{- $ret = true -}}
+{{- if not .CSS.Settings.IncludeFirst -}}
+	{{- $ret = false -}}
+{{- end -}}
+{{- $ret = dict "IncludeFirst" $ret -}}
+{{- $dataList = merge $dataList (dict "Settings" $ret) -}}
 
 
 
