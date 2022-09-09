@@ -46,6 +46,8 @@ specific language governing permissions and limitations under the License.
 		{{- if not $data -}}
 			{{- $data = dict "Inline" slice "Include" slice -}}
 		{{- end -}}
+	{{- else -}}
+		{{- $data = dict "Inline" slice "Include" slice -}}
 	{{- end -}}
 {{- else -}}
 	{{- $data = dict "Inline" slice "Include" slice -}}
