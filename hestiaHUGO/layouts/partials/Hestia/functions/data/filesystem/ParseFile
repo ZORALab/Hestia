@@ -1,12 +1,28 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .Input.Path = relative filepath to parse from */ -}}
-{{- /* .Input.Decode = decision to decode the parsed data */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
 {{- $ret := false -}}
@@ -14,33 +30,51 @@
 
 
 
-{{- /* clean up .Input.Path from OS-specific matter */ -}}
-{{- $ret = path.Clean .Input.Path -}}
-{{- $dataList = merge $dataList (dict "Path" $ret) -}}
+{{- /* safe querying .Input.Path */ -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Path")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $console = printf "FS: missing/bad .Input.Path\n" -}}
+	{{- $console = dict "Message" $console -}}
+	{{- $dataList = "" -}}
+{{- end -}}
+{{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList -}}
+
+
+
+
+{{- /* sanitize .Input.Path */ -}}
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- if not $console -}}
+			{{- $console = printf "FS: %v\n"
+				$dataList.Console.Message
+			-}}
+			{{- $console = dict "Message" $console -}}
+			{{- $dataList = "" -}}
+		{{- end -}}
+	{{- else -}}
+		{{- $dataList = $dataList.Output -}}
+	{{- end -}}
+{{- end -}}
 
 
 
 
 {{- /* read file */ -}}
-{{- if partial "Hestia/functions/data/filesystem/IsFileExists" $ret -}}
-	{{- $ret = readFile $ret -}}
+{{- if not $dataList -}}
+	{{- $dataList = false -}}
+{{- else if partial "Hestia/functions/data/filesystem/IsFileExists" $dataList -}}
+	{{- $dataList = readFile $dataList -}}
 {{- else -}}
-	{{- $console = printf "filesystem: missing file: %v\n" $ret -}}
-	{{- $console = dict "Message" $console -}}
-	{{- $ret = "" -}}
+	{{- if not $console -}}
+		{{- $console = printf "FS: missing file '%v'\n" $dataList -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+	{{- $dataList = false -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Content" $ret) -}}
-
-
-
-
-{{- /* decode data file when requested */ -}}
-{{- if and $dataList.Content .Input.Decode -}}
-	{{- $ret = transform.Unmarshal $dataList.Content -}}
-{{- else -}}
-	{{- $ret = dict -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "Data" $ret) -}}
 
 
 
