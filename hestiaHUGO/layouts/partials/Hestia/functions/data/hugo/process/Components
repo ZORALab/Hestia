@@ -21,9 +21,103 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := merge . (dict "Components" false) -}}
+{{- $Page = merge $Page (dict "Components" dict) -}}
+{{- $Page = partial "Hestia/functions/data/Clean" $Page -}}
 {{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $data := false -}}
+{{- $component := false -}}
+{{- $key := false -}}
 {{- $ret := false -}}
+
+
+
+
+{{- /* process all the components list */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := .Components -}}
+	{{- /* skip if the final inclusion decision is false */ -}}
+	{{- if not (index $v "Include") -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+
+
+	{{- /* process component name and available */ -}}
+	{{- $component = lower $k -}}
+	{{- $ret = printf "Hestia/functions/render/components/%s" $component -}}
+
+
+	{{- if not (
+		(fileExists (printf "layouts/partials/%s.css" $ret))
+		| and (fileExists (printf "layouts/partials/%s.html" $ret))
+		| and (fileExists (printf "layouts/partials/%s.js" $ret))
+		| and (fileExists (printf "layouts/partials/%s-variables.toml" $ret))
+	) -}}
+		{{- $console = printf "Components.%v: unknown component '%v'\n"
+			$k
+			$data
+		-}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = dict "Path" $ret -}}
+	{{- $dataList = merge $dataList (dict $component $ret) -}}
+
+
+
+
+	{{- /* process variables */ -}}
+	{{- $data = dict -}}
+
+
+	{{- range $j, $w := $v.Variables -}}
+		{{- $key = merge $Page (dict "Input" (dict "Data" $j)) -}}
+		{{- $key = partial "Hestia/functions/data/string/Init" $key -}}
+		{{- if $key.Console -}}
+			{{- $console = printf "Components.%v: %v\n"
+				$k
+				$key.Console.Message
+			-}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $key = $key.Output -}}
+
+
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf "Components.%v: %v\n"
+				$k
+				$ret.Console.Message
+			-}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+			{{- $console = merge $Page $console -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $ret = $ret.Output -}}
+
+
+		{{- $data = merge $data (dict $key $ret) -}}
+	{{- end -}}
+
+
+	{{- $data = dict "Variables" $data -}}
+
+
+
+
+	{{- /* merge component into output list */ -}}
+	{{- $dataList = merge $dataList (dict $component $data) -}}
+{{- end -}}
 
 
 
