@@ -83,6 +83,11 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- if $data.Content }}
-	{{ safeCSS $data.Content }}
+{{- if $data.Content -}}
+	{{- $data = safeCSS $data.Content -}}
+{{- else -}}
+	{{- $data = safeCSS "" -}}
 {{- end -}}
+
+
+{{- return $data -}}
