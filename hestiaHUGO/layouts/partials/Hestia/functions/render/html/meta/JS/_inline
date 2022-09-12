@@ -22,10 +22,17 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare variables for this function */ -}}
 {{- $Page := . -}}
+{{- $console := dict -}}
 {{- $ret := "" -}}
 {{- $data := "" -}}
-{{- $console := dict -}}
+{{- $hestia := "" -}}
 {{- $name := false -}}
+
+
+
+
+{{- /* render Hestia components */ -}}
+{{- $hestia = partial "Hestia/functions/render/html/meta/JS/__components" . -}}
 
 
 
@@ -65,6 +72,7 @@ specific language governing permissions and limitations under the License.
 	{{- else }}
 	<script>
 	{{- end }}
+		{{ $hestia }}
 		{{ safeJS $data.Content }}
 	</script>
 {{- end -}}
