@@ -1,0 +1,88 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure  */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $console := dict -}}
+{{- $variables := dict -}}
+{{- $css := dict -}}
+{{- $data := "" -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process components */ -}}
+{{- $variables = dict -}}
+{{- $css = dict -}}
+{{- range $k, $v := .Components -}}
+	{{- /* process variables */ -}}
+	{{- $ret = printf "%s-variables.toml" $v.Path -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseDataFile" $ret -}}
+	{{- $ret = merge $v.Variables $ret.Output -}}
+	{{- $variables = merge $variables (dict $k $ret) -}}
+
+
+	{{- /* process CSS */ -}}
+	{{- $ret = partial (printf "%s.css" $v.Path) -}}
+	{{- $ret = string $ret -}}
+	{{- $css = merge $css (dict $k $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render finalized CSS file */ -}}
+{{- $data = "" -}}
+{{- range $k, $v := $variables -}}
+	{{- range $j, $w := $v -}}
+		{{- if $data -}}
+			{{- $data = printf "%s " $data -}}
+		{{- end -}}
+
+
+		{{- $data = printf "%s%s: %s;" $data $j $w -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- range $k, $v := $css -}}
+	{{- if $data -}}
+		{{- $data = printf "%s\n" $data -}}
+	{{- end -}}
+
+
+	{{- $data = printf "%s%s" $data $v -}}
+{{- end -}}
+
+
+{{- $ret = printf "deletable-hestia-components-%s.css" (sha256 $data) -}}
+{{- $data = resources.FromString $ret $data -}}
+{{- if not .IsServerMode -}}
+	{{- $data = resources.Minify $data -}}
+{{- end -}}
+
+
+{{- if $data.Content }}
+	{{ safeCSS $data.Content }}
+{{- end -}}
