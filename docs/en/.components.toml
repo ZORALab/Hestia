@@ -1,0 +1,30 @@
+# HESTIA WEB UI COMPONENTS LIST
+# =============================
+# All Hestia internal web UI components site-level configurations. These
+# configurations can be overwritten by page-level ones when made available.
+# The components are auto-generated from hestiaGO code libraries and are meant
+# for those who use hestiaHUGO without WASM.
+#
+# If you're using WASM from Hestia code libraries and directly control the page
+# UI (either single-page rendering or reactive rendering), you **SHOULD NOT**
+# include anything below as they're redundant copies.
+#
+# You should only include UI components that you use ONLY, not all of them.
+#
+# To configure:
+#     [COMPONENT].Enabled   = to include the component.
+#     [COMPONENT].Variables = overwrites the component's variables.
+#
+# The data structure is as follows:
+#               [{COMPONENT}]
+#               Include = false
+#
+#               [{COMPONENTS}.Variables]
+#               "{{ CSS Variable Name }}" = "{{ CSS Value }}"
+#
+#         Example:
+#               [anchor]
+#               Include = false
+#
+#               [anchor.Variables]
+#               "--url-color" = "red"
