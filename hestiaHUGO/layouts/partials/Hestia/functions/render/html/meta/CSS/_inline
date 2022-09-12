@@ -24,15 +24,8 @@ specific language governing permissions and limitations under the License.
 {{- $Page := . -}}
 {{- $ret := "" -}}
 {{- $data := "" -}}
-{{- $hestia := "" -}}
 {{- $console := dict -}}
 {{- $name := false -}}
-
-
-
-
-{{- /* render Hestia components */ -}}
-{{- $hestia = partial "Hestia/functions/render/html/meta/CSS/__components" . -}}
 
 
 
@@ -68,7 +61,7 @@ specific language governing permissions and limitations under the License.
 
 {{- if $data.Content }}
 	<style>
-		{{ $hestia }}
+		{{ partial "Hestia/functions/render/html/meta/CSS/__components" . }}
 		{{ safeCSS $data.Content }}
 	</style>
 {{- end -}}
