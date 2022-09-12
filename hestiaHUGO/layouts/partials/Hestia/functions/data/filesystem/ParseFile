@@ -65,7 +65,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* read file */ -}}
 {{- if not $dataList -}}
-	{{- $dataList = false -}}
+	{{- $dataList = "" -}}
 {{- else if partial "Hestia/functions/data/filesystem/IsFileExists" $dataList -}}
 	{{- $dataList = readFile $dataList -}}
 {{- else -}}
@@ -73,7 +73,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "FS: missing file '%v'\n" $dataList -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
-	{{- $dataList = false -}}
+	{{- $dataList = "" -}}
 {{- end -}}
 
 
