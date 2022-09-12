@@ -151,6 +151,13 @@
 
 
 
+{{- /* prepare Hestia .Page.LD+JSON (MUST always be LAST) */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/LDJSON" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Time" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
@@ -168,6 +175,7 @@
 {{- $dataList = partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/XMLBrowserConfig" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/LDJSON" $dataList -}}
 
 
 
