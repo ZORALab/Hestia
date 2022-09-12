@@ -28,8 +28,3 @@
 #
 #               [anchor.Variables]
 #               "--url-color" = "red"
-[anchor]
-Include = false
-
-[anchor.Variables]
-"--url-color" = "red"
