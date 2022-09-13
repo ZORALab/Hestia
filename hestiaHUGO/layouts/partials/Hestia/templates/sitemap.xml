@@ -1,49 +1,90 @@
-{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- safeHTML (printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>") }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 	xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {{- range $page := .Data.Pages -}}
 	{{- $proceed := true -}}
+	{{- $hestia := partial "Hestia/functions/data/Page" $page -}}
 
-	{{- /* discard all pages that is layout against redirect pages */ -}}
+
+
+
+	{{- /* discard if page is redirected */ -}}
 	{{- $ret := $page.Param "layout" -}}
-	{{- if eq $ret "redirect" -}}
+	{{- if $hestia.Redirect.Enabled -}}
 		{{- $proceed = false -}}
 	{{- end -}}
 
-	{{- if $proceed -}}
-	<url>
-		<loc>{{- $page.Permalink -}}</loc>
 
-		{{- if not $page.Lastmod.IsZero }}
-		<lastmod>
-			{{- $page.Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML -}}
-		</lastmod>
-		{{- end }}
+
+
+	{{- /* discard if it is 404 or offline pages */ -}}
+	{{- range $i, $v := $hestia.Languages.List -}}
+		{{- if eq (string .URL.Current.Absolute) (string $v.URL.ERROR_404) -}}
+			{{- $proceed = false -}}
+		{{- end -}}
+
+
+		{{- if eq (string .URL.Current.Absolute) (string $v.URL.ERROR_OFFLINE) -}}
+			{{- $proceed = false -}}
+		{{- end -}}
+	{{- end -}}
+
+
+
+
+	{{- /* skip if can't proceed */ -}}
+	{{- if not $proceed -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+
+
+	{{- /* render output */}}
+	<url>
+		<loc>{{- safeHTML $hestia.URL.Current.Absolute -}}</loc>
+		<lastmod>{{- safeHTML $hestia.Time.Updated.RFC3339 -}}</lastmod>
+
 
 		{{- with $page.Sitemap.ChangeFreq }}
 		<changefreq>{{- . -}}</changefreq>
-		{{- end }}
+		{{- end -}}
+
 
 		{{- if ge $page.Sitemap.Priority 0.0 }}
 		<priority>{{- $page.Sitemap.Priority -}}</priority>
-		{{- end }}
+		{{- end -}}
 
-		{{- if $page.IsTranslated }}
-			{{- range $twin := $page.Translations }}
-			<xhtml:link
-				rel="alternate"
-				hreflang="{{ $twin.Lang }}"
-				href="{{ $twin.Permalink }}"
-			/>
+
+		{{- range $i, $v := $hestia.Languages.List -}}
+			{{- if eq $v.Code $hestia.Languages.Current.Code -}}
+				{{- continue -}}
+			{{- end -}}
+
+
+			{{- if eq (string $v.URL.PAGE) "" -}}
+				{{- continue -}}
 			{{- end }}
-
-			<xhtml:link
-			rel="alternate"
-			hreflang="{{ $page.Lang }}"
-			href="{{ $page.Permalink }}"
-			/>
+		<xhtml:link rel="alternate"
+			hreflang="{{- safeHTML $v.Code -}}"
+			href="{{- safeHTML $v.URL.PAGE -}}" />
 		{{- end }}
 	</url>
-	{{- end }}
 {{- end }}
 </urlset>
