@@ -1,37 +1,52 @@
-{{- $Page := partial "Hestia/functions/data/Page" . -}}
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
 
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* . = Hestia data structure */ -}}
 <!DOCTYPE html>
-<html lang="{{- $Page.Languages.Current.Code -}}">
+<html lang="{{- .Languages.Current.Code -}}">
 <head>
 	<meta charset="UTF-8" />
-	{{- partial "Hestia/functions/render/html/meta/Title" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Favicons" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Robots" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Redirect" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/Title" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/Site-Name" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Keywords" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Formats" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Alternate-Languages" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/Locale" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/Locale-Alternate" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Description" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/Description" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/Thumbnails" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/open-graph/URL" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/XMLBrowserConfig" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Locales" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/LDJSON" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/CSS/Init" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/Manifest" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/ServiceWorker" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/JS/Init" $Page -}}
-	{{- partial "Hestia/functions/render/html/meta/WASM" $Page -}}
+	{{- partial "Hestia/functions/render/html/meta/Title" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Favicons" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Robots" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Redirect" . -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Title" . -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Site-Name" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Keywords" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Formats" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Alternate-Languages" . -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Locale" . -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Locale-Alternate" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Description" . -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Description" . -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/Thumbnails" . -}}
+	{{- partial "Hestia/functions/render/html/meta/open-graph/URL" . -}}
+	{{- partial "Hestia/functions/render/html/meta/XMLBrowserConfig" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Locales" . -}}
+	{{- partial "Hestia/functions/render/html/meta/LDJSON" . -}}
+	{{- partial "Hestia/functions/render/html/meta/CSS/Init" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Manifest" . -}}
+	{{- partial "Hestia/functions/render/html/meta/ServiceWorker" . -}}
+	{{- partial "Hestia/functions/render/html/meta/JS/Init" . -}}
+	{{- partial "Hestia/functions/render/html/meta/WASM" . -}}
 	{{- /* Prevent new line clean up */}}
 </head>
 <body>
-	{{- partial "Hestia/functions/render/html/Content" $Page -}}
-	{{- partial "Hestia/functions/render/html/debug/Init" $Page -}}
+	{{- partial "Hestia/functions/render/html/Content" . -}}
+	{{- partial "Hestia/functions/render/html/debug/Init" . -}}
 	{{- /* Prevent new line clean up */}}
 </body>
 </html>
