@@ -60,6 +60,13 @@
 
 
 
+{{- /* prepare Hestia .Page.Is404 */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Is404" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.Thumbnails */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Thumbnails" . -}}
 {{- $dataList = merge $dataList $ret -}}
