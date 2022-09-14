@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+                 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := ".page.toml" -}}
@@ -25,8 +25,8 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Local := dict -}}
 {{- $dataList := dict -}}
-{{- $data := false -}}
 {{- $ret := false -}}
 
 
@@ -40,50 +40,46 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Updated */ -}}
-{{- $ret = .Page.Lastmod -}}
-{{- if $ret -}}
-	{{- $ret = $ret.Format $TIME_FORMAT -}}
-{{- else -}}
-	{{- $ret = $dataList.Current -}}
+{{- $ret = $dataList.Current -}}
+{{- if .Page.Lastmod -}}
+	{{- $ret = .Page.Lastmod.Format $TIME_FORMAT -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Updated" $ret) -}}
 
 
 
 
-{{- /* source from page data file */ -}}
+{{- /* parse local config file */ -}}
 {{- if .Page.File -}}
-	{{- /* get Page directory path */ -}}
-	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $data = path.Clean $data -}}
+	{{- $Local = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $Local = path.Clean $Local -}}
+	{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
+{{- end -}}
 
 
-	{{- /* source the data file */ -}}
-	{{- if fileExists $data -}}
-		{{- $data = readFile $data -}}
-		{{- $data = transform.Unmarshal $data -}}
-		{{- if $data.Date -}}
-			{{- $data = $data.Date -}}
-		{{- else -}}
-			{{- $data = dict "Created" "" "Published" "" -}}
-		{{- end -}}
+
+
+{{- /* source local time data */ -}}
+{{- if $Local -}}
+	{{- if (index $Local "Date") -}}
+		{{- $Local = $Local.Date -}}
 	{{- end -}}
 {{- else -}}
-	{{- $data = dict "Created" "" "Published" "" -}}
+	{{- $Local = dict "Created" "" "Published" "" -}}
 {{- end -}}
 
 
 
 
 {{- /* process .Created */ -}}
-{{- $ret = default $dataList.Current $data.Created -}}
+{{- $ret = default $dataList.Current $Local.Created -}}
 {{- $dataList = merge $dataList (dict "Created" $ret) -}}
 
 
 
 
 {{- /* process .Published */ -}}
-{{- $ret = default $dataList.Current $data.Published -}}
+{{- $ret = default $dataList.Current $Local.Published -}}
 {{- $dataList = merge $dataList (dict "Published" $ret) -}}
 
 
