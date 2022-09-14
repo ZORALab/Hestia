@@ -1,5 +1,21 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 
 
@@ -7,8 +23,7 @@
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := slice -}}
 {{- $data := dict -}}
-{{- $value := slice -}}
-{{- $maps := dict -}}
+{{- $sitemaps := dict -}}
 {{- $ret := false -}}
 
 
@@ -26,24 +41,24 @@
 	{{- /* process rules and orders */ -}}
 	{{- range $order, $rule := $rules -}}
 		{{- if eq (lower $order) "sitemap" -}}
-			{{- $value = slice -}}
+			{{- $ret = slice -}}
 			{{- range $i, $v := $rule -}}
-				{{- $maps = merge $maps (dict $v true) -}}
+				{{- $sitemaps = merge $sitemaps (dict $v true) -}}
 			{{- end -}}
 		{{- else if eq (lower $order) "allow" -}}
-			{{- $value = slice -}}
+			{{- $ret = slice -}}
 			{{- range $i, $v := $rule -}}
-				{{- $value = append $v $value -}}
+				{{- $ret = append $v $ret -}}
 			{{- end -}}
 
-			{{- $data = merge $data (dict "Allow" $value) -}}
+			{{- $data = merge $data (dict "Allow" $ret) -}}
 		{{- else if eq (lower $order) "disallow" -}}
-			{{- $value = slice -}}
+			{{- $ret = slice -}}
 			{{- range $i, $v := $rule -}}
-				{{- $value = append $v $value -}}
+				{{- $ret = append $v $ret -}}
 			{{- end -}}
 
-			{{- $data = merge $data (dict "Disallow" $value) -}}
+			{{- $data = merge $data (dict "Disallow" $ret) -}}
 		{{- else if eq (lower $order) "crawl-delay" -}}
 			{{- $data = merge $data (dict "Crawl-delay" $rule) -}}
 		{{- end -}}
@@ -59,7 +74,7 @@
 
 {{- /* process sitemaps */ -}}
 {{- $data = slice -}}
-{{- range $k, $v := $maps -}}
+{{- range $k, $v := $sitemaps -}}
 	{{- $data = append $k $data -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Sitemaps" $data) -}}
