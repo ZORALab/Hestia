@@ -54,7 +54,7 @@
 
 
 {{- /* prepare Hestia .Page.IsServerMode */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/ServerMode" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/IsServerMode" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
