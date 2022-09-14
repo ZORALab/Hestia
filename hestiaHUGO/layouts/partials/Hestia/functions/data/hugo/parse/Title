@@ -1,5 +1,21 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := ".page.toml" -}}
@@ -8,28 +24,30 @@
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Local := dict -}}
 {{- $dataList := dict -}}
-{{- $data := false -}}
 {{- $list := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* process Title.Page */ -}}
-{{- $ret = "" -}}
+{{- /* parse local config file */ -}}
 {{- if .Page.File -}}
-	{{- /* get Page directory path */ -}}
-	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $data = path.Clean $data -}}
+	{{- $Local = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $Local = path.Clean $Local -}}
+	{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
+{{- end -}}
 
 
-	{{- /* source the data file */ -}}
-	{{- if fileExists $data -}}
-		{{- $data = readFile $data -}}
-		{{- $data = transform.Unmarshal $data -}}
-		{{- if $data.Content -}}
-			{{- $ret = $data.Content.Title -}}
+
+
+{{- /* parse local page title */ -}}
+{{- $ret = "" -}}
+{{- if $Local -}}
+	{{- if index $Local "Content" -}}
+		{{- if index $Local.Content "Title" -}}
+			{{- $ret = $Local.Content.Title -}}
 		{{- end -}}
 	{{- end -}}
 {{- end -}}
@@ -45,7 +63,7 @@
 
 
 
-{{- /* process Title.Site */ -}}
+{{- /* parse site title */ -}}
 {{- $list = dict -}}
 {{- range $k, $v := .Site.Data.Hestia.Metadata -}}
 	{{- $ret = dict -}}
@@ -65,11 +83,12 @@
 
 	{{- $list = merge $list (dict (string $k) $ret) -}}
 {{- end -}}
+
+
 {{- $dataList = merge $dataList (dict "Site" $list) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- $dataList = dict "Titles" $dataList -}}
-{{- return $dataList -}}
+{{- return dict "Titles" $dataList -}}
