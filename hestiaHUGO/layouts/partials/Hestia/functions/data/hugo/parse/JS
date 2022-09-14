@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+                 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := ".js.toml" -}}
@@ -32,31 +32,25 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* source page data */ -}}
+{{- /* parse local config file */ -}}
 {{- if .Page.File -}}
-	{{- /* get Page directory path */ -}}
 	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
 	{{- $data = path.Clean $data -}}
+	{{- $data = partial "Hestia/functions/data/hugo/parse/__dataFile" $data -}}
+{{- end -}}
 
 
-	{{- /* source the data file */ -}}
-	{{- if fileExists $data -}}
-		{{- $data = readFile $data -}}
-		{{- $data = transform.Unmarshal $data -}}
-		{{- if not $data -}}
-			{{- $data = dict "Inline" slice "Include" slice -}}
-		{{- end -}}
-	{{- else -}}
-		{{- $data = dict "Inline" slice "Include" slice -}}
-	{{- end -}}
-{{- else -}}
+
+
+{{- /* parse local config data */ -}}
+{{- if not $data -}}
 	{{- $data = dict "Inline" slice "Include" slice -}}
 {{- end -}}
 
 
 
 
-{{- /* parse site level inline JS */ -}}
+{{- /* parse inline JS */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.JS.List.Inline -}}
 	{{- $list = append $v.Path $list -}}
@@ -71,13 +65,12 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* parse site level include JS */ -}}
+{{- /* parse include JS */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.JS.List.Include -}}
 	{{- $ret = dict -}}
 	{{- $ret = merge $ret (dict "URL" (default "" $v.URL)) -}}
 	{{- $ret = merge $ret (dict "Timing" (default "defer" $v.Timing)) -}}
-
 
 	{{- $list = append $ret $list -}}
 {{- end -}}
@@ -87,7 +80,6 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = dict -}}
 	{{- $ret = merge $ret (dict "URL" (default "" (index $v "URL"))) -}}
 	{{- $ret = merge $ret (dict "Timing" (default "defer" (index $v "Timing"))) -}}
-
 
 	{{- $list = append $ret $list -}}
 {{- end -}}
