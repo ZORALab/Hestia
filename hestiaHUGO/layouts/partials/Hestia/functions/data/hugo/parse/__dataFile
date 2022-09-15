@@ -21,24 +21,16 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict -}}
+{{- $dataList := partial "Hestia/functions/data/hugo/parse/__file" . -}}
 
 
 
 
-{{- /* read given path */ -}}
-{{- if fileExists . -}}
-	{{- $dataList = readFile . -}}
-
-
-	{{- if $dataList -}}
-		{{- $dataList = transform.Unmarshal $dataList -}}
-	{{- end -}}
-
-
-	{{- if not $dataList -}}
-		{{- $dataList = dict -}}
-	{{- end -}}
+{{- /* parse raw data into hugo data structure */ -}}
+{{- if $dataList -}}
+	{{- $dataList = transform.Unmarshal $dataList -}}
+{{- else -}}
+	{{- $dataList = dict -}}
 {{- end -}}
 
 
