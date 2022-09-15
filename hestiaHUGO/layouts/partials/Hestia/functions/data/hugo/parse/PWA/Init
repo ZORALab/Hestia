@@ -1,5 +1,21 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 
 
@@ -11,63 +27,63 @@
 
 
 
-{{- /* process Metadata */ -}}
+{{- /* parse Metadata */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_metadata" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Display */ -}}
+{{- /* parse .Display */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_display" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Colors */ -}}
+{{- /* parse .Colors */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_colors" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Shortcuts */ -}}
+{{- /* parse .Shortcuts */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_shortcuts" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Screenshots */ -}}
+{{- /* parse .Screenshots */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_screenshots" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Relations */ -}}
+{{- /* parse .Relations */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_relations" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Protocols */ -}}
+{{- /* parse .Protocols */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_protocols" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Icons */ -}}
+{{- /* parse .Icons */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_icons" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* process .Caches */ -}}
+{{- /* parse .Caches */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/PWA/_caches" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
@@ -75,5 +91,4 @@
 
 
 {{- /* render output */ -}}
-{{- $dataList = dict "PWA" $dataList -}}
-{{- return $dataList -}}
+{{- return dict "PWA" $dataList -}}
