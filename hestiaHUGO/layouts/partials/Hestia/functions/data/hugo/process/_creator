@@ -59,10 +59,8 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "Data" .Input.Name)) -}}
 {{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 {{- if $ret.Console -}}
-	{{- $console = printf "creator: .Name: %v" $ret.Console.Message -}}
+	{{- $console = printf ".Name: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Name" $ret) -}}
@@ -74,10 +72,10 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "Data" .Input.Title)) -}}
 {{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 {{- if and .Input.Title $ret.Console -}}
-	{{- $console = printf "creator: .Title: %v" $ret.Console.Message -}}
-	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- if not $console -}}
+		{{- $console = printf ".Title: %v" $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- end -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Title" $ret) -}}
@@ -89,10 +87,10 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "Data" .Input.Phone)) -}}
 {{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 {{- if and .Input.Phone $ret.Console -}}
-	{{- $console = printf "creator: .Phone: %v" $ret.Console.Message -}}
-	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- if not $console -}}
+		{{- $console = printf ".Phone: %v" $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- end -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Phone" $ret) -}}
@@ -104,10 +102,10 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "Data" .Input.Email)) -}}
 {{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 {{- if and .Input.Email $ret.Console -}}
-	{{- $console = printf "creator: .Email: %v" $ret.Console.Message -}}
-	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- if not $console -}}
+		{{- $console = printf ".Email: %v" $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- end -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Email" $ret) -}}
@@ -121,10 +119,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if and .Input.LinkedIn $ret.Console -}}
-		{{- $console = printf "creator: .LinkedIn: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".LinkedIn: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- end -}}
@@ -139,10 +137,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if and .Input.Facebook $ret.Console -}}
-		{{- $console = printf "creator: .Facebook: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Facebook: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- end -}}
@@ -157,10 +155,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if and .Input.Instagram $ret.Console -}}
-		{{- $console = printf "creator: .Instagram: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Instagram: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- end -}}
@@ -175,10 +173,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if and .Input.Twitter $ret.Console -}}
-		{{- $console = printf "creator: .Twitter: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Twitter: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- end -}}
@@ -193,10 +191,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if and .Input.TikTok $ret.Console -}}
-		{{- $console = printf "creator: .TikTok: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".TikTok: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- end -}}
@@ -211,10 +209,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if and .Input.Web $ret.Console -}}
-		{{- $console = printf "creator: .Web: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Web: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- end -}}
@@ -229,10 +227,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if and .Input.Description $ret.Console -}}
-		{{- $console = printf "creator: .Description: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Description: %v" $ret.Console.Message -}}
+			{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 {{- end -}}
@@ -246,4 +244,4 @@ specific language governing permissions and limitations under the License.
 {{- if or (not $dataList.Type) (not $dataList.Name) -}}
 	{{- $dataList = dict -}}
 {{- end -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList "Console" $console -}}
