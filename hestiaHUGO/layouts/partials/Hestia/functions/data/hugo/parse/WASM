@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+                 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := ".wasm.toml" -}}
@@ -24,7 +24,6 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $context := . -}}
 {{- $dataList := dict -}}
 {{- $data := dict -}}
 {{- $ret := false -}}
@@ -32,22 +31,19 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* source data from file */ -}}
+{{- /* parse local config file */ -}}
 {{- if .Page.File -}}
-	{{- /* get Page directory path */ -}}
 	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
 	{{- $data = path.Clean $data -}}
+	{{- $data = partial "Hestia/functions/data/hugo/parse/__dataFile" $data -}}
+{{- end -}}
 
 
-	{{- /* source the data file */ -}}
-	{{- if fileExists $data -}}
-		{{- $data = readFile $data -}}
-		{{- $data = transform.Unmarshal $data -}}
 
-		{{- if not (index $data "Settings") -}}
-			{{- $data = dict -}}
-		{{- end -}}
-	{{- else -}}
+
+{{- /* parse local config data */ -}}
+{{- if $data -}}
+	{{- if not (index $data "Settings") -}}
 		{{- $data = dict -}}
 	{{- end -}}
 {{- end -}}
@@ -113,5 +109,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- $dataList = dict "WASM" $dataList -}}
-{{- return $dataList -}}
+{{- return dict "WASM" $dataList -}}
