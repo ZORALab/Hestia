@@ -1,5 +1,21 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 
 
@@ -260,31 +276,26 @@
 
 
 
-{{- /* process .Icons */ -}}
+{{- /* parse .Icons */ -}}
 {{- $dataList = slice -}}
 {{- range $i, $v := $list -}}
 	{{- $data = dict -}}
 
 
-
-
-	{{- /* process the image.Sources */ -}}
+	{{- /* parse the image .Sources */ -}}
 	{{- $ret = index $v.Source.Sources 0 -}}
 	{{- if not $ret -}}
 		{{- continue -}}
 	{{- end -}}
-
 
 	{{- $ret = resources.GetMatch $ret.URL -}}
 	{{- if not $ret -}}
 		{{- continue -}}
 	{{- end -}}
 
-
 	{{- if $v.Resize -}}
 		{{- $ret = $ret.Resize (printf "%vx%v" $v.Width $v.Height) -}}
 	{{- end -}}
-
 
 	{{- $ret = resources.FromString $v.Filename $ret.Content -}}
 	{{- $data = merge $data (dict "URL" $ret.Permalink) -}}
@@ -293,16 +304,12 @@
 	{{- $data = dict "Sources" (slice $data) -}}
 
 
-
-
-	{{- /* process the image metadata */ -}}
+	{{- /* parse the image metadata */ -}}
 	{{- $data = merge $data (dict "Name" (path.BaseName $v.Filename)) -}}
 	{{- $data = merge $data (dict "Width" $v.Width) -}}
 	{{- $data = merge $data (dict "Height" $v.Height) -}}
 	{{- $data = merge $data (dict "Design" $v.Design) -}}
 	{{- $data = partial "Hestia/functions/data/hugo/parse/_media" $data -}}
-
-
 
 
 	{{- /* merge into dataList */ -}}
