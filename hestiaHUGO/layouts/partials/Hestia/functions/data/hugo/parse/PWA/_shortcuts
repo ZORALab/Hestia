@@ -1,5 +1,21 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Hugo data structure  */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 
 
@@ -8,13 +24,13 @@
 {{- $source := dict -}}
 {{- $dataList := dict -}}
 {{- $list := dict -}}
-{{- $image := false -}}
+{{- $data := false -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* process .Shortcuts */ -}}
+{{- /* parse shortcuts data */ -}}
 {{- $dataList = .Page.Lang -}}
 {{- range $i, $v := .Site.Data.Hestia.PWA.Shortcuts -}}
 	{{- if eq $i $dataList -}}
@@ -25,51 +41,49 @@
 
 {{- $dataList = dict -}}
 {{- range $i, $v := $source -}}
-	{{- if not $v.URL -}}
+	{{- if not (index $v "URL") -}}
 		{{- continue -}}
 	{{- end -}}
 
 
-	{{- if not $v.Name -}}
+	{{- if not (index $v "Name") -}}
 		{{- continue -}}
 	{{- end -}}
 
 
-	{{- if not $v.Name.Full -}}
+	{{- if not (index $v.Name "Full") -}}
 		{{- continue -}}
 	{{- end -}}
 
 
-	{{- if not $v.Name.Short -}}
+	{{- if not (index $v.Name "Short") -}}
 		{{- continue -}}
 	{{- end -}}
 
 
-	{{- $ret = dict "URL" $v.URL -}}
-	{{- $ret = merge $ret (dict "Name" (dict "Full" $v.Name.Full)) -}}
-	{{- $ret = merge $ret (dict "Name" (dict "Short" $v.Name.Short)) -}}
-	{{- $ret = merge $ret (dict "Description" (default "" $v.Description)) -}}
+	{{- $data = dict "URL" $v.URL -}}
+	{{- $data = merge $data (dict "Name" (dict "Full" $v.Name.Full)) -}}
+	{{- $data = merge $data (dict "Name" (dict "Short" $v.Name.Short)) -}}
+	{{- $data = merge $data (dict "Description" (default "" $v.Description)) -}}
 
 
 	{{- $list = dict -}}
 	{{- range $j, $w := $v.Icons -}}
-		{{- $image = partial "Hestia/functions/data/hugo/parse/_media" $w -}}
+		{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $w -}}
 		{{- if $ret.Console -}}
 			{{- continue -}}
 		{{- end -}}
 
-
-		{{- $list = merge $list (dict (upper (string $j)) $image) -}}
+		{{- $list = merge $list (dict (upper (string $j)) $ret) -}}
 	{{- end -}}
-	{{- $ret = merge $ret (dict "Icons" $list) -}}
+	{{- $data = merge $data (dict "Icons" $list) -}}
 
 
-	{{- $dataList = merge $dataList (dict (upper (string $i)) $ret) -}}
+	{{- $dataList = merge $dataList (dict (upper (string $i)) $data) -}}
 {{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- $dataList = dict "Shortcuts" $dataList -}}
-{{- return $dataList -}}
+{{- return dict "Shortcuts" $dataList -}}
