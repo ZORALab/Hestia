@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+                 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -15,40 +15,44 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Page data in Hestia Structure  */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := merge . (dict "Thumbnails" false) -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page = merge $Page (dict "Thumbnails" false) -}}
+{{- $Page = merge $Page (dict "Thumbnails" dict) -}}
 {{- $console := false -}}
-{{- $list := dict -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* process each .Thumbnail */ -}}
-{{- $list = dict -}}
+{{- /* process each .Thumbnail image */ -}}
+{{- $dataList = dict -}}
 {{- range $i, $v := .Thumbnails -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
 	{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Thumbnails.%v: %v"
-			$i $ret.Console.Message -}}
+			$i
+			$ret.Console.Message
+		-}}
 		{{- $console = dict "Message" $console -}}
 		{{- $console = merge $Page (dict "Console" $console) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- else -}}
-		{{- $list = merge $list (dict $i $ret.Output) -}}
+		{{- continue -}}
 	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict $i $ret.Output) -}}
 {{- end -}}
-{{- $dataList = merge $Page (dict "Thumbnails" $list) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return merge $Page (dict "Thumbnails" $dataList) -}}
