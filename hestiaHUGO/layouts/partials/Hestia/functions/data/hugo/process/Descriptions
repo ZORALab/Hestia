@@ -1,17 +1,29 @@
-{{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Page data in Hestia Structure  */ -}}
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
 
-{{- /* CONSTANTS */ -}}
-{{- $MAX_CHAR_PITCH  := 160 -}}
-{{- $MAX_CHAR_SUMMARY  := 250 -}}
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := merge . (dict "Descriptions" false) -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page = merge $Page (dict "Descriptions" false) -}}
 {{- $Page = merge $Page (dict "Descriptions" dict) -}}
-{{- $Page = partial "Hestia/functions/data/Clean" $Page -}}
 {{- $dataList := dict -}}
 {{- $list := dict -}}
 {{- $data := false -}}
@@ -25,7 +37,7 @@
 {{- $list = dict -}}
 {{- range $k, $v := .Descriptions.Page -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Limit" $k "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_validate-description" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_description" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Description.Page.%v: %s"
 			$k
@@ -34,10 +46,11 @@
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
 
-
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 
+
+	{{- /* merge into output list */ -}}
 	{{- $list = merge $list (dict $k $ret.Output) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Page" $list) -}}
@@ -53,7 +66,7 @@
 
 	{{- /* process .Pitch */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Limit" "pitch" "Data" $v.Pitch)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_validate-description" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_description" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Description.Site.%v.Pitch: %s"
 			$k
@@ -62,7 +75,6 @@
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
 
-
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Pitch" $ret.Output) -}}
@@ -70,7 +82,7 @@
 
 	{{- /* process .Summary */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Limit" "summary" "Data" $v.Summary)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_validate-description" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/_description" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Description.Site.%v.Summary: %s"
 			$k
@@ -79,12 +91,12 @@
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
 
-
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Summary" $ret.Output) -}}
 
 
+	{{- /* merge into output list */ -}}
 	{{- $list = merge $list (dict (upper $k) $data) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Site" $list) -}}
