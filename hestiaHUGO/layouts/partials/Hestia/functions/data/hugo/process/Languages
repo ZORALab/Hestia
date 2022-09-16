@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+                 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -15,15 +15,15 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Page data in Hestia Structure  */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := merge . (dict "Languages" false) -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page = merge $Page (dict "Languages" false) -}}
 {{- $Page = merge $Page (dict "Languages" dict) -}}
-{{- $Page = partial "Hestia/functions/data/Clean" $Page -}}
 {{- $data := dict -}}
 {{- $dataList := dict -}}
 {{- $list := dict -}}
@@ -35,7 +35,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Languages.List */ -}}
+{{- /* process .List */ -}}
 {{- $list := dict -}}
 {{- range $k, $v := .Languages.List -}}
 	{{- $data = dict -}}
@@ -66,7 +66,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Languages.List.%v.Name: %s"
-			(upper $k)
+			$data.ID
 			$ret.Console.Message
 		-}}
 
@@ -83,7 +83,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Languages.List.%v.Directory: %s"
-			(upper $k)
+			$data.ID
 			$ret.Console.Message
 		-}}
 
@@ -100,7 +100,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Languages.List.%v.Direction: %s"
-			(upper $k)
+			$data.ID
 			$ret.Console.Message
 		-}}
 
@@ -117,7 +117,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Languages.List.%v.Default: %s"
-			(upper $k)
+			$data.ID
 			$ret.Console.Message
 		-}}
 
@@ -131,7 +131,7 @@ specific language governing permissions and limitations under the License.
 		{{- if $isDefaultSet -}}
 			{{- $console = printf
 				".Languages.List.%v.Default: multiple default set!\n"
-				(upper $k)
+				$data.ID
 			-}}
 			{{- $console = dict "Console" (dict "Message" $console) -}}
 			{{- $console = merge $Page $console -}}
