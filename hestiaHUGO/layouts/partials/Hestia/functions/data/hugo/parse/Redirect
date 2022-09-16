@@ -19,6 +19,9 @@ specific language governing permissions and limitations under the License.
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := ".page.toml" -}}
+{{- $DEFAULT_DELAY := 0 -}}
+{{- $DEFAULT_URL := "" -}}
+{{- $DEFAULT_ENABLED := false -}}
 
 
 
@@ -26,12 +29,16 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $Local := dict -}}
 {{- $dataList := dict -}}
+{{- $ret := false -}}
 
 
 
 
 {{- /* process default values */ -}}
-{{- $dataList = dict "Delay" 0 "URL" "" "Enabled" false -}}
+{{- $dataList = dict "Delay" $DEFAULT_DELAY
+		"URL" $DEFAULT_URL
+		"Enabled" $DEFAULT_ENABLED
+-}}
 
 
 
@@ -48,10 +55,20 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse local redirect data */ -}}
 {{- if $Local -}}
-	{{- if $Local.Content -}}
-		{{- $dataList = merge $dataList (dict "Delay" $Local.Redirect.Delay) -}}
-		{{- $dataList = merge $dataList (dict "URL" $Local.Redirect.URL) -}}
-		{{- $dataList = merge $dataList (dict "Enabled" $Local.Redirect.Enabled) -}}
+	{{- if (index $Local "Redirect") -}}
+		{{- $ret = index $Local.Redirect "Delay" -}}
+		{{- $ret = default $DEFAULT_DELAY $ret -}}
+		{{- $dataList = merge $dataList (dict "Delay" $ret) -}}
+
+
+		{{- $ret = index $Local.Redirect "URL" -}}
+		{{- $ret = default $DEFAULT_URL $ret -}}
+		{{- $dataList = merge $dataList (dict "URL" $ret) -}}
+
+
+		{{- $ret = index $Local.Redirect "Enabled" -}}
+		{{- $ret = default $DEFAULT_ENABLED $ret -}}
+		{{- $dataList = merge $dataList (dict "Enabled" $ret) -}}
 	{{- end -}}
 {{- end -}}
 

@@ -165,7 +165,7 @@
 
 
 
-{{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
+{{- /* BEGIN PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Time" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Languages" $dataList -}}
@@ -176,12 +176,17 @@
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Components" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/CSS" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/JS" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/WASM" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/XMLBrowserConfig" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
+
+
+
+
+{{- /* BEGIN POST PROCESSING - Hestia data processing ended beyond this line */ -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/LDJSON" $dataList -}}
 
 
