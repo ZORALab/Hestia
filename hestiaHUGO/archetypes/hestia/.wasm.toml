@@ -10,18 +10,6 @@ URL = ''
 
 
 
-# Embed - the WASM Hugo Pipe's filepath location. If this field is provided,
-#         the targeted WASM file shall be read and embedded into the HTML file
-#         itself. The URL field, regardless empty or with value, shall be
-#         ignored. The file location is **SHALL ALWAYS** be next to the HTML
-#         page or within its sub-directory.
-#
-#       This field is OPTIONAL.
-Embed = ''
-
-
-
-
 # Dependencies - list of javascript dependencies to be loaded before executing
 #                WASM stream instruction. Hestia formatting URL is acceptable.
 #                This field is OPTIONAL.
