@@ -107,7 +107,7 @@
 {{- $dataList = merge $dataList $ret -}}
 
 
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_generate-webmanifest" $dataList -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_webmanifest" $dataList -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
