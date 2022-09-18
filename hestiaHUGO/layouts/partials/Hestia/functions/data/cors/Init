@@ -71,5 +71,13 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* ensures the empty result is default to anonymous */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = "anonymous" -}}
+{{- end -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "Output" $dataList "Console" $console -}}
