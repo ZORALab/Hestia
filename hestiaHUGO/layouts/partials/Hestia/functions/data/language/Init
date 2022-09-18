@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+                 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Hestia data structure */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .Input.Lang = Language code for parsing (string) */ -}}
 
 
@@ -37,7 +37,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Lang")) -}}
 {{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
 {{- if not $dataList -}}
-	{{- $console = printf "Language: missing/bad .Input.Lang\n" -}}
+	{{- $console = printf "Language: missing/bad .Input.Lang.\n" -}}
 	{{- $console = dict "Message" $console -}}
 	{{- $dataList = "" -}}
 {{- else -}}
@@ -81,7 +81,7 @@ specific language governing permissions and limitations under the License.
 {{- /* validate $country for ISO3166 */ -}}
 {{- if not (partial "Hestia/functions/data/language/IsCountry" $country) -}}
 	{{- if $country -}}
-		{{- /* possible split from ISO15924 */ -}}
+		{{- /* possible split of ISO15924 */ -}}
 		{{- $script = printf "%s%s" $script $country -}}
 		{{- $script = title (lower $script) -}}
 		{{- $country = "" -}}
