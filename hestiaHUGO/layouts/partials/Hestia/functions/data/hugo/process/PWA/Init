@@ -103,7 +103,7 @@
 
 
 {{- /* post processing - utilize .PWA data structure for rendering */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_generate-worker" $dataList -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_service-worker" $dataList -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
