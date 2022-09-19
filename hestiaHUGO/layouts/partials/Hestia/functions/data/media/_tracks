@@ -1,3 +1,19 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .Input.Tracks = media sources (map) */ -}}
@@ -49,26 +65,18 @@
 	{{- $entry = dict -}}
 
 
-
-
 	{{- /* process .track.Lang */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $k)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v: bad language '%v'\n"
-				$k
-				$k -}}
+			{{- $console = printf ".Tracks: bad language '%v'.\n" $k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
-
-
 	{{- $entry = merge $entry (dict "Lang" $ret.Output) -}}
-
-
 
 
 	{{- /* process .track.URL */ -}}
@@ -76,32 +84,24 @@
 	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v: .URL is missing.\n"
-				$k -}}
+			{{- $console = printf ".Tracks.%v: .URL is missing.\n" $k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
-
 
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v.URL: %s"
-				$k
-				$ret.Console.Message -}}
+			{{- $console = printf ".Tracks.%v.URL: %v" $k $ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
-
-
 	{{- $entry = merge $entry (dict "URL" $ret.Output) -}}
-
-
 
 
 	{{- /* process .track.Kind */ -}}
@@ -109,28 +109,23 @@
 	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v: .Kind is missing.\n"
-				$k -}}
+			{{- $console = printf ".Tracks.%v: .Kind is missing.\n" $k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
-
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v.Kind: %s"
-				$k
-				$ret.Console.Message -}}
+			{{- $console = printf ".Tracks.%v.Kind: %v" $k $ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
-
 
 	{{- if eq $ret.Output "subtitles" -}}
 	{{- else if eq $ret.Output "captions" -}}
@@ -140,7 +135,7 @@
 	{{- else -}}
 		{{- if not $console -}}
 			{{- $console = printf
-				".Tracks.%v.Kind: unknown value '%v'\n"
+				".Tracks.%v.Kind: unknown value '%v'.\n"
 				$k
 				$ret.Output -}}
 			{{- $console = dict "Message" $console -}}
@@ -148,11 +143,7 @@
 
 		{{- continue -}}
 	{{- end -}}
-
-
 	{{- $entry = merge $entry (dict "Kind" $ret.Output) -}}
-
-
 
 
 	{{- /* process .track.Label */ -}}
@@ -160,32 +151,24 @@
 	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v: .Label is missing.\n"
-				$k -}}
+			{{- $console = printf ".Tracks.%v: .Label is missing.\n" $k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
-
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v.Label: %s"
-				$k
-				$ret.Console.Message -}}
+			{{- $console = printf ".Tracks.%v.Label: %v" $k $ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
-
-
 	{{- $entry = merge $entry (dict "Label" $ret.Output) -}}
-
-
 
 
 	{{- /* process .track.Default */ -}}
@@ -195,38 +178,29 @@
 		{{- $ret = false -}}
 	{{- end -}}
 
-
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
 	{{- if $ret.console -}}
 		{{- if not $console -}}
-			{{- $console = printf ".Tracks.%v.Default: %s"
-				$k
-				$ret.Message -}}
+			{{- $console = printf ".Tracks.%v.Default: %v" $k $ret.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- continue -}}
 	{{- end -}}
 
-
 	{{- if and $ret.Output (not $IsDefaultSet) -}}
 		{{- $IsDefaultSet = true -}}
 	{{- else if and $ret.Output $IsDefaultSet -}}
 		{{- if not $console -}}
 			{{- $console = printf
-				".Tracks.%v.Default: default is already set.\n"
-				$k -}}
+				".Tracks.%v.Default: default is already set.\n" $k -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 
 		{{- $ret = merge $ret (dict "Output" false) -}}
 	{{- end -}}
-
-
 	{{- $entry = merge $entry (dict "Default" $ret.Output) -}}
-
-
 
 
 	{{- /* merge into $list */ -}}
