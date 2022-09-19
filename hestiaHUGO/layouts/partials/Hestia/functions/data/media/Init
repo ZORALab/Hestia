@@ -1,3 +1,19 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .Input.Name                    = alt-text or title (string) */ -}}
@@ -40,7 +56,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_name" . -}}
 {{- $dataList = merge $dataList (dict "Name" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Name: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Name: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -49,7 +65,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_width" . -}}
 {{- $dataList = merge $dataList (dict "Width" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Width: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Width: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -58,7 +74,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_height" . -}}
 {{- $dataList = merge $dataList (dict "Height" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Height: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Height: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -68,7 +84,7 @@
 {{- $dataList = merge $dataList (dict "Sources" false) -}}
 {{- $dataList = merge $dataList (dict "Sources" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Sources: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Sources: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -77,7 +93,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_cors" . -}}
 {{- $dataList = merge $dataList (dict "CORS" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.CORS: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.CORS: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -86,7 +102,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_relationship" . -}}
 {{- $dataList = merge $dataList (dict "Relationship" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Relationship: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Relationship: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -95,7 +111,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_design" . -}}
 {{- $dataList = merge $dataList (dict "Design" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Design: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Design: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -104,7 +120,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_preload" . -}}
 {{- $dataList = merge $dataList (dict "Preload" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Preload: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Preload: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -113,7 +129,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_control" . -}}
 {{- $dataList = merge $dataList (dict "Control" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Control: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Control: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -122,7 +138,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_autoplay" . -}}
 {{- $dataList = merge $dataList (dict "Autoplay" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Autoplay: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Autoplay: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -131,7 +147,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_loop" . -}}
 {{- $dataList = merge $dataList (dict "Loop" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Loop: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Loop: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -140,7 +156,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_mute" . -}}
 {{- $dataList = merge $dataList (dict "Mute" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Mute: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Mute: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -149,7 +165,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_inline" . -}}
 {{- $dataList = merge $dataList (dict "Inline" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Inline: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Inline: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -159,7 +175,7 @@
 {{- $dataList = merge $dataList (dict "Tracks" false) -}}
 {{- $dataList = merge $dataList (dict "Tracks" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Tracks: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Tracks: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
@@ -173,7 +189,7 @@
 {{- $ret = partial "Hestia/functions/data/media/_sizes" $ret -}}
 {{- $dataList = merge $dataList (dict "Sizes" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Sizes: %s" $ret.Console.Message -}}
+	{{- $console = printf "Media.Sizes: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Sizes" $ret.Output) -}}
@@ -182,5 +198,4 @@
 
 
 {{- /* render output */ -}}
-{{- $dataList = dict "Output" $dataList "Console" $console -}}
-{{- return $dataList -}}
+{{- return dict "Output" $dataList "Console" $console -}}
