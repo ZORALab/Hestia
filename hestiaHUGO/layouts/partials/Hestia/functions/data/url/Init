@@ -1,13 +1,28 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .URL.Current = Current Page URL. */ -}}
 {{- /* .URL.Base = Current Page's Base URL. */ -}}
 {{- /* .Formats.Current = Current Page's Format File Type. */ -}}
 {{- /* .Languages.Current = Current Page's Language. */ -}}
-
 {{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
-{{- /* .Input.Format = desired output format. (optional, string) */ -}}
-{{- /* .Input.Lang = desired language. (optional, string) */ -}}
+{{- /* .Input.Format = desired output format. (optional,string) */ -}}
+{{- /* .Input.Lang = desired language. (optional,string) */ -}}
 
 
 
@@ -31,24 +46,26 @@
 {{- end -}}
 
 
-{{- if (partial "Hestia/functions/data/string/IsString" $ret)
-	| or (partial "Hestia/functions/data/url/IsURL" $ret) -}}
+{{- if partial "Hestia/functions/data/string/IsString" $ret -}}
+	{{- /* PASS - we want string format for processing */ -}}
+{{- else if partial "Hestia/functions/data/url/IsURL" $ret -}}
 	{{- $ret = string $ret -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $console = printf "URL: .Input.URL: %s" $ret.Console -}}
-		{{- $console = dict "Message" $console -}}
-	{{- end -}}
-
-	{{- $ret = dict "URL" $ret.Output -}}
-	{{- $ret = dict "Input" $ret -}}
-	{{- $Args = merge $Page $ret -}}
 {{- else -}}
-	{{- $console = printf "URL: unknown .Input.URL type: %T for %v\n"
-		.Input.URL .Input.URL -}}
+	{{- $console = printf "URL: unknown .Input.URL '%v'.\n" .Input.URL -}}
+	{{- $console = dict "Message" $console -}}
+	{{- $ret = "" -}}
+{{- end -}}
+
+
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "URL: .Input.URL: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
+{{- $ret = dict "URL" $ret.Output -}}
+{{- $ret = dict "Input" $ret -}}
+{{- $Args = merge $Page $ret -}}
 
 
 
@@ -65,7 +82,7 @@
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- $Args = merge $Args (dict "Input" (dict "Lang" $ret.Output)) -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "URL: .Input.Lang: %s" $ret.Console -}}
+		{{- $console = printf "URL: .Input.Lang: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 {{- end -}}
@@ -104,8 +121,7 @@
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
-		{{- $console = printf "URL: .Input.Format.Protocol: %s"
-			$ret.Console -}}
+		{{- $console = printf "URL: .Input.Format.Protocol: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 	{{- $ret = dict "Protocol" $ret.Output -}}
@@ -126,8 +142,7 @@
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
-		{{- $console = printf "URL: .Input.Format.Filename: %s"
-			$ret.Console -}}
+		{{- $console = printf "URL: .Input.Format.Filename: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 	{{- $ret = dict "Filename" $ret.Output -}}
@@ -148,8 +163,8 @@
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
-		{{- $console = printf "URL: .Input.Format.Extension: %s"
-			$ret.Console -}}
+		{{- $console = printf "URL: .Input.Format.Extension: %v"
+			$ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 	{{- $ret = dict "Extension" $ret.Output -}}
@@ -165,11 +180,13 @@
 {{- if not $console -}}
 	{{- $ret = partial "Hestia/functions/data/url/_process" $Args -}}
 	{{- if and $ret.Console (not $console) -}}
-		{{- $console = printf "URL: %s" $ret.Console -}}
+		{{- $console = printf "URL: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 
 	{{- $dataList = $ret.Output -}}
+{{- else -}}
+	{{- $dataList = urls.Parse "" -}}
 {{- end -}}
 
 
