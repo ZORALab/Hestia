@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .  = Page data in Hestia Structure */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
@@ -27,15 +27,19 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* clean up .Page data */ -}}
-{{- if .IsHestia -}}
-	{{- $dataList = merge $dataList (dict "Input" false) -}}
-	{{- $dataList = merge $dataList (dict "Output" false) -}}
-	{{- $dataList = merge $dataList (dict "Console" false) -}}
+{{- if partial "Hestia/functions/data/list/IsMap" . -}}
+	{{- if (index . "IsHestia") -}}
+		{{- $dataList = merge $dataList (dict "Input" false) -}}
+		{{- $dataList = merge $dataList (dict "Input" dict) -}}
 
 
-	{{- $dataList = merge $dataList (dict "Input" dict) -}}
-	{{- $dataList = merge $dataList (dict "Output" dict) -}}
-	{{- $dataList = merge $dataList (dict "Console" dict) -}}
+		{{- $dataList = merge $dataList (dict "Output" false) -}}
+		{{- $dataList = merge $dataList (dict "Output" dict) -}}
+
+
+		{{- $dataList = merge $dataList (dict "Console" false) -}}
+		{{- $dataList = merge $dataList (dict "Console" dict) -}}
+	{{- end -}}
 {{- end -}}
 
 
