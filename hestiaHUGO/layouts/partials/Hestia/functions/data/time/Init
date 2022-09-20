@@ -7,7 +7,7 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+                 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed
 under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
@@ -16,7 +16,7 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Data = Time data in 'Mon 02 Jan 2006 15:04:05 PM -07' format (string) */ -}}
+{{- /* .Input.Data = data in 'Mon 02 Jan 2006 15:04:05 PM -07' format (string) */ -}}
 
 
 
@@ -25,6 +25,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
+{{- $now := now -}}
 {{- $ret := false -}}
 {{- $data := false -}}
 
@@ -110,14 +111,13 @@ specific language governing permissions and limitations under the License.
 		{{- $dataList = time $ret -}}
 	{{- else -}}
 		{{- if not $console -}}
-			{{- $console = printf "time: incompatible format '$v'\n"
-				$dataList -}}
+			{{- $console = printf "time: incompatible format '$v'.\n" $dataList -}}
 			{{- $console = dict "Message" $console -}}
-			{{- $dataList = false -}}
+			{{- $dataList = $now -}}
 		{{- end -}}
 	{{- end -}}
 {{- else -}}
-	{{- $dataList = false -}}
+	{{- $dataList = $now -}}
 {{- end -}}
 
 
