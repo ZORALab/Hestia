@@ -1,6 +1,22 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Data = string for processing */ -}}
+{{- /* .Input.Data = number data for processing (string) */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $CONST_NUMBER_FORMAT := `^((0?b[01]+$)|(0x[0-9a-fA-F]+$)|(0o[0-7]+$)|([0-9]+$)|(\d+\.?\d+((?:e|E)?-?\d+)?$))` -}}
@@ -24,10 +40,8 @@
 {{- if $ret.Console -}}
 	{{- $console = printf "bad string: '%v'\n" .Input.Data -}}
 	{{- $console = dict "Message" $console -}}
-	{{- $ret = "" -}}
-{{- else -}}
-	{{- $ret = $ret.Output -}}
 {{- end -}}
+{{- $ret = $ret.Output -}}
 
 
 
@@ -35,18 +49,17 @@
 {{- /* process number */ -}}
 {{- if $ret -}}
 	{{- /* scan for convertable number */ -}}
-	{{- $dataList = findRE $CONST_NUMBER_FORMAT $ret -}}
+	{{- $ret = findRE $CONST_NUMBER_FORMAT $ret -}}
 
 
 	{{- /* attempt to convert into number */ -}}
-	{{- if findRE $CONST_INT_FORMAT (index $dataList 0) -}}
-		{{- $dataList = int (index $dataList 0) -}}
-	{{- else if findRE $CONST_FLOAT_FORMAT (index $dataList 0) -}}
-		{{- $dataList = float (index $dataList 0) -}}
+	{{- if findRE $CONST_INT_FORMAT (index $ret 0) -}}
+		{{- $dataList = int (index $ret 0) -}}
+	{{- else if findRE $CONST_FLOAT_FORMAT (index $ret 0) -}}
+		{{- $dataList = float (index $ret 0) -}}
 	{{- else -}}
-		{{- $dataList = 0 -}}
 		{{- if not $console -}}
-			{{- $console = printf "invalid string: '%v'\n" .Input.Data -}}
+			{{- $console = printf "invalid string: '%v'.\n" .Input.Data -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 	{{- end -}}
