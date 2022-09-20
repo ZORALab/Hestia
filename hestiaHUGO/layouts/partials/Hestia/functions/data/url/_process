@@ -1,3 +1,19 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .URL.Current = Current Page URL. */ -}}
@@ -6,10 +22,10 @@
 {{- /* .Languages.Current = Current Page's Language. */ -}}
 
 {{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
-{{- /* .Input.Format.Protocol = selected format protocol. (optional, string) */ -}}
-{{- /* .Input.Format.Filename = selected format filename. (optional, string) */ -}}
-{{- /* .Input.Format.Extension = selected format extension. (optional, string) */ -}}
-{{- /* .Input.Lang = overrides language code. (optional, string) */ -}}
+{{- /* .Input.Format.Protocol = selected format protocol. (optional,string) */ -}}
+{{- /* .Input.Format.Filename = selected format filename. (optional,string) */ -}}
+{{- /* .Input.Format.Extension = selected format extension. (optional,string) */ -}}
+{{- /* .Input.Lang = overrides language code. (optional,string) */ -}}
 
 
 
@@ -171,8 +187,7 @@
 		{{- range $k, $v := .Formats.List -}}
 			{{- if not $ret -}}
 				{{- continue -}}
-			{{- else if eq $ret (printf "%s%s"
-						$v.Filename $v.Extension) -}}
+			{{- else if eq $ret (printf "%s%s" $v.Filename $v.Extension) -}}
 				{{- $ret = false -}}
 			{{- end -}}
 		{{- end -}}
