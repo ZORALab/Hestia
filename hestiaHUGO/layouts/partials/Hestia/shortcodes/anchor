@@ -1,3 +1,19 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 {{- /* .URL.Current = Current Page URL. */ -}}
@@ -5,318 +21,229 @@
 {{- /* .Formats.Current.Extension = Current Page's Format File Type. */ -}}
 
 {{- /* .Input.URL = given URL in any form for synthesis. (string) */ -}}
-{{- /* .Input.Format = given output format for synthesis. (optional, string) */ -}}
-{{- /* .Input.Content = rendered link content (optional, string) */ -}}
-{{- /* .Input.HRefLang = given hrefLang= attribute. (optional, string) */ -}}
-{{- /* .Input.Onload = given onLoad= attribute. (optional, string) */ -}}
-{{- /* .Input.Download = set URL to be downloadable. (optional, bool) */ -}}
-{{- /* .Input.Target = given target= attribute. (optional, string) */ -}}
-{{- /* .Input.Lang = given langauge for synthesis. (optional, string) */ -}}
-{{- /* .Input.Rel = given rel= attribute. (optional, string) */ -}}
-{{- /* .Input.Class = given class= attribute. (optional, string) */ -}}
-{{- /* .Input.ID = given id= attribute. (optional, string) */ -}}
-
-
-
-
-{{- /* RFC3986-COMPLIANCE IMPORTANT NOTE */ -}}
-{{- /* 1. The URL synthesizer here is only limited to parsing proper URL. */ -}}
-{{- /*    Any differences shall render unpredictable effects.             */ -}}
-{{- /*    Proper URL **SHALL** have the following:                        */ -}}
-{{- /*    1.1. ONE (1) scheme                                             */ -}}
-{{- /*    1.2. ONE (1) hier part                                          */ -}}
-{{- /*    1.3. ONE (1) query part                                         */ -}}
-{{- /*    1.4. ONE (1) fragment                                           */ -}}
-{{- /*    1.5. ONE (1) user authority                                     */ -}}
+{{- /* .Input.Format = given output format for synthesis. (optional,string) */ -}}
+{{- /* .Input.Content = given .Inner content (optional,string) */ -}}
+{{- /* .Input.Rel = given rel= attribute. (optional,string) */ -}}
+{{- /* .Input.Lang = given langauge for synthesis. (optional,string) */ -}}
+{{- /* .Input.Onload = given onLoad= attribute. (optional,string) */ -}}
+{{- /* .Input.Target = given target= attribute. (optional,string) */ -}}
+{{- /* .Input.Download = set URL to be downloadable. (optional,bool) */ -}}
+{{- /* .Input.ID = given id= attribute. (optional,string) */ -}}
+{{- /* .Input.Class = given class= attribute. (optional,string) */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
-{{- $list := dict -}}
-{{- $url := dict -}}
-{{- $query := dict -}}
-{{- $IsCompleted := false -}}
-{{- $IsRelativeToPage := false -}}
-{{- $out := "" -}}
+{{- $console := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* Stage 1: Construct the URL */ -}}
-{{- $ret = .Input.URL -}}
-{{- $query = urls.Parse $ret -}}
+{{- /* process the .URL */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.URL")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $console = printf ".URL: missing URL.\n" -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- $ret = "" -}}
+{{- end -}}
 
-{{- if $query.Scheme -}}
-	{{- $out = $ret -}}
-	{{- $IsCompleted = true -}}
-{{- else -}}
-	{{- if not (hasPrefix $query.Path "/") -}}
-		{{- $IsRelativeToPage = true -}}
-	{{- end -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
+{{- $ret = partial "Hestia/functions/data/url" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".URL: %s" $ret.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "URL" $ret.Output) -}}
+
+
+
+
+{{- /* process the .Format */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Format")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
-{{- if and (not $IsCompleted) -}}
-	{{- /* PART I - CONSTRUCT PROTOCOL SEGMENT */ -}}
-	{{- $ret = .URL.Base -}}
-	{{- if $IsRelativeToPage -}}
-		{{- $ret = .URL.Current.Absolute -}}
-	{{- end -}}
-
-	{{- $url = urls.Parse $ret -}}
-	{{- $ret = "https" -}}
-	{{- if $url.Scheme -}}
-		{{- $ret = $url.Scheme -}}
-	{{- end -}}
-	{{- $out = printf "%s://" $ret -}}
-
-	{{- if .Input.Format -}}
-		{{- if not (eq .Input.Format.Protocol $out) -}}
-			{{- $out = .Input.Format.Protocol -}}
-		{{- end -}}
-	{{- end -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/string/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Format: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/string/TrimWhitespace" $ret.Output -}}
+{{- if $ret -}}
+	{{- $ret = index $Page.Formats.List (upper $ret) -}}
+{{- end -}}
+{{- if not $ret -}}
+	{{- $ret = $Page.Formats.Current -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Format" $ret) -}}
 
 
 
 
-	{{- /* PART II - CONSTRUCT USER CREDENTIAL SEGMENT */ -}}
-	{{- if $url.User -}}
-		{{- $ret = $url.User.String -}}
-		{{- if $ret -}}
-			{{- $out = printf "%s%s" $out $ret -}}
-		{{- end -}}
-
-		{{- $out = printf "%s@" $out -}}
-	{{- end -}}
-	{{- $out = printf "%s%s" $out $url.Host -}}
-
-
-
-
-	{{- /* PART III - CONSTRUCT PATHING SEGMENT */ -}}
-	{{- $ret = $url.Path -}}
-	{{- if path.Ext $url.Path -}}
-		{{- $ret = path.Dir $url.Path -}}
-	{{- end -}}
-
-	{{- if and (not $IsRelativeToPage) .Input.Lang -}}
-		{{- $ret = strings.TrimSuffix "/" $url.Path -}}
-		{{- range $lang := .Languages.List -}}
-			{{- if strings.HasSuffix $ret $lang.Code -}}
-				{{- $ret = strings.TrimPrefix $lang.Code $ret -}}
-			{{- end -}}
-		{{- end -}}
-
-		{{- if $ret -}}
-			{{- $ret = strings.TrimPrefix "/" $ret -}}
-			{{- $out = printf "%s/%s/%s" $out $ret .Input.Lang -}}
-		{{- else -}}
-			{{- $out = printf "%s/%s" $out .Input.Lang -}}
-		{{- end -}}
-		{{- $out = strings.TrimSuffix "/" $out -}}
-	{{- else -}}
-		{{- if $ret -}}
-			{{- $ret = strings.TrimPrefix "/" $ret -}}
-			{{- $out = printf "%s/%s" $out $ret -}}
-		{{- end -}}
-		{{- $out = strings.TrimSuffix "/" $out -}}
-	{{- end -}}
-
-
-
-
-	{{- /* PART IV - JOINING GIVEN PATHING SEGMENT */ -}}
-	{{- $ret = false -}}
-	{{- if .Input.Format -}}
-		{{- /* determine the replaceability for file */ -}}
-		{{- $ret = "" -}}
-		{{- if path.Ext $query.Path -}}
-			{{- $ret = path.Base $query.Path -}}
-			{{- range $k, $v := .Formats.List -}}
-				{{- if eq (printf "%s%s" $v.Filename $v.Extension) $ret -}}
-					{{- $ret = "" -}}
-				{{- end -}}
-			{{- end -}}
-		{{- end -}}
-
-
-		{{- if not $ret -}}
-			{{- $ret = index .Formats.List .Input.Format.Type -}}
-			{{- if $ret -}}
-				{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
-			{{- end -}}
-		{{- end -}}
-
-
-		{{- if and $ret (path.Ext $query.Path) -}}
-			{{- $ret = path.Join (path.Dir $query.Path) $ret -}}
-		{{- else if and $ret (not (path.Ext $query.Path)) -}}
-			{{- $ret = path.Join $query.Path $ret -}}
-		{{- else -}}
-			{{- $ret = $query.Path -}}
-		{{- end -}}
-	{{- else if $query.Path -}}
-		{{- $ret = $query.Path -}}
-	{{- end -}}
-	{{- if $ret -}}
-		{{- $ret = strings.TrimPrefix "/" $ret -}}
-		{{- $out = printf "%s/%s" $out $ret -}}
-		{{- $out = strings.TrimSuffix "/" $out -}}
-	{{- end -}}
-
-
-
-
-	{{- /* PART V - CONSTRUCT QUERY */ -}}
-	{{- if not $IsCompleted -}}
-		{{- if $query.RawQuery -}}
-			{{- $ret = $query.RawQuery -}}
-
-			{{- $ret = strings.TrimPrefix "/" $ret -}}
-			{{- $out = printf "%s?%s" $out $ret -}}
-			{{- $out = strings.TrimSuffix "/" $out -}}
-		{{- end -}}
-	{{- end -}}
-
-
-
-
-	{{- /* PART VI - CONSTRUCT FRAGMENT */ -}}
-	{{- if not $IsCompleted -}}
-		{{- if $query.Fragment -}}
-			{{- $ret = $query.Fragment -}}
-
-			{{- $ret = strings.TrimPrefix "/" $ret -}}
-			{{- $out = printf "%s#%s" $out $ret -}}
-			{{- $out = strings.TrimSuffix "/" $out -}}
-		{{- end -}}
-	{{- end -}}
+{{- /* process the .Content */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Content")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
-{{- $dataList = merge $dataList (dict "URL" $out) -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/string/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Content: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Content" $ret) -}}
 
 
 
 
-{{- /* STAGE 2 - Process .Input.ID */ -}}
-{{- if .Input.ID -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.ID -}}
-	{{- $ret = safeHTML $ret -}}
-	{{- $dataList = merge $dataList (dict "ID" $ret) -}}
+{{- /* process the .Rel */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Rel")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/string/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Rel: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Rel" $ret) -}}
 
 
-{{- /* STAGE 3 - Process Input.Class */ -}}
-{{- if .Input.Class -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Class -}}
-	{{- $ret = safeHTML $ret -}}
-	{{- $dataList = merge $dataList (dict "Class" $ret) -}}
+
+
+{{- /* process the .Target */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Target")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/string/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Target: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Target" $ret) -}}
 
 
-{{- /* STAGE 4 - Process Input.Rel */ -}}
-{{- if .Input.Rel -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Rel -}}
-	{{- $ret = safeHTML $ret -}}
-	{{- $dataList = merge $dataList (dict "Rel" $ret) -}}
+
+
+{{- /* process the .OnLoad */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.OnLoad")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/string/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Lang: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "OnLoad" $ret) -}}
 
 
-{{- /* STAGE 5 - Process .Input.HrefLang */ -}}
-{{- if or (or .Input.Lang .Input.HrefLang) -}}
-	{{- $ret = false -}}
-	{{- range $k, $v := .Languages.List -}}
-		{{- if eq .Input.Lang $v.Code -}}
-			{{- $ret = $v.Code -}}
-		{{- end -}}
-	{{- end -}}
 
-	{{- if $IsRelativeToPage -}}
-		{{- $ret = .Languages.Current.Code -}}
-	{{- end -}}
 
-	{{- if .Input.HrefLang -}}
-		{{- $ret = .Input.HrefLang -}}
-	{{- end -}}
-
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
-	{{- $ret = safeHTML $ret -}}
-	{{- $dataList = merge $dataList (dict "Lang" $ret) -}}
+{{- /* process the .Download */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Download")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/boolean/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Download: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Download" $ret.Output) -}}
 
 
-{{- /* STAGE 6 - Process .Input.Download */ -}}
-{{- if .Input.Download -}}
-	{{- $dataList = merge $dataList (dict "Download" true) -}}
+
+
+{{- /* process the .ID */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.ID")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/string/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".ID: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "ID" $ret) -}}
 
 
-{{- /* STAGE 7 - Process Input.Target */ -}}
-{{- if .Input.Target -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Target -}}
-	{{- $ret = safeHTML $ret -}}
-	{{- $dataList = merge $dataList (dict "Target" $ret) -}}
+
+
+{{- /* process the .Class */ -}}
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Class")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $ret = "" -}}
 {{- end -}}
 
 
-
-
-{{- /* STAGE 8 - Process Input.Onload */ -}}
-{{- if .Input.Target -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Onload -}}
-	{{- $ret = safeJS $ret -}}
-	{{- $dataList = merge $dataList (dict "Onload" $ret) -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/string/Init" $ret  -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Class: %s" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
-
-
-
-
-{{- /* STAGE 9 - Process Input.Content */ -}}
-{{- if .Input.Content -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" .Input.Content -}}
-	{{- $ret = partial "Hestia/functions/render/Content" $ret -}}
-	{{- $dataList = merge $dataList (dict "Content" $ret) -}}
-{{- end -}}
+{{- $ret = partial "Hestia/functions/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Class" $ret) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- if $dataList.Content -}}
-	{{- $ret = false -}}
-	{{- if .Input.Format -}}
-		{{- $ret = index .Formats.List .Input.Format -}}
-	{{- end -}}
-
-	{{- if not $ret -}}
-		{{- $ret = .Formats.Current -}}
-	{{- end -}}
-
-	{{- $ret = index .Components.url (upper $ret.Name) -}}
-	{{- if $ret -}}
-		{{- $ret = $ret.Code -}}
-		{{- $ret = merge $dataList (dict "Input" (dict "Query" $ret)) -}}
-		{{- partial "Hestia/functions/scan/GoTemplateFunction" $ret -}}
-	{{- else -}}
-		{{- $ret = printf "Unknown format '%s'" (safeHTML (upper $ret.Name)) -}}
-		{{- $ret = printf "%s for URL:\n%s\n" $ret (safeHTML $dataList.URL) -}}
-		{{- $ret = dict "Console" (dict "Message" $ret) -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
-	{{- end -}}
+{{- $ret = printf "layouts/partials/Hestia/functions/render/components/anchor%s"
+	$dataList.Format.Extension -}}
+{{- if partial "Hestia/functions/data/filesystem/IsFileExists" $ret -}}
+	{{- $ret = strings.TrimPrefix "layouts/partials" $ret -}}
+	{{- partial $ret $dataList -}}
 {{- else -}}
-	{{- safeHTML $dataList.URL -}}
+	{{- $dataList.URL -}}
 {{- end -}}
