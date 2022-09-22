@@ -21,25 +21,16 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict -}}
-{{- $ret := false -}}
+{{- $dataList := "" -}}
 
 
 
 
-{{- /* merge page title data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_title" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page description data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_description" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- /* source data */ -}}
+{{- $dataList = .Descriptions.Page.Pitch -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Page" $dataList -}}
+{{- return dict "description" $dataList -}}
