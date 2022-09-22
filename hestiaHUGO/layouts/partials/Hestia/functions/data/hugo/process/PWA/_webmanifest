@@ -30,7 +30,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* generate webmanifest file */ -}}
-{{- $dataList = partial "Hestia/functions/render/json/pwa/manifest" . -}}
+{{- $dataList = partial "Hestia/functions/render/json/pwa/Manifest" . -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" (string $dataList))) -}}
 {{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
 {{- if $dataList.Console -}}
