@@ -69,5 +69,12 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* merge page url data */ -}}
+{{- $ret = partial "Hestia/functions/render/json/meta/_url" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "Page" $dataList -}}
