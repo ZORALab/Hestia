@@ -21,19 +21,32 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Local := "" -}}
 {{- $dataList := dict -}}
+{{- $format := partial "Hestia/functions/data/hugo/parse/Formats" . -}}
+{{- $format = $format.Formats.Current -}}
 
 
 
 
-{{- /* parse .Content.Rendered */ -}}
-{{- $dataList = merge $dataList (dict "Rendered" .Page.Content) -}}
+{{- /* parse specific format content */ -}}
+{{- if strings.HasSuffix (upper $format.Name) "HTML" -}}
+	{{- $dataList = merge $dataList (dict "Rendered" .Page.Content) -}}
+	{{- $dataList = merge $dataList (dict "Raw" .Page.RawContent) -}}
+{{- else if .Page.File -}}
+	{{- $Local = printf "._index%s" $format.Extension -}}
+	{{- $Local = path.Join (path.Dir .Page.File.Path) $Local -}}
+	{{- $Local = path.Clean $Local -}}
+	{{- $Local = partial "Hestia/functions/data/hugo/parse/__file" $Local -}}
+	{{- $Local = string $Local -}}
 
 
-
-
-{{- /* parse .Content.Raw */ -}}
-{{- $dataList = merge $dataList (dict "Raw" .Page.RawContent) -}}
+	{{- $dataList = merge $dataList (dict "Rendered" $Local) -}}
+	{{- $dataList = merge $dataList (dict "Raw" $Local) -}}
+{{- else -}}
+	{{- $dataList = merge $dataList (dict "Rendered" "") -}}
+	{{- $dataList = merge $dataList (dict "Raw" "") -}}
+{{- end -}}
 
 
 
