@@ -9,7 +9,7 @@ Type = 'https-download'
 
 
 [Variables]
-Version = '1.18.3'
+Version = '1.19.1'
 BaseURL = 'https://golang.org/dl/'
 
 [FMTVariables]
@@ -32,51 +32,51 @@ Format = 'hex'
 [Sources.all-all.headers]
 
 [Sources.darwin-amd64.Checksum]
-Value = 'd9dcf8fc35da54c6f259be41954783a9f4984945a855d03a003a7fd6ea4c5ca1'
+Value = 'b2828a2b05f0d2169afc74c11ed010775bf7cf0061822b275697b2f470495fb7'
 
 [Sources.darwin-arm64.Checksum]
-Value = '40ecd383c941cc9f0682e6a6f2a333539d58c7dea15c842434d03afafe2f7242'
+Value = 'e46aecce83a9289be16ce4ba9b8478a5b89b8aa0230171d5c6adbc0c66640548'
 
 [Sources.linux-386.Checksum]
-Value = '72b73da021397a3a1ce182c19d2a890a5346bfe80885d9dd7d1ff04ce6597938'
+Value = '9acc57342400c5b0c2da07b5b01b50da239dd4a7fad41a1fb56af8363ef4133f'
 
 [Sources.linux-amd64.Checksum]
-Value = '956f8507b302ab0bb747613695cdae10af99bbd39a90cae522b7c0302cc27245'
+Value = 'acc512fbab4f716a8f97a8b3fbaa9ddd39606a28be6c2515ef7c6c6311acffde'
 
 [Sources.linux-arm64.Checksum]
-Value = 'beacbe1441bee4d7978b900136d1d6a71d150f0a9bb77e9d50c822065623a35a'
+Value = '49960821948b9c6b14041430890eccee58c76b52e2dbaafce971c3c38d43df9f'
 
 [Sources.linux-arm]
 Archive = 'go{{- .Version -}}.linux-armv6l.{{- .Format -}}'
 [Sources.linux-arm.Checksum]
-Value = 'b8f0b5db24114388d5dcba7ca0698510ea05228b0402fcbeb0881f74ae9cb83b'
+Value = 'efe93f5671621ee84ce5e262e1e21acbc72acefbaba360f21778abd083d4ad16'
 
 [Sources.windows-386]
 Format = 'zip'
 [Sources.windows-386.Checksum]
-Value = '6661798e9669c3f03498a2e018ed948d9f53a90c5ccbd05b4e4b36303facb33e'
+Value = 'bc7043e7a9a8d34aacd06f8c2f70e166d1d148f6800814cff790c45b9ab31cee'
 
 [Sources.windows-amd64]
 Format = 'zip'
 [Sources.windows-amd64.Checksum]
-Value = '9c46023f3ad0300fcfd1e62f2b6c2dfd9667b1f2f5c7a720b14b792af831f071'
+Value = 'b33584c1d93b0e9c783de876b7aa99d3018bdeccd396aeb6d516a74e9d88d55f'
 
 [Sources.freebsd-386.Checksum]
-Value = 'dbf06c8b76f7e9bd2f2b8d47d8c748e9867c2bbbdb2e90240d54df3e5766ad18'
+Value = 'cfaca8c1d5784d2bc21e12d8893cfd2dc885a60db4c1a9a95e4ffc694d0925ce'
 
 [Sources.freebsd-amd64.Checksum]
-Value = 'b1c60641aa175aa92edf494e942e37db28086b9d534f072ad9609d081b614d39'
+Value = 'db5b8f232e12c655cc6cde6af1adf4d27d842541807802d747c86161e89efa0a'
 
 [Sources.linux-ppc64le.Checksum]
-Value = '5d42bd252e7af9f854df92e46bb2e88be7b2fb310cc937c0fe091afd8c4f2016'
+Value = '4137984aa353de9c5ec1bd8fb3cd00a0624b75eafa3d4ec13d2f3f48261dba2e'
 
 [Sources.linux-s390x.Checksum]
-Value = 'ebb4efddec5bbd22bdd9c87137cb3dd59e874b5dfcf93d00bef351c60d2c7401'
+Value = 'ca1005cc80a3dd726536b4c6ea5fef0318939351ff273eff420bd66a377c74eb'
 
 [Sources.windows-arm64]
 Format = 'zip'
 [Sources.windows-arm64.Checksum]
-Value = 'ea8fab36a03e5a62b747e2ab0977be2d0f3e2f04b41397b4abf57a8c24f0034c'
+Value = 'd8cf3f04762fa7d5d9c82dfa15b5adaae2404463af3bc8dcd7f89837512501fe'
 
 
 
