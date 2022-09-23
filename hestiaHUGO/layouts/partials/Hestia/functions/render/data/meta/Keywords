@@ -27,10 +27,12 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source data */ -}}
-{{- $dataList = partial "Hestia/functions/render/data/meta/Keywords" . -}}
+{{- range $k, $v := .Keywords -}}
+	{{- $dataList = append (string $v) $dataList -}}
+{{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "keywords" $dataList -}}
+{{- return $dataList -}}
