@@ -21,7 +21,6 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := slice -}}
 {{- $ret := false -}}
 
@@ -30,22 +29,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source data */ -}}
 {{- range $i, $v := .Languages.List -}}
-	{{- $ret = string $v.URL.PAGE -}}
-	{{- if not $ret -}}
-		{{- continue -}}
-	{{- end -}}
-	{{- $ret = dict "url" $ret -}}
-
-
-	{{- /* process URL */ -}}
-	{{- $ret = merge $ret (dict "code" (string $v.Code)) -}}
-
-
-	{{- /* process Name */ -}}
-	{{- $ret = merge $ret (dict "name" (string $v.Name)) -}}
-
-
-	{{- /* merge into list */ -}}
+	{{- $ret = partial "Hestia/functions/render/json/languages/Language" $v -}}
 	{{- $dataList = append $ret $dataList -}}
 {{- end -}}
 
