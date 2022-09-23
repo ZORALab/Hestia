@@ -1,0 +1,8 @@
+["text/amphtml"]
+suffixes = [ "amp.html" ]
+
+["application/json"]
+suffixes = [ "json" ]
+
+["application/manifest+json"]
+suffixes = [ "webmanifest" ]
