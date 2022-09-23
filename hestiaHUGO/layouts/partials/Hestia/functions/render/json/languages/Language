@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* . = ONE (1) Language Hestia data structure */ -}}
 
 
 
@@ -27,11 +27,13 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source data */ -}}
-{{- $dataList = .Languages.Current -}}
-{{- $dataList = partial "Hestia/functions/render/json/languages/Language" $dataList -}}
+{{- $dataList = merge $dataList (dict "code" (string .Code)) -}}
+{{- $dataList = merge $dataList (dict "direction" (string .Direction)) -}}
+{{- $dataList = merge $dataList (dict "name" (string .Name)) -}}
+{{- $dataList = merge $dataList (dict "url" (string .URL.PAGE)) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "locale" $dataList -}}
+{{- return  $dataList -}}
