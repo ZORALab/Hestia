@@ -83,5 +83,12 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* merge page locale data */ -}}
+{{- $ret = partial "Hestia/functions/render/json/meta/_locale" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "Page" $dataList -}}

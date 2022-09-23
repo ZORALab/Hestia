@@ -26,15 +26,8 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* prepare working variables for this function */ -}}
+{{- /* source page meta */ -}}
 {{- $ret = partial "Hestia/functions/render/json/meta/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* prepare working variables for this function */ -}}
-{{- $ret = partial "Hestia/functions/render/json/Locale" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
