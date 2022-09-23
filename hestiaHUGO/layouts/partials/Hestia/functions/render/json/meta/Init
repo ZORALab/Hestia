@@ -76,5 +76,12 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* merge page thumbnails data */ -}}
+{{- $ret = partial "Hestia/functions/render/json/meta/_thumbnails" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "Page" $dataList -}}

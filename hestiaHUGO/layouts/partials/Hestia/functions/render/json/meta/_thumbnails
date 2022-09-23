@@ -1,0 +1,98 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := slice -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source data */ -}}
+{{- range $i, $v := .Thumbnails -}}
+	{{- /* render sources */ -}}
+	{{- $data = slice -}}
+	{{- range $j, $w := $v.Sources -}}
+		{{- $ret = dict -}}
+		{{- $ret = merge $ret (dict "url" (string $w.URL)) -}}
+		{{- $ret = merge $ret (dict "type" (string $w.Type)) -}}
+		{{- $ret = merge $ret (dict "media" (string $w.Media)) -}}
+		{{- $data = append $ret $data -}}
+	{{- end -}}
+	{{- $data = dict "sources" $data -}}
+
+
+	{{- /* render name */ -}}
+	{{- $data = merge $data (dict "name" (string $v.Name)) -}}
+
+
+	{{- /* render relationship */ -}}
+	{{- $data = merge $data (dict "relationship" (string $v.Relationship)) -}}
+
+
+	{{- /* render autoplay */ -}}
+	{{- $data = merge $data (dict "autoplay" $v.Autoplay) -}}
+
+
+	{{- /* render cors */ -}}
+	{{- $data = merge $data (dict "cors" (string $v.CORS)) -}}
+
+
+	{{- /* render control */ -}}
+	{{- $data = merge $data (dict "control" $v.Control) -}}
+
+
+	{{- /* render inline */ -}}
+	{{- $data = merge $data (dict "inline" $v.Inline) -}}
+
+
+	{{- /* render loop */ -}}
+	{{- $data = merge $data (dict "loop" $v.Loop) -}}
+
+
+	{{- /* render mute */ -}}
+	{{- $data = merge $data (dict "mute" $v.Mute) -}}
+
+
+	{{- /* render design */ -}}
+	{{- $data = merge $data (dict "design" (string $v.Design)) -}}
+
+
+	{{- /* render width */ -}}
+	{{- $data = merge $data (dict "width" (string $v.Width)) -}}
+
+
+	{{- /* render height */ -}}
+	{{- $data = merge $data (dict "height" (string $v.Height)) -}}
+
+
+	{{- /* append to list */ -}}
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "thumbnails" $dataList -}}
