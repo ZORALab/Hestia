@@ -21,74 +21,17 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := slice -}}
-{{- $data := false -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* source data */ -}}
+{{- $dataList = slice -}}
 {{- range $i, $v := .Thumbnails -}}
-	{{- /* render sources */ -}}
-	{{- $data = slice -}}
-	{{- range $j, $w := $v.Sources -}}
-		{{- $ret = dict -}}
-		{{- $ret = merge $ret (dict "url" (string $w.URL)) -}}
-		{{- $ret = merge $ret (dict "type" (string $w.Type)) -}}
-		{{- $ret = merge $ret (dict "media" (string $w.Media)) -}}
-		{{- $data = append $ret $data -}}
-	{{- end -}}
-	{{- $data = dict "sources" $data -}}
-
-
-	{{- /* render name */ -}}
-	{{- $data = merge $data (dict "name" (string $v.Name)) -}}
-
-
-	{{- /* render relationship */ -}}
-	{{- $data = merge $data (dict "relationship" (string $v.Relationship)) -}}
-
-
-	{{- /* render autoplay */ -}}
-	{{- $data = merge $data (dict "autoplay" $v.Autoplay) -}}
-
-
-	{{- /* render cors */ -}}
-	{{- $data = merge $data (dict "cors" (string $v.CORS)) -}}
-
-
-	{{- /* render control */ -}}
-	{{- $data = merge $data (dict "control" $v.Control) -}}
-
-
-	{{- /* render inline */ -}}
-	{{- $data = merge $data (dict "inline" $v.Inline) -}}
-
-
-	{{- /* render loop */ -}}
-	{{- $data = merge $data (dict "loop" $v.Loop) -}}
-
-
-	{{- /* render mute */ -}}
-	{{- $data = merge $data (dict "mute" $v.Mute) -}}
-
-
-	{{- /* render design */ -}}
-	{{- $data = merge $data (dict "design" (string $v.Design)) -}}
-
-
-	{{- /* render width */ -}}
-	{{- $data = merge $data (dict "width" (string $v.Width)) -}}
-
-
-	{{- /* render height */ -}}
-	{{- $data = merge $data (dict "height" (string $v.Height)) -}}
-
-
-	{{- /* append to list */ -}}
-	{{- $dataList = append $data $dataList -}}
+	{{- $ret = partial "Hestia/functions/render/json/Media" $v -}}
+	{{- $dataList = append $ret $dataList -}}
 {{- end -}}
 
 

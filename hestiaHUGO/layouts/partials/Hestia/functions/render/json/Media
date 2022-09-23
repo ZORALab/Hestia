@@ -1,0 +1,72 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = ONE (1) media data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* source data */ -}}
+{{- $data = slice -}}
+{{- range $i, $v := .Sources -}}
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "url" (string $v.URL)) -}}
+	{{- $ret = merge $ret (dict "type" (string $v.Type)) -}}
+	{{- $ret = merge $ret (dict "media" (string $v.Media)) -}}
+	{{- $data = append $ret $data -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "sources" $data) -}}
+
+
+{{- $data = slice -}}
+{{- range $i, $v := .Tracks -}}
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "lang" (string $v.Lang)) -}}
+	{{- $ret = merge $ret (dict "url" (string $v.URL)) -}}
+	{{- $ret = merge $ret (dict "kind" (string $v.Kind)) -}}
+	{{- $ret = merge $ret (dict "label" (string $v.Label)) -}}
+	{{- $ret = merge $ret (dict "default" $v.Default) -}}
+	{{- $data = append $ret $data -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "tracks" $data) -}}
+
+
+{{- $dataList = merge $dataList (dict "name" (string .Name)) -}}
+{{- $dataList = merge $dataList (dict "relationship" (string .Relationship)) -}}
+{{- $dataList = merge $dataList (dict "autoplay" .Autoplay) -}}
+{{- $dataList = merge $dataList (dict "cors" (string .CORS)) -}}
+{{- $dataList = merge $dataList (dict "control" .Control) -}}
+{{- $dataList = merge $dataList (dict "inline" .Inline) -}}
+{{- $dataList = merge $dataList (dict "loop" .Loop) -}}
+{{- $dataList = merge $dataList (dict "mute" .Mute) -}}
+{{- $dataList = merge $dataList (dict "design" (string .Design)) -}}
+{{- $dataList = merge $dataList (dict "width" .Width) -}}
+{{- $dataList = merge $dataList (dict "height" .Height) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
