@@ -1,4 +1,5 @@
-# HESTIA WEB UI COMPONENTS LIST
-# =============================
-# All Hestia internal web UI components page-level configurations. ONLY include
-# those you need. See .Data.Hestia.Components data file for helper.
+# HESTIA WEB UI COMPONENTS LIST (PAGE SPECIFIC)
+# =============================================
+# All Hestia internal web UI components page specific configurations. ONLY
+# include those you need/override. See .Data.Hestia.Components data file for
+# helper.

@@ -43,7 +43,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source local thumbnails data */ -}}
 {{- if $Local -}}
-	{{- range $i, $v := $Local.Thumbnails -}}
+	{{- range $i, $v := $Local.Contents -}}
 		{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $v -}}
 		{{- if $ret -}}
 			{{- $dataList = merge $dataList (dict (lower $i) $ret) -}}
