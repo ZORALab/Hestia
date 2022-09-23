@@ -2,19 +2,35 @@ name = "ZORALab's Hestia"
 license = "Apache-2.0"
 licenselink = "https://hestia.zoralab.com/en/license/"
 description = """
-Hestia focuses on uniting software library under a same family pattern to allow
-its user to have a peaceful development experiences. The goal is to structure
-the learning experience align to a single pattern and deployment, allowing
-anyone with different languages and understanding to shine at his/her own way
-without worrying about stability.
+One peaceful library for building infinite possibilities - ZORALab's Hestia
 """
 homepage = "https://hestia.zoralab.com/"
-tags = ["zoralab", "hestia", "theme", "web", "ui", "design", "components"]
-features = ["CSS-Only",
-	"W3C Compliant HTML",
-	"Sass Design Module",
-	"Go Compatible Template Module",
-	"Configurable Theme"]
+tags = [
+        "zoralab",
+        "hestia",
+        "theme",
+        "web",
+        "ui",
+        "design",
+        "components",
+        "wasm",
+        "pwa",
+        "favicon rendered",
+]
+features = [
+        "W3C Compliant HTML",
+        "Go Compatible Template Modules",
+        "WASM Compatible",
+        "Configurable Theme",
+        "Built-in Functions for Long Terms Maintenance and Sustainability",
+        "Continuously Improved",
+        "UI Component Compiling Driven Approach",
+        "Built-in PWA Supports",
+        "Built-in Favicons and Icons Rendering Supports",
+        "Open Graph Rendering",
+        "JSON Data-Driven Capable",
+        "PWA Offline Mode Supports",
+]
 min_version = "0.101.0"
 
 authors = [
