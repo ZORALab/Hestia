@@ -27,40 +27,17 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* merge page title data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_title" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page description data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_description" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page format data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_format" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page keywords data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_keywords" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page redirect data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_redirect" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- /* source data */ -}}
+{{- if .Redirect.Enabled -}}
+	{{- $dataList = merge $dataList (dict "url" (string .Redirect.URL)) -}}
+	{{- $dataList = merge $dataList (dict "enabled" true) -}}
+{{- else -}}
+	{{- $dataList = merge $dataList (dict "url" "") -}}
+	{{- $dataList = merge $dataList (dict "enabled" false) -}}
+{{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Page" $dataList -}}
+{{- return dict "redirect" $dataList -}}
