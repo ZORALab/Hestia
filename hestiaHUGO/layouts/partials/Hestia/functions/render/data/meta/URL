@@ -27,10 +27,10 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source data */ -}}
-{{- $dataList = partial "Hestia/functions/render/data/meta/URL" . -}}
+{{- $dataList = string .URL.Current.Absolute -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "url" $dataList -}}
+{{- return $dataList -}}
