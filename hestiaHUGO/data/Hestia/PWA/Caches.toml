@@ -1,6 +1,8 @@
-# Resources and Page Caching URL list.
+# HESTIA PWA RESOURCES AND CACHING LIST
+# =====================================
+# All URLs for PWA offline caching.
 #
-# Hestia compatible URL is available for URL formulations. All URLs must be
+# Hestia compatible URL processing is available for this list. All URLs must be
 # bounded within the base URL and PWA scope URL pathing. You need to decide what
 # kind of resources to be served offline or cached during work. To fully
 # implement PWA, you **MUST** assemble and support offline resources when

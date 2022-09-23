@@ -1,12 +1,10 @@
-# HESTIA LANGUAGES SETTINGS
-# -------------------------
+# HESTIA LANGUAGES CONFIGURATIONS
+# ===============================
 # Due to the support for WASM, there is a tendency that the i18n can be
-# implemented in there and completely discarding Hugo multilingual feature at
-# all. Therefore, Hestia has to supply its own i18n feature and no longer
+# implemented in WASM domain completely and discarding Hugo multilingual
+# feature. Hence, Hestia has to supply its own i18n feature and no longer
 # depends on Hugo's multilingual feature for said flexibility and keeping the
 # Hugo module development and communications consistent.
-#
-#
 #
 #
 # CODE FIELD
@@ -83,6 +81,8 @@
 #                ERROR_Offline = "[URL.ERROR_Offline]"
 # By default, Hestia supplies international English and Simplified Chinese. You
 # can add|modify|remove them according to your site content and design.
+#
+# When in doubt, keep the international English for longer live URL.
 [en]
 Name = "English (International)"
 Directory = "en"

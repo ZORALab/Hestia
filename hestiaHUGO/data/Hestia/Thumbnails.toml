@@ -1,3 +1,5 @@
+# HESTIA SITE-LEVEL THUMBNAILS CONFIGURATIONS
+# ===========================================
 [Contents.0]
 Name = "{{- .Titles.Site.Current.Full -}}"
 Width = "1200"

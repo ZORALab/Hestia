@@ -1,8 +1,10 @@
+# HESTIA PWA EXTERNAL RELATIONS CONFIGURATIONS
+# ============================================
 # Configurations settings to related applications listed in [[Contents]].
 [Settings]
 
-[Settings.Install]
 # Prefers installing the listed related app instead of web PWA install.
+[Settings.Install]
 Prefer = false
 
 

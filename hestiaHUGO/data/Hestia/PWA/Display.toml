@@ -1,3 +1,5 @@
+# HESTIA PWA DISPLAY CONFIGURATIONS
+# =================================
 # Main PWA settings. Arranged in fallback priorities:
 #   1. 'fullscreen' - basically takes over the entire screen.
 #   2. 'standalone' - open like a native app (with no browser UI feels).
@@ -7,7 +9,7 @@
 # NOTE:
 #   1. Safari iOS and ipadOS both does not support 'minimal-ui' and will
 #      fallback to 'browser' automatically. See:
-#      https://web.dev/learn/pwa/app-design/
+#                   https://web.dev/learn/pwa/app-design/
 #
 # To check for support, please see:
 #   1. https://caniuse.com/web-app-manifest

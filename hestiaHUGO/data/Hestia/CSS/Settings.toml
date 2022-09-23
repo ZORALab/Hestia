@@ -1,5 +1,5 @@
-# CSS RENDERING CONFIGURATIONS
-# ============================
+# HESTIA SITE-LEVEL CSS RENDERING CONFIGURATIONS
+# ==============================================
 # To configure all CSS rendering settings at site-level.
 #
 # Position.InlineFirst    - set renderer to render CSS .Include List first

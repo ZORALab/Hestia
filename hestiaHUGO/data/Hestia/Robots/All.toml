@@ -1,5 +1,5 @@
-# Robot Crawler Data File.
-#
+# HESTIA ROBOTS CRAWLER CONFIGURATIONS
+# ====================================
 # NOTE:
 #   1. The User-agent's value is defined in the filename. Here is an example for
 #      defining the value for this particular user-agent:

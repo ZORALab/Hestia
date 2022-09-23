@@ -1,14 +1,15 @@
-# List of your site-level creators
-# ================================
+# HESTIA SITE LEVEL CREATORS LIST
+# ===============================
 # QUICK NOTE:
 #   1. These are the supported entity types:
 #      1.1. 'Person'
 #      1.2. 'Organization'
-#   2. Leaving the field empty indicates as unused, similary to removing the
-#      field. That being said, it is recommended to leave it empty rather than
-#      commented out (unless the entire entry is commented out as below.
-#   3. All the entries listed here shall be appended to the page creators for
-#      every pages.
+#   2. Leaving the field empty shall turn it to be as unused, and shall be
+#      removed. That being said, it is recommended to leave it empty rather than
+#      commented out.
+#   3. All the entries listed here shall be prepended by the page specific
+#      creators list. For any conflicting creator entry, the page-specific data
+#      shall prevail.
 #   4. Example entries:
 #         [holloway]
 #         Type = "Person"
@@ -19,16 +20,16 @@
 #         LinkedIn = "https://www.linkedin.com/in/hollowaykeanho/"
 #         Facebook = ""
 #         Instagram = ""
-#         Twitter = "https://www.twitter.com/hollowaykeanho"
+#         Twitter = "https://www.twitter.com/hollowaykeanho/"
 #         TikTok = ""
-#         Web = ""
+#         Web = "https://www.hollowaykeanho.com/"
 #         Description = """
-#         A passionate individual over techologies, process development and
-#         continuous imporvements, and adventuring to new experiences!
+#         A passionate individual loving technologies and its processes be it
+#         development and continuous improvements, and new adventures!
 #         """
 #
 #         [zoralab]
 #         Type = "Organization"
 #         Name = "ZORALab"
 #         Title = "Through Knowledge, We Serve"
-#         ... similar to above ...
+#         ... hence and repeat ...

@@ -1,17 +1,17 @@
-# HESTIA WEB UI COMPONENTS LIST
-# =============================
-# All Hestia internal web UI components site-level configurations. These
-# configurations can be overwritten by page-level ones when made available.
-# The components are auto-generated from hestiaGO code libraries and are meant
-# for those who use hestiaHUGO without WASM.
+# HESTIA SITE-LEVEL WEB UI COMPONENTS LIST
+# ========================================
+# All Hestia internal web UI components at site-level configurations. These
+# configurations can be overwritten by page specific ones whenever available.
+# The components low-level codes are auto-generated from hestiaGO code libraries
+# to retain its UI rendering consistency between non-WASM users and WASM users.
 #
 # If you're using WASM from Hestia code libraries and directly control the page
-# UI (either single-page rendering or reactive rendering), you **SHOULD NOT**
-# include anything below as they're redundant copies.
+# UI (either as single-page rendering or reactive rendering), you **SHOULD NOT**
+# include anything below as they're redundant and can cause complications to
+# your WASM rendering. Please stick to one type.
 #
-# You should only include UI components that you use ONLY, not all of them.
-#
-# To configure:
+# You SHOULD ONLY include components that are used across all pages. To
+# configure:
 #     [COMPONENT].Enabled   = to include the component.
 #     [COMPONENT].Variables = overwrites the component's variables.
 #
@@ -27,4 +27,4 @@
 #               Include = false
 #
 #               [anchor.Variables]
-#               "--url-color" = "red"
+#               "--anchor-color" = "red"

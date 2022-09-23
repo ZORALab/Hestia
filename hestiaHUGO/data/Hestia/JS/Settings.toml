@@ -1,5 +1,5 @@
-# JAVSCRIPT RENDERING CONFIGURATIONS
-# ==================================
+# HESTIA JAVSCRIPT RENDERING CONFIGURATIONS
+# =========================================
 # To configure all JS rendering settings at site-level.
 #
 # Position.InlineFirst    - set renderer to render JS .Include List first

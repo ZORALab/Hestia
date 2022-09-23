@@ -1,10 +1,9 @@
-# JAVASCRIPT ARTIFACTS SITE-LEVEL ASSETS LIST
-# ===========================================
+# HESTIA SITE-LEVEL JAVASCRIPT ARTIFACTS ASSETS LIST
+# ==================================================
 # You can include or inline JS assets into this specific page only by listing
 # out their .URL or relative file .PATH sources respectively.
 #
-# All .Inline JS artifacts shall only be provided with Hugo's virtual pathing
-# only.
+# All .Inline JS artifacts shall only be provided with Hugo's virtual pathing.
 #
 # As for .Include JS artifacts, Hestia's URL processing is available for
 # dynamic relative pathing constructions. As long as the URL is accessible,

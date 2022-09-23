@@ -1,4 +1,6 @@
-# Protocols allow local OS URI application call
+# HESTIA PWA PROTOCOLS CONFIGURATIONS
+# ===================================
+# Protocols allow local OS URI application calls.
 #
 # .Protocol    - the custom protocol that will launch your application for data
 #                processing (e.g. 'mailto' will launch the client email app).
