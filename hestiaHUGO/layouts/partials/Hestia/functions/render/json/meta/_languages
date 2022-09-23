@@ -29,7 +29,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source data */ -}}
 {{- range $i, $v := .Languages.List -}}
-	{{- $ret = partial "Hestia/functions/render/json/languages/Language" $v -}}
+	{{- $ret = partial "Hestia/functions/render/json/Language" $v -}}
 	{{- $dataList = append $ret $dataList -}}
 {{- end -}}
 

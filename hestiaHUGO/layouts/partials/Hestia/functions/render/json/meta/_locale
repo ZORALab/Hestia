@@ -28,7 +28,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source data */ -}}
 {{- $dataList = .Languages.Current -}}
-{{- $dataList = partial "Hestia/functions/render/json/languages/Language" $dataList -}}
+{{- $dataList = partial "Hestia/functions/render/json/Language" $dataList -}}
 
 
 
