@@ -29,7 +29,8 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source data */ -}}
 {{- range $k, $v := .Formats.List -}}
-	{{- $ret = dict "type" $v.Type.Type -}}
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "type" (string $v.Type)) -}}
 	{{- $ret = merge $ret (dict "url" (string $v.URL)) -}}
 	{{- $ret = merge $ret (dict "relationship" (string $v.Relationship)) -}}
 	{{- $dataList = append $ret $dataList -}}
