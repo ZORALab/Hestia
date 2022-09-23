@@ -62,5 +62,12 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* merge page alternate languages data */ -}}
+{{- $ret = partial "Hestia/functions/render/json/meta/_alternate-languages" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "Page" $dataList -}}

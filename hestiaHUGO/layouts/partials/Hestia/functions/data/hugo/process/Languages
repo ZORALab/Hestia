@@ -257,5 +257,16 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* merge current page's url */ -}}
+{{- $ret = dict "URL" (dict "PAGE" .URL.Current.Absolute) -}}
+{{- $dataList = merge $dataList (dict "Languages" (dict "Current" $ret)) -}}
+
+
+{{- $ret = dict $dataList.Languages.Current.ID $dataList.Languages.Current -}}
+{{- $dataList = merge $dataList (dict "Languages" (dict "List" $ret)) -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return $dataList -}}
