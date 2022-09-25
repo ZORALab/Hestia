@@ -14,5 +14,8 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-pub mod hestia_error;
-pub mod version;
+// WARNING: Auto-generated content! Please instead go and edit the values here:
+//                       hestiaGO/HestiaERROR/List.go
+use crate::hestia_error::data_type;
+
+pub const OK: data_type::Error = 0;
