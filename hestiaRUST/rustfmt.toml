@@ -1,0 +1,39 @@
+# Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not
+# use this file except in compliance with the License. You may obtain a copy of
+# the License at
+#
+#                  http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations under
+# the License.
+#
+# Refer to: https://github.com/rust-lang/rustfmt/blob/master/Configurations.md
+edition = "2021"
+fn_args_layout = "Tall"
+match_arm_leading_pipes = "Always"
+match_block_trailing_comma = true
+merge_derives = true
+newline_style = "Unix"
+remove_nested_parens =  true
+reorder_imports = true
+reorder_modules = true
+use_field_init_shorthand = false
+use_try_shorthand = false
+
+# tabs
+hard_tabs = true
+tab_spaces = 8
+
+# widths
+max_width = 100
+single_line_if_else_max_width = 95
+struct_lit_width = 18
+struct_variant_width = 35
+short_array_element_width_threshold = 10
