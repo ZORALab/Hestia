@@ -251,3 +251,6 @@ issues:
     - linters:
         - misspell
       text: "misspelling of `Sebastian`"
+    - linters:
+        - stylecheck
+      text: "ST1003: should not use MixedCaps in package name;"
