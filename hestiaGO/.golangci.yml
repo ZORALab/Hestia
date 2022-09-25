@@ -1,0 +1,253 @@
+# Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+# Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+#
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may not
+# use this file except in compliance with the License. You may obtain a copy of
+# the License at
+#
+#                  http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations under
+# the License.
+#
+# This file contains all available configuration for golangci-lint
+run:
+  timeout: 5m
+  issues-exit-code: 1
+  tests: true
+  skip-dirs:
+    - vendor
+    - .bin
+
+# output configuration options
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+# all available settings of specific linters
+linters-settings:
+  dogsled:
+    max-blank-identifiers: 3
+  dupl:
+    threshold: 150
+  errcheck:
+    check-type-assertions: false
+    check-blank: false
+  exhaustive:
+    default-signifies-exhaustive: true
+  goconst:
+    min-len: 1
+    min-occurrences: 2
+    ignore-tests: false
+    match-constant: true
+    numbers: true
+    min: 3
+    max: 3
+  govet:
+    check-shadowing: true
+    settings:
+      printf: # analyzer name from `go tool vet help`
+        funcs: # `go tool vet help printf` to see available settings
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Infof
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Warnf
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Errorf
+          - (github.com/golangci/golangci-lint/pkg/logutils.Log).Fatalf
+    enable:
+      - atomicalign
+    enable-all: false
+    disable:
+      - shadow
+    disable-all: false
+  gofmt:
+    simplify: true
+  goimports:
+    local-prefixes: github.com/org/project
+  gocyclo:
+    min-complexity: 20
+  gocognit:
+    min-complexity: 20
+  maligned:
+    suggest-new: true
+  gocritic:
+    enabled-checks: # https://go-critic.github.io/overview#checks-overview
+      - appendAssign
+      - appendCombine
+      - argOrder
+      - assignOp
+      - boolExprSimplify
+      - builtinShadow
+      - codegenComment
+      - commentedOutImport
+      - commentFormatting
+      - captLocal
+      - caseOrder
+      - deprecatedComment
+      - docStub
+      - dupArg
+      - dupBranchBody
+      - dupCase
+      - dupImport
+      - dupSubExpr
+      - elseif
+      - emptyStringTest
+      - equalFold
+      - exitAfterDefer
+      - filepathJoin
+      - flagDeref
+      - flagName
+      - hexLiteral
+      - hugeParam
+      - ifElseChain
+      - importShadow
+      - indexAlloc
+      - initClause
+      - methodExprCall
+      - nilValReturn
+      - rangeExprCopy
+      - rangeValCopy
+      - regexpMust
+      - regexpSimplify
+      - singleCaseSwitch
+      - sloppyLen
+      - sloppyReassign
+      - stringXbytes
+      - switchTrue
+      - typeAssertChain
+      - typeSwitchVar
+      - typeUnparen
+      - unlabelStmt
+      - unlambda
+      - unnamedResult
+      - unnecessaryBlock
+      - unslice
+      - valSwap
+      - weakCond
+      - wrapperFunc
+      - yodaStyleExpr
+    settings:
+      captLocal:
+        paramsOnly: true
+      rangeValCopy:
+        sizeThreshold: 32
+  godox:
+    keywords:
+      - TODO
+      - BUG
+      - FIXME
+      - OPTIMIZE
+      - HACK
+  depguard:
+    list-type: blacklist
+    include-go-root: false
+    packages:
+      - github.com/sirupsen/logrus
+    packages-with-error-messages:
+      github.com/sirupsen/logrus: "logging is allowed only by logutils.Log"
+  misspell:
+    locale: US
+  lll:
+    line-length: 100
+    tab-width: 8
+  unused:
+    check-exported: false
+  unparam:
+    check-exported: false
+  nakedret:
+    max-func-lines: 30
+  prealloc:
+    simple: true
+    range-loops: true
+    for-loops: false
+  whitespace:
+    multi-if: false
+    multi-func: false
+  wrapcheck:
+    ignoreSigs:
+      - path/filepath.Walk(
+      - .Errorf(
+      - errors.New(
+      - errors.Unwrap(
+      - .Wrap(
+      - .Wrapf(
+      - .WithMessage(
+      - .WithMessagef(
+      - .WithStack(
+    ignoreSigRegexps:
+      - \.New.*Error\(
+    ignorePackageGlobs:
+      - encoding/*
+      - github.com/pkg/*
+  wsl:
+    allow-assign-and-call: true
+    allow-cuddle-declarations: true
+    allow-multiline-assign: true
+    allow-separated-leading-comment: true
+    allow-trailing-comment: true
+    strict-append: true
+
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - errcheck
+    - depguard
+    - dogsled
+    - dupl
+    - exhaustive
+    - exportloopref
+    - godox
+    - gocognit
+    - goconst
+    - gochecknoinits
+    - gochecknoglobals
+    - gocritic
+    - gofmt
+    - goimports
+    - gomodguard
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - lll
+    - megacheck
+    - misspell
+    - nakedret
+    - nolintlint
+    - prealloc
+    - revive
+    - sqlclosecheck
+    - staticcheck
+    - stylecheck
+    - tparallel
+    - typecheck
+    - unconvert
+    - unparam
+    - unused
+    - wastedassign
+    - whitespace
+    - wrapcheck
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - dupl
+    - linters:
+        - typecheck
+      text: "use of internal package"
+    - linters:
+        - revive
+        - stylecheck
+      text: "use ALL_CAPS in Go names; use CamelCase"
+    - linters:
+        - revive
+        - stylecheck
+      text: "use underscores in Go names"
+    - linters:
+        - misspell
+      text: "misspelling of `Sebastian`"
