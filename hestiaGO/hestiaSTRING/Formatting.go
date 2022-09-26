@@ -1,5 +1,6 @@
 // Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
 // Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+// Copyright 2009 The Go Authors <https://cs.opensource.google/go/go>
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -27,6 +28,10 @@ const (
 	CHARSMAP_DEFAULT CharsMap = iota
 	CHARSMAP_TURKISH
 	CHARSMAP_AZERI
+)
+
+const (
+	DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
 
 func ToUppercase(source string, charmap CharsMap) string {
@@ -60,4 +65,16 @@ func ToTitlecase(source string, charmap CharsMap) string {
 	default:
 		return strings.ToTitle(source)
 	}
+}
+
+func S_FormatUINT(input uint64, base uint8) string {
+	return s_FormatBits(input, uint64(base), false)
+}
+
+func S_FormatINT(input int64, base uint8) string {
+	return s_FormatBits(uint64(input), uint64(base), input < 0)
+}
+
+func S_Itoa(input int64) string {
+	return s_FormatBits(uint64(input), 10, input < 0)
 }
