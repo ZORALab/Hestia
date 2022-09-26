@@ -254,3 +254,6 @@ issues:
     - linters:
         - stylecheck
       text: "ST1003: should not use MixedCaps in package name;"
+    - linters:
+        - gocritic
+      text: "appendAssign: append result not assigned to the same slice"
