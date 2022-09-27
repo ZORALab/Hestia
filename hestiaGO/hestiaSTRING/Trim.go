@@ -14,6 +14,8 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
+// Test code: https://go.dev/play/p/JKiXhIZX9Kk
+
 package hestiaSTRING
 
 import (
@@ -34,15 +36,95 @@ func TrimRight(source string, cutset string) string {
 }
 
 func TrimWhitespace(source string) string {
-	return strings.TrimSpace(source)
+	var leftIndex, rightIndex uint64
+	var next bool
+
+	if source == "" {
+		return source
+	}
+
+	for i, char := range source {
+		if !unicode.IsSpace(char) {
+			if leftIndex == 0 {
+				leftIndex = uint64(i)
+			}
+
+			rightIndex = uint64(i)
+			next = true
+			continue
+		}
+
+		if next {
+			rightIndex = uint64(i)
+			next = false
+		}
+	}
+
+	if next {
+		rightIndex = uint64(len(source))
+	}
+
+	if leftIndex == 0 && rightIndex == 0 {
+		return ""
+	}
+
+	return source[leftIndex:rightIndex]
 }
 
 func TrimWhitespaceLeft(source string) string {
-	return strings.TrimLeftFunc(source, unicode.IsSpace)
+	var index uint64
+	var stillWhitespace bool
+
+	if source == "" {
+		return source
+	}
+
+	stillWhitespace = true
+	for i, char := range source {
+		if !unicode.IsSpace(char) {
+			index = uint64(i)
+			stillWhitespace = false
+			break
+		}
+	}
+
+	if stillWhitespace {
+		return ""
+	}
+
+	return source[index:]
 }
 
 func TrimWhitespaceRight(source string) string {
-	return strings.TrimRightFunc(source, unicode.IsSpace)
+	var index uint64
+	var next bool
+
+	if source == "" {
+		return source
+	}
+
+	for i, char := range source {
+		if !unicode.IsSpace(char) {
+			index = uint64(i)
+			next = true
+			continue
+		}
+
+		if next {
+			index = uint64(i)
+			next = false
+		}
+	}
+
+	if next {
+		index = uint64(len(source))
+	}
+
+	if index == 0 {
+		return ""
+	}
+
+	return source[:index]
 }
 
 func TrimPrefix(source, prefix string) string {
