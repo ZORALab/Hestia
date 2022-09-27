@@ -18,6 +18,7 @@
 package hestiaSTRING
 
 import (
+	"hestia/hestiaERROR"
 	"strings"
 	"unicode"
 )
@@ -77,4 +78,23 @@ func S_FormatINT(input int64, base uint8) string {
 
 func S_Itoa(input int64) string {
 	return s_FormatBits(uint64(input), 10, input < 0)
+}
+
+func FormatBOOL(input bool) string {
+	if input {
+		return "true"
+	}
+
+	return "false"
+}
+
+func ParseBOOL(input string) (bool, hestiaERROR.Error) {
+	switch ToUppercase(input, CHARSMAP_DEFAULT) {
+	case "1", "T", "TRUE":
+		return true, hestiaERROR.OK
+	case "0", "F", "FALSE":
+		return false, hestiaERROR.OK
+	default:
+		return false, hestiaERROR.INVALID_ARGUMENT
+	}
 }
