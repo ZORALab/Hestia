@@ -17,9 +17,23 @@
 package hestiaBITS
 
 const (
-	MAX_SIZE = ^uint(0) ^ (^uint(0) >> 1)
+	MAX_UINT   = ^uint(0)
+	MAX_UINT8  = 1<<8 - 1
+	MAX_UINT16 = 1<<16 - 1
+	MAX_UINT32 = 1<<32 - 1
+	MAX_UINT64 = 1<<64 - 1
 
-	priv_MAX_UINT64 = uint64(1<<64 - 1)
+	MAX_INT   = int(^uint(0) >> 1)
+	MAX_INT8  = 1<<7 - 1
+	MAX_INT16 = 1<<15 - 1
+	MAX_INT32 = 1<<31 - 1
+	MAX_INT64 = 1<<63 - 1
+
+	MIN_INT   = -int(^uint(0)>>1) - 1
+	MIN_INT8  = -1 << 7
+	MIN_INT16 = -1 << 15
+	MIN_INT32 = -1 << 31
+	MIN_INT64 = -1 << 63
 )
 
 //nolint:gochecknoglobals
@@ -32,7 +46,7 @@ func CPU() uint64 {
 		return cpu_size
 	}
 
-	i := MAX_SIZE
+	i := ^uint(0) ^ (^uint(0) >> 1)
 	for i != 0 {
 		cpu_size++
 		i >>= 1
@@ -45,7 +59,7 @@ func Len(x uint) uint64 {
 	var i, a, b uint64
 
 	// loop through bit shifting to find the highest bit
-	for i = 1; i <= priv_MAX_UINT64; i <<= 1 {
+	for i = 1; i <= MAX_UINT64; i <<= 1 {
 		x |= (x >> i)
 
 		a = uint64(x ^ (x >> 1))
