@@ -75,17 +75,21 @@ linters-settings:
     suggest-new: true
   gocritic:
     enabled-checks: # https://go-critic.github.io/overview#checks-overview
-      - appendAssign
       - appendCombine
       - argOrder
       - assignOp
+      - badCond
+      - badLock
       - boolExprSimplify
       - builtinShadow
-      - codegenComment
-      - commentedOutImport
-      - commentFormatting
+      - builtinShadowDecl
       - captLocal
       - caseOrder
+      - codegenComment
+      - commentFormatting
+      - commentedOutImport
+      - defaultCaseOrder
+      - deferUnlambda
       - deprecatedComment
       - docStub
       - dupArg
@@ -94,9 +98,12 @@ linters-settings:
       - dupImport
       - dupSubExpr
       - elseif
+      - emptyDecl
       - emptyStringTest
       - equalFold
       - exitAfterDefer
+      - exposedSyncMutex
+      - externalErrorReassign
       - filepathJoin
       - flagDeref
       - flagName
@@ -106,24 +113,38 @@ linters-settings:
       - importShadow
       - indexAlloc
       - initClause
+      - ioutilDeprecated
+      - mapKey
       - methodExprCall
       - nilValReturn
+      - octalLiteral
+      - offBy1
+      - preferDecodeRune
+      - preferFilepathJoin
       - rangeExprCopy
       - rangeValCopy
-      - regexpMust
+      - redundantSprint
       - regexpSimplify
       - singleCaseSwitch
+      - sliceClear
       - sloppyLen
       - sloppyReassign
+      - sloppyTypeAssert
       - stringXbytes
       - switchTrue
+      - syncMapLoadAndDelete
+      - timeExprSimplify
+      - truncateCmp
       - typeAssertChain
+      - typeDefFirst
       - typeSwitchVar
       - typeUnparen
+      - underef
       - unlabelStmt
       - unlambda
       - unnamedResult
       - unnecessaryBlock
+      - unnecessaryDefer
       - unslice
       - valSwap
       - weakCond
@@ -254,6 +275,3 @@ issues:
     - linters:
         - stylecheck
       text: "ST1003: should not use MixedCaps in package name;"
-    - linters:
-        - gocritic
-      text: "appendAssign: append result not assigned to the same slice"
