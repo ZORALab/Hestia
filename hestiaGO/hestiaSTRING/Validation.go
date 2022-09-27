@@ -17,6 +17,13 @@
 package hestiaSTRING
 
 func IsString(input any) (ok bool) {
-	_, ok = input.(string)
-	return ok
+	if _, ok = input.(string); ok {
+		return true
+	}
+
+	if _, ok = input.(*string); ok {
+		return true
+	}
+
+	return false
 }
