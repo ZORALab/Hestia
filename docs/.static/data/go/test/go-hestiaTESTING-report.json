@@ -1,0 +1,10 @@
+{
+	"Result": {
+		"Compiler": "Go",
+		"Architecture": "amd64",
+		"OS": "linux",
+		"System": "linux-amd64",
+		"Coverage": "100.0",
+		"Passed":true
+	}
+}
