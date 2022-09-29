@@ -17,43 +17,39 @@
 package hestiaTESTING
 
 import (
-	"hestia/hestiaERROR"
-	"hestia/hestiaSTRING"
 	"testing"
 )
 
-type Scenario struct {
-	ID          uint64
-	Name        string
-	Description string
-	Switches    map[string]bool
-	Log         []string
-
-	controller *testing.T
-	skip       func()
-	fail       func()
-	verdict    Verdict
-}
-
-func (s *Scenario) Init() hestiaERROR.Error {
-	if s.Switches == nil {
-		s.Switches = map[string]bool{}
+func TestInterpretAPI(t *testing.T) {
+	out := Interpret(VERDICT_PASS)
+	t.Logf("Requested: 'VERDICT_PASS' Got: '%v'", out)
+	if out != string_PASS {
+		t.Errorf("FAILED")
+	} else {
+		t.Logf("PASSED")
 	}
 
-	if s.Log == nil {
-		s.Log = []string{}
+	out = Interpret(VERDICT_FAIL)
+	t.Logf("Requested: 'VERDICT_FAIL' Got: '%v'", out)
+	if out != string_FAIL {
+		t.Errorf("FAILED")
+	} else {
+		t.Logf("PASSED")
 	}
 
-	if s.controller == nil || s.skip == nil || s.fail == nil {
-		return hestiaERROR.BAD_EXCHANGE
+	out = Interpret(VERDICT_SKIP)
+	t.Logf("Requested: 'VERDICT_SKIP' Got: '%v'", out)
+	if out != string_SKIP {
+		t.Errorf("FAILED")
+	} else {
+		t.Logf("PASSED")
 	}
 
-	s.Name = hestiaSTRING.TrimWhitespace(s.Name)
-	s.Description = hestiaSTRING.TrimWhitespace(s.Description)
-
-	return hestiaERROR.OK
-}
-
-func (s *Scenario) Exec(function func() any) (out any) {
-	return Exec(function)
+	out = Interpret(100)
+	t.Logf("Requested: 'Unknown 100' Got: '%v'", out)
+	if out != string_UNKNOWN {
+		t.Errorf("FAILED")
+	} else {
+		t.Logf("PASSED")
+	}
 }

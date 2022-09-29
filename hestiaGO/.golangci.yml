@@ -68,9 +68,9 @@ linters-settings:
   goimports:
     local-prefixes: github.com/org/project
   gocyclo:
-    min-complexity: 20
+    min-complexity: 30
   gocognit:
-    min-complexity: 20
+    min-complexity: 30
   maligned:
     suggest-new: true
   gocritic:
