@@ -58,8 +58,8 @@ func Logln(s *Scenario, args ...any) {
 		panic("calling hestiaTESTING.Logln without providing Scenario!")
 	}
 
-	if s.Log == nil {
-		s.Init()
+	if s.Init() != hestiaERROR.OK {
+		panic("calling hestiaTESTING.Logf  with unregistered/faulty Scenario!")
 	}
 
 	s.Log = append(s.Log, hestiaSTRING.Println(args...))

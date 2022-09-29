@@ -20,142 +20,254 @@ import (
 	"testing"
 )
 
-func TestLoglnAPI(t *testing.T) {
-	x := &Scenario{}
-
-	scenarios := []struct {
-		controller  *testing.T
-		subject     *Scenario
-		setNil      bool
-		format      string
-		arg         []byte
-		expectPanic bool
-		expectLog   bool
-	}{
+func _testLoglnScenarios() []*Scenario {
+	return []*Scenario{
 		{
-			controller:  t,
-			setNil:      true,
-			subject:     x,
-			format:      "test %s",
-			arg:         []byte("logger"),
-			expectPanic: false,
-			expectLog:   true,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with proper Scenario settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_PROPER_NAME:             true,
+				cond_PROPER_DESCRIPTION:      true,
+				cond_PROPER_LOG:              true,
+				cond_PROPER_SWITCHES:         true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 false,
+			},
 		}, {
-			controller:  t,
-			setNil:      false,
-			subject:     x,
-			format:      "test %s",
-			arg:         []byte("logger"),
-			expectPanic: false,
-			expectLog:   true,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to panic with fault fail function registration.
+`,
+			Switches: map[string]bool{
+				cond_FAULTY_FAIL_REGISTRATION: true,
+				cond_PROPER_NAME:              true,
+				cond_PROPER_DESCRIPTION:       true,
+				cond_PROPER_LOG:               true,
+				cond_PROPER_SWITCHES:          true,
+				cond_PROPER_STRING_ARGUMENTS:  true,
+				expect_PANIC:                  true,
+			},
 		}, {
-			controller:  nil,
-			setNil:      true,
-			subject:     x,
-			format:      "test %s",
-			arg:         []byte("logger"),
-			expectPanic: false,
-			expectLog:   true,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to panic with fault skip function registration.
+`,
+			Switches: map[string]bool{
+				cond_FAULTY_SKIP_REGISTRATION: true,
+				cond_PROPER_NAME:              true,
+				cond_PROPER_DESCRIPTION:       true,
+				cond_PROPER_LOG:               true,
+				cond_PROPER_SWITCHES:          true,
+				cond_PROPER_STRING_ARGUMENTS:  true,
+				expect_PANIC:                  true,
+			},
 		}, {
-			controller:  nil,
-			setNil:      false,
-			subject:     x,
-			format:      "test %s",
-			arg:         []byte("logger"),
-			expectPanic: false,
-			expectLog:   true,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to panic with faulty skip and fail functions registration.
+`,
+			Switches: map[string]bool{
+				cond_FAULTY_BOTH_REGISTRATION: true,
+				cond_PROPER_NAME:              true,
+				cond_PROPER_DESCRIPTION:       true,
+				cond_PROPER_LOG:               true,
+				cond_PROPER_SWITCHES:          true,
+				cond_PROPER_STRING_ARGUMENTS:  true,
+				expect_PANIC:                  true,
+			},
 		}, {
-			controller:  t,
-			setNil:      true,
-			subject:     x,
-			format:      "",
-			arg:         []byte("logger"),
-			expectPanic: false,
-			expectLog:   true,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with empty Name settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_EMPTY_NAME:              true,
+				cond_PROPER_DESCRIPTION:      true,
+				cond_PROPER_LOG:              true,
+				cond_PROPER_SWITCHES:         true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 false,
+			},
 		}, {
-			controller:  t,
-			setNil:      true,
-			subject:     nil,
-			format:      "test %s",
-			arg:         []byte("logger"),
-			expectPanic: true,
-			expectLog:   false,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with empty Switches settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_PROPER_NAME:             true,
+				cond_PROPER_DESCRIPTION:      true,
+				cond_PROPER_LOG:              true,
+				cond_EMPTY_SWITCHES:          true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 false,
+			},
 		}, {
-			controller:  t,
-			setNil:      true,
-			subject:     nil,
-			format:      "",
-			arg:         []byte("logger"),
-			expectPanic: true,
-			expectLog:   false,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with nil Switches settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_PROPER_NAME:             true,
+				cond_PROPER_DESCRIPTION:      true,
+				cond_PROPER_LOG:              true,
+				cond_NIL_SWITCHES:            true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 false,
+			},
 		}, {
-			controller:  t,
-			setNil:      true,
-			subject:     x,
-			format:      "test %s",
-			arg:         nil,
-			expectPanic: false,
-			expectLog:   true,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with empty log settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_PROPER_NAME:             true,
+				cond_PROPER_DESCRIPTION:      true,
+				cond_EMPTY_LOG:               true,
+				cond_PROPER_SWITCHES:         true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 false,
+			},
 		}, {
-			controller:  t,
-			setNil:      false,
-			subject:     x,
-			format:      "test %s",
-			arg:         nil,
-			expectPanic: false,
-			expectLog:   true,
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with nil log settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_PROPER_NAME:             true,
+				cond_PROPER_DESCRIPTION:      true,
+				cond_NIL_LOG:                 true,
+				cond_PROPER_SWITCHES:         true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 false,
+			},
+		}, {
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with empty description settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_PROPER_NAME:             true,
+				cond_EMPTY_DESCRIPTION:       true,
+				cond_NIL_LOG:                 true,
+				cond_PROPER_SWITCHES:         true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 false,
+			},
+		}, {
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to panic when nil Scenario is supplied.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:     true,
+				cond_PROPER_NAME:             true,
+				cond_PROPER_DESCRIPTION:      true,
+				cond_PROPER_LOG:              true,
+				cond_PROPER_SWITCHES:         true,
+				cond_SUPPLY_NIL_SCENARIO:     true,
+				cond_PROPER_STRING_ARGUMENTS: true,
+				expect_PANIC:                 true,
+			},
+		}, {
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with empty string arguments settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:    true,
+				cond_PROPER_NAME:            true,
+				cond_PROPER_DESCRIPTION:     true,
+				cond_PROPER_LOG:             true,
+				cond_PROPER_SWITCHES:        true,
+				cond_EMPTY_STRING_ARGUMENTS: true,
+				expect_PANIC:                false,
+			},
+		}, {
+			Name: suite_LOGLN_API,
+			Description: `
+Test Logln() able to work properly with nil string arguments settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION:  true,
+				cond_PROPER_NAME:          true,
+				cond_PROPER_DESCRIPTION:   true,
+				cond_PROPER_LOG:           true,
+				cond_PROPER_SWITCHES:      true,
+				cond_NIL_STRING_ARGUMENTS: true,
+				expect_PANIC:              false,
+			},
 		},
 	}
+}
 
-	for _, s := range scenarios {
+func TestLoglnAPI(t *testing.T) {
+	scenarios := _testLoglnScenarios()
+
+	for i, s := range scenarios {
+		s.ID = uint64(i)
+		Register(s, t)
+
 		// prepare
-		if s.subject != nil {
-			if s.setNil {
-				s.subject.Log = nil
-			} else {
-				s.subject.Log = []string{}
-			}
-			s.subject.controller = s.controller
-		}
+		ts := &Scenario{}
+		testlib_ConfigureRegistrations(s, ts)
+		testlib_ConfigureName(s, ts)
+		testlib_ConfigureDescription(s, ts)
+		testlib_ConfigureLog(s, ts)
+		testlib_ConfigureSwitches(s, ts)
+		args := testlib_CreateStringArguments(s)
 
-		// execute
-		_out := Exec(func() any {
-			Logln(s.subject, s.format, s.arg)
+		// test
+		_panick := Exec(func() any {
+			if !s.Switches[cond_SUPPLY_NIL_SCENARIO] {
+				if args == nil {
+					Logln(ts, nil)
+				} else {
+					Logln(ts, args...)
+				}
+			} else {
+				if args == nil {
+					Logln(nil, nil)
+				} else {
+					Logln(nil, args...)
+				}
+			}
 			return ""
 		})
+		panick := _panick.(string)
 
-		out, _ := _out.(string)
-		entry := 0
-		if s.subject != nil {
-			entry = len(s.subject.Log)
+		// log output
+		Logf(s, "Test Scenario's ID		= %#v", ts.ID)
+		Logf(s, "Test Scenario's Name		= %#v", ts.Name)
+		Logf(s, "Test Scenario's Switches	= %#v", ts.Switches)
+		Logf(s, "Test Scenario's Logs		= %#v", ts.Log)
+		Logf(s, "Got Panic			= %q", panick)
+
+		// assert
+		if s.Switches[expect_PANIC] && panick == "" ||
+			!s.Switches[expect_PANIC] && panick != "" {
+			Conclude(s, VERDICT_FAIL)
+			t.Fail()
 		}
 
-		// verdict
-		if s.expectPanic && out == "" || !s.expectPanic && out != "" {
-			t.Errorf("FAILED 1: expected panic '%v' got '%v'", s.expectPanic, out)
+		if !testlib_AssertLog(s, ts) {
+			Conclude(s, VERDICT_FAIL)
+			t.Fail()
 		}
-		t.Logf("PASSED 1: expected panic '%v' got '%v'", s.expectPanic, out)
 
-		if s.subject != nil {
-			if s.expectLog && entry == 0 || !s.expectLog && entry != 0 {
-				t.Errorf("FAILED 2: expect log '%v' got '%v'",
-					s.expectLog,
-					entry == 0,
-				)
-			} else {
-				t.Logf("PASSED 2: expect log '%v' got '%v'",
-					s.expectLog,
-					entry == 0,
-				)
-			}
-		} else {
-			if s.expectLog {
-				t.Errorf("ERROR 2: missing subject but expect registration")
-			} else {
-				t.Logf("PASSED 2: expect log '%v' got 'log'",
-					s.expectLog,
-				)
-			}
+		if Conclusion(s) != VERDICT_FAIL {
+			Conclude(s, VERDICT_PASS)
 		}
+
+		// report
+		t.Logf("\n%s\n\n\n", ToString(s))
 	}
 }

@@ -23,6 +23,7 @@ import (
 // test suite
 const (
 	suite_LOGF_API      = "hestiaTESTING Logf API"
+	suite_LOGLN_API     = "hestiaTESTING Logln API"
 	suite_TO_STRING_API = "hestiaTESTING ToString API"
 	suite_TO_JSON_API   = "hestiaTESTING ToJSON API"
 	suite_TO_TOML_API   = "hestiaTESTING ToTOML API"
@@ -95,9 +96,12 @@ const (
 	t_FORMAT_3_LOGF_SUCCESSFUL = "formatted <nil> %!v(MISSING) %!v(MISSING)"
 
 	// string arguments
-	t_ARG_1 = "proper1"
-	t_ARG_2 = 5
-	t_ARG_3 = true
+	t_ARG_1                  = "proper1"
+	t_ARG_2                  = 5
+	t_ARG_3                  = true
+	t_ARG_1_LOGLN_SUCCESSFUL = "proper1 5 true\n"
+	t_ARG_2_LOGLN_SUCCESSFUL = "\n"
+	t_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
 )
 
 func testlib_AssertLog(s, ts *Scenario) bool {
@@ -138,6 +142,18 @@ func testlib_AssertLog(s, ts *Scenario) bool {
 		case t_FORMAT_3_LOGF_SUCCESSFUL:
 			if s.Switches[cond_PROPER_STRING_FORMAT] &&
 				s.Switches[cond_NIL_STRING_ARGUMENTS] {
+				return true
+			}
+		case t_ARG_1_LOGLN_SUCCESSFUL:
+			if s.Switches[cond_PROPER_STRING_ARGUMENTS] {
+				return true
+			}
+		case t_ARG_2_LOGLN_SUCCESSFUL:
+			if s.Switches[cond_EMPTY_STRING_ARGUMENTS] {
+				return true
+			}
+		case t_ARG_3_LOGLN_SUCCESSFUL:
+			if s.Switches[cond_NIL_STRING_ARGUMENTS] {
 				return true
 			}
 		}
