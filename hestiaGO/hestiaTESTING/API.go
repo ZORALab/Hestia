@@ -90,7 +90,7 @@ func Conclude(s *Scenario, certification Verdict) {
 	switch {
 	case s == nil:
 		panic("calling hestiaTESTING.Conclude without providing Scenario!")
-	case s.skip == nil || s.fail == nil:
+	case s.controller == nil || s.skip == nil || s.fail == nil:
 		panic("calling hestiaTESTING.Conclude without registering *testing.T!")
 	case certification == VERDICT_PASS:
 		s.verdict = VERDICT_PASS

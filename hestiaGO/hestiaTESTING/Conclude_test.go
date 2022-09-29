@@ -20,181 +20,258 @@ import (
 	"testing"
 )
 
-func TestConcludeAPI(t *testing.T) {
-	x := &Scenario{}
-
-	scenarios := []struct {
-		skip        func()
-		fail        func()
-		subject     *Scenario
-		verdict     Verdict
-		expectPanic bool
-	}{
+func _testConcludeScenarios() []*Scenario {
+	return []*Scenario{
 		{
-			skip:        func() {},
-			fail:        func() {},
-			subject:     x,
-			verdict:     priv_VERDICT_UNKNOWN,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly with proper Scenario settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        func() {},
-			fail:        func() {},
-			subject:     x,
-			verdict:     VERDICT_PASS,
-			expectPanic: false,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to panic with fault fail function registration.
+`,
+			Switches: map[string]bool{
+				cond_FAULTY_FAIL_REGISTRATION: true,
+				cond_PROPER_NAME:              true,
+				cond_PROPER_DESCRIPTION:       true,
+				cond_PROPER_LOG:               true,
+				cond_PROPER_SWITCHES:          true,
+				cond_PROPER_VERDICT:           true,
+				expect_PANIC:                  true,
+			},
 		}, {
-			skip:        func() {},
-			fail:        func() {},
-			subject:     x,
-			verdict:     VERDICT_FAIL,
-			expectPanic: false,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to panic with fault skip function registration.
+`,
+			Switches: map[string]bool{
+				cond_FAULTY_SKIP_REGISTRATION: true,
+				cond_PROPER_NAME:              true,
+				cond_PROPER_DESCRIPTION:       true,
+				cond_PROPER_LOG:               true,
+				cond_PROPER_SWITCHES:          true,
+				cond_PROPER_VERDICT:           true,
+				expect_PANIC:                  true,
+			},
 		}, {
-			skip:        func() {},
-			fail:        func() {},
-			subject:     x,
-			verdict:     VERDICT_SKIP,
-			expectPanic: false,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to panic with faulty skip and fail functions registration.
+`,
+			Switches: map[string]bool{
+				cond_FAULTY_BOTH_REGISTRATION: true,
+				cond_PROPER_NAME:              true,
+				cond_PROPER_DESCRIPTION:       true,
+				cond_PROPER_LOG:               true,
+				cond_PROPER_SWITCHES:          true,
+				cond_PROPER_VERDICT:           true,
+				expect_PANIC:                  true,
+			},
 		}, {
-			skip:        func() {},
-			fail:        func() {},
-			subject:     nil,
-			verdict:     priv_VERDICT_UNKNOWN,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly with empty Name settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_EMPTY_NAME:          true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        func() {},
-			fail:        func() {},
-			subject:     nil,
-			verdict:     VERDICT_PASS,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly with empty Switches settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_EMPTY_SWITCHES:      true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        func() {},
-			fail:        func() {},
-			subject:     nil,
-			verdict:     VERDICT_FAIL,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly with nil Switches settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_NIL_SWITCHES:        true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        func() {},
-			fail:        func() {},
-			subject:     nil,
-			verdict:     VERDICT_SKIP,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly with empty log settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_EMPTY_LOG:           true,
+				cond_PROPER_SWITCHES:     true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        nil,
-			fail:        nil,
-			subject:     x,
-			verdict:     priv_VERDICT_UNKNOWN,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly with nil log settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_NIL_LOG:             true,
+				cond_PROPER_SWITCHES:     true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        nil,
-			fail:        nil,
-			subject:     x,
-			verdict:     VERDICT_PASS,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly with empty description settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_EMPTY_DESCRIPTION:   true,
+				cond_NIL_LOG:             true,
+				cond_PROPER_SWITCHES:     true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        nil,
-			fail:        nil,
-			subject:     x,
-			verdict:     VERDICT_FAIL,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to panic when nil Scenario is supplied.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				cond_SUPPLY_NIL_SCENARIO: true,
+				cond_PROPER_VERDICT:      true,
+				expect_PANIC:             true,
+			},
 		}, {
-			skip:        nil,
-			fail:        nil,
-			subject:     x,
-			verdict:     VERDICT_SKIP,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to panic when verdict is supplied with unknown.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				cond_UNKNOWN_VERDICT:     true,
+				expect_PANIC:             true,
+			},
 		}, {
-			skip:        nil,
-			fail:        func() {},
-			subject:     x,
-			verdict:     priv_VERDICT_UNKNOWN,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly when verdict is supplied with fail.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				cond_FAIL_VERDICT:        true,
+				expect_PANIC:             false,
+			},
 		}, {
-			skip:        nil,
-			fail:        func() {},
-			subject:     x,
-			verdict:     VERDICT_PASS,
-			expectPanic: true,
-		}, {
-			skip:        nil,
-			fail:        func() {},
-			subject:     x,
-			verdict:     VERDICT_FAIL,
-			expectPanic: true,
-		}, {
-			skip:        nil,
-			fail:        func() {},
-			subject:     x,
-			verdict:     VERDICT_SKIP,
-			expectPanic: true,
-		}, {
-			skip:        func() {},
-			fail:        nil,
-			subject:     x,
-			verdict:     priv_VERDICT_UNKNOWN,
-			expectPanic: true,
-		}, {
-			skip:        func() {},
-			fail:        nil,
-			subject:     x,
-			verdict:     VERDICT_PASS,
-			expectPanic: true,
-		}, {
-			skip:        func() {},
-			fail:        nil,
-			subject:     x,
-			verdict:     VERDICT_FAIL,
-			expectPanic: true,
-		}, {
-			skip:        func() {},
-			fail:        nil,
-			subject:     x,
-			verdict:     VERDICT_SKIP,
-			expectPanic: true,
+			Name: suite_CONCLUDE_API,
+			Description: `
+Test Conclude() able to work properly when verdict is supplied with skip.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				cond_SKIP_VERDICT:        true,
+				expect_PANIC:             false,
+			},
 		},
 	}
+}
 
-	for _, s := range scenarios {
+func TestConcludeAPI(t *testing.T) {
+	scenarios := _testConcludeScenarios()
+
+	for i, s := range scenarios {
+		s.ID = uint64(i)
+		Register(s, t)
+
 		// prepare
-		if s.subject != nil {
-			s.subject.verdict = priv_VERDICT_UNKNOWN
-			s.subject.skip = s.skip
-			s.subject.fail = s.fail
-		}
+		ts := &Scenario{}
+		testlib_ConfigureRegistrations(s, ts)
+		testlib_ConfigureName(s, ts)
+		testlib_ConfigureDescription(s, ts)
+		testlib_ConfigureLog(s, ts)
+		testlib_ConfigureSwitches(s, ts)
+		ts.verdict = Verdict(125)
+		verdict := testlib_GenerateVerdict(s)
 
-		// execute
-		_out := Exec(func() any {
-			Conclude(s.subject, s.verdict)
+		// test
+		_panick := Exec(func() any {
+			if !s.Switches[cond_SUPPLY_NIL_SCENARIO] {
+				Conclude(ts, verdict)
+			} else {
+				Conclude(nil, verdict)
+			}
 			return ""
 		})
-		out, _ := _out.(string)
+		panick := _panick.(string)
 
-		// verdict
-		if s.expectPanic && out == "" || !s.expectPanic && out != "" {
-			t.Errorf("FAILED 1: expected panic '%v' got '%v'", s.expectPanic, out)
+		// log output
+		Logf(s, "Test Scenario's Verdict	= %#v", ts.verdict)
+		Logf(s, "Got Panic			= %q", panick)
+
+		// assert
+		if s.Switches[expect_PANIC] && panick == "" ||
+			!s.Switches[expect_PANIC] && panick != "" {
+			Conclude(s, VERDICT_FAIL)
+			t.Fail()
 		}
-		t.Logf("PASSED 1: expected panic '%v' got '%v'", s.expectPanic, out)
 
-		if !s.expectPanic && s.subject != nil {
-			t.Logf("LOG 2: verdict is '%d' got '%v'", s.verdict, s.subject.verdict)
-
-			switch s.verdict {
-			case priv_VERDICT_UNKNOWN:
-				if s.subject.verdict != priv_VERDICT_UNKNOWN {
-					t.Errorf("FAILED 2")
-				}
-			case VERDICT_PASS:
-				if s.subject.verdict != VERDICT_PASS {
-					t.Errorf("FAILED 2")
-				}
-			case VERDICT_FAIL:
-				if s.subject.verdict != VERDICT_FAIL {
-					t.Errorf("FAILED 2")
-				}
-			case VERDICT_SKIP:
-				if s.subject.verdict != VERDICT_SKIP {
-					t.Errorf("FAILED 2")
-				}
-			}
+		if !testlib_AssertConclude(s, ts) {
+			Conclude(s, VERDICT_FAIL)
+			t.Fail()
 		}
+
+		if Conclusion(s) != VERDICT_FAIL {
+			Conclude(s, VERDICT_PASS)
+		}
+
+		// report
+		t.Logf("\n%s\n\n\n", ToString(s))
 	}
 }

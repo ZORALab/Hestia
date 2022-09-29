@@ -26,6 +26,7 @@ const (
 	suite_LOGF_API         = "hestiaTESTING Logf API"
 	suite_LOGLN_API        = "hestiaTESTING Logln API"
 	suite_HAS_EXECUTED_API = "hestiaTESTING HasExecuted API"
+	suite_CONCLUDE_API     = "hestiaTESTING Conclude API"
 	suite_CONCLUSION_API   = "hestiaTESTING Conclusion API"
 	suite_TO_STRING_API    = "hestiaTESTING ToString API"
 	suite_TO_JSON_API      = "hestiaTESTING ToJSON API"
@@ -50,8 +51,10 @@ const (
 	cond_EMPTY_NAME  = "configure empty name"
 
 	// verdict
-	cond_PROPER_VERDICT  = "configure proper verdict"
-	cond_UNKNOWN_VERDICT = "configure verdict to VERDICT_UNKNOWN"
+	cond_PROPER_VERDICT  = "configure VERDICT_PASS verdict"
+	cond_FAIL_VERDICT    = "configure VERDICT_FAIL verdict"
+	cond_SKIP_VERDICT    = "configure VERDICT_SKIP verdict"
+	cond_UNKNOWN_VERDICT = "configure verdict to priv_VERDICT_UNKNOWN"
 
 	// description
 	cond_PROPER_DESCRIPTION = "configure proper description"
@@ -111,6 +114,35 @@ const (
 	t_ARG_2_LOGLN_SUCCESSFUL = "\n"
 	t_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
 )
+
+func testlib_AssertConclude(s, ts *Scenario) bool {
+	switch {
+	case ts.verdict == 125:
+		return s.Switches[cond_SUPPLY_NIL_SCENARIO] ||
+			s.Switches[expect_PANIC]
+	case ts.verdict == VERDICT_PASS:
+		return s.Switches[cond_PROPER_VERDICT]
+	case ts.verdict == VERDICT_FAIL:
+		return s.Switches[cond_FAIL_VERDICT]
+	case ts.verdict == VERDICT_SKIP:
+		return s.Switches[cond_SKIP_VERDICT]
+	}
+
+	return false
+}
+
+func testlib_GenerateVerdict(s *Scenario) Verdict {
+	switch {
+	case s.Switches[cond_PROPER_VERDICT]:
+		return VERDICT_PASS
+	case s.Switches[cond_FAIL_VERDICT]:
+		return VERDICT_FAIL
+	case s.Switches[cond_SKIP_VERDICT]:
+		return VERDICT_SKIP
+	default:
+		return priv_VERDICT_UNKNOWN
+	}
+}
 
 func testlib_AssertConclusion(s *Scenario, output Verdict) bool {
 	switch {
