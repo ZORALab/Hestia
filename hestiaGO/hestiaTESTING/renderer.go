@@ -37,7 +37,10 @@ const (
 
 // string
 const (
-	header_STRING                   = "╔═══════════╗\n" + "║TEST REPORT║\n" + "╚═══════════╝\n"
+	header_STRING = char_NEW_LINE +
+		"╔═══════════╗" + char_NEW_LINE +
+		"║TEST REPORT║" + char_NEW_LINE +
+		"╚═══════════╝" + char_NEW_LINE
 	titleEndQuote_STRING            = char_TAB + char_TAB + ": "
 	titleDescriptionEndQuote_STRING = char_TAB + ": "
 
