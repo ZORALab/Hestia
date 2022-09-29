@@ -131,29 +131,23 @@ func ToString(s *Scenario) (output string) {
 	output = header_STRING
 
 	// render ID
-	output += hestiaSTRING.ToUppercase(DATA_LABEL_ID, hestiaSTRING.CHARSMAP_DEFAULT) +
-		titleEndQuote_STRING
+	output += DATA_LABEL_ID + titleEndQuote_STRING
 	output += hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
 
 	// render Name
-	output += hestiaSTRING.ToUppercase(DATA_LABEL_NAME, hestiaSTRING.CHARSMAP_DEFAULT) +
-		titleEndQuote_STRING
+	output += DATA_LABEL_NAME + titleEndQuote_STRING
 	output += s.Name + char_NEW_LINE
 
 	// render Verdict
-	output += hestiaSTRING.ToUppercase(DATA_LABEL_VERDICT, hestiaSTRING.CHARSMAP_DEFAULT) +
-		titleEndQuote_STRING
+	output += DATA_LABEL_VERDICT + titleEndQuote_STRING
 	output += Interpret(s.verdict) + char_NEW_LINE
 
 	// render description
-	output += hestiaSTRING.ToUppercase(DATA_LABEL_DESCRIPTION,
-		hestiaSTRING.CHARSMAP_DEFAULT) + titleDescriptionEndQuote_STRING
+	output += DATA_LABEL_DESCRIPTION + titleDescriptionEndQuote_STRING
 	output += s.Description + char_NEW_LINE
 
 	// render switches
-	output += titleStartSwitch_STRING +
-		hestiaSTRING.ToUppercase(DATA_LABEL_SWITCHES, hestiaSTRING.CHARSMAP_DEFAULT) +
-		titleEndSwitch_STRING
+	output += titleStartSwitch_STRING + DATA_LABEL_SWITCHES + titleEndSwitch_STRING
 	for k, v := range s.Switches {
 		output += fieldSwitchOpening_STRING +
 			hestiaSTRING.FormatBOOL(v) +
@@ -164,9 +158,7 @@ func ToString(s *Scenario) (output string) {
 	output += char_NEW_LINE
 
 	// render log
-	output += titleStartLog_STRING +
-		hestiaSTRING.ToUppercase(DATA_LABEL_LOG, hestiaSTRING.CHARSMAP_DEFAULT) +
-		titleEndLog_STRING
+	output += titleStartLog_STRING + DATA_LABEL_LOG + titleEndLog_STRING
 	for i, v := range s.Log {
 		output += fieldLogOpening_STRING +
 			hestiaSTRING.S_Itoa(int64(i)) +

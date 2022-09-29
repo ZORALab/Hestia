@@ -17,11 +17,11 @@
 package hestiaTESTING
 
 const (
-	DATA_LABEL_GROUP       = "result"
-	DATA_LABEL_NAME        = "name"
-	DATA_LABEL_ID          = "id"
-	DATA_LABEL_VERDICT     = "verdict"
-	DATA_LABEL_DESCRIPTION = "description"
-	DATA_LABEL_SWITCHES    = "switches"
-	DATA_LABEL_LOG         = "log"
+	DATA_LABEL_GROUP       = "Result"
+	DATA_LABEL_NAME        = "Name"
+	DATA_LABEL_ID          = "ID"
+	DATA_LABEL_VERDICT     = "Verdict"
+	DATA_LABEL_DESCRIPTION = "Description"
+	DATA_LABEL_SWITCHES    = "Switches"
+	DATA_LABEL_LOG         = "Log"
 )
