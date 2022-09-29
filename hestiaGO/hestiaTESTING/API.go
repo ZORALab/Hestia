@@ -29,7 +29,7 @@ func Register(s *Scenario, t *testing.T) {
 	}
 
 	if t == nil {
-		panic("calling hestiaTESTING.Register without providing testing.T!")
+		panic("calling hestiaTESTING.Register without providing *testing.T!")
 	}
 
 	s.controller = t
@@ -43,11 +43,11 @@ func Logf(s *Scenario, format string, args ...any) {
 	}
 
 	if format == "" {
-		panic("calling hestiaTESTING.Logf without providing log string!")
+		panic("calling hestiaTESTING.Logf without providing formatting string!")
 	}
 
 	if s.Init() != hestiaERROR.OK {
-		panic("calling hestiaTESTING.Logf  with unregistered/faulty Scenario!")
+		panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")
 	}
 
 	s.Log = append(s.Log, hestiaSTRING.Printf(format, args...))
@@ -59,7 +59,7 @@ func Logln(s *Scenario, args ...any) {
 	}
 
 	if s.Init() != hestiaERROR.OK {
-		panic("calling hestiaTESTING.Logf  with unregistered/faulty Scenario!")
+		panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")
 	}
 
 	s.Log = append(s.Log, hestiaSTRING.Println(args...))
@@ -99,7 +99,7 @@ func Conclude(s *Scenario, certification Verdict) {
 	case certification == VERDICT_SKIP:
 		s.verdict = VERDICT_SKIP
 	default:
-		panic("calling hestiaTESTING.Conclude with unknown Verdict!")
+		panic("calling hestiaTESTING.Conclude an with unknown Verdict!")
 	}
 }
 
@@ -234,9 +234,14 @@ func ToJSON(s *Scenario) (output string) {
 			if !first {
 				output += fieldEnd_JSON
 			}
+
+			// json escape
 			v = hestiaSTRING.ReplaceAll(v, "\"", "\\\"")
+
+			// render element
 			output += char_NEW_LINE + indentLV3_JSON +
 				char_QUOTE + hestiaSTRING.TrimWhitespace(v) + char_QUOTE
+
 			first = false
 		}
 		output += titleLogClose_JSON

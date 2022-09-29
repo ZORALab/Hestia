@@ -25,7 +25,7 @@ func _testHasExecutedScenarios() []*Scenario {
 		{
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with proper Scenario settings.
+Test HasExecuted() is able to work properly with proper Scenario settings.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -39,7 +39,7 @@ Test HasExecuted() able to work properly with proper Scenario settings.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with fault fail function registration.
+Test HasExecuted() is able to work properly with faulty fail registered function.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_FAIL_REGISTRATION: true,
@@ -53,7 +53,7 @@ Test HasExecuted() able to work properly with fault fail function registration.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with fault skip function registration.
+Test HasExecuted() is able to work properly with faulty skip registered function.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_SKIP_REGISTRATION: true,
@@ -67,7 +67,7 @@ Test HasExecuted() able to work properly with fault skip function registration.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with faulty skip and fail functions registration.
+Test HasExecuted() is able to work properly with faulty skip and fail registered functions.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_BOTH_REGISTRATION: true,
@@ -81,7 +81,7 @@ Test HasExecuted() able to work properly with faulty skip and fail functions reg
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with empty Name settings.
+Test HasExecuted() is able to work properly with empty Name setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -95,7 +95,7 @@ Test HasExecuted() able to work properly with empty Name settings.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with empty Switches settings.
+Test HasExecuted() is able to work properly with empty Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -109,7 +109,7 @@ Test HasExecuted() able to work properly with empty Switches settings.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with nil Switches settings.
+Test HasExecuted() is able to work properly with nil Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -123,7 +123,7 @@ Test HasExecuted() able to work properly with nil Switches settings.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with empty log settings.
+Test HasExecuted() is able to work properly with empty log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -137,7 +137,7 @@ Test HasExecuted() able to work properly with empty log settings.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with nil log settings.
+Test HasExecuted() is able to work properly with nil log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -151,7 +151,7 @@ Test HasExecuted() able to work properly with nil log settings.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly with empty description settings.
+Test HasExecuted() is able to work properly with empty description setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -165,7 +165,7 @@ Test HasExecuted() able to work properly with empty description settings.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to panic when nil Scenario is supplied.
+Test HasExecuted() is able to panic when nil Scenario is supplied.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -180,7 +180,7 @@ Test HasExecuted() able to panic when nil Scenario is supplied.
 		}, {
 			Name: suite_HAS_EXECUTED_API,
 			Description: `
-Test HasExecuted() able to work properly when verict is set to unknown.
+Test HasExecuted() is able to work properly when verdict is set to unknown.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -230,8 +230,7 @@ func TestHasExecutedAPI(t *testing.T) {
 		Logf(s, "Got Panic			= %q", panick)
 
 		// assert
-		if s.Switches[expect_PANIC] && panick == "" ||
-			!s.Switches[expect_PANIC] && panick != "" {
+		if !testlib_AssertPanic(s, panick) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}

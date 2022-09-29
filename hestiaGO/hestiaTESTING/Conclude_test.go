@@ -25,7 +25,7 @@ func _testConcludeScenarios() []*Scenario {
 		{
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly with proper Scenario settings.
+Test Conclude() is able to work properly with proper Scenario settings.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -39,7 +39,7 @@ Test Conclude() able to work properly with proper Scenario settings.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to panic with fault fail function registration.
+Test Conclude() is able to panic with faulty internal fail registered function.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_FAIL_REGISTRATION: true,
@@ -53,7 +53,7 @@ Test Conclude() able to panic with fault fail function registration.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to panic with fault skip function registration.
+Test Conclude() is able to panic with faulty internal skip registered function.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_SKIP_REGISTRATION: true,
@@ -67,7 +67,7 @@ Test Conclude() able to panic with fault skip function registration.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to panic with faulty skip and fail functions registration.
+Test Conclude() is able to panic with faulty internal skip and fail registered functions.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_BOTH_REGISTRATION: true,
@@ -81,7 +81,7 @@ Test Conclude() able to panic with faulty skip and fail functions registration.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly with empty Name settings.
+Test Conclude() is able to work properly with empty Name setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -95,7 +95,7 @@ Test Conclude() able to work properly with empty Name settings.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly with empty Switches settings.
+Test Conclude() is able to work properly with empty Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -109,7 +109,7 @@ Test Conclude() able to work properly with empty Switches settings.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly with nil Switches settings.
+Test Conclude() is able to work properly with nil Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -123,7 +123,7 @@ Test Conclude() able to work properly with nil Switches settings.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly with empty log settings.
+Test Conclude() is able to work properly with empty log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -137,7 +137,7 @@ Test Conclude() able to work properly with empty log settings.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly with nil log settings.
+Test Conclude() is able to work properly with nil log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -151,7 +151,7 @@ Test Conclude() able to work properly with nil log settings.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly with empty description settings.
+Test Conclude() is able to work properly with empty description setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -165,7 +165,7 @@ Test Conclude() able to work properly with empty description settings.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to panic when nil Scenario is supplied.
+Test Conclude() is able to panic when nil Scenario is supplied.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -180,7 +180,7 @@ Test Conclude() able to panic when nil Scenario is supplied.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to panic when verdict is supplied with unknown.
+Test Conclude() is able to panic when verdict is an unknown.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -194,7 +194,7 @@ Test Conclude() able to panic when verdict is supplied with unknown.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly when verdict is supplied with fail.
+Test Conclude() is able to work properly when verdict is VERDICT_FAIL.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -208,7 +208,7 @@ Test Conclude() able to work properly when verdict is supplied with fail.
 		}, {
 			Name: suite_CONCLUDE_API,
 			Description: `
-Test Conclude() able to work properly when verdict is supplied with skip.
+Test Conclude() is able to work properly when verdict is VERDICT_SKIP.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -256,8 +256,7 @@ func TestConcludeAPI(t *testing.T) {
 		Logf(s, "Got Panic			= %q", panick)
 
 		// assert
-		if s.Switches[expect_PANIC] && panick == "" ||
-			!s.Switches[expect_PANIC] && panick != "" {
+		if !testlib_AssertPanic(s, panick) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}

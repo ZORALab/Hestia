@@ -37,19 +37,19 @@ func TestScenarioExecAPI(t *testing.T) {
 		subject.Init()
 
 		// execute
-		_out := subject.Exec(func() any {
+		_panick := subject.Exec(func() any {
 			if s.doPanic {
 				panic("got panic")
 			}
 
 			return ""
 		})
-		out, _ := _out.(string)
+		panick, _ := _panick.(string)
 
 		// verdict
-		if s.doPanic && out == "" || !s.doPanic && out != "" {
-			t.Errorf("FAILED 1: expected panic '%v' got '%v'", s.doPanic, out)
+		if s.doPanic && panick == "" || !s.doPanic && panick != "" {
+			t.Errorf("FAILED 1: expected panic '%v' got '%v'", s.doPanic, panick)
 		}
-		t.Logf("PASSED 1: expected panic '%v' got '%v'", s.doPanic, out)
+		t.Logf("PASSED 1: expected panic '%v' got '%v'", s.doPanic, panick)
 	}
 }

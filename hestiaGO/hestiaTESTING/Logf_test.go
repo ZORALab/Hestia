@@ -25,7 +25,7 @@ func _testLogfScenarios() []*Scenario {
 		{
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with proper Scenario settings.
+Test Logf() is able to work properly with proper Scenario settings.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -40,7 +40,7 @@ Test Logf() able to work properly with proper Scenario settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to panic with fault fail function registration.
+Test Logf() is able to panic with faulty fail registered function.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_FAIL_REGISTRATION: true,
@@ -55,7 +55,7 @@ Test Logf() able to panic with fault fail function registration.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to panic with fault skip function registration.
+Test Logf() is able to panic with faulty skip registered function.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_SKIP_REGISTRATION: true,
@@ -70,7 +70,7 @@ Test Logf() able to panic with fault skip function registration.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to panic with faulty skip and fail functions registration.
+Test Logf() is able to panic with faulty skip and fail registered functions.
 `,
 			Switches: map[string]bool{
 				cond_FAULTY_BOTH_REGISTRATION: true,
@@ -85,7 +85,7 @@ Test Logf() able to panic with faulty skip and fail functions registration.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with empty Name settings.
+Test Logf() is able to work properly with empty Name setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -100,7 +100,7 @@ Test Logf() able to work properly with empty Name settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with empty Switches settings.
+Test Logf() is able to work properly with empty Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -115,7 +115,7 @@ Test Logf() able to work properly with empty Switches settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with nil Switches settings.
+Test Logf() is able to work properly with nil Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -130,7 +130,7 @@ Test Logf() able to work properly with nil Switches settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with empty log settings.
+Test Logf() is able to work properly with empty log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -145,7 +145,7 @@ Test Logf() able to work properly with empty log settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with nil log settings.
+Test Logf() is able to work properly with nil log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -160,7 +160,7 @@ Test Logf() able to work properly with nil log settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with empty description settings.
+Test Logf() is able to work properly with empty description setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -175,7 +175,7 @@ Test Logf() able to work properly with empty description settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to panic when nil Scenario is supplied.
+Test Logf() is able to panic when nil Scenario is supplied.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -191,7 +191,7 @@ Test Logf() able to panic when nil Scenario is supplied.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to panic with empty string format settings.
+Test Logf() is able to panic with empty string format setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:     true,
@@ -206,7 +206,7 @@ Test Logf() able to panic with empty string format settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with empty string arguments settings.
+Test Logf() is able to work properly with empty string arguments setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:    true,
@@ -221,7 +221,7 @@ Test Logf() able to work properly with empty string arguments settings.
 		}, {
 			Name: suite_LOGF_API,
 			Description: `
-Test Logf() able to work properly with nil string arguments settings.
+Test Logf() is able to work properly with nil string arguments setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION:  true,
@@ -282,8 +282,7 @@ func TestLogfAPI(t *testing.T) {
 		Logf(s, "Got Panic			= %q", panick)
 
 		// assert
-		if s.Switches[expect_PANIC] && panick == "" ||
-			!s.Switches[expect_PANIC] && panick != "" {
+		if !testlib_AssertPanic(s, panick) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}

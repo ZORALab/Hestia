@@ -51,7 +51,7 @@ const (
 	fieldLogOpening_STRING = "("
 	fieldLogClosing_STRING = ") "
 
-	footer_STRING = "═══[ END ]═══\n\n"
+	footer_STRING = "═══[ END ]═══" + char_NEW_LINE + char_NEW_LINE
 )
 
 // json

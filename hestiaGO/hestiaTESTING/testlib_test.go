@@ -54,7 +54,7 @@ const (
 	cond_PROPER_VERDICT  = "configure VERDICT_PASS verdict"
 	cond_FAIL_VERDICT    = "configure VERDICT_FAIL verdict"
 	cond_SKIP_VERDICT    = "configure VERDICT_SKIP verdict"
-	cond_UNKNOWN_VERDICT = "configure verdict to priv_VERDICT_UNKNOWN"
+	cond_UNKNOWN_VERDICT = "configure priv_VERDICT_UNKNOWN verdict"
 
 	// description
 	cond_PROPER_DESCRIPTION = "configure proper description"
@@ -114,6 +114,22 @@ const (
 	t_ARG_2_LOGLN_SUCCESSFUL = "\n"
 	t_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
 )
+
+func testlib_AssertOutputString(s *Scenario, output string) bool {
+	if output != "" {
+		return s.Switches[expect_OUTPUT_STRING]
+	}
+
+	return !s.Switches[expect_OUTPUT_STRING]
+}
+
+func testlib_AssertPanic(s *Scenario, panick string) bool {
+	if panick != "" {
+		return s.Switches[expect_PANIC]
+	}
+
+	return !s.Switches[expect_PANIC]
+}
 
 func testlib_AssertConclude(s, ts *Scenario) bool {
 	switch {
@@ -188,6 +204,7 @@ func testlib_AssertRegistration(s, ts *Scenario) bool {
 		return false
 	}
 	// ts is now available
+
 	switch {
 	case s.Switches[expect_PANIC]:
 		switch {

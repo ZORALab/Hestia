@@ -25,7 +25,7 @@ func _testRegisterScenarios() []*Scenario {
 		{
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to work properly with proper Scenario settings.
+Test Register() is able to work properly with proper Scenario settings.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -38,7 +38,7 @@ Test Register() able to work properly with proper Scenario settings.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to panic with nil registration.
+Test Register() is able to panic with nil registration.
 `,
 			Switches: map[string]bool{
 				cond_NIL_REGISTRATION:   true,
@@ -51,7 +51,7 @@ Test Register() able to panic with nil registration.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to work properly with empty Name settings.
+Test Register() is able to work properly with empty Name setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -64,7 +64,7 @@ Test Register() able to work properly with empty Name settings.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to work properly with empty Switches settings.
+Test Register() is able to work properly with empty Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -77,7 +77,7 @@ Test Register() able to work properly with empty Switches settings.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to work properly with nil Switches settings.
+Test Register() is able to work properly with nil Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -90,7 +90,7 @@ Test Register() able to work properly with nil Switches settings.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to work properly with empty log settings.
+Test Register() is able to work properly with empty log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -103,7 +103,7 @@ Test Register() able to work properly with empty log settings.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to work properly with nil log settings.
+Test Register() is able to work properly with nil log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -116,7 +116,7 @@ Test Register() able to work properly with nil log settings.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to work properly with empty description settings.
+Test Register() is able to work properly with empty description setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -129,7 +129,7 @@ Test Register() able to work properly with empty description settings.
 		}, {
 			Name: suite_REGISTER_API,
 			Description: `
-Test Register() able to panic when nil Scenario is supplied.
+Test Register() is able to panic when nil Scenario is supplied.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_REGISTRATION: true,
@@ -184,8 +184,7 @@ func TestRegisterAPI(t *testing.T) {
 		Logf(s, "Got Panic			= %q", panick)
 
 		// assert
-		if s.Switches[expect_PANIC] && panick == "" ||
-			!s.Switches[expect_PANIC] && panick != "" {
+		if !testlib_AssertPanic(s, panick) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}
