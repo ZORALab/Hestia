@@ -22,6 +22,7 @@ import (
 
 // test suite
 const (
+	suite_LOGF_API      = "hestiaTESTING Logf API"
 	suite_TO_STRING_API = "hestiaTESTING ToString API"
 	suite_TO_JSON_API   = "hestiaTESTING ToJSON API"
 	suite_TO_TOML_API   = "hestiaTESTING ToTOML API"
@@ -57,6 +58,15 @@ const (
 	cond_EMPTY_SWITCHES  = "configure empty switches list"
 	cond_NIL_SWITCHES    = "configure nil switches list"
 
+	// format
+	cond_PROPER_STRING_FORMAT = "use proper string format"
+	cond_EMPTY_STRING_FORMAT  = "use empty string format"
+
+	// args
+	cond_PROPER_STRING_ARGUMENTS = "use proper string arguments"
+	cond_EMPTY_STRING_ARGUMENTS  = "use empty string arguments"
+	cond_NIL_STRING_ARGUMENTS    = "use nil string arguments"
+
 	// expectations
 	expect_PANIC         = "expecting panic"
 	expect_OUTPUT_STRING = "expecting string output"
@@ -77,7 +87,88 @@ const (
 	// switches
 	t_SWITCH_1 = "Switch 1"
 	t_SWITCH_2 = "Switch 2"
+
+	// string format
+	t_FORMAT_1                 = "formatted %v %v %v"
+	t_FORMAT_1_LOGF_SUCCESSFUL = "formatted proper1 5 true"
+	t_FORMAT_2_LOGF_SUCCESSFUL = "formatted %!v(MISSING) %!v(MISSING) %!v(MISSING)"
+	t_FORMAT_3_LOGF_SUCCESSFUL = "formatted <nil> %!v(MISSING) %!v(MISSING)"
+
+	// string arguments
+	t_ARG_1 = "proper1"
+	t_ARG_2 = 5
+	t_ARG_3 = true
 )
+
+func testlib_AssertLog(s, ts *Scenario) bool {
+	if ts == nil {
+		return s.Switches[cond_SUPPLY_NIL_SCENARIO]
+	}
+	// ts is now available
+
+	if s.Switches[expect_PANIC] {
+		switch {
+		case s.Switches[cond_EMPTY_STRING_FORMAT],
+			s.Switches[cond_SUPPLY_NIL_SCENARIO],
+			s.Switches[cond_FAULTY_FAIL_REGISTRATION],
+			s.Switches[cond_FAULTY_SKIP_REGISTRATION],
+			s.Switches[cond_FAULTY_BOTH_REGISTRATION]:
+			return true
+		}
+	}
+	// no longer in panic expectation.
+
+	if ts.Log == nil {
+		return false
+	}
+	// ts.Log is now available
+
+	for _, v := range ts.Log {
+		switch v {
+		case t_FORMAT_1_LOGF_SUCCESSFUL:
+			if s.Switches[cond_PROPER_STRING_FORMAT] &&
+				s.Switches[cond_PROPER_STRING_ARGUMENTS] {
+				return true
+			}
+		case t_FORMAT_2_LOGF_SUCCESSFUL:
+			if s.Switches[cond_PROPER_STRING_FORMAT] &&
+				s.Switches[cond_EMPTY_STRING_ARGUMENTS] {
+				return true
+			}
+		case t_FORMAT_3_LOGF_SUCCESSFUL:
+			if s.Switches[cond_PROPER_STRING_FORMAT] &&
+				s.Switches[cond_NIL_STRING_ARGUMENTS] {
+				return true
+			}
+		}
+	}
+
+	return false
+}
+
+func testlib_CreateStringArguments(s *Scenario) []any {
+	switch {
+	case s.Switches[cond_PROPER_STRING_ARGUMENTS]:
+		return []any{t_ARG_1, t_ARG_2, t_ARG_3}
+	case s.Switches[cond_EMPTY_STRING_ARGUMENTS]:
+		return []any{}
+	case s.Switches[cond_NIL_STRING_ARGUMENTS]:
+		return nil
+	}
+
+	return nil
+}
+
+func testlib_CreateStringFormat(s *Scenario) string {
+	switch {
+	case s.Switches[cond_PROPER_STRING_FORMAT]:
+		return t_FORMAT_1
+	case s.Switches[cond_EMPTY_STRING_FORMAT]:
+		return ""
+	}
+
+	return ""
+}
 
 func testlib_ConfigureRegistrations(s *Scenario, ts *Scenario) {
 	switch {

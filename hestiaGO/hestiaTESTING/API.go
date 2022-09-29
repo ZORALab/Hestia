@@ -19,6 +19,7 @@ package hestiaTESTING
 import (
 	"testing"
 
+	"hestia/hestiaERROR"
 	"hestia/hestiaSTRING"
 )
 
@@ -45,8 +46,8 @@ func Logf(s *Scenario, format string, args ...any) {
 		panic("calling hestiaTESTING.Logf without providing log string!")
 	}
 
-	if s.Log == nil {
-		s.Init()
+	if s.Init() != hestiaERROR.OK {
+		panic("calling hestiaTESTING.Logf  with unregistered/faulty Scenario!")
 	}
 
 	s.Log = append(s.Log, hestiaSTRING.Printf(format, args...))
