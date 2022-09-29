@@ -20,79 +20,186 @@ import (
 	"testing"
 )
 
-func TestRegisterAPI(t *testing.T) {
-	x := &Scenario{}
-
-	scenarios := []struct {
-		subject        *Scenario
-		controller     *testing.T
-		expectPanic    bool
-		expectRegister bool
-	}{
+func _testRegisterScenarios() []*Scenario {
+	return []*Scenario{
 		{
-			subject:        x,
-			controller:     t,
-			expectPanic:    false,
-			expectRegister: true,
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to work properly with proper Scenario settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				expect_PANIC:             false,
+			},
 		}, {
-			subject:        x,
-			controller:     nil,
-			expectPanic:    true,
-			expectRegister: false,
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to panic with nil registration.
+`,
+			Switches: map[string]bool{
+				cond_NIL_REGISTRATION:   true,
+				cond_PROPER_NAME:        true,
+				cond_PROPER_DESCRIPTION: true,
+				cond_PROPER_LOG:         true,
+				cond_PROPER_SWITCHES:    true,
+				expect_PANIC:            true,
+			},
 		}, {
-			subject:        nil,
-			controller:     t,
-			expectPanic:    true,
-			expectRegister: false,
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to work properly with empty Name settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_EMPTY_NAME:          true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				expect_PANIC:             false,
+			},
 		}, {
-			subject:        nil,
-			controller:     nil,
-			expectPanic:    true,
-			expectRegister: false,
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to work properly with empty Switches settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_EMPTY_SWITCHES:      true,
+				expect_PANIC:             false,
+			},
+		}, {
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to work properly with nil Switches settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_NIL_SWITCHES:        true,
+				expect_PANIC:             false,
+			},
+		}, {
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to work properly with empty log settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_EMPTY_LOG:           true,
+				cond_PROPER_SWITCHES:     true,
+				expect_PANIC:             false,
+			},
+		}, {
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to work properly with nil log settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_NIL_LOG:             true,
+				cond_PROPER_SWITCHES:     true,
+				expect_PANIC:             false,
+			},
+		}, {
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to work properly with empty description settings.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_EMPTY_DESCRIPTION:   true,
+				cond_NIL_LOG:             true,
+				cond_PROPER_SWITCHES:     true,
+				expect_PANIC:             false,
+			},
+		}, {
+			Name: suite_REGISTER_API,
+			Description: `
+Test Register() able to panic when nil Scenario is supplied.
+`,
+			Switches: map[string]bool{
+				cond_PROPER_REGISTRATION: true,
+				cond_PROPER_NAME:         true,
+				cond_PROPER_DESCRIPTION:  true,
+				cond_PROPER_LOG:          true,
+				cond_PROPER_SWITCHES:     true,
+				cond_SUPPLY_NIL_SCENARIO: true,
+				expect_PANIC:             true,
+			},
 		},
 	}
+}
 
-	for _, s := range scenarios {
+func TestRegisterAPI(t *testing.T) {
+	scenarios := _testRegisterScenarios()
+
+	for i, s := range scenarios {
+		s.ID = uint64(i)
+		Register(s, t)
+
 		// prepare
-		if s.subject != nil {
-			s.subject.controller = nil
-		}
+		ts := &Scenario{}
+		testlib_ConfigureName(s, ts)
+		testlib_ConfigureDescription(s, ts)
+		testlib_ConfigureLog(s, ts)
+		testlib_ConfigureSwitches(s, ts)
 
-		// execute
-		outExec := Exec(func() any {
-			Register(s.subject, s.controller)
+		// test
+		_panick := Exec(func() any {
+			if !s.Switches[cond_SUPPLY_NIL_SCENARIO] {
+				if s.Switches[cond_NIL_REGISTRATION] {
+					Register(ts, nil)
+				} else {
+					Register(ts, t)
+				}
+			} else {
+				if s.Switches[cond_NIL_REGISTRATION] {
+					Register(nil, nil)
+				} else {
+					Register(nil, t)
+				}
+			}
 			return ""
 		})
+		panick := _panick.(string)
 
-		out, _ := outExec.(string)
+		// log output
+		Logf(s, "Test Scenario's nil skip	= %#v", ts.skip == nil)
+		Logf(s, "Test Scenario's nil fail	= %#v", ts.fail == nil)
+		Logf(s, "Test Scenario's controller	= %#v", ts.controller)
+		Logf(s, "Got Panic			= %q", panick)
 
-		// verdict
-		if s.expectPanic && out == "" || !s.expectPanic && out != "" {
-			t.Errorf("FAILED 1: expected panic '%v' got '%v'", s.expectPanic, out)
+		// assert
+		if s.Switches[expect_PANIC] && panick == "" ||
+			!s.Switches[expect_PANIC] && panick != "" {
+			Conclude(s, VERDICT_FAIL)
+			t.Fail()
 		}
-		t.Logf("PASSED 1: expected panic '%v' got '%v'", s.expectPanic, out)
 
-		if s.subject != nil {
-			if s.expectRegister && s.subject.controller == nil ||
-				!s.expectRegister && s.subject.controller != nil {
-				t.Errorf("FAILED 2: expect register '%v' got '%v'",
-					s.expectRegister,
-					s.subject.controller == nil,
-				)
-			} else {
-				t.Logf("PASSED 2: expect register '%v' got '%v'",
-					s.expectRegister,
-					s.subject.controller == nil,
-				)
-			}
-		} else {
-			if s.expectRegister {
-				t.Errorf("ERROR 2: missing subject but expect registration")
-			} else {
-				t.Logf("PASSED 2: expect register '%v' got 'false'",
-					s.expectRegister,
-				)
-			}
+		if !testlib_AssertRegistration(s, ts) {
+			Conclude(s, VERDICT_FAIL)
+			t.Fail()
 		}
+
+		if Conclusion(s) != VERDICT_FAIL {
+			Conclude(s, VERDICT_PASS)
+		}
+
+		// report
+		t.Logf("\n%s\n\n\n", ToString(s))
 	}
 }

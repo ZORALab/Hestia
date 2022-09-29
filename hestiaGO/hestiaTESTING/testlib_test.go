@@ -22,6 +22,7 @@ import (
 
 // test suite
 const (
+	suite_REGISTER_API  = "hestiaTESTING Register API"
 	suite_LOGF_API      = "hestiaTESTING Logf API"
 	suite_LOGLN_API     = "hestiaTESTING Logln API"
 	suite_TO_STRING_API = "hestiaTESTING ToString API"
@@ -37,6 +38,7 @@ const (
 
 	// register
 	cond_PROPER_REGISTRATION      = "configure registration properly"
+	cond_NIL_REGISTRATION         = "configure registration to register nil *testing.T"
 	cond_FAULTY_SKIP_REGISTRATION = "configure registration with faulty skip"
 	cond_FAULTY_FAIL_REGISTRATION = "configure registration with faulty fail"
 	cond_FAULTY_BOTH_REGISTRATION = "configure registration with faulty skip and fail"
@@ -103,6 +105,26 @@ const (
 	t_ARG_2_LOGLN_SUCCESSFUL = "\n"
 	t_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
 )
+
+func testlib_AssertRegistration(s, ts *Scenario) bool {
+	if ts == nil {
+		return false
+	}
+	// ts is now available
+	switch {
+	case s.Switches[expect_PANIC]:
+		switch {
+		case s.Switches[cond_SUPPLY_NIL_SCENARIO],
+			s.Switches[cond_NIL_REGISTRATION]:
+			return ts.controller == nil && ts.skip == nil && ts.fail == nil
+		}
+	case ts.controller != nil && ts.skip != nil && ts.fail != nil:
+		return s.Switches[cond_PROPER_REGISTRATION] &&
+			!s.Switches[cond_SUPPLY_NIL_SCENARIO]
+	}
+
+	return false
+}
 
 func testlib_AssertLog(s, ts *Scenario) bool {
 	if ts == nil {
