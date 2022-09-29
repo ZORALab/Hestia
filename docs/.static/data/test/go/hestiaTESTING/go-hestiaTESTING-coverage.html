@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>hestiaTESTING: Go Coverage Report</title>
+		<style>
+			body {
+				background: black;
+				color: rgb(80, 80, 80);
+			}
+			body, pre, #legend span {
+				font-family: Menlo, monospace;
+				font-weight: bold;
+			}
+			#topbar {
+				background: black;
+				position: fixed;
+				top: 0; left: 0; right: 0;
+				height: 42px;
+				border-bottom: 1px solid rgb(80, 80, 80);
+			}
+			#content {
+				margin-top: 50px;
+			}
+			#nav, #legend {
+				float: left;
+				margin-left: 10px;
+			}
+			#legend {
+				margin-top: 12px;
+			}
+			#nav {
+				margin-top: 10px;
+			}
+			#legend span {
+				margin: 0 5px;
+			}
+			.cov0 { color: rgb(192, 0, 0) }
+.cov1 { color: rgb(128, 128, 128) }
+.cov2 { color: rgb(116, 140, 131) }
+.cov3 { color: rgb(104, 152, 134) }
+.cov4 { color: rgb(92, 164, 137) }
+.cov5 { color: rgb(80, 176, 140) }
+.cov6 { color: rgb(68, 188, 143) }
+.cov7 { color: rgb(56, 200, 146) }
+.cov8 { color: rgb(44, 212, 149) }
+.cov9 { color: rgb(32, 224, 152) }
+.cov10 { color: rgb(20, 236, 155) }
+
+		</style>
+	</head>
+	<body>
+		<div id="topbar">
+			<div id="nav">
+				<select id="files">
+				
+				<option value="file0">hestia/hestiaTESTING/API.go (100.0%)</option>
+				
+				<option value="file1">hestia/hestiaTESTING/Scenario.go (100.0%)</option>
+				
+				<option value="file2">hestia/hestiaTESTING/renderer.go (100.0%)</option>
+				
+				</select>
+			</div>
+			<div id="legend">
+				<span>not tracked</span>
+			
+				<span class="cov0">no coverage</span>
+				<span class="cov1">low coverage</span>
+				<span class="cov2">*</span>
+				<span class="cov3">*</span>
+				<span class="cov4">*</span>
+				<span class="cov5">*</span>
+				<span class="cov6">*</span>
+				<span class="cov7">*</span>
+				<span class="cov8">*</span>
+				<span class="cov9">*</span>
+				<span class="cov10">high coverage</span>
+			
+			</div>
+		</div>
+		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
+// Copyright 2022 ZORALab Enterprise &lt;tech@zoralab.com&gt;
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+package hestiaTESTING
+
+import (
+        "testing"
+
+        "hestia/hestiaSTRING"
+)
+
+func Register(s *Scenario, t *testing.T) <span class="cov7" title="48">{
+        if s == nil </span><span class="cov2" title="2">{
+                panic("calling hestiaTESTING.Register without providing Scenario!")</span>
+        }
+
+        <span class="cov7" title="46">if t == nil </span><span class="cov1" title="1">{
+                panic("calling hestiaTESTING.Register without providing testing.T!")</span>
+        }
+
+        <span class="cov7" title="45">s.controller = t
+        s.skip = s.controller.SkipNow
+        s.fail = s.controller.FailNow</span>
+}
+
+func Logf(s *Scenario, format string, args ...any) <span class="cov10" title="273">{
+        if s == nil </span><span class="cov2" title="2">{
+                panic("calling hestiaTESTING.Logf without providing Scenario!")</span>
+        }
+
+        <span class="cov9" title="271">if format == "" </span><span class="cov1" title="1">{
+                panic("calling hestiaTESTING.Logf without providing log string!")</span>
+        }
+
+        <span class="cov9" title="270">if s.Log == nil </span><span class="cov7" title="47">{
+                s.Init()
+        }</span>
+
+        <span class="cov9" title="270">s.Log = append(s.Log, hestiaSTRING.Printf(format, args...))</span>
+}
+
+func Logln(s *Scenario, args ...any) <span class="cov4" title="9">{
+        if s == nil </span><span class="cov2" title="2">{
+                panic("calling hestiaTESTING.Logln without providing Scenario!")</span>
+        }
+
+        <span class="cov4" title="7">if s.Log == nil </span><span class="cov3" title="4">{
+                s.Init()
+        }</span>
+
+        <span class="cov4" title="7">s.Log = append(s.Log, hestiaSTRING.Println(args...))</span>
+}
+
+func Exec(function func() any) (out any) <span class="cov8" title="104">{
+        defer func() </span><span class="cov8" title="104">{
+                err := recover()
+                if err != nil </span><span class="cov7" title="50">{
+                        out = err
+                }</span>
+        }()
+
+        <span class="cov8" title="104">out = function()
+
+        return out</span>
+}
+
+func HasExecuted(s *Scenario) bool <span class="cov4" title="8">{
+        if s == nil </span><span class="cov3" title="4">{
+                panic("calling hestiaTESTING.HasExecuted without providing Scenario!")</span>
+        }
+
+        <span class="cov3" title="4">return s.verdict != priv_VERDICT_UNKNOWN</span>
+}
+
+func Conclude(s *Scenario, certification Verdict) <span class="cov7" title="64">{
+        switch </span>{
+        case s == nil:<span class="cov3" title="4">
+                panic("calling hestiaTESTING.Conclude without providing Scenario!")</span>
+        case s.skip == nil || s.fail == nil:<span class="cov4" title="12">
+                panic("calling hestiaTESTING.Conclude without registering *testing.T!")</span>
+        case certification == VERDICT_PASS:<span class="cov7" title="45">
+                s.verdict = VERDICT_PASS</span>
+        case certification == VERDICT_FAIL:<span class="cov1" title="1">
+                s.verdict = VERDICT_FAIL</span>
+        case certification == VERDICT_SKIP:<span class="cov1" title="1">
+                s.verdict = VERDICT_SKIP</span>
+        default:<span class="cov1" title="1">
+                panic("calling hestiaTESTING.Conclude with unknown Verdict!")</span>
+        }
+}
+
+func Conclusion(s *Scenario) Verdict <span class="cov7" title="52">{
+        if s == nil </span><span class="cov3" title="4">{
+                panic("calling hestiaTESTING.Verdict without providing Scenario!")</span>
+        }
+
+        <span class="cov7" title="48">return s.verdict</span>
+}
+
+func Interpret(verdict Verdict) string <span class="cov7" title="76">{
+        switch verdict </span>{
+        case VERDICT_PASS:<span class="cov7" title="45">
+                return string_PASS</span>
+        case VERDICT_FAIL:<span class="cov1" title="1">
+                return string_FAIL</span>
+        case VERDICT_SKIP:<span class="cov1" title="1">
+                return string_SKIP</span>
+        default:<span class="cov6" title="29">
+                return string_UNKNOWN</span>
+        }
+}
+
+func ToString(s *Scenario) (output string) <span class="cov5" title="22">{
+        _checkBeforeRender(s, "String")
+
+        // render report header
+        output = header_STRING
+
+        // render ID
+        output += hestiaSTRING.ToUppercase(DATA_LABEL_ID, hestiaSTRING.CHARSMAP_DEFAULT) +
+                titleEndQuote_STRING
+        output += hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
+
+        // render Name
+        output += hestiaSTRING.ToUppercase(DATA_LABEL_NAME, hestiaSTRING.CHARSMAP_DEFAULT) +
+                titleEndQuote_STRING
+        output += s.Name + char_NEW_LINE
+
+        // render Verdict
+        output += hestiaSTRING.ToUppercase(DATA_LABEL_VERDICT, hestiaSTRING.CHARSMAP_DEFAULT) +
+                titleEndQuote_STRING
+        output += Interpret(s.verdict) + char_NEW_LINE
+
+        // render description
+        output += hestiaSTRING.ToUppercase(DATA_LABEL_DESCRIPTION,
+                hestiaSTRING.CHARSMAP_DEFAULT) + titleDescriptionEndQuote_STRING
+        output += s.Description + char_NEW_LINE
+
+        // render switches
+        output += titleStartSwitch_STRING +
+                hestiaSTRING.ToUppercase(DATA_LABEL_SWITCHES, hestiaSTRING.CHARSMAP_DEFAULT) +
+                titleEndSwitch_STRING
+        for k, v := range s.Switches </span><span class="cov8" title="88">{
+                output += fieldSwitchOpening_STRING +
+                        hestiaSTRING.FormatBOOL(v) +
+                        fieldSwitchClosing_STRING +
+                        hestiaSTRING.TrimWhitespace(k) +
+                        char_NEW_LINE
+        }</span>
+        <span class="cov5" title="18">output += char_NEW_LINE
+
+        // render log
+        output += titleStartLog_STRING +
+                hestiaSTRING.ToUppercase(DATA_LABEL_LOG, hestiaSTRING.CHARSMAP_DEFAULT) +
+                titleEndLog_STRING
+        for i, v := range s.Log </span><span class="cov7" title="74">{
+                output += fieldLogOpening_STRING +
+                        hestiaSTRING.S_Itoa(int64(i)) +
+                        fieldLogClosing_STRING
+                output += hestiaSTRING.TrimWhitespace(v) + char_NEW_LINE
+        }</span>
+
+        // render report footer
+        <span class="cov5" title="18">output += footer_STRING
+
+        return output</span>
+}
+
+func ToJSON(s *Scenario) (output string) <span class="cov5" title="22">{
+        var first bool
+
+        _checkBeforeRender(s, "JSON")
+
+        // render header
+        output = header_JSON
+
+        // render ID
+        output += titleID_JSON + hestiaSTRING.S_FormatUINT(s.ID, 10) + fieldEndLine_JSON
+
+        // render Name
+        output += titleName_JSON + s.Name + fieldEndString_JSON
+
+        // render Verdict
+        output += titleVerdict_JSON + Interpret(s.verdict) + fieldEndString_JSON
+
+        // render Description
+        output += titleDescription_JSON + s.Description + fieldEndString_JSON
+
+        // render Switches
+        if len(s.Switches) &gt; 0 </span><span class="cov5" title="16">{
+                output += titleSwitchesOpen_JSON
+                first = true
+                for k, v := range s.Switches </span><span class="cov8" title="88">{
+                        if !first </span><span class="cov7" title="72">{
+                                output += fieldEnd_JSON
+                        }</span>
+
+                        // JSON escape
+                        <span class="cov8" title="88">k = hestiaSTRING.ReplaceAll(k, "\"", "\\\"")
+
+                        // render element
+                        output += char_NEW_LINE + char_TAB +
+                                titleStartQuote_JSON +
+                                hestiaSTRING.TrimWhitespace(k) +
+                                titleEndQuote_JSON +
+                                hestiaSTRING.FormatBOOL(v)
+
+                        first = false</span>
+                }
+                <span class="cov5" title="16">output += titleSwitchesClose_JSON</span>
+        } else<span class="cov2" title="2"> {
+                output += titleSwitchesEmpty_JSON
+        }</span>
+
+        // render Log
+        <span class="cov5" title="18">if len(s.Log) &gt; 0 </span><span class="cov5" title="15">{
+                output += titleLogOpen_JSON
+                first = true
+                for _, v := range s.Log </span><span class="cov7" title="74">{
+                        if !first </span><span class="cov7" title="59">{
+                                output += fieldEnd_JSON
+                        }</span>
+                        <span class="cov7" title="74">v = hestiaSTRING.ReplaceAll(v, "\"", "\\\"")
+                        output += char_NEW_LINE + indentLV3_JSON +
+                                char_QUOTE + hestiaSTRING.TrimWhitespace(v) + char_QUOTE
+                        first = false</span>
+                }
+                <span class="cov5" title="15">output += titleLogClose_JSON</span>
+        } else<span class="cov2" title="3"> {
+                output += titleLogEmpty_JSON
+        }</span>
+
+        // render report footer
+        <span class="cov5" title="18">output += footer_JSON
+
+        return output</span>
+}
+
+func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
+        var first bool
+
+        _checkBeforeRender(s, "TOML")
+
+        // render header
+        output = header_TOML
+
+        // render ID field
+        output += titleID_TOML + hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
+
+        // render Name field
+        output += titleName_TOML + char_QUOTE + s.Name + fieldEndString_TOML
+
+        // render Verdict field
+        output += titleVerdict_TOML + Interpret(s.verdict) + fieldEndString_TOML
+
+        // render Description field
+        output += titleDescription_TOML + s.Description + fieldEndString_TOML
+
+        // render Log
+        if len(s.Log) &gt; 0 </span><span class="cov5" title="15">{
+                output += titleLogOpen_TOML
+                for _, v := range s.Log </span><span class="cov7" title="74">{
+                        // TOML escape
+                        v = hestiaSTRING.ReplaceAll(v, "\"", "\\\"")
+
+                        // render element
+                        output += char_TAB +
+                                char_QUOTE + hestiaSTRING.TrimWhitespace(v) + char_QUOTE +
+                                fieldEnd_TOML
+                }</span>
+                <span class="cov5" title="15">output += titleLogClose_TOML</span>
+        } else<span class="cov2" title="3"> {
+                output += titleLogEmpty_TOML
+        }</span>
+
+        // render Switches
+        <span class="cov5" title="18">output += titleSwitches_TOML
+        first = true
+        for k, v := range s.Switches </span><span class="cov8" title="88">{
+                if !first </span><span class="cov7" title="72">{
+                        output += char_NEW_LINE
+                }</span>
+
+                // TOML escape
+                <span class="cov8" title="88">k = hestiaSTRING.ReplaceAll(k, "\"", "\\\"")
+
+                // render element
+                output += titleStartQuote_TOML +
+                        hestiaSTRING.TrimWhitespace(k) +
+                        titleEndQuote_TOML +
+                        hestiaSTRING.FormatBOOL(v)
+
+                first = false</span>
+        }
+
+        // render report footer
+        // -- HOORAY! Nothing to render --
+
+        <span class="cov5" title="18">return output</span>
+}
+
+func ToYAML(s *Scenario) (output string) <span class="cov5" title="22">{
+        var first bool
+
+        _checkBeforeRender(s, "YAML")
+
+        // render header
+        output = header_YAML
+
+        // render ID field
+        output += titleID_YAML +
+                hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
+
+        // render Name field
+        output += titleName_YAML +
+                char_QUOTE + s.Name + char_QUOTE + char_NEW_LINE
+
+        // render Verdict field
+        output += titleVerdict_YAML +
+                char_QUOTE + Interpret(s.verdict) + char_QUOTE + char_NEW_LINE
+
+        // render Description field
+        output += titleDescription_YAML +
+                char_QUOTE + s.Description + char_QUOTE + char_NEW_LINE
+
+        // render Switches
+        if len(s.Switches) &gt; 0 </span><span class="cov5" title="16">{
+                output += titleSwitchesOpen_YAML
+                first = true
+                for k, v := range s.Switches </span><span class="cov8" title="88">{
+                        if !first </span><span class="cov7" title="72">{
+                                output += char_NEW_LINE
+                        }</span>
+
+                        // YAML escape
+                        <span class="cov8" title="88">k = hestiaSTRING.ReplaceAll(k, "\"", "\\\"")
+
+                        // render element
+                        output += titleLV3StartQuote_YAML +
+                                hestiaSTRING.TrimWhitespace(k) +
+                                titleEndQuote_YAML +
+                                hestiaSTRING.FormatBOOL(v)
+
+                        first = false</span>
+                }
+                <span class="cov5" title="16">output += titleSwitchesClose_YAML</span>
+        } else<span class="cov2" title="2"> {
+                output += titleSwitchesEmpty_YAML
+        }</span>
+
+        // render Log
+        <span class="cov5" title="18">if len(s.Log) &gt; 0 </span><span class="cov5" title="15">{
+                output += titleLogOpen_YAML
+                first = true
+                for _, v := range s.Log </span><span class="cov7" title="74">{
+                        if !first </span><span class="cov7" title="59">{
+                                output += char_NEW_LINE
+                        }</span>
+
+                        // YAML escape
+                        <span class="cov7" title="74">v = hestiaSTRING.ReplaceAll(v, "\"", "\\\"")
+
+                        // render element
+                        output += arrayLogOpening_YAML +
+                                hestiaSTRING.TrimWhitespace(v) +
+                                char_QUOTE
+
+                        first = false</span>
+                }
+        } else<span class="cov2" title="3"> {
+                output += titleLogEmpty_YAML
+        }</span>
+
+        // render report footer
+        // -- HOORAY! Nothing to render --
+
+        <span class="cov5" title="18">return output</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
+// Copyright 2022 ZORALab Enterprise &lt;tech@zoralab.com&gt;
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+package hestiaTESTING
+
+import (
+        "hestia/hestiaERROR"
+        "hestia/hestiaSTRING"
+        "testing"
+)
+
+type Scenario struct {
+        ID          uint64
+        Name        string
+        Description string
+        Switches    map[string]bool
+        Log         []string
+
+        controller *testing.T
+        skip       func()
+        fail       func()
+        verdict    Verdict
+}
+
+func (s *Scenario) Init() hestiaERROR.Error <span class="cov10" title="137">{
+        if s.Switches == nil </span><span class="cov4" title="8">{
+                s.Switches = map[string]bool{}
+        }</span>
+
+        <span class="cov10" title="137">if s.Log == nil </span><span class="cov8" title="61">{
+                s.Log = []string{}
+        }</span>
+
+        <span class="cov10" title="137">if s.controller == nil || s.skip == nil || s.fail == nil </span><span class="cov6" title="21">{
+                return hestiaERROR.BAD_EXCHANGE
+        }</span>
+
+        <span class="cov9" title="116">s.Name = hestiaSTRING.TrimWhitespace(s.Name)
+        s.Description = hestiaSTRING.TrimWhitespace(s.Description)
+
+        return hestiaERROR.OK</span>
+}
+
+func (s *Scenario) Exec(function func() any) (out any) <span class="cov2" title="2">{
+        return Exec(function)
+}</span>
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
+// Copyright 2022 ZORALab Enterprise &lt;tech@zoralab.com&gt;
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+package hestiaTESTING
+
+import (
+        "hestia/hestiaERROR"
+)
+
+// common
+const (
+        char_NEW_LINE = "\n"
+        char_TAB      = "\t"
+        char_QUOTE    = "\""
+)
+
+// verdict
+const (
+        string_PASS    = "PASSED"
+        string_FAIL    = "FAILED"
+        string_SKIP    = "SKIPPED"
+        string_UNKNOWN = "UNKNOWN"
+)
+
+// string
+const (
+        header_STRING                   = "╔═══════════╗\n" + "║TEST REPORT║\n" + "╚═══════════╝\n"
+        titleEndQuote_STRING            = char_TAB + char_TAB + ": "
+        titleDescriptionEndQuote_STRING = char_TAB + ": "
+
+        titleStartSwitch_STRING   = char_NEW_LINE
+        titleEndSwitch_STRING     = char_TAB + ":" + char_NEW_LINE
+        fieldSwitchOpening_STRING = "[ "
+        fieldSwitchClosing_STRING = "]\t"
+
+        titleStartLog_STRING   = char_NEW_LINE
+        titleEndLog_STRING     = char_TAB + char_TAB + ":" + char_NEW_LINE
+        fieldLogOpening_STRING = "("
+        fieldLogClosing_STRING = ") "
+
+        footer_STRING = "═══[ END ]═══\n\n"
+)
+
+// json
+const (
+        indentLV2_JSON       = char_TAB + char_TAB
+        indentLV3_JSON       = char_TAB + char_TAB + char_TAB
+        titleStartQuote_JSON = indentLV2_JSON + char_QUOTE
+        titleEndQuote_JSON   = char_QUOTE + ": "
+        fieldEnd_JSON        = ","
+        fieldEndLine_JSON    = fieldEnd_JSON + char_NEW_LINE
+        fieldEndString_JSON  = "\"" + fieldEndLine_JSON
+
+        header_JSON = "{\n\t\"" + DATA_LABEL_GROUP + char_QUOTE + ": {" + char_NEW_LINE
+
+        titleID_JSON = titleStartQuote_JSON +
+                DATA_LABEL_ID +
+                titleEndQuote_JSON
+
+        titleName_JSON = titleStartQuote_JSON +
+                DATA_LABEL_NAME +
+                titleEndQuote_JSON +
+                char_QUOTE
+
+        titleVerdict_JSON = titleStartQuote_JSON +
+                DATA_LABEL_VERDICT +
+                titleEndQuote_JSON +
+                char_QUOTE
+
+        titleDescription_JSON = titleStartQuote_JSON +
+                DATA_LABEL_DESCRIPTION +
+                titleEndQuote_JSON +
+                char_QUOTE
+
+        titleSwitches_JSON = titleStartQuote_JSON +
+                DATA_LABEL_SWITCHES +
+                titleEndQuote_JSON
+        titleSwitchesOpen_JSON  = titleSwitches_JSON + "{"
+        titleSwitchesClose_JSON = "\n\t\t}," + char_NEW_LINE
+        titleSwitchesEmpty_JSON = titleSwitches_JSON + "{}," + char_NEW_LINE
+
+        titleLog_JSON = titleStartQuote_JSON +
+                DATA_LABEL_LOG +
+                titleEndQuote_JSON
+        titleLogOpen_JSON  = titleLog_JSON + "["
+        titleLogClose_JSON = char_NEW_LINE + "\t\t]" + char_NEW_LINE
+        titleLogEmpty_JSON = titleLog_JSON + "[]" + char_NEW_LINE
+
+        footer_JSON = "\t}\n}"
+)
+
+// toml
+const (
+        fieldEndString_TOML  = char_QUOTE + char_NEW_LINE
+        fieldEnd_TOML        = "," + char_NEW_LINE
+        titleStartQuote_TOML = char_QUOTE
+        titleEndQuote_TOML   = char_QUOTE + " = "
+
+        header_TOML = "[" + DATA_LABEL_GROUP + "]" + char_NEW_LINE
+
+        titleID_TOML = titleStartQuote_TOML + DATA_LABEL_ID + titleEndQuote_TOML
+
+        titleName_TOML = titleStartQuote_TOML + DATA_LABEL_NAME + titleEndQuote_TOML
+
+        titleVerdict_TOML = titleStartQuote_TOML + DATA_LABEL_VERDICT + titleEndQuote_TOML
+
+        titleDescription_TOML = titleStartQuote_TOML +
+                DATA_LABEL_DESCRIPTION +
+                titleEndQuote_TOML
+
+        titleLog_TOML      = char_QUOTE + DATA_LABEL_LOG + titleEndQuote_TOML
+        titleLogOpen_TOML  = titleLog_TOML + "[" + char_NEW_LINE
+        titleLogClose_TOML = "]" + char_NEW_LINE + char_NEW_LINE
+        titleLogEmpty_TOML = titleLog_TOML + "[]" + char_NEW_LINE + char_NEW_LINE
+
+        titleSwitches_TOML = "[" +
+                DATA_LABEL_GROUP + "." +
+                DATA_LABEL_SWITCHES + "]" +
+                char_NEW_LINE
+)
+
+// yaml
+const (
+        tab_YAML                = "  "
+        listEmpty_YAML          = "[]"
+        titleStartQuote_YAML    = tab_YAML + char_QUOTE
+        titleLV3StartQuote_YAML = tab_YAML + titleStartQuote_YAML
+        titleEndQuote_YAML      = char_QUOTE + ": "
+
+        header_YAML = "---" + char_NEW_LINE + DATA_LABEL_GROUP + ":" + char_NEW_LINE
+
+        titleID_YAML = titleStartQuote_YAML + DATA_LABEL_ID + titleEndQuote_YAML
+
+        titleName_YAML = titleStartQuote_YAML + DATA_LABEL_NAME + titleEndQuote_YAML
+
+        titleVerdict_YAML = titleStartQuote_YAML + DATA_LABEL_VERDICT + titleEndQuote_YAML
+
+        titleDescription_YAML = titleStartQuote_YAML +
+                DATA_LABEL_DESCRIPTION +
+                titleEndQuote_YAML
+
+        titleSwitches_YAML      = titleStartQuote_YAML + DATA_LABEL_SWITCHES + char_QUOTE + ":"
+        titleSwitchesOpen_YAML  = titleSwitches_YAML + char_NEW_LINE
+        titleSwitchesClose_YAML = char_NEW_LINE
+        titleSwitchesEmpty_YAML = titleSwitches_YAML + " " + listEmpty_YAML + char_NEW_LINE
+
+        titleLog_YAML        = titleStartQuote_YAML + DATA_LABEL_LOG + titleEndQuote_YAML
+        titleLogOpen_YAML    = titleLog_YAML + char_NEW_LINE
+        titleLogEmpty_YAML   = titleLog_YAML + listEmpty_YAML + char_NEW_LINE
+        arrayLogOpening_YAML = tab_YAML + tab_YAML + "- " + char_QUOTE
+)
+
+func _checkBeforeRender(s *Scenario, name string) <span class="cov10" title="88">{
+        if s == nil </span><span class="cov3" title="4">{
+                panic("calling hestiaTESTING.To" + name + " without providing Scenario!")</span>
+        }
+
+        <span class="cov9" title="84">if s.Init() != hestiaERROR.OK </span><span class="cov5" title="12">{
+                panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")</span>
+        }
+}
+</pre>
+		
+		</div>
+	</body>
+	<script>
+	(function() {
+		var files = document.getElementById('files');
+		var visible;
+		files.addEventListener('change', onChange, false);
+		function select(part) {
+			if (visible)
+				visible.style.display = 'none';
+			visible = document.getElementById(part);
+			if (!visible)
+				return;
+			files.value = part;
+			visible.style.display = 'block';
+			location.hash = part;
+		}
+		function onChange() {
+			select(files.value);
+			window.scrollTo(0, 0);
+		}
+		if (location.hash != "") {
+			select(location.hash.substr(1));
+		}
+		if (!visible) {
+			select("file0");
+		}
+	})();
+	</script>
+</html>

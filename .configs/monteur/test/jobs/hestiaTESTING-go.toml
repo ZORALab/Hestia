@@ -10,14 +10,15 @@ Using Go testing feature to test out this package with test coverage heatmap.
 [Variables]
 Timeout = '14400s'
 Package = 'hestiaTESTING'
+ReportDir = 'docs/.static/data/test/go/hestiaTESTING'
+ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
 
 [FMTVariables]
 SubjectDir = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
 SubjectPath = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
 ProfileFilepath = '{{- .WorkingDir -}}/go-{{- .Package -}}-test-profile.txt'
-CoverageFilepath = '{{- .RootDir -}}/docs/.static/data/go/test/{{- .Package -}}-coverage.html'
-ReportPath = '{{- .RootDir -}}/docs/.static/data/go/test/go-{{- .Package -}}-report.json'
-ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
+CoverageFilepath = '{{- .RootDir -}}/{{- .ReportDir -}}/go-{{- .Package -}}-coverage.html'
+ReportPath = '{{- .RootDir -}}/{{- .ReportDir -}}/go-{{- .Package -}}-report.json'
 
 # The following shall be overwritten by [CMD]
 TestCoverage = ''
@@ -58,7 +59,7 @@ SaveRegex = '(FAIL)\s*$'
 
 [[CMD]]
 Name = "Process Go Test Coverage Profiles"
-Type = 'command'
+Type = 'command-quiet'
 Condition = [ 'all-all' ]
 Location = '{{- .SubjectDir -}}'
 Source = """go tool cover -html="{{- .ProfileFilepath -}}" \
@@ -67,7 +68,7 @@ Source = """go tool cover -html="{{- .ProfileFilepath -}}" \
 
 [[CMD]]
 Name = 'Process Go Test Coverage Overall Percentage'
-Type = 'command'
+Type = 'command-quiet'
 Condition = [ 'all-all' ]
 Location = '{{- .SubjectDir -}}'
 Source = 'go tool cover -func "{{- .ProfileFilepath -}}"'

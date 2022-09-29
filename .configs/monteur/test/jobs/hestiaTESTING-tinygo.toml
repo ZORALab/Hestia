@@ -9,12 +9,14 @@ Using TinyGo testing feature to test out this package with test coverage heatmap
 
 [Variables]
 Package = 'hestiaTESTING'
+ReportDir = 'docs/.static/data/test/go/hestiaTESTING'
+ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
+PrintAlloc = 'hestia'
 
 [FMTVariables]
 SubjectDir = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
 SubjectPath = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
-ReportPath = '{{- .RootDir -}}/docs/.static/data/go/test/tinygo-{{- .Package -}}-report.json'
-ConstraintTags = '' # seprated by space (e.g. 'whatever core'
+ReportPath = '{{- .RootDir -}}/{{- .ReportDir -}}/tinygo-{{- .Package -}}-report.json'
 
 
 # The following shall be overwritten by [CMD]
@@ -41,13 +43,12 @@ Source = '{{- .WorkingDir -}}'
 
 [[CMD]]
 Name = "Run TinyGo Test Against Base Directory"
-Type = 'command'
+Type = 'command-quiet'
 Condition = [ 'all-all' ]
 Location = '{{- .SubjectDir -}}'
 Source = """tinygo test \
 {{- if .ConstraintTags }} -tags "{{- .ConstraintTags -}}" {{- end }} \
--print-allocs=. \
--v \
+-print-allocs='{{- .PrintAlloc }}' \
 "{{- .SubjectPath -}}"
 """
 Save = 'TestVerdict'
