@@ -44,7 +44,7 @@ const (
 	titleStartSwitch_STRING   = char_NEW_LINE
 	titleEndSwitch_STRING     = char_TAB + ":" + char_NEW_LINE
 	fieldSwitchOpening_STRING = "[ "
-	fieldSwitchClosing_STRING = "]\t"
+	fieldSwitchClosing_STRING = " ]" + char_TAB
 
 	titleStartLog_STRING   = char_NEW_LINE
 	titleEndLog_STRING     = char_TAB + char_TAB + ":" + char_NEW_LINE
