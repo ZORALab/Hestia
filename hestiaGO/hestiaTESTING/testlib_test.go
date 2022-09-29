@@ -22,13 +22,14 @@ import (
 
 // test suite
 const (
-	suite_REGISTER_API  = "hestiaTESTING Register API"
-	suite_LOGF_API      = "hestiaTESTING Logf API"
-	suite_LOGLN_API     = "hestiaTESTING Logln API"
-	suite_TO_STRING_API = "hestiaTESTING ToString API"
-	suite_TO_JSON_API   = "hestiaTESTING ToJSON API"
-	suite_TO_TOML_API   = "hestiaTESTING ToTOML API"
-	suite_TO_YAML_API   = "hestiaTESTING ToYAML API"
+	suite_REGISTER_API     = "hestiaTESTING Register API"
+	suite_LOGF_API         = "hestiaTESTING Logf API"
+	suite_LOGLN_API        = "hestiaTESTING Logln API"
+	suite_HAS_EXECUTED_API = "hestiaTESTING HasExecuted API"
+	suite_TO_STRING_API    = "hestiaTESTING ToString API"
+	suite_TO_JSON_API      = "hestiaTESTING ToJSON API"
+	suite_TO_TOML_API      = "hestiaTESTING ToTOML API"
+	suite_TO_YAML_API      = "hestiaTESTING ToYAML API"
 )
 
 // all test switches
@@ -46,6 +47,10 @@ const (
 	// name
 	cond_PROPER_NAME = "configure proper name"
 	cond_EMPTY_NAME  = "configure empty name"
+
+	// verdict
+	cond_PROPER_VERDICT  = "configure proper verdict"
+	cond_UNKNOWN_VERDICT = "configure verdict to VERDICT_UNKNOWN"
 
 	// description
 	cond_PROPER_DESCRIPTION = "configure proper description"
@@ -105,6 +110,30 @@ const (
 	t_ARG_2_LOGLN_SUCCESSFUL = "\n"
 	t_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
 )
+
+func testlib_AssertHasExecuted(s *Scenario, output bool) bool {
+	if !output {
+		switch {
+		case s.Switches[cond_SUPPLY_NIL_SCENARIO],
+			s.Switches[cond_UNKNOWN_VERDICT]:
+			return true
+		}
+	}
+	// is true
+
+	return s.Switches[cond_PROPER_VERDICT]
+}
+
+func testlib_ConfigureVerdict(s, ts *Scenario) {
+	switch {
+	case s.Switches[cond_PROPER_VERDICT]:
+		ts.verdict = VERDICT_PASS
+	case s.Switches[cond_UNKNOWN_VERDICT]:
+		ts.verdict = priv_VERDICT_UNKNOWN
+	default:
+		ts.verdict = VERDICT_PASS
+	}
+}
 
 func testlib_AssertRegistration(s, ts *Scenario) bool {
 	if ts == nil {
