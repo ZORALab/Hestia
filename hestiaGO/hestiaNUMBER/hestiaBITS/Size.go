@@ -18,6 +18,7 @@ package hestiaBITS
 
 import (
 	"hestia/hestiaERROR"
+	"hestia/hestiaNUMBER"
 )
 
 func MatchSize(input *uint64, size uint8, withSign bool) hestiaERROR.Error {
@@ -30,33 +31,33 @@ func MatchSize(input *uint64, size uint8, withSign bool) hestiaERROR.Error {
 		return hestiaERROR.OUT_OF_RANGE
 	case size == 0:
 		if withSign {
-			mask = MAX_INT64
+			mask = hestiaNUMBER.MAX_INT64
 		} else {
-			mask = MAX_UINT64
+			mask = hestiaNUMBER.MAX_UINT64
 		}
 	case size <= 8:
 		if withSign {
-			mask = MAX_INT8
+			mask = hestiaNUMBER.MAX_INT8
 		} else {
-			mask = MAX_UINT8
+			mask = hestiaNUMBER.MAX_UINT8
 		}
 	case size <= 16:
 		if withSign {
-			mask = MAX_INT16
+			mask = hestiaNUMBER.MAX_INT16
 		} else {
-			mask = MAX_UINT16
+			mask = hestiaNUMBER.MAX_UINT16
 		}
 	case size <= 32:
 		if withSign {
-			mask = MAX_INT32
+			mask = hestiaNUMBER.MAX_INT32
 		} else {
-			mask = MAX_UINT32
+			mask = hestiaNUMBER.MAX_UINT32
 		}
 	case size <= 64:
 		if withSign {
-			mask = MAX_INT64
+			mask = hestiaNUMBER.MAX_INT64
 		} else {
-			mask = MAX_UINT64
+			mask = hestiaNUMBER.MAX_UINT64
 		}
 	}
 

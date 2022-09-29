@@ -14,45 +14,34 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-package hestiaBITS
+package hestiaNUMBER
 
-import (
-	"hestia/hestiaNUMBER"
+const (
+	MAX_UINT   = ^uint(0)
+	MAX_UINT8  = 1<<8 - 1
+	MAX_UINT16 = 1<<16 - 1
+	MAX_UINT32 = 1<<32 - 1
+	MAX_UINT64 = 1<<64 - 1
+
+	MAX_INT   = int(^uint(0) >> 1)
+	MAX_INT8  = 1<<7 - 1
+	MAX_INT16 = 1<<15 - 1
+	MAX_INT32 = 1<<31 - 1
+	MAX_INT64 = 1<<63 - 1
+
+	MIN_INT   = -int(^uint(0)>>1) - 1
+	MIN_INT8  = -1 << 7
+	MIN_INT16 = -1 << 15
+	MIN_INT32 = -1 << 31
+	MIN_INT64 = -1 << 63
 )
 
-func Len(x uint) uint64 {
-	var i, a, b uint64
-
-	// loop through bit shifting to find the highest bit
-	for i = 1; i <= hestiaNUMBER.MAX_UINT64; i <<= 1 {
-		x |= (x >> i)
-
-		a = uint64(x ^ (x >> 1))
-		if a == b {
-			// max bit reached
-			break
-		}
-
-		b = a
+func CPU() (cpu_size uint64) {
+	i := ^uint(0) ^ (^uint(0) >> 1)
+	for i != 0 {
+		cpu_size++
+		i >>= 1
 	}
 
-	// convert back to decimal counting value
-	a = 0
-	for b != 0 {
-		a++
-		b >>= 1
-	}
-
-	return a
-}
-
-func TrailingZero(x uint) uint64 {
-	var count uint64
-
-	for (x & 1) == 0 {
-		x >>= 1
-		count++
-	}
-
-	return count
+	return cpu_size
 }
