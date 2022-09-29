@@ -26,6 +26,7 @@ const (
 	suite_LOGF_API         = "hestiaTESTING Logf API"
 	suite_LOGLN_API        = "hestiaTESTING Logln API"
 	suite_HAS_EXECUTED_API = "hestiaTESTING HasExecuted API"
+	suite_CONCLUSION_API   = "hestiaTESTING Conclusion API"
 	suite_TO_STRING_API    = "hestiaTESTING ToString API"
 	suite_TO_JSON_API      = "hestiaTESTING ToJSON API"
 	suite_TO_TOML_API      = "hestiaTESTING ToTOML API"
@@ -110,6 +111,21 @@ const (
 	t_ARG_2_LOGLN_SUCCESSFUL = "\n"
 	t_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
 )
+
+func testlib_AssertConclusion(s *Scenario, output Verdict) bool {
+	switch {
+	case output == priv_VERDICT_UNKNOWN:
+		return s.Switches[cond_UNKNOWN_VERDICT]
+	case output == VERDICT_PASS:
+		return s.Switches[cond_PROPER_VERDICT]
+	case output == VERDICT_SKIP:
+		if !s.Switches[cond_PROPER_VERDICT] || s.Switches[cond_SUPPLY_NIL_SCENARIO] {
+			return true
+		}
+	}
+
+	return false
+}
 
 func testlib_AssertHasExecuted(s *Scenario, output bool) bool {
 	if !output {
