@@ -17,6 +17,7 @@
 package hestiaTESTING
 
 import (
+	"fmt"
 	"hestia/hestiaERROR"
 	"unicode"
 )
@@ -97,6 +98,10 @@ func _checkBeforeRender(s *Scenario, name string) {
 	if s.Init() != hestiaERROR.OK {
 		panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")
 	}
+}
+
+func _renderString(format string, args ...any) string {
+	return fmt.Sprintf(format, args...)
 }
 
 func _renderBool(input bool) string {

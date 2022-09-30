@@ -50,19 +50,7 @@ func Logf(s *Scenario, format string, args ...any) {
 		panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")
 	}
 
-	s.Log = append(s.Log, hestiaSTRING.Printf(format, args...))
-}
-
-func Logln(s *Scenario, args ...any) {
-	if s == nil {
-		panic("calling hestiaTESTING.Logln without providing Scenario!")
-	}
-
-	if s.Init() != hestiaERROR.OK {
-		panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")
-	}
-
-	s.Log = append(s.Log, hestiaSTRING.Println(args...))
+	s.Log = append(s.Log, _renderString(format, args...))
 }
 
 func Exec(function func() any) (out any) {

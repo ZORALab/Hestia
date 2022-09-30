@@ -107,57 +107,45 @@ import (
         "hestia/hestiaSTRING"
 )
 
-func Register(s *Scenario, t *testing.T) <span class="cov7" title="105">{
+func Register(s *Scenario, t *testing.T) <span class="cov7" title="92">{
         if s == nil </span><span class="cov1" title="1">{
                 panic("calling hestiaTESTING.Register without providing Scenario!")</span>
         }
 
-        <span class="cov7" title="104">if t == nil </span><span class="cov1" title="1">{
+        <span class="cov7" title="91">if t == nil </span><span class="cov1" title="1">{
                 panic("calling hestiaTESTING.Register without providing *testing.T!")</span>
         }
 
-        <span class="cov7" title="103">s.controller = t
+        <span class="cov7" title="90">s.controller = t
         s.skip = s.controller.SkipNow
         s.fail = s.controller.FailNow</span>
 }
 
-func Logf(s *Scenario, format string, args ...any) <span class="cov9" title="417">{
+func Logf(s *Scenario, format string, args ...any) <span class="cov9" title="352">{
         if s == nil </span><span class="cov1" title="1">{
                 panic("calling hestiaTESTING.Logf without providing Scenario!")</span>
         }
 
-        <span class="cov9" title="416">if format == "" </span><span class="cov1" title="1">{
+        <span class="cov9" title="351">if format == "" </span><span class="cov1" title="1">{
                 panic("calling hestiaTESTING.Logf without providing formatting string!")</span>
         }
 
-        <span class="cov9" title="415">if s.Init() != hestiaERROR.OK </span><span class="cov2" title="3">{
+        <span class="cov9" title="350">if s.Init() != hestiaERROR.OK </span><span class="cov2" title="3">{
                 panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")</span>
         }
 
-        <span class="cov9" title="412">s.Log = append(s.Log, hestiaSTRING.Printf(format, args...))</span>
+        <span class="cov9" title="347">s.Log = append(s.Log, _renderString(format, args...))</span>
 }
 
-func Logln(s *Scenario, args ...any) <span class="cov4" title="13">{
-        if s == nil </span><span class="cov1" title="1">{
-                panic("calling hestiaTESTING.Logln without providing Scenario!")</span>
-        }
-
-        <span class="cov4" title="12">if s.Init() != hestiaERROR.OK </span><span class="cov2" title="3">{
-                panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")</span>
-        }
-
-        <span class="cov4" title="9">s.Log = append(s.Log, hestiaSTRING.Println(args...))</span>
-}
-
-func Exec(function func() any) (out any) <span class="cov7" title="98">{
-        defer func() </span><span class="cov7" title="98">{
+func Exec(function func() any) (out any) <span class="cov7" title="85">{
+        defer func() </span><span class="cov7" title="85">{
                 err := recover()
-                if err != nil </span><span class="cov5" title="29">{
+                if err != nil </span><span class="cov5" title="25">{
                         out = err
                 }</span>
         }()
 
-        <span class="cov7" title="98">out = function()
+        <span class="cov7" title="85">out = function()
 
         return out</span>
 }
@@ -170,13 +158,13 @@ func HasExecuted(s *Scenario) bool <span class="cov4" title="12">{
         <span class="cov4" title="10">return s.verdict != priv_VERDICT_UNKNOWN</span>
 }
 
-func Conclude(s *Scenario, certification Verdict) <span class="cov7" title="110">{
+func Conclude(s *Scenario, certification Verdict) <span class="cov7" title="97">{
         switch </span>{
         case s == nil:<span class="cov1" title="1">
                 panic("calling hestiaTESTING.Conclude without providing Scenario!")</span>
         case s.controller == nil || s.skip == nil || s.fail == nil:<span class="cov2" title="3">
                 panic("calling hestiaTESTING.Conclude without registering *testing.T!")</span>
-        case certification == VERDICT_PASS:<span class="cov7" title="103">
+        case certification == VERDICT_PASS:<span class="cov7" title="90">
                 s.verdict = VERDICT_PASS</span>
         case certification == VERDICT_FAIL:<span class="cov1" title="1">
                 s.verdict = VERDICT_FAIL</span>
@@ -187,17 +175,17 @@ func Conclude(s *Scenario, certification Verdict) <span class="cov7" title="110"
         }
 }
 
-func Conclusion(s *Scenario) Verdict <span class="cov7" title="108">{
+func Conclusion(s *Scenario) Verdict <span class="cov7" title="95">{
         if s == nil </span><span class="cov1" title="2">{
                 panic("calling hestiaTESTING.Verdict without providing Scenario!")</span>
         }
 
-        <span class="cov7" title="106">return s.verdict</span>
+        <span class="cov7" title="93">return s.verdict</span>
 }
 
-func Interpret(verdict Verdict) string <span class="cov7" title="114">{
+func Interpret(verdict Verdict) string <span class="cov7" title="101">{
         switch verdict </span>{
-        case VERDICT_PASS:<span class="cov7" title="97">
+        case VERDICT_PASS:<span class="cov7" title="84">
                 return string_PASS</span>
         case VERDICT_FAIL:<span class="cov1" title="1">
                 return string_FAIL</span>
@@ -208,7 +196,7 @@ func Interpret(verdict Verdict) string <span class="cov7" title="114">{
         }
 }
 
-func ToString(s *Scenario) (output string) <span class="cov7" title="96">{
+func ToString(s *Scenario) (output string) <span class="cov7" title="83">{
         _checkBeforeRender(s, "String")
 
         // render report header
@@ -232,18 +220,18 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="96">{
 
         // render switches
         output += titleStartSwitch_STRING + DATA_LABEL_SWITCHES + titleEndSwitch_STRING
-        for k, v := range s.Switches </span><span class="cov10" title="619">{
+        for k, v := range s.Switches </span><span class="cov10" title="527">{
                 output += fieldSwitchOpening_STRING +
                         _renderBool(v) +
                         fieldSwitchClosing_STRING +
                         __trimWhitespace(k) +
                         char_NEW_LINE
         }</span>
-        <span class="cov7" title="92">output += char_NEW_LINE
+        <span class="cov7" title="79">output += char_NEW_LINE
 
         // render log
         output += titleStartLog_STRING + DATA_LABEL_LOG + titleEndLog_STRING
-        for i, v := range s.Log </span><span class="cov9" title="345">{
+        for i, v := range s.Log </span><span class="cov9" title="280">{
                 output += fieldLogOpening_STRING +
                         hestiaSTRING.S_Itoa(int64(i)) +
                         fieldLogClosing_STRING
@@ -251,7 +239,7 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="96">{
         }</span>
 
         // render report footer
-        <span class="cov7" title="92">output += footer_STRING
+        <span class="cov7" title="79">output += footer_STRING
 
         return output</span>
 }
@@ -297,7 +285,7 @@ func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
         <span class="cov5" title="18">output += titleSwitches_TOML
         first = true
         for k, v := range s.Switches </span><span class="cov7" title="88">{
-                if !first </span><span class="cov6" title="72">{
+                if !first </span><span class="cov7" title="72">{
                         output += char_NEW_LINE
                 }</span>
 
@@ -356,26 +344,26 @@ type Scenario struct {
         verdict    Verdict
 }
 
-func (s *Scenario) Init() hestiaERROR.Error <span class="cov10" title="545">{
-        if s.Switches == nil </span><span class="cov3" title="6">{
+func (s *Scenario) Init() hestiaERROR.Error <span class="cov10" title="455">{
+        if s.Switches == nil </span><span class="cov3" title="5">{
                 s.Switches = map[string]bool{}
         }</span>
 
-        <span class="cov10" title="545">if s.Log == nil </span><span class="cov7" title="106">{
+        <span class="cov10" title="455">if s.Log == nil </span><span class="cov7" title="91">{
                 s.Log = []string{}
         }</span>
 
-        <span class="cov10" title="545">if s.controller == nil || s.skip == nil || s.fail == nil </span><span class="cov4" title="14">{
+        <span class="cov10" title="455">if s.controller == nil || s.skip == nil || s.fail == nil </span><span class="cov4" title="11">{
                 return hestiaERROR.BAD_EXCHANGE
         }</span>
 
-        <span class="cov9" title="531">s.Name = __trimWhitespace(s.Name)
+        <span class="cov9" title="444">s.Name = __trimWhitespace(s.Name)
         s.Description = __trimWhitespace(s.Description)
 
         return hestiaERROR.OK</span>
 }
 
-func (s *Scenario) Exec(function func() any) (out any) <span class="cov1" title="2">{
+func (s *Scenario) Exec(function func() any) (out any) <span class="cov2" title="2">{
         return Exec(function)
 }</span>
 </pre>
@@ -399,6 +387,7 @@ func (s *Scenario) Exec(function func() any) (out any) <span class="cov1" title=
 package hestiaTESTING
 
 import (
+        "fmt"
         "hestia/hestiaERROR"
         "unicode"
 )
@@ -471,37 +460,41 @@ const (
                 char_NEW_LINE
 )
 
-func _checkBeforeRender(s *Scenario, name string) <span class="cov4" title="118">{
+func _checkBeforeRender(s *Scenario, name string) <span class="cov4" title="105">{
         if s == nil </span><span class="cov1" title="2">{
                 panic("calling hestiaTESTING.To" + name + " without providing Scenario!")</span>
         }
 
-        <span class="cov4" title="116">if s.Init() != hestiaERROR.OK </span><span class="cov2" title="6">{
+        <span class="cov4" title="103">if s.Init() != hestiaERROR.OK </span><span class="cov2" title="6">{
                 panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")</span>
         }
 }
 
-func _renderBool(input bool) string <span class="cov6" title="707">{
-        if input </span><span class="cov6" title="621">{
+func _renderString(format string, args ...any) string <span class="cov5" title="347">{
+        return fmt.Sprintf(format, args...)
+}</span>
+
+func _renderBool(input bool) string <span class="cov6" title="615">{
+        if input </span><span class="cov6" title="538">{
                 return "true"
         }</span>
 
-        <span class="cov4" title="86">return "false"</span>
+        <span class="cov4" title="77">return "false"</span>
 }
 
-func _renderID(s *Scenario) (out string) <span class="cov4" title="110">{
+func _renderID(s *Scenario) (out string) <span class="cov4" title="97">{
         var i int
         var number, x uint64
         var buffer [64]byte
 
-        if s.ID == 0 </span><span class="cov3" title="22">{
+        if s.ID == 0 </span><span class="cov3" title="21">{
                 return "0"
         }</span>
 
-        <span class="cov4" title="88">i = len(buffer)
+        <span class="cov4" title="76">i = len(buffer)
 
         number = s.ID
-        for number &gt;= 10 </span><span class="cov3" title="17">{
+        for number &gt;= 10 </span><span class="cov3" title="14">{
                 i--
 
                 x = number / 10
@@ -509,46 +502,46 @@ func _renderID(s *Scenario) (out string) <span class="cov4" title="110">{
                 number = x
         }</span>
 
-        <span class="cov4" title="88">i--
+        <span class="cov4" title="76">i--
         buffer[i] = char_DIGITS[uint(number)]
 
         return string(buffer[i:])</span>
 }
 
-func __trimWhitespace(source string) string <span class="cov7" title="2188">{
+func __trimWhitespace(source string) string <span class="cov6" title="1857">{
         var leftIndex, rightIndex uint64
         var first, next bool
 
-        if source == "" </span><span class="cov2" title="8">{
+        if source == "" </span><span class="cov2" title="6">{
                 return source
         }</span>
 
-        <span class="cov7" title="2180">first = true
-        for i, char := range source </span><span class="cov10" title="93498">{
-                if !unicode.IsSpace(char) </span><span class="cov9" title="81829">{
-                        if first </span><span class="cov6" title="1681">{
+        <span class="cov6" title="1851">first = true
+        for i, char := range source </span><span class="cov10" title="80505">{
+                if !unicode.IsSpace(char) </span><span class="cov9" title="70610">{
+                        if first </span><span class="cov6" title="1430">{
                                 leftIndex = uint64(i)
                         }</span>
 
-                        <span class="cov9" title="81829">rightIndex = uint64(i)
+                        <span class="cov9" title="70610">rightIndex = uint64(i)
                         next = true
                         first = false
                         continue</span>
                 }
 
-                <span class="cov8" title="11669">if next </span><span class="cov8" title="10739">{
+                <span class="cov8" title="9895">if next </span><span class="cov8" title="9108">{
                         rightIndex = uint64(i)
                         next = false
                 }</span>
 
-                <span class="cov8" title="11669">first = false</span>
+                <span class="cov8" title="9895">first = false</span>
         }
 
-        <span class="cov7" title="2180">if next </span><span class="cov7" title="2084">{
+        <span class="cov6" title="1851">if next </span><span class="cov6" title="1768">{
                 rightIndex = uint64(len(source))
         }</span>
 
-        <span class="cov7" title="2180">return source[leftIndex:rightIndex]</span>
+        <span class="cov6" title="1851">return source[leftIndex:rightIndex]</span>
 }
 </pre>
 		
