@@ -83,4 +83,4 @@ Name = 'Conclude The Test'
 Type = 'is-equal'
 Condition = [ 'all-all' ]
 Source = '{{- .TestVerdict -}}'
-Target = ''
+Target = 'FAIL'
