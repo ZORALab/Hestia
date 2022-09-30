@@ -120,7 +120,7 @@ func ToString(s *Scenario) (output string) {
 
 	// render ID
 	output += DATA_LABEL_ID + titleEndQuote_STRING
-	output += _renderID(s) + char_NEW_LINE
+	output += _renderNumber(s.ID) + char_NEW_LINE
 
 	// render Name
 	output += DATA_LABEL_NAME + titleEndQuote_STRING
@@ -149,7 +149,7 @@ func ToString(s *Scenario) (output string) {
 	output += titleStartLog_STRING + DATA_LABEL_LOG + titleEndLog_STRING
 	for i, v := range s.Log {
 		output += fieldLogOpening_STRING +
-			hestiaSTRING.S_Itoa(int64(i)) +
+			_renderNumber(uint64(i)) +
 			fieldLogClosing_STRING
 		output += __trimWhitespace(v) + char_NEW_LINE
 	}
@@ -169,7 +169,7 @@ func ToTOML(s *Scenario) (output string) {
 	output = header_TOML
 
 	// render ID field
-	output += titleID_TOML + _renderID(s) + char_NEW_LINE
+	output += titleID_TOML + _renderNumber(s.ID) + char_NEW_LINE
 
 	// render Name field
 	output += titleName_TOML + char_QUOTE + s.Name + fieldEndString_TOML

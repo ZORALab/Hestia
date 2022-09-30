@@ -112,18 +112,16 @@ func _renderBool(input bool) string {
 	return "false"
 }
 
-func _renderID(s *Scenario) (out string) {
+func _renderNumber(number uint64) (out string) {
 	var i int
-	var number, x uint64
+	var x uint64
 	var buffer [64]byte
 
-	if s.ID == 0 {
+	if number == 0 {
 		return "0"
 	}
 
 	i = len(buffer)
-
-	number = s.ID
 	for number >= 10 {
 		i--
 

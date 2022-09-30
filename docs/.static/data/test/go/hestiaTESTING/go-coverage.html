@@ -204,7 +204,7 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="83">{
 
         // render ID
         output += DATA_LABEL_ID + titleEndQuote_STRING
-        output += _renderID(s) + char_NEW_LINE
+        output += _renderNumber(s.ID) + char_NEW_LINE
 
         // render Name
         output += DATA_LABEL_NAME + titleEndQuote_STRING
@@ -233,7 +233,7 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="83">{
         output += titleStartLog_STRING + DATA_LABEL_LOG + titleEndLog_STRING
         for i, v := range s.Log </span><span class="cov9" title="280">{
                 output += fieldLogOpening_STRING +
-                        hestiaSTRING.S_Itoa(int64(i)) +
+                        _renderNumber(uint64(i)) +
                         fieldLogClosing_STRING
                 output += __trimWhitespace(v) + char_NEW_LINE
         }</span>
@@ -253,7 +253,7 @@ func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
         output = header_TOML
 
         // render ID field
-        output += titleID_TOML + _renderID(s) + char_NEW_LINE
+        output += titleID_TOML + _renderNumber(s.ID) + char_NEW_LINE
 
         // render Name field
         output += titleName_TOML + char_QUOTE + s.Name + fieldEndString_TOML
@@ -482,18 +482,16 @@ func _renderBool(input bool) string <span class="cov6" title="615">{
         <span class="cov4" title="77">return "false"</span>
 }
 
-func _renderID(s *Scenario) (out string) <span class="cov4" title="97">{
+func _renderNumber(number uint64) (out string) <span class="cov5" title="377">{
         var i int
-        var number, x uint64
+        var x uint64
         var buffer [64]byte
 
-        if s.ID == 0 </span><span class="cov3" title="21">{
+        if number == 0 </span><span class="cov4" title="97">{
                 return "0"
         }</span>
 
-        <span class="cov4" title="76">i = len(buffer)
-
-        number = s.ID
+        <span class="cov5" title="280">i = len(buffer)
         for number &gt;= 10 </span><span class="cov3" title="14">{
                 i--
 
@@ -502,7 +500,7 @@ func _renderID(s *Scenario) (out string) <span class="cov4" title="97">{
                 number = x
         }</span>
 
-        <span class="cov4" title="76">i--
+        <span class="cov5" title="280">i--
         buffer[i] = char_DIGITS[uint(number)]
 
         return string(buffer[i:])</span>
