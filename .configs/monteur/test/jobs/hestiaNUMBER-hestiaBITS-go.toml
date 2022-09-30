@@ -9,7 +9,7 @@ Using Go testing feature to test out this package with test coverage heatmap.
 
 [Variables]
 Timeout = '14400s'
-Package = 'hestiaNUMBER/hestiaBITS/internal'
+Package = 'hestiaNUMBER/hestiaBITS'
 ReportDir = 'docs/.static/data/test/go/hestiaNUMBER/hestiaBITS'
 ProfileName = 'hestiaNUMBER-hestiaBITS'
 ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')

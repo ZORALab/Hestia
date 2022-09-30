@@ -14,69 +14,68 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-package internal
+package hestiaBITS
 
 import (
 	"testing"
 
-	"hestia/hestiaNUMBER/hestiaBITS"
 	"hestia/hestiaTESTING"
 )
 
-func _TestTrailingZeroAPIScenarios() []*hestiaTESTING.Scenario {
+func _TestLenAPIScenarios() []*hestiaTESTING.Scenario {
 	return []*hestiaTESTING.Scenario{
 		{
 			Description: `
-Test TrailingZero() is able to identify 5-bits value properly.
+Test Len() is able to identify 5-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_5_BITS: true,
 			},
 		}, {
 			Description: `
-Test TrailingZero() is able to identify 8-bits value properly.
+Test Len() is able to identify 8-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_8_BITS: true,
 			},
 		}, {
 			Description: `
-Test TrailingZero() is able to identify 12-bits value properly.
+Test Len() is able to identify 12-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_12_BITS: true,
 			},
 		}, {
 			Description: `
-Test TrailingZero() is able to identify 16-bits value properly.
+Test Len() is able to identify 16-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_16_BITS: true,
 			},
 		}, {
 			Description: `
-Test TrailingZero() is able to identify 22-bits value properly.
+Test Len() is able to identify 22-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_22_BITS: true,
 			},
 		}, {
 			Description: `
-Test TrailingZero() is able to identify 32-bits value properly.
+Test Len() is able to identify 32-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_32_BITS: true,
 			},
 		}, {
 			Description: `
-Test TrailingZero() is able to identify 52-bits value properly.
+Test Len() is able to identify 52-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_52_BITS: true,
 			},
 		}, {
 			Description: `
-Test TrailingZero() is able to identify 64-bits value properly.
+Test Len() is able to identify 64-bits value properly.
 `,
 			Switches: map[string]bool{
 				cond_GENERATE_UINT_64_BITS: true,
@@ -85,12 +84,12 @@ Test TrailingZero() is able to identify 64-bits value properly.
 	}
 }
 
-func TestTrailingZeroAPI(t *testing.T) {
-	scenarios := _TestTrailingZeroAPIScenarios()
+func TestLenAPI(t *testing.T) {
+	scenarios := _TestLenAPIScenarios()
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
-		s.Name = suite_TRAILING_ZERO_API
+		s.Name = suite_LEN_API
 		hestiaTESTING.Register(s, t)
 
 		// prepare
@@ -100,18 +99,18 @@ func TestTrailingZeroAPI(t *testing.T) {
 			t.Skip(hestiaTESTING.ToString(s))
 		}
 
-		subject := testlibs_GenerateTrailingZero(s)
+		subject := testlibs_GenerateUINT(s)
 
 		// execute
 		var output uint
 		_panick := hestiaTESTING.Exec(func() any {
-			output = hestiaBITS.TrailingZero(subject)
+			output = Len(subject)
 			return ""
 		})
 		panick, _ := _panick.(string)
 
 		hestiaTESTING.Logf(s, "Subject	: 0B%b", subject)
-		hestiaTESTING.Logf(s, "Output	: %d zero(es)", output)
+		hestiaTESTING.Logf(s, "Output	: %d-bits", output)
 		hestiaTESTING.Logf(s, "Panick	: %q", panick)
 
 		// assert
@@ -120,7 +119,7 @@ func TestTrailingZeroAPI(t *testing.T) {
 			t.Fail()
 		}
 
-		if !testlibs_AssertTrailingZero(s, output) {
+		if !testlibs_assertLen(s, output) {
 			hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_FAIL)
 			t.Fail()
 		}

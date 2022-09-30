@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Go Coverage Report</title>
+		<title>hestiaBITS: Go Coverage Report</title>
 		<style>
 			body {
 				background: black;
@@ -55,6 +55,10 @@
 			<div id="nav">
 				<select id="files">
 				
+				<option value="file0">hestia/hestiaNUMBER/hestiaBITS/Bits.go (100.0%)</option>
+				
+				<option value="file1">hestia/hestiaNUMBER/hestiaBITS/Size.go (81.0%)</option>
+				
 				</select>
 			</div>
 			<div id="legend">
@@ -75,6 +79,135 @@
 			</div>
 		</div>
 		<div id="content">
+		
+		<pre class="file" id="file0" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
+// Copyright 2022 ZORALab Enterprise &lt;tech@zoralab.com&gt;
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+package hestiaBITS
+
+import (
+        "hestia/hestiaNUMBER"
+)
+
+func Len(x uint) uint <span class="cov4" title="8">{
+        var i, a, b uint
+
+        // loop through bit shifting to find the highest bit
+        for i = 1; i &lt;= hestiaNUMBER.MAX_UINT64; i &lt;&lt;= 1 </span><span class="cov5" title="16">{
+                x |= (x &gt;&gt; i)
+
+                a = x ^ (x &gt;&gt; 1)
+                if a == b </span><span class="cov4" title="8">{
+                        // max bit reached
+                        break</span>
+                }
+
+                <span class="cov4" title="8">b = a</span>
+        }
+
+        // convert back to decimal counting value
+        <span class="cov4" title="8">a = 0
+        for b != 0 </span><span class="cov10" title="211">{
+                a++
+                b &gt;&gt;= 1
+        }</span>
+
+        <span class="cov4" title="8">return a</span>
+}
+
+func TrailingZero(x uint) uint <span class="cov4" title="8">{
+        var count uint
+
+        for (x &amp; 1) == 0 </span><span class="cov9" title="203">{
+                x &gt;&gt;= 1
+                count++
+        }</span>
+
+        <span class="cov4" title="8">return count</span>
+}
+</pre>
+		
+		<pre class="file" id="file1" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
+// Copyright 2022 ZORALab Enterprise &lt;tech@zoralab.com&gt;
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+package hestiaBITS
+
+import (
+        "hestia/hestiaERROR"
+        "hestia/hestiaNUMBER"
+)
+
+func MatchSize(input *uint64, size uint16, withSign bool) hestiaERROR.Error <span class="cov10" title="32">{
+        var mask uint64
+
+        switch </span>{
+        case input == nil:<span class="cov0" title="0">
+                return hestiaERROR.INVALID_ARGUMENT</span>
+        case size &gt; 64:<span class="cov4" title="4">
+                return hestiaERROR.OUT_OF_RANGE</span>
+        case size == 0:<span class="cov0" title="0">
+                if withSign </span><span class="cov0" title="0">{
+                        mask = hestiaNUMBER.MAX_INT64
+                }</span> else<span class="cov0" title="0"> {
+                        mask = hestiaNUMBER.MAX_UINT64
+                }</span>
+        case size &lt;= 8:<span class="cov6" title="8">
+                if withSign </span><span class="cov4" title="4">{
+                        mask = hestiaNUMBER.MAX_INT8
+                }</span> else<span class="cov4" title="4"> {
+                        mask = hestiaNUMBER.MAX_UINT8
+                }</span>
+        case size &lt;= 16:<span class="cov6" title="8">
+                if withSign </span><span class="cov4" title="4">{
+                        mask = hestiaNUMBER.MAX_INT16
+                }</span> else<span class="cov4" title="4"> {
+                        mask = hestiaNUMBER.MAX_UINT16
+                }</span>
+        case size &lt;= 32:<span class="cov6" title="8">
+                if withSign </span><span class="cov4" title="4">{
+                        mask = hestiaNUMBER.MAX_INT32
+                }</span> else<span class="cov4" title="4"> {
+                        mask = hestiaNUMBER.MAX_UINT32
+                }</span>
+        case size &lt;= 64:<span class="cov4" title="4">
+                if withSign </span><span class="cov2" title="2">{
+                        mask = hestiaNUMBER.MAX_INT64
+                }</span> else<span class="cov2" title="2"> {
+                        mask = hestiaNUMBER.MAX_UINT64
+                }</span>
+        }
+
+        <span class="cov9" title="28">*input &amp;= mask
+
+        return hestiaERROR.OK</span>
+}
+</pre>
 		
 		</div>
 	</body>

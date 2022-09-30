@@ -14,13 +14,12 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-package internal
+package hestiaBITS
 
 import (
 	"testing"
 
 	"hestia/hestiaERROR"
-	"hestia/hestiaNUMBER/hestiaBITS"
 	"hestia/hestiaTESTING"
 )
 
@@ -373,7 +372,7 @@ func TestMatchSizeAPI(t *testing.T) {
 		// execute
 		err := hestiaERROR.OK
 		_panick := hestiaTESTING.Exec(func() any {
-			err = hestiaBITS.MatchSize(&output, size, !sign)
+			err = MatchSize(&output, size, !sign)
 			return ""
 		})
 		panick, _ := _panick.(string)
