@@ -216,7 +216,7 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="96">{
 
         // render ID
         output += DATA_LABEL_ID + titleEndQuote_STRING
-        output += hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
+        output += _renderID(s) + char_NEW_LINE
 
         // render Name
         output += DATA_LABEL_NAME + titleEndQuote_STRING
@@ -265,7 +265,7 @@ func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
         output = header_TOML
 
         // render ID field
-        output += titleID_TOML + hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
+        output += titleID_TOML + _renderID(s) + char_NEW_LINE
 
         // render Name field
         output += titleName_TOML + char_QUOTE + s.Name + fieldEndString_TOML
@@ -408,6 +408,7 @@ const (
         char_NEW_LINE = "\n"
         char_TAB      = "\t"
         char_QUOTE    = "\""
+        char_DIGITS   = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
 
 // verdict
@@ -478,6 +479,32 @@ func _checkBeforeRender(s *Scenario, name string) <span class="cov10" title="118
         <span class="cov9" title="116">if s.Init() != hestiaERROR.OK </span><span class="cov4" title="6">{
                 panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")</span>
         }
+}
+
+func _renderID(s *Scenario) (out string) <span class="cov9" title="110">{
+        var i int
+        var number, x uint64
+        var buffer [64]byte
+
+        if s.ID == 0 </span><span class="cov6" title="22">{
+                return "0"
+        }</span>
+
+        <span class="cov9" title="88">i = len(buffer)
+
+        number = s.ID
+        for number &gt;= 10 </span><span class="cov6" title="17">{
+                i--
+
+                x = number / 10
+                buffer[i] = char_DIGITS[uint(number-x*10)]
+                number = x
+        }</span>
+
+        <span class="cov9" title="88">i--
+        buffer[i] = char_DIGITS[uint(number)]
+
+        return string(buffer[i:])</span>
 }
 </pre>
 		

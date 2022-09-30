@@ -132,7 +132,7 @@ func ToString(s *Scenario) (output string) {
 
 	// render ID
 	output += DATA_LABEL_ID + titleEndQuote_STRING
-	output += hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
+	output += _renderID(s) + char_NEW_LINE
 
 	// render Name
 	output += DATA_LABEL_NAME + titleEndQuote_STRING
@@ -181,7 +181,7 @@ func ToTOML(s *Scenario) (output string) {
 	output = header_TOML
 
 	// render ID field
-	output += titleID_TOML + hestiaSTRING.S_FormatUINT(s.ID, 10) + char_NEW_LINE
+	output += titleID_TOML + _renderID(s) + char_NEW_LINE
 
 	// render Name field
 	output += titleName_TOML + char_QUOTE + s.Name + fieldEndString_TOML

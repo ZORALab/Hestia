@@ -25,6 +25,7 @@ const (
 	char_NEW_LINE = "\n"
 	char_TAB      = "\t"
 	char_QUOTE    = "\""
+	char_DIGITS   = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
 
 // verdict
@@ -95,4 +96,30 @@ func _checkBeforeRender(s *Scenario, name string) {
 	if s.Init() != hestiaERROR.OK {
 		panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")
 	}
+}
+
+func _renderID(s *Scenario) (out string) {
+	var i int
+	var number, x uint64
+	var buffer [64]byte
+
+	if s.ID == 0 {
+		return "0"
+	}
+
+	i = len(buffer)
+
+	number = s.ID
+	for number >= 10 {
+		i--
+
+		x = number / 10
+		buffer[i] = char_DIGITS[uint(number-x*10)]
+		number = x
+	}
+
+	i--
+	buffer[i] = char_DIGITS[uint(number)]
+
+	return string(buffer[i:])
 }
