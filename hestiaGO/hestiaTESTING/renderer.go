@@ -18,6 +18,7 @@ package hestiaTESTING
 
 import (
 	"hestia/hestiaERROR"
+	"unicode"
 )
 
 // common
@@ -122,4 +123,40 @@ func _renderID(s *Scenario) (out string) {
 	buffer[i] = char_DIGITS[uint(number)]
 
 	return string(buffer[i:])
+}
+
+func __trimWhitespace(source string) string {
+	var leftIndex, rightIndex uint64
+	var first, next bool
+
+	if source == "" {
+		return source
+	}
+
+	first = true
+	for i, char := range source {
+		if !unicode.IsSpace(char) {
+			if first {
+				leftIndex = uint64(i)
+			}
+
+			rightIndex = uint64(i)
+			next = true
+			first = false
+			continue
+		}
+
+		if next {
+			rightIndex = uint64(i)
+			next = false
+		}
+
+		first = false
+	}
+
+	if next {
+		rightIndex = uint64(len(source))
+	}
+
+	return source[leftIndex:rightIndex]
 }

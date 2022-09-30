@@ -18,7 +18,6 @@ package hestiaTESTING
 
 import (
 	"hestia/hestiaERROR"
-	"hestia/hestiaSTRING"
 	"testing"
 )
 
@@ -48,8 +47,8 @@ func (s *Scenario) Init() hestiaERROR.Error {
 		return hestiaERROR.BAD_EXCHANGE
 	}
 
-	s.Name = hestiaSTRING.TrimWhitespace(s.Name)
-	s.Description = hestiaSTRING.TrimWhitespace(s.Description)
+	s.Name = __trimWhitespace(s.Name)
+	s.Description = __trimWhitespace(s.Description)
 
 	return hestiaERROR.OK
 }

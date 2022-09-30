@@ -59,7 +59,7 @@
 				
 				<option value="file1">hestia/hestiaTESTING/Scenario.go (100.0%)</option>
 				
-				<option value="file2">hestia/hestiaTESTING/renderer.go (100.0%)</option>
+				<option value="file2">hestia/hestiaTESTING/renderer.go (97.6%)</option>
 				
 				</select>
 			</div>
@@ -236,7 +236,7 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="96">{
                 output += fieldSwitchOpening_STRING +
                         hestiaSTRING.FormatBOOL(v) +
                         fieldSwitchClosing_STRING +
-                        hestiaSTRING.TrimWhitespace(k) +
+                        __trimWhitespace(k) +
                         char_NEW_LINE
         }</span>
         <span class="cov7" title="92">output += char_NEW_LINE
@@ -247,7 +247,7 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="96">{
                 output += fieldLogOpening_STRING +
                         hestiaSTRING.S_Itoa(int64(i)) +
                         fieldLogClosing_STRING
-                output += hestiaSTRING.TrimWhitespace(v) + char_NEW_LINE
+                output += __trimWhitespace(v) + char_NEW_LINE
         }</span>
 
         // render report footer
@@ -285,7 +285,7 @@ func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
 
                         // render element
                         output += char_TAB +
-                                char_QUOTE + hestiaSTRING.TrimWhitespace(v) + char_QUOTE +
+                                char_QUOTE + __trimWhitespace(v) + char_QUOTE +
                                 fieldEnd_TOML
                 }</span>
                 <span class="cov4" title="15">output += titleLogClose_TOML</span>
@@ -306,7 +306,7 @@ func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
 
                 // render element
                 output += titleStartQuote_TOML +
-                        hestiaSTRING.TrimWhitespace(k) +
+                        __trimWhitespace(k) +
                         titleEndQuote_TOML +
                         hestiaSTRING.FormatBOOL(v)
 
@@ -340,7 +340,6 @@ package hestiaTESTING
 
 import (
         "hestia/hestiaERROR"
-        "hestia/hestiaSTRING"
         "testing"
 )
 
@@ -370,8 +369,8 @@ func (s *Scenario) Init() hestiaERROR.Error <span class="cov10" title="545">{
                 return hestiaERROR.BAD_EXCHANGE
         }</span>
 
-        <span class="cov9" title="531">s.Name = hestiaSTRING.TrimWhitespace(s.Name)
-        s.Description = hestiaSTRING.TrimWhitespace(s.Description)
+        <span class="cov9" title="531">s.Name = __trimWhitespace(s.Name)
+        s.Description = __trimWhitespace(s.Description)
 
         return hestiaERROR.OK</span>
 }
@@ -401,6 +400,7 @@ package hestiaTESTING
 
 import (
         "hestia/hestiaERROR"
+        "unicode"
 )
 
 // common
@@ -471,29 +471,29 @@ const (
                 char_NEW_LINE
 )
 
-func _checkBeforeRender(s *Scenario, name string) <span class="cov10" title="118">{
-        if s == nil </span><span class="cov2" title="2">{
+func _checkBeforeRender(s *Scenario, name string) <span class="cov4" title="118">{
+        if s == nil </span><span class="cov1" title="2">{
                 panic("calling hestiaTESTING.To" + name + " without providing Scenario!")</span>
         }
 
-        <span class="cov9" title="116">if s.Init() != hestiaERROR.OK </span><span class="cov4" title="6">{
+        <span class="cov4" title="116">if s.Init() != hestiaERROR.OK </span><span class="cov2" title="6">{
                 panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")</span>
         }
 }
 
-func _renderID(s *Scenario) (out string) <span class="cov9" title="110">{
+func _renderID(s *Scenario) (out string) <span class="cov4" title="110">{
         var i int
         var number, x uint64
         var buffer [64]byte
 
-        if s.ID == 0 </span><span class="cov6" title="22">{
+        if s.ID == 0 </span><span class="cov3" title="22">{
                 return "0"
         }</span>
 
-        <span class="cov9" title="88">i = len(buffer)
+        <span class="cov4" title="88">i = len(buffer)
 
         number = s.ID
-        for number &gt;= 10 </span><span class="cov6" title="17">{
+        for number &gt;= 10 </span><span class="cov3" title="17">{
                 i--
 
                 x = number / 10
@@ -501,10 +501,50 @@ func _renderID(s *Scenario) (out string) <span class="cov9" title="110">{
                 number = x
         }</span>
 
-        <span class="cov9" title="88">i--
+        <span class="cov4" title="88">i--
         buffer[i] = char_DIGITS[uint(number)]
 
         return string(buffer[i:])</span>
+}
+
+func __trimWhitespace(source string) string <span class="cov7" title="2188">{
+        var leftIndex, rightIndex uint64
+        var first, next bool
+
+        if source == "" </span><span class="cov2" title="8">{
+                return source
+        }</span>
+
+        <span class="cov7" title="2180">first = true
+        for i, char := range source </span><span class="cov10" title="93498">{
+                if !unicode.IsSpace(char) </span><span class="cov9" title="81829">{
+                        if first </span><span class="cov6" title="1681">{
+                                leftIndex = uint64(i)
+                        }</span>
+
+                        <span class="cov9" title="81829">rightIndex = uint64(i)
+                        next = true
+                        first = false
+                        continue</span>
+                }
+
+                <span class="cov8" title="11669">if next </span><span class="cov8" title="10739">{
+                        rightIndex = uint64(i)
+                        next = false
+                }</span>
+
+                <span class="cov8" title="11669">first = false</span>
+        }
+
+        <span class="cov7" title="2180">if next </span><span class="cov7" title="2084">{
+                rightIndex = uint64(len(source))
+        }</span>
+
+        <span class="cov7" title="2180">if leftIndex == 0 &amp;&amp; rightIndex == 0 </span><span class="cov0" title="0">{
+                return "" // the entire string is whitespace
+        }</span>
+
+        <span class="cov7" title="2180">return source[leftIndex:rightIndex]</span>
 }
 </pre>
 		

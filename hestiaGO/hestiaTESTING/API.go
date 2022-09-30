@@ -152,7 +152,7 @@ func ToString(s *Scenario) (output string) {
 		output += fieldSwitchOpening_STRING +
 			hestiaSTRING.FormatBOOL(v) +
 			fieldSwitchClosing_STRING +
-			hestiaSTRING.TrimWhitespace(k) +
+			__trimWhitespace(k) +
 			char_NEW_LINE
 	}
 	output += char_NEW_LINE
@@ -163,7 +163,7 @@ func ToString(s *Scenario) (output string) {
 		output += fieldLogOpening_STRING +
 			hestiaSTRING.S_Itoa(int64(i)) +
 			fieldLogClosing_STRING
-		output += hestiaSTRING.TrimWhitespace(v) + char_NEW_LINE
+		output += __trimWhitespace(v) + char_NEW_LINE
 	}
 
 	// render report footer
@@ -201,7 +201,7 @@ func ToTOML(s *Scenario) (output string) {
 
 			// render element
 			output += char_TAB +
-				char_QUOTE + hestiaSTRING.TrimWhitespace(v) + char_QUOTE +
+				char_QUOTE + __trimWhitespace(v) + char_QUOTE +
 				fieldEnd_TOML
 		}
 		output += titleLogClose_TOML
@@ -222,7 +222,7 @@ func ToTOML(s *Scenario) (output string) {
 
 		// render element
 		output += titleStartQuote_TOML +
-			hestiaSTRING.TrimWhitespace(k) +
+			__trimWhitespace(k) +
 			titleEndQuote_TOML +
 			hestiaSTRING.FormatBOOL(v)
 
