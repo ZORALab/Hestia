@@ -16,16 +16,9 @@
 
 package hestiaTESTING
 
-import (
-	"fmt"
-	"hestia/hestiaERROR"
-	"unicode"
-)
-
 // common
 const (
 	char_NEW_LINE = "\n"
-	char_DIGITS   = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
 
 // verdict
@@ -102,81 +95,7 @@ func _checkBeforeRender(s *Scenario, name string) {
 		panic("calling hestiaTESTING.To" + name + " without providing Scenario!")
 	}
 
-	if s.Init() != hestiaERROR.OK {
+	if s.Init() != ERROR_OK {
 		panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")
 	}
-}
-
-func _renderString(format string, args ...any) string {
-	return fmt.Sprintf(format, args...)
-}
-
-func _renderBool(input bool) string {
-	if input {
-		return "true"
-	}
-
-	return "false"
-}
-
-func _renderNumber(number uint64) (out string) {
-	var i int
-	var x uint64
-	var buffer [64]byte
-
-	if number == 0 {
-		return "0"
-	}
-
-	i = len(buffer)
-	for number >= 10 {
-		i--
-
-		x = number / 10
-		buffer[i] = char_DIGITS[uint(number-x*10)]
-		number = x
-	}
-
-	i--
-	buffer[i] = char_DIGITS[uint(number)]
-
-	return string(buffer[i:])
-}
-
-func __trimWhitespace(source string) string {
-	var leftIndex, rightIndex uint64
-	var setRight, next bool
-
-	if source == "" {
-		return source
-	}
-
-	setRight = false
-	for i, char := range source {
-		if !unicode.IsSpace(char) {
-			if i == 0 {
-				setRight = true
-			}
-
-			if !setRight {
-				leftIndex = uint64(i)
-			}
-
-			rightIndex = uint64(i)
-			next = true
-			setRight = true
-			continue
-		}
-
-		if next {
-			rightIndex = uint64(i)
-			next = false
-		}
-	}
-
-	if next {
-		rightIndex = uint64(len(source)) // complete last character
-	}
-
-	return source[leftIndex:rightIndex]
 }

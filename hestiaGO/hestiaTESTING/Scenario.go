@@ -17,7 +17,6 @@
 package hestiaTESTING
 
 import (
-	"hestia/hestiaERROR"
 	"testing"
 )
 
@@ -34,7 +33,7 @@ type Scenario struct {
 	verdict    Verdict
 }
 
-func (s *Scenario) Init() hestiaERROR.Error {
+func (s *Scenario) Init() Error {
 	if s.Switches == nil {
 		s.Switches = map[string]bool{}
 	}
@@ -44,13 +43,13 @@ func (s *Scenario) Init() hestiaERROR.Error {
 	}
 
 	if s.controller == nil || s.skip == nil || s.fail == nil {
-		return hestiaERROR.BAD_EXCHANGE
+		return ERROR_BAD_EXCHANGE
 	}
 
 	s.Name = __trimWhitespace(s.Name)
 	s.Description = __trimWhitespace(s.Description)
 
-	return hestiaERROR.OK
+	return ERROR_OK
 }
 
 func (s *Scenario) Exec(function func() any) (out any) {

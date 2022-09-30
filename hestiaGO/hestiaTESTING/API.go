@@ -18,8 +18,6 @@ package hestiaTESTING
 
 import (
 	"testing"
-
-	"hestia/hestiaERROR"
 )
 
 func Register(s *Scenario, t *testing.T) {
@@ -45,7 +43,7 @@ func Logf(s *Scenario, format string, args ...any) {
 		panic("calling hestiaTESTING.Logf without providing formatting string!")
 	}
 
-	if s.Init() != hestiaERROR.OK {
+	if s.Init() != ERROR_OK {
 		panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")
 	}
 
@@ -115,7 +113,7 @@ func ToString(s *Scenario) (output string) {
 	_checkBeforeRender(s, "String")
 
 	output = header_STRING
-	output += title_ID_STRING + _renderNumber(s.ID) + end_ID_STRING
+	output += title_ID_STRING + _renderNumber(s.ID, 10) + end_ID_STRING
 	output += title_NAME_STRING + s.Name + end_NAME_STRING
 	output += title_VERDICT_STRING + Interpret(s.verdict) + end_VERDICT_STRING
 	output += title_DESCRIPTION_STRING + s.Description + end_DESCRIPTION_STRING
@@ -132,7 +130,7 @@ func ToString(s *Scenario) (output string) {
 	// render log
 	output += title_LOG_STRING
 	for i, v := range s.Log {
-		output += open_LOG_STRING + _renderNumber(uint64(i)) + close_LOG_STRING +
+		output += open_LOG_STRING + _renderNumber(uint64(i), 10) + close_LOG_STRING +
 			__trimWhitespace(v) +
 			end_LOG_STRING
 	}
@@ -150,7 +148,7 @@ func ToTOML(s *Scenario) (output string) {
 
 	// render header
 	output = header_TOML
-	output += title_ID_TOML + _renderNumber(s.ID) + end_ID_TOML
+	output += title_ID_TOML + _renderNumber(s.ID, 10) + end_ID_TOML
 	output += title_VERDICT_TOML + Interpret(s.verdict) + end_VERDICT_TOML
 	output += title_NAME_TOML + s.Name + end_NAME_TOML
 	output += title_DESCRIPTION_TOML + s.Description + end_DESCRIPTION_TOML

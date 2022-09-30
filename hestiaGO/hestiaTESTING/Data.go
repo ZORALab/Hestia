@@ -27,3 +27,19 @@ const (
 
 	DATA_LABEL_VALUE = "Value"
 )
+
+type Error uint8
+
+const (
+	ERROR_OK Error = iota
+	ERROR_BAD_EXCHANGE
+)
+
+type Verdict uint8
+
+const (
+	priv_VERDICT_UNKNOWN Verdict = iota
+	VERDICT_PASS
+	VERDICT_SKIP
+	VERDICT_FAIL
+)
