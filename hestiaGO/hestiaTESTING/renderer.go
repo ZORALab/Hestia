@@ -57,54 +57,6 @@ const (
 	footer_STRING = "═══[ END ]═══" + char_NEW_LINE + char_NEW_LINE
 )
 
-// json
-const (
-	indentLV2_JSON       = char_TAB + char_TAB
-	indentLV3_JSON       = char_TAB + char_TAB + char_TAB
-	titleStartQuote_JSON = indentLV2_JSON + char_QUOTE
-	titleEndQuote_JSON   = char_QUOTE + ": "
-	fieldEnd_JSON        = ","
-	fieldEndLine_JSON    = fieldEnd_JSON + char_NEW_LINE
-	fieldEndString_JSON  = "\"" + fieldEndLine_JSON
-
-	header_JSON = "{\n\t\"" + DATA_LABEL_GROUP + char_QUOTE + ": {" + char_NEW_LINE
-
-	titleID_JSON = titleStartQuote_JSON +
-		DATA_LABEL_ID +
-		titleEndQuote_JSON
-
-	titleName_JSON = titleStartQuote_JSON +
-		DATA_LABEL_NAME +
-		titleEndQuote_JSON +
-		char_QUOTE
-
-	titleVerdict_JSON = titleStartQuote_JSON +
-		DATA_LABEL_VERDICT +
-		titleEndQuote_JSON +
-		char_QUOTE
-
-	titleDescription_JSON = titleStartQuote_JSON +
-		DATA_LABEL_DESCRIPTION +
-		titleEndQuote_JSON +
-		char_QUOTE
-
-	titleSwitches_JSON = titleStartQuote_JSON +
-		DATA_LABEL_SWITCHES +
-		titleEndQuote_JSON
-	titleSwitchesOpen_JSON  = titleSwitches_JSON + "{"
-	titleSwitchesClose_JSON = "\n\t\t}," + char_NEW_LINE
-	titleSwitchesEmpty_JSON = titleSwitches_JSON + "{}," + char_NEW_LINE
-
-	titleLog_JSON = titleStartQuote_JSON +
-		DATA_LABEL_LOG +
-		titleEndQuote_JSON
-	titleLogOpen_JSON  = titleLog_JSON + "["
-	titleLogClose_JSON = char_NEW_LINE + "\t\t]" + char_NEW_LINE
-	titleLogEmpty_JSON = titleLog_JSON + "[]" + char_NEW_LINE
-
-	footer_JSON = "\t}\n}"
-)
-
 // toml
 const (
 	fieldEndString_TOML  = char_QUOTE + char_NEW_LINE
@@ -133,37 +85,6 @@ const (
 		DATA_LABEL_GROUP + "." +
 		DATA_LABEL_SWITCHES + "]" +
 		char_NEW_LINE
-)
-
-// yaml
-const (
-	tab_YAML                = "  "
-	listEmpty_YAML          = "[]"
-	titleStartQuote_YAML    = tab_YAML + char_QUOTE
-	titleLV3StartQuote_YAML = tab_YAML + titleStartQuote_YAML
-	titleEndQuote_YAML      = char_QUOTE + ": "
-
-	header_YAML = "---" + char_NEW_LINE + DATA_LABEL_GROUP + ":" + char_NEW_LINE
-
-	titleID_YAML = titleStartQuote_YAML + DATA_LABEL_ID + titleEndQuote_YAML
-
-	titleName_YAML = titleStartQuote_YAML + DATA_LABEL_NAME + titleEndQuote_YAML
-
-	titleVerdict_YAML = titleStartQuote_YAML + DATA_LABEL_VERDICT + titleEndQuote_YAML
-
-	titleDescription_YAML = titleStartQuote_YAML +
-		DATA_LABEL_DESCRIPTION +
-		titleEndQuote_YAML
-
-	titleSwitches_YAML      = titleStartQuote_YAML + DATA_LABEL_SWITCHES + char_QUOTE + ":"
-	titleSwitchesOpen_YAML  = titleSwitches_YAML + char_NEW_LINE
-	titleSwitchesClose_YAML = char_NEW_LINE
-	titleSwitchesEmpty_YAML = titleSwitches_YAML + " " + listEmpty_YAML + char_NEW_LINE
-
-	titleLog_YAML        = titleStartQuote_YAML + DATA_LABEL_LOG + titleEndQuote_YAML
-	titleLogOpen_YAML    = titleLog_YAML + char_NEW_LINE
-	titleLogEmpty_YAML   = titleLog_YAML + listEmpty_YAML + char_NEW_LINE
-	arrayLogOpening_YAML = tab_YAML + tab_YAML + "- " + char_QUOTE
 )
 
 func _checkBeforeRender(s *Scenario, name string) {
