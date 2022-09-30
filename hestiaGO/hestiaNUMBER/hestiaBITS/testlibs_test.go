@@ -49,9 +49,12 @@ const (
 	cond_SEEK_12_BITS   = "seek 12-bits sized number"
 	cond_SEEK_8_BITS    = "seek 8-bits sized number"
 	cond_SEEK_5_BITS    = "seek 5-bits sized number"
+	cond_SEEK_0_BIT     = "seek 0-bit sized number"
 
 	cond_SEEK_POSITIVE = "seek positive number"
 	cond_SEEK_NEGATIVE = "seek negative number"
+
+	cond_SUPPLY_NIL_POINTER = "supply nil pointer input"
 )
 
 // test values
@@ -84,6 +87,8 @@ const (
 func testlibs_AssertMatchSize(s *hestiaTESTING.Scenario,
 	output uint64, err hestiaERROR.Error) bool {
 	switch output {
+	case 0:
+		return s.Switches[cond_SEEK_0_BIT]
 	case value_UINT_5_BITS:
 		switch {
 		case s.Switches[cond_GENERATE_UINT_5_BITS] && s.Switches[cond_SEEK_1024_BITS]:
@@ -134,6 +139,8 @@ func testlibs_AssertMatchSize(s *hestiaTESTING.Scenario,
 		fallthrough
 	case hestiaNUMBER.MAX_UINT64:
 		switch {
+		case s.Switches[cond_SUPPLY_NIL_POINTER]:
+			return s.Switches[cond_GENERATE_UINT_64_BITS]
 		case s.Switches[cond_GENERATE_UINT_64_BITS] && s.Switches[cond_SEEK_1024_BITS]:
 			return err != hestiaERROR.OK
 		default:

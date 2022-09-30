@@ -57,7 +57,7 @@
 				
 				<option value="file0">hestia/hestiaNUMBER/hestiaBITS/Bits.go (100.0%)</option>
 				
-				<option value="file1">hestia/hestiaNUMBER/hestiaBITS/Size.go (81.0%)</option>
+				<option value="file1">hestia/hestiaNUMBER/hestiaBITS/Size.go (100.0%)</option>
 				
 				</select>
 			</div>
@@ -163,20 +163,17 @@ import (
         "hestia/hestiaNUMBER"
 )
 
-func MatchSize(input *uint64, size uint16, withSign bool) hestiaERROR.Error <span class="cov10" title="32">{
+func MatchSize(input *uint64, size uint16, withSign bool) hestiaERROR.Error <span class="cov10" title="37">{
         var mask uint64
 
         switch </span>{
-        case input == nil:<span class="cov0" title="0">
+        case input == nil:<span class="cov1" title="1">
                 return hestiaERROR.INVALID_ARGUMENT</span>
         case size &gt; 64:<span class="cov4" title="4">
                 return hestiaERROR.OUT_OF_RANGE</span>
-        case size == 0:<span class="cov0" title="0">
-                if withSign </span><span class="cov0" title="0">{
-                        mask = hestiaNUMBER.MAX_INT64
-                }</span> else<span class="cov0" title="0"> {
-                        mask = hestiaNUMBER.MAX_UINT64
-                }</span>
+        case size == 0:<span class="cov4" title="4">
+                *input = 0
+                return hestiaERROR.OK</span>
         case size &lt;= 8:<span class="cov6" title="8">
                 if withSign </span><span class="cov4" title="4">{
                         mask = hestiaNUMBER.MAX_INT8

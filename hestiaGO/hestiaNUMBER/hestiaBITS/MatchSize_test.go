@@ -345,6 +345,56 @@ Test MatchSize() is able to raise error and retain orignal value when matching
 				cond_SEEK_1024_BITS:       true,
 				cond_SEEK_NEGATIVE:        true,
 			},
+		}, {
+			Description: `
+Test MatchSize() is able to match 0-bit negative number properly when given
+a 5-bits number.
+`,
+			Switches: map[string]bool{
+				cond_GENERATE_UINT_5_BITS: true,
+				cond_SEEK_0_BIT:           true,
+				cond_SEEK_NEGATIVE:        true,
+			},
+		}, {
+			Description: `
+Test MatchSize() is able to match 0-bit positive number properly when given
+a 5-bits number.
+`,
+			Switches: map[string]bool{
+				cond_GENERATE_UINT_5_BITS: true,
+				cond_SEEK_0_BIT:           true,
+				cond_SEEK_POSITIVE:        true,
+			},
+		}, {
+			Description: `
+Test MatchSize() is able to match 0-bit negative number properly when given
+a 64-bits number.
+`,
+			Switches: map[string]bool{
+				cond_GENERATE_UINT_64_BITS: true,
+				cond_SEEK_0_BIT:            true,
+				cond_SEEK_NEGATIVE:         true,
+			},
+		}, {
+			Description: `
+Test MatchSize() is able to match 0-bit positive number properly when given
+a 64-bits number.
+`,
+			Switches: map[string]bool{
+				cond_GENERATE_UINT_64_BITS: true,
+				cond_SEEK_0_BIT:            true,
+				cond_SEEK_POSITIVE:         true,
+			},
+		}, {
+			Description: `
+Test MatchSize() is able to raise error when an nil input is supplied.
+`,
+			Switches: map[string]bool{
+				cond_GENERATE_UINT_64_BITS: true,
+				cond_SEEK_0_BIT:            true,
+				cond_SEEK_POSITIVE:         true,
+				cond_SUPPLY_NIL_POINTER:    true,
+			},
 		},
 	}
 }
@@ -372,7 +422,11 @@ func TestMatchSizeAPI(t *testing.T) {
 		// execute
 		err := hestiaERROR.OK
 		_panick := hestiaTESTING.Exec(func() any {
-			err = MatchSize(&output, size, !sign)
+			if s.Switches[cond_SUPPLY_NIL_POINTER] {
+				err = MatchSize(nil, size, !sign)
+			} else {
+				err = MatchSize(&output, size, !sign)
+			}
 			return ""
 		})
 		panick, _ := _panick.(string)

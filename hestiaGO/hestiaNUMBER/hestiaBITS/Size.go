@@ -30,11 +30,8 @@ func MatchSize(input *uint64, size uint16, withSign bool) hestiaERROR.Error {
 	case size > 64:
 		return hestiaERROR.OUT_OF_RANGE
 	case size == 0:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT64
-		} else {
-			mask = hestiaNUMBER.MAX_UINT64
-		}
+		*input = 0
+		return hestiaERROR.OK
 	case size <= 8:
 		if withSign {
 			mask = hestiaNUMBER.MAX_INT8
