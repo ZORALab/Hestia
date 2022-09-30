@@ -24,4 +24,6 @@ const (
 	DATA_LABEL_DESCRIPTION = "Description"
 	DATA_LABEL_SWITCHES    = "Switches"
 	DATA_LABEL_LOG         = "Log"
+
+	DATA_LABEL_VALUE = "Value"
 )

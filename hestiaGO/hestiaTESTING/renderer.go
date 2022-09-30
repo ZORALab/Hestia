@@ -25,8 +25,6 @@ import (
 // common
 const (
 	char_NEW_LINE = "\n"
-	char_TAB      = "\t"
-	char_QUOTE    = "\""
 	char_DIGITS   = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
 
@@ -40,54 +38,63 @@ const (
 
 // string
 const (
-	header_STRING = char_NEW_LINE +
-		"╔═══════════╗" + char_NEW_LINE +
-		"║TEST REPORT║" + char_NEW_LINE +
-		"╚═══════════╝" + char_NEW_LINE
-	titleEndQuote_STRING            = char_TAB + char_TAB + ": "
-	titleDescriptionEndQuote_STRING = char_TAB + ": "
+	header_STRING = "\n" +
+		"╔═══════════╗" + "\n" +
+		"║TEST REPORT║" + "\n" +
+		"╚═══════════╝" + "\n"
 
-	titleStartSwitch_STRING   = char_NEW_LINE
-	titleEndSwitch_STRING     = char_TAB + ":" + char_NEW_LINE
-	fieldSwitchOpening_STRING = "[ "
-	fieldSwitchClosing_STRING = " ]" + char_TAB
+	title_ID_STRING = DATA_LABEL_ID + "\t\t: "
+	end_ID_STRING   = "\n"
 
-	titleStartLog_STRING   = char_NEW_LINE
-	titleEndLog_STRING     = char_TAB + char_TAB + ":" + char_NEW_LINE
-	fieldLogOpening_STRING = "("
-	fieldLogClosing_STRING = ") "
+	title_NAME_STRING = DATA_LABEL_NAME + "\t\t: "
+	end_NAME_STRING   = "\n"
 
-	footer_STRING = "═══[ END ]═══" + char_NEW_LINE + char_NEW_LINE
+	title_VERDICT_STRING = DATA_LABEL_VERDICT + "\t\t: "
+	end_VERDICT_STRING   = "\n"
+
+	title_DESCRIPTION_STRING = DATA_LABEL_DESCRIPTION + "\t:\n"
+	end_DESCRIPTION_STRING   = "\n\n\n"
+
+	title_SWITCHES_STRING = DATA_LABEL_SWITCHES + "\t:\n"
+	end_SWITCHES_STRING   = "\n\n"
+	open_SWITCH_STRING    = "[ "
+	close_SWITCH_STRING   = " ]\t"
+	end_SWITCH_STRING     = "\n"
+
+	title_LOG_STRING = DATA_LABEL_LOG + "\t\t:" + "\n"
+	open_LOG_STRING  = "[ "
+	close_LOG_STRING = " ]\n"
+	end_LOG_STRING   = "\n\n"
+
+	footer_STRING = "═══[ END ]═══" + "\n" + "\n"
 )
 
 // toml
 const (
-	fieldEndString_TOML  = char_QUOTE + char_NEW_LINE
-	fieldEnd_TOML        = "," + char_NEW_LINE
-	titleStartQuote_TOML = char_QUOTE
-	titleEndQuote_TOML   = char_QUOTE + " = "
+	escapeQUOTE_TOML = "'''"
 
-	header_TOML = "[" + DATA_LABEL_GROUP + "]" + char_NEW_LINE
+	header_TOML = "[" + DATA_LABEL_GROUP + "]" + "\n"
 
-	titleID_TOML = titleStartQuote_TOML + DATA_LABEL_ID + titleEndQuote_TOML
+	title_ID_TOML = DATA_LABEL_ID + " = "
+	end_ID_TOML   = "\n"
 
-	titleName_TOML = titleStartQuote_TOML + DATA_LABEL_NAME + titleEndQuote_TOML
+	title_VERDICT_TOML = DATA_LABEL_VERDICT + " = "
+	end_VERDICT_TOML   = "\n"
 
-	titleVerdict_TOML = titleStartQuote_TOML + DATA_LABEL_VERDICT + titleEndQuote_TOML
+	title_NAME_TOML = DATA_LABEL_NAME + " = '''\n"
+	end_NAME_TOML   = "\n'''\n"
 
-	titleDescription_TOML = titleStartQuote_TOML +
-		DATA_LABEL_DESCRIPTION +
-		titleEndQuote_TOML
+	title_DESCRIPTION_TOML = DATA_LABEL_DESCRIPTION + " = '''\n"
+	end_DESCRIPTION_TOML   = "\n'''\n\n"
 
-	titleLog_TOML      = char_QUOTE + DATA_LABEL_LOG + titleEndQuote_TOML
-	titleLogOpen_TOML  = titleLog_TOML + "[" + char_NEW_LINE
-	titleLogClose_TOML = "]" + char_NEW_LINE + char_NEW_LINE
-	titleLogEmpty_TOML = titleLog_TOML + "[]" + char_NEW_LINE + char_NEW_LINE
+	title_SWITCHES_TOML = "[" + DATA_LABEL_GROUP + "." + DATA_LABEL_SWITCHES + "]" + "\n"
+	field_SWITCH_TOML   = escapeQUOTE_TOML + " = "
 
-	titleSwitches_TOML = "[" +
-		DATA_LABEL_GROUP + "." +
-		DATA_LABEL_SWITCHES + "]" +
-		char_NEW_LINE
+	title_LOG_EMPTY_TOML = DATA_LABEL_LOG + " = []\n"
+	title_LOG_TOML       = "\n" +
+		"[[" + DATA_LABEL_GROUP + "." + DATA_LABEL_LOG + "]]" + "\n" +
+		DATA_LABEL_VALUE + " = " + escapeQUOTE_TOML + "\n"
+	end_LOG_TOML = "\n'''\n"
 )
 
 func _checkBeforeRender(s *Scenario, name string) {
@@ -138,22 +145,26 @@ func _renderNumber(number uint64) (out string) {
 
 func __trimWhitespace(source string) string {
 	var leftIndex, rightIndex uint64
-	var first, next bool
+	var setRight, next bool
 
 	if source == "" {
 		return source
 	}
 
-	first = true
+	setRight = false
 	for i, char := range source {
 		if !unicode.IsSpace(char) {
-			if first {
+			if i == 0 {
+				setRight = true
+			}
+
+			if !setRight {
 				leftIndex = uint64(i)
 			}
 
 			rightIndex = uint64(i)
 			next = true
-			first = false
+			setRight = true
 			continue
 		}
 
@@ -161,12 +172,10 @@ func __trimWhitespace(source string) string {
 			rightIndex = uint64(i)
 			next = false
 		}
-
-		first = false
 	}
 
 	if next {
-		rightIndex = uint64(len(source))
+		rightIndex = uint64(len(source)) // complete last character
 	}
 
 	return source[leftIndex:rightIndex]

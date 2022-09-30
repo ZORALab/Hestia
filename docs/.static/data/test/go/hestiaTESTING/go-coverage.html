@@ -104,7 +104,6 @@ import (
         "testing"
 
         "hestia/hestiaERROR"
-        "hestia/hestiaSTRING"
 )
 
 func Register(s *Scenario, t *testing.T) <span class="cov7" title="92">{
@@ -199,43 +198,27 @@ func Interpret(verdict Verdict) string <span class="cov7" title="101">{
 func ToString(s *Scenario) (output string) <span class="cov7" title="83">{
         _checkBeforeRender(s, "String")
 
-        // render report header
         output = header_STRING
-
-        // render ID
-        output += DATA_LABEL_ID + titleEndQuote_STRING
-        output += _renderNumber(s.ID) + char_NEW_LINE
-
-        // render Name
-        output += DATA_LABEL_NAME + titleEndQuote_STRING
-        output += s.Name + char_NEW_LINE
-
-        // render Verdict
-        output += DATA_LABEL_VERDICT + titleEndQuote_STRING
-        output += Interpret(s.verdict) + char_NEW_LINE
-
-        // render description
-        output += DATA_LABEL_DESCRIPTION + titleDescriptionEndQuote_STRING
-        output += s.Description + char_NEW_LINE
+        output += title_ID_STRING + _renderNumber(s.ID) + end_ID_STRING
+        output += title_NAME_STRING + s.Name + end_NAME_STRING
+        output += title_VERDICT_STRING + Interpret(s.verdict) + end_VERDICT_STRING
+        output += title_DESCRIPTION_STRING + s.Description + end_DESCRIPTION_STRING
 
         // render switches
-        output += titleStartSwitch_STRING + DATA_LABEL_SWITCHES + titleEndSwitch_STRING
+        output += title_SWITCHES_STRING
         for k, v := range s.Switches </span><span class="cov10" title="527">{
-                output += fieldSwitchOpening_STRING +
-                        _renderBool(v) +
-                        fieldSwitchClosing_STRING +
+                output += open_SWITCH_STRING + _renderBool(v) + close_SWITCH_STRING +
                         __trimWhitespace(k) +
-                        char_NEW_LINE
+                        end_SWITCH_STRING
         }</span>
-        <span class="cov7" title="79">output += char_NEW_LINE
+        <span class="cov7" title="79">output += end_SWITCHES_STRING
 
         // render log
-        output += titleStartLog_STRING + DATA_LABEL_LOG + titleEndLog_STRING
+        output += title_LOG_STRING
         for i, v := range s.Log </span><span class="cov9" title="280">{
-                output += fieldLogOpening_STRING +
-                        _renderNumber(uint64(i)) +
-                        fieldLogClosing_STRING
-                output += __trimWhitespace(v) + char_NEW_LINE
+                output += open_LOG_STRING + _renderNumber(uint64(i)) + close_LOG_STRING +
+                        __trimWhitespace(v) +
+                        end_LOG_STRING
         }</span>
 
         // render report footer
@@ -251,54 +234,34 @@ func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
 
         // render header
         output = header_TOML
-
-        // render ID field
-        output += titleID_TOML + _renderNumber(s.ID) + char_NEW_LINE
-
-        // render Name field
-        output += titleName_TOML + char_QUOTE + s.Name + fieldEndString_TOML
-
-        // render Verdict field
-        output += titleVerdict_TOML + Interpret(s.verdict) + fieldEndString_TOML
-
-        // render Description field
-        output += titleDescription_TOML + s.Description + fieldEndString_TOML
-
-        // render Log
-        if len(s.Log) &gt; 0 </span><span class="cov4" title="15">{
-                output += titleLogOpen_TOML
-                for _, v := range s.Log </span><span class="cov7" title="74">{
-                        // TOML escape
-                        v = hestiaSTRING.ReplaceAll(v, "\"", "\\\"")
-
-                        // render element
-                        output += char_TAB +
-                                char_QUOTE + __trimWhitespace(v) + char_QUOTE +
-                                fieldEnd_TOML
-                }</span>
-                <span class="cov4" title="15">output += titleLogClose_TOML</span>
-        } else<span class="cov2" title="3"> {
-                output += titleLogEmpty_TOML
+        output += title_ID_TOML + _renderNumber(s.ID) + end_ID_TOML
+        output += title_VERDICT_TOML + Interpret(s.verdict) + end_VERDICT_TOML
+        output += title_NAME_TOML + s.Name + end_NAME_TOML
+        output += title_DESCRIPTION_TOML + s.Description + end_DESCRIPTION_TOML
+        if len(s.Log) == 0 </span><span class="cov2" title="3">{
+                output += title_LOG_EMPTY_TOML
         }</span>
 
         // render Switches
-        <span class="cov5" title="18">output += titleSwitches_TOML
+        <span class="cov5" title="18">output += title_SWITCHES_TOML
         first = true
         for k, v := range s.Switches </span><span class="cov7" title="88">{
                 if !first </span><span class="cov7" title="72">{
                         output += char_NEW_LINE
                 }</span>
-
-                // TOML escape
-                <span class="cov7" title="88">k = hestiaSTRING.ReplaceAll(k, "\"", "\\\"")
-
-                // render element
-                output += titleStartQuote_TOML +
+                <span class="cov7" title="88">output += escapeQUOTE_TOML +
                         __trimWhitespace(k) +
-                        titleEndQuote_TOML +
+                        field_SWITCH_TOML +
                         _renderBool(v)
-
                 first = false</span>
+        }
+
+        // render Log if available
+        <span class="cov5" title="18">if len(s.Log) &gt; 0 </span><span class="cov4" title="15">{
+                output += char_NEW_LINE
+                for _, v := range s.Log </span><span class="cov7" title="74">{
+                        output += title_LOG_TOML + __trimWhitespace(v) + end_LOG_TOML
+                }</span>
         }
 
         // render report footer
@@ -395,8 +358,6 @@ import (
 // common
 const (
         char_NEW_LINE = "\n"
-        char_TAB      = "\t"
-        char_QUOTE    = "\""
         char_DIGITS   = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
 
@@ -410,54 +371,63 @@ const (
 
 // string
 const (
-        header_STRING = char_NEW_LINE +
-                "╔═══════════╗" + char_NEW_LINE +
-                "║TEST REPORT║" + char_NEW_LINE +
-                "╚═══════════╝" + char_NEW_LINE
-        titleEndQuote_STRING            = char_TAB + char_TAB + ": "
-        titleDescriptionEndQuote_STRING = char_TAB + ": "
+        header_STRING = "\n" +
+                "╔═══════════╗" + "\n" +
+                "║TEST REPORT║" + "\n" +
+                "╚═══════════╝" + "\n"
 
-        titleStartSwitch_STRING   = char_NEW_LINE
-        titleEndSwitch_STRING     = char_TAB + ":" + char_NEW_LINE
-        fieldSwitchOpening_STRING = "[ "
-        fieldSwitchClosing_STRING = " ]" + char_TAB
+        title_ID_STRING = DATA_LABEL_ID + "\t\t: "
+        end_ID_STRING   = "\n"
 
-        titleStartLog_STRING   = char_NEW_LINE
-        titleEndLog_STRING     = char_TAB + char_TAB + ":" + char_NEW_LINE
-        fieldLogOpening_STRING = "("
-        fieldLogClosing_STRING = ") "
+        title_NAME_STRING = DATA_LABEL_NAME + "\t\t: "
+        end_NAME_STRING   = "\n"
 
-        footer_STRING = "═══[ END ]═══" + char_NEW_LINE + char_NEW_LINE
+        title_VERDICT_STRING = DATA_LABEL_VERDICT + "\t\t: "
+        end_VERDICT_STRING   = "\n"
+
+        title_DESCRIPTION_STRING = DATA_LABEL_DESCRIPTION + "\t:\n"
+        end_DESCRIPTION_STRING   = "\n\n\n"
+
+        title_SWITCHES_STRING = DATA_LABEL_SWITCHES + "\t:\n"
+        end_SWITCHES_STRING   = "\n\n"
+        open_SWITCH_STRING    = "[ "
+        close_SWITCH_STRING   = " ]\t"
+        end_SWITCH_STRING     = "\n"
+
+        title_LOG_STRING = DATA_LABEL_LOG + "\t\t:" + "\n"
+        open_LOG_STRING  = "[ "
+        close_LOG_STRING = " ]\n"
+        end_LOG_STRING   = "\n\n"
+
+        footer_STRING = "═══[ END ]═══" + "\n" + "\n"
 )
 
 // toml
 const (
-        fieldEndString_TOML  = char_QUOTE + char_NEW_LINE
-        fieldEnd_TOML        = "," + char_NEW_LINE
-        titleStartQuote_TOML = char_QUOTE
-        titleEndQuote_TOML   = char_QUOTE + " = "
+        escapeQUOTE_TOML = "'''"
 
-        header_TOML = "[" + DATA_LABEL_GROUP + "]" + char_NEW_LINE
+        header_TOML = "[" + DATA_LABEL_GROUP + "]" + "\n"
 
-        titleID_TOML = titleStartQuote_TOML + DATA_LABEL_ID + titleEndQuote_TOML
+        title_ID_TOML = DATA_LABEL_ID + " = "
+        end_ID_TOML   = "\n"
 
-        titleName_TOML = titleStartQuote_TOML + DATA_LABEL_NAME + titleEndQuote_TOML
+        title_VERDICT_TOML = DATA_LABEL_VERDICT + " = "
+        end_VERDICT_TOML   = "\n"
 
-        titleVerdict_TOML = titleStartQuote_TOML + DATA_LABEL_VERDICT + titleEndQuote_TOML
+        title_NAME_TOML = DATA_LABEL_NAME + " = '''\n"
+        end_NAME_TOML   = "\n'''\n"
 
-        titleDescription_TOML = titleStartQuote_TOML +
-                DATA_LABEL_DESCRIPTION +
-                titleEndQuote_TOML
+        title_DESCRIPTION_TOML = DATA_LABEL_DESCRIPTION + " = '''\n"
+        end_DESCRIPTION_TOML   = "\n'''\n\n"
 
-        titleLog_TOML      = char_QUOTE + DATA_LABEL_LOG + titleEndQuote_TOML
-        titleLogOpen_TOML  = titleLog_TOML + "[" + char_NEW_LINE
-        titleLogClose_TOML = "]" + char_NEW_LINE + char_NEW_LINE
-        titleLogEmpty_TOML = titleLog_TOML + "[]" + char_NEW_LINE + char_NEW_LINE
+        title_SWITCHES_TOML = "[" + DATA_LABEL_GROUP + "." + DATA_LABEL_SWITCHES + "]" + "\n"
+        field_SWITCH_TOML   = escapeQUOTE_TOML + " = "
 
-        titleSwitches_TOML = "[" +
-                DATA_LABEL_GROUP + "." +
-                DATA_LABEL_SWITCHES + "]" +
-                char_NEW_LINE
+        title_LOG_EMPTY_TOML = DATA_LABEL_LOG + " = []\n"
+        title_LOG_TOML       = "\n" +
+                "[[" + DATA_LABEL_GROUP + "." + DATA_LABEL_LOG + "]]" + "\n" +
+                DATA_LABEL_VALUE + " = " + escapeQUOTE_TOML + "\n"
+        end_LOG_TOML = "\n'''\n"
 )
 
 func _checkBeforeRender(s *Scenario, name string) <span class="cov4" title="105">{
@@ -508,35 +478,37 @@ func _renderNumber(number uint64) (out string) <span class="cov5" title="377">{
 
 func __trimWhitespace(source string) string <span class="cov6" title="1857">{
         var leftIndex, rightIndex uint64
-        var first, next bool
+        var setRight, next bool
 
         if source == "" </span><span class="cov2" title="6">{
                 return source
         }</span>
 
-        <span class="cov6" title="1851">first = true
-        for i, char := range source </span><span class="cov10" title="80505">{
-                if !unicode.IsSpace(char) </span><span class="cov9" title="70610">{
-                        if first </span><span class="cov6" title="1430">{
+        <span class="cov6" title="1851">setRight = false
+        for i, char := range source </span><span class="cov10" title="80116">{
+                if !unicode.IsSpace(char) </span><span class="cov9" title="70550">{
+                        if i == 0 </span><span class="cov6" title="1768">{
+                                setRight = true
+                        }</span>
+
+                        <span class="cov9" title="70550">if !setRight </span><span class="cov4" title="83">{
                                 leftIndex = uint64(i)
                         }</span>
 
-                        <span class="cov9" title="70610">rightIndex = uint64(i)
+                        <span class="cov9" title="70550">rightIndex = uint64(i)
                         next = true
-                        first = false
+                        setRight = true
                         continue</span>
                 }
 
-                <span class="cov8" title="9895">if next </span><span class="cov8" title="9108">{
+                <span class="cov8" title="9566">if next </span><span class="cov8" title="9117">{
                         rightIndex = uint64(i)
                         next = false
                 }</span>
-
-                <span class="cov8" title="9895">first = false</span>
         }
 
         <span class="cov6" title="1851">if next </span><span class="cov6" title="1768">{
-                rightIndex = uint64(len(source))
+                rightIndex = uint64(len(source)) // complete last character
         }</span>
 
         <span class="cov6" title="1851">return source[leftIndex:rightIndex]</span>

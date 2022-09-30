@@ -20,7 +20,6 @@ import (
 	"testing"
 
 	"hestia/hestiaERROR"
-	"hestia/hestiaSTRING"
 )
 
 func Register(s *Scenario, t *testing.T) {
@@ -115,43 +114,27 @@ func Interpret(verdict Verdict) string {
 func ToString(s *Scenario) (output string) {
 	_checkBeforeRender(s, "String")
 
-	// render report header
 	output = header_STRING
-
-	// render ID
-	output += DATA_LABEL_ID + titleEndQuote_STRING
-	output += _renderNumber(s.ID) + char_NEW_LINE
-
-	// render Name
-	output += DATA_LABEL_NAME + titleEndQuote_STRING
-	output += s.Name + char_NEW_LINE
-
-	// render Verdict
-	output += DATA_LABEL_VERDICT + titleEndQuote_STRING
-	output += Interpret(s.verdict) + char_NEW_LINE
-
-	// render description
-	output += DATA_LABEL_DESCRIPTION + titleDescriptionEndQuote_STRING
-	output += s.Description + char_NEW_LINE
+	output += title_ID_STRING + _renderNumber(s.ID) + end_ID_STRING
+	output += title_NAME_STRING + s.Name + end_NAME_STRING
+	output += title_VERDICT_STRING + Interpret(s.verdict) + end_VERDICT_STRING
+	output += title_DESCRIPTION_STRING + s.Description + end_DESCRIPTION_STRING
 
 	// render switches
-	output += titleStartSwitch_STRING + DATA_LABEL_SWITCHES + titleEndSwitch_STRING
+	output += title_SWITCHES_STRING
 	for k, v := range s.Switches {
-		output += fieldSwitchOpening_STRING +
-			_renderBool(v) +
-			fieldSwitchClosing_STRING +
+		output += open_SWITCH_STRING + _renderBool(v) + close_SWITCH_STRING +
 			__trimWhitespace(k) +
-			char_NEW_LINE
+			end_SWITCH_STRING
 	}
-	output += char_NEW_LINE
+	output += end_SWITCHES_STRING
 
 	// render log
-	output += titleStartLog_STRING + DATA_LABEL_LOG + titleEndLog_STRING
+	output += title_LOG_STRING
 	for i, v := range s.Log {
-		output += fieldLogOpening_STRING +
-			_renderNumber(uint64(i)) +
-			fieldLogClosing_STRING
-		output += __trimWhitespace(v) + char_NEW_LINE
+		output += open_LOG_STRING + _renderNumber(uint64(i)) + close_LOG_STRING +
+			__trimWhitespace(v) +
+			end_LOG_STRING
 	}
 
 	// render report footer
@@ -167,54 +150,34 @@ func ToTOML(s *Scenario) (output string) {
 
 	// render header
 	output = header_TOML
-
-	// render ID field
-	output += titleID_TOML + _renderNumber(s.ID) + char_NEW_LINE
-
-	// render Name field
-	output += titleName_TOML + char_QUOTE + s.Name + fieldEndString_TOML
-
-	// render Verdict field
-	output += titleVerdict_TOML + Interpret(s.verdict) + fieldEndString_TOML
-
-	// render Description field
-	output += titleDescription_TOML + s.Description + fieldEndString_TOML
-
-	// render Log
-	if len(s.Log) > 0 {
-		output += titleLogOpen_TOML
-		for _, v := range s.Log {
-			// TOML escape
-			v = hestiaSTRING.ReplaceAll(v, "\"", "\\\"")
-
-			// render element
-			output += char_TAB +
-				char_QUOTE + __trimWhitespace(v) + char_QUOTE +
-				fieldEnd_TOML
-		}
-		output += titleLogClose_TOML
-	} else {
-		output += titleLogEmpty_TOML
+	output += title_ID_TOML + _renderNumber(s.ID) + end_ID_TOML
+	output += title_VERDICT_TOML + Interpret(s.verdict) + end_VERDICT_TOML
+	output += title_NAME_TOML + s.Name + end_NAME_TOML
+	output += title_DESCRIPTION_TOML + s.Description + end_DESCRIPTION_TOML
+	if len(s.Log) == 0 {
+		output += title_LOG_EMPTY_TOML
 	}
 
 	// render Switches
-	output += titleSwitches_TOML
+	output += title_SWITCHES_TOML
 	first = true
 	for k, v := range s.Switches {
 		if !first {
 			output += char_NEW_LINE
 		}
-
-		// TOML escape
-		k = hestiaSTRING.ReplaceAll(k, "\"", "\\\"")
-
-		// render element
-		output += titleStartQuote_TOML +
+		output += escapeQUOTE_TOML +
 			__trimWhitespace(k) +
-			titleEndQuote_TOML +
+			field_SWITCH_TOML +
 			_renderBool(v)
-
 		first = false
+	}
+
+	// render Log if available
+	if len(s.Log) > 0 {
+		output += char_NEW_LINE
+		for _, v := range s.Log {
+			output += title_LOG_TOML + __trimWhitespace(v) + end_LOG_TOML
+		}
 	}
 
 	// render report footer

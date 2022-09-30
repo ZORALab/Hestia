@@ -29,9 +29,7 @@ const (
 	suite_CONCLUDE_API     = "hestiaTESTING Conclude API"
 	suite_CONCLUSION_API   = "hestiaTESTING Conclusion API"
 	suite_TO_STRING_API    = "hestiaTESTING ToString API"
-	suite_TO_JSON_API      = "hestiaTESTING ToJSON API"
 	suite_TO_TOML_API      = "hestiaTESTING ToTOML API"
-	suite_TO_YAML_API      = "hestiaTESTING ToYAML API"
 )
 
 // all test switches
