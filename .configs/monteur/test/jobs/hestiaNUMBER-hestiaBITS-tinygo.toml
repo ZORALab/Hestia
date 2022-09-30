@@ -1,5 +1,5 @@
 [Metadata]
-Name = "hestia/hestiaTESTING TinyGo Package Test Recipe"
+Name = "hestia/hestiaNUMBER/hestiaBITS TinyGo Package Test Recipe"
 Description = """
 Using TinyGo testing feature to test out this package with test coverage heatmap.
 """
@@ -8,8 +8,8 @@ Using TinyGo testing feature to test out this package with test coverage heatmap
 
 
 [Variables]
-Package = 'hestiaTESTING'
-ReportDir = 'docs/.static/data/test/go/hestiaTESTING'
+Package = 'hestiaNUMBER/hestiaBITS/internal'
+ReportDir = 'docs/.static/data/test/go/hestiaNUMBER/hestiaBITS'
 ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
 PrintAlloc = 'hestia'
 

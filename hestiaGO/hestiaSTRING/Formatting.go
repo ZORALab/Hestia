@@ -68,19 +68,19 @@ func ToTitlecase(source string, charmap CharsMap) string {
 	}
 }
 
-func S_FormatUINT(input uint64, base uint8) string {
-	return s_FormatBits(input, uint64(base), false)
+func S_FormatUINT(input uint64, base uint) string {
+	return s_FormatBits(input, base, false)
 }
 
-func S_ParseUINT(input string, base, size uint8) (out uint64, err hestiaERROR.Error) {
+func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.Error) {
 	return s_ParseUINT(input, uint64(base), size)
 }
 
-func S_FormatINT(input int64, base uint8) string {
-	return s_FormatBits(uint64(input), uint64(base), input < 0)
+func S_FormatINT(input int64, base uint) string {
+	return s_FormatBits(uint64(input), base, input < 0)
 }
 
-func S_ParseINT(input string, base, size uint8) (out int64, err hestiaERROR.Error) {
+func S_ParseINT(input string, base, size uint16) (out int64, err hestiaERROR.Error) {
 	return s_ParseINT(input, uint64(base), size)
 }
 
@@ -88,7 +88,7 @@ func S_Itoa(input int64) string {
 	return s_FormatBits(uint64(input), 10, input < 0)
 }
 
-func S_Atoi(input string, size uint8) (out int64, err hestiaERROR.Error) {
+func S_Atoi(input string, size uint16) (out int64, err hestiaERROR.Error) {
 	return s_ParseINT(input, 10, size)
 }
 

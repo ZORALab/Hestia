@@ -29,12 +29,12 @@ const (
 	priv_BASE_GUESS_10        = priv_BASE_GUESS + 10
 )
 
-func s_FormatBits(input uint64, base uint64, isNegative bool) (out string) {
+func s_FormatBits(input uint64, base uint, isNegative bool) (out string) {
 	var i int
-	var x uint64
+	var x, base_uint64 uint64
 	var buffer [64 + 1]byte // +1 for base-2 signed value
 
-	if base < 2 || base > uint64(len(DIGITS)) {
+	if base < 2 || base > uint(len(DIGITS)) {
 		panic("base conversion must be 2 ≥ x ≥ 36")
 	}
 
@@ -45,13 +45,15 @@ func s_FormatBits(input uint64, base uint64, isNegative bool) (out string) {
 		input = -input
 	}
 
+	base_uint64 = uint64(base)
+
 	switch {
 	case base&(base-1) == 0: // power of 2
 		// x is shift
-		x = hestiaBITS.TrailingZero(uint(base)) & 7
-		for input >= base {
+		x = uint64(hestiaBITS.TrailingZero(base)) & 7
+		for input >= base_uint64 {
 			i--
-			buffer[i] = DIGITS[uint(input)&uint(base-1)]
+			buffer[i] = DIGITS[uint(input)&(base-1)]
 			input >>= x
 		}
 
@@ -59,11 +61,11 @@ func s_FormatBits(input uint64, base uint64, isNegative bool) (out string) {
 		buffer[i] = DIGITS[uint(input)]
 	default:
 		// x is quotient
-		for input >= base {
+		for input >= base_uint64 {
 			i--
 
-			x = input / base
-			buffer[i] = DIGITS[uint(input-x*base)]
+			x = input / base_uint64
+			buffer[i] = DIGITS[uint(input-x*base_uint64)]
 			input = x
 		}
 
@@ -79,7 +81,7 @@ func s_FormatBits(input uint64, base uint64, isNegative bool) (out string) {
 	return string(buffer[i:])
 }
 
-func s_ParseINT(input string, base uint64, size uint8) (value int64, err hestiaERROR.Error) {
+func s_ParseINT(input string, base uint64, size uint16) (value int64, err hestiaERROR.Error) {
 	var isNegative bool
 	var number uint64
 
@@ -101,7 +103,7 @@ func s_ParseINT(input string, base uint64, size uint8) (value int64, err hestiaE
 	return 0, hestiaERROR.OK
 }
 
-func s_ParseUINT(input string, base uint64, size uint8) (value uint64, err hestiaERROR.Error) {
+func s_ParseUINT(input string, base uint64, size uint16) (value uint64, err hestiaERROR.Error) {
 	value, _, err = _parseInteger(input, base, false)
 	if err != hestiaERROR.OK {
 		return 0, err

@@ -21,7 +21,7 @@ import (
 	"hestia/hestiaNUMBER"
 )
 
-func MatchSize(input *uint64, size uint8, withSign bool) hestiaERROR.Error {
+func MatchSize(input *uint64, size uint16, withSign bool) hestiaERROR.Error {
 	var mask uint64
 
 	switch {

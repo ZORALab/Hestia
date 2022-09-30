@@ -20,14 +20,14 @@ import (
 	"hestia/hestiaNUMBER"
 )
 
-func Len(x uint) uint64 {
-	var i, a, b uint64
+func Len(x uint) uint {
+	var i, a, b uint
 
 	// loop through bit shifting to find the highest bit
 	for i = 1; i <= hestiaNUMBER.MAX_UINT64; i <<= 1 {
 		x |= (x >> i)
 
-		a = uint64(x ^ (x >> 1))
+		a = x ^ (x >> 1)
 		if a == b {
 			// max bit reached
 			break
@@ -46,8 +46,8 @@ func Len(x uint) uint64 {
 	return a
 }
 
-func TrailingZero(x uint) uint64 {
-	var count uint64
+func TrailingZero(x uint) uint {
+	var count uint
 
 	for (x & 1) == 0 {
 		x >>= 1

@@ -1,5 +1,5 @@
 [Metadata]
-Name = 'hestia/hestiaTESTING Go Package Test Recipe'
+Name = 'hestia/hestiaNUMBER/hestiaBITS Package Test Recipe'
 Description = """
 Using Go testing feature to test out this package with test coverage heatmap.
 """
@@ -9,9 +9,9 @@ Using Go testing feature to test out this package with test coverage heatmap.
 
 [Variables]
 Timeout = '14400s'
-Package = 'hestiaTESTING'
-ReportDir = 'docs/.static/data/test/go/hestiaTESTING'
-ProfileName = 'hestiaTESTING'
+Package = 'hestiaNUMBER/hestiaBITS/internal'
+ReportDir = 'docs/.static/data/test/go/hestiaNUMBER/hestiaBITS'
+ProfileName = 'hestiaNUMBER-hestiaBITS'
 ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
 
 [FMTVariables]
