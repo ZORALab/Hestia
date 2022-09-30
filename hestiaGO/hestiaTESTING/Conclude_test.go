@@ -23,7 +23,6 @@ import (
 func _testConcludeScenarios() []*Scenario {
 	return []*Scenario{
 		{
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly with proper Scenario settings.
 `,
@@ -37,7 +36,6 @@ Test Conclude() is able to work properly with proper Scenario settings.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to panic with faulty internal fail registered function.
 `,
@@ -51,7 +49,6 @@ Test Conclude() is able to panic with faulty internal fail registered function.
 				expect_PANIC:                  true,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to panic with faulty internal skip registered function.
 `,
@@ -65,7 +62,6 @@ Test Conclude() is able to panic with faulty internal skip registered function.
 				expect_PANIC:                  true,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to panic with faulty internal skip and fail registered functions.
 `,
@@ -79,7 +75,6 @@ Test Conclude() is able to panic with faulty internal skip and fail registered f
 				expect_PANIC:                  true,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly with empty Name setting.
 `,
@@ -93,7 +88,6 @@ Test Conclude() is able to work properly with empty Name setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly with empty Switches setting.
 `,
@@ -107,7 +101,6 @@ Test Conclude() is able to work properly with empty Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly with nil Switches setting.
 `,
@@ -121,7 +114,6 @@ Test Conclude() is able to work properly with nil Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly with empty log setting.
 `,
@@ -135,7 +127,6 @@ Test Conclude() is able to work properly with empty log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly with nil log setting.
 `,
@@ -149,7 +140,6 @@ Test Conclude() is able to work properly with nil log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly with empty description setting.
 `,
@@ -163,7 +153,6 @@ Test Conclude() is able to work properly with empty description setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to panic when nil Scenario is supplied.
 `,
@@ -178,7 +167,6 @@ Test Conclude() is able to panic when nil Scenario is supplied.
 				expect_PANIC:             true,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to panic when verdict is an unknown.
 `,
@@ -192,7 +180,6 @@ Test Conclude() is able to panic when verdict is an unknown.
 				expect_PANIC:             true,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly when verdict is VERDICT_FAIL.
 `,
@@ -206,7 +193,6 @@ Test Conclude() is able to work properly when verdict is VERDICT_FAIL.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_CONCLUDE_API,
 			Description: `
 Test Conclude() is able to work properly when verdict is VERDICT_SKIP.
 `,
@@ -228,6 +214,7 @@ func TestConcludeAPI(t *testing.T) {
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
+		s.Name = suite_CONCLUDE_API
 		Register(s, t)
 
 		// prepare
@@ -237,7 +224,7 @@ func TestConcludeAPI(t *testing.T) {
 		testlib_ConfigureDescription(s, ts)
 		testlib_ConfigureLog(s, ts)
 		testlib_ConfigureSwitches(s, ts)
-		ts.verdict = Verdict(125)
+		ts.verdict = value_DEFAULT_VERDICT
 		verdict := testlib_GenerateVerdict(s)
 
 		// test

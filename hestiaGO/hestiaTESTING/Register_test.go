@@ -23,7 +23,6 @@ import (
 func _testRegisterScenarios() []*Scenario {
 	return []*Scenario{
 		{
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to work properly with proper Scenario settings.
 `,
@@ -36,7 +35,6 @@ Test Register() is able to work properly with proper Scenario settings.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to panic with nil registration.
 `,
@@ -49,7 +47,6 @@ Test Register() is able to panic with nil registration.
 				expect_PANIC:            true,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to work properly with empty Name setting.
 `,
@@ -62,7 +59,6 @@ Test Register() is able to work properly with empty Name setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to work properly with empty Switches setting.
 `,
@@ -75,7 +71,6 @@ Test Register() is able to work properly with empty Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to work properly with nil Switches setting.
 `,
@@ -88,7 +83,6 @@ Test Register() is able to work properly with nil Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to work properly with empty log setting.
 `,
@@ -101,7 +95,6 @@ Test Register() is able to work properly with empty log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to work properly with nil log setting.
 `,
@@ -114,7 +107,6 @@ Test Register() is able to work properly with nil log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to work properly with empty description setting.
 `,
@@ -127,7 +119,6 @@ Test Register() is able to work properly with empty description setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_REGISTER_API,
 			Description: `
 Test Register() is able to panic when nil Scenario is supplied.
 `,
@@ -149,6 +140,7 @@ func TestRegisterAPI(t *testing.T) {
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
+		s.Name = suite_REGISTER_API
 		Register(s, t)
 
 		// prepare

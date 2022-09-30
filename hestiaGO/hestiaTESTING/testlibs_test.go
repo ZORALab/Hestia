@@ -24,7 +24,6 @@ import (
 const (
 	suite_REGISTER_API     = "hestiaTESTING Register API"
 	suite_LOGF_API         = "hestiaTESTING Logf API"
-	suite_LOGLN_API        = "hestiaTESTING Logln API"
 	suite_HAS_EXECUTED_API = "hestiaTESTING HasExecuted API"
 	suite_CONCLUDE_API     = "hestiaTESTING Conclude API"
 	suite_CONCLUSION_API   = "hestiaTESTING Conclusion API"
@@ -85,32 +84,35 @@ const (
 // all test values
 const (
 	/// name
-	t_NAME_PROPER = "Test Scenario Object"
+	value_NAME_PROPER = "Test Scenario Object"
 
 	// description
-	t_DESCRIPTION_PROPER = "A Test Scenario Object Description"
+	value_DESCRIPTION_PROPER = "A Test Scenario Object Description"
 
 	// log
-	t_LOG_LINE_1 = "Log Line 1"
-	t_LOG_LINE_2 = "Log Line 1"
+	value_LOG_LINE_1 = "Log Line 1"
+	value_LOG_LINE_2 = "Log Line 1"
 
 	// switches
-	t_SWITCH_1 = "Switch 1"
-	t_SWITCH_2 = "Switch 2"
+	value_SWITCH_1 = "Switch 1"
+	value_SWITCH_2 = "Switch 2"
 
 	// string format
-	t_FORMAT_1                 = "formatted %v %v %v"
-	t_FORMAT_1_LOGF_SUCCESSFUL = "formatted proper1 5 true"
-	t_FORMAT_2_LOGF_SUCCESSFUL = "formatted %!v(MISSING) %!v(MISSING) %!v(MISSING)"
-	t_FORMAT_3_LOGF_SUCCESSFUL = "formatted <nil> %!v(MISSING) %!v(MISSING)"
+	value_FORMAT_1                 = "formatted %v %v %v"
+	value_FORMAT_1_LOGF_SUCCESSFUL = "formatted proper1 5 true"
+	value_FORMAT_2_LOGF_SUCCESSFUL = "formatted %!v(MISSING) %!v(MISSING) %!v(MISSING)"
+	value_FORMAT_3_LOGF_SUCCESSFUL = "formatted <nil> %!v(MISSING) %!v(MISSING)"
 
 	// string arguments
-	t_ARG_1                  = "proper1"
-	t_ARG_2                  = 5
-	t_ARG_3                  = true
-	t_ARG_1_LOGLN_SUCCESSFUL = "proper1 5 true\n"
-	t_ARG_2_LOGLN_SUCCESSFUL = "\n"
-	t_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
+	value_ARG_1                  = "proper1"
+	value_ARG_2                  = 5
+	value_ARG_3                  = true
+	value_ARG_1_LOGLN_SUCCESSFUL = "proper1 5 true\n"
+	value_ARG_2_LOGLN_SUCCESSFUL = "\n"
+	value_ARG_3_LOGLN_SUCCESSFUL = "<nil>\n"
+
+	// verdict
+	value_DEFAULT_VERDICT Verdict = 125
 )
 
 func testlib_AssertOutputString(s *Scenario, output string) bool {
@@ -131,9 +133,8 @@ func testlib_AssertPanic(s *Scenario, panick string) bool {
 
 func testlib_AssertConclude(s, ts *Scenario) bool {
 	switch {
-	case ts.verdict == 125:
-		return s.Switches[cond_SUPPLY_NIL_SCENARIO] ||
-			s.Switches[expect_PANIC]
+	case ts.verdict == value_DEFAULT_VERDICT:
+		return s.Switches[cond_SUPPLY_NIL_SCENARIO] || s.Switches[expect_PANIC]
 	case ts.verdict == VERDICT_PASS:
 		return s.Switches[cond_PROPER_VERDICT]
 	case ts.verdict == VERDICT_FAIL:
@@ -243,30 +244,30 @@ func testlib_AssertLog(s, ts *Scenario) bool {
 
 	for _, v := range ts.Log {
 		switch v {
-		case t_FORMAT_1_LOGF_SUCCESSFUL:
+		case value_FORMAT_1_LOGF_SUCCESSFUL:
 			if s.Switches[cond_PROPER_STRING_FORMAT] &&
 				s.Switches[cond_PROPER_STRING_ARGUMENTS] {
 				return true
 			}
-		case t_FORMAT_2_LOGF_SUCCESSFUL:
+		case value_FORMAT_2_LOGF_SUCCESSFUL:
 			if s.Switches[cond_PROPER_STRING_FORMAT] &&
 				s.Switches[cond_EMPTY_STRING_ARGUMENTS] {
 				return true
 			}
-		case t_FORMAT_3_LOGF_SUCCESSFUL:
+		case value_FORMAT_3_LOGF_SUCCESSFUL:
 			if s.Switches[cond_PROPER_STRING_FORMAT] &&
 				s.Switches[cond_NIL_STRING_ARGUMENTS] {
 				return true
 			}
-		case t_ARG_1_LOGLN_SUCCESSFUL:
+		case value_ARG_1_LOGLN_SUCCESSFUL:
 			if s.Switches[cond_PROPER_STRING_ARGUMENTS] {
 				return true
 			}
-		case t_ARG_2_LOGLN_SUCCESSFUL:
+		case value_ARG_2_LOGLN_SUCCESSFUL:
 			if s.Switches[cond_EMPTY_STRING_ARGUMENTS] {
 				return true
 			}
-		case t_ARG_3_LOGLN_SUCCESSFUL:
+		case value_ARG_3_LOGLN_SUCCESSFUL:
 			if s.Switches[cond_NIL_STRING_ARGUMENTS] {
 				return true
 			}
@@ -279,7 +280,7 @@ func testlib_AssertLog(s, ts *Scenario) bool {
 func testlib_CreateStringArguments(s *Scenario) []any {
 	switch {
 	case s.Switches[cond_PROPER_STRING_ARGUMENTS]:
-		return []any{t_ARG_1, t_ARG_2, t_ARG_3}
+		return []any{value_ARG_1, value_ARG_2, value_ARG_3}
 	case s.Switches[cond_EMPTY_STRING_ARGUMENTS]:
 		return []any{}
 	case s.Switches[cond_NIL_STRING_ARGUMENTS]:
@@ -292,7 +293,7 @@ func testlib_CreateStringArguments(s *Scenario) []any {
 func testlib_CreateStringFormat(s *Scenario) string {
 	switch {
 	case s.Switches[cond_PROPER_STRING_FORMAT]:
-		return t_FORMAT_1
+		return value_FORMAT_1
 	case s.Switches[cond_EMPTY_STRING_FORMAT]:
 		return ""
 	}
@@ -324,7 +325,7 @@ func testlib_ConfigureRegistrations(s *Scenario, ts *Scenario) {
 func testlib_ConfigureName(s *Scenario, ts *Scenario) {
 	switch {
 	case s.Switches[cond_PROPER_NAME]:
-		ts.Name = t_NAME_PROPER
+		ts.Name = value_NAME_PROPER
 	case s.Switches[cond_EMPTY_NAME]:
 		ts.Name = ""
 	}
@@ -333,7 +334,7 @@ func testlib_ConfigureName(s *Scenario, ts *Scenario) {
 func testlib_ConfigureDescription(s *Scenario, ts *Scenario) {
 	switch {
 	case s.Switches[cond_PROPER_DESCRIPTION]:
-		ts.Description = t_DESCRIPTION_PROPER
+		ts.Description = value_DESCRIPTION_PROPER
 	case s.Switches[cond_EMPTY_DESCRIPTION]:
 		ts.Description = ""
 	}
@@ -342,7 +343,7 @@ func testlib_ConfigureDescription(s *Scenario, ts *Scenario) {
 func testlib_ConfigureLog(s *Scenario, ts *Scenario) {
 	switch {
 	case s.Switches[cond_PROPER_LOG]:
-		ts.Log = []string{t_LOG_LINE_1, t_LOG_LINE_2}
+		ts.Log = []string{value_LOG_LINE_1, value_LOG_LINE_2}
 	case s.Switches[cond_EMPTY_LOG]:
 		ts.Log = []string{}
 	case s.Switches[cond_NIL_LOG]:
@@ -354,8 +355,8 @@ func testlib_ConfigureSwitches(s *Scenario, ts *Scenario) {
 	switch {
 	case s.Switches[cond_PROPER_SWITCHES]:
 		ts.Switches = map[string]bool{
-			t_SWITCH_1: true,
-			t_SWITCH_2: false,
+			value_SWITCH_1: true,
+			value_SWITCH_2: false,
 		}
 	case s.Switches[cond_EMPTY_SWITCHES]:
 		ts.Switches = map[string]bool{}

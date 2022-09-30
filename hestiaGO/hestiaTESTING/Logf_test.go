@@ -23,7 +23,6 @@ import (
 func _testLogfScenarios() []*Scenario {
 	return []*Scenario{
 		{
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with proper Scenario settings.
 `,
@@ -38,7 +37,6 @@ Test Logf() is able to work properly with proper Scenario settings.
 				expect_PANIC:                 false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to panic with faulty fail registered function.
 `,
@@ -53,7 +51,6 @@ Test Logf() is able to panic with faulty fail registered function.
 				expect_PANIC:                  true,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to panic with faulty skip registered function.
 `,
@@ -68,7 +65,6 @@ Test Logf() is able to panic with faulty skip registered function.
 				expect_PANIC:                  true,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to panic with faulty skip and fail registered functions.
 `,
@@ -83,7 +79,6 @@ Test Logf() is able to panic with faulty skip and fail registered functions.
 				expect_PANIC:                  true,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with empty Name setting.
 `,
@@ -98,7 +93,6 @@ Test Logf() is able to work properly with empty Name setting.
 				expect_PANIC:                 false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with empty Switches setting.
 `,
@@ -113,7 +107,6 @@ Test Logf() is able to work properly with empty Switches setting.
 				expect_PANIC:                 false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with nil Switches setting.
 `,
@@ -128,7 +121,6 @@ Test Logf() is able to work properly with nil Switches setting.
 				expect_PANIC:                 false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with empty log setting.
 `,
@@ -143,7 +135,6 @@ Test Logf() is able to work properly with empty log setting.
 				expect_PANIC:                 false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with nil log setting.
 `,
@@ -158,7 +149,6 @@ Test Logf() is able to work properly with nil log setting.
 				expect_PANIC:                 false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with empty description setting.
 `,
@@ -173,7 +163,6 @@ Test Logf() is able to work properly with empty description setting.
 				expect_PANIC:                 false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to panic when nil Scenario is supplied.
 `,
@@ -189,7 +178,6 @@ Test Logf() is able to panic when nil Scenario is supplied.
 				expect_PANIC:                 true,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to panic with empty string format setting.
 `,
@@ -204,7 +192,6 @@ Test Logf() is able to panic with empty string format setting.
 				expect_PANIC:                 true,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with empty string arguments setting.
 `,
@@ -219,7 +206,6 @@ Test Logf() is able to work properly with empty string arguments setting.
 				expect_PANIC:                false,
 			},
 		}, {
-			Name: suite_LOGF_API,
 			Description: `
 Test Logf() is able to work properly with nil string arguments setting.
 `,
@@ -242,6 +228,7 @@ func TestLogfAPI(t *testing.T) {
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
+		s.Name = suite_LOGF_API
 		Register(s, t)
 
 		// prepare

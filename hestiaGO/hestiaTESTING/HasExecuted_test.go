@@ -23,7 +23,6 @@ import (
 func _testHasExecutedScenarios() []*Scenario {
 	return []*Scenario{
 		{
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with proper Scenario settings.
 `,
@@ -37,7 +36,6 @@ Test HasExecuted() is able to work properly with proper Scenario settings.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with faulty fail registered function.
 `,
@@ -51,7 +49,6 @@ Test HasExecuted() is able to work properly with faulty fail registered function
 				expect_PANIC:                  false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with faulty skip registered function.
 `,
@@ -65,7 +62,6 @@ Test HasExecuted() is able to work properly with faulty skip registered function
 				expect_PANIC:                  false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with faulty skip and fail registered functions.
 `,
@@ -79,7 +75,6 @@ Test HasExecuted() is able to work properly with faulty skip and fail registered
 				expect_PANIC:                  false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with empty Name setting.
 `,
@@ -93,7 +88,6 @@ Test HasExecuted() is able to work properly with empty Name setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with empty Switches setting.
 `,
@@ -107,7 +101,6 @@ Test HasExecuted() is able to work properly with empty Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with nil Switches setting.
 `,
@@ -121,7 +114,6 @@ Test HasExecuted() is able to work properly with nil Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with empty log setting.
 `,
@@ -135,7 +127,6 @@ Test HasExecuted() is able to work properly with empty log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with nil log setting.
 `,
@@ -149,7 +140,6 @@ Test HasExecuted() is able to work properly with nil log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly with empty description setting.
 `,
@@ -163,7 +153,6 @@ Test HasExecuted() is able to work properly with empty description setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to panic when nil Scenario is supplied.
 `,
@@ -178,7 +167,6 @@ Test HasExecuted() is able to panic when nil Scenario is supplied.
 				expect_PANIC:             true,
 			},
 		}, {
-			Name: suite_HAS_EXECUTED_API,
 			Description: `
 Test HasExecuted() is able to work properly when verdict is set to unknown.
 `,
@@ -201,6 +189,7 @@ func TestHasExecutedAPI(t *testing.T) {
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
+		s.Name = suite_HAS_EXECUTED_API
 		Register(s, t)
 
 		// prepare

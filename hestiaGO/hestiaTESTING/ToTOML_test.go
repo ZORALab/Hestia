@@ -23,7 +23,6 @@ import (
 func _testToTOMLScenarios() []*Scenario {
 	return []*Scenario{
 		{
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to work properly with proper Scenario settings.
 `,
@@ -37,7 +36,6 @@ Test ToTOML() is able to work properly with proper Scenario settings.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to panic with faulty fail registered function.
 `,
@@ -51,7 +49,6 @@ Test ToTOML() is able to panic with faulty fail registered function.
 				expect_OUTPUT_STRING:          false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to panic with faulty skip registered function.
 `,
@@ -65,7 +62,6 @@ Test ToTOML() is able to panic with faulty skip registered function.
 				expect_OUTPUT_STRING:          false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to panic with faulty skip and fail registered functions.
 `,
@@ -79,7 +75,6 @@ Test ToTOML() is able to panic with faulty skip and fail registered functions.
 				expect_OUTPUT_STRING:          false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to work properly with empty Name setting.
 `,
@@ -93,7 +88,6 @@ Test ToTOML() is able to work properly with empty Name setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to work properly with empty Switches setting.
 `,
@@ -107,7 +101,6 @@ Test ToTOML() is able to work properly with empty Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to work properly with nil Switches setting.
 `,
@@ -121,7 +114,6 @@ Test ToTOML() is able to work properly with nil Switches setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to work properly with empty log setting.
 `,
@@ -135,7 +127,6 @@ Test ToTOML() is able to work properly with empty log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to work properly with nil log setting.
 `,
@@ -149,7 +140,6 @@ Test ToTOML() is able to work properly with nil log setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to work properly with empty description setting.
 `,
@@ -163,7 +153,6 @@ Test ToTOML() is able to work properly with empty description setting.
 				expect_PANIC:             false,
 			},
 		}, {
-			Name: suite_TO_TOML_API,
 			Description: `
 Test ToTOML() is able to panic when nil Scenario is supplied.
 `,
@@ -186,6 +175,7 @@ func TestToTOMLAPI(t *testing.T) {
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
+		s.Name = suite_TO_TOML_API
 		Register(s, t)
 
 		// prepare
