@@ -59,7 +59,7 @@
 				
 				<option value="file1">hestia/hestiaTESTING/Scenario.go (100.0%)</option>
 				
-				<option value="file2">hestia/hestiaTESTING/renderer.go (97.6%)</option>
+				<option value="file2">hestia/hestiaTESTING/renderer.go (100.0%)</option>
 				
 				</select>
 			</div>
@@ -234,7 +234,7 @@ func ToString(s *Scenario) (output string) <span class="cov7" title="96">{
         output += titleStartSwitch_STRING + DATA_LABEL_SWITCHES + titleEndSwitch_STRING
         for k, v := range s.Switches </span><span class="cov10" title="619">{
                 output += fieldSwitchOpening_STRING +
-                        hestiaSTRING.FormatBOOL(v) +
+                        _renderBool(v) +
                         fieldSwitchClosing_STRING +
                         __trimWhitespace(k) +
                         char_NEW_LINE
@@ -308,7 +308,7 @@ func ToTOML(s *Scenario) (output string) <span class="cov5" title="22">{
                 output += titleStartQuote_TOML +
                         __trimWhitespace(k) +
                         titleEndQuote_TOML +
-                        hestiaSTRING.FormatBOOL(v)
+                        _renderBool(v)
 
                 first = false</span>
         }
@@ -481,6 +481,14 @@ func _checkBeforeRender(s *Scenario, name string) <span class="cov4" title="118"
         }
 }
 
+func _renderBool(input bool) string <span class="cov6" title="707">{
+        if input </span><span class="cov6" title="621">{
+                return "true"
+        }</span>
+
+        <span class="cov4" title="86">return "false"</span>
+}
+
 func _renderID(s *Scenario) (out string) <span class="cov4" title="110">{
         var i int
         var number, x uint64
@@ -538,10 +546,6 @@ func __trimWhitespace(source string) string <span class="cov7" title="2188">{
 
         <span class="cov7" title="2180">if next </span><span class="cov7" title="2084">{
                 rightIndex = uint64(len(source))
-        }</span>
-
-        <span class="cov7" title="2180">if leftIndex == 0 &amp;&amp; rightIndex == 0 </span><span class="cov0" title="0">{
-                return "" // the entire string is whitespace
         }</span>
 
         <span class="cov7" title="2180">return source[leftIndex:rightIndex]</span>

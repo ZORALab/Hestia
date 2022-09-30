@@ -99,6 +99,14 @@ func _checkBeforeRender(s *Scenario, name string) {
 	}
 }
 
+func _renderBool(input bool) string {
+	if input {
+		return "true"
+	}
+
+	return "false"
+}
+
 func _renderID(s *Scenario) (out string) {
 	var i int
 	var number, x uint64

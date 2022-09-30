@@ -150,7 +150,7 @@ func ToString(s *Scenario) (output string) {
 	output += titleStartSwitch_STRING + DATA_LABEL_SWITCHES + titleEndSwitch_STRING
 	for k, v := range s.Switches {
 		output += fieldSwitchOpening_STRING +
-			hestiaSTRING.FormatBOOL(v) +
+			_renderBool(v) +
 			fieldSwitchClosing_STRING +
 			__trimWhitespace(k) +
 			char_NEW_LINE
@@ -224,7 +224,7 @@ func ToTOML(s *Scenario) (output string) {
 		output += titleStartQuote_TOML +
 			__trimWhitespace(k) +
 			titleEndQuote_TOML +
-			hestiaSTRING.FormatBOOL(v)
+			_renderBool(v)
 
 		first = false
 	}
