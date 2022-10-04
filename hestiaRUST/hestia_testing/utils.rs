@@ -14,5 +14,20 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-pub mod data;
-pub mod utils;
+#[macro_export]
+macro_rules! exec {
+	($name:ident, $fx:block) => {
+		#[test]
+		#[should_panic]
+		fn test_$name() -> &'static str {
+			$fx
+		}
+	};
+	($name:ident, $fx:block, $expect:expr) => {
+		#[test]
+		#[should_panic(expected = $expect)]
+		fn test_$name() -> &'static str {
+			$fx
+		}
+	};
+}
