@@ -47,3 +47,5 @@ pub fn conclusion(s: &Scenario) -> data::Verdict {
 pub fn has_executed(s: &Scenario) -> bool {
 	return s.verdict != 0;
 }
+
+pub fn register(_s: &Scenario) {}
