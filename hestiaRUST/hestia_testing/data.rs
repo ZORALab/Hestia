@@ -14,6 +14,25 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-pub mod hestia_error;
-pub mod hestia_testing;
-pub mod version;
+// data labels
+pub const DATA_LABEL_GROUP: &str = "Result";
+pub const DATA_LABEL_NAME: &str = "Name";
+pub const DATA_LABEL_ID: &str = "ID";
+pub const DATA_LABEL_VERDICT: &str = "Verdict";
+pub const DATA_LABEL_DESCRIPTION: &str = "Description";
+pub const DATA_LABEL_SWITCHES: &str = "Switches";
+pub const DATA_LABEL_LOG: &str = "Log";
+pub const DATA_LABEL_VALUE: &str = "Value";
+
+// errors
+pub type Error = u8;
+
+pub const ERROR_OK: Error = 0;
+pub const ERROR_BAD_EXCHANGE: Error = 1;
+
+// verdicts
+pub type Verdict = u8;
+
+pub const VERDICT_PASS: Verdict = 1;
+pub const VERDICT_SKIP: Verdict = 2;
+pub const VERDICT_FAIL: Verdict = 3;
