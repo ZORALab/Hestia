@@ -15,4 +15,5 @@
 // the License.
 
 pub mod data;
+pub mod scenario;
 pub mod utils;
