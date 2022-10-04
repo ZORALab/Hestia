@@ -36,3 +36,12 @@ pub type Verdict = u8;
 pub const VERDICT_PASS: Verdict = 1;
 pub const VERDICT_SKIP: Verdict = 2;
 pub const VERDICT_FAIL: Verdict = 3;
+
+pub fn interpret(verdict: Verdict) -> String {
+	match verdict {
+		| VERDICT_PASS => return "PASSED".to_string(),
+		| VERDICT_FAIL => return "FAILED".to_string(),
+		| VERDICT_SKIP => return "SKIPPED".to_string(),
+		| _ => return "UNKNOWN".to_string(),
+	}
+}
