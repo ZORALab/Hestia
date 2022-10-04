@@ -21,14 +21,6 @@ const (
 	char_NEW_LINE = "\n"
 )
 
-// verdict
-const (
-	string_PASS    = "PASSED"
-	string_FAIL    = "FAILED"
-	string_SKIP    = "SKIPPED"
-	string_UNKNOWN = "UNKNOWN"
-)
-
 // string
 const (
 	header_STRING = "\n" +

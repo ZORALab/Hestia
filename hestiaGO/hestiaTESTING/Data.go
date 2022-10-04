@@ -43,3 +43,10 @@ const (
 	VERDICT_SKIP
 	VERDICT_FAIL
 )
+
+const (
+	string_PASS    = "PASSED"
+	string_FAIL    = "FAILED"
+	string_SKIP    = "SKIPPED"
+	string_UNKNOWN = "UNKNOWN"
+)
