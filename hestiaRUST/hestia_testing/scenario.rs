@@ -15,13 +15,12 @@
 // the License.
 
 use crate::hestia_testing::data;
-use std::collections::HashMap;
 
 pub struct Scenario {
 	pub id: u64,
 	pub name: String,
 	pub description: String,
-	pub switches: HashMap<String, bool>,
+	pub switches: Vec<String>,
 	pub log: Vec<String>,
 
 	verdict: data::Verdict,
@@ -46,6 +45,14 @@ pub fn conclusion(s: &Scenario) -> data::Verdict {
 
 pub fn has_executed(s: &Scenario) -> bool {
 	return s.verdict != 0;
+}
+
+pub fn has_condition(s: &Scenario, condition: &str) -> bool {
+	if s.switches.iter().any(|i| i == condition) {
+		return true;
+	}
+
+	return false;
 }
 
 pub fn log(s: &mut Scenario, statement: String) {
