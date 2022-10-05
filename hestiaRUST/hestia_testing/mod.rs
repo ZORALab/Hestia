@@ -16,4 +16,5 @@
 
 pub mod data;
 pub mod execs;
+pub mod renderer;
 pub mod scenario;

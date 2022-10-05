@@ -15,14 +15,14 @@
 // the License.
 
 // data labels
-pub const DATA_LABEL_GROUP: &str = "Result";
-pub const DATA_LABEL_NAME: &str = "Name";
-pub const DATA_LABEL_ID: &str = "ID";
-pub const DATA_LABEL_VERDICT: &str = "Verdict";
-pub const DATA_LABEL_DESCRIPTION: &str = "Description";
-pub const DATA_LABEL_SWITCHES: &str = "Switches";
-pub const DATA_LABEL_LOG: &str = "Log";
-pub const DATA_LABEL_VALUE: &str = "Value";
+pub const LABEL_GROUP: &str = "Result";
+pub const LABEL_NAME: &str = "Name";
+pub const LABEL_ID: &str = "ID";
+pub const LABEL_VERDICT: &str = "Verdict";
+pub const LABEL_DESCRIPTION: &str = "Description";
+pub const LABEL_SWITCHES: &str = "Switches";
+pub const LABEL_LOG: &str = "Log";
+pub const LABEL_VALUE: &str = "Value";
 
 // errors
 pub type Error = u8;
