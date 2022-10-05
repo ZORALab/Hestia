@@ -16,24 +16,6 @@
 
 package hestiaTESTING
 
-import (
-	"testing"
-)
-
-func Register(s *Scenario, t *testing.T) {
-	if s == nil {
-		panic("calling hestiaTESTING.Register without providing Scenario!")
-	}
-
-	if t == nil {
-		panic("calling hestiaTESTING.Register without providing *testing.T!")
-	}
-
-	s.controller = t
-	s.skip = s.controller.SkipNow
-	s.fail = s.controller.FailNow
-}
-
 func Logf(s *Scenario, format string, args ...any) {
 	if s == nil {
 		panic("calling hestiaTESTING.Logf without providing Scenario!")
@@ -43,10 +25,7 @@ func Logf(s *Scenario, format string, args ...any) {
 		panic("calling hestiaTESTING.Logf without providing formatting string!")
 	}
 
-	if s.Init() != ERROR_OK {
-		panic("calling hestiaTESTING.Logf with unregistered/faulty Scenario!")
-	}
-
+	s.Init()
 	s.Log = append(s.Log, _renderString(format, args...))
 }
 
@@ -75,8 +54,6 @@ func Conclude(s *Scenario, certification Verdict) {
 	switch {
 	case s == nil:
 		panic("calling hestiaTESTING.Conclude without providing Scenario!")
-	case s.controller == nil || s.skip == nil || s.fail == nil:
-		panic("calling hestiaTESTING.Conclude without registering *testing.T!")
 	case certification == VERDICT_PASS:
 		s.verdict = VERDICT_PASS
 	case certification == VERDICT_FAIL:

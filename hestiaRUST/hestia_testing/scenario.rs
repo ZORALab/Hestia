@@ -48,8 +48,6 @@ pub fn has_executed(s: &Scenario) -> bool {
 	return s.verdict != 0;
 }
 
-pub fn register(_s: &Scenario) {}
-
 pub fn log(s: &mut Scenario, statement: String) {
 	if statement.chars().count() == 0 {
 		panic!("calling hestiaTESTING.Logf without providing formatting string!");

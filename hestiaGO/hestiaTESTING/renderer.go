@@ -87,7 +87,5 @@ func _checkBeforeRender(s *Scenario, name string) {
 		panic("calling hestiaTESTING.To" + name + " without providing Scenario!")
 	}
 
-	if s.Init() != ERROR_OK {
-		panic("calling hestiaTESTING.To" + name + " with unregistered/faulty Scenario!")
-	}
+	s.Init()
 }

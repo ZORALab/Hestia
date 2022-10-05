@@ -16,10 +16,6 @@
 
 package hestiaTESTING
 
-import (
-	"testing"
-)
-
 type Scenario struct {
 	ID          uint64
 	Name        string
@@ -27,13 +23,10 @@ type Scenario struct {
 	Switches    map[string]bool
 	Log         []string
 
-	controller *testing.T
-	skip       func()
-	fail       func()
-	verdict    Verdict
+	verdict Verdict
 }
 
-func (s *Scenario) Init() Error {
+func (s *Scenario) Init() {
 	if s.Switches == nil {
 		s.Switches = map[string]bool{}
 	}
@@ -42,14 +35,8 @@ func (s *Scenario) Init() Error {
 		s.Log = []string{}
 	}
 
-	if s.controller == nil || s.skip == nil || s.fail == nil {
-		return ERROR_BAD_EXCHANGE
-	}
-
 	s.Name = __trimWhitespace(s.Name)
 	s.Description = __trimWhitespace(s.Description)
-
-	return ERROR_OK
 }
 
 func (s *Scenario) Exec(function func() any) (out any) {

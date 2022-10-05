@@ -27,7 +27,6 @@ func _testLogfScenarios() []*Scenario {
 Test Logf() is able to work properly with proper Scenario settings.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
@@ -38,52 +37,9 @@ Test Logf() is able to work properly with proper Scenario settings.
 			},
 		}, {
 			Description: `
-Test Logf() is able to panic with faulty fail registered function.
-`,
-			Switches: map[string]bool{
-				cond_FAULTY_FAIL_REGISTRATION: true,
-				cond_PROPER_NAME:              true,
-				cond_PROPER_DESCRIPTION:       true,
-				cond_PROPER_LOG:               true,
-				cond_PROPER_SWITCHES:          true,
-				cond_PROPER_STRING_FORMAT:     true,
-				cond_PROPER_STRING_ARGUMENTS:  true,
-				expect_PANIC:                  true,
-			},
-		}, {
-			Description: `
-Test Logf() is able to panic with faulty skip registered function.
-`,
-			Switches: map[string]bool{
-				cond_FAULTY_SKIP_REGISTRATION: true,
-				cond_PROPER_NAME:              true,
-				cond_PROPER_DESCRIPTION:       true,
-				cond_PROPER_LOG:               true,
-				cond_PROPER_SWITCHES:          true,
-				cond_PROPER_STRING_FORMAT:     true,
-				cond_PROPER_STRING_ARGUMENTS:  true,
-				expect_PANIC:                  true,
-			},
-		}, {
-			Description: `
-Test Logf() is able to panic with faulty skip and fail registered functions.
-`,
-			Switches: map[string]bool{
-				cond_FAULTY_BOTH_REGISTRATION: true,
-				cond_PROPER_NAME:              true,
-				cond_PROPER_DESCRIPTION:       true,
-				cond_PROPER_LOG:               true,
-				cond_PROPER_SWITCHES:          true,
-				cond_PROPER_STRING_FORMAT:     true,
-				cond_PROPER_STRING_ARGUMENTS:  true,
-				expect_PANIC:                  true,
-			},
-		}, {
-			Description: `
 Test Logf() is able to work properly with empty Name setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_EMPTY_NAME:              true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
@@ -97,7 +53,6 @@ Test Logf() is able to work properly with empty Name setting.
 Test Logf() is able to work properly with empty Switches setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
@@ -111,7 +66,6 @@ Test Logf() is able to work properly with empty Switches setting.
 Test Logf() is able to work properly with nil Switches setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
@@ -125,7 +79,6 @@ Test Logf() is able to work properly with nil Switches setting.
 Test Logf() is able to work properly with empty log setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_EMPTY_LOG:               true,
@@ -139,7 +92,6 @@ Test Logf() is able to work properly with empty log setting.
 Test Logf() is able to work properly with nil log setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_NIL_LOG:                 true,
@@ -153,7 +105,6 @@ Test Logf() is able to work properly with nil log setting.
 Test Logf() is able to work properly with empty description setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_EMPTY_DESCRIPTION:       true,
 				cond_NIL_LOG:                 true,
@@ -167,7 +118,6 @@ Test Logf() is able to work properly with empty description setting.
 Test Logf() is able to panic when nil Scenario is supplied.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
@@ -182,7 +132,6 @@ Test Logf() is able to panic when nil Scenario is supplied.
 Test Logf() is able to panic with empty string format setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:     true,
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
@@ -196,7 +145,6 @@ Test Logf() is able to panic with empty string format setting.
 Test Logf() is able to work properly with empty string arguments setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:    true,
 				cond_PROPER_NAME:            true,
 				cond_PROPER_DESCRIPTION:     true,
 				cond_PROPER_LOG:             true,
@@ -210,7 +158,6 @@ Test Logf() is able to work properly with empty string arguments setting.
 Test Logf() is able to work properly with nil string arguments setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION:  true,
 				cond_PROPER_NAME:          true,
 				cond_PROPER_DESCRIPTION:   true,
 				cond_PROPER_LOG:           true,
@@ -229,11 +176,9 @@ func TestLogfAPI(t *testing.T) {
 	for i, s := range scenarios {
 		s.ID = uint64(i)
 		s.Name = suite_LOGF_API
-		Register(s, t)
 
 		// prepare
 		ts := &Scenario{}
-		testlib_ConfigureRegistrations(s, ts)
 		testlib_ConfigureName(s, ts)
 		testlib_ConfigureDescription(s, ts)
 		testlib_ConfigureLog(s, ts)

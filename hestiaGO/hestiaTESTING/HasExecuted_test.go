@@ -27,137 +27,90 @@ func _testHasExecutedScenarios() []*Scenario {
 Test HasExecuted() is able to work properly with proper Scenario settings.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
-				cond_PROPER_NAME:         true,
-				cond_PROPER_DESCRIPTION:  true,
-				cond_PROPER_LOG:          true,
-				cond_PROPER_SWITCHES:     true,
-				cond_PROPER_VERDICT:      true,
-				expect_PANIC:             false,
-			},
-		}, {
-			Description: `
-Test HasExecuted() is able to work properly with faulty fail registered function.
-`,
-			Switches: map[string]bool{
-				cond_FAULTY_FAIL_REGISTRATION: true,
-				cond_PROPER_NAME:              true,
-				cond_PROPER_DESCRIPTION:       true,
-				cond_PROPER_LOG:               true,
-				cond_PROPER_SWITCHES:          true,
-				cond_PROPER_VERDICT:           true,
-				expect_PANIC:                  false,
-			},
-		}, {
-			Description: `
-Test HasExecuted() is able to work properly with faulty skip registered function.
-`,
-			Switches: map[string]bool{
-				cond_FAULTY_SKIP_REGISTRATION: true,
-				cond_PROPER_NAME:              true,
-				cond_PROPER_DESCRIPTION:       true,
-				cond_PROPER_LOG:               true,
-				cond_PROPER_SWITCHES:          true,
-				cond_PROPER_VERDICT:           true,
-				expect_PANIC:                  false,
-			},
-		}, {
-			Description: `
-Test HasExecuted() is able to work properly with faulty skip and fail registered functions.
-`,
-			Switches: map[string]bool{
-				cond_FAULTY_BOTH_REGISTRATION: true,
-				cond_PROPER_NAME:              true,
-				cond_PROPER_DESCRIPTION:       true,
-				cond_PROPER_LOG:               true,
-				cond_PROPER_SWITCHES:          true,
-				cond_PROPER_VERDICT:           true,
-				expect_PANIC:                  false,
+				cond_PROPER_NAME:        true,
+				cond_PROPER_DESCRIPTION: true,
+				cond_PROPER_LOG:         true,
+				cond_PROPER_SWITCHES:    true,
+				cond_PROPER_VERDICT:     true,
+				expect_PANIC:            false,
 			},
 		}, {
 			Description: `
 Test HasExecuted() is able to work properly with empty Name setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
-				cond_EMPTY_NAME:          true,
-				cond_PROPER_DESCRIPTION:  true,
-				cond_PROPER_LOG:          true,
-				cond_PROPER_SWITCHES:     true,
-				cond_PROPER_VERDICT:      true,
-				expect_PANIC:             false,
+				cond_EMPTY_NAME:         true,
+				cond_PROPER_DESCRIPTION: true,
+				cond_PROPER_LOG:         true,
+				cond_PROPER_SWITCHES:    true,
+				cond_PROPER_VERDICT:     true,
+				expect_PANIC:            false,
 			},
 		}, {
 			Description: `
 Test HasExecuted() is able to work properly with empty Switches setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
-				cond_PROPER_NAME:         true,
-				cond_PROPER_DESCRIPTION:  true,
-				cond_PROPER_LOG:          true,
-				cond_EMPTY_SWITCHES:      true,
-				cond_PROPER_VERDICT:      true,
-				expect_PANIC:             false,
+				cond_PROPER_NAME:        true,
+				cond_PROPER_DESCRIPTION: true,
+				cond_PROPER_LOG:         true,
+				cond_EMPTY_SWITCHES:     true,
+				cond_PROPER_VERDICT:     true,
+				expect_PANIC:            false,
 			},
 		}, {
 			Description: `
 Test HasExecuted() is able to work properly with nil Switches setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
-				cond_PROPER_NAME:         true,
-				cond_PROPER_DESCRIPTION:  true,
-				cond_PROPER_LOG:          true,
-				cond_NIL_SWITCHES:        true,
-				cond_PROPER_VERDICT:      true,
-				expect_PANIC:             false,
+				cond_PROPER_NAME:        true,
+				cond_PROPER_DESCRIPTION: true,
+				cond_PROPER_LOG:         true,
+				cond_NIL_SWITCHES:       true,
+				cond_PROPER_VERDICT:     true,
+				expect_PANIC:            false,
 			},
 		}, {
 			Description: `
 Test HasExecuted() is able to work properly with empty log setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
-				cond_PROPER_NAME:         true,
-				cond_PROPER_DESCRIPTION:  true,
-				cond_EMPTY_LOG:           true,
-				cond_PROPER_SWITCHES:     true,
-				cond_PROPER_VERDICT:      true,
-				expect_PANIC:             false,
+				cond_PROPER_NAME:        true,
+				cond_PROPER_DESCRIPTION: true,
+				cond_EMPTY_LOG:          true,
+				cond_PROPER_SWITCHES:    true,
+				cond_PROPER_VERDICT:     true,
+				expect_PANIC:            false,
 			},
 		}, {
 			Description: `
 Test HasExecuted() is able to work properly with nil log setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
-				cond_PROPER_NAME:         true,
-				cond_PROPER_DESCRIPTION:  true,
-				cond_NIL_LOG:             true,
-				cond_PROPER_SWITCHES:     true,
-				cond_PROPER_VERDICT:      true,
-				expect_PANIC:             false,
+				cond_PROPER_NAME:        true,
+				cond_PROPER_DESCRIPTION: true,
+				cond_NIL_LOG:            true,
+				cond_PROPER_SWITCHES:    true,
+				cond_PROPER_VERDICT:     true,
+				expect_PANIC:            false,
 			},
 		}, {
 			Description: `
 Test HasExecuted() is able to work properly with empty description setting.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
-				cond_PROPER_NAME:         true,
-				cond_EMPTY_DESCRIPTION:   true,
-				cond_NIL_LOG:             true,
-				cond_PROPER_SWITCHES:     true,
-				cond_PROPER_VERDICT:      true,
-				expect_PANIC:             false,
+				cond_PROPER_NAME:       true,
+				cond_EMPTY_DESCRIPTION: true,
+				cond_NIL_LOG:           true,
+				cond_PROPER_SWITCHES:   true,
+				cond_PROPER_VERDICT:    true,
+				expect_PANIC:           false,
 			},
 		}, {
 			Description: `
 Test HasExecuted() is able to panic when nil Scenario is supplied.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
 				cond_PROPER_NAME:         true,
 				cond_PROPER_DESCRIPTION:  true,
 				cond_PROPER_LOG:          true,
@@ -171,7 +124,6 @@ Test HasExecuted() is able to panic when nil Scenario is supplied.
 Test HasExecuted() is able to work properly when verdict is set to unknown.
 `,
 			Switches: map[string]bool{
-				cond_PROPER_REGISTRATION: true,
 				cond_PROPER_NAME:         true,
 				cond_PROPER_DESCRIPTION:  true,
 				cond_PROPER_LOG:          true,
@@ -190,11 +142,9 @@ func TestHasExecutedAPI(t *testing.T) {
 	for i, s := range scenarios {
 		s.ID = uint64(i)
 		s.Name = suite_HAS_EXECUTED_API
-		Register(s, t)
 
 		// prepare
 		ts := &Scenario{}
-		testlib_ConfigureRegistrations(s, ts)
 		testlib_ConfigureName(s, ts)
 		testlib_ConfigureDescription(s, ts)
 		testlib_ConfigureLog(s, ts)

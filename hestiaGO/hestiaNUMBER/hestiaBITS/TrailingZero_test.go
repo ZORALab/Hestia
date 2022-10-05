@@ -90,7 +90,6 @@ func TestTrailingZeroAPI(t *testing.T) {
 	for i, s := range scenarios {
 		s.ID = uint64(i)
 		s.Name = suite_TRAILING_ZERO_API
-		hestiaTESTING.Register(s, t)
 
 		// prepare
 		if !testlibs_assertTestableHost(s) {

@@ -90,7 +90,6 @@ func TestLenAPI(t *testing.T) {
 	for i, s := range scenarios {
 		s.ID = uint64(i)
 		s.Name = suite_LEN_API
-		hestiaTESTING.Register(s, t)
 
 		// prepare
 		if !testlibs_assertTestableHost(s) {
