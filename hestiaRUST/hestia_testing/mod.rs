@@ -15,15 +15,16 @@
 // the License.
 #[macro_use]
 pub mod execs;
+pub use execs::*;
 
 pub mod data;
-pub mod renderer;
-pub mod scenario;
-
 pub use data::*;
-pub use execs::*;
-pub use renderer::*;
+
+pub mod scenario;
 pub use scenario::*;
+
+pub mod renderer;
+pub use renderer::*;
 
 #[cfg(test)]
 mod data_test;
