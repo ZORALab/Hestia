@@ -37,11 +37,16 @@ pub const VERDICT_PASS: Verdict = 1;
 pub const VERDICT_SKIP: Verdict = 2;
 pub const VERDICT_FAIL: Verdict = 3;
 
+pub const STRING_VERDICT_PASS: &str = "PASSED";
+pub const STRING_VERDICT_FAIL: &str = "FAILED";
+pub const STRING_VERDICT_SKIP: &str = "SKIPPED";
+pub const STRING_VERDICT_UNKNOWN: &str = "UNKNOWN";
+
 pub fn interpret(verdict: Verdict) -> String {
 	match verdict {
-		| VERDICT_PASS => return "PASSED".to_string(),
-		| VERDICT_FAIL => return "FAILED".to_string(),
-		| VERDICT_SKIP => return "SKIPPED".to_string(),
-		| _ => return "UNKNOWN".to_string(),
+		| VERDICT_PASS => return STRING_VERDICT_PASS.to_string(),
+		| VERDICT_FAIL => return STRING_VERDICT_FAIL.to_string(),
+		| VERDICT_SKIP => return STRING_VERDICT_SKIP.to_string(),
+		| _ => return STRING_VERDICT_UNKNOWN.to_string(),
 	}
 }

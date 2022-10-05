@@ -25,7 +25,7 @@ pub fn to_string(s: &scenario::Scenario) -> String {
 
 	// render log
 	let mut logs = String::from("");
-	for (i, v) in s.switches.iter().enumerate() {
+	for (i, v) in s.logs.iter().enumerate() {
 		logs.push_str(&format!("[{}]\n{}\n", i, v));
 	}
 
@@ -92,7 +92,7 @@ pub fn to_toml(s: &scenario::Scenario) -> String {
 
 	// render log
 	let mut logs = String::from("");
-	for (_i, v) in s.log.iter().enumerate() {
+	for (_i, v) in s.logs.iter().enumerate() {
 		switches.push_str(&format!(
 			"
 [[{label_group}.{label_log}]]

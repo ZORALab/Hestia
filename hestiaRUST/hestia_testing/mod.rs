@@ -13,8 +13,17 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
+#[macro_use]
+pub mod execs;
 
 pub mod data;
-pub mod execs;
 pub mod renderer;
 pub mod scenario;
+
+pub use data::*;
+pub use execs::*;
+pub use renderer::*;
+pub use scenario::*;
+
+#[cfg(test)]
+mod data_test;

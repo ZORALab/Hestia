@@ -21,9 +21,20 @@ pub struct Scenario {
 	pub name: String,
 	pub description: String,
 	pub switches: Vec<String>,
-	pub log: Vec<String>,
+	pub logs: Vec<String>,
 
 	verdict: data::Verdict,
+}
+
+pub fn new_scenario() -> Scenario {
+	return Scenario {
+		id: 0,
+		name: String::from(""),
+		description: String::from(""),
+		switches: Vec::new(),
+		logs: Vec::new(),
+		verdict: 0,
+	};
 }
 
 pub fn conclude(s: &mut Scenario, certification: data::Verdict) -> data::Error {
@@ -60,5 +71,5 @@ pub fn log(s: &mut Scenario, statement: String) {
 		panic!("calling hestiaTESTING.Logf without providing formatting string!");
 	}
 
-	s.log.push(statement);
+	s.logs.push(statement);
 }

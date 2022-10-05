@@ -13,20 +13,25 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
-
 #[macro_export]
-macro_rules! exec {
+macro_rules! hestia_testing_exec {
 	($name:ident, $fx:block) => {
 		#[test]
-		#[should_panic]
-		fn test_$name() -> &'static str {
+		fn $name() {
 			$fx
 		}
 	};
-	($name:ident, $fx:block, $expect:expr) => {
+	($name:ident, $panic:expr, $fx:block) => {
+		#[test]
+		#[should_panic]
+		fn $name() {
+			$fx
+		}
+	};
+	($name:ident, $panic:expr, $expect:expr, $fx:block) => {
 		#[test]
 		#[should_panic(expected = $expect)]
-		fn test_$name() -> &'static str {
+		fn $name() {
 			$fx
 		}
 	};
