@@ -38,7 +38,3 @@ func (s *Scenario) Init() {
 	s.Name = __trimWhitespace(s.Name)
 	s.Description = __trimWhitespace(s.Description)
 }
-
-func (s *Scenario) Exec(function func() any) (out any) {
-	return Exec(function)
-}

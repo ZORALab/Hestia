@@ -115,15 +115,15 @@ func Logf(s *Scenario, format string, args ...any) <span class="cov9" title="238
         s.Log = append(s.Log, _renderString(format, args...))</span>
 }
 
-func Exec(function func() any) (out any) <span class="cov7" title="58">{
-        defer func() </span><span class="cov7" title="58">{
+func Exec(function func() any) (out any) <span class="cov7" title="56">{
+        defer func() </span><span class="cov7" title="56">{
                 err := recover()
-                if err != nil </span><span class="cov4" title="11">{
+                if err != nil </span><span class="cov4" title="10">{
                         out = err
                 }</span>
         }()
 
-        <span class="cov7" title="58">out = function()
+        <span class="cov7" title="56">out = function()
 
         return out</span>
 }
@@ -276,22 +276,18 @@ type Scenario struct {
         verdict Verdict
 }
 
-func (s *Scenario) Init() <span class="cov10" title="308">{
-        if s.Switches == nil </span><span class="cov3" title="5">{
+func (s *Scenario) Init() <span class="cov10" title="306">{
+        if s.Switches == nil </span><span class="cov2" title="3">{
                 s.Switches = map[string]bool{}
         }</span>
 
-        <span class="cov10" title="308">if s.Log == nil </span><span class="cov7" title="64">{
+        <span class="cov10" title="306">if s.Log == nil </span><span class="cov7" title="62">{
                 s.Log = []string{}
         }</span>
 
-        <span class="cov10" title="308">s.Name = __trimWhitespace(s.Name)
+        <span class="cov10" title="306">s.Name = __trimWhitespace(s.Name)
         s.Description = __trimWhitespace(s.Description)</span>
 }
-
-func (s *Scenario) Exec(function func() any) (out any) <span class="cov2" title="2">{
-        return Exec(function)
-}</span>
 </pre>
 		
 		<pre class="file" id="file2" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
@@ -357,11 +353,11 @@ func _renderNumber(number, base uint64) (out string) <span class="cov5" title="2
         return string(buffer[i:])</span>
 }
 
-func __trimWhitespace(source string) string <span class="cov6" title="1234">{
+func __trimWhitespace(source string) string <span class="cov6" title="1230">{
         var leftIndex, rightIndex uint64
         var setRight, next bool
 
-        if source == "" </span><span class="cov2" title="10">{
+        if source == "" </span><span class="cov2" title="6">{
                 return source
         }</span>
 
