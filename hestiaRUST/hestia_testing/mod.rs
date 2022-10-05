@@ -28,3 +28,6 @@ pub use renderer::*;
 
 #[cfg(test)]
 mod data_test;
+
+#[cfg(test)]
+mod execs_test;
