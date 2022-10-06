@@ -27,7 +27,7 @@ pub use scenario::*;
 mod testlibs_test;
 
 #[cfg(test)]
-mod data_test;
+mod interpret_test;
 
 #[cfg(test)]
 mod execs_test;

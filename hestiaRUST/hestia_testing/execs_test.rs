@@ -16,7 +16,7 @@
 use crate::hestia_testing;
 
 // test suites
-const SUITE_NAME: &str = "hestia_testing exec! API";
+const SUITE_NAME: &str = "hestia_testing_exec! API";
 
 // test conditions
 const COND_EXPECT_PANIC: &str = "expect panic";

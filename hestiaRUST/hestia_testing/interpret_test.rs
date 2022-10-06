@@ -17,7 +17,7 @@ use crate::hestia_testing;
 use crate::hestia_testing::testlibs_test;
 
 // test suites
-const SUITE_NAME: &str = "hestia_testing Interpret API";
+const SUITE_NAME: &str = "hestia_testing::Interpret API";
 
 // test libs
 fn assert_string_verdict(output: &str, expect: &str) -> bool {
