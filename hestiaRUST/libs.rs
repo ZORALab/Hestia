@@ -14,7 +14,16 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-pub mod hestia_error;
-pub mod hestia_number;
+// 'hestia_testing' goes first as it has hestia_testing_exec! macro that is
+// crucial for all testing across other modules.
+#[macro_use]
 pub mod hestia_testing;
+
+#[macro_use]
 pub mod version;
+
+#[macro_use]
+pub mod hestia_error;
+
+#[macro_use]
+pub mod hestia_number;

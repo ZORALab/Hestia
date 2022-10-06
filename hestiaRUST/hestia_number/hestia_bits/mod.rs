@@ -13,6 +13,14 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
+pub mod constants;
+pub use constants::*;
 
-pub mod bits;
-pub use bits::*;
+pub mod length;
+pub use length::*;
+
+#[cfg(test)]
+mod testlibs_test;
+
+#[cfg(test)]
+mod s128_length_test;

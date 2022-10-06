@@ -1,0 +1,67 @@
+// Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+// Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+use crate::hestia_testing;
+
+// test conditions
+pub const COND_BITS_128: &str = "provide 128-bits value";
+pub const COND_BITS_64: &str = "provide 64-bits value";
+pub const COND_BITS_32: &str = "provide 32-bits value";
+pub const COND_BITS_16: &str = "provide 16-bits value";
+pub const COND_BITS_8: &str = "provide 8-bits value";
+pub const COND_BITS_0: &str = "provide 0-bit value";
+
+// test values
+pub const VALUE_TYPE_128_BITS_128: u128 = 1 << 127;
+pub const VALUE_TYPE_128_BITS_128_COUNT: u128 = 128;
+pub const VALUE_TYPE_128_BITS_64: u128 = 1 << 63;
+pub const VALUE_TYPE_128_BITS_64_COUNT: u128 = 64;
+pub const VALUE_TYPE_128_BITS_32: u128 = 1 << 31;
+pub const VALUE_TYPE_128_BITS_32_COUNT: u128 = 32;
+pub const VALUE_TYPE_128_BITS_16: u128 = 1 << 15;
+pub const VALUE_TYPE_128_BITS_16_COUNT: u128 = 16;
+pub const VALUE_TYPE_128_BITS_8: u128 = 1 << 7;
+pub const VALUE_TYPE_128_BITS_8_COUNT: u128 = 8;
+pub const VALUE_TYPE_128_BITS_0: u128 = 1 << 0;
+pub const VALUE_TYPE_128_BITS_0_COUNT: u128 = 1;
+
+pub fn create_u128(s: &hestia_testing::Scenario) -> u128 {
+	if hestia_testing::has_condition(s, COND_BITS_128) {
+		return VALUE_TYPE_128_BITS_128;
+	}
+
+	if hestia_testing::has_condition(s, COND_BITS_64) {
+		return VALUE_TYPE_128_BITS_64;
+	}
+
+	if hestia_testing::has_condition(s, COND_BITS_32) {
+		return VALUE_TYPE_128_BITS_32;
+	}
+
+	if hestia_testing::has_condition(s, COND_BITS_16) {
+		return VALUE_TYPE_128_BITS_16;
+	}
+
+	if hestia_testing::has_condition(s, COND_BITS_8) {
+		return VALUE_TYPE_128_BITS_8;
+	}
+
+	if hestia_testing::has_condition(s, COND_BITS_0) {
+		return VALUE_TYPE_128_BITS_0;
+	}
+
+	return 0;
+}

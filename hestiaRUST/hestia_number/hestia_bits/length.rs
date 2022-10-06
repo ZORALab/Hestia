@@ -14,9 +14,9 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-use crate::hestia_number;
+use crate::hestia_number::hestia_bits::constants;
 
-pub fn s128_len(x: u128) -> u128 {
+pub fn s128_length(x: u128) -> u128 {
 	let mut i: u128;
 	let mut a: u128;
 	let mut b: u128;
@@ -25,7 +25,7 @@ pub fn s128_len(x: u128) -> u128 {
 	i = 0;
 	a = x;
 	b = 0;
-	while i <= hestia_number::MAX_UINT128 {
+	while i <= constants::MAX_UINT128 {
 		a |= a >> i;
 		c = a ^ (a >> 1);
 
@@ -47,7 +47,7 @@ pub fn s128_len(x: u128) -> u128 {
 	return a;
 }
 
-pub fn s64_len(x: u64) -> u64 {
+pub fn s64_length(x: u64) -> u64 {
 	let mut i: u64;
 	let mut a: u64;
 	let mut b: u64;
@@ -56,7 +56,7 @@ pub fn s64_len(x: u64) -> u64 {
 	i = 0;
 	a = x;
 	b = 0;
-	while i <= hestia_number::MAX_UINT64 as u64 {
+	while i <= constants::MAX_UINT64 as u64 {
 		a |= a >> i;
 		c = a ^ (a >> 1);
 
@@ -78,7 +78,7 @@ pub fn s64_len(x: u64) -> u64 {
 	return a;
 }
 
-pub fn s32_len(x: u32) -> u32 {
+pub fn s32_length(x: u32) -> u32 {
 	let mut i: u32;
 	let mut a: u32;
 	let mut b: u32;
@@ -87,7 +87,7 @@ pub fn s32_len(x: u32) -> u32 {
 	i = 0;
 	a = x;
 	b = 0;
-	while i <= hestia_number::MAX_UINT32 as u32 {
+	while i <= constants::MAX_UINT32 as u32 {
 		a |= a >> i;
 		c = a ^ (a >> 1);
 
@@ -109,7 +109,7 @@ pub fn s32_len(x: u32) -> u32 {
 	return a;
 }
 
-pub fn s16_len(x: u16) -> u16 {
+pub fn s16_length(x: u16) -> u16 {
 	let mut i: u16;
 	let mut a: u16;
 	let mut b: u16;
@@ -118,7 +118,7 @@ pub fn s16_len(x: u16) -> u16 {
 	i = 0;
 	a = x;
 	b = 0;
-	while i <= hestia_number::MAX_UINT16 as u16 {
+	while i <= constants::MAX_UINT16 as u16 {
 		a |= a >> i;
 		c = a ^ (a >> 1);
 
@@ -140,7 +140,7 @@ pub fn s16_len(x: u16) -> u16 {
 	return a;
 }
 
-pub fn s8_len(x: u8) -> u8 {
+pub fn s8_length(x: u8) -> u8 {
 	let mut i: u8;
 	let mut a: u8;
 	let mut b: u8;
@@ -149,7 +149,7 @@ pub fn s8_len(x: u8) -> u8 {
 	i = 0;
 	a = x;
 	b = 0;
-	while i <= hestia_number::MAX_UINT8 as u8 {
+	while i <= constants::MAX_UINT8 as u8 {
 		a |= a >> i;
 		c = a ^ (a >> 1);
 
