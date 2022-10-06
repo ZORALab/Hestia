@@ -16,6 +16,71 @@
 
 use crate::hestia_number::hestia_bits::constants;
 
+pub fn s128_trailing_zeros(x: u128) -> u128 {
+	let mut count: u128;
+	let mut buffer: u128 = x;
+
+	count = 0;
+	while (buffer & 1) == 0 {
+		buffer = buffer >> 1;
+		count = count + 1;
+	}
+
+	return count;
+}
+
+pub fn s64_trailing_zeros(x: u64) -> u64 {
+	let mut count: u64;
+	let mut buffer: u64 = x;
+
+	count = 0;
+	while (buffer & 1) == 0 {
+		buffer = buffer >> 1;
+		count = count + 1;
+	}
+
+	return count;
+}
+
+pub fn s32_trailing_zeros(x: u32) -> u32 {
+	let mut count: u32;
+	let mut buffer: u32 = x;
+
+	count = 0;
+	while (buffer & 1) == 0 {
+		buffer = buffer >> 1;
+		count = count + 1;
+	}
+
+	return count;
+}
+
+pub fn s16_trailing_zeros(x: u16) -> u16 {
+	let mut count: u16;
+	let mut buffer: u16 = x;
+
+	count = 0;
+	while (buffer & 1) == 0 {
+		buffer = buffer >> 1;
+		count = count + 1;
+	}
+
+	return count;
+}
+
+pub fn s8_trailing_zeros(x: u8) -> u8 {
+	let mut count: u8;
+	let mut buffer: u8 = x;
+
+	count = 0;
+	while (buffer & 1) == 0 {
+		buffer = buffer >> 1;
+		count = count + 1;
+	}
+
+	return count;
+}
+
 pub fn s128_length(x: u128) -> u128 {
 	if x == 0 {
 		return 0;
