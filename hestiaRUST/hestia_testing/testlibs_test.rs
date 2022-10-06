@@ -21,6 +21,7 @@ pub const COND_PROPER_VERDICT: &str = "configure VERDICT_PASS verdict";
 pub const COND_FAIL_VERDICT: &str = "configure VERDICT_FAIL verdict";
 pub const COND_SKIP_VERDICT: &str = "configure VERDICT_SKIP verdict";
 pub const COND_UNKNOWN_VERDICT: &str = "configure VERDICT_UNKNOWN verdict";
+pub const COND_INITIAL_VERDICT: &str = "configure initial (0) verdict";
 
 pub const COND_PROPER_NAME: &str = "configure proper Scenario name";
 pub const COND_EMPTY_NAME: &str = "configure empty Scenario name";
@@ -63,6 +64,10 @@ pub fn create_verdict(s: &hestia_testing::Scenario) -> hestia_testing::Verdict {
 
 	if hestia_testing::has_condition(s, COND_UNKNOWN_VERDICT) {
 		return VALUE_UNKNOWN_VERDICT;
+	}
+
+	if hestia_testing::has_condition(s, COND_INITIAL_VERDICT) {
+		return 0;
 	}
 
 	return 0;

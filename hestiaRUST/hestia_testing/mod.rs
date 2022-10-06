@@ -40,3 +40,6 @@ mod to_toml_test;
 
 #[cfg(test)]
 mod conclusion_test;
+
+#[cfg(test)]
+mod has_executed_test;
