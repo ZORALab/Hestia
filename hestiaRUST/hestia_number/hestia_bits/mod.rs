@@ -42,3 +42,6 @@ mod s128_trailing_zeros_test;
 
 #[cfg(test)]
 mod s64_trailing_zeros_test;
+
+#[cfg(test)]
+mod s32_trailing_zeros_test;
