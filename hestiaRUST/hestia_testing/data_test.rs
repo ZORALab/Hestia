@@ -14,15 +14,10 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 use crate::hestia_testing;
+use crate::hestia_testing::testlibs_test;
 
 // test suites
 const SUITE_NAME: &str = "hestia_testing Interpret API";
-
-// test conditions
-const COND_PROPER_VERDICT: &str = "configure VERDICT_PASS verdict";
-const COND_FAIL_VERDICT: &str = "configure VERDICT_FAIL verdict";
-const COND_SKIP_VERDICT: &str = "configure VERDICT_SKIP verdict";
-const COND_UNKNOWN_VERDICT: &str = "configure VERDICT_UNKNOWN verdict";
 
 // test libs
 fn assert_string_verdict(output: &str, expect: &str) -> bool {
@@ -31,26 +26,6 @@ fn assert_string_verdict(output: &str, expect: &str) -> bool {
 	}
 
 	return false;
-}
-
-fn create_string_verdict(s: &hestia_testing::Scenario) -> hestia_testing::Verdict {
-	if hestia_testing::has_condition(s, COND_PROPER_VERDICT) {
-		return hestia_testing::VERDICT_PASS;
-	}
-
-	if hestia_testing::has_condition(s, COND_FAIL_VERDICT) {
-		return hestia_testing::VERDICT_FAIL;
-	}
-
-	if hestia_testing::has_condition(s, COND_SKIP_VERDICT) {
-		return hestia_testing::VERDICT_SKIP;
-	}
-
-	if hestia_testing::has_condition(s, COND_UNKNOWN_VERDICT) {
-		return 100;
-	}
-
-	return 0;
 }
 
 fn test_interpret_algorithm(id: u64, desc: String, switches: Vec<String>, expect: &str) {
@@ -62,7 +37,7 @@ fn test_interpret_algorithm(id: u64, desc: String, switches: Vec<String>, expect
 	s.switches = switches;
 
 	// test
-	let verdict = create_string_verdict(s);
+	let verdict = testlibs_test::create_verdict(s);
 	let output = hestia_testing::interpret(verdict);
 	hestia_testing::log(s, format!("Given verdict	: {}\n", verdict));
 	hestia_testing::log(s, format!("Got output	: {}\n", output));
@@ -87,7 +62,7 @@ hestia_testing_exec!(interpret_verdict_unknown, {
 Test Interpret() is able to work properly when verdict is VERDICT_UNKNOWN.
 "
 		.to_string(),
-		vec![String::from(COND_UNKNOWN_VERDICT)],
+		vec![String::from(testlibs_test::COND_UNKNOWN_VERDICT)],
 		hestia_testing::STRING_VERDICT_UNKNOWN,
 	)
 });
@@ -99,7 +74,7 @@ hestia_testing_exec!(interpret_verdict_skip, {
 Test Interpret() is able to work properly when verdict is VERDICT_SKIP.
 "
 		.to_string(),
-		vec![String::from(COND_SKIP_VERDICT)],
+		vec![String::from(testlibs_test::COND_SKIP_VERDICT)],
 		hestia_testing::STRING_VERDICT_SKIP,
 	)
 });
@@ -111,7 +86,7 @@ hestia_testing_exec!(interpret_verdict_fail, {
 Test Interpret() is able to work properly when verdict is VERDICT_FAIL.
 "
 		.to_string(),
-		vec![String::from(COND_FAIL_VERDICT)],
+		vec![String::from(testlibs_test::COND_FAIL_VERDICT)],
 		hestia_testing::STRING_VERDICT_FAIL,
 	)
 });
@@ -123,7 +98,7 @@ hestia_testing_exec!(interpret_verdict_pass, {
 Test Interpret() is able to work properly when verdict is VERDICT_PASS.
 "
 		.to_string(),
-		vec![String::from(COND_PROPER_VERDICT)],
+		vec![String::from(testlibs_test::COND_PROPER_VERDICT)],
 		hestia_testing::STRING_VERDICT_PASS,
 	)
 });

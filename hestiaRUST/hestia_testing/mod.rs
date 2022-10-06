@@ -23,11 +23,14 @@ pub use data::*;
 pub mod scenario;
 pub use scenario::*;
 
-pub mod renderer;
-pub use renderer::*;
+#[cfg(test)]
+mod testlibs_test;
 
 #[cfg(test)]
 mod data_test;
 
 #[cfg(test)]
 mod execs_test;
+
+#[cfg(test)]
+mod to_string_test;

@@ -37,6 +37,22 @@ pub fn new_scenario() -> Scenario {
 	};
 }
 
+pub fn has_condition(s: &Scenario, condition: &str) -> bool {
+	if s.switches.iter().any(|i| i == condition) {
+		return true;
+	}
+
+	return false;
+}
+
+pub fn log(s: &mut Scenario, statement: String) {
+	if statement.chars().count() == 0 {
+		panic!("calling hestiaTESTING.Logf without providing formatting string!");
+	}
+
+	s.logs.push(statement);
+}
+
 pub fn conclude(s: &mut Scenario, certification: data::Verdict) -> data::Error {
 	match certification {
 		| data::VERDICT_PASS => s.verdict = data::VERDICT_PASS,
@@ -58,18 +74,150 @@ pub fn has_executed(s: &Scenario) -> bool {
 	return s.verdict != 0;
 }
 
-pub fn has_condition(s: &Scenario, condition: &str) -> bool {
-	if s.switches.iter().any(|i| i == condition) {
-		return true;
+pub fn to_string(s: &Scenario) -> String {
+	// render switches
+	let mut switches = String::from("");
+	for (i, v) in s.switches.iter().enumerate() {
+		switches.push_str(&format!("[{}]\t{}\n", i, v));
 	}
 
-	return false;
+	// render log
+	let mut logs = String::from("");
+	for (i, v) in s.logs.iter().enumerate() {
+		logs.push_str(&format!("[{}]\n{}\n", i, v));
+	}
+
+	// render name
+	let mut name: String = String::from("''");
+	if !s.name.is_empty() {
+		name = String::from(s.name.trim());
+	}
+
+	// render description
+	let mut description: String = String::from("''");
+	if !s.description.is_empty() {
+		description = String::from(s.description.trim());
+	}
+
+	// render output
+	return format!(
+		"
+╔═══════════╗
+║TEST REPORT║
+╚═══════════╝
+{label_id}		: {id}
+{label_verdict}		: {verdict}
+{label_name}		: {name}
+{label_description}	:
+{description}
+
+
+{label_switches}\t	:
+{switches}
+
+
+{label_log}		:
+{logs}
+═══[ END ]═══
+",
+		label_id = data::LABEL_ID,
+		id = s.id,
+		label_verdict = data::LABEL_VERDICT,
+		verdict = data::interpret(conclusion(s)),
+		label_name = data::LABEL_NAME,
+		name = name,
+		label_description = data::LABEL_DESCRIPTION,
+		description = description,
+		label_switches = data::LABEL_SWITCHES,
+		switches = switches,
+		label_log = data::LABEL_LOG,
+		logs = logs,
+	);
 }
 
-pub fn log(s: &mut Scenario, statement: String) {
-	if statement.chars().count() == 0 {
-		panic!("calling hestiaTESTING.Logf without providing formatting string!");
+pub fn to_toml(s: &Scenario) -> String {
+	// render switches
+	let mut switches = String::from("");
+	for (_i, v) in s.switches.iter().enumerate() {
+		switches.push_str(&format!(
+			"
+[[{label_group}.{label_switches}]]
+{label_value} = '''
+{switch}
+'''
+",
+			label_group = data::LABEL_GROUP,
+			label_switches = data::LABEL_SWITCHES,
+			label_value = data::LABEL_VALUE,
+			switch = v,
+		));
 	}
 
-	s.logs.push(statement);
+	if switches.chars().count() == 0 {
+		switches.push_str(&format!(
+			"{label_switches} = []",
+			label_switches = data::LABEL_SWITCHES,
+		));
+	}
+
+	// render log
+	let mut logs = String::from("");
+	for (_i, v) in s.logs.iter().enumerate() {
+		switches.push_str(&format!(
+			"
+[[{label_group}.{label_log}]]
+{label_value} = '''
+{entry}
+'''
+",
+			label_group = data::LABEL_GROUP,
+			label_log = data::LABEL_LOG,
+			label_value = data::LABEL_VALUE,
+			entry = v,
+		));
+	}
+
+	if logs.chars().count() == 0 {
+		logs.push_str(&format!("{label_log} = []", label_log = data::LABEL_LOG,));
+	}
+
+	// render output
+	return format!(
+		"
+[{label_group}]
+{label_id} = {id}
+{label_verdict} = '{verdict}'
+{label_name} = '''
+{name}
+'''
+{label_description} = '''
+{description}
+'''
+{switches}
+{logs}
+",
+		label_group = data::LABEL_GROUP,
+		label_id = data::LABEL_ID,
+		id = s.id,
+		label_verdict = data::LABEL_VERDICT,
+		verdict = data::interpret(conclusion(s)),
+		label_name = data::LABEL_NAME,
+		name = s.name.trim(),
+		label_description = data::LABEL_DESCRIPTION,
+		description = s.description.trim(),
+		switches = switches,
+		logs = logs,
+	);
+}
+
+#[cfg(test)]
+pub fn new_scenario_sample_v1(verdict: data::Verdict) -> Scenario {
+	return Scenario {
+		id: 0,
+		name: String::from(""),
+		description: String::from(""),
+		switches: Vec::new(),
+		logs: Vec::new(),
+		verdict: verdict,
+	};
 }
