@@ -24,3 +24,6 @@ mod testlibs_test;
 
 #[cfg(test)]
 mod s128_length_test;
+
+#[cfg(test)]
+mod s64_length_test;
