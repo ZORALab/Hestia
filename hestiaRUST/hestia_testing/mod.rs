@@ -49,3 +49,6 @@ mod conclude_test;
 
 #[cfg(test)]
 mod log_test;
+
+#[cfg(test)]
+mod has_condition_test;
