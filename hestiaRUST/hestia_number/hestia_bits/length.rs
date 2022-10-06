@@ -17,6 +17,10 @@
 use crate::hestia_number::hestia_bits::constants;
 
 pub fn s128_length(x: u128) -> u128 {
+	if x == 0 {
+		return 0;
+	}
+
 	let mut i: u128;
 	let mut a: u128;
 	let mut b: u128;
@@ -48,6 +52,10 @@ pub fn s128_length(x: u128) -> u128 {
 }
 
 pub fn s64_length(x: u64) -> u64 {
+	if x == 0 {
+		return 0;
+	}
+
 	let mut i: u64;
 	let mut a: u64;
 	let mut b: u64;
@@ -79,6 +87,10 @@ pub fn s64_length(x: u64) -> u64 {
 }
 
 pub fn s32_length(x: u32) -> u32 {
+	if x == 0 {
+		return 0;
+	}
+
 	let mut i: u32;
 	let mut a: u32;
 	let mut b: u32;
@@ -110,6 +122,10 @@ pub fn s32_length(x: u32) -> u32 {
 }
 
 pub fn s16_length(x: u16) -> u16 {
+	if x == 0 {
+		return 0;
+	}
+
 	let mut i: u16;
 	let mut a: u16;
 	let mut b: u16;
@@ -141,6 +157,10 @@ pub fn s16_length(x: u16) -> u16 {
 }
 
 pub fn s8_length(x: u8) -> u8 {
+	if x == 0 {
+		return 0;
+	}
+
 	let mut i: u8;
 	let mut a: u8;
 	let mut b: u8;

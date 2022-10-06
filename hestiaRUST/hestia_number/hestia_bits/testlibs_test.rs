@@ -60,16 +60,16 @@ pub const VALUE_TYPE_16_BITS_8_COUNT: u16 = 8;
 pub const VALUE_TYPE_8_BITS_8: u8 = 1 << 7;
 pub const VALUE_TYPE_8_BITS_8_COUNT: u8 = 8;
 
-pub const VALUE_TYPE_128_BITS_0: u128 = 1 << 0;
-pub const VALUE_TYPE_128_BITS_0_COUNT: u128 = 1;
-pub const VALUE_TYPE_64_BITS_0: u64 = 1 << 0;
-pub const VALUE_TYPE_64_BITS_0_COUNT: u64 = 1;
-pub const VALUE_TYPE_32_BITS_0: u32 = 1 << 0;
-pub const VALUE_TYPE_32_BITS_0_COUNT: u32 = 1;
-pub const VALUE_TYPE_16_BITS_0: u16 = 1 << 0;
-pub const VALUE_TYPE_16_BITS_0_COUNT: u16 = 1;
-pub const VALUE_TYPE_8_BITS_0: u8 = 1 << 0;
-pub const VALUE_TYPE_8_BITS_0_COUNT: u8 = 1;
+pub const VALUE_TYPE_128_BITS_0: u128 = 0;
+pub const VALUE_TYPE_128_BITS_0_COUNT: u128 = 0;
+pub const VALUE_TYPE_64_BITS_0: u64 = 0;
+pub const VALUE_TYPE_64_BITS_0_COUNT: u64 = 0;
+pub const VALUE_TYPE_32_BITS_0: u32 = 0;
+pub const VALUE_TYPE_32_BITS_0_COUNT: u32 = 0;
+pub const VALUE_TYPE_16_BITS_0: u16 = 0;
+pub const VALUE_TYPE_16_BITS_0_COUNT: u16 = 0;
+pub const VALUE_TYPE_8_BITS_0: u8 = 0;
+pub const VALUE_TYPE_8_BITS_0_COUNT: u8 = 0;
 
 pub fn create_u128(s: &hestia_testing::Scenario) -> u128 {
 	if hestia_testing::has_condition(s, COND_BITS_128) {
