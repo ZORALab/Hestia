@@ -19,6 +19,9 @@ pub use constants::*;
 pub mod length;
 pub use length::*;
 
+pub mod size;
+pub use size::*;
+
 #[cfg(test)]
 mod testlibs_test;
 
