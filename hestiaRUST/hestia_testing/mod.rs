@@ -34,3 +34,6 @@ mod execs_test;
 
 #[cfg(test)]
 mod to_string_test;
+
+#[cfg(test)]
+mod to_toml_test;

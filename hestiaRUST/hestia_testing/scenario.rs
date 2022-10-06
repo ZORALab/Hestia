@@ -163,7 +163,7 @@ pub fn to_toml(s: &Scenario) -> String {
 	// render log
 	let mut logs = String::from("");
 	for (_i, v) in s.logs.iter().enumerate() {
-		switches.push_str(&format!(
+		logs.push_str(&format!(
 			"
 [[{label_group}.{label_log}]]
 {label_value} = '''
@@ -178,21 +178,43 @@ pub fn to_toml(s: &Scenario) -> String {
 	}
 
 	if logs.chars().count() == 0 {
-		logs.push_str(&format!("{label_log} = []", label_log = data::LABEL_LOG,));
+		if s.switches.len() == 0 {
+			logs.push_str(&format!(
+				"\
+{label_log} = []",
+				label_log = data::LABEL_LOG,
+			));
+		} else {
+			logs.push_str(&format!(
+				"\
+[{label_group}]
+{label_log} = []",
+				label_group = data::LABEL_GROUP,
+				label_log = data::LABEL_LOG,
+			));
+		}
+	}
+
+	// render name
+	let mut name = String::from("''");
+	if s.name.trim().chars().count() > 0 {
+		name = format!("'''\n{}\n'''", s.name.trim());
+	}
+
+	// render description
+	let mut description = String::from("''");
+	if s.description.trim().chars().count() > 0 {
+		description = format!("'''\n{}\n'''", s.description.trim());
 	}
 
 	// render output
 	return format!(
-		"
+		"\
 [{label_group}]
 {label_id} = {id}
 {label_verdict} = '{verdict}'
-{label_name} = '''
-{name}
-'''
-{label_description} = '''
-{description}
-'''
+{label_name} = {name}
+{label_description} = {description}
 {switches}
 {logs}
 ",
@@ -202,9 +224,9 @@ pub fn to_toml(s: &Scenario) -> String {
 		label_verdict = data::LABEL_VERDICT,
 		verdict = data::interpret(conclusion(s)),
 		label_name = data::LABEL_NAME,
-		name = s.name.trim(),
+		name = name,
 		label_description = data::LABEL_DESCRIPTION,
-		description = s.description.trim(),
+		description = description,
 		switches = switches,
 		logs = logs,
 	);
