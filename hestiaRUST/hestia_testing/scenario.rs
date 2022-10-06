@@ -234,12 +234,7 @@ pub fn to_toml(s: &Scenario) -> String {
 
 #[cfg(test)]
 pub fn new_scenario_sample_v1(verdict: data::Verdict) -> Scenario {
-	return Scenario {
-		id: 0,
-		name: String::from(""),
-		description: String::from(""),
-		switches: Vec::new(),
-		logs: Vec::new(),
-		verdict: verdict,
-	};
+	let mut s: Scenario = new_scenario();
+	s.verdict = verdict;
+	return s;
 }

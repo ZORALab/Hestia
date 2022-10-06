@@ -37,3 +37,6 @@ mod to_string_test;
 
 #[cfg(test)]
 mod to_toml_test;
+
+#[cfg(test)]
+mod conclusion_test;
