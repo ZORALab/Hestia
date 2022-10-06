@@ -38,6 +38,9 @@ pub const COND_EMPTY_SWITCHES: &str = "configure empty Scenario switches";
 pub const COND_PROPER_LOGS: &str = "configure proper Scenario logs";
 pub const COND_EMPTY_LOGS: &str = "configure empty Scenario logs";
 
+pub const COND_PROPER_LOG_DATA: &str = "configure proper log data";
+pub const COND_EMPTY_LOG_DATA: &str = "configure empty log data";
+
 // test values
 pub const VALUE_UNKNOWN_VERDICT: hestia_testing::Verdict = 100;
 pub const VALUE_NAME: &str = "test scenario";
@@ -47,8 +50,21 @@ pub const VALUE_SWITCH_1: &str = "switch data 1";
 pub const VALUE_SWITCH_2: &str = "switch data 2";
 pub const VALUE_LOG_1: &str = "log data 1";
 pub const VALUE_LOG_2: &str = "log data 2";
+pub const VALUE_LOG_DATA: &str = "target log data";
 
 // factory functions
+pub fn create_statement(s: &hestia_testing::Scenario) -> String {
+	if hestia_testing::has_condition(s, COND_PROPER_LOG_DATA) {
+		return VALUE_LOG_DATA.to_string();
+	}
+
+	if hestia_testing::has_condition(s, COND_EMPTY_LOG_DATA) {
+		return "".to_string();
+	}
+
+	return "".to_string();
+}
+
 pub fn create_verdict(s: &hestia_testing::Scenario) -> hestia_testing::Verdict {
 	if hestia_testing::has_condition(s, COND_PROPER_VERDICT) {
 		return hestia_testing::VERDICT_PASS;

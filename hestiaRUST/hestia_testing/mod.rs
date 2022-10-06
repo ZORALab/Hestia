@@ -46,3 +46,6 @@ mod has_executed_test;
 
 #[cfg(test)]
 mod conclude_test;
+
+#[cfg(test)]
+mod log_test;
