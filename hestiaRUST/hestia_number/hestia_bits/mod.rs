@@ -30,3 +30,6 @@ mod s64_length_test;
 
 #[cfg(test)]
 mod s32_length_test;
+
+#[cfg(test)]
+mod s16_length_test;
