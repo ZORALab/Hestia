@@ -39,3 +39,6 @@ mod s8_length_test;
 
 #[cfg(test)]
 mod s128_trailing_zeros_test;
+
+#[cfg(test)]
+mod s64_trailing_zeros_test;
