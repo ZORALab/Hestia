@@ -19,10 +19,6 @@ use crate::hestia_testing::testlibs_test;
 // test suites
 const SUITE_NAME: &str = "hestia_testing::to_string API";
 
-// test conditions
-
-// test values
-
 // test libs
 fn assert_output(_s: &hestia_testing::Scenario, output: String) -> bool {
 	if output.chars().count() > 0 {
@@ -42,8 +38,8 @@ fn test_to_string_algorithm(id: u64, desc: String, switches: Vec<String>) {
 
 	// test
 	let ts: &mut hestia_testing::Scenario = &mut testlibs_test::create_scenario(s);
-	let output: String = hestia_testing::to_string(ts);
 
+	let output: String = hestia_testing::to_string(ts);
 	hestia_testing::log(s, format!("Got output: '''\n{}\n'''", output));
 
 	// assert

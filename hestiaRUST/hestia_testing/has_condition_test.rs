@@ -19,10 +19,6 @@ use crate::hestia_testing::testlibs_test;
 // test suites
 const SUITE_NAME: &str = "hestia_testing::has_condition API";
 
-// test conditions
-
-// test values
-
 // test libs
 fn assert_output(s: &hestia_testing::Scenario, output: bool) -> bool {
 	if hestia_testing::has_condition(s, testlibs_test::COND_PROPER_SWITCHES) {
@@ -46,9 +42,9 @@ fn test_has_condition_algorithm(id: u64, desc: String, switches: Vec<String>) {
 
 	// test
 	let ts: &mut hestia_testing::Scenario = &mut testlibs_test::create_scenario(s);
-	let output: bool = hestia_testing::has_condition(ts, testlibs_test::VALUE_SWITCH_2);
 
-	hestia_testing::log(s, format!("Got output: '''\n{}\n'''", output));
+	let output: bool = hestia_testing::has_condition(ts, testlibs_test::VALUE_SWITCH_2);
+	hestia_testing::log(s, format!("Got output: '{}'", output));
 
 	// assert
 	hestia_testing::conclude(s, hestia_testing::VERDICT_PASS);
@@ -64,7 +60,7 @@ fn test_has_condition_algorithm(id: u64, desc: String, switches: Vec<String>) {
 // test suites
 hestia_testing_exec!(test_has_condition_empty, {
 	test_has_condition_algorithm(
-		0,
+		1,
 		"\
 test hestia_testing::has_condition() is able to work properly with empty configurations.
 "

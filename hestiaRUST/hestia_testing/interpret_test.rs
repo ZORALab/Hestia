@@ -17,7 +17,7 @@ use crate::hestia_testing;
 use crate::hestia_testing::testlibs_test;
 
 // test suites
-const SUITE_NAME: &str = "hestia_testing::Interpret API";
+const SUITE_NAME: &str = "hestia_testing::interpret API";
 
 // test libs
 fn assert_string_verdict(output: &str, expect: &str) -> bool {
@@ -38,8 +38,9 @@ fn test_interpret_algorithm(id: u64, desc: String, switches: Vec<String>, expect
 
 	// test
 	let verdict = testlibs_test::create_verdict(s);
-	let output = hestia_testing::interpret(verdict);
 	hestia_testing::log(s, format!("Given verdict	: {}\n", verdict));
+
+	let output = hestia_testing::interpret(verdict);
 	hestia_testing::log(s, format!("Got output	: {}\n", output));
 
 	// assert

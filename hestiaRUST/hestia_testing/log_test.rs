@@ -48,8 +48,10 @@ fn test_log_algorithm(id: u64, desc: String, switches: Vec<String>) {
 
 	// test
 	let ts: &mut hestia_testing::Scenario = &mut hestia_testing::new_scenario();
+
 	let statement = testlibs_test::create_statement(s);
 	hestia_testing::log(s, format!("Given string	: {}\n", statement));
+
 	hestia_testing::conclude(s, hestia_testing::VERDICT_PASS);
 	if hestia_testing::has_condition(s, testlibs_test::COND_EMPTY_LOG_DATA) {
 		println!("{}", hestia_testing::to_string(s));

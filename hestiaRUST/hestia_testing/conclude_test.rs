@@ -19,10 +19,6 @@ use crate::hestia_testing::testlibs_test;
 // test suites
 const SUITE_NAME: &str = "hestia_testing::conclude API";
 
-// test conditions
-
-// test values
-
 // test libs
 fn assert_panic(s: &hestia_testing::Scenario) -> bool {
 	if hestia_testing::has_condition(s, testlibs_test::COND_PROPER_VERDICT) {
@@ -79,21 +75,22 @@ fn test_conclude_algorithm(id: u64, desc: String, switches: Vec<String>) {
 	s.name = String::from(SUITE_NAME);
 	s.description = desc;
 	s.switches = switches;
-	hestia_testing::conclude(s, hestia_testing::VERDICT_PASS);
 
 	// test
 	let ts: &mut hestia_testing::Scenario = &mut hestia_testing::new_scenario();
-	let verdict: hestia_testing::Verdict = testlibs_test::create_verdict(s);
-	hestia_testing::log(s, format!("Given verdict	: '''\n{}\n'''", verdict));
 
+	let verdict: hestia_testing::Verdict = testlibs_test::create_verdict(s);
+	hestia_testing::log(s, format!("Given verdict: '{}'", verdict));
+
+	hestia_testing::conclude(s, hestia_testing::VERDICT_PASS);
 	if hestia_testing::has_condition(s, testlibs_test::COND_UNKNOWN_VERDICT)
 		|| hestia_testing::has_condition(s, testlibs_test::COND_INITIAL_VERDICT)
 	{
 		println!("{}", hestia_testing::to_string(s));
 	}
-	let output: hestia_testing::Error = hestia_testing::conclude(ts, verdict);
 
-	hestia_testing::log(s, format!("Got output	: '''\n{}\n'''", output));
+	let output: hestia_testing::Error = hestia_testing::conclude(ts, verdict);
+	hestia_testing::log(s, format!("Got output: '{}'", output));
 
 	// assert
 	if !assert_panic(s) {

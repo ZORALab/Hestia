@@ -19,10 +19,6 @@ use crate::hestia_testing::testlibs_test;
 // test suites
 const SUITE_NAME: &str = "hestia_testing::has_executed API";
 
-// test conditions
-
-// test values
-
 // test libs
 fn assert_output(s: &hestia_testing::Scenario, output: bool) -> bool {
 	if hestia_testing::has_condition(s, testlibs_test::COND_PROPER_VERDICT) {
@@ -58,9 +54,9 @@ fn test_has_executed_algorithm(id: u64, desc: String, switches: Vec<String>) {
 
 	// test
 	let ts: &mut hestia_testing::Scenario = &mut testlibs_test::create_scenario(s);
-	let output: bool = hestia_testing::has_executed(ts);
 
-	hestia_testing::log(s, format!("Got output: '''\n{}\n'''", output));
+	let output: bool = hestia_testing::has_executed(ts);
+	hestia_testing::log(s, format!("Got output: '{}'", output));
 
 	// assert
 	hestia_testing::conclude(s, hestia_testing::VERDICT_PASS);
