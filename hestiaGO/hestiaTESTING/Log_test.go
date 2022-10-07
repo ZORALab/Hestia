@@ -20,102 +20,95 @@ import (
 	"testing"
 )
 
-func _testLogfScenarios() []*Scenario {
+func _testLogScenarios() []*Scenario {
 	return []*Scenario{
 		{
 			Description: `
-Test Logf() is able to work properly with proper Scenario settings.
+Test Log() is able to work properly with proper Scenario settings.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
 				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 false,
 			},
 		}, {
 			Description: `
-Test Logf() is able to work properly with empty Name setting.
+Test Log() is able to work properly with empty Name setting.
 `,
 			Switches: map[string]bool{
 				cond_EMPTY_NAME:              true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
 				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 false,
 			},
 		}, {
 			Description: `
-Test Logf() is able to work properly with empty Switches setting.
+Test Log() is able to work properly with empty Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
 				cond_EMPTY_SWITCHES:          true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 false,
 			},
 		}, {
 			Description: `
-Test Logf() is able to work properly with nil Switches setting.
+Test Log() is able to work properly with nil Switches setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_PROPER_LOG:              true,
 				cond_NIL_SWITCHES:            true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 false,
 			},
 		}, {
 			Description: `
-Test Logf() is able to work properly with empty log setting.
+Test Log() is able to work properly with empty log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_EMPTY_LOG:               true,
 				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 false,
 			},
 		}, {
 			Description: `
-Test Logf() is able to work properly with nil log setting.
+Test Log() is able to work properly with nil log setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:             true,
 				cond_PROPER_DESCRIPTION:      true,
 				cond_NIL_LOG:                 true,
 				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 false,
 			},
 		}, {
 			Description: `
-Test Logf() is able to work properly with empty description setting.
+Test Log() is able to work properly with empty description setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:             true,
 				cond_EMPTY_DESCRIPTION:       true,
 				cond_NIL_LOG:                 true,
 				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 false,
 			},
 		}, {
 			Description: `
-Test Logf() is able to panic when nil Scenario is supplied.
+Test Log() is able to panic when nil Scenario is supplied.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:             true,
@@ -123,59 +116,31 @@ Test Logf() is able to panic when nil Scenario is supplied.
 				cond_PROPER_LOG:              true,
 				cond_PROPER_SWITCHES:         true,
 				cond_SUPPLY_NIL_SCENARIO:     true,
-				cond_PROPER_STRING_FORMAT:    true,
-				cond_PROPER_STRING_ARGUMENTS: true,
+				cond_PROPER_STRING_STATEMENT: true,
 				expect_PANIC:                 true,
 			},
 		}, {
 			Description: `
-Test Logf() is able to panic with empty string format setting.
-`,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_PROPER_LOG:              true,
-				cond_PROPER_SWITCHES:         true,
-				cond_EMPTY_STRING_FORMAT:     true,
-				cond_PROPER_STRING_ARGUMENTS: true,
-				expect_PANIC:                 true,
-			},
-		}, {
-			Description: `
-Test Logf() is able to work properly with empty string arguments setting.
+Test Log() is able to panic with empty string statement setting.
 `,
 			Switches: map[string]bool{
 				cond_PROPER_NAME:            true,
 				cond_PROPER_DESCRIPTION:     true,
 				cond_PROPER_LOG:             true,
 				cond_PROPER_SWITCHES:        true,
-				cond_PROPER_STRING_FORMAT:   true,
-				cond_EMPTY_STRING_ARGUMENTS: true,
-				expect_PANIC:                false,
-			},
-		}, {
-			Description: `
-Test Logf() is able to work properly with nil string arguments setting.
-`,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:          true,
-				cond_PROPER_DESCRIPTION:   true,
-				cond_PROPER_LOG:           true,
-				cond_PROPER_SWITCHES:      true,
-				cond_PROPER_STRING_FORMAT: true,
-				cond_NIL_STRING_ARGUMENTS: true,
-				expect_PANIC:              false,
+				cond_EMPTY_STRING_STATEMENT: true,
+				expect_PANIC:                true,
 			},
 		},
 	}
 }
 
-func TestLogfAPI(t *testing.T) {
-	scenarios := _testLogfScenarios()
+func TestLogAPI(t *testing.T) {
+	scenarios := _testLogScenarios()
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
-		s.Name = suite_LOGF_API
+		s.Name = suite_LOG_API
 
 		// prepare
 		ts := &Scenario{}
@@ -184,34 +149,25 @@ func TestLogfAPI(t *testing.T) {
 		testlib_ConfigureLog(s, ts)
 		testlib_ConfigureSwitches(s, ts)
 
-		format := testlib_CreateStringFormat(s)
-		args := testlib_CreateStringArguments(s)
+		statement := testlib_CreateStringStatement(s)
 
 		// test
 		_panick := Exec(func() any {
 			if !s.Switches[cond_SUPPLY_NIL_SCENARIO] {
-				if args == nil {
-					Logf(ts, format, nil)
-				} else {
-					Logf(ts, format, args...)
-				}
+				Log(ts, statement)
 			} else {
-				if args == nil {
-					Logf(nil, format, nil)
-				} else {
-					Logf(nil, format, args...)
-				}
+				Log(nil, statement)
 			}
 			return ""
 		})
 		panick := _panick.(string)
 
 		// log output
-		Logf(s, "Test Scenario's ID		= %#v", ts.ID)
-		Logf(s, "Test Scenario's Name		= %#v", ts.Name)
-		Logf(s, "Test Scenario's Switches	= %#v", ts.Switches)
-		Logf(s, "Test Scenario's Logs		= %#v", ts.Log)
-		Logf(s, "Got Panic			= %q", panick)
+		Log(s, _renderString("Test Scenario's ID		= %#v", ts.ID))
+		Log(s, _renderString("Test Scenario's Name		= %#v", ts.Name))
+		Log(s, _renderString("Test Scenario's Switches	= %#v", ts.Switches))
+		Log(s, _renderString("Test Scenario's Logs		= %#v", ts.Logs))
+		Log(s, _renderString("Got Panic			= %q", panick))
 
 		// assert
 		if !testlib_AssertPanic(s, panick) {

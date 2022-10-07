@@ -16,17 +16,17 @@
 
 package hestiaTESTING
 
-func Logf(s *Scenario, format string, args ...any) {
+func Log(s *Scenario, statement string) {
 	if s == nil {
-		panic("calling hestiaTESTING.Logf without providing Scenario!")
+		panic("calling hestiaTESTING.Log without providing Scenario!")
 	}
 
-	if format == "" {
-		panic("calling hestiaTESTING.Logf without providing formatting string!")
+	if statement == "" {
+		panic("calling hestiaTESTING.Log without providing formatting string!")
 	}
 
 	s.Init()
-	s.Log = append(s.Log, _renderString(format, args...))
+	s.Logs = append(s.Logs, statement)
 }
 
 func Exec(function func() any) (out any) {
@@ -106,7 +106,7 @@ func ToString(s *Scenario) (output string) {
 
 	// render log
 	output += title_LOG_STRING
-	for i, v := range s.Log {
+	for i, v := range s.Logs {
 		output += open_LOG_STRING + _renderNumber(uint64(i), 10) + close_LOG_STRING +
 			__trimWhitespace(v) +
 			end_LOG_STRING
@@ -129,7 +129,7 @@ func ToTOML(s *Scenario) (output string) {
 	output += title_VERDICT_TOML + Interpret(s.verdict) + end_VERDICT_TOML
 	output += title_NAME_TOML + s.Name + end_NAME_TOML
 	output += title_DESCRIPTION_TOML + s.Description + end_DESCRIPTION_TOML
-	if len(s.Log) == 0 {
+	if len(s.Logs) == 0 {
 		output += title_LOG_EMPTY_TOML
 	}
 
@@ -148,9 +148,9 @@ func ToTOML(s *Scenario) (output string) {
 	}
 
 	// render Log if available
-	if len(s.Log) > 0 {
+	if len(s.Logs) > 0 {
 		output += char_NEW_LINE
-		for _, v := range s.Log {
+		for _, v := range s.Logs {
 			output += title_LOG_TOML + __trimWhitespace(v) + end_LOG_TOML
 		}
 	}

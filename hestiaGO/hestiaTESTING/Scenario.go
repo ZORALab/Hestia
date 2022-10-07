@@ -21,7 +21,7 @@ type Scenario struct {
 	Name        string
 	Description string
 	Switches    map[string]bool
-	Log         []string
+	Logs        []string
 
 	verdict Verdict
 }
@@ -31,8 +31,8 @@ func (s *Scenario) Init() {
 		s.Switches = map[string]bool{}
 	}
 
-	if s.Log == nil {
-		s.Log = []string{}
+	if s.Logs == nil {
+		s.Logs = []string{}
 	}
 
 	s.Name = __trimWhitespace(s.Name)

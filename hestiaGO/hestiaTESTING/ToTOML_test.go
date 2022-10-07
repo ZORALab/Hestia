@@ -150,12 +150,12 @@ func TestToTOMLAPI(t *testing.T) {
 		panick := _panick.(string)
 
 		// log output
-		Logf(s, "Test Scenario's ID		= %#v", ts.ID)
-		Logf(s, "Test Scenario's Name		= %#v", ts.Name)
-		Logf(s, "Test Scenario's Switches	= %#v", ts.Switches)
-		Logf(s, "Test Scenario's Log		= %#v", ts.Log)
-		Logf(s, "Got Output			= %q", output)
-		Logf(s, "Got Panic			= %q", panick)
+		Log(s, _renderString("Test Scenario's ID		= %#v", ts.ID))
+		Log(s, _renderString("Test Scenario's Name		= %#v", ts.Name))
+		Log(s, _renderString("Test Scenario's Switches	= %#v", ts.Switches))
+		Log(s, _renderString("Test Scenario's Log		= %#v", ts.Logs))
+		Log(s, _renderString("Got Output			= %q", output))
+		Log(s, _renderString("Got Panic			= %q", panick))
 
 		// assert
 		if !testlib_AssertPanic(s, panick) {
