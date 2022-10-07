@@ -66,3 +66,6 @@ mod s32_resize_test;
 
 #[cfg(test)]
 mod s16_resize_test;
+
+#[cfg(test)]
+mod s8_resize_test;
