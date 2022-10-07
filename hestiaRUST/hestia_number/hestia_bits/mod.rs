@@ -60,3 +60,6 @@ mod s128_resize_test;
 
 #[cfg(test)]
 mod s64_resize_test;
+
+#[cfg(test)]
+mod s32_resize_test;
