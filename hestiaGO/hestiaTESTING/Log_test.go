@@ -26,110 +26,103 @@ func _testLogScenarios() []*Scenario {
 			Description: `
 Test Log() is able to work properly with proper Scenario settings.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_PROPER_LOG:              true,
-				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_PROPER_SWITCHES,
+				cond_PROPER_STRING_STATEMENT,
 			},
 		}, {
 			Description: `
 Test Log() is able to work properly with empty Name setting.
 `,
-			Switches: map[string]bool{
-				cond_EMPTY_NAME:              true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_PROPER_LOG:              true,
-				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 false,
+			Switches: []string{
+				cond_EMPTY_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_PROPER_SWITCHES,
+				cond_PROPER_STRING_STATEMENT,
 			},
 		}, {
 			Description: `
 Test Log() is able to work properly with empty Switches setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_PROPER_LOG:              true,
-				cond_EMPTY_SWITCHES:          true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_EMPTY_SWITCHES,
+				cond_PROPER_STRING_STATEMENT,
 			},
 		}, {
 			Description: `
 Test Log() is able to work properly with nil Switches setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_PROPER_LOG:              true,
-				cond_NIL_SWITCHES:            true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_NIL_SWITCHES,
+				cond_PROPER_STRING_STATEMENT,
 			},
 		}, {
 			Description: `
 Test Log() is able to work properly with empty log setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_EMPTY_LOG:               true,
-				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_EMPTY_LOG,
+				cond_PROPER_SWITCHES,
+				cond_PROPER_STRING_STATEMENT,
 			},
 		}, {
 			Description: `
 Test Log() is able to work properly with nil log setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_NIL_LOG:                 true,
-				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_NIL_LOG,
+				cond_PROPER_SWITCHES,
+				cond_PROPER_STRING_STATEMENT,
 			},
 		}, {
 			Description: `
 Test Log() is able to work properly with empty description setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_EMPTY_DESCRIPTION:       true,
-				cond_NIL_LOG:                 true,
-				cond_PROPER_SWITCHES:         true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_EMPTY_DESCRIPTION,
+				cond_NIL_LOG,
+				cond_PROPER_SWITCHES,
+				cond_PROPER_STRING_STATEMENT,
 			},
 		}, {
 			Description: `
 Test Log() is able to panic when nil Scenario is supplied.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:             true,
-				cond_PROPER_DESCRIPTION:      true,
-				cond_PROPER_LOG:              true,
-				cond_PROPER_SWITCHES:         true,
-				cond_SUPPLY_NIL_SCENARIO:     true,
-				cond_PROPER_STRING_STATEMENT: true,
-				expect_PANIC:                 true,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_PROPER_SWITCHES,
+				cond_SUPPLY_NIL_SCENARIO,
+				cond_PROPER_STRING_STATEMENT,
+				expect_PANIC,
 			},
 		}, {
 			Description: `
 Test Log() is able to panic with empty string statement setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:            true,
-				cond_PROPER_DESCRIPTION:     true,
-				cond_PROPER_LOG:             true,
-				cond_PROPER_SWITCHES:        true,
-				cond_EMPTY_STRING_STATEMENT: true,
-				expect_PANIC:                true,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_PROPER_SWITCHES,
+				cond_EMPTY_STRING_STATEMENT,
+				expect_PANIC,
 			},
 		},
 	}
@@ -153,7 +146,7 @@ func TestLogAPI(t *testing.T) {
 
 		// test
 		_panick := Exec(func() any {
-			if !s.Switches[cond_SUPPLY_NIL_SCENARIO] {
+			if !HasCondition(s, cond_SUPPLY_NIL_SCENARIO) {
 				Log(ts, statement)
 			} else {
 				Log(nil, statement)

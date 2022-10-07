@@ -20,7 +20,7 @@ type Scenario struct {
 	ID          uint64
 	Name        string
 	Description string
-	Switches    map[string]bool
+	Switches    []string
 	Logs        []string
 
 	verdict Verdict
@@ -28,7 +28,7 @@ type Scenario struct {
 
 func (s *Scenario) Init() {
 	if s.Switches == nil {
-		s.Switches = map[string]bool{}
+		s.Switches = []string{}
 	}
 
 	if s.Logs == nil {

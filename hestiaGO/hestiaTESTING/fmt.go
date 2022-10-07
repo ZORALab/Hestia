@@ -29,14 +29,6 @@ func _renderString(format string, args ...any) string {
 	return fmt.Sprintf(format, args...)
 }
 
-func _renderBool(input bool) string {
-	if input {
-		return "true"
-	}
-
-	return "false"
-}
-
 func _renderNumber(number, base uint64) (out string) {
 	var i int
 	var x uint64

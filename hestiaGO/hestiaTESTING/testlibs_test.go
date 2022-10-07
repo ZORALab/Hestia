@@ -89,30 +89,31 @@ const (
 
 func testlib_AssertOutputString(s *Scenario, output string) bool {
 	if output != "" {
-		return s.Switches[expect_OUTPUT_STRING]
+		return HasCondition(s, expect_OUTPUT_STRING)
 	}
 
-	return !s.Switches[expect_OUTPUT_STRING]
+	return !HasCondition(s, expect_OUTPUT_STRING)
 }
 
 func testlib_AssertPanic(s *Scenario, panick string) bool {
 	if panick != "" {
-		return s.Switches[expect_PANIC]
+		return HasCondition(s, expect_PANIC)
 	}
 
-	return !s.Switches[expect_PANIC]
+	return !HasCondition(s, expect_PANIC)
 }
 
 func testlib_AssertConclude(s, ts *Scenario) bool {
 	switch {
 	case ts.verdict == value_DEFAULT_VERDICT:
-		return s.Switches[cond_SUPPLY_NIL_SCENARIO] || s.Switches[expect_PANIC]
+		return HasCondition(s, cond_SUPPLY_NIL_SCENARIO) ||
+			HasCondition(s, expect_PANIC)
 	case ts.verdict == VERDICT_PASS:
-		return s.Switches[cond_PROPER_VERDICT]
+		return HasCondition(s, cond_PROPER_VERDICT)
 	case ts.verdict == VERDICT_FAIL:
-		return s.Switches[cond_FAIL_VERDICT]
+		return HasCondition(s, cond_FAIL_VERDICT)
 	case ts.verdict == VERDICT_SKIP:
-		return s.Switches[cond_SKIP_VERDICT]
+		return HasCondition(s, cond_SKIP_VERDICT)
 	}
 
 	return false
@@ -120,11 +121,11 @@ func testlib_AssertConclude(s, ts *Scenario) bool {
 
 func testlib_GenerateVerdict(s *Scenario) Verdict {
 	switch {
-	case s.Switches[cond_PROPER_VERDICT]:
+	case HasCondition(s, cond_PROPER_VERDICT):
 		return VERDICT_PASS
-	case s.Switches[cond_FAIL_VERDICT]:
+	case HasCondition(s, cond_FAIL_VERDICT):
 		return VERDICT_FAIL
-	case s.Switches[cond_SKIP_VERDICT]:
+	case HasCondition(s, cond_SKIP_VERDICT):
 		return VERDICT_SKIP
 	default:
 		return priv_VERDICT_UNKNOWN
@@ -134,11 +135,12 @@ func testlib_GenerateVerdict(s *Scenario) Verdict {
 func testlib_AssertConclusion(s *Scenario, output Verdict) bool {
 	switch {
 	case output == priv_VERDICT_UNKNOWN:
-		return s.Switches[cond_UNKNOWN_VERDICT]
+		return HasCondition(s, cond_UNKNOWN_VERDICT)
 	case output == VERDICT_PASS:
-		return s.Switches[cond_PROPER_VERDICT]
+		return HasCondition(s, cond_PROPER_VERDICT)
 	case output == VERDICT_SKIP:
-		if !s.Switches[cond_PROPER_VERDICT] || s.Switches[cond_SUPPLY_NIL_SCENARIO] {
+		if !HasCondition(s, cond_PROPER_VERDICT) ||
+			HasCondition(s, cond_SUPPLY_NIL_SCENARIO) {
 			return true
 		}
 	}
@@ -149,21 +151,21 @@ func testlib_AssertConclusion(s *Scenario, output Verdict) bool {
 func testlib_AssertHasExecuted(s *Scenario, output bool) bool {
 	if !output {
 		switch {
-		case s.Switches[cond_SUPPLY_NIL_SCENARIO],
-			s.Switches[cond_UNKNOWN_VERDICT]:
+		case HasCondition(s, cond_SUPPLY_NIL_SCENARIO),
+			HasCondition(s, cond_UNKNOWN_VERDICT):
 			return true
 		}
 	}
 	// is true
 
-	return s.Switches[cond_PROPER_VERDICT]
+	return HasCondition(s, cond_PROPER_VERDICT)
 }
 
 func testlib_ConfigureVerdict(s, ts *Scenario) {
 	switch {
-	case s.Switches[cond_PROPER_VERDICT]:
+	case HasCondition(s, cond_PROPER_VERDICT):
 		ts.verdict = VERDICT_PASS
-	case s.Switches[cond_UNKNOWN_VERDICT]:
+	case HasCondition(s, cond_UNKNOWN_VERDICT):
 		ts.verdict = priv_VERDICT_UNKNOWN
 	default:
 		ts.verdict = VERDICT_PASS
@@ -172,14 +174,14 @@ func testlib_ConfigureVerdict(s, ts *Scenario) {
 
 func testlib_AssertLog(s, ts *Scenario) bool {
 	if ts == nil {
-		return s.Switches[cond_SUPPLY_NIL_SCENARIO]
+		return HasCondition(s, cond_SUPPLY_NIL_SCENARIO)
 	}
 	// ts is now available
 
-	if s.Switches[expect_PANIC] {
+	if HasCondition(s, expect_PANIC) {
 		switch {
-		case s.Switches[cond_EMPTY_STRING_STATEMENT],
-			s.Switches[cond_SUPPLY_NIL_SCENARIO]:
+		case HasCondition(s, cond_EMPTY_STRING_STATEMENT),
+			HasCondition(s, cond_SUPPLY_NIL_SCENARIO):
 			return true
 		}
 	}
@@ -193,7 +195,7 @@ func testlib_AssertLog(s, ts *Scenario) bool {
 	for _, v := range ts.Logs {
 		switch v {
 		case value_STATEMENT_1:
-			return s.Switches[cond_PROPER_STRING_STATEMENT]
+			return HasCondition(s, cond_PROPER_STRING_STATEMENT)
 		default:
 			continue
 		}
@@ -204,9 +206,9 @@ func testlib_AssertLog(s, ts *Scenario) bool {
 
 func testlib_CreateStringStatement(s *Scenario) string {
 	switch {
-	case s.Switches[cond_PROPER_STRING_STATEMENT]:
+	case HasCondition(s, cond_PROPER_STRING_STATEMENT):
 		return value_STATEMENT_1
-	case s.Switches[cond_EMPTY_STRING_STATEMENT]:
+	case HasCondition(s, cond_EMPTY_STRING_STATEMENT):
 		return ""
 	}
 
@@ -215,43 +217,43 @@ func testlib_CreateStringStatement(s *Scenario) string {
 
 func testlib_ConfigureName(s *Scenario, ts *Scenario) {
 	switch {
-	case s.Switches[cond_PROPER_NAME]:
+	case HasCondition(s, cond_PROPER_NAME):
 		ts.Name = value_NAME_PROPER
-	case s.Switches[cond_EMPTY_NAME]:
+	case HasCondition(s, cond_EMPTY_NAME):
 		ts.Name = ""
 	}
 }
 
 func testlib_ConfigureDescription(s *Scenario, ts *Scenario) {
 	switch {
-	case s.Switches[cond_PROPER_DESCRIPTION]:
+	case HasCondition(s, cond_PROPER_DESCRIPTION):
 		ts.Description = value_DESCRIPTION_PROPER
-	case s.Switches[cond_EMPTY_DESCRIPTION]:
+	case HasCondition(s, cond_EMPTY_DESCRIPTION):
 		ts.Description = ""
 	}
 }
 
 func testlib_ConfigureLog(s *Scenario, ts *Scenario) {
 	switch {
-	case s.Switches[cond_PROPER_LOG]:
+	case HasCondition(s, cond_PROPER_LOG):
 		ts.Logs = []string{value_LOG_LINE_1, value_LOG_LINE_2}
-	case s.Switches[cond_EMPTY_LOG]:
+	case HasCondition(s, cond_EMPTY_LOG):
 		ts.Logs = []string{}
-	case s.Switches[cond_NIL_LOG]:
+	case HasCondition(s, cond_NIL_LOG):
 		ts.Logs = nil
 	}
 }
 
 func testlib_ConfigureSwitches(s *Scenario, ts *Scenario) {
 	switch {
-	case s.Switches[cond_PROPER_SWITCHES]:
-		ts.Switches = map[string]bool{
-			value_SWITCH_1: true,
-			value_SWITCH_2: false,
+	case HasCondition(s, cond_PROPER_SWITCHES):
+		ts.Switches = []string{
+			value_SWITCH_1,
+			value_SWITCH_2,
 		}
-	case s.Switches[cond_EMPTY_SWITCHES]:
-		ts.Switches = map[string]bool{}
-	case s.Switches[cond_NIL_SWITCHES]:
+	case HasCondition(s, cond_EMPTY_SWITCHES):
+		ts.Switches = []string{}
+	case HasCondition(s, cond_NIL_SWITCHES):
 		ts.Switches = nil
 	}
 }

@@ -26,98 +26,101 @@ func _testToTOMLScenarios() []*Scenario {
 			Description: `
 Test ToTOML() is able to work properly with proper Scenario settings.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:        true,
-				cond_PROPER_DESCRIPTION: true,
-				cond_PROPER_LOG:         true,
-				cond_PROPER_SWITCHES:    true,
-				expect_OUTPUT_STRING:    true,
-				expect_PANIC:            false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_PROPER_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		}, {
 			Description: `
 Test ToTOML() is able to work properly with empty Name setting.
 `,
-			Switches: map[string]bool{
-				cond_EMPTY_NAME:         true,
-				cond_PROPER_DESCRIPTION: true,
-				cond_PROPER_LOG:         true,
-				cond_PROPER_SWITCHES:    true,
-				expect_OUTPUT_STRING:    true,
-				expect_PANIC:            false,
+			Switches: []string{
+				cond_EMPTY_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_PROPER_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		}, {
 			Description: `
 Test ToTOML() is able to work properly with empty Switches setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:        true,
-				cond_PROPER_DESCRIPTION: true,
-				cond_PROPER_LOG:         true,
-				cond_EMPTY_SWITCHES:     true,
-				expect_OUTPUT_STRING:    true,
-				expect_PANIC:            false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_EMPTY_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		}, {
 			Description: `
 Test ToTOML() is able to work properly with nil Switches setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:        true,
-				cond_PROPER_DESCRIPTION: true,
-				cond_PROPER_LOG:         true,
-				cond_NIL_SWITCHES:       true,
-				expect_OUTPUT_STRING:    true,
-				expect_PANIC:            false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_NIL_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		}, {
 			Description: `
 Test ToTOML() is able to work properly with empty log setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:        true,
-				cond_PROPER_DESCRIPTION: true,
-				cond_EMPTY_LOG:          true,
-				cond_PROPER_SWITCHES:    true,
-				expect_OUTPUT_STRING:    true,
-				expect_PANIC:            false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_EMPTY_LOG,
+				cond_PROPER_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		}, {
 			Description: `
 Test ToTOML() is able to work properly with nil log setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:        true,
-				cond_PROPER_DESCRIPTION: true,
-				cond_NIL_LOG:            true,
-				cond_PROPER_SWITCHES:    true,
-				expect_OUTPUT_STRING:    true,
-				expect_PANIC:            false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_NIL_LOG,
+				cond_PROPER_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		}, {
 			Description: `
 Test ToTOML() is able to work properly with empty description setting.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:       true,
-				cond_EMPTY_DESCRIPTION: true,
-				cond_NIL_LOG:           true,
-				cond_PROPER_SWITCHES:   true,
-				expect_OUTPUT_STRING:   true,
-				expect_PANIC:           false,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_EMPTY_DESCRIPTION,
+				cond_NIL_LOG,
+				cond_PROPER_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		}, {
 			Description: `
 Test ToTOML() is able to panic when nil Scenario is supplied.
 `,
-			Switches: map[string]bool{
-				cond_PROPER_NAME:         true,
-				cond_PROPER_DESCRIPTION:  true,
-				cond_PROPER_LOG:          true,
-				cond_PROPER_SWITCHES:     true,
-				cond_SUPPLY_NIL_SCENARIO: true,
-				expect_OUTPUT_STRING:     false,
-				expect_PANIC:             true,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_PROPER_LOG,
+				cond_PROPER_SWITCHES,
+				cond_SUPPLY_NIL_SCENARIO,
+				expect_PANIC,
+			},
+		}, {
+			Description: `
+Test ToTOML() is able to work properly with empty Switches and empty Log setting.
+`,
+			Switches: []string{
+				cond_PROPER_NAME,
+				cond_PROPER_DESCRIPTION,
+				cond_EMPTY_LOG,
+				cond_EMPTY_SWITCHES,
+				expect_OUTPUT_STRING,
 			},
 		},
 	}
@@ -140,7 +143,7 @@ func TestToTOMLAPI(t *testing.T) {
 		// test
 		output := ""
 		_panick := Exec(func() any {
-			if !s.Switches[cond_SUPPLY_NIL_SCENARIO] {
+			if !HasCondition(s, cond_SUPPLY_NIL_SCENARIO) {
 				output = ToTOML(ts)
 			} else {
 				output = ToTOML(nil)

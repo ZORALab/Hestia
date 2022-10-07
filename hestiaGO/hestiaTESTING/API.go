@@ -42,6 +42,22 @@ func Exec(function func() any) (out any) {
 	return out
 }
 
+func HasCondition(s *Scenario, condition string) bool {
+	if s == nil {
+		panic("calling hestiaTESTING.HasExecuted without providing Scenario!")
+	}
+
+	s.Init()
+
+	for _, v := range s.Switches {
+		if v == condition {
+			return true
+		}
+	}
+
+	return false
+}
+
 func HasExecuted(s *Scenario) bool {
 	if s == nil {
 		panic("calling hestiaTESTING.HasExecuted without providing Scenario!")
@@ -97,9 +113,11 @@ func ToString(s *Scenario) (output string) {
 
 	// render switches
 	output += title_SWITCHES_STRING
-	for k, v := range s.Switches {
-		output += open_SWITCH_STRING + _renderBool(v) + close_SWITCH_STRING +
-			__trimWhitespace(k) +
+	for i, v := range s.Switches {
+		output += open_SWITCH_STRING +
+			_renderNumber(uint64(i), 10) +
+			close_SWITCH_STRING +
+			__trimWhitespace(v) +
 			end_SWITCH_STRING
 	}
 	output += end_SWITCHES_STRING
@@ -119,8 +137,6 @@ func ToString(s *Scenario) (output string) {
 }
 
 func ToTOML(s *Scenario) (output string) {
-	var first bool
-
 	_checkBeforeRender(s, "TOML")
 
 	// render header
@@ -129,27 +145,23 @@ func ToTOML(s *Scenario) (output string) {
 	output += title_VERDICT_TOML + Interpret(s.verdict) + end_VERDICT_TOML
 	output += title_NAME_TOML + s.Name + end_NAME_TOML
 	output += title_DESCRIPTION_TOML + s.Description + end_DESCRIPTION_TOML
-	if len(s.Logs) == 0 {
-		output += title_LOG_EMPTY_TOML
-	}
 
 	// render Switches
-	output += title_SWITCHES_TOML
-	first = true
-	for k, v := range s.Switches {
-		if !first {
-			output += char_NEW_LINE
+	if len(s.Switches) == 0 {
+		output += empty_SWITCHES_TOML
+	} else {
+		for _, v := range s.Switches {
+			output += title_SWITCH_TOML + __trimWhitespace(v) + end_SWITCH_TOML
 		}
-		output += escapeQUOTE_TOML +
-			__trimWhitespace(k) +
-			field_SWITCH_TOML +
-			_renderBool(v)
-		first = false
 	}
 
-	// render Log if available
-	if len(s.Logs) > 0 {
-		output += char_NEW_LINE
+	// render Log
+	switch {
+	case len(s.Logs) == 0 && len(s.Switches) == 0:
+		output += empty_LOG_WITH_EMPTY_SWITCHES_TOML
+	case len(s.Logs) == 0:
+		output += empty_LOG_TOML
+	default:
 		for _, v := range s.Logs {
 			output += title_LOG_TOML + __trimWhitespace(v) + end_LOG_TOML
 		}
