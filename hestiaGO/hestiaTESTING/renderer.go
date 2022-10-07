@@ -46,7 +46,7 @@ const (
 	close_LOG_STRING = "]\n"
 	end_LOG_STRING   = "\n\n"
 
-	footer_STRING = "═══[ END ]═══" + "\n" + "\n"
+	footer_STRING = "═══[ END ]═══\n\n\n"
 )
 
 // toml

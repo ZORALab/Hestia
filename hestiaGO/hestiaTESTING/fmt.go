@@ -25,7 +25,7 @@ const (
 	char_DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
 
-func _renderString(format string, args ...any) string {
+func _format(format string, args ...any) string {
 	return fmt.Sprintf(format, args...)
 }
 

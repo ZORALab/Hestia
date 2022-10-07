@@ -178,8 +178,8 @@ func TestConcludeAPI(t *testing.T) {
 		panick := _panick.(string)
 
 		// log output
-		Log(s, _renderString("Test Scenario's Verdict	= %#v", ts.verdict))
-		Log(s, _renderString("Got Panic			= %q", panick))
+		Log(s, _format("Test Scenario's Verdict	= %#v", ts.verdict))
+		Log(s, _format("Got Panic			= %q", panick))
 
 		// assert
 		if !testlib_AssertPanic(s, panick) {
@@ -197,6 +197,6 @@ func TestConcludeAPI(t *testing.T) {
 		}
 
 		// report
-		t.Logf("\n%s\n\n\n", ToString(s))
+		t.Logf("%s", ToString(s))
 	}
 }
