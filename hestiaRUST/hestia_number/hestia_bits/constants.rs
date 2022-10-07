@@ -14,17 +14,17 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-pub const MAX_UINT8: u128 = 1 << 8 - 1;
-pub const MAX_UINT16: u128 = 1 << 16 - 1;
-pub const MAX_UINT32: u128 = 1 << 32 - 1;
-pub const MAX_UINT64: u128 = 1 << 64 - 1;
-pub const MAX_UINT128: u128 = 1 << 128 - 1;
+pub const MAX_UINT8: u128 = (1 << 8) - 1;
+pub const MAX_UINT16: u128 = (1 << 16) - 1;
+pub const MAX_UINT32: u128 = (1 << 32) - 1;
+pub const MAX_UINT64: u128 = (1 << 64) - 1;
+pub const MAX_UINT128: u128 = !0;
 
-pub const MAX_INT8: u128 = 1 << 7 - 1;
-pub const MAX_INT16: u128 = 1 << 15 - 1;
-pub const MAX_INT32: u128 = 1 << 31 - 1;
-pub const MAX_INT64: u128 = 1 << 63 - 1;
-pub const MAX_INT128: u128 = 1 << 127 - 1;
+pub const MAX_INT8: u128 = (1 << 7) - 1;
+pub const MAX_INT16: u128 = (1 << 15) - 1;
+pub const MAX_INT32: u128 = (1 << 31) - 1;
+pub const MAX_INT64: u128 = (1 << 63) - 1;
+pub const MAX_INT128: u128 = (1 << 127) - 1;
 
 pub const MIN_INT8: i128 = -1 << 7;
 pub const MIN_INT16: i128 = -1 << 15;

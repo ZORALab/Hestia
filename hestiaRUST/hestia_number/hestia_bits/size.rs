@@ -13,13 +13,13 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
-
 use crate::hestia_error::Error;
 use crate::hestia_number::hestia_bits::constants;
 
 pub fn s128_resize(input: &mut u128, size: u16, with_sign: bool) -> Error {
-	let mask: u128;
+	let mut mask: u128;
 
+	// mask to register
 	if size > 128 {
 		return Error::OutOfRange;
 	} else if size == 0 {
@@ -58,12 +58,19 @@ pub fn s128_resize(input: &mut u128, size: u16, with_sign: bool) -> Error {
 	}
 
 	*input = *input & mask;
+	if size == 8 || size == 16 || size == 32 || size == 64 || size == 128 {
+		return Error::Ok;
+	}
+
+	// mask to percise size
+	mask = (1 << size) - 1;
+	*input = *input & mask;
 
 	return Error::Ok;
 }
 
 pub fn s64_resize(input: &mut u64, size: u16, with_sign: bool) -> Error {
-	let mask: u64;
+	let mut mask: u64;
 
 	if size > 64 {
 		return Error::OutOfRange;
@@ -97,12 +104,19 @@ pub fn s64_resize(input: &mut u64, size: u16, with_sign: bool) -> Error {
 	}
 
 	*input = *input & mask;
+	if size == 8 || size == 16 || size == 32 || size == 64 {
+		return Error::Ok;
+	}
+
+	// mask to percise size
+	mask = (1 << size) - 1;
+	*input = *input & mask;
 
 	return Error::Ok;
 }
 
 pub fn s32_resize(input: &mut u32, size: u16, with_sign: bool) -> Error {
-	let mask: u32;
+	let mut mask: u32;
 
 	if size > 32 {
 		return Error::OutOfRange;
@@ -130,12 +144,19 @@ pub fn s32_resize(input: &mut u32, size: u16, with_sign: bool) -> Error {
 	}
 
 	*input = *input & mask;
+	if size == 8 || size == 16 || size == 32 {
+		return Error::Ok;
+	}
+
+	// mask to percise size
+	mask = (1 << size) - 1;
+	*input = *input & mask;
 
 	return Error::Ok;
 }
 
 pub fn s16_resize(input: &mut u16, size: u16, with_sign: bool) -> Error {
-	let mask: u16;
+	let mut mask: u16;
 
 	if size > 16 {
 		return Error::OutOfRange;
@@ -157,12 +178,19 @@ pub fn s16_resize(input: &mut u16, size: u16, with_sign: bool) -> Error {
 	}
 
 	*input = *input & mask;
+	if size == 8 || size == 16 {
+		return Error::Ok;
+	}
+
+	// mask to percise size
+	mask = (1 << size) - 1;
+	*input = *input & mask;
 
 	return Error::Ok;
 }
 
 pub fn s8_resize(input: &mut u8, size: u16, with_sign: bool) -> Error {
-	let mask: u8;
+	let mut mask: u8;
 
 	if size > 8 {
 		return Error::OutOfRange;
@@ -177,6 +205,13 @@ pub fn s8_resize(input: &mut u8, size: u16, with_sign: bool) -> Error {
 		}
 	}
 
+	*input = *input & mask;
+	if size == 8 {
+		return Error::Ok;
+	}
+
+	// mask to percise size
+	mask = (1 << size) - 1;
 	*input = *input & mask;
 
 	return Error::Ok;

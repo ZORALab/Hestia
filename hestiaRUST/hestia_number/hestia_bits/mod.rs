@@ -54,3 +54,6 @@ mod s16_trailing_zeros_test;
 
 #[cfg(test)]
 mod s8_trailing_zeros_test;
+
+#[cfg(test)]
+mod s128_resize_test;
