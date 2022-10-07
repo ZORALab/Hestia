@@ -20,18 +20,14 @@ use crate::hestia_testing;
 // test suites
 const SUITE_NAME: &str = "hestia_number::hestia_bits::s8_trailing_zeros API";
 
-// test conditions
-
-// test values
-
 // test libs
 fn assert_output(s: &hestia_testing::Scenario, output: u8) -> bool {
 	if hestia_testing::has_condition(s, testlibs_test::COND_BITS_8) {
-		return output == testlibs_test::VALUE_TYPE_8_BITS_8_COUNT - 1;
+		return output == testlibs_test::VALUE_BITS_8_COUNT as u8 - 1;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_BITS_0) {
-		return output == testlibs_test::VALUE_TYPE_8_BITS_0_COUNT;
+		return output == testlibs_test::VALUE_BITS_0_COUNT as u8;
 	}
 
 	return false;
@@ -46,11 +42,11 @@ fn test_s8_trailing_zeros_algorithm(id: u64, desc: String, switches: Vec<String>
 	s.switches = switches;
 
 	// test
-	let subject: u8 = testlibs_test::create_u8(s);
+	let subject: u8 = testlibs_test::create_sample(s) as u8;
 	let output: u8 = hestia_bits::s8_trailing_zeros(subject);
 
-	hestia_testing::log(s, format!("Given subject: '''\n{}\n'''", subject));
-	hestia_testing::log(s, format!("Got output: '''\n{}\n'''", output));
+	hestia_testing::log(s, format!("Given subject: '{}'", subject));
+	hestia_testing::log(s, format!("Got output: '{}'", output));
 
 	// assert
 	hestia_testing::conclude(s, hestia_testing::VERDICT_PASS);

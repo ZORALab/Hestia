@@ -20,26 +20,22 @@ use crate::hestia_testing;
 // test suites
 const SUITE_NAME: &str = "hestia_number::hestia_bits::s32_length API";
 
-// test conditions
-
-// test values
-
 // test libs
 fn assert_output(s: &hestia_testing::Scenario, output: u32) -> bool {
 	if hestia_testing::has_condition(s, testlibs_test::COND_BITS_32) {
-		return output == testlibs_test::VALUE_TYPE_32_BITS_32_COUNT;
+		return output == testlibs_test::VALUE_BITS_32_COUNT as u32;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_BITS_16) {
-		return output == testlibs_test::VALUE_TYPE_32_BITS_16_COUNT;
+		return output == testlibs_test::VALUE_BITS_16_COUNT as u32;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_BITS_8) {
-		return output == testlibs_test::VALUE_TYPE_32_BITS_8_COUNT;
+		return output == testlibs_test::VALUE_BITS_8_COUNT as u32;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_BITS_0) {
-		return output == testlibs_test::VALUE_TYPE_32_BITS_0_COUNT;
+		return output == testlibs_test::VALUE_BITS_0_COUNT as u32;
 	}
 
 	return false;
@@ -54,11 +50,11 @@ fn test_s32_length_algorithm(id: u64, desc: String, switches: Vec<String>) {
 	s.switches = switches;
 
 	// test
-	let subject: u32 = testlibs_test::create_u32(s);
+	let subject: u32 = testlibs_test::create_sample(s) as u32;
 	let output: u32 = hestia_bits::s32_length(subject);
 
-	hestia_testing::log(s, format!("Given subject: '''\n{}\n'''", subject));
-	hestia_testing::log(s, format!("Got output: '''\n{}\n'''", output));
+	hestia_testing::log(s, format!("Given subject: '{}'", subject));
+	hestia_testing::log(s, format!("Got output: '{}'", output));
 
 	// assert
 	hestia_testing::conclude(s, hestia_testing::VERDICT_PASS);
@@ -72,7 +68,7 @@ fn test_s32_length_algorithm(id: u64, desc: String, switches: Vec<String>) {
 }
 
 // test suites
-hestia_testing_exec!(test_s32_len_bits_0, {
+hestia_testing_exec!(test_s32_length_bits_0, {
 	test_s32_length_algorithm(
 		3,
 		"\
@@ -83,7 +79,7 @@ test hestia_number::hestia_bits::s32_length() is able to process 0-bits value.
 	)
 });
 
-hestia_testing_exec!(test_s32_len_bits_8, {
+hestia_testing_exec!(test_s32_length_bits_8, {
 	test_s32_length_algorithm(
 		2,
 		"\
@@ -94,7 +90,7 @@ test hestia_number::hestia_bits::s32_length() is able to process 8-bits value.
 	)
 });
 
-hestia_testing_exec!(test_s32_len_bits_16, {
+hestia_testing_exec!(test_s32_length_bits_16, {
 	test_s32_length_algorithm(
 		1,
 		"\
@@ -105,7 +101,7 @@ test hestia_number::hestia_bits::s32_length() is able to process 16-bits value.
 	)
 });
 
-hestia_testing_exec!(test_s32_len_bits_32, {
+hestia_testing_exec!(test_s32_length_bits_32, {
 	test_s32_length_algorithm(
 		0,
 		"\

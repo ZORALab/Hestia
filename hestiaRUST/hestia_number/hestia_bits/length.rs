@@ -13,7 +13,6 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
-
 use crate::hestia_number::hestia_bits::constants;
 
 pub fn s128_trailing_zeros(x: u128) -> u128 {

@@ -56,7 +56,7 @@ fn assert_output(s: &hestia_testing::Scenario, output: u32) -> bool {
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_22) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_22 as u32;
+		return output == testlibs_test::VALUE_MASKED_BITS_22 as u32;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_16) {
@@ -68,7 +68,7 @@ fn assert_output(s: &hestia_testing::Scenario, output: u32) -> bool {
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_12) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_12 as u32;
+		return output == testlibs_test::VALUE_MASKED_BITS_12 as u32;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_8) {
@@ -80,7 +80,7 @@ fn assert_output(s: &hestia_testing::Scenario, output: u32) -> bool {
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_5) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_5 as u32;
+		return output == testlibs_test::VALUE_MASKED_BITS_5 as u32;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_0) {

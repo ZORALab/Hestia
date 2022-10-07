@@ -13,7 +13,6 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
-
 pub const MAX_UINT8: u128 = (1 << 8) - 1;
 pub const MAX_UINT16: u128 = (1 << 16) - 1;
 pub const MAX_UINT32: u128 = (1 << 32) - 1;

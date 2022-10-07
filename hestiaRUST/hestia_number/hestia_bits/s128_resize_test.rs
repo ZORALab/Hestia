@@ -47,59 +47,59 @@ fn assert_error(s: &hestia_testing::Scenario, err: Error) -> bool {
 
 fn assert_output(s: &hestia_testing::Scenario, output: u128) -> bool {
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_1000) {
-		return output == constants::MAX_UINT128;
+		return output == constants::MAX_UINT128 as u128;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_72) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_72;
+		return output == testlibs_test::VALUE_MASKED_BITS_72 as u128;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_64) {
 		if hestia_testing::has_condition(s, testlibs_test::COND_TO_SIGNED) {
-			return output == constants::MAX_INT64;
+			return output == constants::MAX_INT64 as u128;
 		} else {
-			return output == constants::MAX_UINT64;
+			return output == constants::MAX_UINT64 as u128;
 		}
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_35) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_35;
+		return output == testlibs_test::VALUE_MASKED_BITS_35 as u128;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_32) {
 		if hestia_testing::has_condition(s, testlibs_test::COND_TO_SIGNED) {
-			return output == constants::MAX_INT32;
+			return output == constants::MAX_INT32 as u128;
 		} else {
-			return output == constants::MAX_UINT32;
+			return output == constants::MAX_UINT32 as u128;
 		}
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_22) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_22;
+		return output == testlibs_test::VALUE_MASKED_BITS_22 as u128;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_16) {
 		if hestia_testing::has_condition(s, testlibs_test::COND_TO_SIGNED) {
-			return output == constants::MAX_INT16;
+			return output == constants::MAX_INT16 as u128;
 		} else {
-			return output == constants::MAX_UINT16;
+			return output == constants::MAX_UINT16 as u128;
 		}
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_12) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_12;
+		return output == testlibs_test::VALUE_MASKED_BITS_12 as u128;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_8) {
 		if hestia_testing::has_condition(s, testlibs_test::COND_TO_SIGNED) {
-			return output == constants::MAX_INT8;
+			return output == constants::MAX_INT8 as u128;
 		} else {
-			return output == constants::MAX_UINT8;
+			return output == constants::MAX_UINT8 as u128;
 		}
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_5) {
-		return output == testlibs_test::VALUE_TYPE_128_BITS_5;
+		return output == testlibs_test::VALUE_MASKED_BITS_5 as u128;
 	}
 
 	if hestia_testing::has_condition(s, testlibs_test::COND_TO_BITS_0) {
