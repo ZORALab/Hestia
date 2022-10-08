@@ -15,91 +15,6 @@
 // the License.
 use crate::hestia_number::hestia_bits::constants;
 
-pub fn s128_trailing_zeros(x: u128) -> u128 {
-	if x == 0 {
-		return 0;
-	}
-
-	let mut count: u128;
-	let mut buffer: u128 = x;
-
-	count = 0;
-	while (buffer & 1) == 0 {
-		buffer = buffer >> 1;
-		count = count + 1;
-	}
-
-	return count;
-}
-
-pub fn s64_trailing_zeros(x: u64) -> u64 {
-	if x == 0 {
-		return 0;
-	}
-
-	let mut count: u64;
-	let mut buffer: u64 = x;
-
-	count = 0;
-	while (buffer & 1) == 0 {
-		buffer = buffer >> 1;
-		count = count + 1;
-	}
-
-	return count;
-}
-
-pub fn s32_trailing_zeros(x: u32) -> u32 {
-	if x == 0 {
-		return 0;
-	}
-
-	let mut count: u32;
-	let mut buffer: u32 = x;
-
-	count = 0;
-	while (buffer & 1) == 0 {
-		buffer = buffer >> 1;
-		count = count + 1;
-	}
-
-	return count;
-}
-
-pub fn s16_trailing_zeros(x: u16) -> u16 {
-	if x == 0 {
-		return 0;
-	}
-
-	let mut count: u16;
-	let mut buffer: u16 = x;
-
-	count = 0;
-	while (buffer & 1) == 0 {
-		buffer = buffer >> 1;
-		count = count + 1;
-	}
-
-	return count;
-}
-
-pub fn s8_trailing_zeros(x: u8) -> u8 {
-	if x == 0 {
-		return 0;
-	}
-
-	let mut count: u8;
-	let mut buffer: u8 = x;
-
-	count = 0;
-	while (buffer & 1) == 0 {
-		buffer = buffer >> 1;
-		count = count + 1;
-	}
-
-	return count;
-}
-
 pub fn s128_length(x: u128) -> u128 {
 	if x == 0 {
 		return 0;
@@ -123,7 +38,7 @@ pub fn s128_length(x: u128) -> u128 {
 		}
 
 		b = c;
-		i = i + 1;
+		i = i << 1;
 	}
 
 	a = 0;
@@ -158,7 +73,7 @@ pub fn s64_length(x: u64) -> u64 {
 		}
 
 		b = c;
-		i = i + 1;
+		i = i << 1;
 	}
 
 	a = 0;
@@ -193,7 +108,7 @@ pub fn s32_length(x: u32) -> u32 {
 		}
 
 		b = c;
-		i = i + 1;
+		i = i << 1;
 	}
 
 	a = 0;
@@ -228,7 +143,7 @@ pub fn s16_length(x: u16) -> u16 {
 		}
 
 		b = c;
-		i = i + 1;
+		i = i << 1;
 	}
 
 	a = 0;
@@ -263,7 +178,7 @@ pub fn s8_length(x: u8) -> u8 {
 		}
 
 		b = c;
-		i = i + 1;
+		i = i << 1;
 	}
 
 	a = 0;

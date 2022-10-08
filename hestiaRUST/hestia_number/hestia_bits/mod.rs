@@ -19,6 +19,9 @@ pub use constants::*;
 pub mod length;
 pub use length::*;
 
+pub mod trailing_zeros;
+pub use trailing_zeros::*;
+
 pub mod size;
 pub use size::*;
 

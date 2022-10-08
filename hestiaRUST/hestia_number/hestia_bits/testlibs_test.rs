@@ -120,23 +120,23 @@ pub fn create_size(s: &hestia_testing::Scenario) -> u16 {
 
 pub fn create_sample(s: &hestia_testing::Scenario) -> u128 {
 	if hestia_testing::has_condition(s, COND_BITS_128) {
-		return 1 << 127;
+		return 1 << (128 - 1);
 	}
 
 	if hestia_testing::has_condition(s, COND_BITS_64) {
-		return 1 << 63;
+		return 1 << (64 - 1);
 	}
 
 	if hestia_testing::has_condition(s, COND_BITS_32) {
-		return 1 << 31;
+		return 1 << (32 - 1);
 	}
 
 	if hestia_testing::has_condition(s, COND_BITS_16) {
-		return 1 << 15;
+		return 1 << (16 - 1);
 	}
 
 	if hestia_testing::has_condition(s, COND_BITS_8) {
-		return 1 << 7;
+		return 1 << (8 - 1);
 	}
 
 	if hestia_testing::has_condition(s, COND_BITS_0) {

@@ -16,38 +16,57 @@
 
 package hestiaBITS
 
-import (
-	"hestia/hestiaNUMBER"
-)
+func S64_TrailingZeros(x uint64) uint64 {
+	var count uint64
 
-func Len(x uint) uint {
-	var i, a, b uint
-
-	// loop through bit shifting to find the highest bit
-	for i = 1; i <= hestiaNUMBER.MAX_UINT64; i <<= 1 {
-		x |= (x >> i)
-
-		a = x ^ (x >> 1)
-		if a == b {
-			// max bit reached
-			break
-		}
-
-		b = a
+	if x == 0 {
+		return 0
 	}
 
-	// convert back to decimal counting value
-	a = 0
-	for b != 0 {
-		a++
-		b >>= 1
+	for (x & 1) == 0 {
+		x >>= 1
+		count++
 	}
 
-	return a
+	return count
 }
 
-func TrailingZero(x uint) uint {
-	var count uint
+func S32_TrailingZeros(x uint32) uint32 {
+	var count uint32
+
+	if x == 0 {
+		return 0
+	}
+
+	for (x & 1) == 0 {
+		x >>= 1
+		count++
+	}
+
+	return count
+}
+
+func S16_TrailingZeros(x uint16) uint16 {
+	var count uint16
+
+	if x == 0 {
+		return 0
+	}
+
+	for (x & 1) == 0 {
+		x >>= 1
+		count++
+	}
+
+	return count
+}
+
+func S8_TrailingZeros(x uint8) uint8 {
+	var count uint8
+
+	if x == 0 {
+		return 0
+	}
 
 	for (x & 1) == 0 {
 		x >>= 1

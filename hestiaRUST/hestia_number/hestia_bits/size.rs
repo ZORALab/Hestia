@@ -72,6 +72,7 @@ pub fn s128_resize(input: &mut u128, size: u16, with_sign: bool) -> Error {
 pub fn s64_resize(input: &mut u64, size: u16, with_sign: bool) -> Error {
 	let mut mask: u64;
 
+	// mask to register
 	if size > 64 {
 		return Error::OutOfRange;
 	} else if size == 0 {
@@ -118,6 +119,7 @@ pub fn s64_resize(input: &mut u64, size: u16, with_sign: bool) -> Error {
 pub fn s32_resize(input: &mut u32, size: u16, with_sign: bool) -> Error {
 	let mut mask: u32;
 
+	// mask to register
 	if size > 32 {
 		return Error::OutOfRange;
 	} else if size == 0 {
@@ -158,6 +160,7 @@ pub fn s32_resize(input: &mut u32, size: u16, with_sign: bool) -> Error {
 pub fn s16_resize(input: &mut u16, size: u16, with_sign: bool) -> Error {
 	let mut mask: u16;
 
+	// mask to register
 	if size > 16 {
 		return Error::OutOfRange;
 	} else if size == 0 {
@@ -192,6 +195,7 @@ pub fn s16_resize(input: &mut u16, size: u16, with_sign: bool) -> Error {
 pub fn s8_resize(input: &mut u8, size: u16, with_sign: bool) -> Error {
 	let mut mask: u8;
 
+	// mask to register
 	if size > 8 {
 		return Error::OutOfRange;
 	} else if size == 0 {
