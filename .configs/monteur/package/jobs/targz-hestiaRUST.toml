@@ -1,0 +1,90 @@
+[Metadata]
+Name = 'Tar-GZip HestiaRUST'
+Description = """
+Package application into a single .tar.gz package.
+"""
+Type = 'manual'
+
+
+
+
+[Variables]
+Product = 'hestiaRUST'
+LicenseSourcePath = 'licenses/hestia-software-license.pdf'
+
+[FMTVariables]
+LicenseSourceDir = '{{- .RootDir -}}/docs'
+PackageDir = '{{- .WorkingDir -}}/{{- .Product -}}'
+PackagePath = '{{- .WorkingDir -}}/{{- .Product -}}-{{- .App.Version -}}-pack.tar.gz'
+
+
+[[Dependencies]]
+
+
+
+
+[Packages.001]
+OS = [ 'all' ]
+Arch = [ 'all' ]
+Name = '{{- .Product -}}-{{- .PkgVersion -}}'
+Distribution = [
+	'stable',
+]
+BuildSource = false
+
+[Packages.001.Files]
+'{{- .PackageDir -}}/hestia' = '{{- .RootDir -}}/{{- .Product -}}'
+
+
+
+
+[[CMD]]
+Name = 'Delete Existing Packaging Directory if Exists'
+Type = 'delete-recursive-quiet'
+Condition = [ 'all-all' ]
+Source = '{{ .PackageDir -}}'
+
+
+[[CMD]]
+Name = 'Make Packaging Directory for New Packaging Job'
+Type = 'create-path'
+Condition = [ 'all-all' ]
+Source = '{{ .PackageDir -}}'
+
+
+[[CMD]]
+Name = 'Clean Rust Target Directory if Exists'
+Type = 'delete-recursive'
+Condition = [ 'all-all' ]
+Source = '{{- .RootDir -}}/{{- .Product -}}/target'
+
+
+[[CMD]]
+Name = 'Copy Source Product into Packaging Directory'
+Type = 'copy'
+Condition = [ 'all-all' ]
+Source = '{{- .RootDir -}}/{{- .Product -}}'
+Target = '{{- .PackageDir -}}/hestia'
+
+
+[[CMD]]
+Name = 'Copy English License File into Packaging Directory'
+Type = 'copy'
+Condition = [ 'all-all' ]
+Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}'
+Target = '{{- .PackageDir -}}/hestia/License-Code-en.pdf'
+
+
+[[CMD]]
+Name = 'Copy English License Signature File into Packaging Directory'
+Type = 'copy'
+Condition = [ 'all-all' ]
+Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}.asc'
+Target = '{{- .PackageDir -}}/hestia/License-Code-en.pdf.asc'
+
+
+[[CMD]]
+Name = 'Compress into TarGz'
+Type = 'command'
+Condition = [ 'all-all' ]
+Source = 'tar cfzv "{{- .PackagePath -}}" "{{- .PackageDir -}}"'
