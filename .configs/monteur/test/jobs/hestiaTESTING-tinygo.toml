@@ -9,7 +9,7 @@ Using TinyGo testing feature to test out this package with test coverage heatmap
 
 [Variables]
 Package = 'hestiaTESTING'
-ReportDir = 'docs/.static/data/test/go/hestiaTESTING'
+ReportDir = 'archives/data/test/go/hestiaTESTING'
 ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
 PrintAlloc = 'hestia'
 

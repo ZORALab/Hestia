@@ -10,7 +10,7 @@ Using Rust testing feature to test out this package with test coverage heatmap.
 [Variables]
 Module = 'hestia_number::hestia_bits' # Rust's Module Convention
 ModuleDir = 'hestia_number/hestia_bits' # Module directory path
-ReportDir = 'docs/.static/data/test/rust/hestia_number/hestia_bits'
+ReportDir = 'archives/data/test/rust/hestia_number/hestia_bits'
 
 [FMTVariables]
 SubjectDir = '{{- .RootDir -}}/hestiaRUST/{{- .ModuleDir -}}'
