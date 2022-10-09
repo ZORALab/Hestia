@@ -79,6 +79,25 @@ unsigned 8-bits value.
 				cond_TO_BITS_8,
 				cond_TO_UNSIGNED,
 			},
+		}, {
+			Description: `
+test hestiaNUMBER/hestiaBITS/S8_Resize is able to process 8-bits value to
+unsigned 1000-bits value by raising error.
+`,
+			Switches: []string{
+				cond_TO_BITS_1000,
+				cond_TO_UNSIGNED,
+			},
+		}, {
+			Description: `
+test hestiaNUMBER/hestiaBITS/S64_Resize is able to process nil input to
+unsigned 8-bits value by raising error.
+`,
+			Switches: []string{
+				cond_TO_BITS_8,
+				cond_TO_UNSIGNED,
+				cond_NIL_INPUT,
+			},
 		},
 	}
 }
@@ -101,7 +120,12 @@ func Test_S8_Resize(t *testing.T) {
 		hestiaTESTING.Log(s, _format("Given Sign	: %v", sign))
 
 		// test
-		err := S8_Resize(&subject, size, sign)
+		var err hestiaERROR.Error
+		if !hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
+			err = S8_Resize(&subject, size, sign)
+		} else {
+			err = S8_Resize(nil, size, sign)
+		}
 		hestiaTESTING.Log(s, _format("Got Error	: %d", err))
 
 		// assert
@@ -123,6 +147,8 @@ func Test_S8_Resize(t *testing.T) {
 
 func assert_S8_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) bool {
 	switch {
+	case hestiaTESTING.HasCondition(s, cond_NIL_INPUT):
+		return err == hestiaERROR.INVALID_ARGUMENT
 	case hestiaTESTING.HasCondition(s, cond_TO_BITS_8),
 		hestiaTESTING.HasCondition(s, cond_TO_BITS_5),
 		hestiaTESTING.HasCondition(s, cond_TO_BITS_0):
@@ -135,7 +161,8 @@ func assert_S8_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) bo
 }
 
 func assert_S8_Resize_output(s *hestiaTESTING.Scenario, output uint8) bool {
-	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) {
+	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) ||
+		hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
 		return output == uint8(MAX_UINT8)
 	}
 

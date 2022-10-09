@@ -187,7 +187,7 @@ func TestConcludeAPI(t *testing.T) {
 			t.Fail()
 		}
 
-		if !testlib_AssertConclude(s, ts) {
+		if !assert_Conclude(s, ts) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}
@@ -199,4 +199,20 @@ func TestConcludeAPI(t *testing.T) {
 		// report
 		t.Logf("%s", ToString(s))
 	}
+}
+
+func assert_Conclude(s, ts *Scenario) bool {
+	switch {
+	case ts.verdict == value_DEFAULT_VERDICT:
+		return HasCondition(s, cond_SUPPLY_NIL_SCENARIO) ||
+			HasCondition(s, expect_PANIC)
+	case ts.verdict == VERDICT_PASS:
+		return HasCondition(s, cond_PROPER_VERDICT)
+	case ts.verdict == VERDICT_FAIL:
+		return HasCondition(s, cond_FAIL_VERDICT)
+	case ts.verdict == VERDICT_SKIP:
+		return HasCondition(s, cond_SKIP_VERDICT)
+	}
+
+	return false
 }

@@ -55,9 +55,13 @@
 			<div id="nav">
 				<select id="files">
 				
-				<option value="file0">hestia/hestiaNUMBER/hestiaBITS/Bits.go (100.0%)</option>
+				<option value="file0">hestia/hestiaNUMBER/hestiaBITS/CPU.go (100.0%)</option>
 				
-				<option value="file1">hestia/hestiaNUMBER/hestiaBITS/Size.go (100.0%)</option>
+				<option value="file1">hestia/hestiaNUMBER/hestiaBITS/Length.go (100.0%)</option>
+				
+				<option value="file2">hestia/hestiaNUMBER/hestiaBITS/Size.go (100.0%)</option>
+				
+				<option value="file3">hestia/hestiaNUMBER/hestiaBITS/TrailingZeros.go (100.0%)</option>
 				
 				</select>
 			</div>
@@ -98,45 +102,14 @@
 
 package hestiaBITS
 
-import (
-        "hestia/hestiaNUMBER"
-)
-
-func Len(x uint) uint <span class="cov4" title="8">{
-        var i, a, b uint
-
-        // loop through bit shifting to find the highest bit
-        for i = 1; i &lt;= hestiaNUMBER.MAX_UINT64; i &lt;&lt;= 1 </span><span class="cov5" title="16">{
-                x |= (x &gt;&gt; i)
-
-                a = x ^ (x &gt;&gt; 1)
-                if a == b </span><span class="cov4" title="8">{
-                        // max bit reached
-                        break</span>
-                }
-
-                <span class="cov4" title="8">b = a</span>
-        }
-
-        // convert back to decimal counting value
-        <span class="cov4" title="8">a = 0
-        for b != 0 </span><span class="cov10" title="211">{
-                a++
-                b &gt;&gt;= 1
+func CPU() (cpu_size uint64) <span class="cov1" title="1">{
+        i := ^uint(0) ^ (^uint(0) &gt;&gt; 1)
+        for i != 0 </span><span class="cov10" title="64">{
+                cpu_size++
+                i &gt;&gt;= 1
         }</span>
 
-        <span class="cov4" title="8">return a</span>
-}
-
-func TrailingZero(x uint) uint <span class="cov4" title="8">{
-        var count uint
-
-        for (x &amp; 1) == 0 </span><span class="cov9" title="203">{
-                x &gt;&gt;= 1
-                count++
-        }</span>
-
-        <span class="cov4" title="8">return count</span>
+        <span class="cov1" title="1">return cpu_size</span>
 }
 </pre>
 		
@@ -158,51 +131,400 @@ func TrailingZero(x uint) uint <span class="cov4" title="8">{
 
 package hestiaBITS
 
+func S64_Length(a uint64) uint64 <span class="cov4" title="5">{
+        var i, b, c uint64
+
+        if a == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        // loop through bit shifting to find the highest bit
+        <span class="cov3" title="4">b = 0
+        for i = 1; i &lt;= MAX_UINT64; i &lt;&lt;= 1 </span><span class="cov6" title="22">{
+                a |= (a &gt;&gt; i)
+
+                c = a ^ (a &gt;&gt; 1)
+                if b == c </span><span class="cov3" title="4">{
+                        // max bit reached
+                        break</span>
+                }
+
+                <span class="cov6" title="18">b = c</span>
+        }
+
+        // convert back to decimal counting value
+        <span class="cov3" title="4">a = 0
+        for b != 0 </span><span class="cov10" title="120">{
+                a++
+                b &gt;&gt;= 1
+        }</span>
+
+        <span class="cov3" title="4">return a</span>
+}
+
+func S32_Length(a uint32) uint32 <span class="cov3" title="4">{
+        var i, b, c uint32
+
+        if a == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        // loop through bit shifting to find the highest bit
+        <span class="cov3" title="3">b = 0
+        for i = 1; i &lt;= MAX_UINT32; i &lt;&lt;= 1 </span><span class="cov6" title="15">{
+                a |= (a &gt;&gt; i)
+
+                c = a ^ (a &gt;&gt; 1)
+                if b == c </span><span class="cov3" title="3">{
+                        // max bit reached
+                        break</span>
+                }
+
+                <span class="cov5" title="12">b = c</span>
+        }
+
+        // convert back to decimal counting value
+        <span class="cov3" title="3">a = 0
+        for b != 0 </span><span class="cov8" title="56">{
+                a++
+                b &gt;&gt;= 1
+        }</span>
+
+        <span class="cov3" title="3">return a</span>
+}
+
+func S16_Length(a uint16) uint16 <span class="cov3" title="3">{
+        var i, b, c uint16
+
+        if a == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        // loop through bit shifting to find the highest bit
+        <span class="cov2" title="2">b = 0
+        for i = 1; i &lt;= MAX_UINT16; i &lt;&lt;= 1 </span><span class="cov5" title="9">{
+                a |= (a &gt;&gt; i)
+
+                c = a ^ (a &gt;&gt; 1)
+                if b == c </span><span class="cov2" title="2">{
+                        // max bit reached
+                        break</span>
+                }
+
+                <span class="cov4" title="7">b = c</span>
+        }
+
+        // convert back to decimal counting value
+        <span class="cov2" title="2">a = 0
+        for b != 0 </span><span class="cov6" title="24">{
+                a++
+                b &gt;&gt;= 1
+        }</span>
+
+        <span class="cov2" title="2">return a</span>
+}
+
+func S8_Length(a uint8) uint8 <span class="cov2" title="2">{
+        var i, b, c uint8
+
+        if a == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        // loop through bit shifting to find the highest bit
+        <span class="cov1" title="1">b = 0
+        for i = 1; i &lt;= MAX_UINT8; i &lt;&lt;= 1 </span><span class="cov3" title="4">{
+                a |= (a &gt;&gt; i)
+
+                c = a ^ (a &gt;&gt; 1)
+                if b == c </span><span class="cov1" title="1">{
+                        // max bit reached
+                        break</span>
+                }
+
+                <span class="cov3" title="3">b = c</span>
+        }
+
+        // convert back to decimal counting value
+        <span class="cov1" title="1">a = 0
+        for b != 0 </span><span class="cov4" title="8">{
+                a++
+                b &gt;&gt;= 1
+        }</span>
+
+        <span class="cov1" title="1">return a</span>
+}
+</pre>
+		
+		<pre class="file" id="file2" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
+// Copyright 2022 ZORALab Enterprise &lt;tech@zoralab.com&gt;
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+package hestiaBITS
+
 import (
         "hestia/hestiaERROR"
-        "hestia/hestiaNUMBER"
 )
 
-func MatchSize(input *uint64, size uint16, withSign bool) hestiaERROR.Error <span class="cov10" title="37">{
+func S64_Resize(input *uint64, size uint16, withSign bool) hestiaERROR.Error <span class="cov10" title="20">{
         var mask uint64
 
+        // mask to register
         switch </span>{
         case input == nil:<span class="cov1" title="1">
                 return hestiaERROR.INVALID_ARGUMENT</span>
-        case size &gt; 64:<span class="cov4" title="4">
+        case size &gt; 64:<span class="cov1" title="1">
                 return hestiaERROR.OUT_OF_RANGE</span>
-        case size == 0:<span class="cov4" title="4">
+        case size == 0:<span class="cov3" title="2">
                 *input = 0
                 return hestiaERROR.OK</span>
-        case size &lt;= 8:<span class="cov6" title="8">
-                if withSign </span><span class="cov4" title="4">{
-                        mask = hestiaNUMBER.MAX_INT8
-                }</span> else<span class="cov4" title="4"> {
-                        mask = hestiaNUMBER.MAX_UINT8
+        case size &lt;= 8:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT8
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT8
                 }</span>
-        case size &lt;= 16:<span class="cov6" title="8">
-                if withSign </span><span class="cov4" title="4">{
-                        mask = hestiaNUMBER.MAX_INT16
-                }</span> else<span class="cov4" title="4"> {
-                        mask = hestiaNUMBER.MAX_UINT16
+        case size &lt;= 16:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT16
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT16
                 }</span>
-        case size &lt;= 32:<span class="cov6" title="8">
-                if withSign </span><span class="cov4" title="4">{
-                        mask = hestiaNUMBER.MAX_INT32
-                }</span> else<span class="cov4" title="4"> {
-                        mask = hestiaNUMBER.MAX_UINT32
+        case size &lt;= 32:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT32
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT32
                 }</span>
-        case size &lt;= 64:<span class="cov4" title="4">
-                if withSign </span><span class="cov2" title="2">{
-                        mask = hestiaNUMBER.MAX_INT64
-                }</span> else<span class="cov2" title="2"> {
-                        mask = hestiaNUMBER.MAX_UINT64
+        default:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT64
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT64
                 }</span>
         }
 
-        <span class="cov9" title="28">*input &amp;= mask
+        <span class="cov9" title="16">*input &amp;= mask
+        switch size </span>{
+        case 8, 16, 32, 64:<span class="cov7" title="8">
+                return hestiaERROR.OK</span>
+        default:<span class="cov7" title="8"></span>
+        }
+
+        // mask to precision
+        <span class="cov7" title="8">mask = (1 &lt;&lt; size) - 1
+        *input &amp;= mask
 
         return hestiaERROR.OK</span>
+}
+
+func S32_Resize(input *uint32, size uint16, withSign bool) hestiaERROR.Error <span class="cov9" title="16">{
+        var mask uint32
+
+        // mask to register
+        switch </span>{
+        case input == nil:<span class="cov1" title="1">
+                return hestiaERROR.INVALID_ARGUMENT</span>
+        case size &gt; 32:<span class="cov1" title="1">
+                return hestiaERROR.OUT_OF_RANGE</span>
+        case size == 0:<span class="cov3" title="2">
+                *input = 0
+                return hestiaERROR.OK</span>
+        case size &lt;= 8:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT8
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT8
+                }</span>
+        case size &lt;= 16:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT16
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT16
+                }</span>
+        default:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT32
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT32
+                }</span>
+        }
+
+        <span class="cov8" title="12">*input &amp;= mask
+        switch size </span>{
+        case 8, 16, 32:<span class="cov6" title="6">
+                return hestiaERROR.OK</span>
+        default:<span class="cov6" title="6"></span>
+        }
+
+        // mask to precision
+        <span class="cov6" title="6">mask = (1 &lt;&lt; size) - 1
+        *input &amp;= mask
+
+        return hestiaERROR.OK</span>
+}
+
+func S16_Resize(input *uint16, size uint16, withSign bool) hestiaERROR.Error <span class="cov8" title="12">{
+        var mask uint16
+
+        // mask to register
+        switch </span>{
+        case input == nil:<span class="cov1" title="1">
+                return hestiaERROR.INVALID_ARGUMENT</span>
+        case size &gt; 16:<span class="cov1" title="1">
+                return hestiaERROR.OUT_OF_RANGE</span>
+        case size == 0:<span class="cov3" title="2">
+                *input = 0
+                return hestiaERROR.OK</span>
+        case size &lt;= 8:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT8
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT8
+                }</span>
+        default:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT16
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT16
+                }</span>
+        }
+
+        <span class="cov7" title="8">*input &amp;= mask
+        switch size </span>{
+        case 8, 16:<span class="cov5" title="4">
+                return hestiaERROR.OK</span>
+        default:<span class="cov5" title="4"></span>
+        }
+
+        // mask to precision
+        <span class="cov5" title="4">mask = (1 &lt;&lt; size) - 1
+        *input &amp;= mask
+
+        return hestiaERROR.OK</span>
+}
+
+func S8_Resize(input *uint8, size uint16, withSign bool) hestiaERROR.Error <span class="cov7" title="8">{
+        var mask uint8
+
+        // mask to register
+        switch </span>{
+        case input == nil:<span class="cov1" title="1">
+                return hestiaERROR.INVALID_ARGUMENT</span>
+        case size &gt; 16:<span class="cov1" title="1">
+                return hestiaERROR.OUT_OF_RANGE</span>
+        case size == 0:<span class="cov3" title="2">
+                *input = 0
+                return hestiaERROR.OK</span>
+        default:<span class="cov5" title="4">
+                if withSign </span><span class="cov3" title="2">{
+                        mask = MAX_INT8
+                }</span> else<span class="cov3" title="2"> {
+                        mask = MAX_UINT8
+                }</span>
+        }
+
+        <span class="cov5" title="4">*input &amp;= mask
+        if size == 8 </span><span class="cov3" title="2">{
+                return hestiaERROR.OK
+        }</span>
+
+        // mask to precision
+        <span class="cov3" title="2">mask = (1 &lt;&lt; size) - 1
+        *input &amp;= mask
+
+        return hestiaERROR.OK</span>
+}
+</pre>
+		
+		<pre class="file" id="file3" style="display: none">// Copyright 2022 "Holloway" Chew, Kean Ho &lt;kean.ho.chew@zoralab.com&gt;
+// Copyright 2022 ZORALab Enterprise &lt;tech@zoralab.com&gt;
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+package hestiaBITS
+
+func S64_TrailingZeros(x uint64) uint64 <span class="cov4" title="5">{
+        var count uint64
+
+        if x == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        <span class="cov3" title="4">for (x &amp; 1) == 0 </span><span class="cov10" title="116">{
+                x &gt;&gt;= 1
+                count++
+        }</span>
+
+        <span class="cov3" title="4">return count</span>
+}
+
+func S32_TrailingZeros(x uint32) uint32 <span class="cov3" title="4">{
+        var count uint32
+
+        if x == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        <span class="cov3" title="3">for (x &amp; 1) == 0 </span><span class="cov8" title="53">{
+                x &gt;&gt;= 1
+                count++
+        }</span>
+
+        <span class="cov3" title="3">return count</span>
+}
+
+func S16_TrailingZeros(x uint16) uint16 <span class="cov3" title="3">{
+        var count uint16
+
+        if x == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        <span class="cov2" title="2">for (x &amp; 1) == 0 </span><span class="cov6" title="22">{
+                x &gt;&gt;= 1
+                count++
+        }</span>
+
+        <span class="cov2" title="2">return count</span>
+}
+
+func S8_TrailingZeros(x uint8) uint8 <span class="cov2" title="2">{
+        var count uint8
+
+        if x == 0 </span><span class="cov1" title="1">{
+                return 0
+        }</span>
+
+        <span class="cov1" title="1">for (x &amp; 1) == 0 </span><span class="cov4" title="7">{
+                x &gt;&gt;= 1
+                count++
+        }</span>
+
+        <span class="cov1" title="1">return count</span>
 }
 </pre>
 		

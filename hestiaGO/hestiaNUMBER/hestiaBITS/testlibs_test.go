@@ -43,6 +43,8 @@ const (
 
 	cond_TO_UNSIGNED = "convert to unsigned value"
 	cond_TO_SIGNED   = "convert to signed value"
+
+	cond_NIL_INPUT = "provide nil input"
 )
 
 // test values

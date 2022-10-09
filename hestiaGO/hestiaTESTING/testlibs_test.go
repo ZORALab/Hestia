@@ -18,12 +18,13 @@ package hestiaTESTING
 
 // test suite
 const (
-	suite_LOG_API          = "hestiaTESTING Log API"
-	suite_HAS_EXECUTED_API = "hestiaTESTING HasExecuted API"
-	suite_CONCLUDE_API     = "hestiaTESTING Conclude API"
-	suite_CONCLUSION_API   = "hestiaTESTING Conclusion API"
-	suite_TO_STRING_API    = "hestiaTESTING ToString API"
-	suite_TO_TOML_API      = "hestiaTESTING ToTOML API"
+	suite_LOG_API           = "hestiaTESTING Log API"
+	suite_HAS_EXECUTED_API  = "hestiaTESTING HasExecuted API"
+	suite_HAS_CONDITION_API = "hestiaTESTING HasCondition API"
+	suite_CONCLUDE_API      = "hestiaTESTING Conclude API"
+	suite_CONCLUSION_API    = "hestiaTESTING Conclusion API"
+	suite_TO_STRING_API     = "hestiaTESTING ToString API"
+	suite_TO_TOML_API       = "hestiaTESTING ToTOML API"
 )
 
 // all test switches
@@ -103,22 +104,6 @@ func testlib_AssertPanic(s *Scenario, panick string) bool {
 	return !HasCondition(s, expect_PANIC)
 }
 
-func testlib_AssertConclude(s, ts *Scenario) bool {
-	switch {
-	case ts.verdict == value_DEFAULT_VERDICT:
-		return HasCondition(s, cond_SUPPLY_NIL_SCENARIO) ||
-			HasCondition(s, expect_PANIC)
-	case ts.verdict == VERDICT_PASS:
-		return HasCondition(s, cond_PROPER_VERDICT)
-	case ts.verdict == VERDICT_FAIL:
-		return HasCondition(s, cond_FAIL_VERDICT)
-	case ts.verdict == VERDICT_SKIP:
-		return HasCondition(s, cond_SKIP_VERDICT)
-	}
-
-	return false
-}
-
 func testlib_GenerateVerdict(s *Scenario) Verdict {
 	switch {
 	case HasCondition(s, cond_PROPER_VERDICT):
@@ -132,35 +117,6 @@ func testlib_GenerateVerdict(s *Scenario) Verdict {
 	}
 }
 
-func testlib_AssertConclusion(s *Scenario, output Verdict) bool {
-	switch {
-	case output == priv_VERDICT_UNKNOWN:
-		return HasCondition(s, cond_UNKNOWN_VERDICT)
-	case output == VERDICT_PASS:
-		return HasCondition(s, cond_PROPER_VERDICT)
-	case output == VERDICT_SKIP:
-		if !HasCondition(s, cond_PROPER_VERDICT) ||
-			HasCondition(s, cond_SUPPLY_NIL_SCENARIO) {
-			return true
-		}
-	}
-
-	return false
-}
-
-func testlib_AssertHasExecuted(s *Scenario, output bool) bool {
-	if !output {
-		switch {
-		case HasCondition(s, cond_SUPPLY_NIL_SCENARIO),
-			HasCondition(s, cond_UNKNOWN_VERDICT):
-			return true
-		}
-	}
-	// is true
-
-	return HasCondition(s, cond_PROPER_VERDICT)
-}
-
 func testlib_ConfigureVerdict(s, ts *Scenario) {
 	switch {
 	case HasCondition(s, cond_PROPER_VERDICT):
@@ -170,38 +126,6 @@ func testlib_ConfigureVerdict(s, ts *Scenario) {
 	default:
 		ts.verdict = VERDICT_PASS
 	}
-}
-
-func testlib_AssertLog(s, ts *Scenario) bool {
-	if ts == nil {
-		return HasCondition(s, cond_SUPPLY_NIL_SCENARIO)
-	}
-	// ts is now available
-
-	if HasCondition(s, expect_PANIC) {
-		switch {
-		case HasCondition(s, cond_EMPTY_STRING_STATEMENT),
-			HasCondition(s, cond_SUPPLY_NIL_SCENARIO):
-			return true
-		}
-	}
-	// no longer in panic expectation.
-
-	if ts.Logs == nil {
-		return false
-	}
-	// ts.Log is now available
-
-	for _, v := range ts.Logs {
-		switch v {
-		case value_STATEMENT_1:
-			return HasCondition(s, cond_PROPER_STRING_STATEMENT)
-		default:
-			continue
-		}
-	}
-
-	return false
 }
 
 func testlib_CreateStringStatement(s *Scenario) string {

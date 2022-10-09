@@ -168,7 +168,7 @@ func TestLogAPI(t *testing.T) {
 			t.Fail()
 		}
 
-		if !testlib_AssertLog(s, ts) {
+		if !assert_Log(s, ts) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}
@@ -180,4 +180,36 @@ func TestLogAPI(t *testing.T) {
 		// report
 		t.Logf("%s", ToString(s))
 	}
+}
+
+func assert_Log(s, ts *Scenario) bool {
+	if ts == nil {
+		return HasCondition(s, cond_SUPPLY_NIL_SCENARIO)
+	}
+	// ts is now available
+
+	if HasCondition(s, expect_PANIC) {
+		switch {
+		case HasCondition(s, cond_EMPTY_STRING_STATEMENT),
+			HasCondition(s, cond_SUPPLY_NIL_SCENARIO):
+			return true
+		}
+	}
+	// no longer in panic expectation.
+
+	if ts.Logs == nil {
+		return false
+	}
+	// ts.Log is now available
+
+	for _, v := range ts.Logs {
+		switch v {
+		case value_STATEMENT_1:
+			return HasCondition(s, cond_PROPER_STRING_STATEMENT)
+		default:
+			continue
+		}
+	}
+
+	return false
 }

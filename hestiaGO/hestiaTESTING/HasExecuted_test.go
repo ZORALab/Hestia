@@ -167,7 +167,7 @@ func TestHasExecutedAPI(t *testing.T) {
 			t.Fail()
 		}
 
-		if !testlib_AssertHasExecuted(s, output) {
+		if !assert_HasExecuted(s, output) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}
@@ -179,4 +179,17 @@ func TestHasExecutedAPI(t *testing.T) {
 		// report
 		t.Logf("%s", ToString(s))
 	}
+}
+
+func assert_HasExecuted(s *Scenario, output bool) bool {
+	if !output {
+		switch {
+		case HasCondition(s, cond_SUPPLY_NIL_SCENARIO),
+			HasCondition(s, cond_UNKNOWN_VERDICT):
+			return true
+		}
+	}
+	// is true
+
+	return HasCondition(s, cond_PROPER_VERDICT)
 }

@@ -20,11 +20,11 @@ import (
 	"testing"
 )
 
-func _testConclusionScenarios() []*Scenario {
+func _testHasConditionScenarios() []*Scenario {
 	return []*Scenario{
 		{
 			Description: `
-Test Conclusion() is able to work properly with proper Scenario settings.
+Test HasCondition() is able to work properly with proper Scenario settings.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -35,7 +35,7 @@ Test Conclusion() is able to work properly with proper Scenario settings.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to work properly with empty Name setting.
+Test HasCondition() is able to work properly with empty Name setting.
 `,
 			Switches: []string{
 				cond_EMPTY_NAME,
@@ -46,7 +46,7 @@ Test Conclusion() is able to work properly with empty Name setting.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to work properly with empty Switches setting.
+Test HasCondition() is able to work properly with empty Switches setting.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -57,7 +57,7 @@ Test Conclusion() is able to work properly with empty Switches setting.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to work properly with nil Switches setting.
+Test HasCondition() is able to work properly with nil Switches setting.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -68,7 +68,7 @@ Test Conclusion() is able to work properly with nil Switches setting.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to work properly with empty log setting.
+Test HasCondition() is able to work properly with empty log setting.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -79,7 +79,7 @@ Test Conclusion() is able to work properly with empty log setting.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to work properly with nil log setting.
+Test HasCondition() is able to work properly with nil log setting.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -90,7 +90,7 @@ Test Conclusion() is able to work properly with nil log setting.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to work properly with empty description setting.
+Test HasCondition() is able to work properly with empty description setting.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -101,7 +101,7 @@ Test Conclusion() is able to work properly with empty description setting.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to panic when nil Scenario is supplied.
+Test HasCondition() is able to panic when nil Scenario is supplied.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -114,7 +114,7 @@ Test Conclusion() is able to panic when nil Scenario is supplied.
 			},
 		}, {
 			Description: `
-Test Conclusion() is able to work properly when verict is set to unknown.
+Test HasCondition() is able to work properly when verdict is set to unknown.
 `,
 			Switches: []string{
 				cond_PROPER_NAME,
@@ -129,12 +129,12 @@ Test Conclusion() is able to work properly when verict is set to unknown.
 	}
 }
 
-func TestConclusionAPI(t *testing.T) {
-	scenarios := _testConclusionScenarios()
+func TestHasConditionAPI(t *testing.T) {
+	scenarios := _testHasConditionScenarios()
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
-		s.Name = suite_CONCLUSION_API
+		s.Name = suite_HAS_CONDITION_API
 
 		// prepare
 		ts := &Scenario{}
@@ -145,21 +145,21 @@ func TestConclusionAPI(t *testing.T) {
 		testlib_ConfigureVerdict(s, ts)
 
 		// test
-		output := VERDICT_SKIP
+		output := false
 		_panick := Exec(func() any {
 			if !HasCondition(s, cond_SUPPLY_NIL_SCENARIO) {
-				output = Conclusion(ts)
+				output = HasCondition(ts, value_SWITCH_1)
 			} else {
-				output = Conclusion(nil)
+				output = HasCondition(nil, value_SWITCH_1)
 			}
 			return ""
 		})
 		panick := _panick.(string)
 
 		// log output
-		Log(s, _format("Test Scenario's Verdict	= %#v", ts.verdict))
-		Log(s, _format("Got Output			= %v", output))
-		Log(s, _format("Got Panic			= %q", panick))
+		Log(s, _format("Test Scenario's Switches	= %#v", ts.Switches))
+		Log(s, _format("Got Output		= %v", output))
+		Log(s, _format("Got Panic		= %q", panick))
 
 		// assert
 		if !testlib_AssertPanic(s, panick) {
@@ -167,7 +167,7 @@ func TestConclusionAPI(t *testing.T) {
 			t.Fail()
 		}
 
-		if !assert_Conclusion(s, output) {
+		if !assert_HasCondition(s, output) {
 			Conclude(s, VERDICT_FAIL)
 			t.Fail()
 		}
@@ -181,18 +181,13 @@ func TestConclusionAPI(t *testing.T) {
 	}
 }
 
-func assert_Conclusion(s *Scenario, output Verdict) bool {
+func assert_HasCondition(s *Scenario, output bool) bool {
 	switch {
-	case output == priv_VERDICT_UNKNOWN:
-		return HasCondition(s, cond_UNKNOWN_VERDICT)
-	case output == VERDICT_PASS:
-		return HasCondition(s, cond_PROPER_VERDICT)
-	case output == VERDICT_SKIP:
-		if !HasCondition(s, cond_PROPER_VERDICT) ||
-			HasCondition(s, cond_SUPPLY_NIL_SCENARIO) {
-			return true
-		}
+	case HasCondition(s, cond_EMPTY_SWITCHES),
+		HasCondition(s, cond_NIL_SWITCHES),
+		HasCondition(s, cond_SUPPLY_NIL_SCENARIO):
+		return output == false
 	}
 
-	return false
+	return output == true
 }

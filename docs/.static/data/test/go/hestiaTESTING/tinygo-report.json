@@ -5,6 +5,6 @@
 		"OS": "linux",
 		"System": "linux-amd64",
 		"Coverage": "",
-		"Passed": false
+		"Passed": true
 	}
 }

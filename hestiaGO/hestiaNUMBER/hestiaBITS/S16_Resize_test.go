@@ -115,6 +115,25 @@ unsigned 16-bits value.
 				cond_TO_BITS_16,
 				cond_TO_UNSIGNED,
 			},
+		}, {
+			Description: `
+test hestiaNUMBER/hestiaBITS/S16_Resize is able to process 16-bits value to
+unsigned 1000-bits value by raising error.
+`,
+			Switches: []string{
+				cond_TO_BITS_1000,
+				cond_TO_UNSIGNED,
+			},
+		}, {
+			Description: `
+test hestiaNUMBER/hestiaBITS/S16_Resize is able to process nil input to
+unsigned 16-bits value by raising error.
+`,
+			Switches: []string{
+				cond_TO_BITS_16,
+				cond_TO_UNSIGNED,
+				cond_NIL_INPUT,
+			},
 		},
 	}
 }
@@ -137,7 +156,12 @@ func Test_S16_Resize(t *testing.T) {
 		hestiaTESTING.Log(s, _format("Given Sign	: %v", sign))
 
 		// test
-		err := S16_Resize(&subject, size, sign)
+		var err hestiaERROR.Error
+		if !hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
+			err = S16_Resize(&subject, size, sign)
+		} else {
+			err = S16_Resize(nil, size, sign)
+		}
 		hestiaTESTING.Log(s, _format("Got Error	: %d", err))
 
 		// assert
@@ -159,6 +183,8 @@ func Test_S16_Resize(t *testing.T) {
 
 func assert_S16_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) bool {
 	switch {
+	case hestiaTESTING.HasCondition(s, cond_NIL_INPUT):
+		return err == hestiaERROR.INVALID_ARGUMENT
 	case hestiaTESTING.HasCondition(s, cond_TO_BITS_16),
 		hestiaTESTING.HasCondition(s, cond_TO_BITS_12),
 		hestiaTESTING.HasCondition(s, cond_TO_BITS_8),
@@ -173,7 +199,8 @@ func assert_S16_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) b
 }
 
 func assert_S16_Resize_output(s *hestiaTESTING.Scenario, output uint16) bool {
-	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) {
+	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) ||
+		hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
 		return output == uint16(MAX_UINT16)
 	}
 
