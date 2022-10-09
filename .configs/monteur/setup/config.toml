@@ -1,2 +1,3 @@
 [Downloads]
 Limit = 3
+Timeout = 300000000000 # nanosecond
