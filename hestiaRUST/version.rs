@@ -1,4 +1,4 @@
-// Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+// Copyright 2022 The ZORALab's Hestia Authors
 // Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
 //
 //
@@ -15,4 +15,4 @@
 // the License.
 //
 // WARNING: auto-generated file. DO NOT EDIT!!!
-pub const NUMBER: &str = "0.0.1";
+pub const NUMBER: &str = "v0.0.1";

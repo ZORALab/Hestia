@@ -1,0 +1,79 @@
+[Metadata]
+Name = 'hestiaGO Version File Scripting'
+Description = """
+Generating repository's version ID into the specified Go source code file.
+"""
+Type = 'manual'
+
+
+
+
+[Variables]
+Prefix = """\
+// Copyright 2022 The ZORALab's Hestia Authors
+// Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+//
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//                  http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+//
+// WARNING: auto-generated file. DO NOT EDIT!!!
+"""
+
+[FMTVariables]
+Filepath = '{{- .RootDir -}}/hestiaGO/version.go'
+Content = """
+{{- .Prefix }}
+
+package hestia
+
+const (
+	VERSION = "{{- .App.Version -}}"
+)
+"""
+
+
+
+[[Dependencies]]
+
+
+
+
+[Changelog]
+LineBreak = "\n"
+Regex = ''
+
+
+
+
+[Packages.001]
+OS = [ 'all' ]
+Arch = [ 'all' ]
+Distribution = [
+	'stable',
+]
+
+
+
+
+[[CMD]]
+Name = 'Delete Version File'
+Type = 'delete-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .Filepath -}}'
+
+[[CMD]]
+Name = 'Script Version File'
+Type = 'script'
+Condition = [ 'all-all' ]
+Source = '{{- .Content -}}'
+Target = '{{- .Filepath -}}'

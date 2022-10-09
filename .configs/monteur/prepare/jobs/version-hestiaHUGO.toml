@@ -1,0 +1,57 @@
+[Metadata]
+Name = 'hestiaHUGO Version File Scripting'
+Description = """
+Generating repository's version ID into the specified Hugo toml data file.
+"""
+Type = 'manual'
+
+
+
+
+[Variables]
+Prefix = '# WARNING: auto-generated file. DO NOT EDIT!!!'
+
+[FMTVariables]
+Filepath = '{{- .RootDir -}}/hestiaHUGO/data/Hestia/Version.toml'
+Content = """
+{{- .Prefix }}
+[Release]
+Value = "{{- .App.Version -}}"
+"""
+
+
+
+[[Dependencies]]
+
+
+
+
+[Changelog]
+LineBreak = "\n"
+Regex = ''
+
+
+
+
+[Packages.001]
+OS = [ 'all' ]
+Arch = [ 'all' ]
+Distribution = [
+	'stable',
+]
+
+
+
+
+[[CMD]]
+Name = 'Delete Version File'
+Type = 'delete-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .Filepath -}}'
+
+[[CMD]]
+Name = 'Script Version File'
+Type = 'script'
+Condition = [ 'all-all' ]
+Source = '{{- .Content -}}'
+Target = '{{- .Filepath -}}'
