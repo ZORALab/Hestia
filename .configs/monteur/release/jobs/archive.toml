@@ -21,47 +21,27 @@ Type = 'archive'
 
 
 [Releases]
-Target = '{{- .ReleaseDir -}}/archives'
+Target = '{{- .RootDir -}}/archives/releases'
 Checksum = 'sha512'
 
 [Releases.Data]
-Path = '{{- .RootDir -}}/docs/.data/releases/archives'
+Path = '{{- .RootDir -}}/archives/releases'
 Format = 'toml'
 
-[Releases.Packages.darwin-amd64]
-OS = [ "darwin" ]
-Arch = [ "amd64" ]
-Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
+[Releases.Packages.all-all-hestiaGO]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaGO-{{- .App.Version -}}-pack.tar.gz'
 
-[Releases.Packages.darwin-arm64]
-OS = [ "darwin" ]
-Arch = [ "arm64" ]
-Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
+[Releases.Packages.all-all-hestiaRUST]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaRUST-{{- .App.Version -}}-pack.tar.gz'
 
-[Releases.Packages.linux-amd64]
-OS = [ "linux" ]
-Arch = [ "amd64" ]
-Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
-
-[Releases.Packages.linux-arm64]
-OS = [ "linux" ]
-Arch = [ "arm64" ]
-Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
-
-[Releases.Packages.linux-arm]
-OS = [ "linux" ]
-Arch = [ "arm" ]
-Source = '{{- .PackageDir -}}/targz/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.tar.gz'
-
-[Releases.Packages.windows-amd64]
-OS = [ "windows" ]
-Arch = [ "amd64" ]
-Source = '{{- .PackageDir -}}/zip/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.zip'
-
-[Releases.Packages.windows-arm64]
-OS = [ "windows" ]
-Arch = [ "arm64" ]
-Source = '{{- .PackageDir -}}/zip/{{- .PkgName -}}-{{- .PkgVersion -}}-{{- .PkgOS -}}-{{- .PkgArch -}}.zip'
+[Releases.Packages.all-all-hestiaHUGO]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaHUGO-{{- .App.Version -}}-pack.tar.gz'
 
 
 
