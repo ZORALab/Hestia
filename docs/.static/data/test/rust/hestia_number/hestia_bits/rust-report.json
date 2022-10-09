@@ -1,6 +1,6 @@
 {
 	"Result": {
-		"Compiler": "Go",
+		"Compiler": "Rust Compiler and Cargo Test",
 		"Architecture": "amd64",
 		"OS": "linux",
 		"System": "linux-amd64",

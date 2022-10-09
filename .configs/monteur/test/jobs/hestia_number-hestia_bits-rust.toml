@@ -1,23 +1,20 @@
 [Metadata]
-Name = "hestiaGO/hestiaTESTING TinyGo Package Test Recipe"
+Name = 'HestiaRUST/hestia_number/hestia_bits Rust Module Test Recipe'
 Description = """
-Using TinyGo testing feature to test out this package with test coverage heatmap.
+Using Rust testing feature to test out this package with test coverage heatmap.
 """
 
 
 
 
 [Variables]
-Package = 'hestiaTESTING'
-ReportDir = 'docs/.static/data/test/go/hestiaTESTING'
-ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
-PrintAlloc = 'hestia'
+Module = 'hestia_number::hestia_bits' # Rust's Module Convention
+ModuleDir = 'hestia_number/hestia_bits' # Module directory path
+ReportDir = 'docs/.static/data/test/rust/hestia_number/hestia_bits'
 
 [FMTVariables]
-SubjectDir = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
-SubjectPath = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
-ReportPath = '{{- .RootDir -}}/{{- .ReportDir -}}/tinygo-report.json'
-
+SubjectDir = '{{- .RootDir -}}/hestiaRUST/{{- .ModuleDir -}}'
+ReportPath = '{{- .RootDir -}}/{{- .ReportDir -}}/rust-report.json'
 
 # The following shall be overwritten by [CMD]
 TestCoverage = ''
@@ -27,10 +24,16 @@ TestVerdict = ''
 
 
 [[Dependencies]]
-Name = 'TinyGo'
+Name = 'Rust Compiler'
 Condition = 'all-all'
 Type = 'command'
-Command = 'tinygo'
+Command = 'rustc'
+
+[[Dependencies]]
+Name = 'Rust Cargo'
+Condition = 'all-all'
+Type = 'command'
+Command = 'cargo'
 
 
 
@@ -42,37 +45,36 @@ Condition = [ 'all-all' ]
 Source = '{{- .WorkingDir -}}'
 
 [[CMD]]
-Name = "Run TinyGo Test Against Base Directory"
+Name = "Run Rust's Cargo Test Against Base Directory"
 Type = 'command-quiet'
 Condition = [ 'all-all' ]
 Location = '{{- .SubjectDir -}}'
-Source = """tinygo test \
-{{- if .ConstraintTags }} -tags "{{- .ConstraintTags -}}" {{- end }} \
--print-allocs='{{- .PrintAlloc }}' \
-"{{- .SubjectPath -}}"
+Source = """cargo test --all-targets --all-features \
+{{ .Module }} -- \
+--show-output
 """
 Save = 'TestVerdict'
 SaveRegex = '(FAIL)\s*$'
 
 [[CMD]]
-Name = 'Delete TinyGo Test Report JSON Data File'
+Name = 'Delete Rust Test Report JSON Data File'
 Type = 'delete-quiet'
 Condition = [ 'all-all' ]
 Source = '{{- .ReportPath -}}'
 
 [[CMD]]
-Name = 'Script TinyGo Test Report JSON Data File'
+Name = 'Script Rust Test Report JSON Data File'
 Type = 'script'
 Condition = [ 'all-all' ]
 Source = """
 {
 	"Result": {
-		"Compiler": "TinyGo",
+		"Compiler": "Rust Compiler and Cargo Test",
 		"Architecture": "{{- .Arch -}}",
 		"OS": "{{- .OS -}}",
 		"System": "{{- .ComputeSystem -}}",
 		"Coverage": "{{- .TestCoverage -}}",
-		"Passed": {{ eq .TestVerdict "" }}
+		"Passed": {{- eq .TestVerdict "" }}
 	}
 }
 """

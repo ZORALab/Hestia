@@ -1,5 +1,5 @@
 [Metadata]
-Name = "hestia/hestiaNUMBER/hestiaBITS TinyGo Package Test Recipe"
+Name = "hestiaGO/hestiaNUMBER/hestiaBITS TinyGo Package Test Recipe"
 Description = """
 Using TinyGo testing feature to test out this package with test coverage heatmap.
 """

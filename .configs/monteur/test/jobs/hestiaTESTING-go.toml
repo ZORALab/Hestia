@@ -1,5 +1,5 @@
 [Metadata]
-Name = 'hestia/hestiaTESTING Go Package Test Recipe'
+Name = 'hestiaGO/hestiaTESTING Go Package Test Recipe'
 Description = """
 Using Go testing feature to test out this package with test coverage heatmap.
 """
