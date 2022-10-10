@@ -181,6 +181,13 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* prepare Hestia .Page.Data */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Data" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.LD+JSON (MUST always be the LAST) */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/LDJSON" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -212,6 +219,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* BEGIN POST PROCESSING - Hestia data processing ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Robots" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Data" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/LDJSON" $dataList -}}
 
 

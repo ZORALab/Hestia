@@ -57,3 +57,27 @@ Elaborate based on your pitch. Keep it short for SEO.
 Delay = 0 # second
 URL = ""
 Enabled = false
+
+
+
+
+# Data fields.
+# NOTE:
+#   1. List only the page-level data files. It can be in any of the following
+#      formats: '.json', '.toml', or '.yaml'.
+#   2. Hestia string processing is available and shall be processed prior to
+#      dataset transformation.
+#   3. Sequences of the .Data array dictates sequences of loading and overriding
+#      (the latter shall overwrite the former for the same data fields).
+#   4. The final processed dataset shall be served as main data content in
+#      supported output format (e.g. index.json).
+#   5. Missing data file shall be ignored.
+#   6. To add more data files, simply duplicate and add more .Data array entry.
+#      Example:
+#                             [[data]]
+#                             Filename = 'file1.json'
+#
+#                             [[data]]
+#                             Filename = 'file2.toml'
+[[Data]]
+Filename = ".data.toml"

@@ -45,7 +45,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* decode the data */ -}}
 {{- if $dataList -}}
-	{{- $dataList = transform.Unmarshal $dataList.Content -}}
+	{{- $dataList = transform.Unmarshal $dataList -}}
 {{- else -}}
 	{{- $dataList = dict -}}
 {{- end -}}

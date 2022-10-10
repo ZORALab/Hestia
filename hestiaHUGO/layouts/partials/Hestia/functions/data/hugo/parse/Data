@@ -15,22 +15,42 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* . = Hugo data structure */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".page.toml" -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict -}}
+{{- $Page := .Page -}}
+{{- $Local := dict "Data" slice -}}
+{{- $dataList := slice -}}
+{{- $ret := false -}}
 
 
 
 
-{{- /* source data */ -}}
-{{- $dataList = dict "content" .Data.Page -}}
+{{- /* parse local config file */ -}}
+{{- if $Page.File -}}
+	{{- $Local = path.Join (path.Dir $Page.File.Path) $CONFIG_FILENAME -}}
+	{{- $Local = path.Clean $Local -}}
+	{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
+{{- end -}}
+
+
+
+
+{{- /* parse data files list */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := $Local.Data -}}
+	{{- $ret = path.Join (path.Dir $Page.File.Path) $v.Filename -}}
+	{{- $dataList = append $ret $dataList -}}
+{{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Data" (dict "Page" $dataList) -}}
