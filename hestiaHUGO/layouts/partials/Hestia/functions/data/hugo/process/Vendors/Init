@@ -31,14 +31,14 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Google */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Google/Init" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_google/Init" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* process .Twitter */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Twitter/Init" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_twitter/Init" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 

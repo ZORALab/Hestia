@@ -28,28 +28,28 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Site */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Twitter/_Site" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_twitter/_site" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* process .Creator */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Twitter/_Creator" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_twitter/_creator" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* process .Card */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Twitter/_Card" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_twitter/_card" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* process .Stores */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Twitter/_Stores" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_twitter/_stores" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
