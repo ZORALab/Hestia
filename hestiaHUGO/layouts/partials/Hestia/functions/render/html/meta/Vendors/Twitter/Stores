@@ -1,0 +1,59 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* return render */}}
+{{- if .Vendors.Twitter.Stores.iphone.Name }}
+	<meta property="twitter:app:name:iphone"
+		content="{{- safeHTML .Vendors.Twitter.Stores.iphone.Name -}}" />
+{{- end }}
+{{- if .Vendors.Twitter.Stores.iphone.ID }}
+	<meta property="twitter:app:id:iphone"
+		content="{{- safeHTML .Vendors.Twitter.Stores.iphone.ID -}}" />
+{{- end }}
+{{- if string .Vendors.Twitter.Stores.iphone.URL }}
+	<meta property="twitter:app:url:iphone"
+		content="{{- safeHTML (string .Vendors.Twitter.Stores.iphone.URL) -}}" />
+{{- end }}
+{{- if .Vendors.Twitter.Stores.ipad.Name }}
+	<meta property="twitter:app:name:ipad"
+		content="{{- safeHTML .Vendors.Twitter.Stores.ipad.Name -}}" />
+{{- end }}
+{{- if .Vendors.Twitter.Stores.ipad.ID }}
+	<meta property="twitter:app:id:ipad"
+		content="{{- safeHTML .Vendors.Twitter.Stores.ipad.ID -}}" />
+{{- end }}
+{{- if string .Vendors.Twitter.Stores.ipad.URL }}
+	<meta property="twitter:app:url:ipad"
+		content="{{- safeHTML (string .Vendors.Twitter.Stores.ipad.URL) -}}" />
+{{- end }}
+{{- if .Vendors.Twitter.Stores.googleplay.Name }}
+	<meta property="twitter:app:name:googleplay"
+		content="{{- safeHTML .Vendors.Twitter.Stores.googleplay.Name -}}" />
+{{- end }}
+{{- if .Vendors.Twitter.Stores.googleplay.ID }}
+	<meta property="twitter:app:id:googleplay"
+		content="{{- safeHTML .Vendors.Twitter.Stores.googleplay.ID -}}" />
+{{- end }}
+{{- if string .Vendors.Twitter.Stores.googleplay.URL }}
+	<meta property="twitter:app:url:googleplay"
+		content="{{- safeHTML (string .Vendors.Twitter.Stores.googleplay.URL) -}}" />
+{{- end -}}

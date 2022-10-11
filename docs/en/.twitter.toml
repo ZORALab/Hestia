@@ -1,0 +1,35 @@
+# Overwrite site data
+[Site]
+Handle = '' # twitter handle (e.g. '@zoralab_team')
+
+
+
+
+# Page content creator handle (OPTIONAL)
+[Creator]
+Handle = '' # twitter handle (e.g. 'hollowaykeanho')
+
+
+
+
+# Appstore & Google Play Store data
+# NOTE:
+#  1) For .ID field, provide the App ID showcase in the public store; NOT the
+#     development app ID (e.g. NOT Apple Store Bundle ID).
+#  2) Leave the fields empty to disable unused ones.
+[Stores.iphone]
+ID = ''
+Name = ''
+URL = ''
+
+
+[Stores.ipad]
+ID = ''
+Name = ''
+URL = ''
+
+
+[Stores.googleplay]
+ID = ''
+Name = ''
+URL = ''

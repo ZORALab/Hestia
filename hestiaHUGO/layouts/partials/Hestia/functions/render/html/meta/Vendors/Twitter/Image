@@ -21,28 +21,18 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $Page = merge $Page (dict "Vendors" false) -}}
-{{- $Page = merge $Page (dict "Vendors" dict) -}}
-{{- $dataList := dict -}}
-{{- $ret := false -}}
+{{- $src := false -}}
 
 
 
 
-{{- /* process .Google */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Google/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .Twitter */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Twitter/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* render output */ -}}
-{{- return merge $Page (dict "Vendors" $dataList) -}}
+{{- /* return render */}}
+{{- if .Vendors.Twitter.Card.Image -}}
+	{{- $src = index .Vendors.Twitter.Card.Image.Sources "0" }}
+	<meta property="twitter:image"
+		content="{{- safeHTML $src.URL -}}" />
+{{- end }}
+{{- if .Vendors.Twitter.Card.Image.Name }}
+	<meta property="twitter:image:alt"
+		content="{{- safeHTML .Vendors.Twitter.Card.Image.Name -}}" />
+{{- end -}}

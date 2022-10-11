@@ -22,27 +22,26 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $Page = merge $Page (dict "Vendors" false) -}}
-{{- $Page = merge $Page (dict "Vendors" dict) -}}
+{{- $console := dict -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* process .Google */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Google/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .Twitter */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/Twitter/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- /* process .Handle */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .Vendors.Twitter.Site.Handle)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Vendors.Twitter.Site.Handle: %v" $ret.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Handle" $ret) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return merge $Page (dict "Vendors" $dataList) -}}
+{{- return dict "Site" $dataList -}}
