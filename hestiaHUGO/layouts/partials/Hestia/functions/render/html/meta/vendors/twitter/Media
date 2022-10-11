@@ -29,10 +29,10 @@ specific language governing permissions and limitations under the License.
 {{- /* return render */}}
 {{- if .Vendors.Twitter.Card.Media -}}
 	{{- $src = index .Vendors.Twitter.Card.Media.Sources "0" }}
-	<meta property="twitter:player"
+	<meta name="twitter:player"
 		content="{{- safeHTML $src.URL -}}" />
-	<meta property="twitter:player:width"
+	<meta name="twitter:player:width"
 		content="{{- safeHTML .Vendors.Twitter.Card.Media.Width -}}" />
-	<meta property="twitter:player:height"
+	<meta name="twitter:player:height"
 		content="{{- safeHTML .Vendors.Twitter.Card.Media.Height -}}" />
 {{- end -}}

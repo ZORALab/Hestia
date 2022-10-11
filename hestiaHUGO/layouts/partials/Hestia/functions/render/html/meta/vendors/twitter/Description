@@ -21,6 +21,6 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* return render */}}
-	<meta property="twitter:description"
+	<meta name="twitter:description"
 		content="{{- safeHTML .Descriptions.Page.Pitch -}}" />
 {{- /* clean up */ -}}

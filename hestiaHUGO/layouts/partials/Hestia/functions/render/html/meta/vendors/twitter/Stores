@@ -22,38 +22,38 @@ specific language governing permissions and limitations under the License.
 
 {{- /* return render */}}
 {{- if .Vendors.Twitter.Stores.iphone.Name }}
-	<meta property="twitter:app:name:iphone"
+	<meta name="twitter:app:name:iphone"
 		content="{{- safeHTML .Vendors.Twitter.Stores.iphone.Name -}}" />
 {{- end }}
 {{- if .Vendors.Twitter.Stores.iphone.ID }}
-	<meta property="twitter:app:id:iphone"
+	<meta name="twitter:app:id:iphone"
 		content="{{- safeHTML .Vendors.Twitter.Stores.iphone.ID -}}" />
 {{- end }}
 {{- if string .Vendors.Twitter.Stores.iphone.URL }}
-	<meta property="twitter:app:url:iphone"
+	<meta name="twitter:app:url:iphone"
 		content="{{- safeHTML (string .Vendors.Twitter.Stores.iphone.URL) -}}" />
 {{- end }}
 {{- if .Vendors.Twitter.Stores.ipad.Name }}
-	<meta property="twitter:app:name:ipad"
+	<meta name="twitter:app:name:ipad"
 		content="{{- safeHTML .Vendors.Twitter.Stores.ipad.Name -}}" />
 {{- end }}
 {{- if .Vendors.Twitter.Stores.ipad.ID }}
-	<meta property="twitter:app:id:ipad"
+	<meta name="twitter:app:id:ipad"
 		content="{{- safeHTML .Vendors.Twitter.Stores.ipad.ID -}}" />
 {{- end }}
 {{- if string .Vendors.Twitter.Stores.ipad.URL }}
-	<meta property="twitter:app:url:ipad"
+	<meta name="twitter:app:url:ipad"
 		content="{{- safeHTML (string .Vendors.Twitter.Stores.ipad.URL) -}}" />
 {{- end }}
 {{- if .Vendors.Twitter.Stores.googleplay.Name }}
-	<meta property="twitter:app:name:googleplay"
+	<meta name="twitter:app:name:googleplay"
 		content="{{- safeHTML .Vendors.Twitter.Stores.googleplay.Name -}}" />
 {{- end }}
 {{- if .Vendors.Twitter.Stores.googleplay.ID }}
-	<meta property="twitter:app:id:googleplay"
+	<meta name="twitter:app:id:googleplay"
 		content="{{- safeHTML .Vendors.Twitter.Stores.googleplay.ID -}}" />
 {{- end }}
 {{- if string .Vendors.Twitter.Stores.googleplay.URL }}
-	<meta property="twitter:app:url:googleplay"
+	<meta name="twitter:app:url:googleplay"
 		content="{{- safeHTML (string .Vendors.Twitter.Stores.googleplay.URL) -}}" />
 {{- end -}}
