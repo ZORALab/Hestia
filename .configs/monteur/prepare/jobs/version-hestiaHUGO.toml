@@ -12,11 +12,11 @@ Type = 'manual'
 Prefix = '# WARNING: auto-generated file. DO NOT EDIT!!!'
 
 [FMTVariables]
-Filepath = '{{- .RootDir -}}/hestiaHUGO/data/Hestia/Version.toml'
+Filepath = '{{- .RootDir -}}/hestiaHUGO/data/Hestia/Vendors/ZORALab/Hestia.toml'
 Content = """
 {{- .Prefix }}
-[Release]
-Value = "{{- .App.Version -}}"
+[Metadata]
+Version = "ZORALab's Hestia {{ .App.Version -}}"
 """
 
 

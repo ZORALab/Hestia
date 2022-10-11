@@ -21,42 +21,18 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $Page = merge $Page (dict "Vendors" false) -}}
-{{- $Page = merge $Page (dict "Vendors" dict) -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* process .Google */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_google/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .Twitter */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_twitter/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .GoHugo */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_gohugo/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .ZORALab */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_zoralab/Init" . -}}
+{{- /* process .Hestia */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_zoralab/_hestia" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return merge $Page (dict "Vendors" $dataList) -}}
+{{- return dict "ZORALab" $dataList -}}
