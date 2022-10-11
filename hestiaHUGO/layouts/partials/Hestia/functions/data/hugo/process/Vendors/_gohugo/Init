@@ -15,38 +15,24 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Hugo data structure */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := "" -}}
+{{- $dataList := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* parse Google data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_google/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* parse Twitter data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* parse GoHugo data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_gohugo/Init" . -}}
+{{- /* process .Version */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_gohugo/_version" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Vendors" $dataList -}}
+{{- return dict "GoHugo" $dataList -}}

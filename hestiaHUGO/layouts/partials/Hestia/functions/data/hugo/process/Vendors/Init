@@ -44,5 +44,12 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* process .GoHugo */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_gohugo/Init" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return merge $Page (dict "Vendors" $dataList) -}}

@@ -15,38 +15,31 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Hugo data structure */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := "" -}}
-{{- $ret := false -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $console := dict -}}
+{{- $dataList := dict -}}
 
 
 
 
-{{- /* parse Google data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_google/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* parse Twitter data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* parse GoHugo data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_gohugo/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- /* process .Version */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" .Vendors.GoHugo.Version)) -}}
+{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- if $dataList.Console -}}
+	{{- $console = printf ".Vendors.GoHugo.Version: %v" $dataList.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Vendors" $dataList -}}
+{{- return dict "Version" $dataList -}}
