@@ -28,21 +28,21 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse .Site data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/Twitter/_Site" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/_site" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* parse .Creator data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/Twitter/_Creator" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/_creator" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* parse .Stores data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/Twitter/_Stores" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/_stores" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 

@@ -28,7 +28,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse Google Analytics 4 data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/Google/_Analytics4" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_google/_analytics4" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 

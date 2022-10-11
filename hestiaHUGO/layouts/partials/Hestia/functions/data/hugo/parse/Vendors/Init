@@ -28,14 +28,14 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse Google data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/Google/Init" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_google/Init" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* parse Twitter data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/Twitter/Init" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/Init" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
