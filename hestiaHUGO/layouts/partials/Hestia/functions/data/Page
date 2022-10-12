@@ -188,6 +188,13 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* prepare Hestia .Page.Nav */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Nav/Init" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* prepare Hestia .Page.LD+JSON (MUST always be the LAST) */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/LDJSON" . -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -213,6 +220,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/XMLBrowserConfig" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Vendors/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Nav/Init" $dataList -}}
 
 
 
