@@ -118,6 +118,13 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* prepare Hestia .Page.Sitemap */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Sitemap/Init" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* BEGIN PROCESSING - Hugo interfaces ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Time" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats" $dataList -}}
@@ -128,6 +135,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Creators" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}
 
 
 

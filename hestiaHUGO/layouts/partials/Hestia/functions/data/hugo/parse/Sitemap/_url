@@ -1,0 +1,56 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Hugo data structure */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $SITEMAP_FILENAME := "sitemap.xml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := "" -}}
+{{- $ret := false -}}
+{{- $url := false -}}
+
+
+
+
+{{- /* parse .URL */ -}}
+{{- $url = urls.Parse .Page.Permalink -}}
+{{- $ret = "http" -}}
+{{- if $url.Scheme -}}
+	{{- $ret = $url.Scheme -}}
+{{- end -}}
+{{- $dataList = printf "%s://%s" $ret (default "localhost" $url.Host) -}}
+
+
+{{- $ret = $url.Path -}}
+{{- if path.Ext $ret -}}
+	{{- $ret = path.Dir $ret -}}
+{{- end -}}
+{{- $ret = strings.TrimPrefix "/" $ret -}}
+{{- $dataList = printf "%s/%s" $dataList $ret -}}
+{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+{{- $dataList = printf "%s/%s" $dataList $SITEMAP_FILENAME -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "URL" $dataList -}}
