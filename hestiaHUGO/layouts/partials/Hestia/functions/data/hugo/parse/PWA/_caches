@@ -17,18 +17,24 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".caches.toml" -}}
+
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $dataList := slice -}}
 {{- $ret := false -}}
+{{- $path := false -}}
+{{- $Local := false -}}
 
 
 
 
-{{- /* parse .Caches.List */ -}}
-{{- $dataList = slice -}}
+{{- /* parse site-level .Caches.List */ -}}
+{{- $list = dict -}}
 {{- range $i, $v := .Site.Data.Hestia.PWA.Caches.Contents -}}
 	{{- if not $v.URL -}}
 		{{- continue -}}
@@ -43,10 +49,77 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = dict -}}
 	{{- $ret = merge $ret (dict "URL" $v.URL) -}}
 	{{- $ret = merge $ret (dict "Cache" $v.Cache) -}}
-	{{- $dataList = append $ret $dataList -}}
+	{{- $list = merge $list (dict $ret.URL $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse all page-level .Caches.List */ -}}
+{{- range $i, $v := .Site.Pages -}}
+	{{- $path = "" -}}
+
+
+	{{- if $v.Page.File -}}
+		{{- $path = path.Dir $v.Page.File.Path -}}
+		{{- $Local = path.Join $path $CONFIG_FILENAME -}}
+		{{- $Local = path.Clean $Local -}}
+		{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
+
+		{{- $ret = merge $ret (dict "Path" (path.Dir $v.Page.File.Path)) -}}
+	{{- end -}}
+
+
+	{{- if not $Local -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (index $Local "Contents") -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- range $j, $w := $Local.Contents -}}
+		{{- if not $w.URL -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- if not $w.Cache -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- /* convert page relative URL to base relative URL */ -}}
+		{{- $ret = urls.Parse $w.URL -}}
+		{{- if $ret.Scheme -}}
+			{{- /* DO NOTHING - absolute URL */ -}}
+			{{- $ret = $w.URL -}}
+		{{- else if (hasPrefix $ret.Path "/") -}}
+			{{- /* DO NOTHING - base relative URL */ -}}
+			{{- $ret = $w.URL -}}
+		{{- else -}}
+			{{- $ret = path.Join "/" $path $w.URL -}}
+		{{- end -}}
+
+
+		{{- /* construct entry */ -}}
+		{{- $ret = dict "URL" $ret -}}
+		{{- $ret = merge $ret (dict "Cache" $w.Cache) -}}
+		{{- $list = merge $list (dict $ret.URL $ret) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* convert back into array */ -}}
+{{- $dataList = slice -}}
+{{- range $k, $v := $list -}}
+	{{- $dataList = append $v $dataList -}}
 {{- end -}}
 {{- $dataList = dict "List" $dataList -}}
-
 
 
 

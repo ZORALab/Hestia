@@ -60,10 +60,12 @@
 #                                    1. not up-to-date.
 #                                    2. only can be updated during each update
 #                                       or fresh installation.
-[[Contents]]
-URL = "/en"
-Cache = "cache-first"
-
-[[Contents]]
-URL = "/zh-hans"
-Cache = "cache-first"
+#
+# Example:
+#   [[Contents]]
+#   URL = "/en"
+#   Cache = "cache-first"
+#
+#   [[Contents]]
+#   URL = "/zh-hans"
+#   Cache = "cache-first"
