@@ -15,29 +15,33 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Hugo data structure */ -}}
-
-{{- /* CONSTANTS */ -}}
-{{- $FILENAME := partial "Hestia/functions/data/hugo/parse/Sitemap/_const_filename" . -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := "" -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $console := dict -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
 
 
 
 
-{{- /* parse .Path */ -}}
-{{- $dataList = $FILENAME -}}
-{{- if .Page.File -}}
-	{{- $dataList = path.Join (path.Dir .Page.File.Path) $dataList -}}
-	{{- $dataList = path.Clean $dataList -}}
-{{- end -}}
+{{- /* process .URL */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Sitemap/_index/_url" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
+{{- /* process .Path */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Sitemap/_index/_path" . -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Path" $dataList -}}
+{{- return dict "Index" $dataList -}}

@@ -58,5 +58,12 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* process .Index */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Sitemap/_index/Init" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return merge $Page (dict "Sitemap" $dataList) -}}

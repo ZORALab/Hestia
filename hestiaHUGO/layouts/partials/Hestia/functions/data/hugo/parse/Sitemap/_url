@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 {{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $SITEMAP_FILENAME := "sitemap.xml" -}}
+{{- $FILENAME := partial "Hestia/functions/data/hugo/parse/Sitemap/_const_filename" . -}}
 
 
 
@@ -47,7 +47,7 @@ specific language governing permissions and limitations under the License.
 {{- $ret = strings.TrimPrefix "/" $ret -}}
 {{- $dataList = printf "%s/%s" $dataList $ret -}}
 {{- $dataList = strings.TrimSuffix "/" $dataList -}}
-{{- $dataList = printf "%s/%s" $dataList $SITEMAP_FILENAME -}}
+{{- $dataList = printf "%s/%s" $dataList $FILENAME -}}
 
 
 

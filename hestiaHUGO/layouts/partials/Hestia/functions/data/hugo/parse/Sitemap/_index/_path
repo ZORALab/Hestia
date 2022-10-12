@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 {{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $FILENAME := partial "Hestia/functions/data/hugo/parse/Sitemap/_const_filename" . -}}
+{{- $FILENAME := partial "Hestia/functions/data/hugo/parse/Sitemap/_index/_const_filename" . -}}
 
 
 

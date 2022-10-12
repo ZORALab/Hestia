@@ -18,26 +18,39 @@ specific language governing permissions and limitations under the License.
 {{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $FILENAME := partial "Hestia/functions/data/hugo/parse/Sitemap/_const_filename" . -}}
+{{- $FILENAME := partial "Hestia/functions/data/hugo/parse/Sitemap/_index/_const_filename" . -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := "" -}}
+{{- $ret := false -}}
+{{- $url := false -}}
 
 
 
 
-{{- /* parse .Path */ -}}
-{{- $dataList = $FILENAME -}}
-{{- if .Page.File -}}
-	{{- $dataList = path.Join (path.Dir .Page.File.Path) $dataList -}}
-	{{- $dataList = path.Clean $dataList -}}
+{{- /* parse .URL */ -}}
+{{- $url = urls.Parse .Page.Permalink -}}
+{{- $ret = "http" -}}
+{{- if $url.Scheme -}}
+	{{- $ret = $url.Scheme -}}
 {{- end -}}
+{{- $dataList = printf "%s://%s" $ret (default "localhost" $url.Host) -}}
+
+
+{{- $ret = $url.Path -}}
+{{- if path.Ext $ret -}}
+	{{- $ret = path.Dir $ret -}}
+{{- end -}}
+{{- $ret = strings.TrimPrefix "/" $ret -}}
+{{- $dataList = printf "%s/%s" $dataList $ret -}}
+{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+{{- $dataList = printf "%s/%s" $dataList $FILENAME -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Path" $dataList -}}
+{{- return dict "URL" $dataList -}}
