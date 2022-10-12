@@ -51,8 +51,8 @@ specific language governing permissions and limitations under the License.
 		{{- if not $console -}}
 			{{- $console = printf "FS: %v" $dataList.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
-			{{- $dataList = "" -}}
 		{{- end -}}
+		{{- $dataList = "" -}}
 	{{- else -}}
 		{{- $dataList = $dataList.Output -}}
 	{{- end -}}
