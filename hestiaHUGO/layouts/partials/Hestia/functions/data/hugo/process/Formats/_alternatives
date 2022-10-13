@@ -22,45 +22,22 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $Page = merge $Page (dict "Formats" false) -}}
-{{- $Page = merge $Page (dict "Formats" dict) -}}
 {{- $dataList := dict -}}
-{{- $list := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* process each .Format in .List */ -}}
-{{- $list = dict -}}
-{{- range $k, $v := .Formats.List -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Format" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_format" $ret -}}
-	{{- $list = merge $list (dict $ret.Name $ret) -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "List" $list) -}}
-
-
-
-
 {{- /* process each .Format in .Alternatives */ -}}
-{{- $list = dict -}}
+{{- $dataList = dict -}}
 {{- range $k, $v := .Formats.Alternatives -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Format" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_format" $ret -}}
-	{{- $list = merge $list (dict $ret.Name $ret) -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Formats/__format" $ret -}}
+	{{- $dataList = merge $dataList (dict $ret.Name $ret) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Alternatives" $list) -}}
-
-
-
-
-{{- /* process current .Format */ -}}
-{{- $ret = index $dataList.List (upper .Formats.Current.Name) -}}
-{{- $dataList = merge $dataList (dict "Current" $ret) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return merge $Page (dict "Formats" $dataList) -}}
+{{- return dict "Alternatives" $dataList -}}
