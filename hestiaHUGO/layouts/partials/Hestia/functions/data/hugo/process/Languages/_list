@@ -26,9 +26,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Languages" dict) -}}
 {{- $data := dict -}}
 {{- $dataList := dict -}}
-{{- $list := dict -}}
 {{- $console := false -}}
-{{- $lang := false -}}
 {{- $isDefaultSet := false -}}
 {{- $ret := false -}}
 
@@ -36,27 +34,23 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .List */ -}}
-{{- $list := dict -}}
+{{- $dataList := dict -}}
 {{- range $k, $v := .Languages.List -}}
 	{{- $data = dict -}}
 
 
 	{{- /* process .Code */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Lang" $k)) -}}
-	{{- $ret = partial "Hestia/functions/data/language/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Languages/__code" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf ".Languages.List.%v.Code: %s"
-			(upper $k)
-			$ret.Console.Message
-		-}}
-
+		{{- $console = printf "Languages: %v" $ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 
 		{{- continue -}}
 	{{- end -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- $ret = $ret.Output -}}
 	{{- $data = merge $data (dict "Code" $ret) -}}
 	{{- $data = merge $data (dict "ID" (upper $ret)) -}}
 
@@ -149,124 +143,11 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* save to list */ -}}
-	{{- $list = merge $list (dict $data.ID $data) -}}
+	{{- $dataList = merge $dataList (dict $data.ID $data) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "List" $list) -}}
-
-
-
-
-{{- /* process translate languages */ -}}
-{{- range $k, $v := .Languages.Alternatives -}}
-	{{- /* process .Code */ -}}
-	{{- $lang = merge $Page (dict "Input" (dict "Lang" $k)) -}}
-	{{- $lang = partial "Hestia/functions/data/language/Init" $lang -}}
-	{{- if $lang.Console -}}
-		{{- $console = printf "Languages: translation: %s"
-			(upper $k)
-			$lang.Console.Message
-		-}}
-
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-
-		{{- continue -}}
-	{{- end -}}
-	{{- $lang = partial "Hestia/functions/data/string/TrimWhitespace" $lang.Output -}}
-	{{- $lang = upper $lang -}}
-
-
-	{{- /* query from language list */ -}}
-	{{- $data = index $dataList.List $lang -}}
-	{{- if not $data -}}
-		{{- $console = printf
-			"Languages: translation: unsupported language code '%v'\n"
-			$lang
-		-}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- /* park .URL.Page for URL processor to process later */ -}}
-	{{- $data = merge $data (dict "URL" (dict "PAGE" $v.URL)) -}}
-
-
-	{{- /* merge into $dataList */ -}}
-	{{- $dataList = merge $dataList (dict "List" (dict $lang $data)) -}}
-{{- end -}}
-
-
-
-
-{{- /* process all URLs */ -}}
-{{- $dataList = merge $Page (dict "Languages" $dataList) -}}
-{{- range $k, $v := $dataList.Languages.List -}}
-	{{- $list = dict -}}
-
-
-	{{- range $j, $w := $v.URL -}}
-		{{- /* process url to full */ -}}
-		{{- $ret = merge $dataList (dict "Input" (dict "URL" $w)) -}}
-		{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
-		{{- if $ret.Console -}}
-			{{- $console = printf ".Languages.List.%v.URL.%v: %s"
-				$k
-				$j
-				$ret.Console.Message
-			-}}
-
-			{{- $console = dict "Console" (dict "Message" $console) -}}
-			{{- $console = merge $Page $console -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
-		{{- end -}}
-
-		{{- $list = merge $list (dict $j $ret.Output) -}}
-	{{- end -}}
-
-
-	{{- if not $list.PAGE -}}
-		{{- $list = merge $list (dict "PAGE" (urls.Parse "")) -}}
-	{{- end -}}
-
-
-	{{- $list = dict "URL" $list -}}
-	{{- $list = merge $v $list -}}
-	{{- $list = dict "Languages" (dict "List" (dict $k $list)) -}}
-	{{- $dataList = merge $dataList $list -}}
-{{- end -}}
-
-
-
-
-{{- /* process current page's language */ -}}
-{{- $ret = dict -}}
-{{- range $k, $v := $dataList.Languages.List -}}
-	{{- if hasPrefix $dataList.Filesystem.Directory $v.Directory -}}
-		{{- $ret = $v -}}
-	{{- else if and (not $ret) $v.Default -}}
-		{{- $ret = $v -}}
-	{{- end -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "Languages" (dict "Current" $ret)) -}}
-
-
-
-
-{{- /* merge current page's url */ -}}
-{{- $ret = dict "URL" (dict "PAGE" .URL.Current.Absolute) -}}
-{{- $dataList = merge $dataList (dict "Languages" (dict "Current" $ret)) -}}
-
-
-{{- $ret = dict $dataList.Languages.Current.ID $dataList.Languages.Current -}}
-{{- $dataList = merge $dataList (dict "Languages" (dict "List" $ret)) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "List" $dataList -}}
