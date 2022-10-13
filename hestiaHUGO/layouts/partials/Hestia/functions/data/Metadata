@@ -133,7 +133,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Creators/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}
 
