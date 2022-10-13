@@ -12,19 +12,19 @@
 #
 # You SHOULD ONLY include components that are used across all pages. To
 # configure:
-#     [COMPONENT].Enabled   = to include the component.
+#     [COMPONENT].Include   = to include the component (true/false).
 #     [COMPONENT].Variables = overwrites the component's variables.
 #
 # The data structure is as follows:
 #               [{COMPONENT}]
-#               Include = false
+#               Include = true
 #
 #               [{COMPONENTS}.Variables]
 #               "{{ CSS Variable Name }}" = "{{ CSS Value }}"
 #
 #         Example:
 #               [anchor]
-#               Include = false
+#               Include = true
 #
 #               [anchor.Variables]
 #               "--anchor-color" = "red"
