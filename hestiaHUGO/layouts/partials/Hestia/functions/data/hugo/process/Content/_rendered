@@ -22,8 +22,6 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $Page = merge $Page (dict "Content" false) -}}
-{{- $Page = merge $Page (dict "Content" dict) -}}
 {{- $dataList := dict -}}
 {{- $console := false -}}
 {{- $ret := false -}}
@@ -31,34 +29,11 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Raw */ -}}
-{{- $dataList = merge $dataList (dict "Raw" .Content.Raw) -}}
-
-
-
-
 {{- /* process .Rendered */ -}}
-{{- $ret = .Content.Rendered -}}
-{{- if eq .Formats.Current.Name "JSON" -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $console = printf ".Content.Rendered: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- end -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
-
-
-	{{- if $ret -}}
-		{{- $ret = transform.Unmarshal $ret -}}
-	{{- end -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "Rendered" $ret) -}}
+{{- $dataList = .Content.Rendered -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return merge $Page (dict "Content" $dataList) -}}
+{{- return dict "Rendered" $dataList -}}
