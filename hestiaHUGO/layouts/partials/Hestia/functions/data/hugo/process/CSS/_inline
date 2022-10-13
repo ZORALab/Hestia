@@ -1,0 +1,74 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process all .Inline */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := .CSS.Inline -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $ret = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+
+
+	{{- /* process relative pathing */ -}}
+	{{- if not (hasPrefix $ret "assets") -}}
+		{{- $ret = path.Join $Page.Filesystem.Directory $ret -}}
+	{{- end -}}
+
+
+	{{- /* validate asset file is there */ -}}
+	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+		{{- $ret = printf "CSS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $dataList = append $ret $dataList -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Inline" $dataList -}}

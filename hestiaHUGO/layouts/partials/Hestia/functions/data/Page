@@ -219,7 +219,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Content" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Creators" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Components" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/CSS" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/CSS/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/JS" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/WASM" $dataList -}}
