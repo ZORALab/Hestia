@@ -71,10 +71,10 @@ specific language governing permissions and limitations under the License.
 	{{- $console = merge $Page $console -}}
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
-{{- $dataList = dict "URL" $dataList.URL -}}
+{{- $dataList = dict "URL" $dataList.Output.URL -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return merge $Page (dict "BrowserConfig" $dataList) -}}
+{{- return dict "BrowserConfig" $dataList -}}
