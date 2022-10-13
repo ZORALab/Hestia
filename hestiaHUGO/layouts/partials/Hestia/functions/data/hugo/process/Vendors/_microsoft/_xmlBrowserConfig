@@ -31,9 +31,9 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* generate browserconfig.xml file */ -}}
-{{- $dataList = partial "Hestia/functions/render/xml/browserconfig.xml" . -}}
-{{- $dataList = merge $Page (dict "Input" (dict "Data" (string $dataList))) -}}
+{{- /* generate browserconfig.xml file content */ -}}
+{{- $dataList = string (partial "Hestia/functions/render/xml/browserconfig.xml" .) -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 {{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf "BrowserconfigXML: %v" $dataList.Console.Message -}}
@@ -41,10 +41,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = merge $Page $console -}}
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
-{{- $dataList = printf "%s\n%s"
-	"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-	$dataList.Output
--}}
+{{- $dataList = $dataList.Output -}}
 
 
 {{- if not .IsServerMode -}}
@@ -62,8 +59,19 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- $dataList = resources.FromString "browserconfig.xml" $dataList -}}
-{{- $dataList = dict "URL" $dataList.Permalink -}}
+
+
+{{- /* write to browserconfig.xml file */ -}}
+{{- $dataList = merge $Page (dict "Input"
+	(dict "Path" "browserconfig.xml" "Content" $dataList)) -}}
+{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
+{{- if $dataList.Console -}}
+	{{- $console = printf "BrowserconfigXML: %v" $dataList.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = dict "URL" $dataList.URL -}}
 
 
 

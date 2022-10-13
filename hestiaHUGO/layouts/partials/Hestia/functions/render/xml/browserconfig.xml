@@ -20,6 +20,8 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* return render */ -}}
+{{- safeHTML (printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>") }}
 <browserconfig>
 	<msapplication>
 		<tile>

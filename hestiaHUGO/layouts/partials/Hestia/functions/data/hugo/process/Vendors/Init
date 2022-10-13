@@ -30,6 +30,13 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* process .Microsoft */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_microsoft/Init" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* process .Google */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_google/Init" . -}}
 {{- $dataList = merge $dataList $ret -}}
