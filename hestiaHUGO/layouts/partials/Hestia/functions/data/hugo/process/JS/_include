@@ -1,0 +1,93 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := slice -}}
+{{- $data := dict -}}
+{{- $console := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process all .Include */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := .JS.Include -}}
+	{{- $data = dict -}}
+
+
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* process .URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "JS.Include.%v.URL: %v" $i $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- /* process .Timing */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Timing)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "JS.Include.%v.Timing: %v" $i $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- $ret = lower $ret -}}
+
+	{{- if eq $ret "defer" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $ret "async" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $ret "sync" -}}
+		{{- /* PASS */ -}}
+	{{- else -}}
+		{{- $console = printf "JS.Include.%v.Timing: unknown value '%v'.\n" $i $ret -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "defer" -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Timing" $ret) -}}
+
+
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Include" $dataList -}}
