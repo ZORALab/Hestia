@@ -22,10 +22,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $Page = merge $Page (dict "Descriptions" false) -}}
-{{- $Page = merge $Page (dict "Descriptions" dict) -}}
 {{- $dataList := dict -}}
-{{- $list := dict -}}
 {{- $data := false -}}
 {{- $ret := false -}}
 {{- $console := false -}}
@@ -33,40 +30,16 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* validate page descriptions */ -}}
-{{- $list = dict -}}
-{{- range $k, $v := .Descriptions.Page -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Limit" $k "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_description" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $console = printf "Description.Page.%v: %s"
-			$k
-			$ret.Console.Message
-		-}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- end -}}
-
-
-	{{- /* merge into output list */ -}}
-	{{- $list = merge $list (dict $k $ret.Output) -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "Page" $list) -}}
-
-
-
-
-{{- /* validate site descriptions */ -}}
-{{- $list = dict -}}
+{{- /* process .Site descriptions */ -}}
+{{- $dataList = dict -}}
 {{- range $k, $v := .Descriptions.Site -}}
 	{{- $data = dict -}}
 
 
 	{{- /* process .Pitch */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Limit" "pitch" "Data" $v.Pitch)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_description" $ret -}}
+	{{- $ret = partial
+		"Hestia/functions/data/hugo/process/Descriptions/__description" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Description.Site.%v.Pitch: %s"
 			$k
@@ -82,7 +55,8 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Summary */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Limit" "summary" "Data" $v.Summary)) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/_description" $ret -}}
+	{{- $ret = partial
+		"Hestia/functions/data/hugo/process/Descriptions/__description" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Description.Site.%v.Summary: %s"
 			$k
@@ -97,19 +71,11 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* merge into output list */ -}}
-	{{- $list = merge $list (dict (upper $k) $data) -}}
+	{{- $dataList = merge $dataList (dict (upper $k) $data) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Site" $list) -}}
-
-
-
-
-{{- /* process current language site description */ -}}
-{{- $ret = index $dataList.Site .Languages.Current.ID -}}
-{{- $dataList = merge $dataList (dict "Site" (dict "Current" $ret)) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return merge $Page (dict "Descriptions" $dataList) -}}
+{{- return dict "Site" $dataList -}}
