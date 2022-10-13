@@ -15,13 +15,24 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 
 
 
-{{- /* return render */ -}}
-{{- if .Keywords.List }}
-	<meta name="keywords"
-		content="{{- delimit .Keywords.List ", " -}}" />
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := slice -}}
+
+
+
+
+{{- /* parse page level keywords */ -}}
+{{- range $i, $v := .Page.Keywords -}}
+	{{- $dataList = append $dataList (slice $v) -}}
 {{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "List" $dataList -}}

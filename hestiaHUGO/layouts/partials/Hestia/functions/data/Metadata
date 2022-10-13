@@ -91,7 +91,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare Hestia .Page.Keywords */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Keywords" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/Keywords/Init" . -}}
 {{- $dataList = merge $dataList $ret -}}
 
 
@@ -131,7 +131,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Languages" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Titles/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Creators/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails" $dataList -}}
