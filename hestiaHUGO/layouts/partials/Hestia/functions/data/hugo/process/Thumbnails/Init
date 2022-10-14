@@ -37,10 +37,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" $v) -}}
 	{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "Thumbnails.%v: %v"
-			$i
-			$ret.Console.Message
-		-}}
+		{{- $console = printf "Thumbnails.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 		{{- $console = merge $Page (dict "Console" $console) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
