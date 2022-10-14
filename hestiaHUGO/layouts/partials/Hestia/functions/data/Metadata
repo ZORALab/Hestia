@@ -126,7 +126,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* BEGIN PROCESSING - Hugo interfaces ended beyond this line */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Time" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Time/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Languages/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Titles/Init" $dataList -}}
