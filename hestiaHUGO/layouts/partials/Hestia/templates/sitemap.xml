@@ -59,7 +59,8 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* render page sitemap */ -}}
-	{{- $ret = string (partial "Hestia/functions/render/xml/sitemap-page.xml" $Page) -}}
+	{{- $ret = partial "Hestia/functions/render/xml/sitemap/Page" $Page -}}
+	{{- $ret = string $ret -}}
 	{{- $ret = merge $Page (dict "Input"
 		(dict "Content" $ret "Path" $Page.Sitemap.Path)) -}}
 	{{- $ret = partial "Hestia/functions/data/filesystem/WriteFile" $ret -}}
@@ -73,11 +74,11 @@ specific language governing permissions and limitations under the License.
 	{{- /* render index sitemap */ -}}
 	{{- if eq (string $Page.URL.Current.Absolute) (string $Page.URL.Base) -}}
 		{{- /* return value to this file = base URL + sitemap.xml */ -}}
-		{{- partial "Hestia/functions/render/xml/sitemap-index.xml" $Page -}}
+		{{- partial "Hestia/functions/render/xml/sitemap/Index" $Page -}}
 	{{- else -}}
 		{{- /* write to targeted sitemap file */ -}}
-		{{- $ret = string (partial "Hestia/functions/render/xml/sitemap-index.xml"
-			$Page) -}}
+		{{- $ret = partial "Hestia/functions/render/xml/sitemap/Index" $Page -}}
+		{{- $ret = string $ret -}}
 		{{- $ret = merge $Page (dict "Input"
 			(dict "Content" $ret "Path" $Page.Sitemap.Index.Path)) -}}
 		{{- $ret = partial "Hestia/functions/data/filesystem/WriteFile" $ret -}}
