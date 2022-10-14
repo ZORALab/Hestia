@@ -32,7 +32,8 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* generate browserconfig.xml file content */ -}}
-{{- $dataList = string (partial "Hestia/functions/render/xml/browserconfig.xml" .) -}}
+{{- $dataList = partial "Hestia/functions/render/xml/vendors/microsoft/BrowserConfig" . -}}
+{{- $dataList = string $dataList -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 {{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
 {{- if $dataList.Console -}}
