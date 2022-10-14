@@ -34,12 +34,5 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .BaseURL */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/RobotsTXT/_baseURL" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
 {{- /* render output */ -}}
 {{- return $dataList -}}

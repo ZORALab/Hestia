@@ -31,8 +31,8 @@ specific language governing permissions and limitations under the License.
 {{- /* process .Sitemaps */ -}}
 {{- $dataList = slice -}}
 {{- range $i, $v := .Sitemaps -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $ret = printf "robots.txt: .Sitemaps: %v" $ret.Console.Message -}}
 		{{- $ret = dict "Console" (dict "Message" $ret) -}}
@@ -40,7 +40,10 @@ specific language governing permissions and limitations under the License.
 		{{- partial "Hestia/functions/console/Errorf" $ret -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+
+
+	{{- $ret = string $ret.Output -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 
 
 	{{- /* merge to list */ -}}

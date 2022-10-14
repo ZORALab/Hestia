@@ -5,7 +5,7 @@
 #      defining the value for this particular user-agent:
 #
 #               Sitemap = [
-#               	"{{ .BaseURL }}/sitemap.xml",
+#               	"/sitemap.xml",
 #               ]
 #
 #               Allow = [
@@ -21,11 +21,12 @@
 #
 #               Crawl-delay = 5
 #
-#   2. If you need to canonicalize your relative URL with the baseURL, you
-#      can use the placeholder "{{ .BaseURL }}". If we follow the example above
-#      and the `.BaseURL` is "https://www.example.com", the processing shall
-#      be as following output:
-#       "{{ .BaseURL }}/sitemap.xml" --> "https://www.example.com/sitemap.xml"
+#   2. For Sitemaps, If you need to canonicalize your relative URL into absolute
+#      URL (highly recommended), you can denotes them with the root relative
+#      URL (starts with '/'). Hestia will convert it with the given Base URL. If
+#      we follow the above example, given a base URL is
+#      "https://www.example.com", the processing shall be as follows:
+#              "/sitemap.xml" -> "https://www.example.com/sitemap.xml"
 #   3. The field names are case-insensitive (e.g. "Sitemap" and "sitemap" both
 #      referring to the same dataset.
 #   4. The values are processed with whitespace cleaning.
@@ -33,14 +34,14 @@
 #      the data file.
 #   6. Only 1 "All.toml" file is allowed. If there are more than one, the result
 #      shall be unpredictable. Please overwrite whenever necessary in your own
-#      data/Hestia/Robots/All.toml file.
-#   7. All Sitemaps are processed into a unique list of URLs to prevent
-#      duplications.
+#      data/Hestia/Robots/All.toml data file.
+#   7. All Sitemaps are processed into a unique list of URLs for preventing
+#      duplication.
 #   8. **You're fully responsible for providing an absolute sitemap URL**
 #      based on the user agent data source. The "All.toml" governs the overall
 #      Sitemap configurations.
 Sitemap = [
-	"{{ .BaseURL }}/sitemap.xml",
+	"/sitemap.xml",
 ]
 
 

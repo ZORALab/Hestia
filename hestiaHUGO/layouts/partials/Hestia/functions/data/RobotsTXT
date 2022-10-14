@@ -22,12 +22,21 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict "IsHestia" true -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse Hestia .Page.URL */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/URL" . -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
 {{- /* prepare Hestia .RobotsTXT data */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/parse/RobotsTXT/Init" . -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/RobotsTXT/Init" . -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 

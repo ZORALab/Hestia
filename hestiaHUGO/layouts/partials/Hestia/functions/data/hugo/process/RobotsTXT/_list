@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $baseURL := .BaseURL -}}
+{{- $Page := . -}}
 {{- $dataList := dict -}}
 {{- $data := dict -}}
 {{- $value := slice -}}
@@ -46,8 +46,19 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Allow */ -}}
 	{{- $value = slice -}}
 	{{- range $k, $x := $v.Allow -}}
-		{{- $ret = replace $x $baseURL (strings.TrimSuffix "/" $baseURL) -}}
-		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $x)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $ret = printf
+				"robots.txt: Allow '%v': %v"
+				$x
+				$ret.Console.Message
+			-}}
+			{{- $ret = merge $Page $ret -}}
+			{{- partial "Hestia/functions/console/Errorf" $ret -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 		{{- $value = append $ret $value -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Allow" $value) -}}
@@ -56,8 +67,19 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Disallow */ -}}
 	{{- $value = slice -}}
 	{{- range $k, $x := $v.Disallow -}}
-		{{- $ret = replace $x $baseURL (strings.TrimSuffix "/" $baseURL) -}}
-		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $x)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $ret = printf
+				"robots.txt: Disallow '%v': %v"
+				$x
+				$ret.Console.Message
+			-}}
+			{{- $ret = merge $Page $ret -}}
+			{{- partial "Hestia/functions/console/Errorf" $ret -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 		{{- $value = append $ret $value -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Disallow" $value) -}}
