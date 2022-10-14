@@ -26,8 +26,14 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* source data */ -}}
-{{- $dataList = partial "Hestia/functions/render/data/meta/Redirect" . -}}
+{{- /* source .Redirect data accordingly */ -}}
+{{- if .Redirect.Enabled -}}
+	{{- $dataList = merge $dataList (dict "url" (string .Redirect.URL)) -}}
+	{{- $dataList = merge $dataList (dict "enabled" true) -}}
+{{- else -}}
+	{{- $dataList = merge $dataList (dict "url" "") -}}
+	{{- $dataList = merge $dataList (dict "enabled" false) -}}
+{{- end -}}
 
 
 
