@@ -39,26 +39,21 @@ specific language governing permissions and limitations under the License.
 {{- /* process user-agent 'All' (*) first */ -}}
 {{- range $i, $v := .List -}}
 	{{- if eq $v.Name "*" -}}
-		{{- $lines = append (printf "User-agent: %s" $v.Name)
-			$lines -}}
+		{{- $lines = append (printf "User-agent: %s" $v.Name) $lines -}}
 
 
 		{{- range $j, $x := $v.Allow -}}
-			{{- $lines = append (printf "Allow: %s" $x)
-				$lines -}}
+			{{- $lines = append (printf "Allow: %s" $x) $lines -}}
 		{{- end -}}
 
 
 		{{- range $j, $x := $v.Disallow -}}
-			{{- $lines = append (printf "Disallow: %s" $x)
-				$lines -}}
+			{{- $lines = append (printf "Disallow: %s" $x) $lines -}}
 		{{- end -}}
 
 
-		{{- $ret = index $v "Crawl-delay" -}}
-		{{- if $ret -}}
-			{{- $lines = append (printf "Crawl-delay: %s" $ret)
-				$lines -}}
+		{{- if .CrawlDelay -}}
+			{{- $lines = append (printf "Crawl-delay: %s" .CrawlDelay) $lines -}}
 		{{- end -}}
 	{{- end -}}
 {{- end -}}
@@ -93,9 +88,8 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $ret = index $v "Crawl-delay" -}}
-	{{- if $ret -}}
-		{{- $lines = append (printf "Crawl-delay: %s" $ret) $lines -}}
+	{{- if .CrawlDelay -}}
+		{{- $lines = append (printf "Crawl-delay: %s" .CrawlDelay) $lines -}}
 	{{- end -}}
 {{- end -}}
 

@@ -15,25 +15,28 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure with robots.txt scope */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict "IsHestia" true -}}
+{{- $dataList := slice -}}
+{{- $ret := false -}}
 
 
 
 
-{{- /* prepare Hestia .RobotsTXT data */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/parse/RobotsTXT/Init" . -}}
+{{- /* parse .List */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/RobotsTXT/_list" . -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
 
-{{- /* BEGIN POST PROCESSING - Hugo interfaces ended beyond this line */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/RobotsTXT/Init" $dataList -}}
+{{- /* process .BaseURL */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/parse/RobotsTXT/_baseURL" . -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 

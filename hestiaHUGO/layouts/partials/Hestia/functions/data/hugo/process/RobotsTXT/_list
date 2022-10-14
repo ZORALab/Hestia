@@ -15,83 +15,66 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = RobotsTXT Hestia Data Structure */ -}}
-
-{{- /* CONSTANTS */ -}}
-{{- $URL_PATTERN_BASE := "{{ .BaseURL }}" -}}
+{{- /* . = Hestia RobotsTXT Data Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $baseURL := .BaseURL -}}
 {{- $dataList := dict -}}
-{{- $agent := dict -}}
-{{- $list := slice -}}
+{{- $data := dict -}}
 {{- $value := slice -}}
 {{- $ret := false -}}
-{{- $baseURL :=  strings.TrimSuffix "/" .BaseURL -}}
-
-
-
-
-{{- /* process .Sitemaps */ -}}
-{{- $list = slice -}}
-{{- range $i, $v := .Sitemaps -}}
-	{{- $ret = replace $v $URL_PATTERN_BASE $baseURL -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
-	{{- $list = append $ret $list -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "Sitemaps" $list) -}}
 
 
 
 
 {{- /* process list */ -}}
-{{- $list = slice -}}
+{{- $dataList = slice -}}
 {{- range $i, $v := .List -}}
-	{{- $agent = dict -}}
+	{{- $data = dict -}}
 
 
 	{{- /* process .Name */ -}}
-	{{- $ret = replace $v.Name "All" "*" -}}
-	{{- $ret = replace $ret "all" "*" -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
-	{{- $agent = merge $agent (dict "Name" $ret) -}}
+	{{- $value = replace $v.Name "All" "*" -}}
+	{{- $value = replace $value "all" "*" -}}
+	{{- $value = partial "Hestia/functions/data/string/TrimWhitespace" $value -}}
+	{{- $data = merge $data (dict "Name" $value) -}}
 
 
 	{{- /* process .Allow */ -}}
 	{{- $value = slice -}}
 	{{- range $k, $x := $v.Allow -}}
-		{{- $ret = replace $x $URL_PATTERN_BASE $baseURL -}}
+		{{- $ret = replace $x $baseURL (strings.TrimSuffix "/" $baseURL) -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 		{{- $value = append $ret $value -}}
 	{{- end -}}
-	{{- $agent = merge $agent (dict "Allow" $value) -}}
+	{{- $data = merge $data (dict "Allow" $value) -}}
 
 
 	{{- /* process .Disallow */ -}}
 	{{- $value = slice -}}
 	{{- range $k, $x := $v.Disallow -}}
-		{{- $ret = replace $x $URL_PATTERN_BASE $baseURL -}}
+		{{- $ret = replace $x $baseURL (strings.TrimSuffix "/" $baseURL) -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 		{{- $value = append $ret $value -}}
 	{{- end -}}
-	{{- $agent = merge $agent (dict "Disallow" $value) -}}
+	{{- $data = merge $data (dict "Disallow" $value) -}}
 
 
-	{{- /* process ."Crawl-delay" */ -}}
-	{{- $ret = index $v "Crawl-delay" -}}
-	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
-	{{- $agent = merge $agent (dict "Crawl-delay" $ret) -}}
+	{{- /* process .CrawlDelay */ -}}
+	{{- $value = index $v "CrawlDelay" -}}
+	{{- $value = partial "Hestia/functions/data/string/TrimWhitespace" $value -}}
+	{{- $data = merge $data (dict "CrawlDelay" $value) -}}
 
 
 	{{- /* merge into $list */ -}}
-	{{- $list = append $agent $list -}}
+	{{- $dataList = append $data $dataList -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "List" $list) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "List" $dataList -}}

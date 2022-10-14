@@ -60,33 +60,26 @@ specific language governing permissions and limitations under the License.
 
 			{{- $data = merge $data (dict "Disallow" $ret) -}}
 		{{- else if eq (lower $order) "crawl-delay" -}}
-			{{- $data = merge $data (dict "Crawl-delay" $rule) -}}
+			{{- $data = merge $data (dict "CrawlDelay" $rule) -}}
 		{{- end -}}
 	{{- end -}}
 
 
 	{{- $dataList = append $data $dataList -}}
 {{- end -}}
-{{- $dataList = dict "List" $dataList -}}
 
 
 
 
-{{- /* process sitemaps */ -}}
-{{- $data = slice -}}
-{{- range $k, $v := $sitemaps -}}
-	{{- $data = append $k $data -}}
+{{- /* convert $sitemaps back to slice type */ -}}
+{{- $ret = $sitemaps -}}
+{{- $sitemaps = slice -}}
+{{- range $k, $v := $ret -}}
+	{{- $sitemaps = append $k $sitemaps -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Sitemaps" $data) -}}
-
-
-
-
-{{- /* process .BaseURL */ -}}
-{{- $dataList = merge $dataList (dict "BaseURL" .Page.Site.BaseURL) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "List" $dataList "Sitemaps" $sitemaps -}}
