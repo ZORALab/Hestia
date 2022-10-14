@@ -49,8 +49,13 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = printf "%sShortcode   : %s\n" $dataList $ret -}}
 {{- else -}}
 	{{- /* states the Page relative URL */ -}}
-	{{- $ret = "[ ERROR ] GIVEN DATA TO WarningF IS NOT HESTIA STRUCTURED!!" -}}
-	{{- $dataList = printf "%s%s\n" $dataList $ret -}}
+	{{- $dataList = printf
+		"%sOn Page     : not applicable (non-Hestia data)\n" $dataList -}}
+	{{- $dataList = printf
+		"%sFile        : not available\n" $dataList -}}
+	{{- $dataList = printf
+		"%sShortcode   : not available\n" $dataList -}}
+	{{- $dataList = printf "%s\n" $dataList -}}
 {{- end -}}
 
 
