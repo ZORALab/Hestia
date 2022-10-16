@@ -16,6 +16,13 @@
 
 package hestiaFMT
 
+type Lettercase uint8
+
+const (
+	LETTERCASE_LOWER Lettercase = iota
+	LETTERCASE_UPPER
+)
+
 func _parseChar(arg any) (out []rune) {
 	// to be developed later
 	return []rune{'(', 'C', 'H', 'A', 'R', '=', 'b', 'a', 'd', ')'}

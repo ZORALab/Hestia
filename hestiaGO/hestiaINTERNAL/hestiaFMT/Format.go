@@ -13,6 +13,8 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
+//
+// NOTE: test codes are inside hestiaSTRING package.
 
 package hestiaFMT
 
@@ -43,11 +45,11 @@ func Format(statement string, args ...any) string {
 		case 'b':
 			_formatBinary(engine)
 		case 'f', 'F':
-			_formatFloat(engine, c, format_DECIMAL_NO_EXPONENT)
+			_formatFloat(engine, c, number_DECIMAL_NO_EXPONENT)
 		case 'e', 'E':
-			_formatFloat(engine, c, format_SCIENTIFIC)
+			_formatFloat(engine, c, number_SCIENTIFIC)
 		case 'g', 'G':
-			_formatFloat(engine, c, format_SCIENTIFIC_AUTO_EXPONENT)
+			_formatFloat(engine, c, number_SCIENTIFIC_AUTO_EXPONENT)
 		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
 			_formatDigits(engine, c)
 		case '.':
@@ -131,10 +133,10 @@ func _formatDigits(engine *engine, c rune) {
 func _formatFloat(engine *engine, c rune, format numberType) {
 	var ret []rune
 
-	// configure default charset
-	charset := lettercase_LOWER
+	// configure default lettercase
+	lettercase := LETTERCASE_LOWER
 	if c == 'F' {
-		charset = lettercase_UPPER
+		lettercase = LETTERCASE_UPPER
 	}
 
 	// perform formatting
@@ -142,12 +144,12 @@ func _formatFloat(engine *engine, c rune, format numberType) {
 	case engine_PARSE_VERB:
 		// it's a float with no exponent verb '%F' or '%f'
 		ret = _parseNumber(&numberSTR{
-			arg:       engine.arg(),
-			base:      10,
-			charset:   charset,
-			width:     engine.width,
-			precision: engine.precision,
-			format:    format,
+			arg:        engine.arg(),
+			base:       10,
+			lettercase: lettercase,
+			width:      engine.width,
+			precision:  engine.precision,
+			format:     format,
 		})
 		engine.buffer = append(engine.buffer, ret...)
 		engine.to_PARSE_NORMAL()
@@ -164,12 +166,12 @@ func _formatBinary(engine *engine) {
 	case engine_PARSE_VERB:
 		// it's a binary verb '%b'
 		ret = _parseNumber(&numberSTR{
-			arg:       engine.arg(),
-			base:      2,
-			charset:   lettercase_LOWER,
-			width:     engine.width,
-			precision: engine.precision,
-			format:    format_DECIMALLESS,
+			arg:        engine.arg(),
+			base:       2,
+			lettercase: LETTERCASE_LOWER,
+			width:      engine.width,
+			precision:  engine.precision,
+			format:     number_DECIMALLESS,
 		})
 		engine.buffer = append(engine.buffer, ret...)
 		engine.to_PARSE_NORMAL()
@@ -182,10 +184,10 @@ func _formatBinary(engine *engine) {
 func _formatHexadecimal(engine *engine, c rune) {
 	var ret []rune
 
-	// configure default charset
-	charset := lettercase_LOWER
+	// configure default lettercase
+	lettercase := LETTERCASE_LOWER
 	if c == 'X' {
-		charset = lettercase_UPPER
+		lettercase = LETTERCASE_UPPER
 	}
 
 	// perform formatting
@@ -193,12 +195,12 @@ func _formatHexadecimal(engine *engine, c rune) {
 	case engine_PARSE_VERB:
 		// it's a hex verb '%X' or '%x'
 		ret = _parseNumber(&numberSTR{
-			arg:       engine.arg(),
-			base:      16,
-			charset:   charset,
-			width:     engine.width,
-			precision: engine.precision,
-			format:    format_DECIMALLESS,
+			arg:        engine.arg(),
+			base:       16,
+			lettercase: lettercase,
+			width:      engine.width,
+			precision:  engine.precision,
+			format:     number_DECIMALLESS,
 		})
 		engine.buffer = append(engine.buffer, ret...)
 		engine.to_PARSE_NORMAL()
@@ -211,10 +213,10 @@ func _formatHexadecimal(engine *engine, c rune) {
 func _formatOctet(engine *engine, c rune) {
 	var ret []rune
 
-	// configure default charset
-	charset := lettercase_LOWER
+	// configure default lettercase
+	lettercase := LETTERCASE_LOWER
 	if c == 'O' {
-		charset = lettercase_UPPER
+		lettercase = LETTERCASE_UPPER
 	}
 
 	// perform formatting
@@ -222,12 +224,12 @@ func _formatOctet(engine *engine, c rune) {
 	case engine_PARSE_VERB:
 		// it's an octet verb '%O' or '%o'
 		ret = _parseNumber(&numberSTR{
-			arg:       engine.arg(),
-			base:      8,
-			charset:   charset,
-			width:     engine.width,
-			precision: engine.precision,
-			format:    format_DECIMALLESS,
+			arg:        engine.arg(),
+			base:       8,
+			lettercase: lettercase,
+			width:      engine.width,
+			precision:  engine.precision,
+			format:     number_DECIMALLESS,
 		})
 		engine.buffer = append(engine.buffer, ret...)
 		engine.to_PARSE_NORMAL()
@@ -244,12 +246,12 @@ func _formatDecimal(engine *engine) {
 	case engine_PARSE_VERB:
 		// it's a decimal verb '%d'
 		ret = _parseNumber(&numberSTR{
-			arg:       engine.arg(),
-			base:      10,
-			charset:   lettercase_LOWER,
-			width:     engine.width,
-			precision: engine.precision,
-			format:    format_DECIMALLESS,
+			arg:        engine.arg(),
+			base:       10,
+			lettercase: LETTERCASE_LOWER,
+			width:      engine.width,
+			precision:  engine.precision,
+			format:     number_DECIMALLESS,
 		})
 		engine.buffer = append(engine.buffer, ret...)
 		engine.to_PARSE_NORMAL()

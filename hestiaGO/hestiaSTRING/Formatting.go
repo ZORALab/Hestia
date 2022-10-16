@@ -19,6 +19,7 @@ package hestiaSTRING
 
 import (
 	"hestia/hestiaERROR"
+	"hestia/hestiaINTERNAL/hestiaFMT"
 	"strings"
 	"unicode"
 )
@@ -29,6 +30,11 @@ const (
 	CHARSMAP_DEFAULT CharsMap = iota
 	CHARSMAP_TURKISH
 	CHARSMAP_AZERI
+)
+
+const (
+	LETTERCASE_LOWER = hestiaFMT.LETTERCASE_LOWER
+	LETTERCASE_UPPER = hestiaFMT.LETTERCASE_UPPER
 )
 
 const (
@@ -68,8 +74,23 @@ func ToTitlecase(source string, charmap CharsMap) string {
 	}
 }
 
-func S_FormatUINT(input uint64, base uint) string {
-	return s_FormatBits(input, base, false)
+func S64_FormatUINT64(input uint64, base uint64,
+	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	if input == 0 {
+		return "0", hestiaERROR.OK
+	}
+
+	switch lettercase {
+	case LETTERCASE_UPPER, LETTERCASE_LOWER:
+	default:
+		lettercase = LETTERCASE_LOWER
+	}
+
+	return string(hestiaFMT.FormatUINT64(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.Error) {
