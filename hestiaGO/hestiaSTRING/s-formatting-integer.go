@@ -50,7 +50,7 @@ func s_FormatBits(input uint64, base uint, isNegative bool) (out string) {
 	switch {
 	case base&(base-1) == 0: // power of 2
 		// x is shift
-		x = uint64(hestiaBITS.TrailingZero(base)) & 7
+		x = hestiaBITS.S64_TrailingZeros(uint64(base)) & 7
 		for input >= base_uint64 {
 			i--
 			buffer[i] = DIGITS[uint(input)&(base-1)]
@@ -90,7 +90,7 @@ func s_ParseINT(input string, base uint64, size uint16) (value int64, err hestia
 		return 0, err
 	}
 
-	err = hestiaBITS.MatchSize(&number, size, true)
+	err = hestiaBITS.S64_Resize(&number, size, true)
 	if err != hestiaERROR.OK {
 		return 0, err
 	}
@@ -109,7 +109,7 @@ func s_ParseUINT(input string, base uint64, size uint16) (value uint64, err hest
 		return 0, err
 	}
 
-	err = hestiaBITS.MatchSize(&value, size, false)
+	err = hestiaBITS.S64_Resize(&value, size, false)
 	if err != hestiaERROR.OK {
 		return 0, err
 	}
