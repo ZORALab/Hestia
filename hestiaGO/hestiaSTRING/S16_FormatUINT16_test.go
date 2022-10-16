@@ -235,7 +235,7 @@ func Test_S16_FormatUINT16(t *testing.T) {
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
-		s.Name = "hestiaNUMBER/hestiaBITS/S16_FormatUINT16 API"
+		s.Name = "hestiaSTRING/S16_FormatUINT16 API"
 
 		// prepare
 		subject := uint16(hestiaBITS.MAX_UINT16)

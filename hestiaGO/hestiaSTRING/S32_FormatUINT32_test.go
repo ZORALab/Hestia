@@ -235,7 +235,7 @@ func Test_S32_FormatUINT32(t *testing.T) {
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
-		s.Name = "hestiaNUMBER/hestiaBITS/S32_FormatUINT32 API"
+		s.Name = "hestiaSTRING/S32_FormatUINT32 API"
 
 		// prepare
 		subject := uint32(hestiaBITS.MAX_UINT32)
