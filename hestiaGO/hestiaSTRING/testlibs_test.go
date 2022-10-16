@@ -41,8 +41,9 @@ const (
 	cond_VALUE_UINT8  = "provide max uint8 as sample value"
 	cond_VALUE_ZERO   = "provide 0 as sample value"
 
-	cond_LOWERCASE = "formate value into lowercase characters"
-	cond_UPPERCASE = "formate value into uppercase characters"
+	cond_UNKNOWNCASE = "formate value into unknown case characters"
+	cond_LOWERCASE   = "formate value into lowercase characters"
+	cond_UPPERCASE   = "formate value into uppercase characters"
 )
 
 func create_lettercase(s *hestiaTESTING.Scenario) hestiaFMT.Lettercase {

@@ -1,0 +1,86 @@
+[Metadata]
+Name = "hestiaGO/hestiaSTRING TinyGo Package Test Recipe"
+Description = """
+Using TinyGo testing feature to test out this package with test coverage heatmap.
+"""
+
+
+
+
+[Variables]
+Package = 'hestiaSTRING'
+ReportDir = 'archives/data/test/go/hestiaSTRING'
+ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
+PrintAlloc = 'hestia'
+
+[FMTVariables]
+SubjectDir = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
+SubjectPath = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
+ReportPath = '{{- .RootDir -}}/{{- .ReportDir -}}/tinygo-report.json'
+
+
+# The following shall be overwritten by [CMD]
+TestCoverage = ''
+TestVerdict = ''
+
+
+
+
+[[Dependencies]]
+Name = 'TinyGo'
+Condition = 'all-all'
+Type = 'command'
+Command = 'tinygo'
+
+
+
+
+[[CMD]]
+Name = "Create Test Directory For Housing Test Data"
+Type = 'create-path'
+Condition = [ 'all-all' ]
+Source = '{{- .WorkingDir -}}'
+
+[[CMD]]
+Name = "Run TinyGo Test Against Base Directory"
+Type = 'command-quiet'
+Condition = [ 'all-all' ]
+Location = '{{- .SubjectDir -}}'
+Source = """tinygo test \
+{{- if .ConstraintTags }} -tags "{{- .ConstraintTags -}}" {{- end }} \
+-print-allocs='{{- .PrintAlloc }}' \
+"{{- .SubjectPath -}}"
+"""
+Save = 'TestVerdict'
+SaveRegex = '(FAIL)\s*$'
+
+[[CMD]]
+Name = 'Delete TinyGo Test Report JSON Data File'
+Type = 'delete-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .ReportPath -}}'
+
+[[CMD]]
+Name = 'Script TinyGo Test Report JSON Data File'
+Type = 'script'
+Condition = [ 'all-all' ]
+Source = """
+{
+	"Result": {
+		"Compiler": "TinyGo",
+		"Architecture": "{{- .Arch -}}",
+		"OS": "{{- .OS -}}",
+		"System": "{{- .ComputeSystem -}}",
+		"Coverage": "{{- .TestCoverage -}}",
+		"Passed": {{ eq .TestVerdict "" }}
+	}
+}
+"""
+Target = '{{- .ReportPath -}}'
+
+[[CMD]]
+Name = 'Conclude The Test'
+Type = 'is-equal'
+Condition = [ 'all-all' ]
+Source = '{{- .TestVerdict -}}'
+Target = ''

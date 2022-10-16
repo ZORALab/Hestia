@@ -226,6 +226,15 @@ test hestiaSTRING/S16_FormatUINT16 is able to process base-36 uppercase 0 value.
 				cond_UPPERCASE,
 				cond_VALUE_ZERO,
 			},
+		}, {
+			Description: `
+test hestiaSTRING/S16_FormatUINT16 is able to process base-10 unknown-case value.
+`,
+			Switches: []string{
+				cond_BASE_16,
+				cond_VALUE_UINT64,
+				cond_UNKNOWNCASE,
+			},
 		},
 	}
 }
@@ -326,28 +335,32 @@ func assert_S16_FormatUINT16_output(s *hestiaTESTING.Scenario, output string) bo
 		return output == "65535"
 	case hestiaTESTING.HasCondition(s, cond_BASE_12):
 		switch {
-		case hestiaTESTING.HasCondition(s, cond_LOWERCASE):
+		case hestiaTESTING.HasCondition(s, cond_LOWERCASE),
+			hestiaTESTING.HasCondition(s, cond_UNKNOWNCASE):
 			return output == "31b13"
 		case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
 			return output == "31B13"
 		}
 	case hestiaTESTING.HasCondition(s, cond_BASE_16):
 		switch {
-		case hestiaTESTING.HasCondition(s, cond_LOWERCASE):
+		case hestiaTESTING.HasCondition(s, cond_LOWERCASE),
+			hestiaTESTING.HasCondition(s, cond_UNKNOWNCASE):
 			return output == "ffff"
 		case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
 			return output == "FFFF"
 		}
 	case hestiaTESTING.HasCondition(s, cond_BASE_22):
 		switch {
-		case hestiaTESTING.HasCondition(s, cond_LOWERCASE):
+		case hestiaTESTING.HasCondition(s, cond_LOWERCASE),
+			hestiaTESTING.HasCondition(s, cond_UNKNOWNCASE):
 			return output == "638j"
 		case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
 			return output == "638J"
 		}
 	case hestiaTESTING.HasCondition(s, cond_BASE_36):
 		switch {
-		case hestiaTESTING.HasCondition(s, cond_LOWERCASE):
+		case hestiaTESTING.HasCondition(s, cond_LOWERCASE),
+			hestiaTESTING.HasCondition(s, cond_UNKNOWNCASE):
 			return output == "1ekf"
 		case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
 			return output == "1EKF"

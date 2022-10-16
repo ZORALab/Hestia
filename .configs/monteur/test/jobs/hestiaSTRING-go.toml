@@ -1,0 +1,109 @@
+[Metadata]
+Name = 'hestiaGO/hestiaSTRING Package Test Recipe'
+Description = """
+Using Go testing feature to test out this package with test coverage heatmap.
+"""
+
+
+
+
+[Variables]
+Timeout = '14400s'
+Package = 'hestiaSTRING'
+ReportDir = 'archives/data/test/go/hestiaSTRING'
+ProfileName = 'hestiaSTRING'
+ConstraintTags = '' # seprated by comma (e.g. 'whatever amd64')
+
+[FMTVariables]
+SubjectDir = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
+SubjectPath = '{{- .RootDir -}}/hestiaGO/{{- .Package -}}'
+ProfileFilepath = '{{- .WorkingDir -}}/go-{{- .ProfileName -}}-test-profile.txt'
+CoverageFilepath = '{{- .RootDir -}}/{{- .ReportDir -}}/go-coverage.html'
+ReportPath = '{{- .RootDir -}}/{{- .ReportDir -}}/go-report.json'
+
+# The following shall be overwritten by [CMD]
+TestCoverage = ''
+TestVerdict = ''
+
+
+
+
+[[Dependencies]]
+Name = 'Go'
+Condition = 'all-all'
+Type = 'command'
+Command = 'go'
+
+
+
+
+[[CMD]]
+Name = "Create Test Directory For Housing Test Data"
+Type = 'create-path'
+Condition = [ 'all-all' ]
+Source = '{{- .WorkingDir -}}'
+
+[[CMD]]
+Name = "Run Go Test Against Base Directory"
+Type = 'command-quiet'
+Condition = [ 'all-all' ]
+Location = '{{- .SubjectDir -}}'
+Source = """go test -timeout "{{ .Timeout }}" \
+{{- if .ConstraintTags }} -tags {{ .ConstraintTags -}} {{- end }} \
+-coverprofile "{{- .ProfileFilepath -}}" \
+-race \
+-v \
+"{{- .SubjectPath -}}"
+"""
+Save = 'TestVerdict'
+SaveRegex = '(FAIL)\s*$'
+
+[[CMD]]
+Name = "Process Go Test Coverage Profiles"
+Type = 'command-quiet'
+Condition = [ 'all-all' ]
+Location = '{{- .SubjectDir -}}'
+Source = """go tool cover -html="{{- .ProfileFilepath -}}" \
+	-o "{{- .CoverageFilepath -}}"
+"""
+
+[[CMD]]
+Name = 'Process Go Test Coverage Overall Percentage'
+Type = 'command-quiet'
+Condition = [ 'all-all' ]
+Location = '{{- .SubjectDir -}}'
+Source = 'go tool cover -func "{{- .ProfileFilepath -}}"'
+Save = 'TestCoverage'
+SaveRegex = 'total:\s{1,}\(statements\)\s{1,}(\d+.\d+)%'
+ToSTDOUT = 'TOTAL TEST COVERAGE: {{ .TestCoverage -}}%%'
+
+[[CMD]]
+Name = 'Delete Go Test Report JSON Data File'
+Type = 'delete-quiet'
+Condition = [ 'all-all' ]
+Source = '{{- .ReportPath -}}'
+
+[[CMD]]
+Name = 'Script Go Test Report JSON Data File'
+Type = 'script'
+Condition = [ 'all-all' ]
+Source = """
+{
+	"Result": {
+		"Compiler": "Go",
+		"Architecture": "{{- .Arch -}}",
+		"OS": "{{- .OS -}}",
+		"System": "{{- .ComputeSystem -}}",
+		"Coverage": "{{- .TestCoverage -}}",
+		"Passed": {{- eq .TestVerdict "" }}
+	}
+}
+"""
+Target = '{{- .ReportPath -}}'
+
+[[CMD]]
+Name = 'Conclude The Test'
+Type = 'is-equal'
+Condition = [ 'all-all' ]
+Source = '{{- .TestVerdict -}}'
+Target = ''
