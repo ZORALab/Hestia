@@ -47,6 +47,47 @@ func _parseNumber(str *numberSTR) (out []rune) {
 	return []rune{'(', 'N', 'U', 'M', 'B', 'E', 'R', '=', 'b', 'a', 'd', ')'}
 }
 
+func FormatUINT16(number uint16, base uint16, lettercase Lettercase) (out []rune) {
+	var i, x uint16
+	var charset []rune
+
+	// guard against all processible base number
+	if base < 2 || base > 36 { // 36 = 'z'
+		panic("base number larger than 36!")
+	}
+
+	// return early if number is 0 for all bases
+	if number == 0 {
+		return []rune{'0'}
+	}
+
+	// prepare for conversion
+	i = 16 // MAX: 16-bits in base-2
+	out = make([]rune, i)
+	switch lettercase {
+	case LETTERCASE_UPPER:
+		charset = []rune(char_DIGITS_UPPER)
+	case LETTERCASE_LOWER:
+		charset = []rune(char_DIGITS_LOWER)
+	}
+
+	// process number according to base
+	for number >= base {
+		i--
+
+		x = number / base
+		out[i] = charset[number-x*base]
+		number = x
+	}
+
+	// process last remainder
+	i--
+	out[i] = charset[number]
+
+	// done conversion return output
+	return out[i:]
+}
+
 func FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune) {
 	var i, x uint32
 	var charset []rune
