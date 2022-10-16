@@ -74,6 +74,25 @@ func ToTitlecase(source string, charmap CharsMap) string {
 	}
 }
 
+func S8_FormatUINT8(input uint8, base uint8,
+	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	if input == 0 {
+		return "0", hestiaERROR.OK
+	}
+
+	switch lettercase {
+	case LETTERCASE_UPPER, LETTERCASE_LOWER:
+	default:
+		lettercase = LETTERCASE_LOWER
+	}
+
+	return string(hestiaFMT.FormatUINT8(input, base, lettercase)), hestiaERROR.OK
+}
+
 func S16_FormatUINT16(input uint16, base uint16,
 	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {
