@@ -36,6 +36,7 @@ const (
 	cond_BASE_37 = "format value into Base-37 number"
 
 	cond_VALUE_UINT64 = "provide max uint64 as sample value"
+	cond_VALUE_UINT32 = "provide max uint32 as sample value"
 	cond_VALUE_ZERO   = "provide 0 as sample value"
 
 	cond_LOWERCASE = "formate value into lowercase characters"
