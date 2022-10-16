@@ -17,8 +17,6 @@
 package hestiaBITS
 
 import (
-	"fmt"
-
 	"hestia/hestiaTESTING"
 )
 
@@ -132,8 +130,4 @@ func create_sample(s *hestiaTESTING.Scenario) uint64 {
 	}
 
 	return 0
-}
-
-func _format(f string, args ...any) string {
-	return fmt.Sprintf(f, args...)
 }

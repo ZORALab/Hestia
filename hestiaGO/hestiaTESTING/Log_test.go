@@ -156,11 +156,11 @@ func TestLogAPI(t *testing.T) {
 		panick := _panick.(string)
 
 		// log output
-		Log(s, _format("Test Scenario's ID		= %#v", ts.ID))
-		Log(s, _format("Test Scenario's Name		= %#v", ts.Name))
-		Log(s, _format("Test Scenario's Switches	= %#v", ts.Switches))
-		Log(s, _format("Test Scenario's Logs		= %#v", ts.Logs))
-		Log(s, _format("Got Panic			= %q", panick))
+		Log(s, Format("Test Scenario's ID		= %#v", ts.ID))
+		Log(s, Format("Test Scenario's Name		= %#v", ts.Name))
+		Log(s, Format("Test Scenario's Switches	= %#v", ts.Switches))
+		Log(s, Format("Test Scenario's Logs		= %#v", ts.Logs))
+		Log(s, Format("Got Panic			= %q", panick))
 
 		// assert
 		if !testlib_AssertPanic(s, panick) {

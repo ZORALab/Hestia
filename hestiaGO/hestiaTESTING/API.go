@@ -16,6 +16,14 @@
 
 package hestiaTESTING
 
+import (
+	"fmt"
+)
+
+func Format(format string, args ...any) string {
+	return fmt.Sprintf(format, args...)
+}
+
 func Log(s *Scenario, statement string) {
 	if s == nil {
 		panic("calling hestiaTESTING.Log without providing Scenario!")

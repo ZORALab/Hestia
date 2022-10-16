@@ -157,9 +157,9 @@ func TestHasConditionAPI(t *testing.T) {
 		panick := _panick.(string)
 
 		// log output
-		Log(s, _format("Test Scenario's Switches	= %#v", ts.Switches))
-		Log(s, _format("Got Output		= %v", output))
-		Log(s, _format("Got Panic		= %q", panick))
+		Log(s, Format("Test Scenario's Switches	= %#v", ts.Switches))
+		Log(s, Format("Got Output		= %v", output))
+		Log(s, Format("Got Panic		= %q", panick))
 
 		// assert
 		if !testlib_AssertPanic(s, panick) {

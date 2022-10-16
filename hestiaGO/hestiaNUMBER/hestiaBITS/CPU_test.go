@@ -44,7 +44,7 @@ func Test_CPU(t *testing.T) {
 
 		// test
 		output := CPU()
-		hestiaTESTING.Log(s, _format("Got Output	: %d", output))
+		hestiaTESTING.Log(s, hestiaTESTING.Format("Got Output	: %d", output))
 
 		// assert
 		hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_PASS)

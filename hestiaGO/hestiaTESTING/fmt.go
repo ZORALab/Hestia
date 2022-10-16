@@ -17,17 +17,12 @@
 package hestiaTESTING
 
 import (
-	"fmt"
 	"unicode"
 )
 
 const (
 	char_DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
-
-func _format(format string, args ...any) string {
-	return fmt.Sprintf(format, args...)
-}
 
 func _renderNumber(number, base uint64) (out string) {
 	var i int

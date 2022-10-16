@@ -102,6 +102,14 @@
 
 package hestiaTESTING
 
+import (
+        "fmt"
+)
+
+func Format(format string, args ...any) string <span class="cov7" title="250">{
+        return fmt.Sprintf(format, args...)
+}</span>
+
 func Log(s *Scenario, statement string) <span class="cov7" title="259">{
         if s == nil </span><span class="cov1" title="1">{
                 panic("calling hestiaTESTING.Log without providing Scenario!")</span>
@@ -321,17 +329,12 @@ func (s *Scenario) Init() <span class="cov10" title="946">{
 package hestiaTESTING
 
 import (
-        "fmt"
         "unicode"
 )
 
 const (
         char_DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
 )
-
-func _format(format string, args ...any) string <span class="cov5" title="250">{
-        return fmt.Sprintf(format, args...)
-}</span>
 
 func _renderNumber(number, base uint64) (out string) <span class="cov6" title="687">{
         var i int

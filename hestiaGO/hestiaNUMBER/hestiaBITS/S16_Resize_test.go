@@ -147,13 +147,16 @@ func Test_S16_Resize(t *testing.T) {
 
 		// prepare
 		var subject = uint16(MAX_UINT16)
-		hestiaTESTING.Log(s, _format("Given Subject	: 0b%b", subject))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Given Subject	: 0b%b", subject))
 
 		size := create_size(s)
-		hestiaTESTING.Log(s, _format("Given Size	: %d", size))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Given Size	: %d", size))
 
 		sign := create_sign(s)
-		hestiaTESTING.Log(s, _format("Given Sign	: %v", sign))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Given Sign	: %v", sign))
 
 		// test
 		var err hestiaERROR.Error
@@ -162,7 +165,7 @@ func Test_S16_Resize(t *testing.T) {
 		} else {
 			err = S16_Resize(nil, size, sign)
 		}
-		hestiaTESTING.Log(s, _format("Got Error	: %d", err))
+		hestiaTESTING.Log(s, hestiaTESTING.Format("Got Error	: %d", err))
 
 		// assert
 		hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_PASS)

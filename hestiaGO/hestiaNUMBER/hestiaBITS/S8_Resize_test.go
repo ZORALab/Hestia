@@ -111,13 +111,16 @@ func Test_S8_Resize(t *testing.T) {
 
 		// prepare
 		var subject = uint8(MAX_UINT8)
-		hestiaTESTING.Log(s, _format("Given Subject	: 0b%b", subject))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Given Subject	: 0b%b", subject))
 
 		size := create_size(s)
-		hestiaTESTING.Log(s, _format("Given Size	: %d", size))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Given Size	: %d", size))
 
 		sign := create_sign(s)
-		hestiaTESTING.Log(s, _format("Given Sign	: %v", sign))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Given Sign	: %v", sign))
 
 		// test
 		var err hestiaERROR.Error
@@ -126,7 +129,8 @@ func Test_S8_Resize(t *testing.T) {
 		} else {
 			err = S8_Resize(nil, size, sign)
 		}
-		hestiaTESTING.Log(s, _format("Got Error	: %d", err))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Got Error	: %d", err))
 
 		// assert
 		hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_PASS)

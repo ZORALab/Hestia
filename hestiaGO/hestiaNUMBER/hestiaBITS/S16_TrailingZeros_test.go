@@ -58,11 +58,13 @@ func Test_S16_TrailingZeros(t *testing.T) {
 
 		// prepare
 		subject := uint16(create_sample(s))
-		hestiaTESTING.Log(s, _format("Given Subject	: 0b%b", subject))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Given Subject	: 0b%b", subject))
 
 		// test
 		output := S16_TrailingZeros(subject)
-		hestiaTESTING.Log(s, _format("Got Count	: %d", output))
+		hestiaTESTING.Log(s,
+			hestiaTESTING.Format("Got Count	: %d", output))
 
 		// assert
 		hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_PASS)
