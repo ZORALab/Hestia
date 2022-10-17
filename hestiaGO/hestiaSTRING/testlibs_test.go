@@ -23,6 +23,9 @@ import (
 
 // test condition labels
 const (
+	cond_BOOL_TRUE  = "format boolean 'true' value"
+	cond_BOOL_FALSE = "format boolean 'false' value"
+
 	cond_BASE_0  = "format value into Base-0 number"
 	cond_BASE_1  = "format value into Base-1 number"
 	cond_BASE_2  = "format value into Base-2 number"

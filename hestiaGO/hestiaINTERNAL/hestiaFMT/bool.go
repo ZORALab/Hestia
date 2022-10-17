@@ -15,3 +15,16 @@
 // the License.
 
 package hestiaFMT
+
+func FormatBOOL(input bool, lettercase Lettercase) []rune {
+	switch {
+	case input && lettercase == LETTERCASE_UPPER:
+		return []rune{'T', 'R', 'U', 'E'}
+	case input:
+		return []rune{'t', 'r', 'u', 'e'}
+	case lettercase == LETTERCASE_UPPER:
+		return []rune{'F', 'A', 'L', 'S', 'E'}
+	default:
+		return []rune{'f', 'a', 'l', 's', 'e'}
+	}
+}

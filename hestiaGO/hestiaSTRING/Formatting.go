@@ -84,12 +84,7 @@ func S8_FormatUINT8(input uint8, base uint8,
 		return "0", hestiaERROR.OK
 	}
 
-	switch lettercase {
-	case LETTERCASE_UPPER, LETTERCASE_LOWER:
-	default:
-		lettercase = LETTERCASE_LOWER
-	}
-
+	_processLettercase(&lettercase)
 	return string(hestiaFMT.FormatUINT8(input, base, lettercase)), hestiaERROR.OK
 }
 
@@ -103,12 +98,7 @@ func S16_FormatUINT16(input uint16, base uint16,
 		return "0", hestiaERROR.OK
 	}
 
-	switch lettercase {
-	case LETTERCASE_UPPER, LETTERCASE_LOWER:
-	default:
-		lettercase = LETTERCASE_LOWER
-	}
-
+	_processLettercase(&lettercase)
 	return string(hestiaFMT.FormatUINT16(input, base, lettercase)), hestiaERROR.OK
 }
 
@@ -122,12 +112,7 @@ func S32_FormatUINT32(input uint32, base uint32,
 		return "0", hestiaERROR.OK
 	}
 
-	switch lettercase {
-	case LETTERCASE_UPPER, LETTERCASE_LOWER:
-	default:
-		lettercase = LETTERCASE_LOWER
-	}
-
+	_processLettercase(&lettercase)
 	return string(hestiaFMT.FormatUINT32(input, base, lettercase)), hestiaERROR.OK
 }
 
@@ -141,13 +126,13 @@ func S64_FormatUINT64(input uint64, base uint64,
 		return "0", hestiaERROR.OK
 	}
 
-	switch lettercase {
-	case LETTERCASE_UPPER, LETTERCASE_LOWER:
-	default:
-		lettercase = LETTERCASE_LOWER
-	}
-
+	_processLettercase(&lettercase)
 	return string(hestiaFMT.FormatUINT64(input, base, lettercase)), hestiaERROR.OK
+}
+
+func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string {
+	_processLettercase(&lettercase)
+	return string(hestiaFMT.FormatBOOL(input, lettercase))
 }
 
 func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.Error) {
@@ -170,14 +155,6 @@ func S_Atoi(input string, size uint16) (out int64, err hestiaERROR.Error) {
 	return s_ParseINT(input, 10, size)
 }
 
-func FormatBOOL(input bool) string {
-	if input {
-		return "true"
-	}
-
-	return "false"
-}
-
 func ParseBOOL(input string) (bool, hestiaERROR.Error) {
 	switch ToUppercase(input, CHARSMAP_DEFAULT) {
 	case "1", "T", "TRUE":
@@ -186,5 +163,13 @@ func ParseBOOL(input string) (bool, hestiaERROR.Error) {
 		return false, hestiaERROR.OK
 	default:
 		return false, hestiaERROR.INVALID_ARGUMENT
+	}
+}
+
+func _processLettercase(lettercase *hestiaFMT.Lettercase) {
+	switch *lettercase {
+	case LETTERCASE_UPPER, LETTERCASE_LOWER:
+	default:
+		*lettercase = LETTERCASE_LOWER
 	}
 }
