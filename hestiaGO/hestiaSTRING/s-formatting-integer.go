@@ -29,58 +29,6 @@ const (
 	priv_BASE_GUESS_10        = priv_BASE_GUESS + 10
 )
 
-func s_FormatBits(input uint64, base uint, isNegative bool) (out string) {
-	var i int
-	var x, base_uint64 uint64
-	var buffer [64 + 1]byte // +1 for base-2 signed value
-
-	if base < 2 || base > uint(len(DIGITS)) {
-		panic("base conversion must be 2 ≥ x ≥ 36")
-	}
-
-	i = len(buffer)
-
-	if isNegative {
-		// modulus back to positive number for division
-		input = -input
-	}
-
-	base_uint64 = uint64(base)
-
-	switch {
-	case base&(base-1) == 0: // power of 2
-		// x is shift
-		x = hestiaBITS.S64_TrailingZeros(uint64(base)) & 7
-		for input >= base_uint64 {
-			i--
-			buffer[i] = DIGITS[uint(input)&(base-1)]
-			input >>= x
-		}
-
-		i--
-		buffer[i] = DIGITS[uint(input)]
-	default:
-		// x is quotient
-		for input >= base_uint64 {
-			i--
-
-			x = input / base_uint64
-			buffer[i] = DIGITS[uint(input-x*base_uint64)]
-			input = x
-		}
-
-		i--
-		buffer[i] = DIGITS[uint(input)]
-	}
-
-	if isNegative {
-		i--
-		buffer[i] = '-'
-	}
-
-	return string(buffer[i:])
-}
-
 func s_ParseINT(input string, base uint64, size uint16) (value int64, err hestiaERROR.Error) {
 	var isNegative bool
 	var number uint64

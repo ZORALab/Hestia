@@ -37,10 +37,6 @@ const (
 	LETTERCASE_UPPER = hestiaFMT.LETTERCASE_UPPER
 )
 
-const (
-	DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
-)
-
 func ToUppercase(source string, charmap CharsMap) string {
 	switch charmap {
 	case CHARSMAP_TURKISH:
@@ -102,6 +98,11 @@ func S8_FormatINT8(input int8, base uint8,
 	return string(hestiaFMT.FormatINT8(input, base, lettercase)), hestiaERROR.OK
 }
 
+func S8_Itoa(input int8) (output string) {
+	output, _ = S8_FormatINT8(input, 10, LETTERCASE_LOWER)
+	return output
+}
+
 func S16_FormatUINT16(input uint16, base uint16,
 	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {
@@ -128,6 +129,11 @@ func S16_FormatINT16(input int16, base uint16,
 
 	_processLettercase(&lettercase)
 	return string(hestiaFMT.FormatINT16(input, base, lettercase)), hestiaERROR.OK
+}
+
+func S16_Itoa(input int16) (output string) {
+	output, _ = S16_FormatINT16(input, 10, LETTERCASE_LOWER)
+	return output
 }
 
 func S32_FormatUINT32(input uint32, base uint32,
@@ -158,6 +164,11 @@ func S32_FormatINT32(input int32, base uint32,
 	return string(hestiaFMT.FormatINT32(input, base, lettercase)), hestiaERROR.OK
 }
 
+func S32_Itoa(input int32) (output string) {
+	output, _ = S32_FormatINT32(input, 10, LETTERCASE_LOWER)
+	return output
+}
+
 func S64_FormatUINT64(input uint64, base uint64,
 	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {
@@ -186,6 +197,11 @@ func S64_FormatINT64(input int64, base uint64,
 	return string(hestiaFMT.FormatINT64(input, base, lettercase)), hestiaERROR.OK
 }
 
+func S64_Itoa(input int64) (output string) {
+	output, _ = S64_FormatINT64(input, 10, LETTERCASE_LOWER)
+	return output
+}
+
 func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string {
 	_processLettercase(&lettercase)
 	return string(hestiaFMT.FormatBOOL(input, lettercase))
@@ -197,10 +213,6 @@ func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.E
 
 func S_ParseINT(input string, base, size uint16) (out int64, err hestiaERROR.Error) {
 	return s_ParseINT(input, uint64(base), size)
-}
-
-func S_Itoa(input int64) string {
-	return s_FormatBits(uint64(input), 10, input < 0)
 }
 
 func S_Atoi(input string, size uint16) (out int64, err hestiaERROR.Error) {
