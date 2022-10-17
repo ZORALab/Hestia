@@ -202,9 +202,8 @@ test hestiaSTRING/S32_FormatUINT32 is able to process base-10 uppercase 0 value.
 `,
 			Switches: []string{
 				cond_BASE_10,
-				cond_VALUE_UINT32,
-				cond_UPPERCASE,
 				cond_VALUE_ZERO,
+				cond_UPPERCASE,
 			},
 		}, {
 			Description: `
@@ -212,9 +211,8 @@ test hestiaSTRING/S32_FormatUINT32 is able to process base-16 uppercase 0 value.
 `,
 			Switches: []string{
 				cond_BASE_16,
-				cond_VALUE_UINT32,
-				cond_UPPERCASE,
 				cond_VALUE_ZERO,
+				cond_UPPERCASE,
 			},
 		}, {
 			Description: `
@@ -222,9 +220,26 @@ test hestiaSTRING/S32_FormatUINT32 is able to process base-36 uppercase 0 value.
 `,
 			Switches: []string{
 				cond_BASE_36,
-				cond_VALUE_UINT32,
-				cond_UPPERCASE,
 				cond_VALUE_ZERO,
+				cond_UPPERCASE,
+			},
+		}, {
+			Description: `
+test hestiaSTRING/S32_FormatUINT32 is able to raise error for base-37 lowercase 0 value.
+`,
+			Switches: []string{
+				cond_BASE_37,
+				cond_VALUE_ZERO,
+				cond_LOWERCASE,
+			},
+		}, {
+			Description: `
+test hestiaSTRING/S32_FormatUINT32 is able to raise error for base-37 uppercase 0 value.
+`,
+			Switches: []string{
+				cond_BASE_37,
+				cond_VALUE_ZERO,
+				cond_UPPERCASE,
 			},
 		}, {
 			Description: `
