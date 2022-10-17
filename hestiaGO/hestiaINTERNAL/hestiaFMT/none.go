@@ -16,39 +16,4 @@
 
 package hestiaFMT
 
-type none bool
-
-type engineMode uint
-
-const (
-	engine_PARSE_NORMAL engineMode = iota
-	engine_PARSE_VERB
-)
-
-type engine struct {
-	buffer       []rune
-	arguments    []any
-	pos          uint16
-	width        []rune
-	precision    []rune
-	mode         engineMode
-	setPrecision bool
-}
-
-func (e *engine) arg() (out any) {
-	if e.pos >= uint16(len(e.arguments)) {
-		return none(false)
-	}
-
-	out = e.arguments[e.pos]
-	e.pos++
-
-	return out
-}
-
-func (e *engine) to_PARSE_NORMAL() {
-	e.mode = engine_PARSE_NORMAL
-	e.width = []rune{}
-	e.precision = []rune{}
-	e.setPrecision = false
-}
+type None bool

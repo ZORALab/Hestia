@@ -18,7 +18,26 @@
 
 package hestiaFMT
 
+type numberType uint
+
+const (
+	number_DECIMALLESS              numberType = iota // (e.g. 123)
+	number_SCIENTIFIC                                 // (e.g. -1.234456e+78)
+	number_SCIENTIFIC_AUTO_EXPONENT                   // (e.g. -1.234 OR -1.234456e+78)
+	number_DECIMAL_NO_EXPONENT                        // (e.g -123.456)
+	number_HEX                                        // (e.g. -0x1.23abcp+20)
+)
+
+type engineMode uint
+
+const (
+	engine_PARSE_NORMAL engineMode = iota
+	engine_PARSE_VERB
+)
+
 func Format(statement string, args ...any) string {
+	var ret []rune
+
 	engine := &engine{
 		buffer:    []rune{},
 		arguments: args,
@@ -27,292 +46,194 @@ func Format(statement string, args ...any) string {
 	engine.to_PARSE_NORMAL()
 
 	for _, c := range statement {
-		switch c {
-		case '%':
-			_formatVerb(engine)
-		case 't':
-			_formatBool(engine)
-		case 'c':
-			_formatChar(engine)
-		case 's':
-			_formatString(engine)
-		case 'd':
-			_formatDecimal(engine)
-		case 'o', 'O':
-			_formatOctet(engine, c)
-		case 'x', 'X':
-			_formatHexadecimal(engine, c)
-		case 'b':
-			_formatBinary(engine)
-		case 'f', 'F':
-			_formatFloat(engine, c, number_DECIMAL_NO_EXPONENT)
-		case 'e', 'E':
-			_formatFloat(engine, c, number_SCIENTIFIC)
-		case 'g', 'G':
-			_formatFloat(engine, c, number_SCIENTIFIC_AUTO_EXPONENT)
-		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
-			_formatDigits(engine, c)
-		case '.':
-			_formatPeriod(engine)
-		default:
-			_formatDefault(engine, c)
+		if engine.mode == engine_PARSE_NORMAL {
+			if c == '%' {
+				engine.mode = engine_PARSE_VERB
+				continue
+			}
+
+			// parse as normal character otherwise and move on
+			engine.buffer = append(engine.buffer, c)
+			continue
 		}
+
+		// | beyond this point is verb mode (%c, %s, %d, ...) | //
+		switch c {
+		case '%': // literal percent character ('%%')
+			ret = []rune{'%'}
+		case 't': // bool verb '%t'
+			ret = _formatBool(engine.arg())
+		case 'c': // char verb '%t'
+			ret = _formatChar(engine.arg())
+		case 's': // string verb '%s'
+			ret = _formatString(engine.arg())
+		case 'd': // decimal verb '%d'
+			ret = _formatNumber(&numberSTR{
+				arg:       engine.arg(),
+				base:      10,
+				width:     engine.width,
+				precision: engine.precision,
+				format:    number_DECIMALLESS,
+				verb:      c,
+			})
+		case 'o', 'O': // octal verb '%o' or '%O'
+			ret = _formatNumber(&numberSTR{
+				arg:       engine.arg(),
+				base:      10,
+				width:     engine.width,
+				precision: engine.precision,
+				format:    number_DECIMALLESS,
+				verb:      c,
+			})
+		case 'x', 'X': // hexdecimal verb '%x or '%X'
+			ret = _formatNumber(&numberSTR{
+				arg:       engine.arg(),
+				base:      16,
+				width:     engine.width,
+				precision: engine.precision,
+				format:    number_DECIMALLESS,
+				verb:      c,
+			})
+		case 'b': // binary verb '%b'
+			ret = _formatNumber(&numberSTR{
+				arg:       engine.arg(),
+				base:      2,
+				width:     engine.width,
+				precision: engine.precision,
+				format:    number_DECIMALLESS,
+				verb:      c,
+			})
+		case 'f', 'F': // float with no exponent verb '%F' or '%f'
+			ret = _formatNumber(&numberSTR{
+				arg:       engine.arg(),
+				base:      10,
+				width:     engine.width,
+				precision: engine.precision,
+				format:    number_DECIMAL_NO_EXPONENT,
+				verb:      c,
+			})
+		case 'e', 'E': // float in scientific notation verb '%e' or '%E'
+			ret = _formatNumber(&numberSTR{
+				arg:       engine.arg(),
+				base:      10,
+				width:     engine.width,
+				precision: engine.precision,
+				format:    number_SCIENTIFIC,
+				verb:      c,
+			})
+		case 'g', 'G': // float in auto-scientific notation verb '%g' or '%G'
+			ret = _formatNumber(&numberSTR{
+				arg:       engine.arg(),
+				base:      10,
+				width:     engine.width,
+				precision: engine.precision,
+				format:    number_SCIENTIFIC_AUTO_EXPONENT,
+				verb:      c,
+			})
+		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
+			// assign to width/precision '%{w.p}f' like '10' or '2' in '%10.2f'
+			if engine.setPrecision {
+				engine.precision = append(engine.precision, c)
+			} else {
+				engine.width = append(engine.width, c)
+			}
+
+			continue
+		case '.':
+			// change to precision 'p' in '%{w.p}f' like '2' in '%10.2f'
+			if !engine.setPrecision {
+				engine.setPrecision = true
+				continue
+			}
+
+			// bad verb - multiple period ('%{w..p...}f')
+			ret = []rune{'(', 'E', 'R', 'R', 'O', 'R', '=', '%', '.', '.', ')'}
+			_ = engine.arg()
+		default:
+			// unknown verb - '%?'
+			ret = []rune{'(', 'E', 'R', 'R', 'O', 'R', '=', ' ', '\'', '%'}
+			switch c {
+			case '\a':
+				ret = append(ret, '\\', 'a')
+			case '\b':
+				ret = append(ret, '\\', 'b')
+			case '\t':
+				ret = append(ret, '\\', 't')
+			case '\n':
+				ret = append(ret, '\\', 'n')
+			case '\v':
+				ret = append(ret, '\\', 'v')
+			case '\f':
+				ret = append(ret, '\\', 'f')
+			case '\r':
+				ret = append(ret, '\\', 'r')
+			default:
+				ret = append(ret, c)
+			}
+			ret = append(ret, '\'', '?', '?', '?', ')')
+			_ = engine.arg()
+		}
+
+		engine.buffer = append(engine.buffer, ret...)
+		engine.to_PARSE_NORMAL()
 	}
 
 	return string(engine.buffer)
 }
 
-func _formatDefault(engine *engine, c rune) {
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it is an unknown verb '%?'
-		engine.buffer = append(engine.buffer, '(', 'E', 'R', 'R', 'O', 'R', '=')
-		switch c {
-		case '\a':
-			engine.buffer = append(engine.buffer, '\\', 'a')
-		case '\b':
-			engine.buffer = append(engine.buffer, '\\', 'b')
-		case '\t':
-			engine.buffer = append(engine.buffer, '\\', 't')
-		case '\n':
-			engine.buffer = append(engine.buffer, '\\', 'n')
-		case '\v':
-			engine.buffer = append(engine.buffer, '\\', 'v')
-		case '\f':
-			engine.buffer = append(engine.buffer, '\\', 'f')
-		case '\r':
-			engine.buffer = append(engine.buffer, '\\', 'r')
-		default:
-			engine.buffer = append(engine.buffer, c)
-		}
-		engine.buffer = append(engine.buffer, ' ', '?', '?', '?', ')')
-
-		engine.pos++
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular character
-		engine.buffer = append(engine.buffer, c)
-	}
+type numberSTR struct {
+	arg       any
+	base      uint16
+	width     []rune
+	precision []rune
+	format    numberType
+	verb      rune
 }
 
-func _formatPeriod(engine *engine) {
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// change to precision assignment 'p' in '%{w.p}f' like '2' in '%10.2f'
-		if engine.setPrecision {
-			// error - multiple period denotes ('%{w..p...}f')
-			engine.buffer = append(engine.buffer,
-				'(', 'E', 'R', 'R', 'O', 'R', '=', '%', '.', '.', ')',
-			)
-			engine.pos++
-			engine.to_PARSE_NORMAL()
-		}
-
-		engine.setPrecision = true
-	case engine_PARSE_NORMAL:
-		// just a regular '.' character
-		engine.buffer = append(engine.buffer, '.')
-	}
+func _formatNumber(str *numberSTR) (out []rune) {
+	// to be developed later
+	return []rune{'(', 'N', 'U', 'M', 'B', 'E', 'R', '=', 'b', 'a', 'd', ')'}
 }
 
-func _formatDigits(engine *engine, c rune) {
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// assign to width or precision '%{w.p}f' like '10' or '2' in '%10.2f'
-		if engine.setPrecision {
-			engine.precision = append(engine.precision, c)
-		} else {
-			engine.width = append(engine.width, c)
-		}
-	case engine_PARSE_NORMAL:
-		// just a regular digit character '0', '1', '2', ...
-		engine.buffer = append(engine.buffer, c)
-	}
+func _formatString(arg any) (out []rune) {
+	// to be developed later
+	return []rune{'(', 'S', 'T', 'R', 'I', 'N', 'G', '=', 'b', 'a', 'd', ')'}
 }
 
-func _formatFloat(engine *engine, c rune, format numberType) {
-	var ret []rune
-
-	// configure default lettercase
-	lettercase := LETTERCASE_LOWER
-	if c == 'F' {
-		lettercase = LETTERCASE_UPPER
-	}
-
-	// perform formatting
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's a float with no exponent verb '%F' or '%f'
-		ret = _parseNumber(&numberSTR{
-			arg:        engine.arg(),
-			base:       10,
-			lettercase: lettercase,
-			width:      engine.width,
-			precision:  engine.precision,
-			format:     format,
-		})
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 'F' or 'f' character
-		engine.buffer = append(engine.buffer, c)
-	}
+func _formatChar(arg any) (out []rune) {
+	// to be developed later
+	return []rune{'(', 'C', 'H', 'A', 'R', '=', 'b', 'a', 'd', ')'}
 }
 
-func _formatBinary(engine *engine) {
-	var ret []rune
-
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's a binary verb '%b'
-		ret = _parseNumber(&numberSTR{
-			arg:        engine.arg(),
-			base:       2,
-			lettercase: LETTERCASE_LOWER,
-			width:      engine.width,
-			precision:  engine.precision,
-			format:     number_DECIMALLESS,
-		})
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 'b' character
-		engine.buffer = append(engine.buffer, 'b')
-	}
+func _formatBool(arg any) (out []rune) {
+	// to be developed later
+	return []rune{'(', 'B', 'O', 'O', 'L', '=', 'b', 'a', 'd', ')'}
 }
 
-func _formatHexadecimal(engine *engine, c rune) {
-	var ret []rune
-
-	// configure default lettercase
-	lettercase := LETTERCASE_LOWER
-	if c == 'X' {
-		lettercase = LETTERCASE_UPPER
-	}
-
-	// perform formatting
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's a hex verb '%X' or '%x'
-		ret = _parseNumber(&numberSTR{
-			arg:        engine.arg(),
-			base:       16,
-			lettercase: lettercase,
-			width:      engine.width,
-			precision:  engine.precision,
-			format:     number_DECIMALLESS,
-		})
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 'X' or 'x' character
-		engine.buffer = append(engine.buffer, c)
-	}
+type engine struct {
+	buffer       []rune
+	arguments    []any
+	pos          uint16
+	width        []rune
+	precision    []rune
+	mode         engineMode
+	setPrecision bool
 }
 
-func _formatOctet(engine *engine, c rune) {
-	var ret []rune
-
-	// configure default lettercase
-	lettercase := LETTERCASE_LOWER
-	if c == 'O' {
-		lettercase = LETTERCASE_UPPER
+func (e *engine) arg() (out any) {
+	if e.pos >= uint16(len(e.arguments)) {
+		return None(true)
 	}
 
-	// perform formatting
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's an octet verb '%O' or '%o'
-		ret = _parseNumber(&numberSTR{
-			arg:        engine.arg(),
-			base:       8,
-			lettercase: lettercase,
-			width:      engine.width,
-			precision:  engine.precision,
-			format:     number_DECIMALLESS,
-		})
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 'O' or 'o' character
-		engine.buffer = append(engine.buffer, c)
-	}
+	out = e.arguments[e.pos]
+	e.pos++
+
+	return out
 }
 
-func _formatDecimal(engine *engine) {
-	var ret []rune
-
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's a decimal verb '%d'
-		ret = _parseNumber(&numberSTR{
-			arg:        engine.arg(),
-			base:       10,
-			lettercase: LETTERCASE_LOWER,
-			width:      engine.width,
-			precision:  engine.precision,
-			format:     number_DECIMALLESS,
-		})
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 'd' character
-		engine.buffer = append(engine.buffer, 'd')
-	}
-}
-
-func _formatString(engine *engine) {
-	var ret []rune
-
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's a string verb '%s'
-		ret = _parseString(engine.arg())
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 's' character
-		engine.buffer = append(engine.buffer, 's')
-	}
-}
-
-func _formatChar(engine *engine) {
-	var ret []rune
-
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's a char verb '%t'
-		ret = _parseChar(engine.arg())
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 'c' character
-		engine.buffer = append(engine.buffer, 'c')
-	}
-}
-
-func _formatBool(engine *engine) {
-	var ret []rune
-
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// it's a bool verb '%t'
-		ret = _parseBool(engine.arg())
-		engine.buffer = append(engine.buffer, ret...)
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		// just a regular 't' character
-		engine.buffer = append(engine.buffer, 't')
-	}
-}
-
-func _formatVerb(engine *engine) {
-	switch engine.mode {
-	case engine_PARSE_VERB:
-		// literal percent character ('%%')
-		engine.buffer = append(engine.buffer, '%')
-		engine.to_PARSE_NORMAL()
-	case engine_PARSE_NORMAL:
-		engine.mode = engine_PARSE_VERB
-	}
+func (e *engine) to_PARSE_NORMAL() {
+	e.mode = engine_PARSE_NORMAL
+	e.width = []rune{}
+	e.precision = []rune{}
+	e.setPrecision = false
 }

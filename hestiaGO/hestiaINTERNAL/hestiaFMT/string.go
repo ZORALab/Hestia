@@ -22,13 +22,3 @@ const (
 	LETTERCASE_LOWER Lettercase = iota
 	LETTERCASE_UPPER
 )
-
-func _parseChar(arg any) (out []rune) {
-	// to be developed later
-	return []rune{'(', 'C', 'H', 'A', 'R', '=', 'b', 'a', 'd', ')'}
-}
-
-func _parseString(arg any) (out []rune) {
-	// to be developed later
-	return []rune{'(', 'S', 'T', 'R', 'I', 'N', 'G', '=', 'b', 'a', 'd', ')'}
-}

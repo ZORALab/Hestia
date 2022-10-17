@@ -15,8 +15,3 @@
 // the License.
 
 package hestiaFMT
-
-func _parseBool(arg any) (out []rune) {
-	// to be developed later
-	return []rune{'(', 'B', 'O', 'O', 'L', '=', 'b', 'a', 'd', ')'}
-}
