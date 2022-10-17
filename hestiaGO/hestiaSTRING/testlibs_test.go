@@ -45,6 +45,7 @@ const (
 	cond_VALUE_UINT16 = "provide max uint16 as sample value"
 	cond_VALUE_INT16  = "provide min/max int16 as sample value"
 	cond_VALUE_UINT8  = "provide max uint8 as sample value"
+	cond_VALUE_INT8   = "provide min/max int8 as sample value"
 	cond_VALUE_ZERO   = "provide 0 as sample value"
 
 	cond_POSITIVE = "provide positive value"

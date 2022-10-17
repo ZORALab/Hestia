@@ -25,7 +25,7 @@ var (
 )
 
 func FormatUINT8(number uint8, base uint8, lettercase Lettercase) (out []rune) {
-	var i, x uint8
+	var i uint8
 	var charset *[]rune
 
 	// guard against all processible base number
@@ -39,24 +39,53 @@ func FormatUINT8(number uint8, base uint8, lettercase Lettercase) (out []rune) {
 	}
 
 	// prepare for conversion
-	i = 16 // MAX: 16-bits in base-2
+	i = 8 // MAX: 8-bits in base-2
 	out = make([]rune, i)
 	_processLettercase(&lettercase, &charset)
 
 	// process number according to base
-	for number >= base {
-		i--
-
-		x = number / base
-		out[i] = (*charset)[number-x*base]
-		number = x
-	}
-
-	// process last remainder
-	i--
-	out[i] = (*charset)[number]
+	_s8_formatNumber(&out, &base, &number, &i, charset)
 
 	// done conversion return output
+	return out[i:]
+}
+
+func FormatINT8(input int8, base uint8, lettercase Lettercase) (out []rune) {
+	var i, number uint8
+	var charset *[]rune
+
+	// guard against all processible base number
+	if base < 2 || base > 36 { // 36 = 'z'
+		panic("base number smaller than 2 or larger than 36!")
+	}
+
+	// return early if input is 0 for all bases
+	if input == 0 {
+		return []rune{'0'}
+	}
+
+	// prepare for conversion
+	i = 8 + 1 // MAX: 8-bits in base-2 + sign when available (-)
+	out = make([]rune, i)
+	_processLettercase(&lettercase, &charset)
+
+	// modulus negative number for division
+	if input < 0 {
+		number = uint8(input * -1)
+	} else {
+		number = uint8(input)
+	}
+
+	// process number according to base
+	_s8_formatNumber(&out, &base, &number, &i, charset)
+
+	// process negative sign
+	if input < 0 {
+		i--
+		out[i] = '-'
+	}
+
+	// done conversion and return output
 	return out[i:]
 }
 
@@ -254,6 +283,23 @@ func FormatINT64(input int64, base uint64, lettercase Lettercase) (out []rune) {
 
 	// done conversion and return output
 	return out[i:]
+}
+
+func _s8_formatNumber(buffer *[]rune,
+	base *uint8, number *uint8, i *uint8, charset *[]rune) {
+	var x uint8
+
+	// process number according to base
+	for *number >= *base {
+		*i--
+		x = *number / *base
+		(*buffer)[*i] = (*charset)[*number-x*(*base)]
+		*number = x
+	}
+
+	// process last remainder
+	*i--
+	(*buffer)[*i] = (*charset)[*number]
 }
 
 func _s16_formatNumber(buffer *[]rune,

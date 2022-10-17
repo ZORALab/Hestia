@@ -88,6 +88,20 @@ func S8_FormatUINT8(input uint8, base uint8,
 	return string(hestiaFMT.FormatUINT8(input, base, lettercase)), hestiaERROR.OK
 }
 
+func S8_FormatINT8(input int8, base uint8,
+	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	if input == 0 {
+		return "0", hestiaERROR.OK
+	}
+
+	_processLettercase(&lettercase)
+	return string(hestiaFMT.FormatINT8(input, base, lettercase)), hestiaERROR.OK
+}
+
 func S16_FormatUINT16(input uint16, base uint16,
 	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {
