@@ -102,6 +102,20 @@ func S16_FormatUINT16(input uint16, base uint16,
 	return string(hestiaFMT.FormatUINT16(input, base, lettercase)), hestiaERROR.OK
 }
 
+func S16_FormatINT16(input int16, base uint16,
+	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	if input == 0 {
+		return "0", hestiaERROR.OK
+	}
+
+	_processLettercase(&lettercase)
+	return string(hestiaFMT.FormatINT16(input, base, lettercase)), hestiaERROR.OK
+}
+
 func S32_FormatUINT32(input uint32, base uint32,
 	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {
