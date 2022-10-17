@@ -41,14 +41,7 @@ func FormatUINT8(number uint8, base uint8, lettercase Lettercase) (out []rune) {
 	// prepare for conversion
 	i = 16 // MAX: 16-bits in base-2
 	out = make([]rune, i)
-	switch lettercase {
-	case LETTERCASE_UPPER:
-		charset = &char_DIGITS_UPPER
-	case LETTERCASE_LOWER:
-		charset = &char_DIGITS_LOWER
-	default:
-		panic("unknown lettercase!")
-	}
+	_processLettercase(&lettercase, &charset)
 
 	// process number according to base
 	for number >= base {
@@ -84,14 +77,7 @@ func FormatUINT16(number uint16, base uint16, lettercase Lettercase) (out []rune
 	// prepare for conversion
 	i = 16 // MAX: 16-bits in base-2
 	out = make([]rune, i)
-	switch lettercase {
-	case LETTERCASE_UPPER:
-		charset = &char_DIGITS_UPPER
-	case LETTERCASE_LOWER:
-		charset = &char_DIGITS_LOWER
-	default:
-		panic("unknown lettercase!")
-	}
+	_processLettercase(&lettercase, &charset)
 
 	// process number according to base
 	for number >= base {
@@ -127,14 +113,7 @@ func FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune
 	// prepare for conversion
 	i = 32 // MAX: 32-bits in base-2
 	out = make([]rune, i)
-	switch lettercase {
-	case LETTERCASE_UPPER:
-		charset = &char_DIGITS_UPPER
-	case LETTERCASE_LOWER:
-		charset = &char_DIGITS_LOWER
-	default:
-		panic("unknown lettercase!")
-	}
+	_processLettercase(&lettercase, &charset)
 
 	// process number according to base
 	for number >= base {
@@ -154,12 +133,12 @@ func FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune
 }
 
 func FormatUINT64(number uint64, base uint64, lettercase Lettercase) (out []rune) {
-	var i, x uint64
+	var i uint64
 	var charset *[]rune
 
 	// guard against all processible base number
 	if base < 2 || base > 36 { // 36 = 'z'
-		panic("base number larger than 36!")
+		panic("base number smaller than 2 or larger than 36!")
 	}
 
 	// return early if number is 0 for all bases
@@ -170,28 +149,79 @@ func FormatUINT64(number uint64, base uint64, lettercase Lettercase) (out []rune
 	// prepare for conversion
 	i = 64 // MAX: 64-bits in base-2
 	out = make([]rune, i)
-	switch lettercase {
-	case LETTERCASE_UPPER:
-		charset = &char_DIGITS_UPPER
-	case LETTERCASE_LOWER:
-		charset = &char_DIGITS_LOWER
-	default:
-		panic("unknown lettercase!")
-	}
+	_processLettercase(&lettercase, &charset)
 
 	// process number according to base
-	for number >= base {
-		i--
-
-		x = number / base
-		out[i] = (*charset)[number-x*base]
-		number = x
-	}
-
-	// process last remainder
-	i--
-	out[i] = (*charset)[number]
+	_s64_formatNumber(&out, &base, &number, &i, charset)
 
 	// done conversion return output
 	return out[i:]
+}
+
+func FormatINT64(input int64, base uint64, lettercase Lettercase) (out []rune) {
+	var i uint64
+	var charset *[]rune
+	var number uint64
+
+	// guard against all processible base number
+	if base < 2 || base > 36 { // 36 = 'z'
+		panic("base number smaller than 2 or larger than 36!")
+	}
+
+	// return early if input is 0 for all bases
+	if input == 0 {
+		return []rune{'0'}
+	}
+
+	// prepare for conversion
+	i = 64 + 1 // MAX: 64-bits in base-2 + sign when available (-)
+	out = make([]rune, i)
+	_processLettercase(&lettercase, &charset)
+
+	// modulus negative number for division
+	if input < 0 {
+		number = uint64(input * -1)
+	} else {
+		number = uint64(input)
+	}
+
+	// process number according to base
+	_s64_formatNumber(&out, &base, &number, &i, charset)
+
+	// process negative sign
+	if input < 0 {
+		i--
+		out[i] = '-'
+	}
+
+	// done conversion and return output
+	return out[i:]
+}
+
+func _s64_formatNumber(buffer *[]rune,
+	base *uint64, number *uint64, i *uint64, charset *[]rune) {
+	var x uint64
+
+	// process number according to base
+	for *number >= *base {
+		*i--
+		x = *number / *base
+		(*buffer)[*i] = (*charset)[*number-x*(*base)]
+		*number = x
+	}
+
+	// process last remainder
+	*i--
+	(*buffer)[*i] = (*charset)[*number]
+}
+
+func _processLettercase(input *Lettercase, charset **[]rune) {
+	switch *input {
+	case LETTERCASE_UPPER:
+		*charset = &char_DIGITS_UPPER
+	case LETTERCASE_LOWER:
+		*charset = &char_DIGITS_LOWER
+	default:
+		panic("unknown lettercase!")
+	}
 }
