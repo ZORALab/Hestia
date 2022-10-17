@@ -59,7 +59,7 @@
 				
 				<option value="file1">hestia/hestiaSTRING/Contains.go (0.0%)</option>
 				
-				<option value="file2">hestia/hestiaSTRING/Formatting.go (57.1%)</option>
+				<option value="file2">hestia/hestiaSTRING/Formatting.go (75.9%)</option>
 				
 				<option value="file3">hestia/hestiaSTRING/Join.go (0.0%)</option>
 				
@@ -213,10 +213,6 @@ const (
         LETTERCASE_UPPER = hestiaFMT.LETTERCASE_UPPER
 )
 
-const (
-        DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz"
-)
-
 func ToUppercase(source string, charmap CharsMap) string <span class="cov0" title="0">{
         switch charmap </span>{
         case CHARSMAP_TURKISH:<span class="cov0" title="0">
@@ -251,62 +247,138 @@ func ToTitlecase(source string, charmap CharsMap) string <span class="cov0" titl
 }
 
 func S8_FormatUINT8(input uint8, base uint8,
-        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov7" title="23">{
-        if base &lt; 2 || base &gt; 36 </span><span class="cov3" title="3">{
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov6" title="23">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov2" title="3">{
                 return "", hestiaERROR.DATA_INVALID
         }</span>
 
-        <span class="cov7" title="20">if input == 0 </span><span class="cov3" title="3">{
+        <span class="cov6" title="20">if input == 0 </span><span class="cov2" title="3">{
                 return "0", hestiaERROR.OK
         }</span>
 
-        <span class="cov6" title="17">_processLettercase(&amp;lettercase)
+        <span class="cov5" title="17">_processLettercase(&amp;lettercase)
         return string(hestiaFMT.FormatUINT8(input, base, lettercase)), hestiaERROR.OK</span>
 }
 
-func S16_FormatUINT16(input uint16, base uint16,
-        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov7" title="23">{
-        if base &lt; 2 || base &gt; 36 </span><span class="cov3" title="3">{
+func S8_FormatINT8(input int8, base uint8,
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov8" title="72">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov5" title="16">{
                 return "", hestiaERROR.DATA_INVALID
         }</span>
 
-        <span class="cov7" title="20">if input == 0 </span><span class="cov3" title="3">{
+        <span class="cov7" title="56">if input == 0 </span><span class="cov6" title="20">{
                 return "0", hestiaERROR.OK
         }</span>
 
-        <span class="cov6" title="17">_processLettercase(&amp;lettercase)
+        <span class="cov6" title="36">_processLettercase(&amp;lettercase)
+        return string(hestiaFMT.FormatINT8(input, base, lettercase)), hestiaERROR.OK</span>
+}
+
+func S8_Itoa(input int8) (output string) <span class="cov4" title="8">{
+        output, _ = S8_FormatINT8(input, 10, LETTERCASE_LOWER)
+        return output
+}</span>
+
+func S16_FormatUINT16(input uint16, base uint16,
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov6" title="23">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov2" title="3">{
+                return "", hestiaERROR.DATA_INVALID
+        }</span>
+
+        <span class="cov6" title="20">if input == 0 </span><span class="cov2" title="3">{
+                return "0", hestiaERROR.OK
+        }</span>
+
+        <span class="cov5" title="17">_processLettercase(&amp;lettercase)
         return string(hestiaFMT.FormatUINT16(input, base, lettercase)), hestiaERROR.OK</span>
 }
 
-func S32_FormatUINT32(input uint32, base uint32,
-        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov7" title="23">{
-        if base &lt; 2 || base &gt; 36 </span><span class="cov3" title="3">{
+func S16_FormatINT16(input int16, base uint16,
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov8" title="72">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov5" title="16">{
                 return "", hestiaERROR.DATA_INVALID
         }</span>
 
-        <span class="cov7" title="20">if input == 0 </span><span class="cov3" title="3">{
+        <span class="cov7" title="56">if input == 0 </span><span class="cov6" title="20">{
                 return "0", hestiaERROR.OK
         }</span>
 
-        <span class="cov6" title="17">_processLettercase(&amp;lettercase)
+        <span class="cov6" title="36">_processLettercase(&amp;lettercase)
+        return string(hestiaFMT.FormatINT16(input, base, lettercase)), hestiaERROR.OK</span>
+}
+
+func S16_Itoa(input int16) (output string) <span class="cov4" title="8">{
+        output, _ = S16_FormatINT16(input, 10, LETTERCASE_LOWER)
+        return output
+}</span>
+
+func S32_FormatUINT32(input uint32, base uint32,
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov6" title="23">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov2" title="3">{
+                return "", hestiaERROR.DATA_INVALID
+        }</span>
+
+        <span class="cov6" title="20">if input == 0 </span><span class="cov2" title="3">{
+                return "0", hestiaERROR.OK
+        }</span>
+
+        <span class="cov5" title="17">_processLettercase(&amp;lettercase)
         return string(hestiaFMT.FormatUINT32(input, base, lettercase)), hestiaERROR.OK</span>
 }
 
-func S64_FormatUINT64(input uint64, base uint64,
-        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov7" title="23">{
-        if base &lt; 2 || base &gt; 36 </span><span class="cov3" title="3">{
+func S32_FormatINT32(input int32, base uint32,
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov8" title="72">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov5" title="16">{
                 return "", hestiaERROR.DATA_INVALID
         }</span>
 
-        <span class="cov7" title="20">if input == 0 </span><span class="cov3" title="3">{
+        <span class="cov7" title="56">if input == 0 </span><span class="cov6" title="20">{
                 return "0", hestiaERROR.OK
         }</span>
 
-        <span class="cov6" title="17">_processLettercase(&amp;lettercase)
+        <span class="cov6" title="36">_processLettercase(&amp;lettercase)
+        return string(hestiaFMT.FormatINT32(input, base, lettercase)), hestiaERROR.OK</span>
+}
+
+func S32_Itoa(input int32) (output string) <span class="cov4" title="8">{
+        output, _ = S32_FormatINT32(input, 10, LETTERCASE_LOWER)
+        return output
+}</span>
+
+func S64_FormatUINT64(input uint64, base uint64,
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov6" title="23">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov2" title="3">{
+                return "", hestiaERROR.DATA_INVALID
+        }</span>
+
+        <span class="cov6" title="20">if input == 0 </span><span class="cov2" title="3">{
+                return "0", hestiaERROR.OK
+        }</span>
+
+        <span class="cov5" title="17">_processLettercase(&amp;lettercase)
         return string(hestiaFMT.FormatUINT64(input, base, lettercase)), hestiaERROR.OK</span>
 }
 
-func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string <span class="cov4" title="6">{
+func S64_FormatINT64(input int64, base uint64,
+        lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) <span class="cov8" title="72">{
+        if base &lt; 2 || base &gt; 36 </span><span class="cov5" title="16">{
+                return "", hestiaERROR.DATA_INVALID
+        }</span>
+
+        <span class="cov7" title="56">if input == 0 </span><span class="cov6" title="20">{
+                return "0", hestiaERROR.OK
+        }</span>
+
+        <span class="cov6" title="36">_processLettercase(&amp;lettercase)
+        return string(hestiaFMT.FormatINT64(input, base, lettercase)), hestiaERROR.OK</span>
+}
+
+func S64_Itoa(input int64) (output string) <span class="cov4" title="8">{
+        output, _ = S64_FormatINT64(input, 10, LETTERCASE_LOWER)
+        return output
+}</span>
+
+func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string <span class="cov3" title="6">{
         _processLettercase(&amp;lettercase)
         return string(hestiaFMT.FormatBOOL(input, lettercase))
 }</span>
@@ -315,16 +387,8 @@ func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.E
         return s_ParseUINT(input, uint64(base), size)
 }</span>
 
-func S_FormatINT(input int64, base uint) string <span class="cov0" title="0">{
-        return s_FormatBits(uint64(input), base, input &lt; 0)
-}</span>
-
 func S_ParseINT(input string, base, size uint16) (out int64, err hestiaERROR.Error) <span class="cov0" title="0">{
         return s_ParseINT(input, uint64(base), size)
-}</span>
-
-func S_Itoa(input int64) string <span class="cov0" title="0">{
-        return s_FormatBits(uint64(input), 10, input &lt; 0)
 }</span>
 
 func S_Atoi(input string, size uint16) (out int64, err hestiaERROR.Error) <span class="cov0" title="0">{
@@ -342,10 +406,10 @@ func ParseBOOL(input string) (bool, hestiaERROR.Error) <span class="cov0" title=
         }
 }
 
-func _processLettercase(lettercase *hestiaFMT.Lettercase) <span class="cov10" title="74">{
+func _processLettercase(lettercase *hestiaFMT.Lettercase) <span class="cov10" title="218">{
         switch *lettercase </span>{
-        case LETTERCASE_UPPER, LETTERCASE_LOWER:<span class="cov9" title="68"></span>
-        default:<span class="cov4" title="6">
+        case LETTERCASE_UPPER, LETTERCASE_LOWER:<span class="cov9" title="212"></span>
+        default:<span class="cov3" title="6">
                 *lettercase = LETTERCASE_LOWER</span>
         }
 }
@@ -686,58 +750,6 @@ const (
         priv_BASE_GUESS_8         = priv_BASE_GUESS + 8
         priv_BASE_GUESS_10        = priv_BASE_GUESS + 10
 )
-
-func s_FormatBits(input uint64, base uint, isNegative bool) (out string) <span class="cov0" title="0">{
-        var i int
-        var x, base_uint64 uint64
-        var buffer [64 + 1]byte // +1 for base-2 signed value
-
-        if base &lt; 2 || base &gt; uint(len(DIGITS)) </span><span class="cov0" title="0">{
-                panic("base conversion must be 2 ≥ x ≥ 36")</span>
-        }
-
-        <span class="cov0" title="0">i = len(buffer)
-
-        if isNegative </span><span class="cov0" title="0">{
-                // modulus back to positive number for division
-                input = -input
-        }</span>
-
-        <span class="cov0" title="0">base_uint64 = uint64(base)
-
-        switch </span>{
-        case base&amp;(base-1) == 0:<span class="cov0" title="0"> // power of 2
-                // x is shift
-                x = hestiaBITS.S64_TrailingZeros(uint64(base)) &amp; 7
-                for input &gt;= base_uint64 </span><span class="cov0" title="0">{
-                        i--
-                        buffer[i] = DIGITS[uint(input)&amp;(base-1)]
-                        input &gt;&gt;= x
-                }</span>
-
-                <span class="cov0" title="0">i--
-                buffer[i] = DIGITS[uint(input)]</span>
-        default:<span class="cov0" title="0">
-                // x is quotient
-                for input &gt;= base_uint64 </span><span class="cov0" title="0">{
-                        i--
-
-                        x = input / base_uint64
-                        buffer[i] = DIGITS[uint(input-x*base_uint64)]
-                        input = x
-                }</span>
-
-                <span class="cov0" title="0">i--
-                buffer[i] = DIGITS[uint(input)]</span>
-        }
-
-        <span class="cov0" title="0">if isNegative </span><span class="cov0" title="0">{
-                i--
-                buffer[i] = '-'
-        }</span>
-
-        <span class="cov0" title="0">return string(buffer[i:])</span>
-}
 
 func s_ParseINT(input string, base uint64, size uint16) (value int64, err hestiaERROR.Error) <span class="cov0" title="0">{
         var isNegative bool
