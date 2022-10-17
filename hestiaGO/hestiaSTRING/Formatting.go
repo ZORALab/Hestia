@@ -116,6 +116,20 @@ func S32_FormatUINT32(input uint32, base uint32,
 	return string(hestiaFMT.FormatUINT32(input, base, lettercase)), hestiaERROR.OK
 }
 
+func S32_FormatINT32(input int32, base uint32,
+	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	if input == 0 {
+		return "0", hestiaERROR.OK
+	}
+
+	_processLettercase(&lettercase)
+	return string(hestiaFMT.FormatINT32(input, base, lettercase)), hestiaERROR.OK
+}
+
 func S64_FormatUINT64(input uint64, base uint64,
 	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {
@@ -151,10 +165,6 @@ func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string {
 
 func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.Error) {
 	return s_ParseUINT(input, uint64(base), size)
-}
-
-func S_FormatINT(input int64, base uint) string {
-	return s_FormatBits(uint64(input), base, input < 0)
 }
 
 func S_ParseINT(input string, base, size uint16) (out int64, err hestiaERROR.Error) {

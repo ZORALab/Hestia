@@ -97,7 +97,7 @@ func FormatUINT16(number uint16, base uint16, lettercase Lettercase) (out []rune
 }
 
 func FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune) {
-	var i, x uint32
+	var i uint32
 	var charset *[]rune
 
 	// guard against all processible base number
@@ -116,19 +116,48 @@ func FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune
 	_processLettercase(&lettercase, &charset)
 
 	// process number according to base
-	for number >= base {
-		i--
-
-		x = number / base
-		out[i] = (*charset)[number-x*base]
-		number = x
-	}
-
-	// process last remainder
-	i--
-	out[i] = (*charset)[number]
+	_s32_formatNumber(&out, &base, &number, &i, charset)
 
 	// done conversion return output
+	return out[i:]
+}
+
+func FormatINT32(input int32, base uint32, lettercase Lettercase) (out []rune) {
+	var i, number uint32
+	var charset *[]rune
+
+	// guard against all processible base number
+	if base < 2 || base > 36 { // 36 = 'z'
+		panic("base number smaller than 2 or larger than 36!")
+	}
+
+	// return early if input is 0 for all bases
+	if input == 0 {
+		return []rune{'0'}
+	}
+
+	// prepare for conversion
+	i = 32 + 1 // MAX: 32-bits in base-2 + sign when available (-)
+	out = make([]rune, i)
+	_processLettercase(&lettercase, &charset)
+
+	// modulus negative number for division
+	if input < 0 {
+		number = uint32(input * -1)
+	} else {
+		number = uint32(input)
+	}
+
+	// process number according to base
+	_s32_formatNumber(&out, &base, &number, &i, charset)
+
+	// process negative sign
+	if input < 0 {
+		i--
+		out[i] = '-'
+	}
+
+	// done conversion and return output
 	return out[i:]
 }
 
@@ -196,6 +225,23 @@ func FormatINT64(input int64, base uint64, lettercase Lettercase) (out []rune) {
 
 	// done conversion and return output
 	return out[i:]
+}
+
+func _s32_formatNumber(buffer *[]rune,
+	base *uint32, number *uint32, i *uint32, charset *[]rune) {
+	var x uint32
+
+	// process number according to base
+	for *number >= *base {
+		*i--
+		x = *number / *base
+		(*buffer)[*i] = (*charset)[*number-x*(*base)]
+		*number = x
+	}
+
+	// process last remainder
+	*i--
+	(*buffer)[*i] = (*charset)[*number]
 }
 
 func _s64_formatNumber(buffer *[]rune,

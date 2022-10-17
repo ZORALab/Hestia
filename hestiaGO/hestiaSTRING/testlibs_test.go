@@ -41,6 +41,7 @@ const (
 	cond_VALUE_UINT64 = "provide max uint64 as sample value"
 	cond_VALUE_INT64  = "provide min/max int64 as sample value"
 	cond_VALUE_UINT32 = "provide max uint32 as sample value"
+	cond_VALUE_INT32  = "provide min/max int32 as sample value"
 	cond_VALUE_UINT16 = "provide max uint16 as sample value"
 	cond_VALUE_UINT8  = "provide max uint8 as sample value"
 	cond_VALUE_ZERO   = "provide 0 as sample value"
