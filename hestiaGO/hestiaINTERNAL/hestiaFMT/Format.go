@@ -196,17 +196,66 @@ func _formatNumber(str *numberSTR) (out []rune) {
 }
 
 func _formatString(arg any) (out []rune) {
-	// to be developed later
+	switch v := arg.(type) {
+	case *string:
+		return []rune(*v)
+	case string:
+		return []rune(v)
+	case *rune:
+		return []rune{*v}
+	case rune:
+		return []rune{v}
+	default:
+	}
+
 	return []rune{'(', 'S', 'T', 'R', 'I', 'N', 'G', '=', 'b', 'a', 'd', ')'}
 }
 
 func _formatChar(arg any) (out []rune) {
-	// to be developed later
+	switch v := arg.(type) {
+	case *string:
+		switch len(*v) {
+		case 0:
+			return []rune{}
+		case 1:
+			return []rune(*v)
+		default:
+		}
+	case string:
+		switch len(v) {
+		case 0:
+			return []rune{}
+		case 1:
+			return []rune(v)
+		default:
+		}
+	case *rune:
+		return []rune{*v}
+	case rune:
+		return []rune{v}
+	default:
+	}
+
 	return []rune{'(', 'C', 'H', 'A', 'R', '=', 'b', 'a', 'd', ')'}
 }
 
 func _formatBool(arg any) (out []rune) {
-	// to be developed later
+	switch v := arg.(type) {
+	case *bool:
+		if *v {
+			return []rune{'t', 'r', 'u', 'e'}
+		}
+
+		return []rune{'f', 'a', 'l', 's', 'e'}
+	case bool:
+		if v {
+			return []rune{'t', 'r', 'u', 'e'}
+		}
+
+		return []rune{'f', 'a', 'l', 's', 'e'}
+	default:
+	}
+
 	return []rune{'(', 'B', 'O', 'O', 'L', '=', 'b', 'a', 'd', ')'}
 }
 
