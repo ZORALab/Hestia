@@ -14,7 +14,9 @@ ReportDir = 'archives/data/test/rust/hestia_testing'
 
 [FMTVariables]
 SubjectDir = '{{- .RootDir -}}/hestiaRUST/{{- .ModuleDir -}}'
+TargetDir = '{{- .WorkingDir -}}/{{- .ModuleDir -}}'
 ReportPath = '{{- .RootDir -}}/{{- .ReportDir -}}/rust-report.json'
+
 
 # The following shall be overwritten by [CMD]
 TestCoverage = ''
@@ -42,25 +44,31 @@ Command = 'cargo'
 Name = "Create Test Directory For Housing Test Data"
 Type = 'create-path'
 Condition = [ 'all-all' ]
-Source = '{{- .WorkingDir -}}'
+Source = '{{- .TargetDir -}}'
+
 
 [[CMD]]
-Name = "Run Rust's Cargo Test Against Base Directory"
+Name = "Run Rust's Cargo Test Against Subject Directory"
 Type = 'command-quiet'
 Condition = [ 'all-all' ]
 Location = '{{- .SubjectDir -}}'
-Source = """cargo test --all-targets --all-features \
+Source = """cargo test \
+--all-targets \
+--all-features \
+--target-dir "{{- .TargetDir -}}" \
 {{ .Module }} -- \
 --show-output
 """
 Save = 'TestVerdict'
 SaveRegex = '(FAIL)\s*$'
 
+
 [[CMD]]
 Name = 'Delete Rust Test Report JSON Data File'
 Type = 'delete-quiet'
 Condition = [ 'all-all' ]
 Source = '{{- .ReportPath -}}'
+
 
 [[CMD]]
 Name = 'Script Rust Test Report JSON Data File'
@@ -79,6 +87,7 @@ Source = """
 }
 """
 Target = '{{- .ReportPath -}}'
+
 
 [[CMD]]
 Name = 'Conclude The Test'
