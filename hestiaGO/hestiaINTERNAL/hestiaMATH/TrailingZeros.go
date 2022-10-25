@@ -14,24 +14,64 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-package hestiaBITS
+package hestiaMATH
 
-import (
-	internal "hestia/hestiaINTERNAL/hestiaMATH"
-)
+func S64_TrailingZeros_64Bits(x uint64) uint64 {
+	var count uint64
 
-func S64_TrailingZeros(x uint64) uint64 {
-	return internal.S64_TrailingZeros_64Bits(x)
+	if x == 0 {
+		return 0
+	}
+
+	for (x & 1) == 0 {
+		x >>= 1
+		count++
+	}
+
+	return count
 }
 
-func S32_TrailingZeros(x uint32) uint32 {
-	return internal.S32_TrailingZeros_32Bits(x)
+func S32_TrailingZeros_32Bits(x uint32) uint32 {
+	var count uint32
+
+	if x == 0 {
+		return 0
+	}
+
+	for (x & 1) == 0 {
+		x >>= 1
+		count++
+	}
+
+	return count
 }
 
-func S16_TrailingZeros(x uint16) uint16 {
-	return internal.S16_TrailingZeros_16Bits(x)
+func S16_TrailingZeros_16Bits(x uint16) uint16 {
+	var count uint16
+
+	if x == 0 {
+		return 0
+	}
+
+	for (x & 1) == 0 {
+		x >>= 1
+		count++
+	}
+
+	return count
 }
 
-func S8_TrailingZeros(x uint8) uint8 {
-	return internal.S8_TrailingZeros_8Bits(x)
+func S8_TrailingZeros_8Bits(x uint8) uint8 {
+	var count uint8
+
+	if x == 0 {
+		return 0
+	}
+
+	for (x & 1) == 0 {
+		x >>= 1
+		count++
+	}
+
+	return count
 }
