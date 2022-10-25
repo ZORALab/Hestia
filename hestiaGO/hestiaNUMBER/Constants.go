@@ -14,28 +14,28 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-package hestiaBITS
+package hestiaNUMBER
 
 import (
-	"hestia/hestiaNUMBER"
+	internal "hestia/hestiaINTERNAL/hestiaMATH"
 )
 
 const (
-	MAX_UINT   = hestiaNUMBER.MAX_UINT
-	MAX_UINT8  = hestiaNUMBER.MAX_UINT8
-	MAX_UINT16 = hestiaNUMBER.MAX_UINT16
-	MAX_UINT32 = hestiaNUMBER.MAX_UINT32
-	MAX_UINT64 = hestiaNUMBER.MAX_UINT64
+	MAX_UINT   = internal.MAX_UINT
+	MAX_UINT8  = internal.MAX_UINT8
+	MAX_UINT16 = internal.MAX_UINT16
+	MAX_UINT32 = internal.MAX_UINT32
+	MAX_UINT64 = internal.MAX_UINT64
 
-	MAX_INT   = hestiaNUMBER.MAX_INT
-	MAX_INT8  = hestiaNUMBER.MAX_INT8
-	MAX_INT16 = hestiaNUMBER.MAX_INT16
-	MAX_INT32 = hestiaNUMBER.MAX_INT32
-	MAX_INT64 = hestiaNUMBER.MAX_INT64
+	MAX_INT   = internal.MAX_INT
+	MAX_INT8  = internal.MAX_INT8
+	MAX_INT16 = internal.MAX_INT16
+	MAX_INT32 = internal.MAX_INT32
+	MAX_INT64 = internal.MAX_INT64
 
-	MIN_INT   = hestiaNUMBER.MIN_INT
-	MIN_INT8  = hestiaNUMBER.MIN_INT8
-	MIN_INT16 = hestiaNUMBER.MIN_INT16
-	MIN_INT32 = hestiaNUMBER.MIN_INT32
-	MIN_INT64 = hestiaNUMBER.MIN_INT64
+	MIN_INT   = internal.MIN_INT
+	MIN_INT8  = internal.MIN_INT8
+	MIN_INT16 = internal.MIN_INT16
+	MIN_INT32 = internal.MIN_INT32
+	MIN_INT64 = internal.MIN_INT64
 )
