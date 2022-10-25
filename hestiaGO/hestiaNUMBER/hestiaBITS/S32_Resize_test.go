@@ -20,6 +20,7 @@ import (
 	"testing"
 
 	"hestia/hestiaERROR"
+	"hestia/hestiaNUMBER"
 	"hestia/hestiaTESTING"
 )
 
@@ -182,7 +183,7 @@ func Test_S32_Resize(t *testing.T) {
 		s.Name = "hestiaNUMBER/hestiaBITS/S32_Resize API"
 
 		// prepare
-		var subject = uint32(MAX_UINT32)
+		var subject = uint32(hestiaNUMBER.MAX_UINT32)
 		hestiaTESTING.Log(s,
 			hestiaTESTING.Format("Given Subject	: 0b%b", subject))
 
@@ -243,15 +244,15 @@ func assert_S32_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) b
 func assert_S32_Resize_output(s *hestiaTESTING.Scenario, output uint32) bool {
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) ||
 		hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
-		return output == uint32(MAX_UINT32)
+		return output == uint32(hestiaNUMBER.MAX_UINT32)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_32) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == uint32(MAX_INT32)
+			return output == uint32(hestiaNUMBER.MAX_INT32)
 		}
 
-		return output == uint32(MAX_UINT32)
+		return output == uint32(hestiaNUMBER.MAX_UINT32)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_22) {
@@ -260,10 +261,10 @@ func assert_S32_Resize_output(s *hestiaTESTING.Scenario, output uint32) bool {
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_16) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == uint32(MAX_INT16)
+			return output == uint32(hestiaNUMBER.MAX_INT16)
 		}
 
-		return output == uint32(MAX_UINT16)
+		return output == uint32(hestiaNUMBER.MAX_UINT16)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_12) {
@@ -272,10 +273,10 @@ func assert_S32_Resize_output(s *hestiaTESTING.Scenario, output uint32) bool {
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_8) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == uint32(MAX_INT8)
+			return output == uint32(hestiaNUMBER.MAX_INT8)
 		}
 
-		return output == uint32(MAX_UINT8)
+		return output == uint32(hestiaNUMBER.MAX_UINT8)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_5) {

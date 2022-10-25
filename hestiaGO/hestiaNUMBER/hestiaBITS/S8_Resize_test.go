@@ -20,6 +20,7 @@ import (
 	"testing"
 
 	"hestia/hestiaERROR"
+	"hestia/hestiaNUMBER"
 	"hestia/hestiaTESTING"
 )
 
@@ -110,7 +111,7 @@ func Test_S8_Resize(t *testing.T) {
 		s.Name = "hestiaNUMBER/hestiaBITS/S8_Resize API"
 
 		// prepare
-		var subject = uint8(MAX_UINT8)
+		var subject = uint8(hestiaNUMBER.MAX_UINT8)
 		hestiaTESTING.Log(s,
 			hestiaTESTING.Format("Given Subject	: 0b%b", subject))
 
@@ -167,15 +168,15 @@ func assert_S8_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) bo
 func assert_S8_Resize_output(s *hestiaTESTING.Scenario, output uint8) bool {
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) ||
 		hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
-		return output == uint8(MAX_UINT8)
+		return output == uint8(hestiaNUMBER.MAX_UINT8)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_8) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == uint8(MAX_INT8)
+			return output == uint8(hestiaNUMBER.MAX_INT8)
 		}
 
-		return output == uint8(MAX_UINT8)
+		return output == uint8(hestiaNUMBER.MAX_UINT8)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_5) {

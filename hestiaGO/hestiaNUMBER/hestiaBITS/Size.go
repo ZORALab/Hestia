@@ -18,6 +18,7 @@ package hestiaBITS
 
 import (
 	"hestia/hestiaERROR"
+	"hestia/hestiaNUMBER"
 )
 
 func S64_Resize(input *uint64, size uint16, withSign bool) hestiaERROR.Error {
@@ -34,27 +35,27 @@ func S64_Resize(input *uint64, size uint16, withSign bool) hestiaERROR.Error {
 		return hestiaERROR.OK
 	case size <= 8:
 		if withSign {
-			mask = MAX_INT8
+			mask = hestiaNUMBER.MAX_INT8
 		} else {
-			mask = MAX_UINT8
+			mask = hestiaNUMBER.MAX_UINT8
 		}
 	case size <= 16:
 		if withSign {
-			mask = MAX_INT16
+			mask = hestiaNUMBER.MAX_INT16
 		} else {
-			mask = MAX_UINT16
+			mask = hestiaNUMBER.MAX_UINT16
 		}
 	case size <= 32:
 		if withSign {
-			mask = MAX_INT32
+			mask = hestiaNUMBER.MAX_INT32
 		} else {
-			mask = MAX_UINT32
+			mask = hestiaNUMBER.MAX_UINT32
 		}
 	default:
 		if withSign {
-			mask = MAX_INT64
+			mask = hestiaNUMBER.MAX_INT64
 		} else {
-			mask = MAX_UINT64
+			mask = hestiaNUMBER.MAX_UINT64
 		}
 	}
 
@@ -86,21 +87,21 @@ func S32_Resize(input *uint32, size uint16, withSign bool) hestiaERROR.Error {
 		return hestiaERROR.OK
 	case size <= 8:
 		if withSign {
-			mask = MAX_INT8
+			mask = hestiaNUMBER.MAX_INT8
 		} else {
-			mask = MAX_UINT8
+			mask = hestiaNUMBER.MAX_UINT8
 		}
 	case size <= 16:
 		if withSign {
-			mask = MAX_INT16
+			mask = hestiaNUMBER.MAX_INT16
 		} else {
-			mask = MAX_UINT16
+			mask = hestiaNUMBER.MAX_UINT16
 		}
 	default:
 		if withSign {
-			mask = MAX_INT32
+			mask = hestiaNUMBER.MAX_INT32
 		} else {
-			mask = MAX_UINT32
+			mask = hestiaNUMBER.MAX_UINT32
 		}
 	}
 
@@ -132,15 +133,15 @@ func S16_Resize(input *uint16, size uint16, withSign bool) hestiaERROR.Error {
 		return hestiaERROR.OK
 	case size <= 8:
 		if withSign {
-			mask = MAX_INT8
+			mask = hestiaNUMBER.MAX_INT8
 		} else {
-			mask = MAX_UINT8
+			mask = hestiaNUMBER.MAX_UINT8
 		}
 	default:
 		if withSign {
-			mask = MAX_INT16
+			mask = hestiaNUMBER.MAX_INT16
 		} else {
-			mask = MAX_UINT16
+			mask = hestiaNUMBER.MAX_UINT16
 		}
 	}
 
@@ -172,9 +173,9 @@ func S8_Resize(input *uint8, size uint16, withSign bool) hestiaERROR.Error {
 		return hestiaERROR.OK
 	default:
 		if withSign {
-			mask = MAX_INT8
+			mask = hestiaNUMBER.MAX_INT8
 		} else {
-			mask = MAX_UINT8
+			mask = hestiaNUMBER.MAX_UINT8
 		}
 	}
 

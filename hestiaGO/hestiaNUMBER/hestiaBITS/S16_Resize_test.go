@@ -20,6 +20,7 @@ import (
 	"testing"
 
 	"hestia/hestiaERROR"
+	"hestia/hestiaNUMBER"
 	"hestia/hestiaTESTING"
 )
 
@@ -146,7 +147,7 @@ func Test_S16_Resize(t *testing.T) {
 		s.Name = "hestiaNUMBER/hestiaBITS/S16_Resize API"
 
 		// prepare
-		var subject = uint16(MAX_UINT16)
+		var subject = uint16(hestiaNUMBER.MAX_UINT16)
 		hestiaTESTING.Log(s,
 			hestiaTESTING.Format("Given Subject	: 0b%b", subject))
 
@@ -204,15 +205,15 @@ func assert_S16_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) b
 func assert_S16_Resize_output(s *hestiaTESTING.Scenario, output uint16) bool {
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) ||
 		hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
-		return output == uint16(MAX_UINT16)
+		return output == uint16(hestiaNUMBER.MAX_UINT16)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_16) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == uint16(MAX_INT16)
+			return output == uint16(hestiaNUMBER.MAX_INT16)
 		}
 
-		return output == uint16(MAX_UINT16)
+		return output == uint16(hestiaNUMBER.MAX_UINT16)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_12) {
@@ -221,10 +222,10 @@ func assert_S16_Resize_output(s *hestiaTESTING.Scenario, output uint16) bool {
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_8) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == uint16(MAX_INT8)
+			return output == uint16(hestiaNUMBER.MAX_INT8)
 		}
 
-		return output == uint16(MAX_UINT8)
+		return output == uint16(hestiaNUMBER.MAX_UINT8)
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_5) {

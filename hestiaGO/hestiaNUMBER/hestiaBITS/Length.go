@@ -16,6 +16,10 @@
 
 package hestiaBITS
 
+import (
+	"hestia/hestiaNUMBER"
+)
+
 func S64_Length(a uint64) uint64 {
 	var i, b, c uint64
 
@@ -25,7 +29,7 @@ func S64_Length(a uint64) uint64 {
 
 	// loop through bit shifting to find the highest bit
 	b = 0
-	for i = 1; i <= MAX_UINT64; i <<= 1 {
+	for i = 1; i <= hestiaNUMBER.MAX_UINT64; i <<= 1 {
 		a |= (a >> i)
 
 		c = a ^ (a >> 1)
@@ -56,7 +60,7 @@ func S32_Length(a uint32) uint32 {
 
 	// loop through bit shifting to find the highest bit
 	b = 0
-	for i = 1; i <= MAX_UINT32; i <<= 1 {
+	for i = 1; i <= hestiaNUMBER.MAX_UINT32; i <<= 1 {
 		a |= (a >> i)
 
 		c = a ^ (a >> 1)
@@ -87,7 +91,7 @@ func S16_Length(a uint16) uint16 {
 
 	// loop through bit shifting to find the highest bit
 	b = 0
-	for i = 1; i <= MAX_UINT16; i <<= 1 {
+	for i = 1; i <= hestiaNUMBER.MAX_UINT16; i <<= 1 {
 		a |= (a >> i)
 
 		c = a ^ (a >> 1)
@@ -118,7 +122,7 @@ func S8_Length(a uint8) uint8 {
 
 	// loop through bit shifting to find the highest bit
 	b = 0
-	for i = 1; i <= MAX_UINT8; i <<= 1 {
+	for i = 1; i <= hestiaNUMBER.MAX_UINT8; i <<= 1 {
 		a |= (a >> i)
 
 		c = a ^ (a >> 1)

@@ -20,6 +20,7 @@ import (
 	"testing"
 
 	"hestia/hestiaERROR"
+	"hestia/hestiaNUMBER"
 	"hestia/hestiaTESTING"
 )
 
@@ -218,7 +219,7 @@ func Test_S64_Resize(t *testing.T) {
 		s.Name = "hestiaNUMBER/hestiaBITS/S64_Resize API"
 
 		// prepare
-		var subject uint64 = MAX_UINT64
+		var subject uint64 = hestiaNUMBER.MAX_UINT64
 		hestiaTESTING.Log(s,
 			hestiaTESTING.Format("Given Subject	: 0b%b", subject))
 
@@ -281,15 +282,15 @@ func assert_S64_Resize_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) b
 func assert_S64_Resize_output(s *hestiaTESTING.Scenario, output uint64) bool {
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_1000) ||
 		hestiaTESTING.HasCondition(s, cond_NIL_INPUT) {
-		return output == MAX_UINT64
+		return output == hestiaNUMBER.MAX_UINT64
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_64) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == MAX_INT64
+			return output == hestiaNUMBER.MAX_INT64
 		}
 
-		return output == MAX_UINT64
+		return output == hestiaNUMBER.MAX_UINT64
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_35) {
@@ -298,10 +299,10 @@ func assert_S64_Resize_output(s *hestiaTESTING.Scenario, output uint64) bool {
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_32) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == MAX_INT32
+			return output == hestiaNUMBER.MAX_INT32
 		}
 
-		return output == MAX_UINT32
+		return output == hestiaNUMBER.MAX_UINT32
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_22) {
@@ -310,10 +311,10 @@ func assert_S64_Resize_output(s *hestiaTESTING.Scenario, output uint64) bool {
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_16) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == MAX_INT16
+			return output == hestiaNUMBER.MAX_INT16
 		}
 
-		return output == MAX_UINT16
+		return output == hestiaNUMBER.MAX_UINT16
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_12) {
@@ -322,10 +323,10 @@ func assert_S64_Resize_output(s *hestiaTESTING.Scenario, output uint64) bool {
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_8) {
 		if hestiaTESTING.HasCondition(s, cond_TO_SIGNED) {
-			return output == MAX_INT8
+			return output == hestiaNUMBER.MAX_INT8
 		}
 
-		return output == MAX_UINT8
+		return output == hestiaNUMBER.MAX_UINT8
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_TO_BITS_5) {
