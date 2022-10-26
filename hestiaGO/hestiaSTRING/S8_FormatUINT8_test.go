@@ -18,7 +18,7 @@ package hestiaSTRING
 
 import (
 	"hestia/hestiaERROR"
-	"hestia/hestiaNUMBER/hestiaBITS"
+	"hestia/hestiaNUMBER"
 	"hestia/hestiaTESTING"
 	"testing"
 )
@@ -262,7 +262,7 @@ func Test_S8_FormatUINT8(t *testing.T) {
 		s.Name = "hestiaSTRING/S8_FormatUINT8 API"
 
 		// prepare
-		subject := uint8(hestiaBITS.MAX_UINT8)
+		subject := uint8(hestiaNUMBER.MAX_UINT8)
 		if hestiaTESTING.HasCondition(s, cond_VALUE_ZERO) {
 			subject = 0
 		}

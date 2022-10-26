@@ -18,7 +18,7 @@ package hestiaSTRING
 
 import (
 	"hestia/hestiaERROR"
-	"hestia/hestiaNUMBER/hestiaBITS"
+	"hestia/hestiaNUMBER"
 	"hestia/hestiaTESTING"
 	"testing"
 )
@@ -262,7 +262,7 @@ func Test_S16_FormatUINT16(t *testing.T) {
 		s.Name = "hestiaSTRING/S16_FormatUINT16 API"
 
 		// prepare
-		subject := uint16(hestiaBITS.MAX_UINT16)
+		subject := uint16(hestiaNUMBER.MAX_UINT16)
 		if hestiaTESTING.HasCondition(s, cond_VALUE_ZERO) {
 			subject = 0
 		}

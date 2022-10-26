@@ -17,7 +17,7 @@
 package hestiaSTRING
 
 import (
-	"hestia/hestiaNUMBER/hestiaBITS"
+	"hestia/hestiaNUMBER"
 	"hestia/hestiaTESTING"
 	"testing"
 )
@@ -108,12 +108,12 @@ func Test_S64_Itoa(t *testing.T) {
 		s.Name = "hestiaSTRING/S64_Itoa API"
 
 		// prepare
-		subject := int64(hestiaBITS.MAX_INT64)
+		subject := int64(hestiaNUMBER.MAX_INT64)
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_VALUE_ZERO):
 			subject = 0
 		case hestiaTESTING.HasCondition(s, cond_NEGATIVE):
-			subject = int64(hestiaBITS.MIN_INT64)
+			subject = int64(hestiaNUMBER.MIN_INT64)
 		}
 		hestiaTESTING.Log(s,
 			hestiaTESTING.Format("Given Subject	: %d", subject))
