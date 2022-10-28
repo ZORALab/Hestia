@@ -13,8 +13,9 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
-//
-// NOTE: test codes are inside hestiaSTRING package.
+
+// NOTE:
+//   1. Test codes are in the public hestiaSTRING package.
 
 package hestiaFMT
 
