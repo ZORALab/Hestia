@@ -37,6 +37,13 @@ const (
 	LETTERCASE_UPPER = hestiaFMT.LETTERCASE_UPPER
 )
 
+const (
+	NOTATION_SCIENTIFIC_AUTO_EXPONENT = hestiaFMT.NOTATION_SCIENTIFIC_AUTO_EXPONENT
+	NOTATION_SCIENTIFIC               = hestiaFMT.NOTATION_SCIENTIFIC
+	NOTATION_DECIMAL_NO_EXPONENT      = hestiaFMT.NOTATION_DECIMAL_NO_EXPONENT
+	NOTATION_IEEE754                  = hestiaFMT.NOTATION_IEEE754
+)
+
 func ToUppercase(source string, charmap CharsMap) string {
 	switch charmap {
 	case CHARSMAP_TURKISH:
@@ -202,6 +209,36 @@ func S64_Itoa(input int64) (output string) {
 	return output
 }
 
+func M32_FormatFLOAT32(input float32, base uint32, precision uint32,
+	lettercase hestiaFMT.Lettercase,
+	notation hestiaFMT.Notation) (out string, err hestiaERROR.Error) {
+	// Step 1: process all parameters to prevent panic
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	_processLettercase(&lettercase)
+
+	switch {
+	case _processNotation(&notation) != hestiaERROR.OK:
+		fallthrough
+	case base != 2 && notation == NOTATION_IEEE754:
+		return "", hestiaERROR.BAD_DESCRIPTOR
+	}
+
+	// Step 2: constructing the data structure for processing
+	param := hestiaFMT.ParamsFLOAT32{
+		Value:      input,
+		Precision:  precision,
+		Base:       base,
+		Lettercase: lettercase,
+		Notation:   notation,
+	}
+
+	// Step 3: perform formatting
+	return string(hestiaFMT.M32_FormatFLOAT32(&param)), hestiaERROR.OK
+}
+
 func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string {
 	_processLettercase(&lettercase)
 	return string(hestiaFMT.FormatBOOL(input, lettercase))
@@ -235,5 +272,17 @@ func _processLettercase(lettercase *hestiaFMT.Lettercase) {
 	case LETTERCASE_UPPER, LETTERCASE_LOWER:
 	default:
 		*lettercase = LETTERCASE_LOWER
+	}
+}
+
+func _processNotation(notation *hestiaFMT.Notation) hestiaERROR.Error {
+	switch *notation {
+	case NOTATION_SCIENTIFIC,
+		NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+		NOTATION_DECIMAL_NO_EXPONENT,
+		NOTATION_IEEE754:
+		return hestiaERROR.OK
+	default:
+		return hestiaERROR.DATA_INVALID
 	}
 }
