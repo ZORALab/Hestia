@@ -34,7 +34,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -46,7 +46,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -58,7 +58,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -70,7 +70,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -82,7 +82,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -94,7 +94,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -106,7 +106,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -118,7 +118,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -514,7 +514,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -526,7 +526,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -538,7 +538,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -550,7 +550,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -562,7 +562,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -574,7 +574,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -586,7 +586,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -598,7 +598,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -993,7 +993,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1005,7 +1005,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1017,7 +1017,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1029,7 +1029,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1041,7 +1041,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1053,7 +1053,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1065,7 +1065,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1077,7 +1077,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1377,7 +1377,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1389,7 +1389,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1401,7 +1401,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1413,7 +1413,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1425,7 +1425,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1437,7 +1437,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1449,7 +1449,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1461,7 +1461,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1856,7 +1856,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1868,7 +1868,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1880,7 +1880,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1892,7 +1892,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1904,7 +1904,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1916,7 +1916,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1928,7 +1928,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -1940,7 +1940,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2240,7 +2240,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2252,7 +2252,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2264,7 +2264,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2276,7 +2276,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2288,7 +2288,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2300,7 +2300,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2312,7 +2312,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2324,7 +2324,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2719,7 +2719,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2731,7 +2731,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2743,7 +2743,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2755,7 +2755,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2767,7 +2767,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2779,7 +2779,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2791,7 +2791,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -2803,7 +2803,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3199,7 +3199,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3211,7 +3211,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3223,7 +3223,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3235,7 +3235,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3247,7 +3247,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3259,7 +3259,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3271,7 +3271,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3283,7 +3283,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3678,7 +3678,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3690,7 +3690,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3702,7 +3702,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3714,7 +3714,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3726,7 +3726,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3738,7 +3738,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3750,7 +3750,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -3762,7 +3762,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4158,7 +4158,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4170,7 +4170,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4182,7 +4182,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4194,7 +4194,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4206,7 +4206,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4218,7 +4218,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4230,7 +4230,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4242,7 +4242,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4637,7 +4637,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4649,7 +4649,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4661,7 +4661,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4673,7 +4673,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4685,7 +4685,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4697,7 +4697,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4709,7 +4709,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -4721,7 +4721,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5117,7 +5117,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5129,7 +5129,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5141,7 +5141,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5153,7 +5153,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5165,7 +5165,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5177,7 +5177,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5189,7 +5189,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5201,7 +5201,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5596,7 +5596,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5608,7 +5608,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5620,7 +5620,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5632,7 +5632,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5644,7 +5644,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5656,7 +5656,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5668,7 +5668,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -5680,7 +5680,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6076,7 +6076,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6088,7 +6088,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6100,7 +6100,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6112,7 +6112,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6124,7 +6124,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6136,7 +6136,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6148,7 +6148,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6160,7 +6160,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6555,7 +6555,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6567,7 +6567,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6579,7 +6579,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6591,7 +6591,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6603,7 +6603,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6615,7 +6615,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6627,7 +6627,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -6639,7 +6639,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7035,7 +7035,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7047,7 +7047,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7059,7 +7059,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7071,7 +7071,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7083,7 +7083,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7095,7 +7095,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7107,7 +7107,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7119,7 +7119,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7514,7 +7514,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7526,7 +7526,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_1,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7538,7 +7538,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_2,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7550,7 +7550,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_4,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7562,7 +7562,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_5,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7574,7 +7574,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_10,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7586,7 +7586,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7598,7 +7598,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_1,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7610,7 +7610,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_2,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7622,7 +7622,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_4,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7634,7 +7634,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_5,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -7646,7 +7646,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_10,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -8087,7 +8087,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -8132,7 +8132,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -8176,7 +8176,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_BASE_10,
 				cond_LOWERCASE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -8216,7 +8216,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_BASE_10,
 				cond_LOWERCASE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -8256,7 +8256,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_BASE_10,
 				cond_LOWERCASE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -8296,7 +8296,7 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_BASE_10,
 				cond_LOWERCASE,
 				cond_PRECISION_0,
-				cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+				cond_NOTATION_SCIENTIFIC_AUTO,
 			},
 		}, {
 			Switches: []string{
@@ -8521,6 +8521,2046 @@ func test_cases_M32_FormatFLOAT32() []*hestiaTESTING.Scenario {
 				cond_NEGATIVE,
 				cond_PRECISION_0,
 				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_2,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_UPPERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_UPPERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_5,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_UPPERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_5,
+				cond_UPPERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_8,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_UPPERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_8,
+				cond_UPPERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_UPPERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_10,
+				cond_UPPERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_ZERO,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_ZERO,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_EQUAL_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_NEGATIVE,
+				cond_EXPONENT_SMALLER_MANTISSA,
+				cond_BASE_16,
+				cond_LOWERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_UPPERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_16,
+				cond_UPPERCASE,
+				cond_NEGATIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
 			},
 		},
 	}
@@ -8631,6 +10671,16 @@ func assert_S32_FormatFLOAT32_error(s *hestiaTESTING.Scenario, err hestiaERROR.E
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754) &&
 		hestiaTESTING.HasCondition(s, cond_BASE_22):
 		fallthrough
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3) &&
+		!(hestiaTESTING.HasCondition(s, cond_BASE_2) ||
+			hestiaTESTING.HasCondition(s, cond_BASE_10) ||
+			hestiaTESTING.HasCondition(s, cond_BASE_16)):
+		fallthrough
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO) &&
+		!(hestiaTESTING.HasCondition(s, cond_BASE_2) ||
+			hestiaTESTING.HasCondition(s, cond_BASE_10) ||
+			hestiaTESTING.HasCondition(s, cond_BASE_16)):
+		fallthrough
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754) &&
 		hestiaTESTING.HasCondition(s, cond_BASE_36):
 		return err == hestiaERROR.BAD_DESCRIPTOR
@@ -8682,7 +10732,7 @@ func _assert_S32_FormatFLOAT32_output_base36(s *hestiaTESTING.Scenario, output s
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -8814,6 +10864,10 @@ func _assert_S32_FormatFLOAT32_output_base36(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "7clz.j"
 		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		// empty as error is raised
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		// empty as error is raised
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
 		// empty as error is raised
 	default:
@@ -8821,6 +10875,8 @@ func _assert_S32_FormatFLOAT32_output_base36(s *hestiaTESTING.Scenario, output s
 
 	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) &&
 		!(hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO) ||
 			hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN)) {
 		verdict = "-" + verdict
 	}
@@ -8835,7 +10891,7 @@ func _assert_S32_FormatFLOAT32_output_base22(s *hestiaTESTING.Scenario, output s
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -8967,6 +11023,10 @@ func _assert_S32_FormatFLOAT32_output_base22(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "28f9.d5"
 		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		// empty as error is raised
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		// empty as error is raised
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
 		// empty as error is raised
 	default:
@@ -8974,6 +11034,8 @@ func _assert_S32_FormatFLOAT32_output_base22(s *hestiaTESTING.Scenario, output s
 
 	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) &&
 		!(hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO) ||
 			hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN)) {
 		verdict = "-" + verdict
 	}
@@ -8988,7 +11050,7 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -9030,6 +11092,52 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "bc61.4f"
+		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0xb.c614fp+33"
+			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
+				verdict = "0XB.C614FP+33"
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0x4.b41b5ap+28"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0xb.c6101p+33"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "0xb.c614ep+16"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "0xbc614f.0"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0xb.c614fp-27"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "0xb.c614ep-10"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "0xbc61.4f"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -9076,6 +11184,52 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "b.c614f*16+1"
+		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0xb.c614fp+33"
+			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
+				verdict = "0xB.C614FP+33"
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0x4.b41b5ap+28"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0xb.c6101p+33"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "0xb.c614ep+16"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "0xb.c614fp+5"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "0xb.c614fp-27"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "0xb.c614ep-10"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "0xb.c614fp+1"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -9141,7 +11295,7 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -9273,6 +11427,10 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "4174.5a7"
 		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		verdict = "" // error raised
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		verdict = "" // error raised
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
 		// empty as error is raised
 	default:
@@ -9280,6 +11438,8 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 
 	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) &&
 		!(hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO) ||
 			hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN)) {
 		verdict = "-" + verdict
 	}
@@ -9294,7 +11454,7 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -9331,6 +11491,52 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
 			verdict = "1.2345678*10-8"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "1234.5679"
+		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.2345679e+35"
+			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
+				verdict = "1.2345679E+35"
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "7.8912346e+29"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.2345601e+35"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "1.2345678e+18"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "12345679.0"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.2345679e-25"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "1.2345678e-8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
@@ -9379,6 +11585,52 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "1.2345679*10+3"
+		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.2345679e+35"
+			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
+				verdict = "1.2345679E+35"
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "7.8912346e+29"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.2345601e+35"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "1.2345678e+18"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "1.2345679e+7"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.2345679e-25"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "1.2345678e-8"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "1.2345679e+3"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -9444,7 +11696,7 @@ func _assert_S32_FormatFLOAT32_output_base8(s *hestiaTESTING.Scenario, output st
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -9573,12 +11825,18 @@ func _assert_S32_FormatFLOAT32_output_base8(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "5706.0517"
 		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		// empty as error is raised
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		// empty as error is raised
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
-		verdict = "" // error raised
+		// empty as error is raised
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) &&
 		!(hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO) ||
 			hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN)) {
 		verdict = "-" + verdict
 	}
@@ -9593,7 +11851,7 @@ func _assert_S32_FormatFLOAT32_output_base5(s *hestiaTESTING.Scenario, output st
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -9722,12 +11980,18 @@ func _assert_S32_FormatFLOAT32_output_base5(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "1113.0030204"
 		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		// empty as error is raised
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		// empty as error is raised
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
-		verdict = "" // error raised
+		// empty as error is raised
 	}
 
 	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) &&
 		!(hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3) ||
+			hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO) ||
 			hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN)) {
 		verdict = "-" + verdict
 	}
@@ -9742,7 +12006,7 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
 		// empty as error is raised
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -9774,6 +12038,52 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
 			verdict = "1.01111000110000101001111*2-9"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "101111000110000.101001110"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "1011.11000110000101001111"
+		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.01111000110000101001111p+51"
+			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
+				verdict = "1.01111000110000101001111P+51"
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1001011010000011011010110100000000000000000000000.0"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.01111000110000100000001p+51"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "10111100011000010100111000000000000.0"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "101111000110000101001111.0"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.01111000110000101001111p-9"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
@@ -9827,6 +12137,52 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
 			verdict = "1.01111000110000101001111*2+19"
+		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.01111000110000101001111p+51"
+			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
+				verdict = "1.01111000110000101001111P+51"
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.00101101000001101101011010p+48"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.01111000110000100000001p+51"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "1.01111000110000101001110p+34"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "1.01111000110000101001111p+23"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			verdict = "1.01111000110000101001111p-9"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			verdict = "1.01111000110000101001110p+8"
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
+			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			verdict = "1.01111000110000101001111p+19"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {

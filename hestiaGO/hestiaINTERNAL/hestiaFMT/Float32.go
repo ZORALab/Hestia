@@ -50,6 +50,14 @@ func M32_FormatFLOAT32(input *ParamsFLOAT32) (out []rune) {
 		panic("input data structure is nil!")
 	case input.Base < 2 || input.Base > 36:
 		panic("base number smaller than 2 or larger than 36!")
+	case input.Notation == NOTATION_ISO6093NR3_AUTO &&
+		!(input.Base == 2 || input.Base == 10 || input.Base == 16):
+		fallthrough
+	case input.Notation == NOTATION_ISO6093NR3 &&
+		!(input.Base == 2 || input.Base == 10 || input.Base == 16):
+		panic("requested ISO6093 NR3 notation but base is not 2/10/16!")
+	case input.Notation == NOTATION_IEEE754 && input.Base != 2:
+		panic("requested IEEE754 notation but base is not 2!")
 	case input.Notation == NOTATION_IEEE754:
 		i = hestiaMATH.S32_IEEE754_FloatToBits(input.Value)
 		out = FormatUINT32(i, 2, LETTERCASE_LOWER)
@@ -90,7 +98,7 @@ func M32_FormatFLOAT32(input *ParamsFLOAT32) (out []rune) {
 func __s32_Hadōken_Base10_Encode_Float32(setting *ParamsFLOAT32,
 	data *hestiaMATH.Float32) (out []rune) {
 	var length, exponentOUT uint32
-	var round, partial, exponent []rune
+	var round, partial []rune
 
 	// convert mantissa into char and exponent output base count
 	round = FormatUINT32(data.Mantissa, setting.Base, setting.Lettercase)
@@ -114,27 +122,69 @@ func __s32_Hadōken_Base10_Encode_Float32(setting *ParamsFLOAT32,
 	}
 
 	// construct output char list
+	__s32_Hadōken_Render(&out, &round, &partial, &exponentOUT, setting, data)
+
+	// return the formatted output
+	return out
+}
+
+func __s32_Hadōken_Render(buffer *[]rune, round *[]rune, partial *[]rune,
+	exponent *uint32, setting *ParamsFLOAT32, data *hestiaMATH.Float32) {
+	var ret []rune
+
 	if data.NegativeValue {
-		out = append(out, '-')
+		*buffer = append(*buffer, '-')
 	}
-	out = append(out, round...)
-	out = append(out, '.')
-	out = append(out, partial...)
-	if exponentOUT > 0 {
-		out = append(out, '*')
-		exponent = FormatUINT32(setting.Base, 10, setting.Lettercase)
-		out = append(out, exponent...)
-		if data.NegativeExponent {
-			out = append(out, '-')
-		} else {
-			out = append(out, '+')
+
+	switch {
+	case setting.Notation == NOTATION_ISO6093NR3,
+		setting.Notation == NOTATION_ISO6093NR3_AUTO:
+		if setting.Base == 16 {
+			if setting.Lettercase == LETTERCASE_UPPER {
+				*buffer = append(*buffer, '0', 'X')
+			} else {
+				*buffer = append(*buffer, '0', 'x')
+			}
+		}
+	}
+
+	*buffer = append(*buffer, *round...)
+	*buffer = append(*buffer, '.')
+	*buffer = append(*buffer, *partial...)
+
+	if *exponent > 0 {
+		switch {
+		case setting.Notation == NOTATION_ISO6093NR3,
+			setting.Notation == NOTATION_ISO6093NR3_AUTO:
+			switch {
+			case setting.Base == 2, setting.Base == 16:
+				if setting.Lettercase == LETTERCASE_UPPER {
+					*buffer = append(*buffer, 'P')
+				} else {
+					*buffer = append(*buffer, 'p')
+				}
+			case setting.Base == 10:
+				if setting.Lettercase == LETTERCASE_UPPER {
+					*buffer = append(*buffer, 'E')
+				} else {
+					*buffer = append(*buffer, 'e')
+				}
+			}
+		default:
+			*buffer = append(*buffer, '*')
+			ret = FormatUINT32(setting.Base, 10, setting.Lettercase)
+			*buffer = append(*buffer, ret...)
 		}
 
-		exponent = FormatUINT32(exponentOUT, 10, setting.Lettercase)
-		out = append(out, exponent...)
-	}
+		if data.NegativeExponent {
+			*buffer = append(*buffer, '-')
+		} else {
+			*buffer = append(*buffer, '+')
+		}
 
-	return out
+		ret = FormatUINT32(*exponent, 10, setting.Lettercase)
+		*buffer = append(*buffer, ret...)
+	}
 }
 
 func __s32_Hadōken_Normalize(round, partial *[]rune,
@@ -156,7 +206,8 @@ func __s32_Hadōken_Normalize(round, partial *[]rune,
 		}
 	case !*negativeExponent && *exponentOUT < rLength: // no exponent positive number
 		switch {
-		case setting.Notation == NOTATION_SCIENTIFIC:
+		case setting.Notation == NOTATION_SCIENTIFIC,
+			setting.Notation == NOTATION_ISO6093NR3:
 			// scientific 1 decimal notation (X.XXXX^B+YYYY)
 			*exponentOUT += rLength - 1
 			*partial = (*round)[1:]
@@ -170,7 +221,8 @@ func __s32_Hadōken_Normalize(round, partial *[]rune,
 		}
 	case *negativeExponent && *exponentOUT <= rLength: // no exponent negative number
 		switch {
-		case setting.Notation == NOTATION_SCIENTIFIC:
+		case setting.Notation == NOTATION_SCIENTIFIC,
+			setting.Notation == NOTATION_ISO6093NR3:
 			// scientific 1 decimal notation (X.XXXX^B+YYYY)
 			rLength--
 			*partial = (*round)[1:]

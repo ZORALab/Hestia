@@ -46,11 +46,13 @@ const (
 	cond_PRECISION_5  = "format precision with 5 units"
 	cond_PRECISION_10 = "format precision with 10 units"
 
-	cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT = "scientific notation with auto exponent"
-	cond_NOTATION_SCIENTIFIC               = "strictly scientific notation (X.XXXX*B±YYYY)"
-	cond_NOTATION_DECIMAL_NO_EXPONENT      = "strictly decimal with no exponent (XXXX.YYYY)"
-	cond_NOTATION_IEEE754                  = "strictly IEEE754 notation"
-	cond_NOTATION_UNKNOWN                  = "unknown or faulty notation"
+	cond_NOTATION_SCIENTIFIC_AUTO     = "scientific notation + auto exponent"
+	cond_NOTATION_ISO6093NR3_AUTO     = "ISO6093NR3 scientific notation + auto exponent"
+	cond_NOTATION_SCIENTIFIC          = "strictly scientific notation (X.XXXX*B±YYYY)"
+	cond_NOTATION_ISO6093NR3          = "strictly ISO6093NR3 scientific notation"
+	cond_NOTATION_DECIMAL_NO_EXPONENT = "strictly decimal with no exponent (XXXX.YYYY)"
+	cond_NOTATION_IEEE754             = "strictly IEEE754 notation"
+	cond_NOTATION_UNKNOWN             = "unknown or faulty notation"
 
 	cond_ROUND_NORMAL = "use normal round number"
 	cond_ROUND_ZERO   = "use zero round number"
@@ -146,10 +148,14 @@ func create_precision(s *hestiaTESTING.Scenario) uint64 {
 
 func create_notation(s *hestiaTESTING.Scenario) hestiaFMT.Notation {
 	switch {
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO_EXPONENT):
-		return NOTATION_SCIENTIFIC_AUTO_EXPONENT
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
+		return NOTATION_SCIENTIFIC_AUTO
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
+		return NOTATION_ISO6093NR3_AUTO
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		return NOTATION_SCIENTIFIC
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		return NOTATION_ISO6093NR3
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		return NOTATION_DECIMAL_NO_EXPONENT
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):

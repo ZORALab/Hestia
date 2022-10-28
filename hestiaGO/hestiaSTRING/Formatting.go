@@ -38,10 +38,12 @@ const (
 )
 
 const (
-	NOTATION_SCIENTIFIC_AUTO_EXPONENT = hestiaFMT.NOTATION_SCIENTIFIC_AUTO_EXPONENT
-	NOTATION_SCIENTIFIC               = hestiaFMT.NOTATION_SCIENTIFIC
-	NOTATION_DECIMAL_NO_EXPONENT      = hestiaFMT.NOTATION_DECIMAL_NO_EXPONENT
-	NOTATION_IEEE754                  = hestiaFMT.NOTATION_IEEE754
+	NOTATION_SCIENTIFIC_AUTO     = hestiaFMT.NOTATION_SCIENTIFIC_AUTO
+	NOTATION_ISO6093NR3_AUTO     = hestiaFMT.NOTATION_ISO6093NR3_AUTO
+	NOTATION_ISO6093NR3          = hestiaFMT.NOTATION_ISO6093NR3
+	NOTATION_SCIENTIFIC          = hestiaFMT.NOTATION_SCIENTIFIC
+	NOTATION_DECIMAL_NO_EXPONENT = hestiaFMT.NOTATION_DECIMAL_NO_EXPONENT
+	NOTATION_IEEE754             = hestiaFMT.NOTATION_IEEE754
 )
 
 func ToUppercase(source string, charmap CharsMap) string {
@@ -222,6 +224,10 @@ func M32_FormatFLOAT32(input float32, base uint32, precision uint32,
 	switch {
 	case _processNotation(&notation) != hestiaERROR.OK:
 		fallthrough
+	case notation == NOTATION_ISO6093NR3 && !(base == 2 || base == 10 || base == 16):
+		fallthrough
+	case notation == NOTATION_ISO6093NR3_AUTO && !(base == 2 || base == 10 || base == 16):
+		fallthrough
 	case base != 2 && notation == NOTATION_IEEE754:
 		return "", hestiaERROR.BAD_DESCRIPTOR
 	}
@@ -278,9 +284,11 @@ func _processLettercase(lettercase *hestiaFMT.Lettercase) {
 func _processNotation(notation *hestiaFMT.Notation) hestiaERROR.Error {
 	switch *notation {
 	case NOTATION_SCIENTIFIC,
-		NOTATION_SCIENTIFIC_AUTO_EXPONENT,
+		NOTATION_SCIENTIFIC_AUTO,
 		NOTATION_DECIMAL_NO_EXPONENT,
-		NOTATION_IEEE754:
+		NOTATION_IEEE754,
+		NOTATION_ISO6093NR3_AUTO,
+		NOTATION_ISO6093NR3:
 		return hestiaERROR.OK
 	default:
 		return hestiaERROR.DATA_INVALID
