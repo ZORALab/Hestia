@@ -91,6 +91,11 @@ const (
 	cond_UPPERCASE   = "formate value into uppercase characters"
 )
 
+const (
+	sample_STRING = "test string"
+	sample_UINT64 = uint64(127)
+)
+
 func create_lettercase(s *hestiaTESTING.Scenario) hestiaFMT.Lettercase {
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_UPPERCASE):

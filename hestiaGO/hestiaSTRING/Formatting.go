@@ -250,6 +250,50 @@ func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string {
 	return string(hestiaFMT.FormatBOOL(input, lettercase))
 }
 
+func S8_FormatPOINTER[ANY any](input *ANY, base uint8,
+	lettercase hestiaFMT.Lettercase) (string, hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	_processLettercase(&lettercase)
+
+	return string(hestiaFMT.S8_FormatPOINTER(input, base, lettercase)), hestiaERROR.OK
+}
+
+func S16_FormatPOINTER[ANY any](input *ANY, base uint16,
+	lettercase hestiaFMT.Lettercase) (string, hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	_processLettercase(&lettercase)
+
+	return string(hestiaFMT.S16_FormatPOINTER(input, base, lettercase)), hestiaERROR.OK
+}
+
+func S32_FormatPOINTER[ANY any](input *ANY, base uint32,
+	lettercase hestiaFMT.Lettercase) (string, hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	_processLettercase(&lettercase)
+
+	return string(hestiaFMT.S32_FormatPOINTER(input, base, lettercase)), hestiaERROR.OK
+}
+
+func S64_FormatPOINTER[ANY any](input *ANY, base uint64,
+	lettercase hestiaFMT.Lettercase) (string, hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return "", hestiaERROR.DATA_INVALID
+	}
+
+	_processLettercase(&lettercase)
+
+	return string(hestiaFMT.S64_FormatPOINTER(input, base, lettercase)), hestiaERROR.OK
+}
+
 func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.Error) {
 	return s_ParseUINT(input, uint64(base), size)
 }
