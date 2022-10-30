@@ -25,7 +25,7 @@ var (
 	char_DIGITS_LOWER = []rune("0123456789abcdefghijklmnopqrstuvwxyz")
 )
 
-func FormatUINT8(number uint8, base uint8, lettercase Lettercase) (out []rune) {
+func S8_FormatUINT8(number uint8, base uint8, lettercase Lettercase) (out []rune) {
 	var i uint8
 	var charset *[]rune
 
@@ -51,7 +51,7 @@ func FormatUINT8(number uint8, base uint8, lettercase Lettercase) (out []rune) {
 	return out[i:]
 }
 
-func FormatINT8(input int8, base uint8, lettercase Lettercase) (out []rune) {
+func S8_FormatINT8(input int8, base uint8, lettercase Lettercase) (out []rune) {
 	var i, number uint8
 	var charset *[]rune
 
@@ -90,7 +90,7 @@ func FormatINT8(input int8, base uint8, lettercase Lettercase) (out []rune) {
 	return out[i:]
 }
 
-func FormatUINT16(number uint16, base uint16, lettercase Lettercase) (out []rune) {
+func S16_FormatUINT16(number uint16, base uint16, lettercase Lettercase) (out []rune) {
 	var i uint16
 	var charset *[]rune
 
@@ -116,7 +116,7 @@ func FormatUINT16(number uint16, base uint16, lettercase Lettercase) (out []rune
 	return out[i:]
 }
 
-func FormatINT16(input int16, base uint16, lettercase Lettercase) (out []rune) {
+func S16_FormatINT16(input int16, base uint16, lettercase Lettercase) (out []rune) {
 	var i, number uint16
 	var charset *[]rune
 
@@ -155,7 +155,7 @@ func FormatINT16(input int16, base uint16, lettercase Lettercase) (out []rune) {
 	return out[i:]
 }
 
-func FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune) {
+func S32_FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune) {
 	var i uint32
 	var charset *[]rune
 
@@ -181,7 +181,7 @@ func FormatUINT32(number uint32, base uint32, lettercase Lettercase) (out []rune
 	return out[i:]
 }
 
-func FormatINT32(input int32, base uint32, lettercase Lettercase) (out []rune) {
+func S32_FormatINT32(input int32, base uint32, lettercase Lettercase) (out []rune) {
 	var i, number uint32
 	var charset *[]rune
 
@@ -220,7 +220,7 @@ func FormatINT32(input int32, base uint32, lettercase Lettercase) (out []rune) {
 	return out[i:]
 }
 
-func FormatUINT64(number uint64, base uint64, lettercase Lettercase) (out []rune) {
+func S64_FormatUINT64(number uint64, base uint64, lettercase Lettercase) (out []rune) {
 	var i uint64
 	var charset *[]rune
 
@@ -246,7 +246,7 @@ func FormatUINT64(number uint64, base uint64, lettercase Lettercase) (out []rune
 	return out[i:]
 }
 
-func FormatINT64(input int64, base uint64, lettercase Lettercase) (out []rune) {
+func S64_FormatINT64(input int64, base uint64, lettercase Lettercase) (out []rune) {
 	var i uint64
 	var charset *[]rune
 	var number uint64

@@ -21,17 +21,17 @@ import (
 )
 
 func S8_FormatPOINTER[ANY any](input *ANY, base uint8, lettercase Lettercase) []rune {
-	return FormatUINT8(uint8(uintptr(unsafe.Pointer(input))), base, lettercase)
+	return S8_FormatUINT8(uint8(uintptr(unsafe.Pointer(input))), base, lettercase)
 }
 
 func S16_FormatPOINTER[ANY any](input *ANY, base uint16, lettercase Lettercase) []rune {
-	return FormatUINT16(uint16(uintptr(unsafe.Pointer(input))), base, lettercase)
+	return S16_FormatUINT16(uint16(uintptr(unsafe.Pointer(input))), base, lettercase)
 }
 
 func S32_FormatPOINTER[ANY any](input *ANY, base uint32, lettercase Lettercase) []rune {
-	return FormatUINT32(uint32(uintptr(unsafe.Pointer(input))), base, lettercase)
+	return S32_FormatUINT32(uint32(uintptr(unsafe.Pointer(input))), base, lettercase)
 }
 
 func S64_FormatPOINTER[ANY any](input *ANY, base uint64, lettercase Lettercase) []rune {
-	return FormatUINT64(uint64(uintptr(unsafe.Pointer(input))), base, lettercase)
+	return S64_FormatUINT64(uint64(uintptr(unsafe.Pointer(input))), base, lettercase)
 }

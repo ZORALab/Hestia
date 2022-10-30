@@ -90,7 +90,7 @@ func S8_FormatUINT8(input uint8, base uint8,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatUINT8(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S8_FormatUINT8(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S8_FormatINT8(input int8, base uint8,
@@ -104,7 +104,7 @@ func S8_FormatINT8(input int8, base uint8,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatINT8(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S8_FormatINT8(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S8_Itoa(input int8) (output string) {
@@ -123,7 +123,7 @@ func S16_FormatUINT16(input uint16, base uint16,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatUINT16(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S16_FormatUINT16(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S16_FormatINT16(input int16, base uint16,
@@ -137,7 +137,7 @@ func S16_FormatINT16(input int16, base uint16,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatINT16(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S16_FormatINT16(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S16_Itoa(input int16) (output string) {
@@ -156,7 +156,7 @@ func S32_FormatUINT32(input uint32, base uint32,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatUINT32(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S32_FormatUINT32(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S32_FormatINT32(input int32, base uint32,
@@ -170,7 +170,7 @@ func S32_FormatINT32(input int32, base uint32,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatINT32(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S32_FormatINT32(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S32_Itoa(input int32) (output string) {
@@ -189,7 +189,7 @@ func S64_FormatUINT64(input uint64, base uint64,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatUINT64(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S64_FormatUINT64(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S64_FormatINT64(input int64, base uint64,
@@ -203,7 +203,7 @@ func S64_FormatINT64(input int64, base uint64,
 	}
 
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatINT64(input, base, lettercase)), hestiaERROR.OK
+	return string(hestiaFMT.S64_FormatINT64(input, base, lettercase)), hestiaERROR.OK
 }
 
 func S64_Itoa(input int64) (output string) {

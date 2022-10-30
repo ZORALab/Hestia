@@ -60,7 +60,7 @@ func M32_FormatFLOAT32(input *ParamsFLOAT32) (out []rune) {
 		panic("requested IEEE754 notation but base is not 2!")
 	case input.Notation == NOTATION_IEEE754:
 		i = hestiaMATH.S32_IEEE754_FloatToBits(input.Value)
-		out = FormatUINT32(i, 2, LETTERCASE_LOWER)
+		out = S32_FormatUINT32(i, 2, LETTERCASE_LOWER)
 		for i = 32 - uint32(len(out)); i > 0; i-- {
 			out = append([]rune{'0'}, out...)
 		}
@@ -101,7 +101,7 @@ func __s32_Hadōken_Base10_Encode_Float32(setting *ParamsFLOAT32,
 	var round, partial []rune
 
 	// convert mantissa into char and exponent output base count
-	round = FormatUINT32(data.Mantissa, setting.Base, setting.Lettercase)
+	round = S32_FormatUINT32(data.Mantissa, setting.Base, setting.Lettercase)
 	exponentOUT = data.Exponent
 	if data.Base != 10 {
 		exponentOUT = uint32(float64(data.Exponent) /
@@ -172,7 +172,7 @@ func __s32_Hadōken_Render(buffer *[]rune, round *[]rune, partial *[]rune,
 			}
 		default:
 			*buffer = append(*buffer, '*')
-			ret = FormatUINT32(setting.Base, 10, setting.Lettercase)
+			ret = S32_FormatUINT32(setting.Base, 10, setting.Lettercase)
 			*buffer = append(*buffer, ret...)
 		}
 
@@ -182,7 +182,7 @@ func __s32_Hadōken_Render(buffer *[]rune, round *[]rune, partial *[]rune,
 			*buffer = append(*buffer, '+')
 		}
 
-		ret = FormatUINT32(*exponent, 10, setting.Lettercase)
+		ret = S32_FormatUINT32(*exponent, 10, setting.Lettercase)
 		*buffer = append(*buffer, ret...)
 	}
 }
