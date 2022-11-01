@@ -94,6 +94,10 @@ const (
 const (
 	sample_STRING = "test string"
 	sample_UINT64 = uint64(127)
+
+	string_FLOAT_NAN          = "NaN"
+	string_FLOAT_POSITIVE_INF = "+∞"
+	string_FLOAT_NEGATIVE_INF = "-∞"
 )
 
 func create_lettercase(s *hestiaTESTING.Scenario) hestiaFMT.Lettercase {
@@ -190,6 +194,104 @@ func create_float32_subject(s *hestiaTESTING.Scenario) (subject float32) {
 	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_NEGATIVE):
 		return hestiaMATH.S32_IEEE754_BitsToFloat(
 			hestiaMATH.MASK_FLOAT32_EXPONENT | hestiaMATH.MASK_FLOAT32_SIGN,
+		)
+	case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL):
+		subject = 123456.0
+	case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO):
+		subject = 0.0
+	case hestiaTESTING.HasCondition(s, cond_ROUND_ONE):
+		subject = 1.0
+	}
+
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL):
+		subject += 0.7891234
+	case hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO):
+		subject += 0.0
+	case hestiaTESTING.HasCondition(s, cond_PARTIAL_ONE):
+		subject += 0.1
+	}
+
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_EXPONENT_ZERO):
+		// do nothing
+	case hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+		if hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) {
+			subject *= 1e-30
+		} else {
+			subject *= 1e30
+		}
+	case hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+		if hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) {
+			subject *= 1e-2
+		} else {
+			subject *= 1e2
+		}
+	case hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL):
+			if hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) {
+				subject *= 1e-13
+			} else {
+				subject *= 1e13
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL):
+			if hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) {
+				subject *= 1e-7
+			} else {
+				subject *= 1e7
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_ONE) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL):
+			if hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) {
+				subject *= 1e-8
+			} else {
+				subject *= 1e8
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO):
+			if hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) {
+				subject *= 1e-6
+			} else {
+				subject *= 1e6
+			}
+		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
+			hestiaTESTING.HasCondition(s, cond_PARTIAL_ONE):
+			if hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) {
+				subject *= 1e-7
+			} else {
+				subject *= 1e7
+			}
+		}
+	}
+
+	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) {
+		subject *= -1
+	}
+
+	return subject
+}
+
+//nolint:gocognit
+func create_float64_subject(s *hestiaTESTING.Scenario) (subject float64) {
+	if hestiaTESTING.HasCondition(s, cond_VALUE_ZERO) {
+		return 0.0
+	}
+
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_NAN):
+		return hestiaMATH.S64_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT64_EXPONENT | hestiaMATH.MASK_FLOAT64_MANTISSA,
+		)
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_POSITIVE):
+		return hestiaMATH.S64_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT64_EXPONENT,
+		)
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_NEGATIVE):
+		return hestiaMATH.S64_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT64_EXPONENT | hestiaMATH.MASK_FLOAT64_SIGN,
 		)
 	case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL):
 		subject = 123456.0
