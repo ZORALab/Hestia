@@ -218,7 +218,6 @@ linters:
     - errcheck
     - depguard
     - dogsled
-    - dupl
     - exhaustive
     - exportloopref
     - godox
