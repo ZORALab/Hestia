@@ -19,16 +19,6 @@
 
 package hestiaFMT
 
-type numberType uint
-
-const (
-	number_DECIMALLESS              numberType = iota // (e.g. 123)
-	number_SCIENTIFIC                                 // (e.g. -1.234456e+78)
-	number_SCIENTIFIC_AUTO_EXPONENT                   // (e.g. -1.234 OR -1.234456e+78)
-	number_DECIMAL_NO_EXPONENT                        // (e.g -123.456)
-	number_HEX                                        // (e.g. -0x1.23abcp+20)
-)
-
 type engineMode uint
 
 const (
@@ -74,7 +64,7 @@ func Format(statement string, args ...any) string {
 				base:      10,
 				width:     engine.width,
 				precision: engine.precision,
-				format:    number_DECIMALLESS,
+				notation:  NOTATION_DECIMALLESS,
 				verb:      c,
 			})
 		case 'o', 'O': // octal verb '%o' or '%O'
@@ -83,7 +73,7 @@ func Format(statement string, args ...any) string {
 				base:      10,
 				width:     engine.width,
 				precision: engine.precision,
-				format:    number_DECIMALLESS,
+				notation:  NOTATION_DECIMALLESS,
 				verb:      c,
 			})
 		case 'x', 'X': // hexdecimal verb '%x or '%X'
@@ -92,7 +82,7 @@ func Format(statement string, args ...any) string {
 				base:      16,
 				width:     engine.width,
 				precision: engine.precision,
-				format:    number_DECIMALLESS,
+				notation:  NOTATION_DECIMAL_NO_EXPONENT,
 				verb:      c,
 			})
 		case 'b': // binary verb '%b'
@@ -101,7 +91,7 @@ func Format(statement string, args ...any) string {
 				base:      2,
 				width:     engine.width,
 				precision: engine.precision,
-				format:    number_DECIMALLESS,
+				notation:  NOTATION_DECIMAL_NO_EXPONENT,
 				verb:      c,
 			})
 		case 'f', 'F': // float with no exponent verb '%F' or '%f'
@@ -110,7 +100,7 @@ func Format(statement string, args ...any) string {
 				base:      10,
 				width:     engine.width,
 				precision: engine.precision,
-				format:    number_DECIMAL_NO_EXPONENT,
+				notation:  NOTATION_DECIMAL_NO_EXPONENT,
 				verb:      c,
 			})
 		case 'e', 'E': // float in scientific notation verb '%e' or '%E'
@@ -119,7 +109,7 @@ func Format(statement string, args ...any) string {
 				base:      10,
 				width:     engine.width,
 				precision: engine.precision,
-				format:    number_SCIENTIFIC,
+				notation:  NOTATION_ISO6093NR3,
 				verb:      c,
 			})
 		case 'g', 'G': // float in auto-scientific notation verb '%g' or '%G'
@@ -128,7 +118,7 @@ func Format(statement string, args ...any) string {
 				base:      10,
 				width:     engine.width,
 				precision: engine.precision,
-				format:    number_SCIENTIFIC_AUTO_EXPONENT,
+				notation:  NOTATION_ISO6093NR3_AUTO,
 				verb:      c,
 			})
 		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
@@ -184,10 +174,10 @@ func Format(statement string, args ...any) string {
 
 type numberSTR struct {
 	arg       any
-	base      uint16
+	base      uint8
 	width     []rune
 	precision []rune
-	format    numberType
+	notation  Notation
 	verb      rune
 }
 
@@ -206,10 +196,13 @@ func _formatString(arg any) (out []rune) {
 		return []rune{*v}
 	case rune:
 		return []rune{v}
+	case *[]rune:
+		return *v
+	case []rune:
+		return v
 	default:
+		return []rune{'(', 'S', 'T', 'R', 'I', 'N', 'G', '=', 'b', 'a', 'd', ')'}
 	}
-
-	return []rune{'(', 'S', 'T', 'R', 'I', 'N', 'G', '=', 'b', 'a', 'd', ')'}
 }
 
 func _formatChar(arg any) (out []rune) {
@@ -221,6 +214,7 @@ func _formatChar(arg any) (out []rune) {
 		case 1:
 			return []rune(*v)
 		default:
+			return []rune((*v)[:1])
 		}
 	case string:
 		switch len(v) {
@@ -229,35 +223,30 @@ func _formatChar(arg any) (out []rune) {
 		case 1:
 			return []rune(v)
 		default:
+			return []rune((v)[:1])
 		}
 	case *rune:
 		return []rune{*v}
 	case rune:
 		return []rune{v}
+	case *[]rune:
+		return (*v)[:1]
+	case []rune:
+		return v[:1]
 	default:
+		return []rune{'(', 'C', 'H', 'A', 'R', '=', 'b', 'a', 'd', ')'}
 	}
-
-	return []rune{'(', 'C', 'H', 'A', 'R', '=', 'b', 'a', 'd', ')'}
 }
 
 func _formatBool(arg any) (out []rune) {
 	switch v := arg.(type) {
 	case *bool:
-		if *v {
-			return []rune{'t', 'r', 'u', 'e'}
-		}
-
-		return []rune{'f', 'a', 'l', 's', 'e'}
+		return FormatBOOL(*v, LETTERCASE_LOWER)
 	case bool:
-		if v {
-			return []rune{'t', 'r', 'u', 'e'}
-		}
-
-		return []rune{'f', 'a', 'l', 's', 'e'}
+		return FormatBOOL(v, LETTERCASE_LOWER)
 	default:
+		return []rune{'(', 'B', 'O', 'O', 'L', '=', 'b', 'a', 'd', ')'}
 	}
-
-	return []rune{'(', 'B', 'O', 'O', 'L', '=', 'b', 'a', 'd', ')'}
 }
 
 type engine struct {
