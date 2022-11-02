@@ -194,42 +194,42 @@ func _assert_S32_FormatFLOAT32_output_base36(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.clzj*36+32"
+			verdict = "7.clzj00*36+32"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.azd5m*36+27"
+			verdict = "1.azd5m0*36+27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.clxd*36+32"
+			verdict = "7.clxd00*36+32"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "7.clzi*36+15"
+			verdict = "7.clzi00*36+15"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "7clzj.0"
+			verdict = "7.clzj00*36+4"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.clzj*36-28"
+			verdict = "7.clzj00*36-28"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "7.clzi*36-11"
+			verdict = "7.clzi00*36-11"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "7clz.j"
+			verdict = "7.clzj00"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -237,45 +237,45 @@ func _assert_S32_FormatFLOAT32_output_base36(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.clzj*36+32"
+			verdict = "7.clzj00*36+32"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "7.CLZJ*36+32"
+				verdict = "7.CLZJ00*36+32"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.azd5m*36+27"
+			verdict = "1.azd5m0*36+27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.clxd*36+32"
+			verdict = "7.clxd00*36+32"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "7.clzi*36+15"
+			verdict = "7.clzi00*36+15"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "7.clzj*36+4"
+			verdict = "7.clzj00*36+4"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.clzj*36-28"
+			verdict = "7.clzj00*36-28"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "7.clzi*36-11"
+			verdict = "7.clzi00*36-11"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "7.clzj"
+			verdict = "7.clzj00"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -283,42 +283,42 @@ func _assert_S32_FormatFLOAT32_output_base36(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7clzj0000000000000000000000000000.0"
+			verdict = "7clzj0000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1azd5m0000000000000000000000.0"
+			verdict = "1azd5m0000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7clxd0000000000000000000000000000.0"
+			verdict = "7clxd0000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "7clzi00000000000.0"
+			verdict = "7clzi00000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "7clzj.0"
+			verdict = "7clzj.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.0000000000000000000000000007clzj"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0.00000000007clzi"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "7clz.j"
+			verdict = "7.clzj00"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		// empty as error is raised
@@ -353,42 +353,42 @@ func _assert_S32_FormatFLOAT32_output_base22(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.8f9d5*22+33"
+			verdict = "2.8f9d50*22+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "f.6j00i*22+27"
+			verdict = "f.6j00i0*22+27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.8f99f*22+33"
+			verdict = "2.8f99f0*22+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "2.8f9d4*22+16"
+			verdict = "2.8f9d40*22+16"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "28f9d5.0"
+			verdict = "2.8f9d50*22+5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.8f9d5*22-27"
+			verdict = "2.8f9d50*22-27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "2.8f9d4*22-10"
+			verdict = "2.8f9d40*22-10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "28f9.d5"
+			verdict = "2.8f9d50*22+1"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -396,45 +396,45 @@ func _assert_S32_FormatFLOAT32_output_base22(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.8f9d5*22+33"
+			verdict = "2.8f9d50*22+33"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "2.8F9D5*22+33"
+				verdict = "2.8F9D50*22+33"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "f.6j00i*22+27"
+			verdict = "f.6j00i0*22+27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.8f99f*22+33"
+			verdict = "2.8f99f0*22+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "2.8f9d4*22+16"
+			verdict = "2.8f9d40*22+16"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "2.8f9d5*22+5"
+			verdict = "2.8f9d50*22+5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.8f9d5*22-27"
+			verdict = "2.8f9d50*22-27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "2.8f9d4*22-10"
+			verdict = "2.8f9d40*22-10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "2.8f9d5*22+1"
+			verdict = "2.8f9d50*22+1"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -442,42 +442,42 @@ func _assert_S32_FormatFLOAT32_output_base22(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "28f9d50000000000000000000000000000.0"
+			verdict = "28f9d50000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "f6j00i0000000000000000000000.0"
+			verdict = "f6j00i0000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "28f99f0000000000000000000000000000.0"
+			verdict = "28f99f0000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "28f9d400000000000.0"
+			verdict = "28f9d400000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "28f9d5.0"
+			verdict = "28f9d5.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.0000000000000000000000000028f9d5"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0.00000000028f9d4"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "28f9.d5"
+			verdict = "28.f9d500"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		// empty as error is raised
@@ -512,7 +512,7 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "b.c614f*16+33"
+			verdict = "b.c614f0*16+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
@@ -522,32 +522,32 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "b.c6101*16+33"
+			verdict = "b.c61010*16+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "b.c614e*16+16"
+			verdict = "b.c614e0*16+16"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "bc614f.0"
+			verdict = "b.c614f0*16+5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "b.c614f*16-27"
+			verdict = "b.c614f0*16-27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "b.c614e*16-10"
+			verdict = "b.c614e0*16-10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "bc61.4f"
+			verdict = "b.c614f0*16+1"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		switch {
@@ -555,9 +555,9 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0xb.c614fp+33"
+			verdict = "0xb.c614f0p+33"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "0XB.C614FP+33"
+				verdict = "0XB.C614F0P+33"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -568,32 +568,32 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0xb.c6101p+33"
+			verdict = "0xb.c61010p+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0xb.c614ep+16"
+			verdict = "0xb.c614e0p+16"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "0xbc614f.0"
+			verdict = "0xb.c614f0p+5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0xb.c614fp-27"
+			verdict = "0xb.c614f0p-27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0xb.c614ep-10"
+			verdict = "0xb.c614e0p-10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "0xbc61.4f"
+			verdict = "0xb.c614f0p+1"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -601,9 +601,9 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "b.c614f*16+33"
+			verdict = "b.c614f0*16+33"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "B.C614F*16+33"
+				verdict = "B.C614F0*16+33"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -614,32 +614,32 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "b.c6101*16+33"
+			verdict = "b.c61010*16+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "b.c614e*16+16"
+			verdict = "b.c614e0*16+16"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "b.c614f*16+5"
+			verdict = "b.c614f0*16+5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "b.c614f*16-27"
+			verdict = "b.c614f0*16-27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "b.c614e*16-10"
+			verdict = "b.c614e0*16-10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "b.c614f*16+1"
+			verdict = "b.c614f0*16+1"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
 		switch {
@@ -647,9 +647,9 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0xb.c614fp+33"
+			verdict = "0xb.c614f0p+33"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "0xB.C614FP+33"
+				verdict = "0XB.C614F0P+33"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
@@ -660,32 +660,32 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0xb.c6101p+33"
+			verdict = "0xb.c61010p+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0xb.c614ep+16"
+			verdict = "0xb.c614e0p+16"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "0xb.c614fp+5"
+			verdict = "0xb.c614f0p+5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0xb.c614fp-27"
+			verdict = "0xb.c614f0p-27"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0xb.c614ep-10"
+			verdict = "0xb.c614e0p-10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "0xb.c614fp+1"
+			verdict = "0xb.c614f0p+1"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -693,42 +693,42 @@ func _assert_S32_FormatFLOAT32_output_base16(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "bc614f0000000000000000000000000000.0"
+			verdict = "bc614f0000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "4b41b5a0000000000000000000000.0"
+			verdict = "4b41b5a0000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "bc61010000000000000000000000000000.0"
+			verdict = "bc61010000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "bc614e00000000000.0"
+			verdict = "bc614e00000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "bc614f.0"
+			verdict = "bc614f.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.00000000000000000000000000bc614f"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0.000000000bc614e"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "bc61.4f"
+			verdict = "bc.614f00"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
 		// empty as error is raised
@@ -762,7 +762,7 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.2516a4a*12+29"
+			verdict = "2.2516a5*12+29"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
@@ -777,7 +777,7 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "41745a7.0"
+			verdict = "4.1745a7*12+6"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
@@ -792,7 +792,7 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "4174.5a7"
+			verdict = "4.1745a7*12+2"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -808,7 +808,7 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "2.2516a4a*12+29"
+			verdict = "2.2516a5*12+29"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
@@ -846,42 +846,42 @@ func _assert_S32_FormatFLOAT32_output_base12(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "41745a70000000000000000000000000000.0"
+			verdict = "41745a70000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "22516a4a0000000000000000000000.0"
+			verdict = "22516a4a0000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "41745410000000000000000000000000000.0"
+			verdict = "41745410000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "41745a600000000000.0"
+			verdict = "41745a600000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "41745a7.0"
+			verdict = "41745a7.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.000000000000000000000000041745a7"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0.0000000041745a6"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "4174.5a7"
+			verdict = "417.45a700"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		verdict = "" // error raised
@@ -916,42 +916,42 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679*10+35"
+			verdict = "1.234568*10+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.8912346*10+29"
+			verdict = "7.891235*10+29"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345601*10+35"
+			verdict = "1.234560*10+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678*10+18"
+			verdict = "1.234568*10+18"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "12345679.0"
+			verdict = "1.234568*10+7"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679*10-25"
+			verdict = "1.234568*10-25"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678*10-8"
+			verdict = "1.234568*10-8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1234.5679"
+			verdict = "1.234568*10+3"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		switch {
@@ -959,45 +959,45 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679e+35"
+			verdict = "1.234568e+35"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "1.2345679E+35"
+				verdict = "1.234568E+35"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.8912346e+29"
+			verdict = "7.891235e+29"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345601e+35"
+			verdict = "1.234560e+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678e+18"
+			verdict = "1.234568e+18"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "12345679.0"
+			verdict = "1.234568e+7"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679e-25"
+			verdict = "1.234568e-25"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678e-8"
+			verdict = "1.234568e-8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1234.5679"
+			verdict = "1.234568e+3"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -1005,42 +1005,42 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679*10+35"
+			verdict = "1.234568*10+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.8912346*10+29"
+			verdict = "7.891235*10+29"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345601*10+35"
+			verdict = "1.234560*10+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678*10+18"
+			verdict = "1.234568*10+18"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.2345679*10+7"
+			verdict = "1.234568*10+7"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679*10-25"
+			verdict = "1.234568*10-25"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678*10-8"
+			verdict = "1.234568*10-8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.2345679*10+3"
+			verdict = "1.234568*10+3"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
 		switch {
@@ -1048,45 +1048,45 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679e+35"
+			verdict = "1.234568e+35"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "1.2345679E+35"
+				verdict = "1.234568E+35"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "7.8912346e+29"
+			verdict = "7.891235e+29"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345601e+35"
+			verdict = "1.234560e+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678e+18"
+			verdict = "1.234568e+18"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.2345679e+7"
+			verdict = "1.234568e+7"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.2345679e-25"
+			verdict = "1.234568e-25"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.2345678e-8"
+			verdict = "1.234568e-8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.2345679e+3"
+			verdict = "1.234568e+3"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -1094,42 +1094,42 @@ func _assert_S32_FormatFLOAT32_output_base10(s *hestiaTESTING.Scenario, output s
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "123456790000000000000000000000000000.0"
+			verdict = "123456790000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "789123460000000000000000000000.0"
+			verdict = "789123460000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "123456010000000000000000000000000000.0"
+			verdict = "123456010000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1234567800000000000.0"
+			verdict = "1234567800000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "12345679.0"
+			verdict = "12345679.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.00000000000000000000000012345679"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0.000000012345678"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1234.5679"
+			verdict = "1234.567900"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
 		// empty as error is raised
@@ -1158,42 +1158,42 @@ func _assert_S32_FormatFLOAT32_output_base8(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "5.7060517*8+35"
+			verdict = "5.706052*8+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "4.55015532*8+30"
+			verdict = "4.550155*8+30"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "5.7060401*8+35"
+			verdict = "5.706040*8+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "5.7060516*8+18"
+			verdict = "5.706052*8+18"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "57060517.0"
+			verdict = "5.706052*8+7"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "5.7060517*8-25"
+			verdict = "5.706052*8-25"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "5.7060516*8-8"
+			verdict = "5.706052*8-8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "5706.0517"
+			verdict = "5.706052*8+3"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -1201,42 +1201,42 @@ func _assert_S32_FormatFLOAT32_output_base8(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "5.7060517*8+35"
+			verdict = "5.706052*8+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "4.55015532*8+30"
+			verdict = "4.550155*8+30"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "5.7060401*8+35"
+			verdict = "5.706040*8+35"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "5.7060516*8+18"
+			verdict = "5.706052*8+18"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "5.7060517*8+7"
+			verdict = "5.706052*8+7"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "5.7060517*8-25"
+			verdict = "5.706052*8-25"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "5.7060516*8-8"
+			verdict = "5.706052*8-8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "5.7060517*8+3"
+			verdict = "5.706052*8+3"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -1244,42 +1244,42 @@ func _assert_S32_FormatFLOAT32_output_base8(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "570605170000000000000000000000000000.0"
+			verdict = "570605170000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "4550155320000000000000000000000.0"
+			verdict = "4550155320000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "570604010000000000000000000000000000.0"
+			verdict = "570604010000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "5706051600000000000.0"
+			verdict = "5706051600000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "57060517.0"
+			verdict = "57060517.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.00000000000000000000000057060517"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0.000000057060516"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "5706.0517"
+			verdict = "5706.051700"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		// empty as error is raised
@@ -1313,42 +1313,42 @@ func _assert_S32_FormatFLOAT32_output_base5(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.1130030204*5+38"
+			verdict = "1.113003*5+38"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.30200143341*5+33"
+			verdict = "1.302002*5+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.1130024401*5+38"
+			verdict = "1.113003*5+38"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.1130030203*5+21"
+			verdict = "1.113003*5+21"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "11130030204.0"
+			verdict = "1.113003*5+10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.1130030204*5-22"
+			verdict = "1.113003*5-22"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.1130030203*5-5"
+			verdict = "1.113003*5-5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1113.0030204"
+			verdict = "1.113003*5+6"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -1356,42 +1356,42 @@ func _assert_S32_FormatFLOAT32_output_base5(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.1130030204*5+38"
+			verdict = "1.113003*5+38"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.30200143341*5+33"
+			verdict = "1.302002*5+33"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.1130024401*5+38"
+			verdict = "1.113003*5+38"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.1130030203*5+21"
+			verdict = "1.113003*5+21"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.1130030204*5+10"
+			verdict = "1.113003*5+10"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.1130030204*5-22"
+			verdict = "1.113003*5-22"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.1130030203*5-5"
+			verdict = "1.113003*5-5"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.1130030204*5+6"
+			verdict = "1.113003*5+6"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -1399,42 +1399,42 @@ func _assert_S32_FormatFLOAT32_output_base5(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "111300302040000000000000000000000000000.0"
+			verdict = "111300302040000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1302001433410000000000000000000000.0"
+			verdict = "1302001433410000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "111300244010000000000000000000000000000.0"
+			verdict = "111300244010000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1113003020300000000000.0"
+			verdict = "1113003020300000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "11130030204.0"
+			verdict = "11130030204.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.00000000000000000000011130030204"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "0.000011130030203"
+			verdict = "0.000011"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1113.0030204"
+			verdict = "1113003.020400"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		// empty as error is raised
@@ -1468,42 +1468,42 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111*2+51"
+			verdict = "1.011110*2+51"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1001011010000011011010110100000000000000000000000.0"
+			verdict = "1.001011*2+48"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000100000001*2+51"
+			verdict = "1.011110*2+51"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "10111100011000010100111000000000000.0"
+			verdict = "1.011110*2+34"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "101111000110000101001111.0"
+			verdict = "1.011110*2+23"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111*2-9"
+			verdict = "1.011110*2-9"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "101111000110000.101001110"
+			verdict = "1.011110*2+8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1011.11000110000101001111"
+			verdict = "1.011110*2+19"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3_AUTO):
 		switch {
@@ -1511,45 +1511,45 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111p+51"
+			verdict = "1.011110p+51"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "1.01111000110000101001111P+51"
+				verdict = "1.011110P+51"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1001011010000011011010110100000000000000000000000.0"
+			verdict = "1.001011p+48"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000100000001p+51"
+			verdict = "1.011110p+51"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "10111100011000010100111000000000000.0"
+			verdict = "1.011110p+34"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "101111000110000101001111.0"
+			verdict = "1.011110p+23"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111p-9"
+			verdict = "1.011110p-9"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "101111000110000.101001110"
+			verdict = "1.011110p+8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1011.11000110000101001111"
+			verdict = "1.011110p+19"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
 		switch {
@@ -1557,42 +1557,42 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111*2+51"
+			verdict = "1.011110*2+51"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.00101101000001101101011010*2+48"
+			verdict = "1.001011*2+48"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000100000001*2+51"
+			verdict = "1.011110*2+51"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.01111000110000101001110*2+34"
+			verdict = "1.011110*2+34"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.01111000110000101001111*2+23"
+			verdict = "1.011110*2+23"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111*2-9"
+			verdict = "1.011110*2-9"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.01111000110000101001110*2+8"
+			verdict = "1.011110*2+8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.01111000110000101001111*2+19"
+			verdict = "1.011110*2+19"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
 		switch {
@@ -1600,45 +1600,45 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111p+51"
+			verdict = "1.011110p+51"
 			if hestiaTESTING.HasCondition(s, cond_UPPERCASE) {
-				verdict = "1.01111000110000101001111P+51"
+				verdict = "1.011110P+51"
 			}
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.00101101000001101101011010p+48"
+			verdict = "1.001011p+48"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000100000001p+51"
+			verdict = "1.011110p+51"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.01111000110000101001110p+34"
+			verdict = "1.011110p+34"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.01111000110000101001111p+23"
+			verdict = "1.011110p+23"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1.01111000110000101001111p-9"
+			verdict = "1.011110p-9"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "1.01111000110000101001110p+8"
+			verdict = "1.011110p+8"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1.01111000110000101001111p+19"
+			verdict = "1.011110p+19"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_DECIMAL_NO_EXPONENT):
 		switch {
@@ -1646,42 +1646,42 @@ func _assert_S32_FormatFLOAT32_output_base2(s *hestiaTESTING.Scenario, output st
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1011110001100001010011110000000000000000000000000000.0"
+			verdict = "1011110001100001010011110000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1001011010000011011010110100000000000000000000000.0"
+			verdict = "1001011010000011011010110100000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_ZERO) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "1011110001100001000000010000000000000000000000000000.0"
+			verdict = "1011110001100001000000010000000000000000000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "10111100011000010100111000000000000.0"
+			verdict = "10111100011000010100111000000000000.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "101111000110000101001111.0"
+			verdict = "101111000110000101001111.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			verdict = "0.00000000101111000110000101001111"
+			verdict = "0.000000"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			verdict = "101111000110000.101001110"
+			verdict = "101111000.110001"
 		case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE) &&
 			hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			verdict = "1011.11000110000101001111"
+			verdict = "10111100011000010100.111100"
 		}
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
 		switch {

@@ -81,14 +81,14 @@ func M32_FormatFLOAT32(input *ParamsFLOAT32) (out []rune) {
 		__m32_Ryū_Base10_Float32(data)
 	}
 
-	// encode to string using Hadōken algorithm
+	// encode to rune list using Omizu algorithm
 	return __s32_Omizu_Base10_Encode_Float32(input, data)
 }
 
 func __s32_Omizu_Base10_Encode_Float32(setting *ParamsFLOAT32,
 	data *hestiaMATH.Float32) (out []rune) {
 	var param *omizuData
-	var length, exponentOUT uint32
+	var exponentOUT uint32
 
 	// initialize output rendering data structure
 	param = &omizuData{
@@ -102,6 +102,10 @@ func __s32_Omizu_Base10_Encode_Float32(setting *ParamsFLOAT32,
 		negativeExponent: data.NegativeExponent,
 	}
 
+	if setting.Precision == 0 {
+		setting.Precision = 6 // following Go's fmt default value
+	}
+
 	// convert mantissa into char and exponent output base count
 	param.round = S32_FormatUINT32(data.Mantissa, setting.Base, param.lettercase)
 	exponentOUT = data.Exponent
@@ -111,19 +115,9 @@ func __s32_Omizu_Base10_Encode_Float32(setting *ParamsFLOAT32,
 	}
 
 	// normalize the mantissa value
-	__s32_Omizu_Normalize(param, &exponentOUT)
+	__s32_Omizu_Normalize(param, &exponentOUT, &setting.Base, &setting.Precision)
 
-	// adjust to output precision setting
-	length = uint32(len(param.partial))
-	if setting.Precision > 0 && length < setting.Precision {
-		length = setting.Precision - length
-		for length != 0 {
-			param.partial = append(param.partial, '0')
-			length--
-		}
-	}
-
-	// convert data into []rune output
+	// convert remaining data into []rune output
 	if exponentOUT != 0 {
 		param.exponent = S32_FormatUINT32(exponentOUT, 10, param.lettercase)
 	}
@@ -133,83 +127,270 @@ func __s32_Omizu_Base10_Encode_Float32(setting *ParamsFLOAT32,
 	return __sN_Omizu_Render_FLOAT(param)
 }
 
-func __s32_Omizu_Normalize(data *omizuData, exponentOUT *uint32) {
-	rLength := uint32(len(data.round))
+func __s32_Omizu_Normalize(data *omizuData,
+	exponentOUT *uint32, base *uint32, precision *uint32) {
 	switch {
-	case !data.negativeExponent && *exponentOUT >= rLength: // huge positive number
-		switch {
-		case data.notation == NOTATION_DECIMAL_NO_EXPONENT:
-			for *exponentOUT != 0 {
-				data.round = append(data.round, '0')
-				*exponentOUT--
-			}
-		default:
-			// always scientific 1 decimal notation (X.XXXX^B+YYYY)
-			*exponentOUT += rLength - 1
-			data.partial = (data.round)[1:]
-			data.round = (data.round)[0:1]
-		}
-	case !data.negativeExponent && *exponentOUT < rLength: // no exponent positive number
-		switch {
-		case data.notation == NOTATION_SCIENTIFIC,
-			data.notation == NOTATION_ISO6093NR3:
-			// scientific 1 decimal notation (X.XXXX^B+YYYY)
-			*exponentOUT += rLength - 1
-			data.partial = (data.round)[1:]
-			data.round = (data.round)[0:1]
-		default:
-			// always decimal with no exponent notation (XXXXXXXX.0)
-			for *exponentOUT != 0 {
-				data.round = append(data.round, '0')
-				*exponentOUT--
-			}
-		}
-	case data.negativeExponent && *exponentOUT <= rLength: // no exponent negative number
-		switch {
-		case data.notation == NOTATION_SCIENTIFIC,
-			data.notation == NOTATION_ISO6093NR3:
-			// scientific 1 decimal notation (X.XXXX^B+YYYY)
-			rLength--
-			data.partial = (data.round)[1:]
-			data.round = (data.round)[0:1]
+	case data.notation == NOTATION_DECIMAL_NO_EXPONENT:
+		__s32_Omizu_Normalize_Decimal(data, exponentOUT, base, precision)
+	case data.notation == NOTATION_SCIENTIFIC_AUTO,
+		data.notation == NOTATION_ISO6093NR3_AUTO,
+		data.notation == NOTATION_SCIENTIFIC,
+		data.notation == NOTATION_ISO6093NR3:
+		fallthrough
+	default:
+		__s32_Omizu_Normalize_Scientific(data, exponentOUT, base, precision)
+	}
 
-			data.negativeExponent = false
-			*exponentOUT = rLength - *exponentOUT
-		default:
-			// always decimal with no exponent notation (XXXX.XXXX)
-			data.partial = (data.round)[*exponentOUT:]
-			data.round = (data.round)[0:*exponentOUT]
-			*exponentOUT = 0
+	for i := int32(len(data.partial)) - int32(*precision); i < 0; i++ {
+		data.partial = append(data.partial, '0')
+	}
+}
+
+func __s32_Omizu_Normalize_Decimal(data *omizuData, exponentOUT, base, precision *uint32) {
+	// expand exponent into decimal with no exponent representation
+	Δexponent := uint32(len(data.round))
+	switch {
+	case *exponentOUT == 0:
+		data.negativeExponent = false
+	case !data.negativeExponent:
+		for *exponentOUT != 0 {
+			data.round = append(data.round, '0')
+			*exponentOUT--
 		}
-	case data.negativeExponent && *exponentOUT > rLength: // very small number
+	case data.negativeExponent:
 		switch {
-		case data.notation == NOTATION_DECIMAL_NO_EXPONENT:
-			*exponentOUT -= rLength
+		case Δexponent > *exponentOUT:
+			Δexponent -= *exponentOUT
+			data.partial = data.round[Δexponent:]
+			data.round = data.round[0:Δexponent]
+			*exponentOUT = 0
+		case Δexponent == *exponentOUT:
+			data.partial = data.round
+			data.round = []rune{'0'}
+			*exponentOUT = 0
+		case Δexponent < *exponentOUT:
+			*exponentOUT -= Δexponent
 			for *exponentOUT != 0 {
 				data.partial = append(data.partial, '0')
 				*exponentOUT--
 			}
 			data.partial = append(data.partial, data.round...)
 			data.round = []rune{'0'}
-		default:
-			// always scientific 1 decimal notation (X.XXXX^B-YYYY)
-			data.partial = (data.round)[1:]
-			data.round = (data.round)[0:1]
-			*exponentOUT -= rLength - 1
 		}
 	}
 
-	if len(data.partial) == 0 {
-		data.partial = []rune{'0'}
+	// preform rounding to precision
+	if ___s32_Omizu_Rounding_Decimal_Partial(data, base, precision) {
+		___s32_Omizu_Rounding_Decimal_Round(data, base, precision)
+	}
+}
+
+func ___s32_Omizu_Rounding_Decimal_Partial(data *omizuData, base, precision *uint32) bool {
+	var i uint32
+	var digit, rounder uint8
+	var carry bool
+
+	// exit early if partial is less than precision - no rounding required
+	if uint32(len(data.partial)) < *precision {
+		return false
+	}
+
+	rounder = uint8(*base / 2)
+	carry = false
+
+partial_loop:
+	for i = *precision; ; i-- {
+		digit = _SN_DIGIT_To_NUMBER(data.partial[i])
+
+		// update actual value when carry is available
+		if carry {
+			digit++
+			carry = false
+		}
+
+		// decide rounding action
+		switch {
+		case i == *precision:
+			if digit < rounder {
+				break partial_loop
+			}
+
+			carry = true
+			data.partial[i] = '0'
+			continue
+		case digit == uint8(*base): //nolint:gocritic
+			carry = true
+			data.partial[i] = '0'
+			if i > 0 {
+				continue
+			}
+		case digit < uint8(*base): //nolint:gocritic
+			data.partial[i] = _SN_NUMBER_To_DIGIT(digit, &data.lettercase)
+			break partial_loop
+		}
+
+		// ran out of digit to process - break the loop
+		if i == 0 {
+			break partial_loop
+		}
+	}
+
+	// match partial to precision
+	if uint32(len(data.partial)) > *precision {
+		data.partial = data.partial[:*precision]
+	}
+
+	return carry
+}
+
+func ___s32_Omizu_Rounding_Decimal_Round(data *omizuData, base, precision *uint32) {
+	var i uint32
+	var digit, rounder uint8
+	var carry bool
+
+	rounder = uint8(*base / 2)
+	carry = true // function only gets called when carry from partial is true
+
+	// carry into round numbers
+round_loop:
+	for i = *precision; ; i-- {
+		digit = _SN_DIGIT_To_NUMBER(data.round[i])
+
+		// update actual value when carry is available
+		if carry {
+			digit++
+			carry = false
+		}
+
+		// decide rounding action
+		switch {
+		case i == *precision:
+			if digit < rounder {
+				break round_loop
+			}
+
+			carry = true
+			data.round[i] = '0'
+			continue
+		case digit == uint8(*base): //nolint:gocritic
+			carry = true
+			data.round[i] = '0'
+			if i > 0 {
+				continue
+			}
+		case digit < uint8(*base): //nolint:gocritic
+			data.round[i] = _SN_NUMBER_To_DIGIT(digit, &data.lettercase)
+			break round_loop
+		}
+
+		// ran out of digit to process - break the loop
+		if i == 0 {
+			break round_loop
+		}
+	}
+
+	// prepend '1' is there is a leftover carry
+	if carry {
+		data.round = append([]rune{'1'}, data.round...)
+	}
+}
+
+func __s32_Omizu_Normalize_Scientific(data *omizuData, exponentOUT, base, precision *uint32) {
+	var Δexponent uint32
+
+	// round the predictive values close to precision
+	___s32_Omizu_Rounding_Scientific(data, base, precision)
+
+	// adjust the mantissa accordingly (X.XXXX)
+	data.partial = data.round[1:]
+	data.round = data.round[0:1]
+	Δexponent = uint32(len(data.partial))
+
+	// match partial to precision
+	if uint32(len(data.partial)) > *precision {
+		data.partial = data.partial[:*precision]
+	}
+
+	// update the exponent accordingly with the adjustment
+	switch {
+	case *exponentOUT == 0:
+		data.negativeExponent = false
+		*exponentOUT = Δexponent
+	case !data.negativeExponent:
+		*exponentOUT += Δexponent
+	case data.negativeExponent && *exponentOUT == Δexponent:
+		data.negativeExponent = false
+		*exponentOUT = 0
+	case data.negativeExponent && *exponentOUT < Δexponent:
+		data.negativeExponent = false
+		*exponentOUT = Δexponent - *exponentOUT
+	case data.negativeExponent && *exponentOUT > Δexponent:
+		*exponentOUT -= Δexponent
+	}
+}
+
+func ___s32_Omizu_Rounding_Scientific(data *omizuData, base, precision *uint32) {
+	var i uint32
+	var digit, rounder uint8
+	var carry bool
+
+	// exit early if the mantissa length is insufficient for precision
+	if uint32(len(data.round)) <= *precision+1 {
+		return
+	}
+
+	// round to precision if value is too long
+	rounder = uint8(*base / 2)
+	carry = false
+
+rounding_loop:
+	for i = *precision + 1; ; i-- {
+		digit = _SN_DIGIT_To_NUMBER(data.round[i])
+
+		// update actual value when carry is available
+		if carry {
+			digit++
+			carry = false
+		}
+
+		// decide rounding action
+		switch {
+		case i == *precision+1:
+			if digit < rounder {
+				break rounding_loop
+			}
+
+			carry = true
+			data.round[i] = '0'
+			continue
+		case digit == uint8(*base): //nolint:gocritic
+			carry = true
+			data.round[i] = '0'
+			if i > 0 {
+				continue
+			}
+		case digit < uint8(*base): //nolint:gocritic
+			data.round[i] = _SN_NUMBER_To_DIGIT(digit, &data.lettercase)
+			break rounding_loop
+		}
+
+		// ran out of digit to process - break the loop
+		if i == 0 {
+			break rounding_loop
+		}
+	}
+
+	// prepend '1' is there is a leftover carry
+	if carry {
+		data.round = append([]rune{'1'}, data.round...)
 	}
 }
 
 func __s32_Ryū_Base10_Exact_INT_Float32(data *hestiaMATH.Float32) bool {
-	var e, shift int32
-	var x uint32
+	var shift, e, x uint32
 
 	// check if exponent is smaller than mantissa where roundiness is performable
-	e = int32(data.Exponent) - hestiaMATH.BIAS_FLOAT32_EXPONENT
+	e = data.Exponent - hestiaMATH.BIAS_FLOAT32_EXPONENT
 	if e > hestiaMATH.BITS_FLOAT32_MANTISSA {
 		return false // base-10 value is too big - bail out
 	}
@@ -220,33 +401,26 @@ func __s32_Ryū_Base10_Exact_INT_Float32(data *hestiaMATH.Float32) bool {
 	if ((x >> shift) << shift) != x {
 		return false // data loss detected - bail out
 	}
-	data.Mantissa = x >> shift
 
-	// good case - begin calculation in base10
-	e = 0
+	// good case - process calculation in base10
+	data.Mantissa = x >> shift
+	data.NegativeExponent = false
+	data.Exponent = 0
+	data.Base = 10
+
 	for data.Mantissa%10 == 0 {
 		data.Mantissa /= 10
-		e++
+		data.Exponent++
 	}
-
-	if e < 0 {
-		data.NegativeExponent = true
-		data.Exponent = uint32(e * -1)
-	} else {
-		data.NegativeExponent = false
-		data.Exponent = uint32(e)
-	}
-
-	data.Base = 10
 
 	return true
 }
 
 //nolint:gocognit
 func __m32_Ryū_Base10_Float32(data *hestiaMATH.Float32) {
+	var lastRemovedDigit uint8
 	var e2, e10, i, j, k, l, removed int32
 	var m2, q, a, u, b, v, c, out uint32
-	var lastRemovedDigit uint8
 	var mul uint64
 	var even, acceptBounds, aTrailingZeros, bTrailingZeros bool
 
@@ -424,7 +598,7 @@ func __m32_Ryū_Base10_Float32(data *hestiaMATH.Float32) {
 
 func __s32_Multiply_By_Shift_32_Bits(m uint32, multiplier uint64, shift int32) uint32 {
 	if shift <= 32 {
-		panic("Format_FLOAT32: shift value must be >32")
+		panic("FormatFLOAT64: shift must be <= 32 after subtraction!")
 	}
 
 	high, low := hestiaMATH.S64_Multiply_By_Bits(uint64(m), multiplier)

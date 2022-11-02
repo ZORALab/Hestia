@@ -334,47 +334,55 @@ func ___s64_Omizu_Rounding_Scientific(data *omizuData, base, precision *uint64) 
 	var digit, rounder uint8
 	var carry bool
 
+	// exit early if the mantissa length is insufficient for precision
+	if uint64(len(data.round)) <= *precision+1 {
+		return
+	}
+
 	// round to precision if value is too long
-	if uint64(len(data.round)) > *precision {
-		rounder = uint8(*base / 2)
-		carry = false
+	rounder = uint8(*base / 2)
+	carry = false
 
-	rounding_loop:
-		for i = *precision + 1; ; i-- {
-			digit = _SN_DIGIT_To_NUMBER(data.round[i])
+rounding_loop:
+	for i = *precision + 1; ; i-- {
+		digit = _SN_DIGIT_To_NUMBER(data.round[i])
 
-			// update actual value when carry is available
-			if carry {
-				digit++
-				carry = false
-			}
-
-			// decide rounding action
-			switch {
-			case i == *precision+1:
-				if digit < rounder {
-					break rounding_loop
-				}
-
-				carry = true
-				data.round[i] = '0'
-				continue
-			case digit == uint8(*base): //nolint:gocritic
-				carry = true
-				data.round[i] = '0'
-				if i > 0 {
-					continue
-				}
-			case digit < uint8(*base): //nolint:gocritic
-				data.round[i] = _SN_NUMBER_To_DIGIT(digit, &data.lettercase)
-				break rounding_loop
-			}
-
-			// ran out of digit to process - break the loop
-			if i == 0 {
-				break rounding_loop
-			}
+		// update actual value when carry is available
+		if carry {
+			digit++
+			carry = false
 		}
+
+		// decide rounding action
+		switch {
+		case i == *precision+1:
+			if digit < rounder {
+				break rounding_loop
+			}
+
+			carry = true
+			data.round[i] = '0'
+			continue
+		case digit == uint8(*base): //nolint:gocritic
+			carry = true
+			data.round[i] = '0'
+			if i > 0 {
+				continue
+			}
+		case digit < uint8(*base): //nolint:gocritic
+			data.round[i] = _SN_NUMBER_To_DIGIT(digit, &data.lettercase)
+			break rounding_loop
+		}
+
+		// ran out of digit to process - break the loop
+		if i == 0 {
+			break rounding_loop
+		}
+	}
+
+	// prepend '1' is there is a leftover carry
+	if carry {
+		data.round = append([]rune{'1'}, data.round...)
 	}
 }
 

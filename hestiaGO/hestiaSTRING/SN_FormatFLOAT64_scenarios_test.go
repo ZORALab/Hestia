@@ -8782,7 +8782,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -8794,7 +8794,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -8806,7 +8806,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -8901,18 +8901,6 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_BASE_2,
 				cond_LOWERCASE,
 				cond_NEGATIVE,
-				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
-			},
-		}, {
-			Switches: []string{
-				cond_ROUND_NORMAL,
-				cond_PARTIAL_NORMAL,
-				cond_EXPONENT_POSITIVE,
-				cond_EXPONENT_LARGER_MANTISSA,
-				cond_BASE_2,
-				cond_UPPERCASE,
-				cond_POSITIVE,
 				cond_PRECISION_0,
 				cond_NOTATION_ISO6093NR3_AUTO,
 			},
@@ -8924,6 +8912,18 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_EXPONENT_LARGER_MANTISSA,
 				cond_BASE_2,
 				cond_UPPERCASE,
+				cond_POSITIVE,
+				cond_PRECISION_0,
+				cond_NOTATION_ISO6093NR3_AUTO,
+			},
+		}, {
+			Switches: []string{
+				cond_ROUND_NORMAL,
+				cond_PARTIAL_NORMAL,
+				cond_EXPONENT_POSITIVE,
+				cond_EXPONENT_LARGER_MANTISSA,
+				cond_BASE_2,
+				cond_UPPERCASE,
 				cond_NEGATIVE,
 				cond_PRECISION_0,
 				cond_NOTATION_ISO6093NR3_AUTO,
@@ -9190,7 +9190,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -9202,7 +9202,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -9214,7 +9214,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -9598,7 +9598,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -9610,7 +9610,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -9622,7 +9622,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -10006,7 +10006,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -10018,7 +10018,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -10030,7 +10030,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -10414,7 +10414,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -10426,7 +10426,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
@@ -10438,7 +10438,7 @@ func test_cases_SN_FormatFLOAT64() []*hestiaTESTING.Scenario {
 				cond_LOWERCASE,
 				cond_POSITIVE,
 				cond_PRECISION_0,
-				cond_NOTATION_ISO6093NR3_AUTO,
+				cond_NOTATION_ISO6093NR3,
 			},
 		}, {
 			Switches: []string{
