@@ -279,9 +279,9 @@ func M64_FormatFLOAT64(input float64, base uint64, precision uint64,
 	return string(hestiaFMT.M64_FormatFLOAT64(&param)), hestiaERROR.OK
 }
 
-func FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string {
+func SN_FormatBOOL(input bool, lettercase hestiaFMT.Lettercase) string {
 	_processLettercase(&lettercase)
-	return string(hestiaFMT.FormatBOOL(input, lettercase))
+	return string(hestiaFMT.SN_FormatBOOL(input, lettercase))
 }
 
 func S8_FormatPOINTER[ANY any](input *ANY, base uint8,

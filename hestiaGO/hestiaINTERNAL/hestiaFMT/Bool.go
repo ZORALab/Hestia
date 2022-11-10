@@ -16,7 +16,7 @@
 
 package hestiaFMT
 
-func FormatBOOL(input bool, lettercase Lettercase) []rune {
+func SN_FormatBOOL(input bool, lettercase Lettercase) []rune {
 	switch {
 	case input && lettercase == LETTERCASE_UPPER:
 		return []rune{'T', 'R', 'U', 'E'}

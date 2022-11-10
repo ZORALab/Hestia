@@ -21,52 +21,34 @@ import (
 	"testing"
 )
 
-func test_cases_FormatBOOL() []*hestiaTESTING.Scenario {
+func test_cases_SN_FormatBOOL() []*hestiaTESTING.Scenario {
 	return []*hestiaTESTING.Scenario{
 		{
-			Description: `
-test hestiaSTRING/FormatBOOL is able to process 'true' lowercase value.
-`,
 			Switches: []string{
 				cond_BOOL_TRUE,
 				cond_LOWERCASE,
 			},
 		}, {
-			Description: `
-test hestiaSTRING/FormatBOOL is able to process 'true' uppercase value.
-`,
 			Switches: []string{
 				cond_BOOL_TRUE,
 				cond_UPPERCASE,
 			},
 		}, {
-			Description: `
-test hestiaSTRING/FormatBOOL is able to process 'true' unknown-case value.
-`,
 			Switches: []string{
 				cond_BOOL_TRUE,
 				cond_UNKNOWNCASE,
 			},
 		}, {
-			Description: `
-test hestiaSTRING/FormatBOOL is able to process 'false' lowercase value.
-`,
 			Switches: []string{
 				cond_BOOL_FALSE,
 				cond_LOWERCASE,
 			},
 		}, {
-			Description: `
-test hestiaSTRING/FormatBOOL is able to process 'false' uppercase value.
-`,
 			Switches: []string{
 				cond_BOOL_FALSE,
 				cond_UPPERCASE,
 			},
 		}, {
-			Description: `
-test hestiaSTRING/FormatBOOL is able to process 'false' unknown-case value.
-`,
 			Switches: []string{
 				cond_BOOL_FALSE,
 				cond_UNKNOWNCASE,
@@ -75,12 +57,16 @@ test hestiaSTRING/FormatBOOL is able to process 'false' unknown-case value.
 	}
 }
 
-func Test_FormatBOOL(t *testing.T) {
-	scenarios := test_cases_FormatBOOL()
+func Test_SN_FormatBOOL(t *testing.T) {
+	scenarios := test_cases_SN_FormatBOOL()
 
 	for i, s := range scenarios {
 		s.ID = uint64(i)
-		s.Name = "hestiaSTRING/FormatBOOL API"
+		s.Name = "hestiaSTRING/SN_FormatBOOL API"
+		s.Description = `
+test hestiaSTRING/SN_FormatBOOL is able to process values with the following
+switches.
+`
 
 		// prepare
 		subject := false
@@ -100,7 +86,7 @@ func Test_FormatBOOL(t *testing.T) {
 		panick := ""
 
 		_panick := hestiaTESTING.Exec(func() any {
-			output = FormatBOOL(subject, lettercase)
+			output = SN_FormatBOOL(subject, lettercase)
 			return ""
 		})
 		panick, _ = _panick.(string)
@@ -114,12 +100,12 @@ func Test_FormatBOOL(t *testing.T) {
 		// assert
 		hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_PASS)
 
-		if !assert_FormatBOOL_panick(panick) {
+		if !assert_SN_FormatBOOL_panick(panick) {
 			hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_FAIL)
 			t.Fail()
 		}
 
-		if !assert_FormatBOOL_output(s, output) {
+		if !assert_SN_FormatBOOL_output(s, output) {
 			hestiaTESTING.Conclude(s, hestiaTESTING.VERDICT_FAIL)
 			t.Fail()
 		}
@@ -129,7 +115,7 @@ func Test_FormatBOOL(t *testing.T) {
 	}
 }
 
-func assert_FormatBOOL_output(s *hestiaTESTING.Scenario, output string) bool {
+func assert_SN_FormatBOOL_output(s *hestiaTESTING.Scenario, output string) bool {
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_BOOL_TRUE):
 		switch {
@@ -150,6 +136,6 @@ func assert_FormatBOOL_output(s *hestiaTESTING.Scenario, output string) bool {
 	return false
 }
 
-func assert_FormatBOOL_panick(panick string) bool {
+func assert_SN_FormatBOOL_panick(panick string) bool {
 	return panick == ""
 }

@@ -241,9 +241,9 @@ func _formatChar(arg any) (out []rune) {
 func _formatBool(arg any) (out []rune) {
 	switch v := arg.(type) {
 	case *bool:
-		return FormatBOOL(*v, LETTERCASE_LOWER)
+		return SN_FormatBOOL(*v, LETTERCASE_LOWER)
 	case bool:
-		return FormatBOOL(v, LETTERCASE_LOWER)
+		return SN_FormatBOOL(v, LETTERCASE_LOWER)
 	default:
 		return []rune{'(', 'B', 'O', 'O', 'L', '=', 'b', 'a', 'd', ')'}
 	}
