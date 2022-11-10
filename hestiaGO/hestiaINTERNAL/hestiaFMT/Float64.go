@@ -35,6 +35,160 @@ type ParamsFLOAT64 struct {
 	Notation   Notation
 }
 
+func S64_ParseFLOAT64(input string, base float64, notation Notation) (out float64, err Error) {
+	var errX Error
+	var digit uint8
+	var baseX, exponent, multiplier float64
+	var data []rune
+	var omizu *omizuData
+
+	// pick off easy targets
+	switch input {
+	case "":
+		return 0, ERROR_OK
+	case "NaN", "nan", "NAN":
+		return hestiaMATH.S64_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT64_EXPONENT | hestiaMATH.MASK_FLOAT64_MANTISSA,
+		), ERROR_OK
+	case "-inf", "-INF", "-Inf", "-∞":
+		return hestiaMATH.S64_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT64_SIGN | hestiaMATH.MASK_FLOAT64_EXPONENT,
+		), ERROR_OK
+	case "inf", "INF", "Inf", "+inf", "+INF", "+Inf", "+∞":
+		return hestiaMATH.S64_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT64_EXPONENT,
+		), ERROR_OK
+	}
+
+	data = []rune(input)
+	out = 0
+	omizu, err = __sN_Omizu_Parse(&data, &base)
+	if err != ERROR_OK {
+		return out, err
+	}
+
+	// process base number
+	switch {
+	case len(omizu.base) == 0:
+		// use provided base
+	default:
+		multiplier = 1
+		for i := len(omizu.base) - 1; i >= 0; i-- {
+			digit, errX = _SN_DIGIT_To_NUMBER(omizu.base[i])
+			if errX != ERROR_OK {
+				err = ERROR_BASE_INVALID
+				break // retain provided base
+			}
+
+			baseX += multiplier * float64(digit)
+			multiplier *= 10
+		}
+
+		if base != baseX {
+			err = ERROR_BASE_MISMATCHED
+			base = baseX // prioritize parsed base
+		}
+	}
+
+	// process IEEE754 hint
+	switch {
+	case notation == NOTATION_IEEE754:
+		out, errX = _S64_ParseIEEE754(&omizu.round)
+		if errX == ERROR_OK {
+			return out, ERROR_OK
+		}
+	default:
+	}
+
+	// process round number
+	multiplier = 1
+	for i := len(omizu.round) - 1; i >= 0; i-- {
+		digit, errX = _SN_DIGIT_To_NUMBER(omizu.round[i])
+		switch {
+		case errX != ERROR_OK:
+			fallthrough
+		case float64(digit) >= base:
+			return 0, ERROR_INPUT_INVALID
+		}
+
+		out += float64(digit) * multiplier
+		multiplier *= base
+	}
+
+	// process partial number
+	multiplier = 1 / base
+	for i := 0; i < len(omizu.partial); i++ {
+		digit, errX = _SN_DIGIT_To_NUMBER(omizu.partial[i])
+		switch {
+		case errX != ERROR_OK:
+			fallthrough
+		case float64(digit) >= base:
+			return 0, ERROR_INPUT_INVALID
+		}
+
+		out += multiplier * float64(digit)
+		multiplier /= base
+	}
+
+	// process exponent number
+	exponent = 0
+	multiplier = 1
+	for i := len(omizu.exponent) - 1; i >= 0; i-- {
+		digit, errX = _SN_DIGIT_To_NUMBER(omizu.exponent[i])
+		switch {
+		case errX != ERROR_OK:
+			fallthrough
+		case digit >= 10:
+			return 0, ERROR_INPUT_INVALID
+		}
+
+		exponent += float64(digit) * multiplier
+		multiplier *= 10
+	}
+	exponent *= hestiaMATH.S64_LOG10(base)
+	exponent = hestiaMATH.S64_Floor_FLOAT64(exponent)
+
+	if omizu.negativeExponent {
+		for i := uint64(0); i < uint64(exponent); i++ {
+			out /= 10
+		}
+	} else {
+		for i := uint64(0); i < uint64(exponent); i++ {
+			out *= 10
+		}
+	}
+
+	// process negative value
+	if omizu.negativeValue {
+		out *= -1
+	}
+
+	return out, err
+}
+
+func _S64_ParseIEEE754(input *[]rune) (out float64, err Error) {
+	var bits uint64
+
+	if len(*input) != 64 {
+		return 0, ERROR_INPUT_INVALID
+	}
+
+	// map the bits
+	for i := len(*input) - 1; i >= 0; i-- {
+		switch {
+		case (*input)[i] == '1':
+			bits |= 1 << (63 - i)
+		case (*input)[i] == '0':
+			// do nothing
+		default:
+			return 0, ERROR_INPUT_INVALID
+		}
+	}
+
+	// convert to float64
+	return hestiaMATH.S64_IEEE754_BitsToFloat(bits), ERROR_OK
+}
+
 func M64_FormatFLOAT64(input *ParamsFLOAT64) (out []rune) {
 	var data *hestiaMATH.Float64
 	var i uint64
@@ -186,6 +340,7 @@ func __s64_Omizu_Normalize_Decimal(data *omizuData, exponentOUT, base, precision
 }
 
 func ___s64_Omizu_Rounding_Decimal_Partial(data *omizuData, base, precision *uint64) bool {
+	var err Error
 	var i uint64
 	var digit, rounder uint8
 	var carry bool
@@ -200,7 +355,10 @@ func ___s64_Omizu_Rounding_Decimal_Partial(data *omizuData, base, precision *uin
 
 partial_loop:
 	for i = *precision; ; i-- {
-		digit = _SN_DIGIT_To_NUMBER(data.partial[i])
+		digit, err = _SN_DIGIT_To_NUMBER(data.partial[i])
+		if err != ERROR_OK {
+			panic("unknown digit character!")
+		}
 
 		// update actual value when carry is available
 		if carry {
@@ -244,6 +402,7 @@ partial_loop:
 }
 
 func ___s64_Omizu_Rounding_Decimal_Round(data *omizuData, base, precision *uint64) {
+	var err Error
 	var i uint64
 	var digit, rounder uint8
 	var carry bool
@@ -254,7 +413,10 @@ func ___s64_Omizu_Rounding_Decimal_Round(data *omizuData, base, precision *uint6
 	// carry into round numbers
 round_loop:
 	for i = *precision; ; i-- {
-		digit = _SN_DIGIT_To_NUMBER(data.round[i])
+		digit, err = _SN_DIGIT_To_NUMBER(data.round[i])
+		if err != ERROR_OK {
+			panic("unknown digit character!")
+		}
 
 		// update actual value when carry is available
 		if carry {
@@ -330,6 +492,7 @@ func __s64_Omizu_Normalize_Scientific(data *omizuData, exponentOUT, base, precis
 }
 
 func ___s64_Omizu_Rounding_Scientific(data *omizuData, base, precision *uint64) {
+	var err Error
 	var i uint64
 	var digit, rounder uint8
 	var carry bool
@@ -345,7 +508,10 @@ func ___s64_Omizu_Rounding_Scientific(data *omizuData, base, precision *uint64) 
 
 rounding_loop:
 	for i = *precision + 1; ; i-- {
-		digit = _SN_DIGIT_To_NUMBER(data.round[i])
+		digit, err = _SN_DIGIT_To_NUMBER(data.round[i])
+		if err != ERROR_OK {
+			panic("unknown digit character!")
+		}
 
 		// update actual value when carry is available
 		if carry {

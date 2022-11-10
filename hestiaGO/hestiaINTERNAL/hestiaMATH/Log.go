@@ -16,30 +16,37 @@
 
 package hestiaMATH
 
-import (
-	"math"
-)
-
 func S32_LOG2(input float32) float32 {
-	return float32(math.Log(float64(input)))
+	return float32(S64_LOG2(float64(input))) // use 64-bits for lower math error rate
 }
 
 func S64_LOG2(input float64) float64 {
-	return math.Log(input)
+	return _s64_LOG2(input)
 }
 
 func S32_LOG10(input float32) float32 {
-	return float32(math.Log10(float64(input)))
+	return float32(S64_LOG10(float64(input)))
 }
 
 func S64_LOG10(input float64) float64 {
-	return math.Log10(input)
+	return _s64_LOG10(input)
 }
 
 func S32_LOG(input float32) float32 {
-	return float32(math.Log(float64(input)))
+	return float32(S64_LOG(float64(input))) // use 64-bits for lower math error rate
 }
 
 func S64_LOG(input float64) float64 {
-	return math.Log(input)
+	switch {
+	case S64_IEEE754_IsNaN_FLOAT64(input):
+		return input
+	case S64_IEEE754_IsINF_FLOAT64(input, 1):
+		return input
+	case input == 0:
+		return S64_IEEE754_BitsToFloat(
+			MASK_FLOAT64_SIGN | MASK_FLOAT64_EXPONENT,
+		)
+	}
+
+	return _s64_LOG(input)
 }

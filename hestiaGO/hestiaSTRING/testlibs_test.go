@@ -24,27 +24,29 @@ import (
 
 // test condition labels
 const (
-	cond_BOOL_TRUE  = "format boolean 'true' value"
-	cond_BOOL_FALSE = "format boolean 'false' value"
+	cond_BROKEN = "value is having broken/faulty data"
 
-	cond_BASE_0  = "format value into Base-0 number"
-	cond_BASE_1  = "format value into Base-1 number"
-	cond_BASE_2  = "format value into Base-2 number"
-	cond_BASE_5  = "format value into Base-5 number"
-	cond_BASE_8  = "format value into Base-8 number"
-	cond_BASE_10 = "format value into Base-10 number"
-	cond_BASE_12 = "format value into Base-12 number"
-	cond_BASE_16 = "format value into Base-16 number"
-	cond_BASE_22 = "format value into Base-22 number"
-	cond_BASE_36 = "format value into Base-36 number"
-	cond_BASE_37 = "format value into Base-37 number"
+	cond_BOOL_TRUE  = "value is boolean 'true'"
+	cond_BOOL_FALSE = "value is boolean 'false'"
 
-	cond_PRECISION_0  = "format precision with automatic sizing"
-	cond_PRECISION_1  = "format precision with 1 unit"
-	cond_PRECISION_2  = "format precision with 2 units"
-	cond_PRECISION_4  = "format precision with 4 units"
-	cond_PRECISION_5  = "format precision with 5 units"
-	cond_PRECISION_10 = "format precision with 10 units"
+	cond_BASE_0  = "value in Base-0 number"
+	cond_BASE_1  = "value in Base-1 number"
+	cond_BASE_2  = "value in Base-2 number"
+	cond_BASE_5  = "value in Base-5 number"
+	cond_BASE_8  = "value in Base-8 number"
+	cond_BASE_10 = "value in Base-10 number"
+	cond_BASE_12 = "value in Base-12 number"
+	cond_BASE_16 = "value in Base-16 number"
+	cond_BASE_22 = "value in Base-22 number"
+	cond_BASE_36 = "value in Base-36 number"
+	cond_BASE_37 = "value in Base-37 number"
+
+	cond_PRECISION_0  = "value has precision with automatic sizing"
+	cond_PRECISION_1  = "value has precision with 1 unit"
+	cond_PRECISION_2  = "value has precision with 2 units"
+	cond_PRECISION_4  = "value has precision with 4 units"
+	cond_PRECISION_5  = "value has precision with 5 units"
+	cond_PRECISION_10 = "value has precision with 10 units"
 
 	cond_NOTATION_SCIENTIFIC_AUTO     = "scientific notation + auto exponent"
 	cond_NOTATION_ISO6093NR3_AUTO     = "ISO6093NR3 scientific notation + auto exponent"
@@ -69,26 +71,27 @@ const (
 	cond_EXPONENT_SMALLER_MANTISSA = "use exponent smaller than mantissa magnitude"
 	cond_EXPONENT_EQUAL_MANTISSA   = "use exponent equal to mantissa magnitude"
 
-	cond_FLOAT_NAN          = "provide NaN float value"
-	cond_FLOAT_INF_POSITIVE = "provide positive infinity value"
-	cond_FLOAT_INF_NEGATIVE = "provide negative infinity value"
+	cond_FLOAT_NAN          = "value is float NaN"
+	cond_FLOAT_INF_POSITIVE = "value is float positive infinity"
+	cond_FLOAT_INF_NEGATIVE = "value is float negative infinity"
 
-	cond_VALUE_UINT64 = "provide max uint64 as sample value"
-	cond_VALUE_INT64  = "provide min/max int64 as sample value"
-	cond_VALUE_UINT32 = "provide max uint32 as sample value"
-	cond_VALUE_INT32  = "provide min/max int32 as sample value"
-	cond_VALUE_UINT16 = "provide max uint16 as sample value"
-	cond_VALUE_INT16  = "provide min/max int16 as sample value"
-	cond_VALUE_UINT8  = "provide max uint8 as sample value"
-	cond_VALUE_INT8   = "provide min/max int8 as sample value"
-	cond_VALUE_ZERO   = "provide 0 as sample value"
+	cond_VALUE_FLOAT64 = "value is min/max float64"
+	cond_VALUE_UINT64  = "value is max uint64"
+	cond_VALUE_INT64   = "value is min/max int64"
+	cond_VALUE_UINT32  = "value is max uint32"
+	cond_VALUE_INT32   = "value is min/max int32"
+	cond_VALUE_UINT16  = "value is max uint16"
+	cond_VALUE_INT16   = "value is min/max int16"
+	cond_VALUE_UINT8   = "value is max uint8"
+	cond_VALUE_INT8    = "value is min/max int8"
+	cond_VALUE_ZERO    = "value is 0"
 
-	cond_POSITIVE = "provide positive value"
-	cond_NEGATIVE = "provide negative value"
+	cond_POSITIVE = "value is positive"
+	cond_NEGATIVE = "value is negative"
 
-	cond_UNKNOWNCASE = "formate value into unknown case characters"
-	cond_LOWERCASE   = "formate value into lowercase characters"
-	cond_UPPERCASE   = "formate value into uppercase characters"
+	cond_UNKNOWNCASE = "value has unknown-case characters"
+	cond_LOWERCASE   = "value has lowercase characters"
+	cond_UPPERCASE   = "value has uppercase characters"
 )
 
 const (
@@ -367,6 +370,128 @@ func create_float64_subject(s *hestiaTESTING.Scenario) (subject float64) {
 
 	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) {
 		subject *= -1
+	}
+
+	return subject
+}
+
+//nolint:goconst
+func create_number_string(s *hestiaTESTING.Scenario) (subject string) {
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_NAN):
+		return string_FLOAT_NAN
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_POSITIVE):
+		return "+inf"
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_NEGATIVE):
+		return string_FLOAT_NEGATIVE_INF
+	case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_BASE_2):
+			subject = "1010"
+		case hestiaTESTING.HasCondition(s, cond_BASE_16):
+			subject = "ABCD"
+		default:
+			subject = "1234"
+		}
+	default:
+		subject = "0"
+	}
+
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_BASE_2):
+			subject += ".11101"
+		case hestiaTESTING.HasCondition(s, cond_BASE_5):
+			subject += ".43211"
+		case hestiaTESTING.HasCondition(s, cond_BASE_8):
+			subject += ".56774"
+		case hestiaTESTING.HasCondition(s, cond_BASE_16):
+			subject += ".DBEEF"
+		default:
+			subject += ".5678"
+		}
+	default:
+		subject += ".0"
+	}
+
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_NAN):
+		return string_FLOAT_NAN
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_POSITIVE):
+		return "+inf"
+	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_NEGATIVE):
+		return string_FLOAT_NEGATIVE_INF
+	}
+
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
+		// don't provide any exponent
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_BASE_2):
+			subject += "*2"
+		case hestiaTESTING.HasCondition(s, cond_BASE_5):
+			subject += "*5"
+		case hestiaTESTING.HasCondition(s, cond_BASE_8):
+			subject += "*8"
+		case hestiaTESTING.HasCondition(s, cond_BASE_10):
+			subject += "*10"
+		case hestiaTESTING.HasCondition(s, cond_BASE_12):
+			subject += "*12"
+		case hestiaTESTING.HasCondition(s, cond_BASE_16):
+			subject += "*16"
+		case hestiaTESTING.HasCondition(s, cond_BASE_22):
+			subject += "*22"
+		case hestiaTESTING.HasCondition(s, cond_BASE_36):
+			subject += "*36"
+		}
+
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE):
+			subject += "+"
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE):
+			subject += "-"
+		}
+
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			subject += "35"
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			subject += "8"
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			subject += "2"
+		}
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
+		subject += "%2A^!31e"
+	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_BASE_2),
+			hestiaTESTING.HasCondition(s, cond_BASE_16):
+			subject += "p"
+		default:
+			subject += "e"
+		}
+
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE):
+			subject += "+"
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE):
+			subject += "-"
+		}
+
+		switch {
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
+			subject += "35"
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
+			subject += "8"
+		case hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
+			subject += "2"
+		}
+	}
+
+	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) {
+		subject = "-" + subject
 	}
 
 	return subject

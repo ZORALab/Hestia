@@ -265,82 +265,82 @@ func S64_FormatINT64(input int64, base uint64, lettercase Lettercase) (out []run
 }
 
 //nolint:goconst
-func _SN_DIGIT_To_NUMBER(input rune) uint8 {
+func _SN_DIGIT_To_NUMBER(input rune) (uint8, Error) {
 	switch input {
 	case '0':
-		return 0
+		return 0, ERROR_OK
 	case '1':
-		return 1
+		return 1, ERROR_OK
 	case '2':
-		return 2
+		return 2, ERROR_OK
 	case '3':
-		return 3
+		return 3, ERROR_OK
 	case '4':
-		return 4
+		return 4, ERROR_OK
 	case '5':
-		return 5
+		return 5, ERROR_OK
 	case '6':
-		return 6
+		return 6, ERROR_OK
 	case '7':
-		return 7
+		return 7, ERROR_OK
 	case '8':
-		return 8
+		return 8, ERROR_OK
 	case '9':
-		return 9
+		return 9, ERROR_OK
 	case 'a', 'A':
-		return 10
+		return 10, ERROR_OK
 	case 'b', 'B':
-		return 11
+		return 11, ERROR_OK
 	case 'c', 'C':
-		return 12
+		return 12, ERROR_OK
 	case 'd', 'D':
-		return 13
+		return 13, ERROR_OK
 	case 'e', 'E':
-		return 14
+		return 14, ERROR_OK
 	case 'f', 'F':
-		return 15
+		return 15, ERROR_OK
 	case 'g', 'G':
-		return 16
+		return 16, ERROR_OK
 	case 'h', 'H':
-		return 17
+		return 17, ERROR_OK
 	case 'i', 'I':
-		return 18
+		return 18, ERROR_OK
 	case 'j', 'J':
-		return 19
+		return 19, ERROR_OK
 	case 'k', 'K':
-		return 20
+		return 20, ERROR_OK
 	case 'l', 'L':
-		return 21
+		return 21, ERROR_OK
 	case 'm', 'M':
-		return 22
+		return 22, ERROR_OK
 	case 'n', 'N':
-		return 23
+		return 23, ERROR_OK
 	case 'o', 'O':
-		return 24
+		return 24, ERROR_OK
 	case 'p', 'P':
-		return 25
+		return 25, ERROR_OK
 	case 'q', 'Q':
-		return 26
+		return 26, ERROR_OK
 	case 'r', 'R':
-		return 27
+		return 27, ERROR_OK
 	case 's', 'S':
-		return 28
+		return 28, ERROR_OK
 	case 't', 'T':
-		return 29
+		return 29, ERROR_OK
 	case 'u', 'U':
-		return 30
+		return 30, ERROR_OK
 	case 'v', 'V':
-		return 31
+		return 31, ERROR_OK
 	case 'w', 'W':
-		return 32
+		return 32, ERROR_OK
 	case 'x', 'X':
-		return 33
+		return 33, ERROR_OK
 	case 'y', 'Y':
-		return 34
+		return 34, ERROR_OK
 	case 'z', 'Z':
-		return 35
+		return 35, ERROR_OK
 	default:
-		panic("unknown digit character!")
+		return 0, ERROR_INPUT_INVALID
 	}
 }
 

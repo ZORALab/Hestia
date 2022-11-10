@@ -75,3 +75,45 @@ func S64_IEEE754_FloatToBits(input float64) uint64 {
 func S64_IEEE754_BitsToFloat(input uint64) float64 {
 	return *(*float64)(unsafe.Pointer(&input))
 }
+
+func S64_Floor_FLOAT64(input float64) (round float64) {
+	return _s64_Floor_FLOAT64(input)
+}
+
+func S64_Frexp_FLOAT64(input float64) (fraction float64, exponent int) {
+	switch {
+	case input == 0:
+		return input, 0
+	case S64_IEEE754_IsNaN_FLOAT64(input):
+		return input, 0
+	case S64_IEEE754_IsINF_FLOAT64(input, 0):
+		return input, 0
+	}
+
+	input, exponent = S64_Normalize_FLOAT64(input)
+	x := S64_IEEE754_FloatToBits(input)
+	exponent += int(((x & MASK_FLOAT64_EXPONENT) >> BITS_FLOAT64_MANTISSA)) -
+		BIAS_FLOAT64_EXPONENT +
+		1
+	x &^= MASK_FLOAT64_EXPONENT
+	x |= (-1 + BIAS_FLOAT64_EXPONENT) << BITS_FLOAT64_MANTISSA
+	fraction = S64_IEEE754_BitsToFloat(x)
+
+	return fraction, exponent
+}
+
+func S64_Modf_FLOAT64(input float64) (round float64, fraction float64) {
+	return _s64_Modf_FLOAT64(input)
+}
+
+func S64_Normalize_FLOAT64(input float64) (out float64, e int) {
+	if S64_Absolute_FLOAT64(input) < 2.2250738585072014e-308 {
+		return input * (1 << 52), -52
+	}
+
+	return input, 0
+}
+
+func S64_Absolute_FLOAT64(input float64) float64 {
+	return S64_IEEE754_BitsToFloat(S64_IEEE754_FloatToBits(input) &^ MASK_FLOAT64_SIGN)
+}

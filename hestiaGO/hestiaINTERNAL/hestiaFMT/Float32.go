@@ -186,6 +186,7 @@ func __s32_Omizu_Normalize_Decimal(data *omizuData, exponentOUT, base, precision
 }
 
 func ___s32_Omizu_Rounding_Decimal_Partial(data *omizuData, base, precision *uint32) bool {
+	var err Error
 	var i uint32
 	var digit, rounder uint8
 	var carry bool
@@ -200,7 +201,10 @@ func ___s32_Omizu_Rounding_Decimal_Partial(data *omizuData, base, precision *uin
 
 partial_loop:
 	for i = *precision; ; i-- {
-		digit = _SN_DIGIT_To_NUMBER(data.partial[i])
+		digit, err = _SN_DIGIT_To_NUMBER(data.partial[i])
+		if err != ERROR_OK {
+			panic("unknown digit character!")
+		}
 
 		// update actual value when carry is available
 		if carry {
@@ -244,6 +248,7 @@ partial_loop:
 }
 
 func ___s32_Omizu_Rounding_Decimal_Round(data *omizuData, base, precision *uint32) {
+	var err Error
 	var i uint32
 	var digit, rounder uint8
 	var carry bool
@@ -254,7 +259,10 @@ func ___s32_Omizu_Rounding_Decimal_Round(data *omizuData, base, precision *uint3
 	// carry into round numbers
 round_loop:
 	for i = *precision; ; i-- {
-		digit = _SN_DIGIT_To_NUMBER(data.round[i])
+		digit, err = _SN_DIGIT_To_NUMBER(data.round[i])
+		if err != ERROR_OK {
+			panic("unknown digit character!")
+		}
 
 		// update actual value when carry is available
 		if carry {
@@ -330,6 +338,7 @@ func __s32_Omizu_Normalize_Scientific(data *omizuData, exponentOUT, base, precis
 }
 
 func ___s32_Omizu_Rounding_Scientific(data *omizuData, base, precision *uint32) {
+	var err Error
 	var i uint32
 	var digit, rounder uint8
 	var carry bool
@@ -345,7 +354,10 @@ func ___s32_Omizu_Rounding_Scientific(data *omizuData, base, precision *uint32) 
 
 rounding_loop:
 	for i = *precision + 1; ; i-- {
-		digit = _SN_DIGIT_To_NUMBER(data.round[i])
+		digit, err = _SN_DIGIT_To_NUMBER(data.round[i])
+		if err != ERROR_OK {
+			panic("unknown digit character!")
+		}
 
 		// update actual value when carry is available
 		if carry {

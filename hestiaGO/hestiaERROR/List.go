@@ -90,6 +90,7 @@ const (
 	DATA_OVERFLOW
 	DATA_REMOVED
 	DATA_TOO_LONG
+	DATA_MISMATCHED
 
 	// entity (device, file, directory, etc)
 	ENTITY_BAD
