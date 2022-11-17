@@ -74,17 +74,18 @@ const (
 	cond_FLOAT_NAN          = "value is float NaN"
 	cond_FLOAT_INF_POSITIVE = "value is float positive infinity"
 	cond_FLOAT_INF_NEGATIVE = "value is float negative infinity"
+	cond_FLOAT_SMALLEST     = "value is the smallest float"
 
-	cond_VALUE_FLOAT64 = "value is min/max float64"
-	cond_VALUE_UINT64  = "value is max uint64"
-	cond_VALUE_INT64   = "value is min/max int64"
-	cond_VALUE_UINT32  = "value is max uint32"
-	cond_VALUE_INT32   = "value is min/max int32"
-	cond_VALUE_UINT16  = "value is max uint16"
-	cond_VALUE_INT16   = "value is min/max int16"
-	cond_VALUE_UINT8   = "value is max uint8"
-	cond_VALUE_INT8    = "value is min/max int8"
-	cond_VALUE_ZERO    = "value is 0"
+	cond_VALUE_FLOAT  = "value is min/max float32/float64"
+	cond_VALUE_UINT64 = "value is max uint64"
+	cond_VALUE_INT64  = "value is min/max int64"
+	cond_VALUE_UINT32 = "value is max uint32"
+	cond_VALUE_INT32  = "value is min/max int32"
+	cond_VALUE_UINT16 = "value is max uint16"
+	cond_VALUE_INT16  = "value is min/max int16"
+	cond_VALUE_UINT8  = "value is max uint8"
+	cond_VALUE_INT8   = "value is min/max int8"
+	cond_VALUE_ZERO   = "value is 0"
 
 	cond_POSITIVE = "value is positive"
 	cond_NEGATIVE = "value is negative"
@@ -370,128 +371,6 @@ func create_float64_subject(s *hestiaTESTING.Scenario) (subject float64) {
 
 	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) {
 		subject *= -1
-	}
-
-	return subject
-}
-
-//nolint:goconst
-func create_number_string(s *hestiaTESTING.Scenario) (subject string) {
-	switch {
-	case hestiaTESTING.HasCondition(s, cond_FLOAT_NAN):
-		return string_FLOAT_NAN
-	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_POSITIVE):
-		return "+inf"
-	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_NEGATIVE):
-		return string_FLOAT_NEGATIVE_INF
-	case hestiaTESTING.HasCondition(s, cond_ROUND_NORMAL):
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_BASE_2):
-			subject = "1010"
-		case hestiaTESTING.HasCondition(s, cond_BASE_16):
-			subject = "ABCD"
-		default:
-			subject = "1234"
-		}
-	default:
-		subject = "0"
-	}
-
-	switch {
-	case hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL):
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_BASE_2):
-			subject += ".11101"
-		case hestiaTESTING.HasCondition(s, cond_BASE_5):
-			subject += ".43211"
-		case hestiaTESTING.HasCondition(s, cond_BASE_8):
-			subject += ".56774"
-		case hestiaTESTING.HasCondition(s, cond_BASE_16):
-			subject += ".DBEEF"
-		default:
-			subject += ".5678"
-		}
-	default:
-		subject += ".0"
-	}
-
-	switch {
-	case hestiaTESTING.HasCondition(s, cond_FLOAT_NAN):
-		return string_FLOAT_NAN
-	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_POSITIVE):
-		return "+inf"
-	case hestiaTESTING.HasCondition(s, cond_FLOAT_INF_NEGATIVE):
-		return string_FLOAT_NEGATIVE_INF
-	}
-
-	switch {
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
-		// don't provide any exponent
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC):
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_BASE_2):
-			subject += "*2"
-		case hestiaTESTING.HasCondition(s, cond_BASE_5):
-			subject += "*5"
-		case hestiaTESTING.HasCondition(s, cond_BASE_8):
-			subject += "*8"
-		case hestiaTESTING.HasCondition(s, cond_BASE_10):
-			subject += "*10"
-		case hestiaTESTING.HasCondition(s, cond_BASE_12):
-			subject += "*12"
-		case hestiaTESTING.HasCondition(s, cond_BASE_16):
-			subject += "*16"
-		case hestiaTESTING.HasCondition(s, cond_BASE_22):
-			subject += "*22"
-		case hestiaTESTING.HasCondition(s, cond_BASE_36):
-			subject += "*36"
-		}
-
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE):
-			subject += "+"
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE):
-			subject += "-"
-		}
-
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			subject += "35"
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			subject += "8"
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			subject += "2"
-		}
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_UNKNOWN):
-		subject += "%2A^!31e"
-	case hestiaTESTING.HasCondition(s, cond_NOTATION_ISO6093NR3):
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_BASE_2),
-			hestiaTESTING.HasCondition(s, cond_BASE_16):
-			subject += "p"
-		default:
-			subject += "e"
-		}
-
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_POSITIVE):
-			subject += "+"
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_NEGATIVE):
-			subject += "-"
-		}
-
-		switch {
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_LARGER_MANTISSA):
-			subject += "35"
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_EQUAL_MANTISSA):
-			subject += "8"
-		case hestiaTESTING.HasCondition(s, cond_EXPONENT_SMALLER_MANTISSA):
-			subject += "2"
-		}
-	}
-
-	if hestiaTESTING.HasCondition(s, cond_NEGATIVE) {
-		subject = "-" + subject
 	}
 
 	return subject

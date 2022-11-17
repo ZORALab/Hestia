@@ -22,6 +22,29 @@ import (
 	"hestia/hestiaINTERNAL/hestiaFMT"
 )
 
+func S32_ParseFLOAT32(input string, base float32,
+	notation hestiaFMT.Notation) (out float32, err hestiaERROR.Error) {
+	if base < 2 || base > 36 {
+		return 0, hestiaERROR.DATA_INVALID
+	}
+
+	out, e := hestiaFMT.S32_ParseFLOAT32(input, base, notation)
+	switch e {
+	case hestiaFMT.ERROR_OK:
+		err = hestiaERROR.OK
+	case hestiaFMT.ERROR_BASE_INVALID:
+		err = hestiaERROR.DATA_MISMATCHED
+	case hestiaFMT.ERROR_BASE_MISMATCHED:
+		err = hestiaERROR.DATA_MISMATCHED
+	case hestiaFMT.ERROR_INPUT_INVALID:
+		err = hestiaERROR.INVALID_ARGUMENT
+	default:
+		err = hestiaERROR.BAD_EXEC
+	}
+
+	return out, err
+}
+
 func S64_ParseFLOAT64(input string, base float64,
 	notation hestiaFMT.Notation) (out float64, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {

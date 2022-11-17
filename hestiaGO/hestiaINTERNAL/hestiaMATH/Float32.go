@@ -75,3 +75,11 @@ func S32_IEEE754_FloatToBits(input float32) uint32 {
 func S32_IEEE754_BitsToFloat(input uint32) float32 {
 	return *(*float32)(unsafe.Pointer(&input))
 }
+
+func S32_Floor_FLOAT32(input float32) (round float32) {
+	return _s32_Floor_FLOAT32(input)
+}
+
+func S32_Modf_FLOAT32(input float32) (round float32, fraction float32) {
+	return _s32_Modf_FLOAT32(input)
+}

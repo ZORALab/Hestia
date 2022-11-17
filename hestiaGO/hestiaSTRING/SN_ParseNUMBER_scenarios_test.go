@@ -4232,7 +4232,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT64,
+				cond_VALUE_FLOAT,
 				cond_POSITIVE,
 				cond_BASE_10,
 				cond_LOWERCASE,
@@ -4240,7 +4240,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT64,
+				cond_VALUE_FLOAT,
 				cond_BROKEN,
 				cond_POSITIVE,
 				cond_BASE_10,
@@ -4249,7 +4249,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT64,
+				cond_VALUE_FLOAT,
 				cond_NEGATIVE,
 				cond_BASE_10,
 				cond_LOWERCASE,
@@ -4257,8 +4257,46 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT64,
+				cond_VALUE_FLOAT,
 				cond_BROKEN,
+				cond_NEGATIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_FLOAT,
+				cond_FLOAT_SMALLEST,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_BROKEN,
+				cond_VALUE_FLOAT,
+				cond_FLOAT_SMALLEST,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_FLOAT,
+				cond_FLOAT_SMALLEST,
+				cond_NEGATIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_BROKEN,
+				cond_VALUE_FLOAT,
+				cond_FLOAT_SMALLEST,
 				cond_NEGATIVE,
 				cond_BASE_10,
 				cond_LOWERCASE,

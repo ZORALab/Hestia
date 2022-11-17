@@ -35,6 +35,163 @@ type ParamsFLOAT32 struct {
 	Notation   Notation
 }
 
+//nolint:goconst
+func S32_ParseFLOAT32(input string, base float32, notation Notation) (out float32, err Error) {
+	var errX Error
+	var digit uint8
+	var baseX, exponent, multiplier float32
+	var base64 float64
+	var data []rune
+	var omizu *omizuData
+
+	// pick off easy targets
+	switch input {
+	case "":
+		return 0, ERROR_OK
+	case "NaN", "nan", "NAN":
+		return hestiaMATH.S32_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT32_EXPONENT | hestiaMATH.MASK_FLOAT32_MANTISSA,
+		), ERROR_OK
+	case "-inf", "-INF", "-Inf", "-∞":
+		return hestiaMATH.S32_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT32_SIGN | hestiaMATH.MASK_FLOAT32_EXPONENT,
+		), ERROR_OK
+	case "inf", "INF", "Inf", "+inf", "+INF", "+Inf", "+∞":
+		return hestiaMATH.S32_IEEE754_BitsToFloat(
+			hestiaMATH.MASK_FLOAT32_EXPONENT,
+		), ERROR_OK
+	}
+
+	data = []rune(input)
+	out = 0
+	base64 = float64(base)
+	omizu, err = __sN_Omizu_Parse(&data, &base64)
+	if err != ERROR_OK {
+		return out, err
+	}
+
+	// process base number
+	switch {
+	case len(omizu.base) == 0:
+		// use provided base
+	default:
+		multiplier = 1
+		for i := len(omizu.base) - 1; i >= 0; i-- {
+			digit, errX = _SN_DIGIT_To_NUMBER(omizu.base[i])
+			if errX != ERROR_OK {
+				err = ERROR_BASE_INVALID
+				break
+			}
+
+			baseX += multiplier * float32(digit)
+			multiplier *= 10
+		}
+
+		if base != baseX {
+			err = ERROR_BASE_MISMATCHED
+			base = baseX // proritize parsed base
+		}
+	}
+
+	// process IEEE754 hint
+	switch {
+	case notation == NOTATION_IEEE754:
+		out, errX = _S32_ParseIEEE754(&omizu.round)
+		if errX == ERROR_OK {
+			return out, ERROR_OK
+		}
+	default:
+	}
+
+	// process round number
+	multiplier = 1
+	for i := len(omizu.round) - 1; i >= 0; i-- {
+		digit, errX = _SN_DIGIT_To_NUMBER(omizu.round[i])
+		switch {
+		case errX != ERROR_OK:
+			fallthrough
+		case float32(digit) >= base:
+			return 0, ERROR_INPUT_INVALID
+		}
+
+		out += float32(digit) * multiplier
+		multiplier *= base
+	}
+
+	// process partial number
+	multiplier = 1 / base
+	for i := 0; i < len(omizu.partial); i++ {
+		digit, errX = _SN_DIGIT_To_NUMBER(omizu.partial[i])
+		switch {
+		case errX != ERROR_OK:
+			fallthrough
+		case float32(digit) >= base:
+			return 0, ERROR_INPUT_INVALID
+		}
+
+		out += multiplier * float32(digit)
+		multiplier /= base
+	}
+
+	// process exponent number
+	exponent = 0
+	multiplier = 1
+	for i := len(omizu.exponent) - 1; i >= 0; i-- {
+		digit, errX = _SN_DIGIT_To_NUMBER(omizu.exponent[i])
+		switch {
+		case errX != ERROR_OK:
+			fallthrough
+		case digit >= 10:
+			return 0, ERROR_INPUT_INVALID
+		}
+
+		exponent += float32(digit) * multiplier
+		multiplier *= 10
+	}
+	exponent *= hestiaMATH.S32_LOG10(base)
+	exponent = hestiaMATH.S32_Floor_FLOAT32(exponent)
+
+	if omizu.negativeExponent {
+		for i := uint32(0); i < uint32(exponent); i++ {
+			out /= 10
+		}
+	} else {
+		for i := uint32(0); i < uint32(exponent); i++ {
+			out *= 10
+		}
+	}
+
+	// process negative value
+	if omizu.negativeValue {
+		out *= -1
+	}
+
+	return out, err
+}
+
+func _S32_ParseIEEE754(input *[]rune) (out float32, err Error) {
+	var bits uint32
+
+	if len(*input) != 32 {
+		return 0, ERROR_INPUT_INVALID
+	}
+
+	// map the bits
+	for i := len(*input) - 1; i >= 0; i-- {
+		switch {
+		case (*input)[i] == '1':
+			bits |= 1 << (31 - i)
+		case (*input)[i] == '0':
+			// do nothing
+		default:
+			return 0, ERROR_INPUT_INVALID
+		}
+	}
+
+	// convert to float32
+	return hestiaMATH.S32_IEEE754_BitsToFloat(bits), ERROR_OK
+}
+
 func M32_FormatFLOAT32(input *ParamsFLOAT32) (out []rune) {
 	var data *hestiaMATH.Float32
 	var i uint32
