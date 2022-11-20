@@ -18,175 +18,57 @@ package hestiaBITS
 
 import (
 	"hestia/hestiaERROR"
-	"hestia/hestiaNUMBER"
+	"hestia/hestiaINTERNAL/hestiaMATH"
 )
 
 func S64_Resize(input *uint64, size uint16, withSign bool) hestiaERROR.Error {
-	var mask uint64
-
-	// mask to register
-	switch {
-	case input == nil:
+	switch hestiaMATH.S64_Resize(input, size, withSign) {
+	case hestiaMATH.ERROR_OK:
+		return hestiaERROR.OK
+	case hestiaMATH.ERROR_INPUT_INVALID:
 		return hestiaERROR.INVALID_ARGUMENT
-	case size > 64:
+	case hestiaMATH.ERROR_INPUT_OUT_OF_RANGE:
 		return hestiaERROR.OUT_OF_RANGE
-	case size == 0:
-		*input = 0
-		return hestiaERROR.OK
-	case size <= 8:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT8
-		} else {
-			mask = hestiaNUMBER.MAX_UINT8
-		}
-	case size <= 16:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT16
-		} else {
-			mask = hestiaNUMBER.MAX_UINT16
-		}
-	case size <= 32:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT32
-		} else {
-			mask = hestiaNUMBER.MAX_UINT32
-		}
 	default:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT64
-		} else {
-			mask = hestiaNUMBER.MAX_UINT64
-		}
+		return hestiaERROR.BAD_EXEC
 	}
-
-	*input &= mask
-	switch size {
-	case 8, 16, 32, 64:
-		return hestiaERROR.OK
-	default:
-	}
-
-	// mask to precision
-	mask = (1 << size) - 1
-	*input &= mask
-
-	return hestiaERROR.OK
 }
 
 func S32_Resize(input *uint32, size uint16, withSign bool) hestiaERROR.Error {
-	var mask uint32
-
-	// mask to register
-	switch {
-	case input == nil:
+	switch hestiaMATH.S32_Resize(input, size, withSign) {
+	case hestiaMATH.ERROR_OK:
+		return hestiaERROR.OK
+	case hestiaMATH.ERROR_INPUT_INVALID:
 		return hestiaERROR.INVALID_ARGUMENT
-	case size > 32:
+	case hestiaMATH.ERROR_INPUT_OUT_OF_RANGE:
 		return hestiaERROR.OUT_OF_RANGE
-	case size == 0:
-		*input = 0
-		return hestiaERROR.OK
-	case size <= 8:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT8
-		} else {
-			mask = hestiaNUMBER.MAX_UINT8
-		}
-	case size <= 16:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT16
-		} else {
-			mask = hestiaNUMBER.MAX_UINT16
-		}
 	default:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT32
-		} else {
-			mask = hestiaNUMBER.MAX_UINT32
-		}
+		return hestiaERROR.BAD_EXEC
 	}
-
-	*input &= mask
-	switch size {
-	case 8, 16, 32:
-		return hestiaERROR.OK
-	default:
-	}
-
-	// mask to precision
-	mask = (1 << size) - 1
-	*input &= mask
-
-	return hestiaERROR.OK
 }
 
 func S16_Resize(input *uint16, size uint16, withSign bool) hestiaERROR.Error {
-	var mask uint16
-
-	// mask to register
-	switch {
-	case input == nil:
+	switch hestiaMATH.S16_Resize(input, size, withSign) {
+	case hestiaMATH.ERROR_OK:
+		return hestiaERROR.OK
+	case hestiaMATH.ERROR_INPUT_INVALID:
 		return hestiaERROR.INVALID_ARGUMENT
-	case size > 16:
+	case hestiaMATH.ERROR_INPUT_OUT_OF_RANGE:
 		return hestiaERROR.OUT_OF_RANGE
-	case size == 0:
-		*input = 0
-		return hestiaERROR.OK
-	case size <= 8:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT8
-		} else {
-			mask = hestiaNUMBER.MAX_UINT8
-		}
 	default:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT16
-		} else {
-			mask = hestiaNUMBER.MAX_UINT16
-		}
+		return hestiaERROR.BAD_EXEC
 	}
-
-	*input &= mask
-	switch size {
-	case 8, 16:
-		return hestiaERROR.OK
-	default:
-	}
-
-	// mask to precision
-	mask = (1 << size) - 1
-	*input &= mask
-
-	return hestiaERROR.OK
 }
 
 func S8_Resize(input *uint8, size uint16, withSign bool) hestiaERROR.Error {
-	var mask uint8
-
-	// mask to register
-	switch {
-	case input == nil:
+	switch hestiaMATH.S8_Resize(input, size, withSign) {
+	case hestiaMATH.ERROR_OK:
+		return hestiaERROR.OK
+	case hestiaMATH.ERROR_INPUT_INVALID:
 		return hestiaERROR.INVALID_ARGUMENT
-	case size > 16:
+	case hestiaMATH.ERROR_INPUT_OUT_OF_RANGE:
 		return hestiaERROR.OUT_OF_RANGE
-	case size == 0:
-		*input = 0
-		return hestiaERROR.OK
 	default:
-		if withSign {
-			mask = hestiaNUMBER.MAX_INT8
-		} else {
-			mask = hestiaNUMBER.MAX_UINT8
-		}
+		return hestiaERROR.BAD_EXEC
 	}
-
-	*input &= mask
-	if size == 8 {
-		return hestiaERROR.OK
-	}
-
-	// mask to precision
-	mask = (1 << size) - 1
-	*input &= mask
-
-	return hestiaERROR.OK
 }

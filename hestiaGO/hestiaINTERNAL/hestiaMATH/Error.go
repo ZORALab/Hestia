@@ -14,17 +14,14 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-package hestiaFMT
+package hestiaMATH
 
 type Error uint8
 
 const (
 	ERROR_OK Error = iota
-	ERROR_BAD_EXEC
-
 	ERROR_INPUT_INVALID
 	ERROR_INPUT_OUT_OF_RANGE
-	ERROR_INPUT_OVERFLOW
 
 	ERROR_BASE_INVALID
 	ERROR_BASE_MISMATCHED

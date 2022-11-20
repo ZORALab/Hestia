@@ -19,6 +19,98 @@
 
 package hestiaFMT
 
+import (
+	"hestia/hestiaINTERNAL/hestiaMATH"
+)
+
+func SN_ParseUINT(input string, base uint64, size uint16) (out uint64, err Error) {
+	var errX Error
+	var digit uint8
+	var data []rune
+	var x, multiplier uint64
+	var base64 float64
+	var omizu *omizuData
+
+	// pick off easy targets
+	out = 0
+	switch {
+	case input == "":
+		return out, ERROR_OK
+	default:
+	}
+
+	data = []rune(input)
+	base64 = float64(base)
+	omizu, err = __sN_Omizu_Parse(&data, &base64)
+
+	switch {
+	case err != ERROR_OK:
+		return out, err
+	case string(omizu.partial) != "0":
+		return out, ERROR_INPUT_INVALID
+	case string(omizu.exponent) != "0":
+		return out, ERROR_INPUT_INVALID
+	case omizu.negativeValue:
+		return out, ERROR_INPUT_INVALID
+	}
+
+	// process base number
+	switch {
+	case len(omizu.base) == 0:
+		// use provided base
+	default:
+		multiplier = 1
+		for i := len(omizu.base) - 1; i >= 0; i-- {
+			digit, errX = _SN_DIGIT_To_NUMBER(omizu.base[i])
+			if errX != ERROR_OK {
+				err = ERROR_BASE_INVALID
+				break
+			}
+
+			x += multiplier * uint64(digit)
+			multiplier *= 10
+		}
+
+		if base != x {
+			err = ERROR_BASE_MISMATCHED
+			base = x // prioritize parsed base
+		}
+	}
+
+	// process round number
+	multiplier = 1
+	x = 0
+	for i := len(omizu.round) - 1; i >= 0; i-- {
+		digit, errX = _SN_DIGIT_To_NUMBER(omizu.round[i])
+		switch {
+		case errX != ERROR_OK:
+			return 0, ERROR_INPUT_INVALID
+		case uint64(digit) >= base:
+			return 0, ERROR_INPUT_INVALID
+		}
+
+		out += uint64(digit) * multiplier
+		multiplier *= base
+
+		if out < x {
+			return 0, ERROR_INPUT_OVERFLOW
+		}
+		x = out
+	}
+
+	// resize accordingly
+	switch hestiaMATH.S64_Resize(&out, size, false) {
+	case hestiaMATH.ERROR_OK:
+		return out, ERROR_OK
+	case hestiaMATH.ERROR_INPUT_INVALID:
+		return 0, ERROR_INPUT_INVALID
+	case hestiaMATH.ERROR_INPUT_OUT_OF_RANGE:
+		return 0, ERROR_INPUT_OUT_OF_RANGE
+	default:
+		return 0, ERROR_BAD_EXEC
+	}
+}
+
 func S8_FormatUINT8(number uint8, base uint8, lettercase Lettercase) (out []rune) {
 	var i uint8
 

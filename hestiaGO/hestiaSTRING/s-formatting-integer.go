@@ -51,20 +51,6 @@ func s_ParseINT(input string, base uint64, size uint16) (value int64, err hestia
 	return 0, hestiaERROR.OK
 }
 
-func s_ParseUINT(input string, base uint64, size uint16) (value uint64, err hestiaERROR.Error) {
-	value, _, err = _parseInteger(input, base, false)
-	if err != hestiaERROR.OK {
-		return 0, err
-	}
-
-	err = hestiaBITS.S64_Resize(&value, size, false)
-	if err != hestiaERROR.OK {
-		return 0, err
-	}
-
-	return value, hestiaERROR.OK
-}
-
 func _parseInteger(input string,
 	base uint64, withSign bool) (value uint64, isNegative bool, err hestiaERROR.Error) {
 	var buffer []uint8

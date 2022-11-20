@@ -347,7 +347,7 @@ func assert_S64_FormatUINT64_output(s *hestiaTESTING.Scenario, output string) bo
 	case hestiaTESTING.HasCondition(s, cond_BASE_8):
 		return output == "1777777777777777777777"
 	case hestiaTESTING.HasCondition(s, cond_BASE_10):
-		return output == "18446744073709551615"
+		return output == string_uint64_max_broken
 	case hestiaTESTING.HasCondition(s, cond_BASE_12):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_LOWERCASE),

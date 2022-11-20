@@ -241,7 +241,7 @@ func assert_S64_ParseFLOAT64_output(s *hestiaTESTING.Scenario, output float64) b
 		return output == 0.0 // error raised
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_IEEE754):
 		return assert_S64_ParseFLOAT64_output_ieee754(s, output)
-	case hestiaTESTING.HasCondition(s, cond_VALUE_FLOAT):
+	case hestiaTESTING.HasCondition(s, cond_VALUE_NUMBER):
 		return assert_S64_ParseFLOAT64_output_minmax(s, output)
 	case hestiaTESTING.HasCondition(s, cond_NOTATION_SCIENTIFIC_AUTO):
 		return assert_S64_ParseFLOAT64_output_sci_auto(s, output)
@@ -1540,7 +1540,7 @@ func assert_S64_ParseFLOAT64_panick(panick string) bool {
 }
 
 func generate_float64_string(s *hestiaTESTING.Scenario) (subject string) {
-	if hestiaTESTING.HasCondition(s, cond_VALUE_FLOAT) {
+	if hestiaTESTING.HasCondition(s, cond_VALUE_NUMBER) {
 		return configure_float64_minmax_string(s)
 	}
 

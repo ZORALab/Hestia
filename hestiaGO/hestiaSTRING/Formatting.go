@@ -328,10 +328,6 @@ func S64_FormatPOINTER[ANY any](input *ANY, base uint64,
 	return string(hestiaFMT.S64_FormatPOINTER(input, base, lettercase)), hestiaERROR.OK
 }
 
-func S_ParseUINT(input string, base, size uint16) (out uint64, err hestiaERROR.Error) {
-	return s_ParseUINT(input, uint64(base), size)
-}
-
 func S_ParseINT(input string, base, size uint16) (out int64, err hestiaERROR.Error) {
 	return s_ParseINT(input, uint64(base), size)
 }

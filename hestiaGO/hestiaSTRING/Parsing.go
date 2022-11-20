@@ -22,6 +22,24 @@ import (
 	"hestia/hestiaINTERNAL/hestiaFMT"
 )
 
+func SN_ParseUINT(input string, base uint64, size uint16) (out uint64, err hestiaERROR.Error) {
+	var errX hestiaFMT.Error
+
+	out, errX = hestiaFMT.SN_ParseUINT(input, base, size)
+	switch errX {
+	case hestiaFMT.ERROR_OK:
+		return out, hestiaERROR.OK
+	case hestiaFMT.ERROR_INPUT_INVALID:
+		return 0, hestiaERROR.INVALID_ARGUMENT
+	case hestiaFMT.ERROR_INPUT_OUT_OF_RANGE:
+		return 0, hestiaERROR.OUT_OF_RANGE // invalid size
+	case hestiaFMT.ERROR_INPUT_OVERFLOW:
+		return 0, hestiaERROR.DATA_OVERFLOW
+	default:
+		return 0, hestiaERROR.BAD_EXEC // unknown error
+	}
+}
+
 func S32_ParseFLOAT32(input string, base float32,
 	notation hestiaFMT.Notation) (out float32, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {

@@ -41,6 +41,17 @@ const (
 	cond_BASE_36 = "value in Base-36 number"
 	cond_BASE_37 = "value in Base-37 number"
 
+	cond_RESIZE_0  = "resize value to 0-bit"
+	cond_RESIZE_2  = "resize value to 2-bits"
+	cond_RESIZE_5  = "resize value to 5-bits"
+	cond_RESIZE_8  = "resize value to 8-bits"
+	cond_RESIZE_10 = "resize value to 10-bits"
+	cond_RESIZE_12 = "resize value to 12-bits"
+	cond_RESIZE_16 = "resize value to 16-bits"
+	cond_RESIZE_22 = "resize value to 22-bits"
+	cond_RESIZE_36 = "resize value to 36-bits"
+	cond_RESIZE_65 = "resize value to 65-bits"
+
 	cond_PRECISION_0  = "value has precision with automatic sizing"
 	cond_PRECISION_1  = "value has precision with 1 unit"
 	cond_PRECISION_2  = "value has precision with 2 units"
@@ -76,7 +87,7 @@ const (
 	cond_FLOAT_INF_NEGATIVE = "value is float negative infinity"
 	cond_FLOAT_SMALLEST     = "value is the smallest float"
 
-	cond_VALUE_FLOAT  = "value is min/max float32/float64"
+	cond_VALUE_NUMBER = "value is min/max number"
 	cond_VALUE_UINT64 = "value is max uint64"
 	cond_VALUE_INT64  = "value is min/max int64"
 	cond_VALUE_UINT32 = "value is max uint32"
@@ -102,6 +113,9 @@ const (
 	string_FLOAT_NAN          = "NaN"
 	string_FLOAT_POSITIVE_INF = "+∞"
 	string_FLOAT_NEGATIVE_INF = "-∞"
+
+	string_uint64_max        = "18446744073709551616"
+	string_uint64_max_broken = "18446744073709551615"
 )
 
 func create_lettercase(s *hestiaTESTING.Scenario) hestiaFMT.Lettercase {
@@ -374,4 +388,31 @@ func create_float64_subject(s *hestiaTESTING.Scenario) (subject float64) {
 	}
 
 	return subject
+}
+
+func create_sizes(s *hestiaTESTING.Scenario) uint16 {
+	switch {
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_0):
+		return 0
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_2):
+		return 2
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_5):
+		return 5
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_8):
+		return 8
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_10):
+		return 10
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_12):
+		return 12
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_16):
+		return 16
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_22):
+		return 22
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_36):
+		return 36
+	case hestiaTESTING.HasCondition(s, cond_RESIZE_65):
+		return 65
+	default:
+		return 64 // don't resize
+	}
 }

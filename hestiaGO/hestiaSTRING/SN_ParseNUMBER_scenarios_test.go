@@ -4232,7 +4232,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_POSITIVE,
 				cond_BASE_10,
 				cond_LOWERCASE,
@@ -4240,7 +4240,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_BROKEN,
 				cond_POSITIVE,
 				cond_BASE_10,
@@ -4249,7 +4249,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_NEGATIVE,
 				cond_BASE_10,
 				cond_LOWERCASE,
@@ -4257,7 +4257,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_BROKEN,
 				cond_NEGATIVE,
 				cond_BASE_10,
@@ -4266,7 +4266,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_FLOAT_SMALLEST,
 				cond_POSITIVE,
 				cond_BASE_10,
@@ -4276,7 +4276,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 		}, {
 			Switches: []string{
 				cond_BROKEN,
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_FLOAT_SMALLEST,
 				cond_POSITIVE,
 				cond_BASE_10,
@@ -4285,7 +4285,7 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 			},
 		}, {
 			Switches: []string{
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_FLOAT_SMALLEST,
 				cond_NEGATIVE,
 				cond_BASE_10,
@@ -4295,9 +4295,99 @@ func test_cases_SN_ParseNUMBER() []*hestiaTESTING.Scenario {
 		}, {
 			Switches: []string{
 				cond_BROKEN,
-				cond_VALUE_FLOAT,
+				cond_VALUE_NUMBER,
 				cond_FLOAT_SMALLEST,
 				cond_NEGATIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_0,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_2,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_5,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_8,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_10,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_12,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_16,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_22,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_36,
+				cond_POSITIVE,
+				cond_BASE_10,
+				cond_LOWERCASE,
+				cond_NOTATION_SCIENTIFIC,
+			},
+		}, {
+			Switches: []string{
+				cond_VALUE_NUMBER,
+				cond_RESIZE_65,
+				cond_POSITIVE,
 				cond_BASE_10,
 				cond_LOWERCASE,
 				cond_NOTATION_SCIENTIFIC,
