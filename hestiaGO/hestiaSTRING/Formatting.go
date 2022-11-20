@@ -33,11 +33,6 @@ const (
 )
 
 const (
-	LETTERCASE_LOWER = hestiaFMT.LETTERCASE_LOWER
-	LETTERCASE_UPPER = hestiaFMT.LETTERCASE_UPPER
-)
-
-const (
 	NOTATION_SCIENTIFIC_AUTO     = hestiaFMT.NOTATION_SCIENTIFIC_AUTO
 	NOTATION_ISO6093NR3_AUTO     = hestiaFMT.NOTATION_ISO6093NR3_AUTO
 	NOTATION_ISO6093NR3          = hestiaFMT.NOTATION_ISO6093NR3
@@ -344,14 +339,6 @@ func ParseBOOL(input string) (bool, hestiaERROR.Error) {
 		return false, hestiaERROR.OK
 	default:
 		return false, hestiaERROR.INVALID_ARGUMENT
-	}
-}
-
-func _processLettercase(lettercase *hestiaFMT.Lettercase) {
-	switch *lettercase {
-	case LETTERCASE_UPPER, LETTERCASE_LOWER:
-	default:
-		*lettercase = LETTERCASE_LOWER
 	}
 }
 
