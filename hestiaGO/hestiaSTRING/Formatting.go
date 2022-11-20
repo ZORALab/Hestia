@@ -32,15 +32,6 @@ const (
 	CHARSMAP_AZERI
 )
 
-const (
-	NOTATION_SCIENTIFIC_AUTO     = hestiaFMT.NOTATION_SCIENTIFIC_AUTO
-	NOTATION_ISO6093NR3_AUTO     = hestiaFMT.NOTATION_ISO6093NR3_AUTO
-	NOTATION_ISO6093NR3          = hestiaFMT.NOTATION_ISO6093NR3
-	NOTATION_SCIENTIFIC          = hestiaFMT.NOTATION_SCIENTIFIC
-	NOTATION_DECIMAL_NO_EXPONENT = hestiaFMT.NOTATION_DECIMAL_NO_EXPONENT
-	NOTATION_IEEE754             = hestiaFMT.NOTATION_IEEE754
-)
-
 func ToUppercase(source string, charmap CharsMap) string {
 	switch charmap {
 	case CHARSMAP_TURKISH:
@@ -339,19 +330,5 @@ func ParseBOOL(input string) (bool, hestiaERROR.Error) {
 		return false, hestiaERROR.OK
 	default:
 		return false, hestiaERROR.INVALID_ARGUMENT
-	}
-}
-
-func _processNotation(notation *hestiaFMT.Notation) hestiaERROR.Error {
-	switch *notation {
-	case NOTATION_SCIENTIFIC,
-		NOTATION_SCIENTIFIC_AUTO,
-		NOTATION_DECIMAL_NO_EXPONENT,
-		NOTATION_IEEE754,
-		NOTATION_ISO6093NR3_AUTO,
-		NOTATION_ISO6093NR3:
-		return hestiaERROR.OK
-	default:
-		return hestiaERROR.DATA_INVALID
 	}
 }
