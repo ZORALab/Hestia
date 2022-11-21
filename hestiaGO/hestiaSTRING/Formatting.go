@@ -314,14 +314,6 @@ func S64_FormatPOINTER[ANY any](input *ANY, base uint64,
 	return string(hestiaFMT.S64_FormatPOINTER(input, base, lettercase)), hestiaERROR.OK
 }
 
-func S_ParseINT(input string, base, size uint16) (out int64, err hestiaERROR.Error) {
-	return s_ParseINT(input, uint64(base), size)
-}
-
-func S_Atoi(input string, size uint16) (out int64, err hestiaERROR.Error) {
-	return s_ParseINT(input, 10, size)
-}
-
 func ParseBOOL(input string) (bool, hestiaERROR.Error) {
 	switch ToUppercase(input, CHARSMAP_DEFAULT) {
 	case "1", "T", "TRUE":
