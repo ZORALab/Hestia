@@ -116,6 +116,13 @@ const (
 
 	string_uint64_max        = "18446744073709551616"
 	string_uint64_max_broken = "18446744073709551615"
+
+	string_FALSE = "FALSE"
+	string_False = "False"
+	string_false = "false"
+	string_TRUE  = "TRUE"
+	string_True  = "True"
+	string_true  = "true"
 )
 
 func create_lettercase(s *hestiaTESTING.Scenario) hestiaFMT.Lettercase {

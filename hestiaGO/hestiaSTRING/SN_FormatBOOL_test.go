@@ -120,16 +120,16 @@ func assert_SN_FormatBOOL_output(s *hestiaTESTING.Scenario, output string) bool 
 	case hestiaTESTING.HasCondition(s, cond_BOOL_TRUE):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
-			return output == "TRUE"
+			return output == string_TRUE
 		default:
-			return output == "true"
+			return output == string_true
 		}
 	case hestiaTESTING.HasCondition(s, cond_BOOL_FALSE):
 		switch {
 		case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
-			return output == "FALSE"
+			return output == string_FALSE
 		default:
-			return output == "false"
+			return output == string_false
 		}
 	}
 

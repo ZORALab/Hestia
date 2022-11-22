@@ -270,13 +270,13 @@ func generate_bool_string(s *hestiaTESTING.Scenario) string {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO):
 			switch {
 			case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
-				return "FALSE"
+				return string_FALSE
 			case hestiaTESTING.HasCondition(s, cond_LOWERCASE):
-				return "false"
+				return string_false
 			case hestiaTESTING.HasCondition(s, cond_UNKNOWNCASE):
 				return "WhAtEvEr-"
 			default:
-				return "False"
+				return string_False
 			}
 		}
 	default:
@@ -286,13 +286,13 @@ func generate_bool_string(s *hestiaTESTING.Scenario) string {
 		case hestiaTESTING.HasCondition(s, cond_ROUND_ZERO):
 			switch {
 			case hestiaTESTING.HasCondition(s, cond_UPPERCASE):
-				return "TRUE"
+				return string_TRUE
 			case hestiaTESTING.HasCondition(s, cond_LOWERCASE):
-				return "true"
+				return string_true
 			case hestiaTESTING.HasCondition(s, cond_UNKNOWNCASE):
 				return "WhAtEvEr+"
 			default:
-				return "True"
+				return string_True
 			}
 		}
 	}
