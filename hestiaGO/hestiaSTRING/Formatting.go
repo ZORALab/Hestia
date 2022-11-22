@@ -24,14 +24,6 @@ import (
 	"unicode"
 )
 
-type CharsMap uint8
-
-const (
-	CHARSMAP_DEFAULT CharsMap = iota
-	CHARSMAP_TURKISH
-	CHARSMAP_AZERI
-)
-
 func ToUppercase(source string, charmap CharsMap) string {
 	switch charmap {
 	case CHARSMAP_TURKISH:
