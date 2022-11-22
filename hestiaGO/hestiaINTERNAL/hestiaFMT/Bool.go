@@ -16,6 +16,17 @@
 
 package hestiaFMT
 
+func SN_ParseBOOL(input string) (bool, Error) {
+	switch input {
+	case "1", "t", "true", "True", "TRUE":
+		return true, ERROR_OK
+	case "0", "f", "false", "False", "FALSE":
+		return false, ERROR_OK
+	default:
+		return false, ERROR_INPUT_INVALID
+	}
+}
+
 func SN_FormatBOOL(input bool, lettercase Lettercase) []rune {
 	switch {
 	case input && lettercase == LETTERCASE_UPPER:

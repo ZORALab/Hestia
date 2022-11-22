@@ -313,14 +313,3 @@ func S64_FormatPOINTER[ANY any](input *ANY, base uint64,
 
 	return string(hestiaFMT.S64_FormatPOINTER(input, base, lettercase)), hestiaERROR.OK
 }
-
-func ParseBOOL(input string) (bool, hestiaERROR.Error) {
-	switch ToUppercase(input, CHARSMAP_DEFAULT) {
-	case "1", "T", "TRUE":
-		return true, hestiaERROR.OK
-	case "0", "F", "FALSE":
-		return false, hestiaERROR.OK
-	default:
-		return false, hestiaERROR.INVALID_ARGUMENT
-	}
-}

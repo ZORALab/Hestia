@@ -22,6 +22,20 @@ import (
 	"hestia/hestiaINTERNAL/hestiaFMT"
 )
 
+func SN_ParseBOOL(input string) (out bool, err hestiaERROR.Error) {
+	var errX hestiaFMT.Error
+
+	out, errX = hestiaFMT.SN_ParseBOOL(input)
+	switch errX {
+	case hestiaFMT.ERROR_INPUT_INVALID:
+		err = hestiaERROR.INVALID_ARGUMENT
+	default:
+		err = hestiaERROR.OK
+	}
+
+	return out, err
+}
+
 func SN_ParseINT(input string, base uint64, size uint16) (out int64, err hestiaERROR.Error) {
 	var errX hestiaFMT.Error
 
