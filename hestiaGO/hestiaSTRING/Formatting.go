@@ -57,6 +57,10 @@ func ToTitlecase(source string, charmap CharsMap) string {
 	}
 }
 
+func M64_Format(format string, args ...any) string {
+	return string(*hestiaFMT.M64_Format(format, args...))
+}
+
 func S8_FormatUINT8(input uint8, base uint8,
 	lettercase hestiaFMT.Lettercase) (out string, err hestiaERROR.Error) {
 	if base < 2 || base > 36 {

@@ -115,7 +115,6 @@ func assert_SN_ParseINT_error(s *hestiaTESTING.Scenario, err hestiaERROR.Error) 
 	}
 }
 
-//nolint:goconst
 func assert_SN_ParseINT_output(s *hestiaTESTING.Scenario, out int64) bool {
 	switch {
 	case hestiaTESTING.HasCondition(s, cond_PARTIAL_NORMAL):

@@ -16,6 +16,10 @@
 
 package hestiaFMT
 
+import (
+	"unicode"
+)
+
 type Lettercase uint8
 
 const (
@@ -35,3 +39,7 @@ const (
 	NOTATION_HEX
 	NOTATION_IEEE754
 )
+
+func SN_IsPrintable_RUNE(c rune) bool {
+	return unicode.IsPrint(c)
+}

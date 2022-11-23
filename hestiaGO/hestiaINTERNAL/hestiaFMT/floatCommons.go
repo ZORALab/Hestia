@@ -306,7 +306,14 @@ parse_round_loop:
 }
 
 func ___sN_Omizu_Parse_Base_Prefix(out *omizuData, input *[]rune, i *uint64) {
-	switch string((*input)[0:2]) {
+	switch {
+	case len(*input) < 3:
+		return // do nothing - the input is too short for base prefix
+	case len((*input)[*i:]) < 3:
+		return // not possible - too short for base prefix
+	}
+
+	switch string((*input)[*i:2]) {
 	case "0x", "0X":
 		*i += 2
 		out.base = []rune("16")
