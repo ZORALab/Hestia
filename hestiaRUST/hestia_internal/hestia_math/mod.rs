@@ -13,20 +13,5 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
-
-// 'hestia_testing' goes first as it has hestia_testing_exec! macro that is
-// crucial for all testing across other modules.
-#[macro_use]
-pub mod hestia_testing;
-
-#[macro_use]
-pub mod version;
-
-#[macro_use]
-pub mod hestia_internal;
-
-#[macro_use]
-pub mod hestia_error;
-
-#[macro_use]
-pub mod hestia_number;
+pub mod constants;
+pub use constants::*;
