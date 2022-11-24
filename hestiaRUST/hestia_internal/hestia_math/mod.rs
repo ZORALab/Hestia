@@ -19,5 +19,8 @@ pub use error::*;
 pub mod constants;
 pub use constants::*;
 
+pub mod float32;
+pub use float32::*;
+
 pub mod division;
 pub use division::*;
