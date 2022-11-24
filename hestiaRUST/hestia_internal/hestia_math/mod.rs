@@ -22,5 +22,8 @@ pub use constants::*;
 pub mod float32;
 pub use float32::*;
 
+pub mod float64;
+pub use float64::*;
+
 pub mod division;
 pub use division::*;
