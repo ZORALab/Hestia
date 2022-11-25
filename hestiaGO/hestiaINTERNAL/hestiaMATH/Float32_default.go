@@ -33,10 +33,10 @@ func _s32_Floor_FLOAT32(input float32) (round float32) {
 			round++
 		}
 		return -round
+	default:
+		round, _ = S32_Modf_FLOAT32(input)
+		return round
 	}
-
-	round, _ = S32_Modf_FLOAT32(input)
-	return round
 }
 
 func _s32_Modf_FLOAT32(input float32) (round float32, fraction float32) {

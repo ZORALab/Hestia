@@ -35,10 +35,10 @@ func _s64_Floor_FLOAT64(input float64) (round float64) {
 			round++
 		}
 		return -round
+	default:
+		round, _ = S64_Modf_FLOAT64(input)
+		return round
 	}
-
-	round, _ = S64_Modf_FLOAT64(input)
-	return round
 }
 
 func _s64_Modf_FLOAT64(input float64) (round float64, fraction float64) {
