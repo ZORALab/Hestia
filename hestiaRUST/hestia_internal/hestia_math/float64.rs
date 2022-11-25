@@ -161,7 +161,7 @@ pub fn s64_modf_float64(input: f64) -> (f64, f64) {
 
 pub fn s64_normalize_float64(input: f64) -> (f64, i64) {
 	if s64_absolute_float64(input) < 2.2250738585072014e-308 {
-		return (input * (1 << 52) as f64, -52);
+		return (input * 4503599627370496.0, -52); // 4503599627370496.0 == (1<<52)
 	}
 
 	return (input, 0);

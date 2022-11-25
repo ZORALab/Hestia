@@ -108,7 +108,7 @@ func S64_Modf_FLOAT64(input float64) (round float64, fraction float64) {
 
 func S64_Normalize_FLOAT64(input float64) (out float64, e int) {
 	if S64_Absolute_FLOAT64(input) < 2.2250738585072014e-308 {
-		return input * (1 << 52), -52
+		return input * 4503599627370496, -52 // 4503599627370496 == (1<<52)
 	}
 
 	return input, 0
