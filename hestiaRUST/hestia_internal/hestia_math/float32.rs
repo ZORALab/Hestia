@@ -1,5 +1,8 @@
 // Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
 // Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+// Copyright 2019 Caleb Spare <cespare@gmail.com>
+// Copyright 2018 Ulf Adams <ulfjack@google.com>
+// Copyright 2009 The Go Authors <https://cs.opensource.google/go/go>
 //
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not
