@@ -30,7 +30,7 @@ specific language governing permissions and limitations under the License.
 {{- if (fileExists (printf "layouts/partials/%s.css" .))
 	| and (fileExists (printf "layouts/partials/%s.html" .))
 	| and (fileExists (printf "layouts/partials/%s.js" .))
-	| and (fileExists (printf "layouts/partials/%s-variables.toml" .))
+	| and (fileExists (printf "layouts/partials/%s.toml" .))
  -}}
 	{{- $dataList = true -}}
 {{- end -}}

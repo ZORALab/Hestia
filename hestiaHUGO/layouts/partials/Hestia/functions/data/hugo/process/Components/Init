@@ -41,8 +41,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* process component name */ -}}
-	{{- $component = lower $k -}}
-	{{- $ret = printf "Hestia/functions/render/components/%s" $component -}}
+	{{- $ret = printf "Hestia/functions/render/components/%s" $k -}}
 
 	{{- if not (partial "Hestia/functions/data/hugo/process/Components/__exists" $ret) -}}
 		{{- $console = printf "Components: unknown component '%v'.\n" $k -}}
@@ -53,7 +52,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = dict "Path" $ret -}}
-	{{- $dataList = merge $dataList (dict $component $ret) -}}
+	{{- $dataList = merge $dataList (dict $k $ret) -}}
 
 
 	{{- /* process variables */ -}}
@@ -67,7 +66,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = dict "Variables" $ret.Output -}}
-	{{- $dataList = merge $dataList (dict $component $ret) -}}
+	{{- $dataList = merge $dataList (dict $k $ret) -}}
 {{- end -}}
 
 
