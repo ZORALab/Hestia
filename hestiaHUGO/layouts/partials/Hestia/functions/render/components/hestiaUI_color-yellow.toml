@@ -1,0 +1,12 @@
+[CSS.Variables]
+"--color-yellow-50" = "#ffffb1"
+"--color-yellow-100" = "#ffff89"
+"--color-yellow-200" = "#ffff62"
+"--color-yellow-300" = "#ffff4e"
+"--color-yellow-400" = "#ffff27"
+"--color-yellow-500" = "#ffff14"
+"--color-yellow-600" = "#ffff00"
+"--color-yellow-700" = "#ebeb00"
+"--color-yellow-800" = "#d8d800"
+"--color-yellow-900" = "#b1b100"
+"--color-yellow-950" = "#898900"
