@@ -30,3 +30,6 @@
 #               "--anchor-color" = "red"
 ["hestiaUI_core"]
 Include = true
+
+["hestiaUI_font-NotoSans"]
+Include = true

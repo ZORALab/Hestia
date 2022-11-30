@@ -20,7 +20,11 @@ archetypeDir = "archetypes"
 contentDir = "../../docs"
 assetDir = "assets"
 dataDir = "../../docs/.data"
-staticDir = [ "../../docs/.static", "../../archives" ]
+staticDir = [
+        "../../docs/.static",
+        "../../archives",
+        "../../hestiaHUGO/fonts/hestiaUI_font-NotoSans",
+]
 layoutDir = "layouts"
 themesDir = "../../"
 publishDir = "../../public"
