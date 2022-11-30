@@ -36,7 +36,7 @@ specific language governing permissions and limitations under the License.
 {{- $css = dict -}}
 {{- range $k, $v := .Components -}}
 	{{- /* process variables */ -}}
-	{{- $ret = printf "%s-variables.toml" $v.Path -}}
+	{{- $ret = printf "layouts/partials/%s.toml" $v.Path -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/filesystem/ParseDataFile" $ret -}}
 	{{- $ret = merge $v.Variables $ret.Output -}}
@@ -55,14 +55,16 @@ specific language governing permissions and limitations under the License.
 {{- /* render finalized CSS file */ -}}
 {{- $data = "" -}}
 {{- range $k, $v := $variables -}}
-	{{- range $j, $w := $v -}}
+	{{- range $j, $w := $v.CSS.Variables -}}
 		{{- if $data -}}
-			{{- $data = printf "%s " $data -}}
+			{{- $data = printf "%s\n" $data -}}
 		{{- end -}}
 
-
-		{{- $data = printf "%s%s: %s;" $data $j $w -}}
+		{{- $data = printf "%s%s: %v;" $data $j $w -}}
 	{{- end -}}
+{{- end -}}
+{{- if $data -}}
+	{{- $data = printf ":root{\n%s\n}\n" $data -}}
 {{- end -}}
 
 

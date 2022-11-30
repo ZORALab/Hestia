@@ -26,6 +26,13 @@ specific language governing permissions and limitations under the License.
 {{- $data := "" -}}
 {{- $console := dict -}}
 {{- $name := false -}}
+{{- $component := false -}}
+
+
+
+
+{{- /* render component */ -}}
+{{- $component = partial "Hestia/functions/render/html/meta/CSS/__components" . }}
 
 
 
@@ -56,9 +63,13 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- if $data.Content }}
+{{- if or $component $data.Content }}
 	<style>
-		{{ partial "Hestia/functions/render/html/meta/CSS/__components" . }}
-		{{ safeCSS $data.Content }}
+{{- if $component }}
+{{ $component }}
+{{- end }}
+{{- if $data.Content }}
+{{ safeCSS $data.Content }}
+{{- end }}
 	</style>
 {{- end -}}
