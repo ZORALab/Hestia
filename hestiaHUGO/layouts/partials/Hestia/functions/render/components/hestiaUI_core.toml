@@ -1,0 +1,294 @@
+[CSS.Variables]
+# layouts
+"--content-grid-area" = "content"
+"--leftnav-grid-area" = "leftnav"
+"--rightnav-grid-area" = "rightnav"
+"--topnav-grid-area" = "topnav"
+
+"--layout-vertical" = """
+	"content" auto
+	"topnav" minmax(0, auto)
+	"leftnav" minmax(0, auto)
+	"rightnav" minmax(0, auto)
+	/ var(--body-width)
+"""
+"--layout-left-top" = """
+	"leftnav topnav" minmax(0, max-content)
+	"leftnav content" auto
+	/ minmax(0, var(--sidenav-width))
+		minmax(auto, calc(var(--body-width) - var(--sidenav-width)))
+"""
+"--layout-right-top" = """
+	"topnav rightnav" minmax(0, max-content)
+	"content rightnav" auto
+	/ minmax(auto, calc(var(--body-width) - var(--sidenav-width)))
+		minmax(0, var(--sidenav-width))
+"""
+"--layout-both-top" = """
+	"leftnav topnav rightnav" minmax(0, max-content)
+	"leftnav content rightnav" auto
+	/ minmax(0, var(--sidenav-width))
+		minmax(auto, calc(var(--body-width) - 2*var(--sidenav-width)))
+		minmax(0, var(--sidenav-width))
+"""
+"--layout-top-both" = """
+	"topnav topnav topnav" minmax(0, max-content)
+	"leftnav content rightnav" auto
+	/ minmax(0, var(--sidenav-width))
+		minmax(auto, calc(var(--body-width) - 2*var(--sidenav-width)))
+		minmax(0, var(--sidenav-width))
+"""
+
+"--html-box-sizing" = "border-box"
+
+"--body-grid" = "var(--layout-vertical)"
+"--body-grid-lv1" = "var(--layout-both-top)"
+"--body-grid-lv2" = "var(--layout-top-both)"
+"--body-grid-lv3" = "var(--layout-top-both)"
+"--body-grid-gap" = "0"
+"--body-justify-items" = "center"
+"--body-align-items" = "center"
+"--body-width" = "100%"
+"--sidenav-width" = "22%"
+
+"--main-min-width" = "initial"
+"--main-width" = "initial"
+"--main-max-width" = "100vw"
+"--main-margin" = "0"
+"--main-padding" = "3.5rem"
+
+
+
+
+# z-axis (3rd-dimension)
+"--z-index-max" = 2147483647
+"--z-index-max-overlay" = 1
+"--z-index-nav-top" = 2
+"--z-index-nav" = 3
+"--z-index-nav-overlay" = 4
+"--z-index-content-top" = 5
+"--z-index-content" = 6
+"--z-index-content-overlay" = 7
+"--z-index-hidden" = 0
+
+
+
+
+# font sizing
+"--body-font-family" = "\"Roboto\", \"Helvetica Neue\", \"sans-serif\""
+"--body-font-size" = "1.8rem"
+"--body-font-size-print" = "12pt"
+"--body-font-weight" = "normal"
+"--body-letter-spacing" = ".01rem"
+"--body-line-height" = 1.6
+"--body-text-align" = "center"
+"--body-color" = "var(--color-typography-950)"
+"--body-background" = "var(--color-typography-50)"
+
+
+"--h1-font-size" = "5rem"
+"--h1-line-height" = "1.2"
+"--h1-letter-spacing" = "-.1rem"
+"--h1-margin" = "2rem 0 0"
+"--h1-text-decoration" = "underline"
+"--h1-decoration-color" = "var(--color-primary-300)"
+"--h1-border-bottom" = "none"
+"--h1-before-content" = ""
+"--h1-before-margin" = "initial"
+"--h1-before-color" = "initial"
+"--h1-after-content" = ""
+"--h1-after-margin" = "initial"
+"--h1-after-color" = "initial"
+
+
+"--h2-font-size" = "4rem"
+"--h2-line-height" = "1.25"
+"--h2-letter-spacing" = "-.1rem"
+"--h2-margin" = "10rem 0 5rem"
+"--h2-padding" = "0"
+"--h2-text-decoration" = "initial"
+"--h2-decoration-color" = "initial"
+"--h2-border-bottom" = "thick double var(--color-primary-800)"
+"--h2-before-content" = ""
+"--h2-before-margin" = "initial"
+"--h2-before-color" = "initial"
+"--h2-before-background" = "initial"
+"--h2-after-content" = "\"§\""
+"--h2-after-color" = "var(--color-typography-50)"
+"--h2-after-border" = "thick double var(--color-typography-50)"
+"--h2-after-background" = "var(--color-primary-800)"
+"--h2-after-border-print" = "thick double var(--color-primary-800)"
+"--h2-after-color-print" = "var(--color-primary-800)"
+
+
+"--h3-font-size" = "2.5rem"
+"--h3-line-height" = "1.3"
+"--h3-letter-spacing" = "-.1rem"
+"--h3-margin" = "8rem 0 0"
+"--h3-text-decoration" = "initial"
+"--h3-decoration-color" = "initial"
+"--h3-border-bottom" = "1px solid var(--color-primary-500)"
+"--h3-before-content" = ""
+"--h3-before-margin" = "initial"
+"--h3-before-color" = "initial"
+"--h3-before-background" = "initial"
+"--h3-after-content" = ""
+"--h3-after-margin" = "initial"
+"--h3-after-color" = "initial"
+"--h3-after-background" = "initial"
+
+
+"--h4-font-size" = "2.2rem"
+"--h4-line-height" = "1.35"
+"--h4-letter-spacing" = "-.08rem"
+"--h4-margin" = "4.5rem 0 0"
+"--h4-text-decoration" = "initial"
+"--h4-decoration-color" = "initial"
+"--h4-border-bottom" = "initial"
+"--h4-before-content" = ""
+"--h4-before-margin" = "initial"
+"--h4-before-color" = "initial"
+"--h4-before-background" = "initial"
+"--h4-after-content" = ""
+"--h4-after-margin" = "initial"
+"--h4-after-color" = "initial"
+"--h4-after-background" = "initial"
+
+
+"--h5-font-size" = "1.8rem"
+"--h5-line-height" = "1.5"
+"--h5-letter-spacing" = "-.05rem"
+"--h5-margin" = "4.5rem 0 0"
+"--h5-text-decoration" = "initial"
+"--h5-decoration-color" = "initial"
+"--h5-border-bottom" = "initial"
+"--h5-before-content" = ""
+"--h5-before-margin" = "initial"
+"--h5-before-color" = "initial"
+"--h5-before-background" = "initial"
+"--h5-after-content" = ""
+"--h5-after-margin" = "initial"
+"--h5-after-color" = "initial"
+"--h5-after-background" = "initial"
+
+
+"--h6-font-size" = "1.6rem"
+"--h6-line-height" = "0"
+"--h6-letter-spacing" = "0"
+"--h6-margin" = "4.5rem 0 0"
+"--h6-text-decoration" = "initial"
+"--h6-decoration-color" = "initial"
+"--h6-border-bottom" = "initial"
+"--h6-before-content" = ""
+"--h6-before-margin" = "initial"
+"--h6-before-color" = "initial"
+"--h6-before-background" = "initial"
+"--h6-after-content" = ""
+"--h6-after-margin" = "initial"
+"--h6-after-color" = "initial"
+"--h6-after-background" = "initial"
+
+
+
+
+# timing
+"--timing-rapid" = ".2s"
+"--timing-fast" = ".3s"
+"--timing-normal" = ".4s"
+"--timing-slow" = ".5s"
+"--timing-slowest" = ".8s"
+
+
+
+
+# color
+"--color-primary-50" = "#e5e5ff"
+"--color-primary-100" = "#bdbdff"
+"--color-primary-200" = "#8282ff"
+"--color-primary-300" = "#3434ff"
+"--color-primary-400" = "#0000d1"
+"--color-primary-500" = "#000096"
+"--color-primary-600" = "#00006f"
+"--color-primary-700" = "#00005b"
+"--color-primary-800" = "#000048"
+"--color-primary-900" = "#000034"
+"--color-primary-950" = "#000020"
+
+"--color-dark-primary-50" = "#000020"
+"--color-dark-primary-100" = "#000034"
+"--color-dark-primary-200" = "#000048"
+"--color-dark-primary-300" = "#00005b"
+"--color-dark-primary-400" = "#00006f"
+"--color-dark-primary-500" = "#000096"
+"--color-dark-primary-600" = "#0000d1"
+"--color-dark-primary-700" = "#3434ff"
+"--color-dark-primary-800" = "#8282ff"
+"--color-dark-primary-900" = "#bdbdff"
+"--color-dark-primary-950" = "#e5e5ff"
+
+"--color-contrast-50" = "#ffffb1"
+"--color-contrast-100" = "#ffff89"
+"--color-contrast-200" = "#ffff62"
+"--color-contrast-300" = "#ffff4e"
+"--color-contrast-400" = "#ffff27"
+"--color-contrast-500" = "#ffff14"
+"--color-contrast-600" = "#ffff00"
+"--color-contrast-700" = "#ebeb00"
+"--color-contrast-800" = "#d8d800"
+"--color-contrast-900" = "#b1b100"
+"--color-contrast-950" = "#898900"
+
+"--color-dark-contrast-50" = "#898900"
+"--color-dark-contrast-100" = "#b1b100"
+"--color-dark-contrast-200" = "#d8d800"
+"--color-dark-contrast-300" = "#ebeb00"
+"--color-dark-contrast-400" = "#ffff00"
+"--color-dark-contrast-500" = "#ffff14"
+"--color-dark-contrast-600" = "#ffff27"
+"--color-dark-contrast-700" = "#ffff4e"
+"--color-dark-contrast-800" = "#ffff62"
+"--color-dark-contrast-900" = "#ffff89"
+"--color-dark-contrast-950" = "#ffffb1"
+
+"--color-typography-50" = "#f6f6f6"
+"--color-typography-100" = "#e3e3e3"
+"--color-typography-200" = "#cfcfcf"
+"--color-typography-300" = "#a8a8a8"
+"--color-typography-400" = "#8a8a8a"
+"--color-typography-500" = "#777777"
+"--color-typography-600" = "#595959"
+"--color-typography-700" = "#505050"
+"--color-typography-800" = "#3c3c3c"
+"--color-typography-900" = "#282828"
+"--color-typography-950" = "#151515"
+
+"--color-dark-typography-50" = "#151515"
+"--color-dark-typography-100" = "#282828"
+"--color-dark-typography-200" = "#3c3c3c"
+"--color-dark-typography-300" = "#505050"
+"--color-dark-typography-400" = "#595959"
+"--color-dark-typography-500" = "#777777"
+"--color-dark-typography-600" = "#8a8a8a"
+"--color-dark-typography-700" = "#a8a8a8"
+"--color-dark-typography-800" = "#cfcfcf"
+"--color-dark-typography-900" = "#e3e3d3"
+"--color-dark-typography-950" = "#f6f6f6"
+
+
+
+
+# grid system
+"--grid-width" = "100%"
+"--grid-justify-content" = "space-around"
+"--grid-align-items" = "stretch"
+"--grid-flex-wrap" = "wrap"
+
+"--grid-column-display" = "block"
+"--grid-column-width" = "initial"
+"--grid-column-max-width" = "100%"
+"--grid-column-margin" = ".3rem"
+"--grid-column-padding" = "0"
+"--grid-column-visibility" = "visible"
+"--grid-column-base" = 10
+"--grid-column-multiplier" = 1
+"--grid-column-flex-basis" = "auto"
