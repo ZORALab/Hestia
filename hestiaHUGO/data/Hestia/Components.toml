@@ -2,29 +2,42 @@
 # ========================================
 # All Hestia internal web UI components at site-level configurations. These
 # configurations can be overwritten by page specific ones whenever available.
-# The components low-level codes are auto-generated from hestiaGO code libraries
-# to retain its UI rendering consistency between non-WASM users and WASM users.
+# The components' low-level codes are auto-generated from hestiaGO code
+# libraries for rendering consistency between non-WASM users and WASM users.
 #
-# If you're using WASM from Hestia code libraries and directly control the page
-# UI (either as single-page rendering or reactive rendering), you **SHOULD NOT**
-# include anything below as they're redundant and can cause complications to
-# your WASM rendering. Please stick to one type.
+# If you're using WASM from Hestia code libraries and they are directly
+# controlling the page UI (either as single-page rendering or reactive
+# rendering), you **SHOULD NOT** include anything below as they're redundant and
+# can cause confusing complications. Please stick to one rendering method.
 #
 # You SHOULD ONLY include components that are used across all pages. To
 # configure:
-#     [COMPONENT].Include   = to include the component (true/false).
-#     [COMPONENT].Variables = overwrites the component's variables.
+#     [[List]]
+#     Name = "COMPONENT"
+#     Include = true
+#     Variables = [
+#            { "--variable-1" = "1rem" },
+#            { "--variable-2" = "2rem" },
+#     ]
 #
-# The data structure is as follows:
-#               [{COMPONENT}]
-#               Include = true
+#     List.{POSITION}.Name      = name of the component (string)
+#     List.{POSITION}.Include   = inclusion decision (bool true/false)
+#     List.{POSITION}.Variables = list of overriding variables to the component.
 #
-#               [{COMPONENTS}.Variables]
-#               "{{ CSS Variable Name }}" = "{{ CSS Value }}"
+# NOTE:
+#     1) The position of the component listing influences the variables
+#        overriding sequence. Please construct your list properly.
 #
-#         Example:
-#               [anchor]
-#               Include = true
 #
-#               [anchor.Variables]
-#               "--anchor-color" = "red"
+# EXAMPLE:
+#        [[List]]
+#        Name = "hestiaUI_core"
+#        Include = true
+#        Variables = [
+#                  { "--test-variable-1" = "1rem" },
+#                  { "--test-variable-2" = "2rem" },
+#        ]
+#
+#        [[List]]
+#        Name = "hestiaUI_font-NotoSans"
+#        Include = true

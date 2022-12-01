@@ -25,7 +25,8 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Local := dict -}}
-{{- $dataList := dict -}}
+{{- $dataList := slice -}}
+{{- $list := slice -}}
 {{- $data := false -}}
 {{- $ret := false -}}
 
@@ -43,45 +44,71 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source site-level components list */ -}}
-{{- $dataList = dict -}}
-{{- range $k, $v := .Site.Data.Hestia.Components -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := .Site.Data.Hestia.Components.List -}}
 	{{- $data = dict -}}
 
 
 	{{- if not (index $v "Include") -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $data = merge $data (dict "Include" true) -}}
+
+
+	{{- /* process component's name */ -}}
+	{{- $ret = $v.Name -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" $ret) -}}
 
 
 	{{- /* process component's variables */ -}}
 	{{- $ret = dict -}}
 	{{- range $j, $w := $v.Variables -}}
-		{{- $ret = merge $ret (dict (string $j) (string $w)) -}}
+		{{- range $k, $x := $w -}}
+			{{- $ret = merge $ret (dict (string $k) (string $x)) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Variables" $ret) -}}
 
 
 	{{- /* add to datalist */ -}}
-	{{- $dataList = merge $dataList (dict (string $k) $data) -}}
+	{{- $dataList = append $data $dataList -}}
 {{- end -}}
 
 
 
 
 {{- /* source page-level components list */ -}}
-{{- range $k, $v := $Local -}}
+{{ $Local = index $Local "List" -}}
+{{- if not $Local -}}
+	{{- $Local = slice -}}
+{{- end -}}
+
+
+{{- range $i, $v := $Local -}}
 	{{- $data = dict -}}
 
 
 	{{- if not (index $v "Include") -}}
-		{{- if index $dataList (string $k) -}}
-			{{- $ret = dict (string $k) (dict "Include" false) -}}
-			{{- $dataList = merge $dataList $ret -}}
+		{{- $list = slice -}}
+		{{- range $j, $w := $list -}}
+			{{- if not (eq $w.Name (string (index $v "Name"))) -}}
+				{{- $list = append $w $list -}}
+			{{- end -}}
 		{{- end -}}
+		{{- $dataList = $list -}}
 
 		{{- continue -}}
 	{{- end -}}
+
+
+	{{- /* process component's name */ -}}
+	{{- $ret = $v.Name -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" $ret) -}}
 
 
 	{{- /* process component's variables */ -}}
@@ -93,7 +120,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* add to datalist */ -}}
-	{{- $dataList = merge $dataList (dict (string $k) $data) -}}
+	{{- $dataList = append $data $dataList -}}
 {{- end -}}
 
 

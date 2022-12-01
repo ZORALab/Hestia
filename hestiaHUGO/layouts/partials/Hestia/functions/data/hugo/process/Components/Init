@@ -24,7 +24,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $Page = merge $Page (dict "Components" false) -}}
 {{- $Page = merge $Page (dict "Components" dict) -}}
-{{- $dataList := dict -}}
+{{- $dataList := slice -}}
 {{- $console := dict -}}
 {{- $component := false -}}
 {{- $ret := false -}}
@@ -32,30 +32,34 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process all the components list */ -}}
-{{- $dataList = dict -}}
-{{- range $k, $v := .Components -}}
-	{{- /* skip if the final inclusion decision is false */ -}}
-	{{- if not (index $v "Include") -}}
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- /* process component name */ -}}
-	{{- $ret = printf "Hestia/functions/render/components/%s" $k -}}
-
-	{{- if not (partial "Hestia/functions/data/hugo/process/Components/__exists" $ret) -}}
-		{{- $console = printf "Components: unknown component '%v'.\n" $k -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := .Components -}}
+	{{- /* process component's name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.console -}}
+		{{- $console = printf "Components: Name: %v" $ret.console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
-
-	{{- $ret = dict "Path" $ret -}}
-	{{- $dataList = merge $dataList (dict $k $ret) -}}
+	{{- $v = merge $v (dict "Name" $ret.Output) -}}
 
 
-	{{- /* process variables */ -}}
+	{{- /* process component's existence */ -}}
+	{{- $ret = printf "Hestia/functions/render/components/%s" $v.Name -}}
+	{{- if not (partial "Hestia/functions/data/hugo/process/Components/__exists" $ret) -}}
+		{{- $console = printf "Components: unknown component '%v'.\n" $v.Name -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $v = merge $v (dict "Path" $ret) -}}
+
+
+	{{- /* process component's variables */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Variables" $v.Variables)) -}}
 	{{- $ret = partial "Hestia/functions/data/hugo/process/Components/__variables" $ret -}}
 	{{- if $ret.Console -}}
@@ -66,7 +70,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = dict "Variables" $ret.Output -}}
-	{{- $dataList = merge $dataList (dict $k $ret) -}}
+	{{- $dataList = append $v $dataList -}}
 {{- end -}}
 
 
