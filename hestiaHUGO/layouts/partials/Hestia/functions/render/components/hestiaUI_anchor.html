@@ -16,24 +16,23 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 
+
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* .URL             = Link source URL value for href= attribute       */ -}}
-{{- /* .Rel             = Link relationship value for rel= attribute      */ -}}
-{{- /* .Lang            = Link language hinting for hreflang= attribute   */ -}}
-{{- /* .OnLoad          = Link onload= value                              */ -}}
-{{- /* .Content         = URL content                                     */ -}}
-{{- /* .ID              = ID attribute for the URL                        */ -}}
-{{- /* .Class           = Class attribute for the URL                     */ -}}
-{{- /* .Target          = Javascript action upon clicking the URL         */ -}}
-{{- /* .Download        = Download flag to set URL as download            */ -}}
+{{- /* .URL             = URL value for href= attribute (must,URL)        */ -}}
+{{- /* .Rel             = relationship attribute (optional,string)        */ -}}
+{{- /* .Lang            = language hinting attribute (optional,string)    */ -}}
+{{- /* .OnLoad          = onload= javascript value (optional,string)      */ -}}
+{{- /* .Content         = content of the URL (must,any)                   */ -}}
+{{- /* .ID              = ID attribute value (optional,string)            */ -}}
+{{- /* .Class           = Class attribute value (optional,string)         */ -}}
+{{- /* .Target          = Target attribute value (optional,string)        */ -}}
+{{- /* .Download        = Download flag (optional,bool)                   */ -}}
 
 
-
-
-{{- /* render output */ -}}
+{{- /* RENDER COMPONENT */ -}}
 {{- if and .URL .Content }}
-<a href="{{- .URL -}}"
-	{{- if .ID }} id="{{- .ID -}}"{{- end }}
+<a href='{{- .URL -}}'
+	{{- if .ID }} id='{{- .ID -}}'{{- end }}
 	{{- if .Class }} class="{{- .Class -}}"{{- end }}
 	{{- if .Rel }} rel="{{- .Rel -}}"{{- end }}
 	{{- if .Lang }} hreflang="{{- .Lang -}}"{{- end }}

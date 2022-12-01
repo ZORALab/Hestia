@@ -50,3 +50,8 @@ Variables = []
 Name = "hestiaUI_font-NotoSans"
 Include = true
 Variables = []
+
+[[List]]
+Name = "hestiaUI_anchor"
+Include = true
+Variables = []

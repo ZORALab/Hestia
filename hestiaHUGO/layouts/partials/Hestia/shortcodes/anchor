@@ -239,7 +239,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- $ret = printf "layouts/partials/Hestia/functions/render/components/anchor%s"
+{{- $ret = printf "layouts/partials/Hestia/functions/render/components/hestiaUI_anchor%s"
 	$dataList.Format.Extension -}}
 {{- if partial "Hestia/functions/data/filesystem/IsFileExists" $ret -}}
 	{{- $ret = strings.TrimPrefix "layouts/partials" $ret -}}
