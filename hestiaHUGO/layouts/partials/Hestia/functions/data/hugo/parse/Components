@@ -90,10 +90,19 @@ specific language governing permissions and limitations under the License.
 	{{- $data = dict -}}
 
 
+	{{- /* process component's name */ -}}
+	{{- $ret = index $v "Name" -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" $ret) -}}
+
+
+	{{- /* process page-level component's inclusion */ -}}
 	{{- if not (index $v "Include") -}}
 		{{- $list = slice -}}
-		{{- range $j, $w := $list -}}
-			{{- if not (eq $w.Name (string (index $v "Name"))) -}}
+		{{- range $j, $w := $dataList -}}
+			{{- if and $ret (not (eq $data.Name $ret)) -}}
 				{{- $list = append $w $list -}}
 			{{- end -}}
 		{{- end -}}
@@ -101,14 +110,6 @@ specific language governing permissions and limitations under the License.
 
 		{{- continue -}}
 	{{- end -}}
-
-
-	{{- /* process component's name */ -}}
-	{{- $ret = $v.Name -}}
-	{{- if not $ret -}}
-		{{- continue -}}
-	{{- end -}}
-	{{- $data = merge $data (dict "Name" $ret) -}}
 
 
 	{{- /* process component's variables */ -}}
@@ -119,8 +120,24 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Variables" $ret) -}}
 
 
-	{{- /* add to datalist */ -}}
-	{{- $dataList = append $data $dataList -}}
+	{{- /* refine dataList */ -}}
+	{{- $list = slice -}}
+	{{- $ret = -1 -}}
+	{{- range $j, $w := $dataList -}}
+		{{- if eq $w.Name $data.Name -}}
+			{{- $data = merge $w $data -}}
+			{{- $list = append $data $list -}}
+			{{- $ret = 1 -}}
+		{{- else -}}
+			{{- $list = append $w $list -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- if eq $ret -1 -}}
+		{{- $list = append $data $list -}}
+	{{- end -}}
+
+	{{- $dataList = $list -}}
 {{- end -}}
 
 
