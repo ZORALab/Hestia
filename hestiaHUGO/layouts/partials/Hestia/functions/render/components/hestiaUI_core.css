@@ -131,10 +131,10 @@ h2:after {
 	content: var(--h2-after-content);
 
 	margin: 0;
-	padding: 0;
+	padding: .8rem 0 0;
 
 	height: 7rem;
-	width: 7rem;
+	width: 7.8rem;
 	font-size: 5rem;
 
 	color: var(--h2-after-color);
