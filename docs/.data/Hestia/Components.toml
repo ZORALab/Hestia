@@ -42,16 +42,16 @@
 #        Name = "hestiaUI_font-NotoSans"
 #        Include = true
 [[List]]
-Name = "hestiaUI_core"
+Name = "core_hestiaUI"
 Include = true
 Variables = []
 
 [[List]]
-Name = "hestiaUI_font-NotoSans"
+Name = "font-NotoSans_hestiaUI"
 Include = true
 Variables = []
 
 [[List]]
-Name = "hestiaUI_anchor"
+Name = "anchor_hestiaUI"
 Include = true
 Variables = []

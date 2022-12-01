@@ -4,6 +4,6 @@
 # ONLY include/exclude those you need/unused. See .Data.Hestia.Components data
 # file for help.
 [[List]]
-Name = "hestiaUI_core"
+Name = "core_hestiaUI"
 Include = true
 Variables = []
