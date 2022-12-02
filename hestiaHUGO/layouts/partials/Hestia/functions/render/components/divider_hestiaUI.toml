@@ -6,5 +6,5 @@
 "--divider-color" = "var(--color-primary-600)"
 "--divider-background" = "transparent"
 "--divider-border-color" = "var(--divider-color)"
-"--divider-margin" = "0"
+"--divider-margin" = "0 auto"
 "--divider-padding" = "0"

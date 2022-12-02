@@ -1,0 +1,2 @@
+[CSS.Variables]
+"--divider-dashed-border-bottom" = "2px dashed var(--divider-color)"
