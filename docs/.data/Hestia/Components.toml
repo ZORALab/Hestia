@@ -80,3 +80,8 @@ Variables = []
 Name = "gochroma_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "deflist_hestiaUI"
+Include = true
+Variables = []
