@@ -1,0 +1,85 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+pre {
+	display: var(--pre-display);
+
+	margin: var(--pre-margin);
+	padding: var(--pre-padding);
+	overflow: var(--pre-overflow);
+
+	border: var(--pre-border);
+	border-radius: var(--pre-border-radius);
+
+	min-width: var(--pre-min-width);
+	width: var(--pre-width);
+	max-width: var(--pre-max-width);
+
+	min-height: var(--pre-min-height);
+	height: var(--pre-height);
+	max-height: var(--pre-max-height);
+
+	color: var(--pre-color);
+	background: var(--pre-background);
+
+	font-size: var(--pre-font-size);
+	font-family: var(--pre-font-family);
+	text-decoration: var(--pre-text-decoration);
+	word-break: var(--pre-word-break);
+	letter-spacing: var(--pre-letter-spacing);
+	line-height: var(--pre-line-height);
+	text-align: var(--pre-text-align);
+
+	transition: var(--pre-transition);
+}
+
+pre code {
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+
+	border: none;
+	border-radius: 0;
+
+	min-width: 100%;
+	width: 100%;
+	max-width: initial;
+
+	min-height: initial;
+	height: initial;
+	max-height: initial;
+
+	color: inherit;
+	background: transparent;
+
+	font-size: inherit;
+	font-family: inherit;
+	text-decoration: inherit;
+	word-break: keep-all;
+	letter-spacing: inherit;
+	line-height: inherit;
+	text-align: inherit;
+
+	transition: inherit;
+}
+
+@media print {
+	pre {
+		background: transparent;
+		break-inside: avoid;
+	}
+}
