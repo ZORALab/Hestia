@@ -34,6 +34,6 @@ code {
 @media print {
 	code {
 		background: transparent;
-		break-inside: avoid;
+		break-inside: avoid-page;
 	}
 }

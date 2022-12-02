@@ -27,3 +27,11 @@ div.highlight table {
 div.highlight pre {
 	max-width: 72vw;
 }
+
+@media print {
+	div.highlight pre {
+		border: none;
+		overflow: hidden;
+		overflow-wrap: break-word;
+	}
+}

@@ -80,6 +80,6 @@ pre code {
 @media print {
 	pre {
 		background: transparent;
-		break-inside: avoid;
+		break-inside: avoid-page;
 	}
 }

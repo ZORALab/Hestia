@@ -64,3 +64,17 @@ dl dd:before {
 	display: block;
 	content: "("counter(var(--deflist-counter)) ")";
 }
+
+@media print {
+	dl {
+		break-inside: avoid;
+	}
+
+	dl dt {
+		break-inside: avoid;
+	}
+
+	dl dd {
+		break-inside: avoid;
+	}
+}
