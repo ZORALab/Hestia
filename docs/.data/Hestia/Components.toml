@@ -55,3 +55,8 @@ Variables = []
 Name = "anchor_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "blockquote_hestiaUI"
+Include = true
+Variables = []
