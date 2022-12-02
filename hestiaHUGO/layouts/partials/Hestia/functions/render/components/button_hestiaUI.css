@@ -1,0 +1,101 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+input[type='button'],
+input[type='reset'],
+input[type='submit'],
+button,
+.button {
+	display: var(--button-display);
+	opacity: var(--button-opacity);
+	transition: var(--button-transition);
+
+
+	margin: var(--button-margin);
+	padding: var(--button-padding);
+
+
+	border: var(--button-border);
+	border-radius: var(--button-border-radius);
+	box-shadow: var(--button-box-shadow);
+
+
+	color: var(--button-color);
+	background: var(--button-background);
+	border-color: var(--button-color);
+
+
+	font-size: var(--button-font-size);
+	font-weight: var(--button-font-weight);
+	letter-spacing: var(--button-letter-spacing);
+	text-align: var(--button-text-align);
+	text-decoration: var(--button-text-decoration);
+	text-transform: var(--button-text-transform);
+	overflow-wrap: var(--button-overflow-wrap);
+	word-break: var(--button-word-break);
+	line-height: var(--button-line-height);
+}
+
+input[type='button'].emphasize,
+input[type='reset'].emphasize,
+input[type='submit'].emphasize,
+button.emphasize,
+.button.emphasize {
+	color: var(--button-color-inverted);
+	background: var(--button-color);
+}
+
+input[type='button']:disabled,
+input[type='reset']:disabled,
+input[type='submit']:disabled,
+button:disabled,
+.button:disabled {
+	box-shadow: none;
+	opacity: var(--button-opacity-disabled);
+}
+
+input[type='button']:not([disabled]):hover, input[type='button']:not([disabled]):focus,
+input[type='reset']:not([disabled]):hover, input[type='reset']:not([disabled]):focus,
+input[type='submit']:not([disabled]):hover, input[type='submit']:not([disabled]):focus,
+button:not([disabled]):hover, button:not([disabled]):focus,
+.button:not([disabled]):hover, .button:not([disabled]):focus {
+	border: var(--button-border);
+	border-color: var(--button-color);
+	transform: var(--button-transform-active);
+}
+
+input[type='button']:not(.emphasize):not([disabled]):hover,
+input[type='button']:not(.emphasize):not([disabled]):focus,
+input[type='reset']:not(.emphasize):not([disabled]):hover,
+input[type='reset']:not(.emphasize):not([disabled]):focus,
+input[type='submit']:not(.emphasize):not([disabled]):hover,
+input[type='submit']:not(.emphasize):not([disabled]):focus,
+button:not(.emphasize):not([disabled]):hover,
+button:not(.emphasize):not([disabled]):focus,
+.button:not(.emphasize):not([disabled]):hover,
+.button:not(.emphasize):not([disabled]):focus {
+	color: var(--button-color-inverted);
+	background: var(--button-color);
+}
+
+input[type='button']:not([disabled]):active,
+input[type='reset']:not([disabled]):active,
+input[type='submit']:not([disabled]):active,
+button:not(disabled):active,
+.button:not(disabled):active {
+	box-shadow: none;
+}
