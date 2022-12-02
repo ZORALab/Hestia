@@ -95,3 +95,8 @@ Variables = []
 Name = "divider-dashed_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "divider-page-break_hestiaUI"
+Include = true
+Variables = []
