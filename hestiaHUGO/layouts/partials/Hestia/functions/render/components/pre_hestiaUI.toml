@@ -7,7 +7,7 @@
 "--pre-border-radius" = ".5rem"
 "--pre-min-width" = "initial"
 "--pre-width" = "100%"
-"--pre-max-width" = "85vw"
+"--pre-max-width" = "75vw"
 "--pre-min-height" = "initial"
 "--pre-height" = "initial"
 "--pre-max-height" = "initial"
