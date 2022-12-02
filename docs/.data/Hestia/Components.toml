@@ -85,3 +85,8 @@ Variables = []
 Name = "deflist_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "divider_hestiaUI"
+Include = true
+Variables = []

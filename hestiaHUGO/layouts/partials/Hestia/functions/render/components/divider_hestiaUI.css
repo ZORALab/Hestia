@@ -1,0 +1,32 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+
+hr {
+	display: var(--divider-display);
+
+	margin: var(--divider-margin);
+	padding: var(--divider-padding);
+
+	border: var(--divider-border);
+	border-top: var(--divider-border-top);
+	border-bottom: var(--divider-border-bottom);
+
+	color: var(--divider-color);
+	background: var(--divider-background);
+	border-color: var(--divider-border-color);
+}

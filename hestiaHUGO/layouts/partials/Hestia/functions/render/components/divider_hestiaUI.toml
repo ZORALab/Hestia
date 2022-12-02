@@ -1,0 +1,10 @@
+[CSS.Variables]
+"--divider-display" = "block"
+"--divider-border" = "initial"
+"--divider-border-top" = "initial"
+"--divider-border-bottom" = "1px solid var(--divider-color)"
+"--divider-color" = "var(--color-primary-600)"
+"--divider-background" = "transparent"
+"--divider-border-color" = "var(--divider-color)"
+"--divider-margin" = "0"
+"--divider-padding" = "0"
