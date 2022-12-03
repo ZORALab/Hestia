@@ -47,6 +47,9 @@ body {
 
 	color: var(--body-color);
 	background: var(--body-background);
+
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
 }
 
 main {
@@ -63,6 +66,9 @@ main {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+
+	color: var(--body-color);
+	background: var(--body-background);
 }
 
 footer, .footer {
@@ -434,7 +440,7 @@ section, article, div {
 		--body-font-size: var(--body-font-size-print);
 	}
 
-	body {
+	body, main {
 		color: var(--body-color-print);
 		background: var(--body-background-print);
 	}

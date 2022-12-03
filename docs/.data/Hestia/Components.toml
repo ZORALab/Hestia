@@ -120,3 +120,8 @@ Variables = []
 Name = "iframe_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "picture_hestiaUI"
+Include = true
+Variables = []
