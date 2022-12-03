@@ -1,0 +1,102 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+table {
+	display: var(--table-display);
+	overflow: var(--table-overflow);
+
+	margin: var(--table-margin);
+	padding: var(--table-padding);
+
+	min-width: var(--table-min-width);
+	max-width: var(--table-max-width);
+
+	min-height: var(--table-min-height);
+	max-height: var(--table-max-height);
+
+	border-collapse: collapse;
+	border: var(--table-border);
+
+	color: var(--table-color);
+	background: var(--table-background);
+}
+
+table th,
+table td {
+	margin: var(--table-cell-margin);
+	padding: var(--table-cell-padding);
+}
+
+table thead th {
+	color: var(--table-thead-th-color);
+	background: var(--table-thead-th-background);
+}
+
+table tbody th {
+	color: var(--table-tbody-th-color);
+	background: var(--table-tbody-th-background);
+}
+
+table tbody td {
+	border: var(--table-cell-border);
+
+	background: transparent;
+}
+
+table tbody tr:nth-child(odd) {
+	background: var(--table-tbody-td-odd-background);
+}
+
+table tbody tr td:nth-child(odd) {
+	background: var(--table-tbody-td-odd-background);
+}
+
+table tbody tr:nth-child(even) {
+	background: var(--table-tbody-td-even-background);
+}
+
+table tbody tr td:nth-child(even) {
+	background: var(--table-tbody-td-even-background);
+}
+
+table tbody tr:nth-child(even) td:hover,
+table tbody tr:nth-child(even) td:focus,
+table tbody tr:nth-child(odd) td:hover,
+table tbody tr:nth-child(odd) td:focus,
+table tbody tr td:nth-child(even):hover,
+table tbody tr td:nth-child(odd):focus {
+	background: var(--table-tbody-td-focus-background);
+}
+
+footer table {
+	border: var(--table-border-inverted);
+}
+
+footer table tbody td {
+	border: var(--table-border-inverted);
+}
+
+@media print {
+	table,
+	table th,
+	table tr,
+	table td {
+		color: var(--table-color-print);
+		background: transparent;
+		border: var(--table-border-print);
+	}
+}

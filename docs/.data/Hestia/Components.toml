@@ -125,3 +125,8 @@ Variables = []
 Name = "picture_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "table_hestiaUI"
+Include = true
+Variables = []

@@ -15,36 +15,3 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-div.highlight {
-	margin: 0 auto;
-	max-width: 100%;
-	border: var(--pre-border);
-	border-radius: var(--pre-border-radius);
-	background: var(--pre-background);
-	overflow:auto;
-}
-
-div.highlight table,
-div.highlight th,
-div.highlight tr,
-div.highlight td {
-	background: transparent !important;
-}
-
-div.highlight pre {
-	border: none;
-	background: transparent;
-	overflow:visible;
-}
-
-footer div.highlight {
-	border: var(--pre-border-inverted);
-	background: var(--pre-background-inverted);
-}
-
-@media print {
-	div.highlight {
-		background: transparent;
-		break-inside: avoid-page;
-	}
-}

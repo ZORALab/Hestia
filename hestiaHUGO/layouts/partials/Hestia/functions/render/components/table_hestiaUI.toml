@@ -1,0 +1,39 @@
+[CSS.Variables]
+"--table-display" = "table"
+"--table-overflow" = "auto auto"
+
+"--table-margin" = "2rem auto"
+"--table-padding" = "0"
+
+"--table-min-width" = "initial"
+"--table-max-width" = "100%"
+"--table-min-height" = "initial"
+"--table-max-height" = "initial"
+
+"--table-border" = "1px solid var(--color-primary-900)"
+"--table-border-inverted" = "1px solid var(--color-primary-200)"
+"--table-border-print" = "1px solid var(--body-color-print)"
+
+"--table-color" = "var(--body-color)"
+"--table-color-print" = "var(--body-color-print)"
+"--table-background" = "var(--body-background)"
+
+
+
+
+"--table-cell-margin" = "0"
+"--table-cell-padding" = "1rem"
+
+"--table-cell-border" = "var(--table-border)"
+
+
+
+
+"--table-thead-th-color" = "var(--color-typography-100)"
+"--table-thead-th-background" = "var(--color-primary-900)"
+
+"--table-tbody-th-color" = "var(--color-typography-100)"
+"--table-tbody-th-background" = "var(--color-primary-700)"
+"--table-tbody-td-focus-background" = "var(--color-contrast-500)"
+"--table-tbody-td-odd-background" = "transparent"
+"--table-tbody-td-even-background" = "var(--color-primary-50)"
