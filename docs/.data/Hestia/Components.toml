@@ -105,3 +105,8 @@ Variables = []
 Name = "divider-cut_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "olist_hestiaUI"
+Include = true
+Variables = []

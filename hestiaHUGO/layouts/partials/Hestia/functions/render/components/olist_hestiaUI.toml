@@ -1,0 +1,16 @@
+[CSS.Variables]
+"--olist-spacing" = "4rem"
+"--olist-tab-spacing" = "6rem"
+"--olist-display" = "block"
+"--olist-text-align" = "initial"
+"--olist-text-align-aligned-left" = "justify"
+"--olist-margin" = "0"
+"--olist-padding" = "0"
+
+
+
+"--olist-li-margin" = "var(--olist-spacing) 0"
+"--olist-li-margin-aligned-left" = """
+var(--olist-spacing) 0 var(--olist-spacing) var(--olist-tab-spacing)
+"""
+"--olist-li-padding" = "0"
