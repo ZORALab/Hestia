@@ -68,8 +68,31 @@ main {
 	flex-direction: column;
 }
 
+footer, .footer {
+	z-index: calc(var(--z-index-max) - var(--z-index-content));
+
+	min-width: var(--footer-min-width);
+	width: var(--footer-width);
+	max-width: var(--footer-max-width);
+
+	margin: var(--footer-margin);
+	padding: var(--footer-padding);
+
+	color: var(--footer-color);
+	background: var(--footer-background);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 main, .content {
 	grid-area: var(--content-grid-area);
+}
+
+footer, .footer {
+	grid-area: var(--footer-grid-area);
 }
 
 nav.leftnav, .leftnav {
@@ -127,7 +150,7 @@ h2:before {
 	background: var(--h2-before-background);
 }
 
-h2:after {
+h2:not(.clean):after {
 	display: block;
 	content: var(--h2-after-content);
 
@@ -147,6 +170,16 @@ h2:after {
 	position: relative;
 	left: 50%;
 	transform: translate(-50%, 50%);
+}
+
+footer h2 {
+	border-bottom: var(--h2-border-bottom-color-inverted);
+}
+
+footer h2:not(.clean):after {
+	color: var(--h2-after-color-inverted);
+	background: var(--h2-after-background-color-inverted);
+	border: var(--h2-after-border-color-inverted);
 }
 
 h3 {
@@ -174,6 +207,10 @@ h3:after {
 	margin: var(--h3-after-margin);
 	color: var(--h3-after-color);
 	background: var(--h3-after-background);
+}
+
+footer h3 {
+	border-bottom: var(--h3-border-bottom-color-inverted);
 }
 
 h4 {
