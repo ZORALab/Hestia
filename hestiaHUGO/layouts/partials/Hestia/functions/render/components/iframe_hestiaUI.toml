@@ -1,0 +1,17 @@
+[CSS.Variables]
+"--iframe-display" = "block"
+
+"--iframe-margin" = "0 auto"
+
+"--iframe-min-width" = "initial"
+"--iframe-max-width" = "100%"
+"--iframe-width-hidden" = "1px"
+"--iframe-min-height" = "initial"
+"--iframe-height-hidden" = "1px"
+"--iframe-max-height" = "initial"
+"--iframe-visibility" = "visible"
+"--iframe-visibility-hidden" = "hidden"
+
+"--iframe-border" = "none"
+
+"--iframe-background" = "inherit"

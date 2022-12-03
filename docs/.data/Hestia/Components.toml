@@ -115,3 +115,8 @@ Variables = []
 Name = "ulist_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "iframe_hestiaUI"
+Include = true
+Variables = []
