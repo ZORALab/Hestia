@@ -1,0 +1,44 @@
+[CSS.Variables]
+"--ulist-spacing" = "5rem"
+"--ulist-tab-spacing" = "6rem"
+
+
+
+
+"--ulist-display" = "block"
+"--ulist-text-align" = "initial"
+"--ulist-text-align-aligned-left" = "justify"
+"--ulist-margin" = "0"
+"--ulist-padding" = "0"
+
+
+
+
+"--ulist-li-margin" = "var(--olist-spacing) 0"
+"--ulist-li-margin-aligned-left" = """
+var(--olist-spacing) 0 var(--olist-spacing) var(--olist-tab-spacing)
+"""
+"--ulist-li-padding" = "0"
+
+
+
+
+"--ulist-li-before-content" = "\"Ψ\""
+"--ulist-li-before-display" = "block"
+
+"--ulist-li-before-margin" = ".5rem auto"
+"--ulist-li-before-margin-aligned-left" = ".5rem 0"
+"--ulist-li-before-padding" = "0"
+
+"--ulist-li-before-border" = "initial"
+"--ulist-li-before-border-radius" = "50%"
+
+"--ulist-li-before-size" = "3rem"
+"--ulist-li-before-font-size" = "2rem"
+"--ulist-li-before-font-weight" = "700"
+"--ulist-li-before-text-align" = "center"
+
+"--ulist-li-before-color" = "var(--color-typography-50)"
+"--ulist-li-before-color-inverted" = "var(--color-contrast-50)"
+"--ulist-li-before-background" = "var(--color-primary-400)"
+"--ulist-li-before-background-inverted" = "var(--color-primary-400)"

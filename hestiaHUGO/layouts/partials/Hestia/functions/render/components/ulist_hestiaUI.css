@@ -1,0 +1,71 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+ul {
+	display: var(--ulist-display);
+
+	margin: var(--ulist-margin);
+	padding: var(--ulist-padding);
+
+	text-align: var(--ulist-text-align);
+
+	list-style-type: none;
+}
+
+ul li {
+	margin: var(--ulist-li-margin);
+	padding: var(--ulist-li-padding);
+}
+
+ul li:before {
+	content: var(--ulist-li-before-content);
+	display: var(--ulist-li-before-display);
+
+	width: var(--ulist-li-before-size);
+	height: var(--ulist-li-before-size);
+
+	margin: var(--ulist-li-before-margin);
+	padding: var(--ulist-li-before-padding);
+
+	border: var(--ulist-li-before-border);
+	border-radius: var(--ulist-li-before-border-radius);
+
+	color: var(--ulist-li-before-color);
+	background: var(--ulist-li-before-background);
+
+	font-size: var(--ulist-li-before-font-size);
+	font-weight: var(--ulist-li-before-font-weight);
+	text-align: var(--ulist-li-before-text-align);
+}
+
+ul.left-aligned {
+	text-align: var(--ulist-text-align-aligned-left);
+}
+
+ul.left-aligned li {
+	margin: var(--ulist-li-margin-aligned-left);
+}
+
+ul.left-aligned li:before {
+	margin: var(--ulist-li-before-margin-aligned-left);
+}
+
+footer ul li:before,
+.footer ul li:before {
+	color: var(--ulist-li-before-color-inverted);
+	background: var(--ulist-li-before-background-inverted);
+}
