@@ -1,0 +1,5 @@
+[CSS.Variables]
+"--divider-cut-border-bottom" = "3px dashed var(--divider-cut-color)"
+"--divider-cut-content" = "\"✀\""
+"--divider-cut-color" = "var(--color-typography-300)"
+"--divider-cut-margin" = "2rem 0"
