@@ -16,11 +16,18 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 dl {
+	display: var(--deflist-display);
+
 	border-top: var(--deflist-border-top);
 	border-bottom: var(--deflist-border-bottom);
 
-	width: 100%;
-	max-width: 85vw;
+	min-width: var(--deflist-min-width);
+	width: var(--deflist-width);
+	max-width: var(--deflist-max-width);
+
+	min-height: var(--deflist-min-height);
+	height: var(--deflist-height);
+	max-height: var(--deflist-max-height);
 
 	margin: var(--deflist-margin);
 	padding: var(--deflist-padding);
@@ -63,6 +70,17 @@ dl dd:first-of-type {
 dl dd:before {
 	display: block;
 	content: "("counter(var(--deflist-counter)) ")";
+}
+
+footer dl,
+.footer dl {
+	border-bottom: var(--deflist-border-bottom-inverted);
+	border-top: var(--deflist-border-top-inverted);
+}
+
+footer dl dt,
+.footer dl dt {
+	border-top: var(--deflist-dt-border-top-inverted);
 }
 
 @media print {

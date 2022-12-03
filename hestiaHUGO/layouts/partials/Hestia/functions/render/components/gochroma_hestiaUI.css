@@ -16,22 +16,28 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 div.highlight {
-	max-width: 85vw;
-	margin: var(--gochroma-margin);
-}
-
-div.highlight table {
-	margin: 0 auto !important;
+	margin: 0 auto;
+	max-width: 100%;
+	border: var(--pre-border);
+	border-radius: var(--pre-border-radius);
+	background: var(--pre-background);
+	overflow:auto;
 }
 
 div.highlight pre {
-	max-width: 72vw;
+	border: none;
+	background: transparent;
+	overflow:visible;
+}
+
+footer div.highlight {
+	border: var(--pre-border-inverted);
+	background: var(--pre-background-inverted);
 }
 
 @media print {
-	div.highlight pre {
-		border: none;
-		overflow: hidden;
-		overflow-wrap: break-word;
+	div.highlight {
+		background: transparent;
+		break-inside: avoid-page;
 	}
 }

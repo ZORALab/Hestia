@@ -75,7 +75,7 @@ button:not([disabled]):hover, button:not([disabled]):focus,
 .button:not([disabled]):hover, .button:not([disabled]):focus {
 	border: var(--button-border);
 	border-color: var(--button-color);
-	transform: var(--button-transform-active);
+	transform: var(--button-transform-focus);
 }
 
 input[type='button']:not(.emphasize):not([disabled]):hover,

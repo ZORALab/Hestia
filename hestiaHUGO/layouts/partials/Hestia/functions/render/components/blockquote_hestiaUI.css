@@ -17,10 +17,7 @@ specific language governing permissions and limitations under the License.
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 
 blockquote {
-	display: inline-block;
-
-	color: var(--blockquote-color);
-	background: var(--blockquote-background);
+	display: var(--blockquote-display);
 
 	min-width: var(--blockquote-min-width);
 	width: var(--blockquote-width);
@@ -30,11 +27,14 @@ blockquote {
 	max-height: var(--blockquote-max-height);
 
 	margin: var(--blockquote-margin);
-	padding: 4rem 3rem 3rem 10rem;
+	padding: var(--blockquote-padding);
 
 	border-radius: var(--blockquote-border-radius);
 
 	text-align: var(--blockquote-text-align);
+
+	color: var(--blockquote-color);
+	background: var(--blockquote-background);
 
 	transition: var(--blockquote-timing);
 }

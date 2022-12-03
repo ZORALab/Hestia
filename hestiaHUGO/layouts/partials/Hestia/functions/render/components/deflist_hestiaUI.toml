@@ -1,14 +1,36 @@
 [CSS.Variables]
-"--deflist-border-top" = "2px solid var(--color-primary-500)"
-"--deflist-border-bottom" = "2px solid var(--color-primary-500)"
+"--deflist-display" = "block"
+
+"--deflist-border-top" = "2px solid var(--color-primary-700)"
+"--deflist-border-top-inverted" = "2px solid var(--color-primary-300)"
+"--deflist-border-bottom" = "2px solid var(--color-primary-700)"
+"--deflist-border-bottom-inverted" = "2px solid var(--color-primary-300)"
+
+"--deflist-min-width" = "initial"
+"--deflist-width" = "initial"
+"--deflist-max-width" = "initial"
+"--deflist-min-height" = "initial"
+"--deflist-height" = "initial"
+"--deflist-max-height" = "initial"
+
 "--deflist-margin" = "3rem auto"
-"--deflist-padding" = "0 1rem"
+"--deflist-padding" = "0 5rem"
+
 "--deflist-counter" = "dd-items"
+
+
+
+
 "--deflist-dt-margin" = "1rem auto 0"
 "--deflist-dt-padding" = "0"
 "--deflist-dt-border-top" = "1px solid var(--color-typography-500)"
+"--deflist-dt-border-top-inverted" = "1px solid var(--body-color-inverted)"
 "--deflist-dt-font-size" = "3rem"
 "--deflist-dt-font-weight" = "600"
 "--deflist-dt-font-style" = "italic"
+
+
+
+
 "--deflist-dd-margin" = "1rem auto"
 "--deflist-dd-padding" = "0"

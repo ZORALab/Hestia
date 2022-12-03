@@ -30,3 +30,10 @@ hr {
 	background: var(--divider-background);
 	border-color: var(--divider-border-color);
 }
+
+footer hr,
+.footer hr {
+	color: var(--divider-color-inverted);
+	background: var(--divider-background-inverted);
+	border-color: var(--divider-border-color-inverted);
+}

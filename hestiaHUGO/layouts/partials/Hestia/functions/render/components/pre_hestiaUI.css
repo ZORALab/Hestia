@@ -33,9 +33,6 @@ pre {
 	height: var(--pre-height);
 	max-height: var(--pre-max-height);
 
-	color: var(--pre-color);
-	background: var(--pre-background);
-
 	font-size: var(--pre-font-size);
 	font-family: var(--pre-font-family);
 	text-decoration: var(--pre-text-decoration);
@@ -44,7 +41,17 @@ pre {
 	line-height: var(--pre-line-height);
 	text-align: var(--pre-text-align);
 
+	color: var(--pre-color);
+	background: var(--pre-background);
+
 	transition: var(--pre-transition);
+}
+
+footer pre,
+.footer pre {
+	border: var(--pre-border-inverted);
+	color: var(--pre-color-inverted);
+	background: var(--pre-background-inverted);
 }
 
 pre code {
@@ -74,7 +81,7 @@ pre code {
 	line-height: inherit;
 	text-align: inherit;
 
-	transition: inherit;
+	transition: none;
 }
 
 @media print {

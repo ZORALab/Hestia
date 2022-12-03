@@ -17,5 +17,10 @@ specific language governing permissions and limitations under the License.
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 
 hr.dashed {
-	--divider-border-bottom: var(--divider-dashed-border-bottom);
+	border-bottom: var(--divider-dashed-border-bottom);
+}
+
+footer hr.dashed,
+.footer hr.dashed {
+	border-bottom: var(--divider-dashed-border-bottom-inverted);
 }

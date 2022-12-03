@@ -3,16 +3,19 @@
 "--pre-margin" = "2rem auto"
 "--pre-padding" = "2rem"
 "--pre-overflow" = "auto auto"
+
 "--pre-border" = ".3rem solid var(--pre-color)"
+"--pre-border-inverted" = ".3rem solid var(--color-primary-300)"
 "--pre-border-radius" = ".5rem"
+
 "--pre-min-width" = "initial"
-"--pre-width" = "100%"
-"--pre-max-width" = "75vw"
+"--pre-width" = "initial"
+"--pre-max-width" = "100%"
+
 "--pre-min-height" = "initial"
 "--pre-height" = "initial"
 "--pre-max-height" = "initial"
-"--pre-color" = "var(--color-primary-600)"
-"--pre-background" = "var(--color-contrast-50)"
+
 "--pre-font-size" = "var(--body-font-size)"
 "--pre-font-family" = "monospace"
 "--pre-text-decoration" = "normal"
@@ -20,4 +23,10 @@
 "--pre-letter-spacing" = 0
 "--pre-line-height" = "var(--body-line-height)"
 "--pre-text-align" = "justify"
+
+"--pre-color" = "var(--color-primary-700)"
+"--pre-color-inverted" = "var(--color-primary-700)"
+"--pre-background" = "var(--color-contrast-50)"
+"--pre-background-inverted" = "var(--color-contrast-50)"
+
 "--pre-transition" = "var(--timing-rapid)"

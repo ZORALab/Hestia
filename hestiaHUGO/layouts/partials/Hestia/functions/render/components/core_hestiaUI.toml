@@ -8,7 +8,7 @@
 
 "--layout-vertical" = """
 	"content" auto
-	"footer" auto
+	"footer" minmax(0, max-content)
 	"topnav" minmax(0, auto)
 	"leftnav" minmax(0, auto)
 	"rightnav" minmax(0, auto)
@@ -17,21 +17,21 @@
 "--layout-left-top" = """
 	"leftnav topnav" minmax(0, max-content)
 	"leftnav content" auto
-	"leftnav footer" auto
+	"leftnav footer" minmax(0, max-content)
 	/ minmax(0, var(--sidenav-width))
 		minmax(auto, calc(var(--body-width) - var(--sidenav-width)))
 """
 "--layout-right-top" = """
 	"topnav rightnav" minmax(0, max-content)
 	"content rightnav" auto
-	"footer rightnav" auto
+	"footer rightnav" minmax(0, max-content)
 	/ minmax(auto, calc(var(--body-width) - var(--sidenav-width)))
 		minmax(0, var(--sidenav-width))
 """
 "--layout-both-top" = """
 	"leftnav topnav rightnav" minmax(0, max-content)
 	"leftnav content rightnav" auto
-	"footer content footer" auto
+	"footer content footer" minmax(0, max-content)
 	/ minmax(0, var(--sidenav-width))
 		minmax(auto, calc(var(--body-width) - 2*var(--sidenav-width)))
 		minmax(0, var(--sidenav-width))
@@ -39,7 +39,7 @@
 "--layout-top-both" = """
 	"topnav topnav topnav" minmax(0, max-content)
 	"leftnav content rightnav" auto
-	"footer footer footer" auto
+	"footer footer footer" minmax(0, max-content)
 	/ minmax(0, var(--sidenav-width))
 		minmax(auto, calc(var(--body-width) - 2*var(--sidenav-width)))
 		minmax(0, var(--sidenav-width))
@@ -59,18 +59,17 @@
 
 "--main-min-width" = "initial"
 "--main-width" = "100%"
-"--main-max-width" = "100vw"
-"--main-margin" = "0"
-"--main-padding" = "3.5rem"
+"--main-max-width" = "100%"
+"--main-margin" = "0 auto"
+"--main-padding" = "0 3.5rem"
 
 "--footer-min-width" = "initial"
 "--footer-width" = "100%"
 "--footer-max-width" = "100vw"
 "--footer-margin" = "0"
-"--footer-padding" = "0"
-"--footer-color" = "var(--body-background)"
-"--footer-background" = "var(--body-color)"
+"--footer-padding" = "3.5rem"
 
+"--limit-max-width" = "75vw"
 
 
 # z-axis (3rd-dimension)
@@ -87,6 +86,19 @@
 
 
 
+# engine colors
+"--body-color" = "var(--color-typography-950)"
+"--body-color-inverted" = "var(--color-typography-50)"
+"--body-color-print" = "var(--color-typography-950)"
+"--body-background" = "var(--color-typography-50)"
+"--body-background-inverted" = "var(--color-typography-950)"
+"--body-background-print" = "#FFF"
+"--footer-color" = "var(--body-color-inverted)"
+"--footer-background" = "var(--body-background-inverted)"
+
+
+
+
 # font sizing
 "--body-font-family" = "\"Roboto\", \"Helvetica Neue\", \"sans-serif\""
 "--body-font-size" = "1.8rem"
@@ -95,8 +107,6 @@
 "--body-letter-spacing" = ".01rem"
 "--body-line-height" = 1.6
 "--body-text-align" = "center"
-"--body-color" = "var(--color-typography-950)"
-"--body-background" = "var(--color-typography-50)"
 
 
 "--h1-font-size" = "5rem"
@@ -120,22 +130,28 @@
 "--h2-margin" = "10rem 0 5rem"
 "--h2-padding" = "0"
 "--h2-text-decoration" = "initial"
+
 "--h2-decoration-color" = "initial"
 "--h2-border-bottom" = "thick double var(--color-primary-800)"
-"--h2-border-bottom-color-inverted" = "thick double var(--color-contrast-300)"
+"--h2-border-bottom-inverted" = "thick double var(--color-contrast-300)"
+
 "--h2-before-content" = ""
 "--h2-before-margin" = "initial"
 "--h2-before-color" = "initial"
+"--h2-before-color-inverted" = "initial"
 "--h2-before-background" = "initial"
+"--h2-before-background-inverted" = "initial"
+
 "--h2-after-content" = "\"§\""
-"--h2-after-color" = "var(--color-typography-50)"
+"--h2-after-color" = "var(--color-primary-950)"
 "--h2-after-color-inverted" = "var(--color-contrast-300)"
-"--h2-after-border" = "thick double var(--color-typography-50)"
-"--h2-after-border-color-inverted" = "thick double var(--color-contrast-300)"
-"--h2-after-background" = "var(--color-primary-950)"
-"--h2-after-background-color-inverted" = "var(--color-primary-800)"
-"--h2-after-border-print" = "thick double var(--color-primary-800)"
-"--h2-after-color-print" = "var(--color-primary-800)"
+"--h2-after-color-print" = "var(--color-primary-950)"
+"--h2-after-border" = "thick double var(--color-primary-950)"
+"--h2-after-border-inverted" = "thick double var(--color-contrast-300)"
+"--h2-after-border-print" = "2px double var(--color-primary-950)"
+"--h2-after-background" = "var(--body-background)"
+"--h2-after-background-inverted" = "var(--body-background-inverted)"
+"--h2-after-background-print" = "var(--body-background-print)"
 
 
 "--h3-font-size" = "2.5rem"
@@ -145,7 +161,7 @@
 "--h3-text-decoration" = "initial"
 "--h3-decoration-color" = "initial"
 "--h3-border-bottom" = "1px solid var(--color-primary-500)"
-"--h3-border-bottom-color-inverted" = "1px solid var(--color-primary-200)"
+"--h3-border-bottom-inverted" = "1px solid var(--color-contrast-300)"
 "--h3-before-content" = ""
 "--h3-before-margin" = "initial"
 "--h3-before-color" = "initial"

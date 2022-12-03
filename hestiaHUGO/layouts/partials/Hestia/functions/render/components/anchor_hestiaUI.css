@@ -18,28 +18,22 @@ specific language governing permissions and limitations under the License.
 a {
 	display: var(--anchor-display);
 
-
-	color: var(--anchor-color);
-	text-decoration-color: var(--anchor-text-decoration-color);
-	background: var(--anchor-background);
-
+	margin: var(--anchor-margin);
+	padding: var(--anchor-padding);
 
 	min-width: var(--anchor-min-width);
 	width: var(--anchor-width);
 	max-width: var(--anchor-max-width);
 
-
 	min-height: var(--anchor-min-height);
 	height: var(--anchor-height);
 	max-height: var(--anchor-max-height);
-
 
 	border: var(--anchor-border);
 	border-top: var(--anchor-border-top);
 	border-left: var(--anchor-border-left);
 	border-bottom: var(--anchor-border-bottom);
 	border-right: var(--anchor-border-right);
-
 
 	font-size: var(--anchor-font-size);
 	font-family: var(--anchor-font-family);
@@ -50,35 +44,39 @@ a {
 	line-height: var(--anchor-line-height);
 	text-align: var(--anchor-text-align);
 
+	color: var(--anchor-color);
+	text-decoration-color: var(--anchor-text-decoration-color);
+	background: var(--anchor-background);
+	box-shadow: var(--anchor-box-shadow);
+
 	transition: var(--anchor-transition);
+}
+
+footer a,
+.footer a {
+	color: var(--anchor-color-inverted);
+	text-decoration-color: var(--anchor-text-decoration-color-inverted);
+	background: var(--anchor-background-inverted);
+	border-bottom: var(--anchor-border-bottom-inverted);
 }
 
 a:before {
 	content: var(--anchor-before-content);
 	display: var(--anchor-before-display);
 
-
-	color: var(--anchor-before-color);
-	text-decoration-color: var(--anchor-before-text-decoration-color);
-	background: var(--anchor-before-background);
-
-
 	min-width: var(--anchor-before-min-width);
 	width: var(--anchor-before-width);
 	max-width: var(--anchor-before-max-width);
 
-
 	min-height: var(--anchor-before-min-height);
 	height: var(--anchor-before-height);
 	max-height: var(--anchor-before-max-height);
-
 
 	border: var(--anchor-before-border);
 	border-top: var(--anchor-before-border-top);
 	border-left: var(--anchor-before-border-left);
 	border-bottom: var(--anchor-before-border-bottom);
 	border-right: var(--anchor-before-border-right);
-
 
 	font-size: var(--anchor-before-font-size);
 	font-family: var(--anchor-before-font-family);
@@ -88,34 +86,29 @@ a:before {
 	letter-spacing: var(--anchor-before-letter-spacing);
 	line-height: var(--anchor-before-line-height);
 	text-align: var(--anchor-before-text-align);
+
+	color: var(--anchor-before-color);
+	text-decoration-color: var(--anchor-before-text-decoration-color);
+	background: var(--anchor-before-background);
 }
 
 a:after {
 	content: var(--anchor-after-content);
 	display: var(--anchor-after-display);
 
-
-	color: var(--anchor-after-color);
-	text-decoration-color: var(--anchor-after-text-decoration-color);
-	background: var(--anchor-after-background);
-
-
 	min-width: var(--anchor-after-min-width);
 	width: var(--anchor-after-width);
 	max-width: var(--anchor-after-max-width);
 
-
 	min-height: var(--anchor-after-min-height);
 	height: var(--anchor-after-height);
 	max-height: var(--anchor-after-max-height);
-
 
 	border: var(--anchor-after-border);
 	border-top: var(--anchor-after-border-top);
 	border-left: var(--anchor-after-border-left);
 	border-bottom: var(--anchor-after-border-bottom);
 	border-right: var(--anchor-after-border-right);
-
 
 	font-size: var(--anchor-after-font-size);
 	font-family: var(--anchor-after-font-family);
@@ -125,12 +118,37 @@ a:after {
 	letter-spacing: var(--anchor-after-letter-spacing);
 	line-height: var(--anchor-after-line-height);
 	text-align: var(--anchor-after-text-align);
+
+	color: var(--anchor-after-color);
+	text-decoration-color: var(--anchor-after-text-decoration-color);
+	background: var(--anchor-after-background);
 }
 
-a:hover, a:active {
-	color: var(--anchor-color-hover);
-	border-top-color: var(--anchor-color-hover);
-	border-bottom-color: var(--anchor-color-hover);
+a:not(.button):hover, a:not(.button):focus {
+	padding: var(--anchor-padding-focus);
+
+	color: var(--anchor-color-focus);
+	border-top-color: var(--anchor-color-focus);
+	border-bottom-color: var(--anchor-color-focus);
+	background: var(--anchor-background-focus);
+	box-shadow: var(--anchor-box-shadow-focus);
+
+	transform: var(--anchor-transform-focus);
+}
+
+footer a:not(.button):hover,
+.footer a:not(.button):hover,
+footer a:not(.button):focus,
+.footer a:not(.button):focus {
+	color: var(--anchor-color-focus-inverted);
+	border-top-color: var(--anchor-color-focus-inverted);
+	border-bottom-color: var(--anchor-color-focus-inverted);
+	box-shadow: var(--anchor-box-shadow-focus-inverted);
+	background: var(--anchor-background-focus-inverted);
+}
+
+a:active {
+	box-shadow: none;
 }
 
 a.wrap {

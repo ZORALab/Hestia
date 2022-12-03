@@ -1,46 +1,69 @@
 [CSS.Variables]
-"--anchor-display" = "initial"
-"--anchor-color" = "var(--color-primary-300)"
-"--anchor-color-hover" = "var(--color-primary-400)"
-"--anchor-text-decoration-color" = "initial"
-"--anchor-background" = "initial"
+"--anchor-display" = "inline-block"
+
 "--anchor-min-width" = "initial"
 "--anchor-width" = "initial"
 "--anchor-max-width" = "initial"
 "--anchor-min-height" = "initial"
 "--anchor-height" = "initial"
 "--anchor-max-height" = "initial"
+
+"--anchor-margin" = "initial"
+"--anchor-padding" = "0 .3rem"
+"--anchor-padding-focus" = "0 .3rem"
+
 "--anchor-border" = "initial"
 "--anchor-border-top" = "2px solid transparent"
 "--anchor-border-left" = "initial"
 "--anchor-border-bottom" = "2px solid var(--anchor-color)"
+"--anchor-border-bottom-inverted" = "2px solid var(--anchor-color-inverted)"
 "--anchor-border-right" = "initial"
-"--anchor-font-size" = "initial"
-"--anchor-font-family" = "initial"
+
+"--anchor-font-size" = "var(--body-font-size)"
+"--anchor-font-family" = "var(--body-font-family)"
 "--anchor-text-decoration" = "none"
 "--anchor-overflow-wrap" = "break-word"
 "--anchor-word-break" = "break-word"
 "--anchor-letter-spacing" = "initial"
 "--anchor-line-height" = "initial"
 "--anchor-text-align" = "initial"
-"--anchor-transition" = "all ease-in var(--timing-rapid)"
+
+"--anchor-color" = "var(--color-primary-300)"
+"--anchor-color-inverted" = "var(--color-primary-200)"
+"--anchor-color-focus" = "var(--color-primary-400)"
+"--anchor-color-focus-inverted" = "var(--color-primary-50)"
+"--anchor-text-decoration-color" = "initial"
+"--anchor-text-decoration-color-inverted" = "initial"
+"--anchor-background" = "transparent"
+"--anchor-background-inverted" = "transparent"
+"--anchor-background-focus" = "var(--body-background)"
+"--anchor-background-focus-inverted" = "var(--body-background-inverted)"
+"--anchor-box-shadow" = "0 .5rem 1rem transparent"
+"--anchor-box-shadow-focus" = "0 .5rem 1rem var(--color-typography-800)"
+"--anchor-box-shadow-focus-inverted" = "0 .5rem 1rem var(--color-typography-200)"
+
+"--anchor-transition" = "var(--timing-rapid)"
+"--anchor-transform-focus" = "scale(1.1)"
+
+
+
 
 "--anchor-before-content" = ""
 "--anchor-before-display" = "initial"
-"--anchor-before-color" = "initial"
-"--anchor-before-text-decoration-color" = "initial"
-"--anchor-before-background" = "initial"
+
 "--anchor-before-min-width" = "initial"
 "--anchor-before-width" = "initial"
 "--anchor-before-max-width" = "intiial"
 "--anchor-before-min-height" = "initial"
 "--anchor-before-height" = "initial"
 "--anchor-before-max-height" = "initial"
+
 "--anchor-before-border" = "initial"
 "--anchor-before-border-top" = "initial"
 "--anchor-before-border-left" = "initial"
 "--anchor-before-border-bottom" = "initial"
 "--anchor-before-border-right" = "initial"
+
 "--anchor-before-font-size" = "initial"
 "--anchor-before-font-family" = "initial"
 "--anchor-before-text-decoration" = "initial"
@@ -50,22 +73,29 @@
 "--anchor-before-line-height" = "initial"
 "--anchor-before-text-align" = "initial"
 
+"--anchor-before-color" = "initial"
+"--anchor-before-text-decoration-color" = "initial"
+"--anchor-before-background" = "initial"
+
+
+
+
 "--anchor-after-content" = ""
 "--anchor-after-display" = "initial"
-"--anchor-after-color" = "initial"
-"--anchor-after-text-decoration-color" = "initial"
-"--anchor-after-background" = "initial"
+
 "--anchor-after-min-width" = "initial"
 "--anchor-after-width" = "initial"
 "--anchor-after-max-width" = "intiial"
 "--anchor-after-min-height" = "initial"
 "--anchor-after-height" = "initial"
 "--anchor-after-max-height" = "initial"
+
 "--anchor-after-border" = "initial"
 "--anchor-after-border-top" = "initial"
 "--anchor-after-border-left" = "initial"
 "--anchor-after-border-bottom" = "initial"
 "--anchor-after-border-right" = "initial"
+
 "--anchor-after-font-size" = "initial"
 "--anchor-after-font-family" = "initial"
 "--anchor-after-text-decoration" = "initial"
@@ -74,3 +104,7 @@
 "--anchor-after-letter-spacing" = "initial"
 "--anchor-after-line-height" = "initial"
 "--anchor-after-text-align" = "initial"
+
+"--anchor-after-color" = "initial"
+"--anchor-after-text-decoration-color" = "initial"
+"--anchor-after-background" = "initial"

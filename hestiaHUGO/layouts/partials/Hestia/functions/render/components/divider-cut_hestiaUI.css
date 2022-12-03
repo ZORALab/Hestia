@@ -44,3 +44,9 @@ hr.cut:after {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+footer hr.cut,
+.footer hr.cut {
+	border-bottom: var(--divider-cut-border-bottom-color-inverted);
+	color: var(--divider-cut-color-inverted);
+}

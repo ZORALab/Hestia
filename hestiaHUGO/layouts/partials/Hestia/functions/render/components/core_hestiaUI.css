@@ -45,9 +45,6 @@ body {
 	line-height: var(--body-line-height);
 	text-align: var(--body-text-align);
 
-	min-height: 100%;
-	width: 100vw;
-
 	color: var(--body-color);
 	background: var(--body-background);
 }
@@ -85,6 +82,11 @@ footer, .footer {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+
+main footer, main .footer {
+	margin: 0;
+	padding: 0;
 }
 
 main, .content {
@@ -173,13 +175,13 @@ h2:not(.clean):after {
 }
 
 footer h2 {
-	border-bottom: var(--h2-border-bottom-color-inverted);
+	border-bottom: var(--h2-border-bottom-inverted);
 }
 
 footer h2:not(.clean):after {
 	color: var(--h2-after-color-inverted);
-	background: var(--h2-after-background-color-inverted);
-	border: var(--h2-after-border-color-inverted);
+	background: var(--h2-after-background-inverted);
+	border: var(--h2-after-border-inverted);
 }
 
 h3 {
@@ -210,7 +212,7 @@ h3:after {
 }
 
 footer h3 {
-	border-bottom: var(--h3-border-bottom-color-inverted);
+	border-bottom: var(--h3-border-bottom-inverted);
 }
 
 h4 {
@@ -365,7 +367,9 @@ section, article {
 	border: none;
 	margin: 0;
 	padding: 0;
+}
 
+section, article, div {
 	max-width: 100%;
 }
 
@@ -431,7 +435,16 @@ section, article {
 	}
 
 	body {
-		background: white;
+		color: var(--body-color-print);
+		background: var(--body-background-print);
+	}
+
+	footer, .footer {
+		color: var(--body-color-print);
+		background: var(--body-background-print);
+		border-top: 2rem double var(--body-color-print);
+
+		break-before: always;
 	}
 
 	h1, h2, h3, h4, h5, h6, p {
@@ -454,9 +467,11 @@ section, article {
 		widows: 0;
 	}
 
-	h2:after {
-		color: var(--h2-after-color-print);
-		background: white;
+	h2:after,
+	footer  h2:after,
+	.footer h2:after, {
+		color: var(--h2-after-color-print) !important;
+		background: var(--h2--after-background-print);
 		border: var(--h2-after-border-print);
 	}
 

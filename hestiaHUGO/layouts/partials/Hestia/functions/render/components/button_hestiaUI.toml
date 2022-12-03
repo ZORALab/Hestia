@@ -18,6 +18,6 @@
 "--button-word-break" = "break-word"
 "--button-border-radius" = ".5rem"
 "--button-box-shadow" = "0 .5rem 1rem var(--color-typography-300)"
-"--button-transform-active" = "scale(1.1)"
+"--button-transform-focus" = "scale(1.1)"
 "--button-opacity-disabled" = ".3"
 "--button-line-height" = "var(--body-line-height)"
