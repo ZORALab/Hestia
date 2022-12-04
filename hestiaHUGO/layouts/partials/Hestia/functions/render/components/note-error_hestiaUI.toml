@@ -1,0 +1,7 @@
+[CSS.Variables]
+"--note-error-border" = "1px solid #ff0034"
+"--note-title-error-color" = "#ffc4d0"
+"--note-title-error-indicator-color" = "#ffc4d0"
+"--note-title-error-background" = "#9d001f"
+"--note-content-error-color" = "#ff0034"
+"--note-content-error-background" = "#ffc4d0"
