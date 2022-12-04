@@ -1,0 +1,26 @@
+[CSS.Variables]
+"--note-margin" = "1.3rem auto"
+"--note-padding" = "0"
+"--note-border" = "1px solid var(--color-primary-400)"
+"--note-border-radius" = ".5rem"
+"--note-timing" = "var(--timing-normal)"
+
+
+
+
+"--note-title-font-size" = "2.5rem"
+"--note-title-text-transform" = "uppercase"
+"--note-title-text-align" = "left"
+
+"--note-title-color" = "var(--body-color-inverted)"
+"--note-title-indicator-color" = "var(--color-contrast-400)"
+"--note-title-background" = "var(--color-primary-900)"
+
+
+
+
+"--note-content-margin" = "0"
+"--note-content-padding" = "2rem"
+
+"--note-content-color" = "var(--body-color)"
+"--note-content-background" = "var(--color-primary-100)"

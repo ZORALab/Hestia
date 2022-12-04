@@ -130,3 +130,8 @@ Variables = []
 Name = "table_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "note_hestiaUI"
+Include = true
+Variables = []
