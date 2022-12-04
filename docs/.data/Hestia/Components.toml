@@ -140,3 +140,8 @@ Variables = []
 Name = "note-error_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "note-success_hestiaUI"
+Include = true
+Variables = []
