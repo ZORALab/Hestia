@@ -1,0 +1,108 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+.badge {
+	display: inline-grid;
+	grid: "title content" max-content
+		/ max-content max-content;
+
+	margin: var(--badge-margin);
+	padding: var(--badge-padding);
+
+	max-width: 100%;
+	height: max-content;
+
+	border: var(--badge-border);
+	border-radius: var(--badge-border-radius);
+	box-shadow: var)--badge-box-shadow);
+	box-shadow-color: transparent;
+
+	background: transparent;
+	overflow: hidden;
+
+	position: relative;
+
+	transition: .5s;
+}
+
+.badge:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -50%;
+	width: var(--badge-width-shine);
+	height: 100%;
+	background: var(--badge-color-shine);
+	transform: skewX(30deg);
+	transition: var(--badge-timing-shine);
+}
+
+.badge:hover {
+	transform: scale(1.1);
+	box-shadow: var(--badge-box-shadow);
+}
+
+.badge:hover:before {
+	left: 200%;
+	background: var(--badge-color-shine);
+}
+
+.badge .title {
+	grid-area: title;
+
+	border-radius: var(--badge-border-radius) 0 0 var(--badge-border-radius);
+
+	margin: var(--badge-content-margin);
+	padding: var(--badge-content-padding);
+
+	color: var(--badge-title-color);
+	background: var(--badge-title-background);
+
+	font-size: var(--badge-title-font-size);
+	text-transform: var(--badge-title-text-transform);
+	text-align: var(--badge-title-text-align);
+}
+
+.badge .content {
+	grid-area: content;
+
+	border-radius: 0 var(--badge-border-radius) var(--badge-border-radius) 0;
+
+	margin: var(--badge-content-margin);
+	padding: var(--badge-content-padding);
+
+	color: var(--badge-color);
+	background: var(--badge-background);
+}
+
+
+@media print {
+	.badge {
+		border: var(--badge-border-print);
+	}
+
+	.badge .title {
+		color: var(--badge-color-print);
+		background: white;
+	}
+
+	.badge .content {
+		border-left: var(--badge-border-print);
+		color: var(--badge-color-print);
+		background: white;
+	}
+}

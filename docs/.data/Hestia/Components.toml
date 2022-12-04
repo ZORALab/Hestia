@@ -150,3 +150,8 @@ Variables = []
 Name = "note-success_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "badge-shields_hestiaUI"
+Include = true
+Variables = []

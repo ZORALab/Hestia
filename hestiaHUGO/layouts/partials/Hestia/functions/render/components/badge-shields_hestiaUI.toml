@@ -1,0 +1,30 @@
+[CSS.Variables]
+"--badge-margin" = ".1rem .5rem"
+"--badge-padding" = "0"
+
+"--badge-border" = "none"
+"--badge-border-print" = "2px solid var(--badge-color-print)"
+"--badge-border-radius" = ".4rem"
+
+"--badge-width-shine" = ".6rem"
+"--badge-color-shine" = "var(--color-contrast-400)"
+"--badge-timing-shine" = "1.3s"
+"--badge-box-shadow" = "0 .2rem 1rem var(--color-contrast-400)"
+
+
+
+"--badge-title-font-size" = "var(--body-font-size)"
+"--badge-title-text-transform" = "uppercase"
+"--badge-title-text-align" = "left"
+
+"--badge-title-color" = "var(--color-typography-50)"
+"--badge-title-background" = "var(--color-typography-900)"
+
+
+
+
+"--badge-content-margin" = "0"
+"--badge-content-padding" = ".5rem 1rem"
+"--badge-color" = "var(--color-typography-50)"
+"--badge-color-print" = "var(--color-typography-950)"
+"--badge-background" = "var(--color-primary-400)"
