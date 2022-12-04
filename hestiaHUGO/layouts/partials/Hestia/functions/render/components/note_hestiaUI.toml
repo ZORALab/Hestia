@@ -2,6 +2,7 @@
 "--note-margin" = "1.3rem auto"
 "--note-padding" = "0"
 "--note-border" = "1px solid var(--color-primary-400)"
+"--note-border-print" = "1px solid var(--body-color-print)"
 "--note-border-radius" = ".5rem"
 "--note-timing" = "var(--timing-normal)"
 
@@ -13,8 +14,11 @@
 "--note-title-text-align" = "left"
 
 "--note-title-color" = "var(--body-color-inverted)"
+"--note-title-color-print" = "var(--body-color-print)"
 "--note-title-indicator-color" = "var(--color-contrast-400)"
+"--note-title-indicator-print" = "var(--body-color-print)"
 "--note-title-background" = "var(--color-primary-900)"
+"--note-title-background-print" = "transparent"
 
 
 
@@ -23,4 +27,6 @@
 "--note-content-padding" = "2rem"
 
 "--note-content-color" = "var(--body-color)"
+"--note-content-color-print" = "var(--body-color-print)"
 "--note-content-background" = "var(--color-primary-100)"
+"--note-content-background-print" = "transparent"

@@ -25,6 +25,7 @@ specific language governing permissions and limitations under the License.
 	margin: var(--note-margin);
 	padding: var(--note-padding);
 
+	max-width: 100%;
 	height: max-content;
 
 	border: var(--note-border);
@@ -88,4 +89,42 @@ specific language governing permissions and limitations under the License.
 
 .note > input[type=checkbox]:checked ~ label:before {
 	content: "⇲";
+}
+
+
+@media print {
+	.note {
+		break-inside: avoid;
+
+		border: var(--note-border-print) !important;
+	}
+
+	.note > label {
+		break-inside: avoid;
+
+		color: var(--note-title-color-print) !important;
+		background: var(--note-title-background-print) !important;
+	}
+
+	.note > label:before {
+		break-inside: avoid;
+
+		color: var(--note-title-indicator-color-print) !important;
+	}
+
+	.note > .content {
+		break-inside: avoid;
+
+		color: var(--note-content-color-print) !important;
+		background: var(--note-content-background-print) !important;
+	}
+
+	.note > input[type=checkbox]:checked ~ .content {
+		opacity: 1;
+		position: static;
+	}
+
+	.note > input[type=checkbox]:checked ~ label:before {
+		content: "⇱";
+	}
 }
