@@ -1,0 +1,7 @@
+[CSS.Variables]
+"--note-warning-border" = "1px solid #f2ff00"
+"--note-title-warning-color" = "#ff4c00"
+"--note-title-warning-indicator-color" = "#ff4c00"
+"--note-title-warning-background" = "#ffd014"
+"--note-content-warning-color" = "#ff4c00"
+"--note-content-warning-background" = "#fff3c4"

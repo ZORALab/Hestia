@@ -142,6 +142,11 @@ Include = true
 Variables = []
 
 [[List]]
+Name = "note-warning_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
 Name = "note-success_hestiaUI"
 Include = true
 Variables = []
