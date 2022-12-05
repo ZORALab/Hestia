@@ -1,0 +1,52 @@
+[CSS.Variables]
+"--toc-margin" = "2rem auto"
+"--toc-padding" = "2rem"
+
+"--toc-min-width" = "initial"
+"--toc-width" = "fit-content"
+"--toc-max-width" = "initial"
+"--toc-min-height" = "initial"
+"--toc-height" = "fit-content"
+"--toc-max-height" = "initial"
+
+"--toc-border" = "1px solid var(--toc-color)"
+"--toc-border-inverted" = "1px solid var(--toc-color-inverted)"
+"--toc-border-print" = "1px solid var(--toc-color-print)"
+"--toc-border-radius" = ".5rem"
+
+"--toc-color" = "var(--body-color)"
+"--toc-color-inverted" = "var(--body-color-inverted)"
+"--toc-color-print" = "var(--body-color-print)"
+"--toc-background" = "var(--body-background)"
+"--toc-background-inverted" = "var(--body-background-inverted)"
+"--toc-background-print" = "var(--body-background-print)"
+
+
+
+
+"--toc-content-margin" = ".5rem auto"
+
+"--toc-content-min-width" = "initial"
+"--toc-content-width" = "fit-content"
+"--toc-content-max-width" = "initial"
+"--toc-content-min-height" = "initial"
+"--toc-content-height" = "initial"
+"--toc-content-max-height" = "initial"
+
+
+
+
+"--toc-title-content" = "\"Table of Content\""
+
+"--toc-title-margin" = "0 auto 2.5rem"
+"--toc-title-padding" = "0"
+
+"--toc-title-font-size" = "2rem"
+"--toc-title-font-weight" = "600"
+
+"--toc-title-color" = "var(--toc-color)"
+"--toc-title-color-inverted" = "var(--toc-color-inverted)"
+"--toc-title-color-print" = "var(--toc-color-print)"
+"--toc-title-background" = "transparent"
+"--toc-title-background-inverted" = "transparent"
+"--toc-title-background-print" = "transparent"

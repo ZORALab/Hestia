@@ -165,3 +165,8 @@ Variables = []
 Name = "card_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "toc_hestiaUI"
+Include = true
+Variables = []
