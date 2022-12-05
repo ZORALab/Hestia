@@ -1,0 +1,71 @@
+[CSS.Variables]
+"--card-layout" = """
+	"thumbnail" minmax(0, var(--card-thumbnail-height))
+	"content" minmax(0, var(--card-content-height))
+	"actions" minmax(0, var(--card-actions-height))
+	/ var(--card-width)
+"""
+"--card-overflow" = "hidden"
+
+"--card-width" = "30rem"
+"--card-height" = "fit-content"
+
+"--card-margin" = "2rem"
+"--card-padding" = "0"
+
+"--card-border" = "1px solid var(--color-contrast-400)"
+"--card-border-focus" = "1px solid var(--color-contrast-400)"
+"--card-border-radius" = "1rem"
+"--card-box-shadow" = "0 1rem 2rem transparent"
+"--card-box-shadow-focus" = "0 1rem 2rem var(--color-typography-800)"
+"--card-box-shadow-focus-inverted" = "0 1rem 2rem var(--color-typography-50)"
+
+"--card-color" = "var(--body-color)"
+"--card-background" = "var(--body-background)"
+
+"--card-timing" = "var(--timing-normal)"
+
+
+
+"--card-thumbnail-overflow" = "hidden"
+"--card-thumbnail-object-fit" = "cover"
+
+"--card-thumbnail-min-width" = "100%"
+"--card-thumbnail-width" = "initial"
+"--card-thumbnail-max-width" = "100%"
+"--card-thumbnail-min-height" = "100%"
+"--card-thumbnail-height" = "max-content"
+"--card-thumbnail-max-height" = "100%"
+
+"--card-thumbnail-margin" = "0"
+"--card-thumbnail-padding" = "0"
+
+
+
+
+"--card-content-overflow" = "auto auto"
+
+"--card-content-min-width" = "initial"
+"--card-content-width" = "initial"
+"--card-content-max-width" = "initial"
+"--card-content-min-height" = "initial"
+"--card-content-height" = "auto"
+"--card-content-max-height" = "initial"
+
+"--card-content-margin" = "0"
+"--card-content-padding" = "0"
+
+
+
+
+"--card-actions-overflow" = "initial"
+
+"--card-actions-min-width" = "initial"
+"--card-actions-width" = "initial"
+"--card-actions-max-width" = "initial"
+"--card-actions-min-height" = "initial"
+"--card-actions-height" = "max-content"
+"--card-actions-max-height" = "initial"
+
+"--card-actions-margin" = "0"
+"--card-actions-padding" = "0"

@@ -160,3 +160,8 @@ Variables = []
 Name = "form_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "card_hestiaUI"
+Include = true
+Variables = []
