@@ -312,15 +312,17 @@
 
 
 # grid system
-"--grid-width" = "100%"
-"--grid-justify-content" = "space-around"
+"--grid-width" = "initial"
+"--grid-justify-content" = "center"
+"--grid-align-content" = "center"
 "--grid-align-items" = "stretch"
 "--grid-flex-wrap" = "wrap"
+"--grid-flex-direction" = "row"
 
 "--grid-column-display" = "block"
 "--grid-column-width" = "initial"
 "--grid-column-max-width" = "100%"
-"--grid-column-margin" = ".3rem"
+"--grid-column-margin" = "0"
 "--grid-column-padding" = "0"
 "--grid-column-visibility" = "visible"
 "--grid-column-base" = 10

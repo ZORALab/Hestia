@@ -351,7 +351,8 @@ h6:after {
 	display: flex;
 	justify-content: var(--grid-justify-content);
 	align-items: var(--grid-align-items);
-	flex-warp: var(--grid-flex-wrap);
+	flex-wrap: var(--grid-flex-wrap);
+	flex-direction: var(--grid-flex-direction);
 }
 
 .row .column {
