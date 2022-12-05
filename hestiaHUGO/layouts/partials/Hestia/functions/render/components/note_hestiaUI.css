@@ -37,6 +37,8 @@ specific language governing permissions and limitations under the License.
 .note > label {
 	grid-area: title;
 
+	width: 100%;
+
 	color: var(--note-title-color);
 	background: var(--note-title-background);
 

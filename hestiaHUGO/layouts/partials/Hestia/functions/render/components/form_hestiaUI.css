@@ -1,0 +1,330 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+
+	min-width: var(--form-min-width);
+	width: var(--form-width);
+	max-width: var(--form-max-width);
+	min-height: var(--form-min-height);
+	height: var(--form-height);
+	max-height: var(--form-max-height);
+
+	margin: var(--form-margin);
+	padding: var(--form-padding);
+
+	color: var(--form-color);
+	background: var(--form-background);
+}
+
+footer form {
+	color: var(--form-color-inverted);
+	background: var(--form-background-inverted);
+}
+
+fieldset {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	opacity: 1;
+
+	margin: var(--form-fieldset-margin);
+	padding: var(--form-fieldset-padding);
+
+	border: var(--form-fieldset-border);
+	border-radius: var(--form-fieldset-border-radius);
+
+	color: var(--form-fieldset-color);
+	background: var(--form-fieldset-background);
+
+	transition: var(--form-fieldset-timing);
+}
+
+footer fieldset {
+	border: var(--form-fieldset-border-inverted);
+
+	color: var(--form-fieldset-color-inverted);
+	background: var(--form-fieldset-background-inverted);
+}
+
+legend {
+	opacity: 1;
+
+	font-weight: var(--form-legend-font-weight);
+	text-transform: var(--form-legend-text-transform);
+
+	color: var(--form-fieldset-color);
+	background: var(--form-fieldset-background);
+}
+
+footer legend {
+	color: var(--form-fieldset-color-inverted);
+	background: var(--form-fieldset-background-inverted);
+}
+
+label {
+	display: var(--form-label-display);
+	opacity: 1;
+
+	width: var(--form-label-width);
+	height: var(--form-label-height);
+
+	margin: var(--form-label-margin);
+	padding: var(--form-label-padding);
+
+	font-size: var(--form-label-font-size);
+	font-style: var(--form-label-font-style);
+	font-weight: var(--form-label-font-weight);
+	text-transform: var(--form-label-text-transform);
+	vertical-align: middle;
+
+	color: var(--form-label-color);
+	background: var(--form-label-background);
+}
+
+input,
+select,
+textarea {
+	display: var(--form-field-display);
+	opacity: var(--form-field-opacity);
+
+	min-width: var(--form-field-min-width);
+	width: var(--form-field-width);
+	max-width: var(--form-field-max-width);
+	min-height: var(--form-field-min-height);
+	height: var(--form-field-height);
+	max-height: var(--form-field-max-height);
+
+	margin: var(--form-field-margin);
+	padding: var(--form-field-padding);
+
+	border: var(--form-field-border);
+	border-radius: var(--form-field-border-radius);
+
+	font-family: var(--form-field-font-family);
+	font-size: var(--form-field-font-size);
+	font-style: var(--form-field-font-style);
+	font-weight: var(--form-field-font-weight);
+	text-transform: var(--form-field-text-transform);
+	text-align: var(--form-field-text-align);
+
+	color: var(--form-field-color);
+	background: var(--form-field-background);
+	box-shadow: var(--form-field-box-shadow);
+
+	transition: var(--form-fieldset-timing);
+}
+
+textarea {
+	text-align: var(--form-textarea-text-align);
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+	font-family: var(--form-field-font-family);
+	font-size: var(--form-field-font-size);
+	font-style: var(--form-field-font-style);
+	font-weight: var(--form-field-font-weight);
+	text-transform: var(--form-field-text-transform);
+	text-align: var(--form-field-text-align);
+
+	color: var(--form-field-placeholder-color);
+	background: transparent;
+}
+
+textarea::placeholder {
+	text-align: var(--form-textarea-text-align);
+}
+
+fieldset:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+	opacity: var(--form-field-opacity-disabled);
+}
+
+fieldset:has(input:enabled:valid),
+fieldset:has(select:enabled:valid),
+fieldset:has(textarea:enabled:valid),
+input:enabled:valid,
+select:enabled:valid,
+textarea:enabled:valid {
+	border: var(--form-field-border-valid);
+}
+
+fieldset:has(input:enabled:invalid),
+fieldset:has(select:enabled:invalid),
+fieldset:has(textarea:enabled:invalid),
+input:enabled:invalid,
+select:enabled:invalid,
+textarea:enabled:invalid {
+	border: var(--form-field-border-invalid);
+
+	color: var(--form-field-color-invalid);
+}
+
+fieldset:enabled:hover,
+fieldset:enabled:focus,
+fieldset:has(input:enabled:hover),
+fieldset:has(input:enabled:focus),
+fieldset:has(select:enabled:hover),
+fieldset:has(select:enabled:focus),
+fieldset:has(textarea:enabled:hover),
+fieldset:has(textarea:enabled:focus) {
+	border: var(--form-field-border-focus);
+
+	color: var(--form-field-color-focus);
+
+	transform: scale(1.05);
+}
+
+input:enabled:hover,
+input:enabled:focus,
+select:enabled:hover,
+select:enabled:focus,
+textarea:enabled:hover,
+textarea:enabled:focus {
+	border: var(--form-field-border-focus);
+}
+
+optgroup {
+	margin: var(--form-field-optgroup-margin);
+	padding: var(--form-field-optgroup-padding);
+	text-align: var(--form-field-optgroup-text-align);
+}
+
+optgroup:first-child {
+	margin-top: 0;
+}
+
+option {
+	padding: var(--form-field-option-padding);
+	text-align: var(--form-field-option-text-align);
+}
+
+option:before {
+	content: var(--form-field-option-before);
+}
+
+label:has(input[type='radio']) {
+	display: grid;
+	grid: "button label" max-content
+		/ calc(var(--form-field-radio-size) + 2rem) max-content;
+	opacity: var(--form-field-opacity);
+
+	min-width: var(--form-field-min-width);
+	width: 100%;
+	max-width: var(--form-field-max-width);
+	min-height: var(--form-field-min-height);
+	height: var(--form-field-height);
+	max-height: var(--form-field-max-height);
+
+	margin: var(--form-field-radio-margin);
+	padding: var(--form-field-radio-padding);
+
+	border: var(--form-field-border);
+	border-radius: var(--form-field-border-radius);
+
+	font-family: var(--form-field-font-family);
+	font-size: var(--form-field-font-size);
+	font-style: var(--form-field-font-style);
+	font-weight: var(--form-field-font-weight);
+	text-transform: var(--form-field-text-transform);
+	text-align: var(--form-field-text-align);
+
+	color: var(--form-field-color);
+	background: var(--form-field-background);
+	box-shadow: var(--form-field-box-shadow);
+
+	transition: var(--form-fieldset-timing);
+}
+
+label:has(input[type='radio']) input[type='radio'] {
+	min-width: var(--form-field-radio-size);
+	grid-area: button;
+}
+
+label:has(input[type='radio']) span {
+	grid-area: label;
+}
+
+
+input[type='submit'],
+input[type='submit']:valid {
+	display: var(--form-field-submit-display);
+	margin: var(--form-field-submit-margin);
+
+	border: var(--form-field-submit-border);
+	border-radius: var(--form-field-submit-border-radius);
+	box-shadow: var(--form-field-submit-box-shadow);
+
+	text-transform: var(--form-field-submit-text-transform);
+
+	color: var(--form-field-submit-color);
+	background: var(--form-field-submit-background);
+}
+
+footer input[type='submit'],
+footer input[type='submit']:valid {
+	color: var(--form-field-submit-color-inverted);
+	background: var(--form-field-submit-background-inverted);
+}
+
+input[type='submit']:enabled,
+input[type='submit']:enabled:valid {
+	transform: scale(1.1);
+}
+
+input[type='submit']:active,
+input[type='submit']:valid:active {
+	box-shadow: none;
+}
+
+@media print {
+	form,
+	form *,
+	input,
+	input[type='submit'],
+	input[type='submit']:valid,
+	input[type='submit']:invalid,
+	textarea,
+	select,
+	label:has(input[type='radio']),
+	label {
+		border-color: var(--form-color-print) !important;
+		color: var(--form-color-print);
+		background: var(--form-background-print);
+	}
+
+	input[type='submit'],
+	input[type='submit']:valid,
+	input[type='submit']:invalid {
+		margin: var(--form-field-submit-margin-print);
+	}
+
+	fieldset {
+		break-inside: avoid;
+	}
+}

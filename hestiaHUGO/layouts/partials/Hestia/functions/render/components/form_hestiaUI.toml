@@ -1,0 +1,134 @@
+[CSS.Variables]
+"--form-min-width" = "initial"
+"--form-width" = "initial"
+"--form-max-width" = "initial"
+"--form-min-height" = "initial"
+"--form-height" = "initial"
+"--form-max-height" = "initial"
+
+"--form-margin" = "2rem auto"
+"--form-padding" = ".5rem"
+
+"--form-color" = "var(--body-color)"
+"--form-color-inverted" = "var(--body-color-inverted)"
+"--form-color-print" = "var(--body-color)"
+"--form-background" = "var(--body-background)"
+"--form-background-inverted" = "var(--body-background-inverted)"
+"--form-background-print" = "transparent"
+
+
+
+
+"--form-fieldset-display" = "block"
+
+"--form-fieldset-margin" = "1rem"
+"--form-fieldset-padding" = "0"
+
+"--form-fieldset-border" = ".1rem solid var(--form-fieldset-color)"
+"--form-fieldset-border-inverted" = ".1rem solid var(--form-fieldset-color-inverted)"
+"--form-fieldset-border-radius" = ".4rem"
+
+"--form-fieldset-color" = "var(--color-primary-700)"
+"--form-fieldset-color-inverted" = "var(--color-primary-100)"
+"--form-fieldset-background" = "transparent"
+"--form-fieldset-background-inverted" = "transparent"
+
+"--form-fieldset-timing" = "var(--timing-normal)"
+
+
+"--form-legend-font-weight" = "700"
+"--form-legend-text-transform" = "uppercase"
+
+
+
+
+"--form-label-display" = "block"
+
+"--form-label-width" = "100%"
+"--form-label-height" = "initial"
+
+"--form-label-margin" = "0 auto"
+"--form-label-padding" = "0"
+
+"--form-label-font-size" = "1.6rem"
+"--form-label-font-style" = "italic"
+"--form-label-font-weight" = "700"
+"--form-label-text-transform" = "titlecase"
+
+"--form-label-color" = "var(--color-typography-50)"
+"--form-label-background" = "var(--form-fieldset-color)"
+
+
+
+
+"--form-field-display" = "block"
+"--form-field-opacity" = "1"
+"--form-field-opacity-disabled" = ".3"
+
+"--form-field-min-width" = "5rem"
+"--form-field-width" = "initial"
+"--form-field-max-width" = "initial"
+"--form-field-min-height" = "initial"
+"--form-field-height" = "initial"
+"--form-field-max-height" = "initial"
+
+"--form-field-margin" = "0 auto"
+"--form-field-padding" = "1rem"
+
+"--form-field-border" = "none"
+"--form-field-border-radius" = "initial"
+"--form-field-border-focus" = "1px solid var(--form-field-color-focus)"
+"--form-field-border-valid" = "1px solid var(--form-field-color-valid)"
+"--form-field-border-invalid" = "1px solid var(--form-field-color-invalid)"
+
+"--form-field-font-family" = "var(--body-font-family)"
+"--form-field-font-size" = "var(--body-font-size)"
+"--form-field-font-weight" = "initial"
+"--form-field-font-style" = "initial"
+"--form-field-text-transform" = "initial"
+"--form-field-text-align" = "center"
+"--form-textarea-text-align" = "justify"
+
+"--form-field-color" = "var(--body-color)"
+"--form-field-color-focus" = "#ffff14"
+"--form-field-color-valid" = "#01fe01"
+"--form-field-color-invalid" = "#ff0034"
+"--form-field-placeholder-color" = "var(--color-typography-400)"
+"--form-field-background" = "var(--color-primary-50)"
+"--form-field-box-shadow" = "0 1rem 2rem transparent"
+
+
+
+
+"--form-field-optgroup-margin" = "2rem 1rem 0"
+"--form-field-optgroup-padding" = "0"
+"--form-field-optgroup-text-align" = "center"
+
+"--form-field-option-padding" = "0"
+"--form-field-option-text-align" = "center"
+"--form-field-option-before" = ""
+
+
+
+
+"--form-field-radio-size" = "1rem"
+"--form-field-radio-margin" = "0 1rem"
+"--form-field-radio-padding" = "1rem 0"
+
+
+
+
+"--form-field-submit-display" = "inline-block"
+"--form-field-submit-margin" = "1rem"
+"--form-field-submit-margin-print" = "1rem auto"
+
+"--form-field-submit-border" = "2px solid transparent"
+"--form-field-submit-border-radius" = ".5rem"
+"--form-field-submit-box-shadow" = "0 1rem 2rem var(--color-typography-300)"
+
+"--form-field-submit-text-transform" = "uppercase"
+
+"--form-field-submit-color" = "var(--color-typography-50)"
+"--form-field-submit-color-inverted" = "var(--body-color)"
+"--form-field-submit-background" = "var(--color-primary-800)"
+"--form-field-submit-background-inverted" = "var(--color-primary-100)"
