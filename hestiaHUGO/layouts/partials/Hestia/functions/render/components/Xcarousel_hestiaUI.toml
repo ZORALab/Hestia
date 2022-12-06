@@ -1,0 +1,82 @@
+[CSS.Variables]
+"--carousel-total-slides" = "1"
+
+"--carousel-grid" = "block"
+
+"--carousel-min-width" = "initial"
+"--carousel-width" = "80%"
+"--carousel-max-width" = "initial"
+"--carousel-min-height" = "40rem"
+"--carousel-height" = "40rem"
+"--carousel-max-height" = "initial"
+
+"--carousel-margin" = "0 auto 3rem"
+"--carousel-padding" = "0"
+
+"--carousel-color" = "var(--body-color-inverted)"
+"--carousel-background" = "transparent"
+
+"--carousel-perspective" = "2rem"
+
+"--carousel-animation-next" = "carousel-scroll-next, carousel-scroll-snap"
+"--carousel-animation-restart" = "carousel-scroll-restart, carousel-scroll-snap"
+"--carousel-animation-timing" = 1000
+"--carousel-animation-timing-function" = "ease"
+"--carousel-animation-iteration" = "infinite"
+"--carousel-animation-factor-next" = "-100%"
+"--carousel-animation-factor-restart" = """
+calc(var(--carousel-total-slides) * -100%)
+"""
+
+"--carousel-timing" = "var(--timing-normal)"
+
+
+
+
+"--carousel-nav-grid" = """
+"carousel-nav-prev    content    carousel-nav-next" 100%
+/ max-content         auto       max-content
+"""
+"--carousel-nav-justify-items" = "center"
+"--carousel-nav-align-items" = "center"
+
+"--carousel-nav-width" = "10rem"
+"--carousel-nav-height" = "100%"
+
+"--carousel-nav-color" = "var(--carousel-color)"
+"--carousel-nav-background" = "transparent"
+
+"--carousel-nav-transition" = "var(--timing-rapid)"
+
+
+
+
+"--carousel-panel-justify-content" = "center"
+"--carousel-panel-align-content" = "center"
+"--carousel-panel-align-items" = "flex-end"
+"--carousel-panel-flex-direction" = "row"
+"--carousel-panel-flex-wrap" = "nowrap"
+
+"--carousel-panel-width" = "100%"
+"--carousel-panel-height" = "fit-content"
+
+"--carousel-panel-margin" = "0"
+"--carousel-panel-padding" = "0"
+
+"--carousel-panel-border" = "none"
+"--carousel-panel-border-radius" = "0"
+
+"--carousel-panel-position-top" = "unset"
+"--carousel-panel-position-left" = "50%"
+"--carousel-panel-position-right" = "unset"
+"--carousel-panel-position-bottom" = "0"
+"--carousel-panel-transform" = "translateX(-50%)"
+
+
+
+
+"--carousel-panel-item-margin" = "0 1rem"
+"--carousel-panel-item-padding" = "0"
+
+"--carousel-panel-item-color" = "var(--carousel-color)"
+"--carousel-panel-item-background" = "transparent"

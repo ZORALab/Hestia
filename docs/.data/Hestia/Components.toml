@@ -180,3 +180,8 @@ Variables = []
 Name = "drawer_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "Xcarousel_hestiaUI"
+Include = true
+Variables = []
