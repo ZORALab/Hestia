@@ -170,3 +170,8 @@ Variables = []
 Name = "toc_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "catalog_hestiaUI"
+Include = true
+Variables = []
