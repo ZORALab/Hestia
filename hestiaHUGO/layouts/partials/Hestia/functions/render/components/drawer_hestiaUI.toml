@@ -1,0 +1,74 @@
+[CSS.Variables]
+"--drawer-trigger-z-index" = "calc(var(--z-index-max) - var(--z-index-nav-top))"
+"--drawer-z-index" = "calc(var(--z-index-max) - var(--z-index-nav))"
+"--drawer-overlay-z-index" = "calc(var(--z-index-max) - var(--z-index-nav-overlay))"
+
+"--drawer-width-left" = "0"
+"--drawer-width-opened-left" = "90%"
+"--drawer-width-top" = "100%"
+"--drawer-width-opened-top" = "100%"
+"--drawer-width-right" = "0"
+"--drawer-width-opened-right" = "90%"
+"--drawer-height-left" = "100%"
+"--drawer-height-opened-left" = "100%"
+"--drawer-height-top" = "0"
+"--drawer-height-opened-top" = "90%"
+"--drawer-height-right" = "100%"
+"--drawer-height-opened-right" = "100%"
+
+"--drawer-border" = "0"
+"--drawer-border-opened" = "3px solid var(--color-primary-700)"
+"--drawer-border-radius" = ".5rem"
+"--drawer-border-radius-left" = "0 var(--drawer-border-radius) var(--drawer-border-radius) 0"
+"--drawer-border-radius-top" = "0 0 var(--drawer-border-radius) var(--drawer-border-radius)"
+"--drawer-border-radius-right" = "var(--drawer-border-radius) 0 0 var(--drawer-border-radius)"
+
+"--drawer-color" = "var(--body-color)"
+"--drawer-background" = "var(--body-background)"
+"--drawer-overlay-color" = "transparent"
+"--drawer-overlay-background" = "rgba(0,0,0,.7)"
+
+"--drawer-transition" = "var(--timing-normal)"
+"--drawer-overlay-transition" = "var(--timing-normal)"
+
+
+
+
+"--drawer-trigger-width" = "5rem"
+"--drawer-trigger-height" = "5rem"
+
+"--drawer-trigger-border" = "unset"
+"--left-drawer-trigger-border" = "unset"
+"--top-drawer-trigger-border" = "unset"
+"--right-drawer-trigger-border" = "unset"
+"--drawer-trigger-border-radius" = "50%"
+"--left-drawer-trigger-border-radius" = """
+0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius) 0
+"""
+"--top-drawer-trigger-border-radius" = """
+0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)
+"""
+"--right-drawer-trigger-border-radius" = """
+var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
+"""
+
+"--left-drawer-trigger-position-top" = "50%"
+"--left-drawer-trigger-position-left" = "0"
+"--left-drawer-trigger-position-bottom" = "unset"
+"--left-drawer-trigger-position-right" = "unset"
+"--left-drawer-trigger-transform" = "translateY(-50%)"
+
+"--top-drawer-trigger-position-top" = "0"
+"--top-drawer-trigger-position-left" = "0"
+"--top-drawer-trigger-position-bottom" = "unset"
+"--top-drawer-trigger-position-right" = "unset"
+"--top-drawer-trigger-transform" = "unset"
+
+"--right-drawer-trigger-position-top" = "50%"
+"--right-drawer-trigger-position-left" = "unset"
+"--right-drawer-trigger-position-bottom" = "unset"
+"--right-drawer-trigger-position-right" = "0"
+"--right-drawer-trigger-transform" = "translateY(-50%)"
+
+"--drawer-trigger-color" = "var(--color-typography-50)"
+"--drawer-trigger-background" = "var(--color-primary-800)"

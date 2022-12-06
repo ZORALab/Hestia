@@ -1,0 +1,287 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+.left-drawer,
+.right-drawer,
+.top-drawer {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: stretch;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+	position: fixed;
+	top: 0;
+	z-index: var(--drawer-z-index);
+
+	border-radius: var(--drawer-border-radius);
+
+	transition: var(--drawer-transition);
+}
+
+.left-drawer {
+	grid-area: var(--leftnav-grid-area);
+	align-content: flex-start;
+
+	width: var(--drawer-width-left);
+	height: var(--drawer-height-left);
+
+	border-right: var(--drawer-border);
+	border-radius: var(--drawer-border-radius-left);
+
+	left: 0;
+}
+
+.top-drawer {
+	grid-area: var(--topnav-grid-area);
+
+	width: var(--drawer-width-top);
+	height: var(--drawer-height-top);
+
+	border-left: var(--drawer-border);
+	border-bottom: var(--drawer-border);
+	border-right: var(--drawer-border);
+	border-radius: var(--drawer-border-radius-top);
+
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.right-drawer {
+	grid-area: var(--rightnav-grid-area);
+	align-content: flex-end;
+
+	width: var(--drawer-width-right);
+	height: var(--drawer-height-right);
+
+	border-left: var(--drawer-border);
+	border-radius: var(--drawer-border-radius-right);
+
+	right: 0;
+}
+
+.left-drawer > .content,
+.top-drawer > .content,
+.right-drawer > .content {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: stretch;
+	flex-wrap: wrap;
+	flex-direction: column;
+
+	color: var(--drawer-color);
+	background: var(--drawer-background);
+
+	z-index: var(--drawer-z-index);
+
+	transition: var(--drawer-transition);
+}
+
+.left-drawer > *:not(label),
+.top-drawer > *:not(label),
+.right-drawer > *:not(label) {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.left-drawer:has(input[type='checkbox']:checked) > *:not(label),
+.top-drawer:has(input[type='checkbox']:checked) > *:not(label),
+.right-drawer:has(input[type='checkbox']:checked) > *:not(label) {
+	visibility: visible;
+	opacity: 1;
+}
+
+.left-drawer:has(input[type='checkbox']:checked),
+.left-drawer:has(label.trigger > input[type='checkbox']:checked) {
+	width: var(--drawer-width-opened-left);
+	height: var(--drawer-height-opened-left);
+
+	border-right: var(--drawer-border-opened);
+}
+
+.top-drawer:has(input[type='checkbox']:checked),
+.top-drawer:has(label.trigger > input[type='checkbox']:checked) {
+	width: var(--drawer-width-opened-top);
+	height: var(--drawer-height-opened-top);
+
+	border-left: var(--drawer-border-opened);
+	border-bottom: var(--drawer-border-opened);
+	border-right: var(--drawer-border-opened);
+}
+
+.right-drawer:has(input[type='checkbox']:checked),
+.right-drawer:has(label.trigger > input[type='checkbox']:checked) {
+	width: var(--drawer-width-opened-right);
+	height: var(--drawer-height-opened-right);
+
+	border-left: var(--drawer-border-opened);
+}
+
+.left-drawer > input[type='checkbox'],
+.right-drawer > input[type='checkbox'],
+.top-drawer > input[type='checkbox'],
+.left-drawer > label.trigger > input[type='checkbox'],
+.right-drawer > label.trigger > input[type='checkbox'],
+.top-drawer > label.trigger > input[type='checkbox'] {
+	display: none;
+}
+
+.left-drawer > label.trigger,
+.top-drawer > label.trigger,
+.right-drawer > label.trigger {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+
+	position: fixed;
+	bottom: 50%; /* intentionally request attention */
+	left: 50%; /* intentionally request attention */
+	z-index: var(--drawer-trigger-z-index);
+
+	width: var(--drawer-trigger-width);
+	height: var(--drawer-trigger-height);
+
+	border: var(--drawer-trigger-border);
+	border-radius: var(--drawer-trigger-border-radius);
+
+	color: var(--drawer-trigger-color);
+	background: var(--drawer-trigger-background);
+
+	opacity: 1;
+	transition: var(--drawer-transition);
+}
+
+.left-drawer > label.trigger {
+	border: var(--left-drawer-trigger-border);
+	border-radius: var(--left-drawer-trigger-border-radius);
+
+	top: var(--left-drawer-trigger-position-top);
+	left: var(--left-drawer-trigger-position-left);
+	bottom: var(--left-drawer-trigger-position-bottom);
+	right: var(--left-drawer-trigger-position-right);
+
+	transform: var(--left-drawer-trigger-transform);
+}
+
+.left-drawer:has(input[type='checkbox']:checked) label.trigger,
+.left-drawer:has(label.trigger > input[type='checkbox']:checked) label.trigger {
+}
+
+.top-drawer > label.trigger {
+	border: var(--top-drawer-trigger-border);
+	border-radius: var(--top-drawer-trigger-border-radius);
+
+	top: var(--top-drawer-trigger-position-top);
+	left: var(--top-drawer-trigger-position-left);
+	bottom: var(--top-drawer-trigger-position-bottom);
+	right: var(--top-drawer-trigger-position-right);
+
+	transform: var(--top-drawer-trigger-transform);
+}
+
+.top-drawer:has(input[type='checkbox']:checked) label.trigger,
+.top-drawer:has(label.trigger > input[type='checkbox']:checked) label.trigger {
+}
+
+.right-drawer > label.trigger {
+	border: var(--right-drawer-trigger-border);
+	border-radius: var(--right-drawer-trigger-border-radius);
+
+	top: var(--right-drawer-trigger-position-top);
+	left: var(--right-drawer-trigger-position-left);
+	bottom: var(--right-drawer-trigger-position-bottom);
+	right: var(--right-drawer-trigger-position-right);
+
+	transform: var(--right-drawer-trigger-transform);
+}
+
+.right-drawer:has(input[type='checkbox']:checked) label.trigger,
+.right-drawer:has(label.trigger > input[type='checkbox']:checked) label.trigger {
+}
+
+.left-drawer .overlay,
+.top-drawer .overlay,
+.right-drawer .overlay {
+	content: '';
+	display: block;
+
+	position: fixed;
+	top: 0;
+	z-index: var(--drawer-overlay-z-index);
+
+	color: var(--drawer-overlay-color);
+	background: var(--drawer-overlay-background);
+
+	opacity: 0;
+	transition: var(--drawer-overlay-transition);
+}
+
+.left-drawer .overlay {
+	width: 0;
+	height: 100%;
+
+	left: 0;
+
+	opacity: 1;
+}
+
+.right-drawer .overlay {
+	width: 0;
+	height: 100%;
+
+	right: 0;
+
+	opacity: 1;
+}
+
+.top-drawer .overlay {
+	width: 100%;
+	height: 0;
+
+	left: 0;
+
+	opacity: 1;
+}
+
+.left-drawer:has(input[type='checkbox']:checked) .overlay,
+.left-drawer:has(label.trigger > input[type='checkbox']:checked) .overlay {
+	width: 200%;
+}
+
+.top-drawer:has(input[type='checkbox']:checked) .overlay,
+.top-drawer:has(label.trigger > input[type='checkbox']:checked) .overlay {
+	height: 200%;
+}
+
+.right-drawer:has(input[type='checkbox']:checked) .overlay,
+.right-drawer:has(label.trigger > input[type='checkbox']:checked) .overlay {
+	width: 200%;
+}
+
+@media print {
+	.left-drawer,
+	.right-drawer,
+	.top-drawer {
+		display: none;
+	}
+}

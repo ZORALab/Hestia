@@ -32,4 +32,49 @@ specific language governing permissions and limitations under the License.
 		{{- .Content.Rendered -}}
 	{{- end }}
 	</main>
+	<nav class="left-drawer">
+		<label class="trigger">
+			<input id="left-drawer-1" type="checkbox" />
+			<span>L</span>
+		</label>
+		<div class="content">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+			<a href="#">Link 5</a>
+			<a href="#">Link 6</a>
+		</div>
+		<label class="overlay" for="left-drawer-1"></label>
+	</nav>
+	<nav class="right-drawer">
+		<label class="trigger">
+			<input id="right-drawer-1" type="checkbox" />
+			<span>R</span>
+		</label>
+		<div class="content">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+			<a href="#">Link 5</a>
+			<a href="#">Link 6</a>
+		</div>
+		<label class="overlay" for="right-drawer-1"></label>
+	</nav>
+	<nav class="top-drawer">
+		<label class="trigger">
+			<input id="top-drawer-1" type="checkbox" />
+			<span>T</span>
+		</label>
+		<div class="content">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+			<a href="#">Link 4</a>
+			<a href="#">Link 5</a>
+			<a href="#">Link 6</a>
+		</div>
+		<label class="overlay" for="top-drawer-1"></label>
+	</nav>
 {{- /* clean up */ -}}

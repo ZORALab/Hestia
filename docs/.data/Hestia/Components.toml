@@ -175,3 +175,8 @@ Variables = []
 Name = "catalog_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "drawer_hestiaUI"
+Include = true
+Variables = []
