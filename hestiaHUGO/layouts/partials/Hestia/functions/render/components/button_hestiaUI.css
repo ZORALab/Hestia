@@ -22,22 +22,17 @@ button,
 .button {
 	display: var(--button-display);
 	opacity: var(--button-opacity);
-	transition: var(--button-transition);
-
 
 	margin: var(--button-margin);
 	padding: var(--button-padding);
-
 
 	border: var(--button-border);
 	border-radius: var(--button-border-radius);
 	box-shadow: var(--button-box-shadow);
 
-
 	color: var(--button-color);
 	background: var(--button-background);
 	border-color: var(--button-color);
-
 
 	font-size: var(--button-font-size);
 	font-weight: var(--button-font-weight);
@@ -48,6 +43,8 @@ button,
 	overflow-wrap: var(--button-overflow-wrap);
 	word-break: var(--button-word-break);
 	line-height: var(--button-line-height);
+
+	transition: var(--button-transition);
 }
 
 input[type='button'].emphasize,
@@ -98,4 +95,16 @@ input[type='submit']:not([disabled]):active,
 button:not(disabled):active,
 .button:not(disabled):active {
 	box-shadow: none;
+}
+
+@media print {
+	input[type='button'],
+	input[type='reset'],
+	input[type='submit'],
+	button,
+	.button {
+		color: var(--button-color-print) !important;
+		border-color: var(--button-color-print) !important;
+		background: var(--button-background-print) !important;
+	}
 }
