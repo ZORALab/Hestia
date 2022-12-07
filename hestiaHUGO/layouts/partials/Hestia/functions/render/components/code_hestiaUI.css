@@ -33,7 +33,10 @@ code {
 
 @media print {
 	code {
-		background: transparent;
 		break-inside: avoid-page;
+
+		color: var(--code-color-print) !important;
+		border-color: var(--code-color-print) !important;
+		background: var(--code-background-print) !important;
 	}
 }

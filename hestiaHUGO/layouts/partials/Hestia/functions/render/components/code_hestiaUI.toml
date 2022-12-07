@@ -1,13 +1,15 @@
 [CSS.Variables]
 "--code-margin" = "initial"
-"--code-padding" = ".1rem .2rem"
+"--code-padding" = "0 .2rem"
 
 "--code-border" = "initial"
-"--code-border-radius" = ".3rem"
+"--code-border-radius" = ".4rem"
 
 "--code-letter-spacing" = 0
 
 "--code-color" = "var(--color-primary-300)"
+"--code-color-print" = "var(--body-color-print)"
 "--code-background" = "var(--color-contrast-50)"
+"--code-background-print" = "transparent"
 
 "--code-overflow-wrap" = "break-word"
