@@ -38,7 +38,9 @@ ol li:before {
 	counter-increment: ol-counters;
 	content: "(" counters(ol-counters, ".") ")";
 
-	font-weight: 700;
+	font-size: var(--olist-li-before-font-size);
+	font-weight: var(--olist-li-before-font-weight);
+	text-align: var(--olist-li-before-text-align);
 }
 
 ol.left-aligned {
@@ -47,4 +49,8 @@ ol.left-aligned {
 
 ol.left-aligned li {
 	margin: var(--olist-li-margin-aligned-left);
+}
+
+ol.left-aligned li:before {
+	text-align: var(--olist-li-before-text-align-aligned-left);
 }

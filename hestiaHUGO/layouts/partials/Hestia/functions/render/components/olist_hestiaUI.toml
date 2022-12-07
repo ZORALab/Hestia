@@ -1,11 +1,22 @@
 [CSS.Variables]
+"--olist-display" = "block"
+
+"--olist-margin" = "0 auto"
+"--olist-padding" = "0"
+
 "--olist-spacing" = "4rem"
 "--olist-tab-spacing" = "6rem"
-"--olist-display" = "block"
 "--olist-text-align" = "initial"
 "--olist-text-align-aligned-left" = "justify"
-"--olist-margin" = "0"
-"--olist-padding" = "0"
+
+
+
+
+"--olist-li-before-font-size" = "2rem"
+"--olist-li-before-font-weight" = "700"
+"--olist-li-before-text-align" = "center"
+"--olist-li-before-text-align-aligned-left" = "left"
+
 
 
 
