@@ -21,9 +21,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* return render */}}
-	<h2>You're Currently Offline</h2>
-	<p>
-		Sorry, you are currently offline. Please visit this page again
-		once you're connected to the Internet!
-	</p>
+	<main>
+		<h2>You're Currently Offline</h2>
+		<p>
+			Sorry, you are currently offline. Please visit this page
+			again once you're connected to the Internet!
+		</p>
+	</main>
 {{- /* clean up */ -}}
