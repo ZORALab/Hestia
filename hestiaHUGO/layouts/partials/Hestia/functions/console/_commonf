@@ -43,8 +43,8 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* states shortcode if available */ -}}
 	{{- $ret = "not applicable" -}}
-	{{- if .Input.Shortcode -}}
-		{{- $ret = .Input.Shortcode -}}
+	{{- if .Shortcode -}}
+		{{- $ret = .Shortcode -}}
 	{{- end -}}
 	{{- $dataList = printf "%sShortcode   : %s\n" $dataList $ret -}}
 {{- else -}}

@@ -34,7 +34,13 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* prepare Hestia .Input */ -}}
+{{- /* prepare .Shortcode */ -}}
+{{- $dataList = merge $dataList (dict "Shortcode" .Name) -}}
+
+
+
+
+{{- /* prepare Shortcode for Hestia .Input */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/parse/Shortcode" . -}}
 {{- $dataList = merge $dataList $ret -}}
 

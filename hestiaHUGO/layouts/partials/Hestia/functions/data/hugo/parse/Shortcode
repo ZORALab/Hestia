@@ -41,11 +41,5 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* prepare .Name */ -}}
-{{- $dataList = merge $dataList (dict "Shortcode" .Name) -}}
-
-
-
-
 {{- /* render output */ -}}
 {{- return dict "Input" $dataList -}}
