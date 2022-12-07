@@ -64,9 +64,8 @@ specific language governing permissions and limitations under the License.
 }
 
 footer .toc {
-	border: var(--toc-border-inverted);
-
 	color: var(--toc-color-inverted);
+	border-color: var(--toc-color-inverted);
 	background: var(--toc-background-inverted);
 }
 
@@ -78,14 +77,13 @@ footer .toc:before {
 
 @media print {
 	.toc {
-		border: var(--toc-border-print) !important;
-
 		color: var(--toc-color-print) !important;
+		border-color: var(--toc-color-print) !important;
 		background: var(--toc-background-print) !important;
 	}
 
 	.toc:before {
-		color: var(--toc-title-color-print) !important;
-		background: var(--toc-title-background-print) !important;
+		color: var(--toc-color-print) !important;
+		background: var(--toc-background-print) !important;
 	}
 }

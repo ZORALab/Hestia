@@ -4,14 +4,12 @@
 
 "--toc-min-width" = "initial"
 "--toc-width" = "fit-content"
-"--toc-max-width" = "initial"
+"--toc-max-width" = "100%"
 "--toc-min-height" = "initial"
 "--toc-height" = "fit-content"
 "--toc-max-height" = "initial"
 
 "--toc-border" = "1px solid var(--toc-color)"
-"--toc-border-inverted" = "1px solid var(--toc-color-inverted)"
-"--toc-border-print" = "1px solid var(--toc-color-print)"
 "--toc-border-radius" = ".5rem"
 
 "--toc-color" = "var(--body-color)"
@@ -36,7 +34,7 @@
 
 
 
-"--toc-title-content" = "\"Table of Content\""
+"--toc-title-content" = "\"Synopsis\""
 
 "--toc-title-margin" = "0 auto 2.5rem"
 "--toc-title-padding" = "0"
@@ -46,7 +44,5 @@
 
 "--toc-title-color" = "var(--toc-color)"
 "--toc-title-color-inverted" = "var(--toc-color-inverted)"
-"--toc-title-color-print" = "var(--toc-color-print)"
 "--toc-title-background" = "transparent"
 "--toc-title-background-inverted" = "transparent"
-"--toc-title-background-print" = "transparent"
