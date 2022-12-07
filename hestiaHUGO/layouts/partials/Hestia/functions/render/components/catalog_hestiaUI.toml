@@ -1,17 +1,15 @@
 [CSS.Variables]
 "--catalog-margin" = "2rem auto"
-"--catalog-padding" = "2rem"
+"--catalog-padding" = "2rem 0"
 
 "--catalog-min-width" = "initial"
-"--catalog-width" = "fit-content"
-"--catalog-max-width" = "initial"
+"--catalog-width" = "100%"
+"--catalog-max-width" = "100%"
 "--catalog-min-height" = "initial"
 "--catalog-height" = "fit-content"
 "--catalog-max-height" = "initial"
 
 "--catalog-border" = "1px solid transparent"
-"--catalog-border-inverted" = "1px solid transparent"
-"--catalog-border-print" = "1px solid var(--catalog-color-print)"
 "--catalog-border-radius" = ".5rem"
 
 "--catalog-color" = "var(--body-color)"

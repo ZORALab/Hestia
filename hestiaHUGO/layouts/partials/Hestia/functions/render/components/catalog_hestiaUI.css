@@ -15,7 +15,6 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-
 .catalog {
 	display: flex;
 	justify-content: center;
@@ -26,6 +25,8 @@ specific language governing permissions and limitations under the License.
 
 	margin: var(--catalog-margin);
 	padding: var(--catalog-padding);
+	padding-left: 0;
+	padding-right: 0;
 
 	min-width: var(--catalog-min-width);
 	width: var(--catalog-width);
@@ -42,17 +43,15 @@ specific language governing permissions and limitations under the License.
 }
 
 footer .catalog {
-	border: var(--catalog-border-inverted);
-
 	color: var(--catalog-color-inverted);
+	border-color: var(--catalog-color-inverted);
 	background: var(--catalog-background-inverted);
 }
 
 @media print {
 	.catalog {
-		border: var(--catalog-border-print) !important;
-
 		color: var(--catalog-color-print) !important;
+		border-color: var(--catalog-color-print) !important;
 		background: var(--catalog-background-print) !important;
 	}
 }
