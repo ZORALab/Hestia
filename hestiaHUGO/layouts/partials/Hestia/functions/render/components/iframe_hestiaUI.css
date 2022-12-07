@@ -24,15 +24,17 @@ iframe {
 	max-width: var(--iframe-max-width);
 	min-height: var(--iframe-min-height);
 	max-height: var(--iframe-max-height);
-	visibility: var(--iframe-visibility);
 
 	border: var(--iframe-border);
 
 	background: var(--iframe-background);
+
+	visibility: var(--iframe-visibility);
 }
 
 iframe.hidden {
 	width: var(--iframe-width-hidden);
 	height: var(--iframe-height-hidden);
+
 	visibility: var(--iframe-visibility-hidden);
 }

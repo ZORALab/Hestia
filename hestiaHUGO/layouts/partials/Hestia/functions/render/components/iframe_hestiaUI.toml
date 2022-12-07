@@ -9,9 +9,10 @@
 "--iframe-min-height" = "initial"
 "--iframe-height-hidden" = "1px"
 "--iframe-max-height" = "initial"
-"--iframe-visibility" = "visible"
-"--iframe-visibility-hidden" = "hidden"
 
 "--iframe-border" = "none"
 
 "--iframe-background" = "inherit"
+
+"--iframe-visibility" = "visible"
+"--iframe-visibility-hidden" = "hidden"
