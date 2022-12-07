@@ -4,44 +4,46 @@
 "--drawer-overlay-z-index" = "calc(var(--z-index-max) - var(--z-index-nav-overlay))"
 
 "--drawer-width-left" = "0"
-"--drawer-width-opened-left" = "90%"
+"--drawer-width-opened-left" = "90vw"
 "--drawer-width-top" = "100%"
 "--drawer-width-opened-top" = "100%"
 "--drawer-width-right" = "0"
-"--drawer-width-opened-right" = "90%"
+"--drawer-width-opened-right" = "90vw"
 "--drawer-height-left" = "100%"
 "--drawer-height-opened-left" = "100%"
 "--drawer-height-top" = "0"
-"--drawer-height-opened-top" = "90%"
+"--drawer-height-opened-top" = "90vh"
 "--drawer-height-right" = "100%"
 "--drawer-height-opened-right" = "100%"
 
-"--drawer-border" = "0"
-"--drawer-border-opened" = "3px solid var(--color-primary-700)"
+"--drawer-border" = "1rem solid transparent"
+"--drawer-border-opened" = "1rem solid var(--drawer-color-primary)"
 "--drawer-border-radius" = ".5rem"
 "--drawer-border-radius-left" = "0 var(--drawer-border-radius) var(--drawer-border-radius) 0"
 "--drawer-border-radius-top" = "0 0 var(--drawer-border-radius) var(--drawer-border-radius)"
 "--drawer-border-radius-right" = "var(--drawer-border-radius) 0 0 var(--drawer-border-radius)"
 
 "--drawer-color" = "var(--body-color)"
+"--drawer-color-inverted" = "var(--body-color-inverted)"
+"--drawer-color-primary" = "var(--color-primary-600)"
 "--drawer-background" = "var(--body-background)"
 "--drawer-overlay-color" = "transparent"
-"--drawer-overlay-background" = "rgba(0,0,0,.7)"
+"--drawer-overlay-background" = "rgba(0,0,0,.75)"
 
 "--drawer-transition" = "var(--timing-normal)"
-"--drawer-overlay-transition" = "var(--timing-normal)"
+"--drawer-overlay-transition" = "var(--timing-fast)"
 
 
 
 
-"--drawer-trigger-width" = "5rem"
-"--drawer-trigger-height" = "5rem"
+"--drawer-trigger-width" = "4.5rem"
+"--drawer-trigger-height" = "4.5rem"
 
 "--drawer-trigger-border" = "unset"
 "--left-drawer-trigger-border" = "unset"
 "--top-drawer-trigger-border" = "unset"
 "--right-drawer-trigger-border" = "unset"
-"--drawer-trigger-border-radius" = "50%"
+"--drawer-trigger-border-radius" = "30%"
 "--left-drawer-trigger-border-radius" = """
 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius) 0
 """
@@ -51,6 +53,9 @@
 "--right-drawer-trigger-border-radius" = """
 var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
 """
+
+"--drawer-trigger-font-size" = "2rem"
+"--drawer-trigger-font-style" = "normal"
 
 "--left-drawer-trigger-position-top" = "50%"
 "--left-drawer-trigger-position-left" = "0"
@@ -70,5 +75,5 @@ var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
 "--right-drawer-trigger-position-right" = "0"
 "--right-drawer-trigger-transform" = "translateY(-50%)"
 
-"--drawer-trigger-color" = "var(--color-typography-50)"
-"--drawer-trigger-background" = "var(--color-primary-800)"
+"--drawer-trigger-color" = "var(--drawer-color-inverted)"
+"--drawer-trigger-background" = "var(--drawer-color-primary)"
