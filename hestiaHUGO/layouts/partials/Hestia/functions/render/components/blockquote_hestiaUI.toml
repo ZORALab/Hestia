@@ -14,11 +14,13 @@
 
 "--blockquote-text-align" = "justify"
 
+"--blockquote-border" = "0"
 "--blockquote-border-radius" = "1rem"
 
 "--blockquote-color" = "var(--color-typography-900)"
-"--blockquote-background" = "var(--color-typography-100)"
-"--blockquote-color-shadow" = "var(--color-typography-100)"
+"--blockquote-color-print" = "var(--body-color-print)"
+"--blockquote-background" = "var(--color-primary-100)"
+"--blockquote-background-print" = "var(--body-background-print)"
 
 "--blockquote-timing" = "var(--timing-rapid)"
 

@@ -15,7 +15,6 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-
 blockquote {
 	display: var(--blockquote-display);
 
@@ -29,6 +28,7 @@ blockquote {
 	margin: var(--blockquote-margin);
 	padding: var(--blockquote-padding);
 
+	border: var(--blockquote-border);
 	border-radius: var(--blockquote-border-radius);
 
 	text-align: var(--blockquote-text-align);
@@ -43,8 +43,6 @@ blockquote:before {
 	content: var(--blockquote-before-content);
 	display: block;
 
-	color: var(--blockquote-color);
-
 	width: 100%;
 	height: 1px;
 
@@ -54,31 +52,30 @@ blockquote:before {
 
 	font-size: 12rem;
 	text-align: left;
+
+	color: var(--blockquote-color);
 }
 
 blockquote cite {
 	display: block;
 
-	color: var(--blockquote-color);
+	margin: var(--blockquote-cite-margin);
+
+	border-top: var(--blockquote-cite-border-top);
 
 	position: relative;
 
 	text-align: right;
 	font-style: italic;
 
-	margin: var(--blockquote-cite-margin);
-
-	border-top: var(--blockquote-cite-border-top);
+	color: var(--blockquote-color);
 }
 
 @media print {
-	:root {
-		--blockquote-color: var(--color-typography-900);
-		--blockquote-background: transparent;
-		--blockquote-color-shadow: transparent;
-	}
-
 	blockquote {
 		break-inside: avoid;
+
+		color: var(--blockquote-color-print) !important;
+		background: var(--blockquote-background-print) !important;
 	}
 }

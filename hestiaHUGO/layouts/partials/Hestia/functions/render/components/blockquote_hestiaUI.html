@@ -15,24 +15,3 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-{{- /* INPUT PARAMETERS */ -}}
-{{- /* .ID              = ID attribute value (optional,string)            */ -}}
-{{- /* .Class           = Class attribute value (optional,string)         */ -}}
-{{- /* .OnLoad          = onload= javascript value (optional,string)      */ -}}
-{{- /* .Content         = content of the URL (must,any)                   */ -}}
-{{- /* .Cite            = author of the quote (optional, string)          */ -}}
-
-
-{{- /* RENDER COMPONENT */ -}}
-{{- if .Content }}
-<blockquote
-	{{- if .ID }} id='{{- .ID -}}'{{- end }}
-	{{- if .Class }} class="{{- .Class -}}"{{- end }}
-	{{- if .OnLoad }} onload="{{- .OnLoad -}}"{{- end -}}
->
-	{{ .Content }}
-	{{- if .Cite }}
-	<cite>{{- .Cite -}}</cite>
-	{{- end }}
-</blockquote>
-{{- end -}}
