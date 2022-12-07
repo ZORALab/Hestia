@@ -24,7 +24,6 @@ a {
 	min-width: var(--anchor-min-width);
 	width: var(--anchor-width);
 	max-width: var(--anchor-max-width);
-
 	min-height: var(--anchor-min-height);
 	height: var(--anchor-height);
 	max-height: var(--anchor-max-height);
@@ -159,18 +158,18 @@ a.wrap {
 }
 
 @media print {
-	:root {
-		--anchor-after-font-size: initial;
-		--anchor-after-font-family: initial;
-		--anchor-after-text-decoration: initial;
-		--anchor-after-overflow-wrap: "break-word";
-		--anchor-after-word-break: break-word;
-		--anchor-after-letter-spacing: initial;
-		--anchor-after-line-height: initial;
-		--anchor-after-text-align: initial;
+	a {
+		overflow-wrap: var(--anchor-overflow-wrap-print) !important;
+		word-break: var(--anchor-overflow-word-break) !important;
+
+		border-top: none !important;
+		border-color: var(--anchor-color-print) !important;
+
+		color: var(--anchor-color-print) !important;
+		background: var(--anchor-color-background-print) !important;
 	}
 
 	a:after {
-		content: ' (' attr(href) ')';
+		content: ' (' attr(href) ')' !important;
 	}
 }
