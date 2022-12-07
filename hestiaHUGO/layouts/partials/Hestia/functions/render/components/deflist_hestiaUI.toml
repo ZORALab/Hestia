@@ -1,10 +1,10 @@
 [CSS.Variables]
 "--deflist-display" = "block"
 
-"--deflist-border-top" = "2px solid var(--color-primary-700)"
-"--deflist-border-top-inverted" = "2px solid var(--color-primary-300)"
-"--deflist-border-bottom" = "2px solid var(--color-primary-700)"
-"--deflist-border-bottom-inverted" = "2px solid var(--color-primary-300)"
+"--deflist-border-top" = "2px solid var(--deflist-color)"
+"--deflist-border-top-inverted" = "2px solid var(--deflist-color-inverted)"
+"--deflist-border-bottom" = "2px solid var(--deflist-color)"
+"--deflist-border-bottom-inverted" = "2px solid var(--deflist-color-inverted)"
 
 "--deflist-min-width" = "initial"
 "--deflist-width" = "initial"
@@ -18,19 +18,39 @@
 
 "--deflist-counter" = "dd-items"
 
+"--deflist-color" = "var(--color-primary-400)"
+"--deflist-color-inverted" = "var(--color-primary-100)"
+"--deflist-color-print" = "var(--body-color-print)"
+"--deflist-background" = "var(--body-background)"
+"--deflist-background-inverted" = "var(--body-background-inverted)"
+"--deflist-background-print" = "var(--body-background-print)"
 
 
 
 "--deflist-dt-margin" = "1rem auto 0"
 "--deflist-dt-padding" = "0"
-"--deflist-dt-border-top" = "1px solid var(--color-typography-500)"
-"--deflist-dt-border-top-inverted" = "1px solid var(--body-color-inverted)"
-"--deflist-dt-font-size" = "3rem"
+"--deflist-dt-border-top" = "1px solid var(--deflist-color)"
+"--deflist-dt-border-top-inverted" = "1px solid var(--deflist-color-inverted)"
+"--deflist-dt-font-size" = "4rem"
 "--deflist-dt-font-weight" = "600"
 "--deflist-dt-font-style" = "italic"
+
+"--deflist-dt-color" = "var(--deflist-color)"
+"--deflist-dt-color-inverted" = "var(--deflist-color-inverted)"
+"--deflist-dt-color-print" = "var(--body-color-print)"
+"--deflist-dt-background" = "transparent"
+"--deflist-dt-background-inverted" = "transparent"
+"--deflist-dt-background-print" = "var(--body-background-print)"
 
 
 
 
 "--deflist-dd-margin" = "1rem auto"
 "--deflist-dd-padding" = "0"
+
+"--deflist-dd-color" = "var(--body-color)"
+"--deflist-dd-color-inverted" = "var(--body-color-inverted)"
+"--deflist-dd-color-print" = "var(--body-color-print)"
+"--deflist-dd-background" = "transparent"
+"--deflist-dd-background-inverted" = "transparent"
+"--deflist-dd-background-print" = "transparent"
