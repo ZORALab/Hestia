@@ -4,13 +4,22 @@
 "--divider-margin" = "0 auto"
 "--divider-padding" = "0"
 
+"--divider-min-width" = "initial"
+"--divider-width" = "100%"
+"--divider-max-width" = "100%"
+"--divider-min-height" = "initial"
+"--divider-height" = "1px"
+"--divider-max-height" = "initial"
+
 "--divider-border" = "initial"
 "--divider-border-top" = "initial"
 "--divider-border-bottom" = "1px solid var(--divider-color)"
 
 "--divider-color" = "var(--color-primary-600)"
 "--divider-color-inverted" = "var(--color-primary-300)"
+"--divider-color-print" = "var(--body-color-print)"
 "--divider-background" = "transparent"
 "--divider-background-inverted" = "transparent"
+"--divider-background-print" = "var(--body-background-print)"
 "--divider-border-color" = "var(--divider-color)"
 "--divider-border-color-inverted" = "var(--divider-color-inverted)"

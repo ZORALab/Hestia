@@ -15,20 +15,30 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-
 hr.page-break {
-	--divider-border-top: none;
-	--divider-border-bottom: none;
-	--divider-border-color: transparent;
-	--divider-border-background: transparent;
-	--divider-border-color: transparent;
-	--divider-margin: 0;
-	--divider-padding: 0;
+	display: block;
+
+	margin: 0;
+	padding: 0;
+
+	width: 0;
+	height: 0;
+
+	border: none;
+
+	color: transparent;
+	background: transparent;
+
+	opacity: 0;
+	visibility: hidden;
 }
 
 
 @media print {
 	hr.page-break {
-		break-before: page;
+		break-after: page;
+
+		width: 100% !important;
+		height: 1px !important;
 	}
 }

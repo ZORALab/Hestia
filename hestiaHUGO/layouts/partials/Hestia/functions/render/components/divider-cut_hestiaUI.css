@@ -17,18 +17,15 @@ specific language governing permissions and limitations under the License.
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 
 hr.cut {
-	height: 1px;
-	width: 100%;
-
 	margin: var(--divider-cut-margin);
-	padding: 0;
+	padding: var(--divider-cut-padding);
 
 	overflow: visible;
 
 	border-bottom: var(--divider-cut-border-bottom);
 
 	color: var(--divider-cut-color);
-	background: transparent;
+	background: var(--divider-cut-background);
 }
 
 hr.cut:after {
@@ -38,9 +35,10 @@ hr.cut:after {
 	margin: 0;
 	padding: 0;
 
-	font-size: 3rem;
+	font-size: var(--divider-cut-font-size);
 
 	position: relative;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
@@ -49,4 +47,5 @@ footer hr.cut,
 .footer hr.cut {
 	border-bottom: var(--divider-cut-border-bottom-color-inverted);
 	color: var(--divider-cut-color-inverted);
+	background: var(--divider-cut-background-inverted);
 }

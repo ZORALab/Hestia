@@ -22,6 +22,13 @@ hr {
 	margin: var(--divider-margin);
 	padding: var(--divider-padding);
 
+	min-width: var(--divider-min-width);
+	width: var(--divider-width);
+	max-width: var(--divider-max-width);
+	min-height: var(--divider-min-height);
+	height: var(--divider-height);
+	max-height: var(--divider-max-height);
+
 	border: var(--divider-border);
 	border-top: var(--divider-border-top);
 	border-bottom: var(--divider-border-bottom);
@@ -36,4 +43,12 @@ footer hr,
 	color: var(--divider-color-inverted);
 	background: var(--divider-background-inverted);
 	border-color: var(--divider-border-color-inverted);
+}
+
+@media print {
+	hr {
+		color: var(--divider-color-print) !important;
+		border-color: var(--divider-color-print) !important;
+		background: var(--divider-background-print) !important;
+	}
 }
