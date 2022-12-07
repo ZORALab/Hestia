@@ -48,12 +48,9 @@
 "--html-box-sizing" = "border-box"
 
 "--body-grid" = "var(--layout-vertical)"
-"--body-grid-lv1" = "var(--layout-both-top)"
-"--body-grid-lv2" = "var(--layout-top-both)"
-"--body-grid-lv3" = "var(--layout-top-both)"
+"--body-justify-items" = "stretch"
+"--body-align-items" = "stretch"
 "--body-grid-gap" = "0"
-"--body-justify-items" = "center"
-"--body-align-items" = "center"
 "--body-width" = "100%"
 "--sidenav-width" = "22%"
 
@@ -65,11 +62,11 @@
 
 "--footer-min-width" = "initial"
 "--footer-width" = "100%"
-"--footer-max-width" = "100vw"
-"--footer-margin" = "0"
+"--footer-max-width" = "100%"
+"--footer-margin" = "0 auto"
 "--footer-padding" = "3.5rem"
 
-"--limit-max-width" = "75vw"
+
 
 
 # z-axis (3rd-dimension)
@@ -222,6 +219,8 @@
 "--h6-after-color" = "initial"
 "--h6-after-background" = "initial"
 
+"--paragraph-text-align" = "justify"
+
 
 
 
@@ -318,6 +317,7 @@
 "--grid-align-items" = "stretch"
 "--grid-flex-wrap" = "wrap"
 "--grid-flex-direction" = "row"
+"--grid-gap" = "0"
 
 "--grid-column-display" = "block"
 "--grid-column-width" = "initial"

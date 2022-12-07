@@ -15,6 +15,10 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+* {
+	transition: var(--timing-normal);
+}
+
 html,
 body {
 	margin: 0;
@@ -29,14 +33,16 @@ html {
 	height: calc(100vh - calc(100vh - 100%));
 
 	box-sizing: var(--html-box-sizing);
+
+	scroll-behavior: smooth;
 }
 
 body {
 	display: grid;
 	grid: var(--body-grid);
-	gap: var(--body-grid-gap);
 	justify-items: var(--body-justify-items);
 	align-items: var(--body-align-items);
+	gap: var(--body-grid-gap);
 
 	font-family: var(--body-font-family);
 	font-size: var(--body-font-size);
@@ -52,47 +58,81 @@ body {
 	print-color-adjust: exact;
 }
 
+section, article, div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0;
+
+	max-width: 100%;
+
+	margin: 0;
+	padding: 0;
+
+	border: none;
+}
+
+
 main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0;
+
 	z-index: calc(var(--z-index-max) - var(--z-index-content));
 
 	min-width: var(--main-min-width);
 	width: var(--main-width);
 	max-width: var(--main-max-width);
 
-	margin: var(--main-margin);
-	padding: var(--main-padding);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+	margin: 0;
+	padding: 0;
 
 	color: var(--body-color);
 	background: var(--body-background);
 }
 
 footer, .footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0;
+
 	z-index: calc(var(--z-index-max) - var(--z-index-content));
 
 	min-width: var(--footer-min-width);
 	width: var(--footer-width);
 	max-width: var(--footer-max-width);
 
-	margin: var(--footer-margin);
-	padding: var(--footer-padding);
+	margin: 0;
+	padding: 0;
 
 	color: var(--footer-color);
 	background: var(--footer-background);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 }
 
-main footer, main .footer {
+main footer,
+main .footer {
 	margin: 0;
 	padding: 0;
+}
+
+main > *,
+footer > * {
+	flex: 0 1 100%;
+}
+
+main > * {
+	margin: var(--main-margin);
+	padding: var(--main-padding);
+}
+
+footer > * {
+	margin: var(--footer-margin);
+	padding: var(--footer-padding);
 }
 
 main, .content {
@@ -302,46 +342,43 @@ h6:after {
 	background: var(--h6-after-background);
 }
 
-.align {
-	display: flex;
-	width: 100%;
-	margin: 0;
-	padding: 0;
+p {
+	text-align: var(--paragraph-text-align);
 }
 
-.align .left {
+.align-left {
 	justify-content: start;
 }
 
-.align .center {
+.align-center {
 	justify-content: center;
 }
 
-.align .right {
+.align-right {
 	justify-content: end;
 }
 
-.align .justify {
+.align-justify {
 	justify-content: space-between;
 }
 
-.align .top {
+.align-top {
 	align-items: flex-start;
 }
 
-.align .middle {
+.align-middle {
 	align-items: center;
 }
 
-.align .bottom {
+.align-bottom {
 	align-items: flex-end;
 }
 
-.align .stretch {
+.align-stretch {
 	align-items: stretch;
 }
 
-.align .baseline {
+.align-baseline {
 	align-items: baseline;
 }
 
@@ -353,6 +390,7 @@ h6:after {
 	align-items: var(--grid-align-items);
 	flex-wrap: var(--grid-flex-wrap);
 	flex-direction: var(--grid-flex-direction);
+	gap: var(--grid-gap);
 }
 
 .row .column {
@@ -370,14 +408,10 @@ h6:after {
 	flex-basis: var(--grid-column-flex-basis);
 }
 
-section, article {
-	border: none;
-	margin: 0;
-	padding: 0;
-}
-
-section, article, div {
-	max-width: 100%;
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -416,24 +450,6 @@ section, article, div {
 	--color-typography-800: var(--color-dark-typography-800);
 	--color-typography-900: var(--color-dark-typography-900);
 	--color-typography-950: var(--color-dark-typography-950);
-}
-
-@media screen and (min-width: 70rem) {
-	body {
-		--body-grid: var(--body-grid-lv1);
-	}
-}
-
-@media screen and (min-width: 90rem) {
-	body {
-		--body-grid: var(--body-grid-lv2);
-	}
-}
-
-@media screen and (min-width: 130rem) {
-	body {
-		--body-grid: var(--body-grid-lv3);
-	}
 }
 
 @media print {
