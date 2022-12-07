@@ -16,12 +16,16 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 div.highlight {
-	margin: 0 auto;
 	max-width: 100%;
+
+	margin: var(--gochroma-margin);
+
 	border: var(--pre-border);
 	border-radius: var(--pre-border-radius);
+
 	background: var(--pre-background);
-	overflow:auto;
+
+	overflow: auto auto;
 }
 
 div.highlight table,
@@ -29,12 +33,22 @@ div.highlight th,
 div.highlight tr,
 div.highlight td {
 	background: transparent !important;
+
+	overflow: visible visible !important;
+}
+
+div.highlight > div {
+	display: block !important;
 }
 
 div.highlight pre {
+	margin: 1rem;
+	padding: 0;
+
 	border: none;
 	background: transparent;
-	overflow:visible;
+
+	overflow: visible visible !important;
 }
 
 footer div.highlight {
@@ -44,7 +58,10 @@ footer div.highlight {
 
 @media print {
 	div.highlight {
-		background: transparent;
+		color: var(--pre-color-print) !important;
+		border-color: var(--pre-color-print) !important;
+		background: var(--pre-background-print) !important;
+
 		break-inside: avoid-page;
 	}
 }
