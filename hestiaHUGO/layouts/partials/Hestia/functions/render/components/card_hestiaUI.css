@@ -15,8 +15,6 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-
-
 .card {
 	display: inline-grid;
 	grid: var(--card-layout);
@@ -89,5 +87,10 @@ specific language governing permissions and limitations under the License.
 @media print {
 	.card {
 		break-inside: avoid;
+
+		box-shadow: var(--card-box-shadow-print) !important;
+
+		color: var(--card-color-print) !important;
+		background: var(--card-background-print) !important;
 	}
 }

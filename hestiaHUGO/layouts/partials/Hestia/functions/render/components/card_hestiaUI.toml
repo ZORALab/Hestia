@@ -13,17 +13,21 @@
 "--card-margin" = "2rem"
 "--card-padding" = "0"
 
-"--card-border" = "1px solid var(--color-contrast-400)"
-"--card-border-focus" = "1px solid var(--color-contrast-400)"
+"--card-border" = "1px solid var(--color-typography-300)"
+"--card-border-focus" = "1px solid var(--color-typography-300)"
 "--card-border-radius" = "1rem"
 "--card-box-shadow" = "0 1rem 2rem transparent"
+"--card-box-shadow-print" = "0 1rem 2rem var(--color-typography-800)"
 "--card-box-shadow-focus" = "0 1rem 2rem var(--color-typography-800)"
 "--card-box-shadow-focus-inverted" = "0 1rem 2rem var(--color-typography-50)"
 
 "--card-color" = "var(--body-color)"
+"--card-color-print" = "var(--body-color-print)"
 "--card-background" = "var(--body-background)"
+"--card-background-print" = "var(--body-background-print)"
 
 "--card-timing" = "var(--timing-normal)"
+
 
 
 
