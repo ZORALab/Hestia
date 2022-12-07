@@ -69,3 +69,11 @@ footer ul li:before,
 	color: var(--ulist-li-before-color-inverted);
 	background: var(--ulist-li-before-background-inverted);
 }
+
+@media print {
+	ul li:before {
+		color: var(--ulist-li-before-color-print) !important;
+		border-color: var(--ulist-li-before-color-print) !important;
+		background: var(--ulist-li-before-background-print) !important;
+	}
+}
