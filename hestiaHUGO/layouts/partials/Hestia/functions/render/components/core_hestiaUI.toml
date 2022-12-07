@@ -57,14 +57,20 @@
 "--main-min-width" = "initial"
 "--main-width" = "100%"
 "--main-max-width" = "100%"
-"--main-margin" = "0 auto"
-"--main-padding" = "0 3.5rem"
+
+"--main-padding-top" = "3.5rem"
+"--main-padding-left" = "3.5rem"
+"--main-padding-right" = "3.5rem"
+"--main-padding-bottom" = "3.5rem"
 
 "--footer-min-width" = "initial"
 "--footer-width" = "100%"
 "--footer-max-width" = "100%"
-"--footer-margin" = "0 auto"
-"--footer-padding" = "3.5rem"
+
+"--footer-padding-top" = "3.5rem"
+"--footer-padding-left" = "3.5rem"
+"--footer-padding-right" = "3.5rem"
+"--footer-padding-bottom" = "3.5rem"
 
 
 

@@ -73,27 +73,7 @@ section, article, div {
 	border: none;
 }
 
-
-main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: 0;
-
-	z-index: calc(var(--z-index-max) - var(--z-index-content));
-
-	min-width: var(--main-min-width);
-	width: var(--main-width);
-	max-width: var(--main-max-width);
-
-	margin: 0;
-	padding: 0;
-
-	color: var(--body-color);
-	background: var(--body-background);
-}
-
+main,
 footer, .footer {
 	display: flex;
 	justify-content: center;
@@ -101,23 +81,34 @@ footer, .footer {
 	flex-direction: column;
 	gap: 0;
 
-	z-index: calc(var(--z-index-max) - var(--z-index-content));
+	margin: 0;
+	padding: 0;
 
+	z-index: calc(var(--z-index-max) - var(--z-index-content));
+}
+
+main {
+	min-width: var(--main-min-width);
+	width: var(--main-width);
+	max-width: var(--main-max-width);
+
+	padding-top: var(--main-padding-top);
+	padding-bottom: var(--main-padding-bottom);
+
+	color: var(--body-color);
+	background: var(--body-background);
+}
+
+footer, .footer {
 	min-width: var(--footer-min-width);
 	width: var(--footer-width);
 	max-width: var(--footer-max-width);
 
-	margin: 0;
-	padding: 0;
+	padding-top: var(--footer-padding-top);
+	padding-bottom: var(--footer-padding-bottom);
 
 	color: var(--footer-color);
 	background: var(--footer-background);
-}
-
-main footer,
-main .footer {
-	margin: 0;
-	padding: 0;
 }
 
 main > *,
@@ -126,13 +117,13 @@ footer > * {
 }
 
 main > * {
-	margin: var(--main-margin);
-	padding: var(--main-padding);
+	margin-left: var(--main-padding-left);
+	margin-right: var(--main-padding-right);
 }
 
 footer > * {
-	margin: var(--footer-margin);
-	padding: var(--footer-padding);
+	margin-left: var(--footer-padding-left);
+	margin-right: var(--footer-padding-right);
 }
 
 main, .content {
@@ -457,22 +448,24 @@ p {
 		--body-font-size: var(--body-font-size-print);
 	}
 
-	body, main {
-		color: var(--body-color-print);
-		background: var(--body-background-print);
+	body,
+	main,
+	footer, .footer {
+		color: var(--body-color-print) !important;
+		border-color: var(--body-color-print) !important;
+		background: var(--body-background-print) !important;
 	}
 
 	footer, .footer {
-		color: var(--body-color-print);
-		background: var(--body-background-print);
-		border-top: 2rem double var(--body-color-print);
-
 		break-before: always;
+
+		border-top: 2rem double var(--body-color-print);
 	}
 
 	h1, h2, h3, h4, h5, h6, p {
-		display: block;
 		break-inside: avoid;
+
+		display: block;
 	}
 
 	h1 {
