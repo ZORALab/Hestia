@@ -182,6 +182,6 @@ Include = true
 Variables = []
 
 [[List]]
-Name = "Xcarousel_hestiaUI"
+Name = "carousel_hestiaUI"
 Include = true
 Variables = []

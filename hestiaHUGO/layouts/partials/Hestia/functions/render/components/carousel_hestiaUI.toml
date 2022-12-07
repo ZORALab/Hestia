@@ -1,32 +1,18 @@
 [CSS.Variables]
-"--carousel-total-slides" = "1"
-
-"--carousel-grid" = "block"
-
 "--carousel-min-width" = "initial"
-"--carousel-width" = "80%"
-"--carousel-max-width" = "initial"
+"--carousel-width" = "100%"
+"--carousel-max-width" = "100%"
 "--carousel-min-height" = "40rem"
 "--carousel-height" = "40rem"
 "--carousel-max-height" = "initial"
 
-"--carousel-margin" = "0 auto 3rem"
+"--carousel-margin" = "2rem auto"
 "--carousel-padding" = "0"
 
 "--carousel-color" = "var(--body-color-inverted)"
 "--carousel-background" = "transparent"
 
 "--carousel-perspective" = "2rem"
-
-"--carousel-animation-next" = "carousel-scroll-next, carousel-scroll-snap"
-"--carousel-animation-restart" = "carousel-scroll-restart, carousel-scroll-snap"
-"--carousel-animation-timing" = 1000
-"--carousel-animation-timing-function" = "ease"
-"--carousel-animation-iteration" = "infinite"
-"--carousel-animation-factor-next" = "-100%"
-"--carousel-animation-factor-restart" = """
-calc(var(--carousel-total-slides) * -100%)
-"""
 
 "--carousel-timing" = "var(--timing-normal)"
 
@@ -71,6 +57,9 @@ calc(var(--carousel-total-slides) * -100%)
 "--carousel-panel-position-right" = "unset"
 "--carousel-panel-position-bottom" = "0"
 "--carousel-panel-transform" = "translateX(-50%)"
+
+"--carousel-panel-color" = "var(--carousel-color)"
+"--carousel-panel-background" = "transparent"
 
 
 

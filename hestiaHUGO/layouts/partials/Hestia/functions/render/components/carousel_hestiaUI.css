@@ -38,6 +38,11 @@ specific language governing permissions and limitations under the License.
 
 .carousel .viewport {
 	display: flex;
+	justify-content: unset;
+	align-content: unset;
+	align-items: unset;
+	flex-direction: row;
+	gap: 0;
 
 	position: absolute;
 	top: 0;
@@ -65,9 +70,10 @@ specific language governing permissions and limitations under the License.
 
 .carousel .viewport > * {
 	flex: 0 0 100%;
+	display: block;
 
-	width: var(--carousel-width);
-	height: var(--carousel-height);
+	width: 100%;
+	height: 100%;
 
 	margin: 0;
 	padding: 0;
@@ -77,65 +83,23 @@ specific language governing permissions and limitations under the License.
 	left: 0;
 
 	border: none;
-}
 
-.carousel .viewport > * {
-	animation-name: none;
-	animation-play-state: running;
 	scroll-snap-align: center;
 }
 
-@keyframes carousel-scroll-next {
-	75%,
-	99% {
-		left: 0;
-	}
+.carousel .viewport > * > input[type="radio"] {
+	z-index: 0;
 
-	95%,
-	98% {
-		left: var(--carousel-animation-factor-next);
-	}
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	opacity: 0;
 }
 
-@keyframes carousel-scroll-restart {
-	75%,
-	99% {
-		left: 0;
-	}
-
-	95%,
-	98% {
-		left: var(--carousel-animation-factor-restart);
-	}
-}
-
-@keyframes carousel-scroll-snap {
-	96%,
-	100% {
-		scroll-snap-align: center;
-	}
-
-	97%,
-	99% {
-		scroll-snap-align: none;
-	}
-}
-
-.carousel.autoplay .viewport > * {
-	animation-name: var(--carousel-animation-next);
-	animation-duration: var(--carousel-animation-timing);
-	animation-timing-function: var(--carousel-animation-timing-function);
-	animation-iteration-count: var(--carousel-animation-iteration);
-}
-
-.carousel.autoplay .viewport > *:last-child {
-	animation-name: var(--carousel-animation-restart);
-}
-
-.carousel:hover .viewport > *,
-.carousel:focus .viewport > * {
-	animation-name: none;
-	animation-play-state: paused;
+.carousel .viewport > *:first-child > input[type="radio"] {
+	left: 0;
+	right: unset;
 }
 
 .carousel .viewport > * .content {
@@ -143,6 +107,8 @@ specific language governing permissions and limitations under the License.
 	justify-content: center;
 	align-content: center;
 	align-items: center;
+	flex-direction: row;
+	gap: 0;
 
 	width: 100%;
 	height: 100%;
@@ -221,6 +187,9 @@ specific language governing permissions and limitations under the License.
 	border: var(--carousel-panel-border);
 	border-radius: var(--carousel-panel-border-radius);
 
+	color: var(--carousel-panel-color);
+	background: var(--carousel-panel-background);
+
 	opacity: 0;
 	visibility: hidden;
 
@@ -246,4 +215,10 @@ specific language governing permissions and limitations under the License.
 
 	color: var(--carousel-panel-item-color);
 	background: transparent;
+}
+
+@media print {
+	.carousel {
+		display: none;
+	}
 }

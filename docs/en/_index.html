@@ -468,46 +468,55 @@ func main() {
 		</table>
 		ut, maximus eros. Mauris gravida, diam nec tempor fermentum,
 		turpis ante bibendum libero, id congue libero dolor sodales leo.
-		<div class="carousel autoplay" style="--carousel-total-slides: 3">
+		<div class="carousel">
 			<div class="viewport">
-				<div id="carousel-slide-1">
+				<div>
+					<input id="carousel1-slide1"
+						name="carousel1"
+						type="radio" checked />
 					<div class="content" style="background: red">
 						<p>Slide 1</p>
 					</div>
 					<nav class="nav">
-						<a class="previous"
-							href="#carousel-slide-3">❮</a>
-						<a class="next"
-							href="#carousel-slide-2">❯</a>
+						<label class="previous"
+							for="carousel1-slide3">❮</label>
+						<label class="next"
+							for="carousel1-slide2">❯</label>
 					</nav>
 				</div>
-				<div id="carousel-slide-2">
+				<div>
+					<input id="carousel1-slide2"
+						name="carousel1"
+						type="radio" />
 					<div class="content" style="background: green">
 						<p>Slide 2</p>
 					</div>
 					<nav class="nav">
-						<a class="previous"
-							href="#carousel-slide-1">❮</a>
-						<a class="next"
-							href="#carousel-slide-3">❯</a>
+						<label class="previous"
+							for="carousel1-slide1">❮</label>
+						<label class="next"
+							for="carousel1-slide3">❯</label>
 					</nav>
 				</div>
-				<div id="carousel-slide-3">
+				<div>
+					<input id="carousel1-slide3"
+						name="carousel1"
+						type="radio" />
 					<div class="content" style="background: blue">
 						<p>Slide 3</p>
 					</div>
 					<nav class="nav">
-						<a class="previous"
-							href="#carousel-slide-2">❮</a>
-						<a class="next"
-							href="#carousel-slide-1">❯</a>
+						<label class="previous"
+							for="carousel1-slide2">❮</label>
+						<label class="next"
+							for="carousel1-slide1">❯</label>
 					</nav>
 				</div>
 			</div>
 			<div class="panel">
-				<a href="#carousel-slide-1">1</a>
-				<a href="#carousel-slide-2">2</a>
-				<a href="#carousel-slide-3">3</a>
+				<label for="carousel1-slide1">1</label>
+				<label for="carousel1-slide2">2</label>
+				<label for="carousel1-slide3">3</label>
 			</div>
 		</div>
 		Aliquam eu nunc ut dolor venenatis ultricies vel a sapien. Ut id
