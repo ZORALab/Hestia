@@ -41,8 +41,6 @@ picture > img {
 
 @media print {
 	picture, img {
-		break-before: auto;
-		break-inside: avoid-page;
-		break-after: auto;
+		break-inside: avoid;
 	}
 }
