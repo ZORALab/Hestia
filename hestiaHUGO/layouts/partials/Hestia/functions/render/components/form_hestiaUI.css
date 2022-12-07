@@ -21,6 +21,7 @@ form {
 	flex-wrap: wrap;
 	align-content: center;
 	justify-content: center;
+	gap: 0;
 
 	min-width: var(--form-min-width);
 	width: var(--form-width);
@@ -62,9 +63,8 @@ fieldset {
 }
 
 footer fieldset {
-	border: var(--form-fieldset-border-inverted);
-
 	color: var(--form-fieldset-color-inverted);
+	border-color: var(--form-fieldset-color-inverted);
 	background: var(--form-fieldset-background-inverted);
 }
 
@@ -145,7 +145,7 @@ select::placeholder,
 textarea::placeholder {
 	font-family: var(--form-field-font-family);
 	font-size: var(--form-field-font-size);
-	font-style: var(--form-field-font-style);
+	font-style: var(--form-field-font-style-placeholder);
 	font-weight: var(--form-field-font-weight);
 	text-transform: var(--form-field-text-transform);
 	text-align: var(--form-field-text-align);
@@ -171,7 +171,7 @@ fieldset:has(textarea:enabled:valid),
 input:enabled:valid,
 select:enabled:valid,
 textarea:enabled:valid {
-	border: var(--form-field-border-valid);
+	border-color: var(--form-color-valid);
 }
 
 fieldset:has(input:enabled:invalid),
@@ -180,9 +180,8 @@ fieldset:has(textarea:enabled:invalid),
 input:enabled:invalid,
 select:enabled:invalid,
 textarea:enabled:invalid {
-	border: var(--form-field-border-invalid);
-
-	color: var(--form-field-color-invalid);
+	color: var(--form-color-invalid);
+	border-color: var(--form-color-invalid);
 }
 
 fieldset:enabled:hover,
@@ -193,9 +192,8 @@ fieldset:has(select:enabled:hover),
 fieldset:has(select:enabled:focus),
 fieldset:has(textarea:enabled:hover),
 fieldset:has(textarea:enabled:focus) {
-	border: var(--form-field-border-focus);
-
-	color: var(--form-field-color-focus);
+	color: var(--form-color-focus);
+	border-color: var(--form-color-focus);
 
 	transform: scale(1.05);
 }
@@ -206,7 +204,7 @@ select:enabled:hover,
 select:enabled:focus,
 textarea:enabled:hover,
 textarea:enabled:focus {
-	border: var(--form-field-border-focus);
+	border-color: var(--form-color-focus);
 }
 
 optgroup {
@@ -292,8 +290,8 @@ footer input[type='submit']:valid {
 	background: var(--form-field-submit-background-inverted);
 }
 
-input[type='submit']:enabled,
-input[type='submit']:enabled:valid {
+input[type='submit']:enabled:valid:hover,
+input[type='submit']:enabled:valid:hover {
 	transform: scale(1.1);
 }
 
@@ -314,14 +312,14 @@ input[type='submit']:valid:active {
 	label:has(input[type='radio']),
 	label {
 		border-color: var(--form-color-print) !important;
-		color: var(--form-color-print);
-		background: var(--form-background-print);
+		color: var(--form-color-print) !important;
+		background: var(--form-background-print) !important;
 	}
 
 	input[type='submit'],
 	input[type='submit']:valid,
 	input[type='submit']:invalid {
-		margin: var(--form-field-submit-margin-print);
+		margin: var(--form-field-submit-margin-print) !important;
 	}
 
 	fieldset {
