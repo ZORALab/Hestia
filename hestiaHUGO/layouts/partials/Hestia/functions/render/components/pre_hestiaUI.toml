@@ -5,12 +5,12 @@
 "--pre-overflow" = "auto auto"
 
 "--pre-border" = ".3rem solid var(--pre-color)"
-"--pre-border-inverted" = ".3rem solid var(--color-primary-300)"
+"--pre-border-inverted" = ".3rem solid var(--pre-color-inverted)"
 "--pre-border-radius" = ".5rem"
 
 "--pre-min-width" = "initial"
-"--pre-width" = "initial"
-"--pre-max-width" = "100%"
+"--pre-width" = "80%"
+"--pre-max-width" = "80%"
 
 "--pre-min-height" = "initial"
 "--pre-height" = "initial"
@@ -24,9 +24,11 @@
 "--pre-line-height" = "var(--body-line-height)"
 "--pre-text-align" = "justify"
 
-"--pre-color" = "var(--color-primary-700)"
-"--pre-color-inverted" = "var(--color-primary-700)"
+"--pre-color" = "var(--color-primary-300)"
+"--pre-color-inverted" = "var(--color-primary-300)"
+"--pre-color-print" = "var(--body-color-print)"
 "--pre-background" = "var(--color-contrast-50)"
 "--pre-background-inverted" = "var(--color-contrast-50)"
+"--pre-background-print" = "var(--body-background-print)"
 
 "--pre-transition" = "var(--timing-rapid)"

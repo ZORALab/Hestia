@@ -86,7 +86,10 @@ pre code {
 
 @media print {
 	pre {
-		background: transparent;
 		break-inside: avoid-page;
+
+		color: var(--pre-color-print) !important;
+		border-color: var(--pre-color-print) !important;
+		background: var(--pre-background-print) !important;
 	}
 }
