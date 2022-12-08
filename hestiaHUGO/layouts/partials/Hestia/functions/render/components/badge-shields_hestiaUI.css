@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 	display: inline-grid;
 	grid: "title content" max-content
 		/ max-content max-content;
+	overflow: hidden;
 
 	margin: var(--badge-margin);
 	padding: var(--badge-padding);
@@ -28,32 +29,38 @@ specific language governing permissions and limitations under the License.
 
 	border: var(--badge-border);
 	border-radius: var(--badge-border-radius);
-	box-shadow: var)--badge-box-shadow);
+	box-shadow: var(--badge-box-shadow);
 	box-shadow-color: transparent;
 
 	background: transparent;
-	overflow: hidden;
 
 	position: relative;
 
-	transition: .5s;
+	transition: var(--badge-timing);
 }
 
 .badge:before {
 	content: '';
+
+	width: var(--badge-width-shine);
+	height: 100%;
+
 	position: absolute;
 	top: 0;
 	left: -50%;
-	width: var(--badge-width-shine);
-	height: 100%;
+
 	background: var(--badge-color-shine);
+
 	transform: skewX(30deg);
 	transition: var(--badge-timing-shine);
 }
 
 .badge:hover {
+	border: 0;
+
+	box-shadow: var(--badge-box-shadow-shine);
+
 	transform: scale(1.1);
-	box-shadow: var(--badge-box-shadow);
 }
 
 .badge:hover:before {
@@ -66,8 +73,8 @@ specific language governing permissions and limitations under the License.
 
 	border-radius: var(--badge-border-radius) 0 0 var(--badge-border-radius);
 
-	margin: var(--badge-content-margin);
-	padding: var(--badge-content-padding);
+	margin: var(--badge-title-margin);
+	padding: var(--badge-title-padding);
 
 	color: var(--badge-title-color);
 	background: var(--badge-title-background);
@@ -80,6 +87,7 @@ specific language governing permissions and limitations under the License.
 .badge .content {
 	grid-area: content;
 
+	border-left: var(--badge-border);
 	border-radius: 0 var(--badge-border-radius) var(--badge-border-radius) 0;
 
 	margin: var(--badge-content-margin);
@@ -92,17 +100,17 @@ specific language governing permissions and limitations under the License.
 
 @media print {
 	.badge {
-		border: var(--badge-border-print);
+		border-color: var(--badge-color-print) !important;
 	}
 
 	.badge .title {
-		color: var(--badge-color-print);
-		background: white;
+		color: var(--badge-color-print) !important;
+		background: var(--badge-background-print) !important;
 	}
 
 	.badge .content {
-		border-left: var(--badge-border-print);
-		color: var(--badge-color-print);
-		background: white;
+		border-color: var(--badge-color-print) !important;
+		color: var(--badge-color-print) !important;
+		background: var(--badge-background-print) !important;
 	}
 }
