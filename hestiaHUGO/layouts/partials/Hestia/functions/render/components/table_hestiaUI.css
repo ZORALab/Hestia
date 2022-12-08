@@ -24,7 +24,6 @@ table {
 
 	min-width: var(--table-min-width);
 	max-width: var(--table-max-width);
-
 	min-height: var(--table-min-height);
 	max-height: var(--table-max-height);
 
@@ -83,11 +82,11 @@ table tbody tr td:nth-child(odd):focus {
 }
 
 footer table {
-	border: var(--table-border-inverted);
+	border-color: var(--table-color-inverted);
 }
 
 footer table tbody td {
-	border: var(--table-border-inverted);
+	border-color: var(--table-color-inverted);
 }
 
 @media print {
@@ -95,8 +94,8 @@ footer table tbody td {
 	table th,
 	table tr,
 	table td {
-		color: var(--table-color-print);
-		background: transparent;
-		border: var(--table-border-print);
+		border-color: var(--table-color-print) !important;
+		color: var(--table-color-print) !important;
+		background: var(--table-background-print) !important;
 	}
 }

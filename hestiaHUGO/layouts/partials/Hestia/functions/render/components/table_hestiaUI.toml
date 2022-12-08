@@ -11,12 +11,12 @@
 "--table-max-height" = "initial"
 
 "--table-border" = "1px solid var(--color-primary-900)"
-"--table-border-inverted" = "1px solid var(--color-primary-200)"
-"--table-border-print" = "1px solid var(--body-color-print)"
 
 "--table-color" = "var(--body-color)"
+"--table-color-inverted" = "var(--color-primary-200)"
 "--table-color-print" = "var(--body-color-print)"
 "--table-background" = "var(--body-background)"
+"--table-background-print" = "var(--body-background-print)"
 
 
 
