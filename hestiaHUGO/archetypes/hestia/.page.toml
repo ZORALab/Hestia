@@ -21,7 +21,7 @@ Published = ""
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "My Page Title Here | {{ .Titles.Site.en.Full -}}"
+Title = "My Page Title Here | {{ .Titles.Site.Current.Full -}}"
 Keywords = [
 	"Content Keywords Here",
 	"and another keywords here",

@@ -37,16 +37,17 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Page */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Titles/_page" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
 {{- /* process current language site title */ -}}
 {{- $ret = index $dataList.Site .Languages.Current.ID -}}
 {{- $dataList = merge $dataList (dict "Site" (dict "Current" $ret)) -}}
+
+
+
+
+{{- /* process .Page */ -}}
+{{- $ret = merge . (dict "Titles" $dataList) -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Titles/_page" $ret -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 
