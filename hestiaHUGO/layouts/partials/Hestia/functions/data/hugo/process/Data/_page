@@ -32,12 +32,22 @@ specific language governing permissions and limitations under the License.
 {{- /* process page data */ -}}
 {{- $dataList = dict -}}
 {{- range $i, $v := .Data.Page -}}
-	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $v) -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- else if partial "Hestia/functions/data/list/IsMap" $v -}}
+		{{- $ret = index $v "Filename" -}}
+	{{- else if partial "Hestia/functions/data/string/IsString" $v -}}
+		{{- $ret = $v -}}
+	{{- else -}}
 		{{- continue -}}
 	{{- end -}}
 
 
-	{{- $ret = merge $Page (dict "Input" (dict "Path" $v)) -}}
+	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/filesystem/ParseDataFile" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Data.Page: %v" $ret.Console.Message -}}
