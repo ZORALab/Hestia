@@ -36,7 +36,7 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 
 	{{- $dataList = resources.Concat "wasm-dep.js" $dataList }}
-	<script type"module">
+	<script type="module">
 		{{ safeJS $dataList.Content }}
 	</script>
 	{{- else -}}
