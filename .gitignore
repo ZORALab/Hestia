@@ -5,6 +5,7 @@
 #####################
 # Standard FHS
 #####################
+docs/resources/
 themes/
 *.log
 .bin/
@@ -12,10 +13,12 @@ vendor/
 gh-pages/
 bin/
 tmp/
+output/
 
 #####################
 # ZORALab's Monteur
 #####################
+.monteurFS/
 .configs/montuer/secrets/
 
 #####################
@@ -28,11 +31,6 @@ target/
 #####################
 public/
 .hugo_build.lock
-
-#####################
-# Monteur
-#####################
-.monteurFS/
 
 #####################
 # LetsEncrypt

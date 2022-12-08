@@ -1,0 +1,42 @@
+baseURL = "https://hestia.zoralab.com"
+canonifyURLs = true
+buildDrafts = false
+buildExpired = false
+buildFuture = false
+theme = [ "hestiaHUGO" ]
+metaDataFormat = "toml"
+paginate = 10
+summaryLength = 70
+sectionPagesMenu = "sections"
+enableEmoji = true
+pluralizeListTitles = false
+enableGitInfo = true
+enableRobotsTXT = true
+hasCJKLanguage = true
+
+
+# content pathing
+archetypeDir = "archetypes"
+contentDir = "content"
+assetDir = "assets"
+dataDir = "data"
+staticDir = [
+        "static",
+        "../archives",
+        "../hestiaHUGO/fonts/hestiaUI_font-NotoSans",
+]
+layoutDir = "layouts"
+themesDir = "../"
+publishDir = "../output/docs"
+i18nDir = "i18n"
+
+
+# Hugo injected generator as first line and broke HTML spec. Therefore, Hestia
+# disables it and inject later using its renderer.
+disableHugoGeneratorInject = true
+
+
+# AMP disallowed javascript loading. Also, Hugo injects it as second line and
+# broke its HTML spec. Therefore, Hestia disables it and inject the liveReload
+# in appropriate output using its renderer.
+disableLiveReload = true

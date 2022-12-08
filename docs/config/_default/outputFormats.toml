@@ -1,0 +1,89 @@
+[HTML]
+name = "HTML"
+mediaType = "text/html"
+baseName = "index"
+rel="canonical"
+protocol = ""
+path = ""
+isPlainText = false
+isHTML = true
+noUgly = false
+permalinkable = true
+
+
+[AMP]
+name = "AMP"
+mediaType = "text/amphtml"
+baseName = "index"
+rel="amphtml"
+protocol = ""
+path = ""
+isPlainText = false
+isHTML = true
+noUgly = false
+permalinkable = true
+
+
+[CSV]
+name = "CSV"
+mediaType = "text/csv"
+baseName = "index"
+rel = "alternate"
+protocol = ""
+path = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = true
+
+
+[CALENDAR]
+name = "CALENDAR"
+mediaType = "text/calendar"
+baseName = "index"
+rel = "alternate"
+protocol = "webcal://"
+path = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = true
+
+
+[JSON]
+name = "JSON"
+mediaType = "application/json"
+baseName = "index"
+rel = "alternate"
+protocol = ""
+path = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = true
+
+
+[RSS]
+name = "RSS"
+mediaType = "application/rss+xml"
+baseName = "index"
+rel = "alternate"
+protocol = ""
+path = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = true
+
+
+[WEBAPPMANIFEST]
+name = "WEBAPPMANIFEST"
+mediaType = "application/manifest+json"
+baseName = "app"
+rel = "manifest"
+protocol = ""
+path = ""
+isPlainText = true
+isHTML = false
+noUgly = false
+permalinkable = true

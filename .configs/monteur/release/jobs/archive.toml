@@ -28,6 +28,11 @@ Checksum = 'sha512'
 Path = '{{- .RootDir -}}/archives/releases'
 Format = 'toml'
 
+[Releases.Packages.all-all-hestiaDOCS]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaDOCS-{{- .App.Version -}}-pack.tar.gz'
+
 [Releases.Packages.all-all-hestiaGO]
 OS = [ "all" ]
 Arch = [ "all" ]

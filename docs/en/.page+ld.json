@@ -1,4 +1,0 @@
-{
-	"Site": "{{- .Titles.Site.Current.Full -}}",
-	"Page": "{{- .Titles.Page -}}"
-}

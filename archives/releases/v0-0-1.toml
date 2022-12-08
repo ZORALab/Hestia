@@ -1,23 +1,32 @@
 [0]
-Filename = 'hestiaGO-v0.0.1-pack.tar.gz'
-Hash = 'b29ce3a7435522114a0997f177072e7338e7ad7c35a9979c7fc27bc8f823c5bea54119a2fece9393bfc9e068393f3695f63000de9000c00b893d2212e6515d2b'
-Format = 'Hex'
-URL = 'v0-0-1/hestiaGO-v0.0.1-pack.tar.gz'
-
-
-
-
-[1]
 Filename = 'hestiaRUST-v0.0.1-pack.tar.gz'
-Hash = '2e4017c9d9cfd391486adb4341a094e2b3f8424bfb06042073479f6f183cb621f9288d26d86b84c45da52bed576972e7bac986c8cf6e6ae66375a9767bb66a79'
+Hash = 'c1cedd8a0528b70735c42606c86eaf76ae237099862af2cdf2a6bfd090b886529e193a3a359ce76470923c6f8f20f901855f89b10f158bb6d026c465572d8c5e'
 Format = 'Hex'
 URL = 'v0-0-1/hestiaRUST-v0.0.1-pack.tar.gz'
 
 
 
 
+[1]
+Filename = 'hestiaGO-v0.0.1-pack.tar.gz'
+Hash = 'b1dbd425a1c5d82963337062ea00e1ef3a28ee6edb4268a1c81471b5287335c7d5b20225e1c33f2a1c783aaa5cdad912776eecc9e4836ce9bb6c6c1a3fd9043e'
+Format = 'Hex'
+URL = 'v0-0-1/hestiaGO-v0.0.1-pack.tar.gz'
+
+
+
+
 [2]
+Filename = 'hestiaDOCS-v0.0.1-pack.tar.gz'
+Hash = 'bb89f5922b913d44f3045ec280d0e0f3e8644ff0be475244790cee3a084c68830bc8a9a7562522f8f640823a7c34636d0b8a23bb5ab9393ba9d17320fb858b8a'
+Format = 'Hex'
+URL = 'v0-0-1/hestiaDOCS-v0.0.1-pack.tar.gz'
+
+
+
+
+[3]
 Filename = 'hestiaHUGO-v0.0.1-pack.tar.gz'
-Hash = '01bf09bc3bde18c3f40e0f7a3eb93ae4cb37b81bfa9fc7c648c3f1ed983585e8657b3c303581e8393d3626b571cd5f027edd3adbbb149e9d59a591ac75453649'
+Hash = 'aa94293dde2006e2ad16a84960e52a4ab648e54d0a65603892b62103b046365b30e78406e089713d5db4709d8615a667f40f30e2c4891cbae3bb2c1a41de9c63'
 Format = 'Hex'
 URL = 'v0-0-1/hestiaHUGO-v0.0.1-pack.tar.gz'
