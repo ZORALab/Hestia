@@ -93,16 +93,20 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* otherwise assumes it is a hestia shortcode */ -}}
 	{{- if not (hasPrefix $fx "Hestia/") -}}
-		{{- $console = printf "not a Hestia shortcode: '%v'.\n" $fx -}}
-		{{- $console = dict "Message" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf "not a Hestia shortcode: '%v'.\n" $fx -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
 		{{- $list = merge $list (dict $k $k) -}}
 		{{- continue -}}
 	{{- end -}}
 
 	{{- $fx = printf "layouts/partials/Hestia/shortcodes/%s" $fx -}}
 	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $fx) -}}
-		{{- $console = printf "missing Hestia shortcode: '%v'.\n" $fx -}}
-		{{- $console = dict "Message" $console -}}
+		{{- if not $console -}}
+			{{- $console = printf "missing Hestia shortcode: '%v'.\n" $fx -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
 		{{- $list = merge $list (dict $k $k) -}}
 		{{- continue -}}
 	{{- end -}}
@@ -128,7 +132,16 @@ specific language governing permissions and limitations under the License.
 
 {{- /* STAGE 3 - replace every processed clauses */ -}}
 {{- range $k, $v := $list -}}
-	{{- $dataList = replace $dataList $k $v -}}
+	{{- if partial "Hestia/functions/data/list/IsList" $v -}}
+		{{- if not $console -}}
+			{{- $console = printf
+				"bad Hestia field (see below):\n\n%v\n\t⥥\n%v\n" $k $v -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+		{{- $dataList = replace $dataList $k "[!!!ERROR - Data is a List!!!]" -}}
+	{{- else -}}
+		{{- $dataList = replace $dataList $k $v -}}
+	{{- end -}}
 {{- end -}}
 {{- $dataList = string $dataList -}}
 
