@@ -1,7 +1,7 @@
 [CSS.Variables]
-"--note-success-border" = "1px solid #01fe01"
-"--note-title-success-color" = "#d0f3d0"
-"--note-title-success-indicator-color" = "#d0f3d0"
-"--note-title-success-background" = "#0c2f0c"
-"--note-content-success-color" = "#0f3f0f"
-"--note-content-success-background" = "#d0f3d0"
+"--note-title-success-border-color" = "var(--body-color-indicator-green-inverted)"
+"--note-title-success-color" = "#fff"
+"--note-title-success-indicator-color" = "#fff"
+"--note-title-success-background" = "var(--body-background-indicator-green-inverted)"
+"--note-content-success-color" = "var(--body-color-indicator-green-inverted)"
+"--note-content-success-background" = "var(--body-background-indicator-green)"

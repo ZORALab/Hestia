@@ -16,7 +16,7 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 .note.success {
-	border: var(--note-success-border);
+	border-color: var(--note-title-success-border-color);
 }
 
 .note.success > label {

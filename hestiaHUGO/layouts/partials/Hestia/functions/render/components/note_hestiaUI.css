@@ -25,8 +25,12 @@ specific language governing permissions and limitations under the License.
 	margin: var(--note-margin);
 	padding: var(--note-padding);
 
-	max-width: 100%;
-	height: max-content;
+	min-width: var(--note-min-width);
+	width: var(--note-width);
+	max-width: var(--note-max-width);
+	min-height: var(--note-min-height);
+	height: var(--note-height);
+	max-height: var(--note-max-height);
 
 	border: var(--note-border);
 	border-radius: var(--note-border-radius);
@@ -36,6 +40,11 @@ specific language governing permissions and limitations under the License.
 
 .note > label {
 	grid-area: title;
+	display: flex;
+	justify-content: flex-start;
+	align-content: center;
+	align-items: center;
+	gap: 0;
 
 	width: 100%;
 
@@ -43,6 +52,8 @@ specific language governing permissions and limitations under the License.
 	background: var(--note-title-background);
 
 	font-size: var(--note-title-font-size);
+	font-style: var(--note-title-font-size);
+	font-weight: var(--note-title-font-weight);
 	text-transform: var(--note-title-text-transform);
 	text-align: var(--note-title-text-align);
 }
@@ -56,25 +67,32 @@ specific language governing permissions and limitations under the License.
 	color: var(--note-content-color);
 	background: var(--note-content-background);
 
-	opacity: 1;
-	position: static;
+	opacity: 0;
+	position: absolute;
+	top: -99999px;
 
 	transition: var(--note-timing);
 }
 
 .note > label:before {
-	content: "⇱";
-	display: inline-block;
+	content: "⊞";
+	display: inline-flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	gap: 0;
 
-	margin: 0;
-	padding: 0 2rem .25rem 2rem;
+	margin: var(--note-title-indicator-margin);
+	padding: 0;
 
-	font-size: 2rem;
-	font-weight: 800;
+	width: calc(var(--note-title-font-size) + .5rem);
+	height: calc(var(--note-title-font-size) + .5rem);
+
+	font-size: calc(var(--note-title-font-size) - .5rem);
+	line-height: var(--note-title-font-size);
+	font-weight: normal;
 
 	color: var(--note-title-indicator-color);
-
-	vertical-align: middle;
 
 	transition: var(--note-timing);
 }
@@ -84,13 +102,12 @@ specific language governing permissions and limitations under the License.
 }
 
 .note > input[type=checkbox]:checked ~ .content {
-	opacity: 0;
-	position: absolute;
-	top: -99999px;
+	opacity: 1;
+	position: static;
 }
 
 .note > input[type=checkbox]:checked ~ label:before {
-	content: "⇲";
+	content: "⊟";
 }
 
 
@@ -98,7 +115,7 @@ specific language governing permissions and limitations under the License.
 	.note {
 		break-inside: avoid;
 
-		border: var(--note-border-print) !important;
+		border-color: var(--note-title-color-print) !important;
 	}
 
 	.note > label {
@@ -121,12 +138,12 @@ specific language governing permissions and limitations under the License.
 		background: var(--note-content-background-print) !important;
 	}
 
-	.note > input[type=checkbox]:checked ~ .content {
+	.note > input[type=checkbox]:not([checked]) ~ .content {
 		opacity: 1;
 		position: static;
 	}
 
-	.note > input[type=checkbox]:checked ~ label:before {
-		content: "⇱";
+	.note > input[type=checkbox]:not([checked]) ~ label:before {
+		content: "⊟";
 	}
 }
