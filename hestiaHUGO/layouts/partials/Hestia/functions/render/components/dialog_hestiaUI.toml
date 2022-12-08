@@ -1,0 +1,11 @@
+[CSS.Variables]
+"--dialog-border" = "2px solid transparent"
+"--dialog-border-radius" = ".5rem"
+
+"--dialog-min-width" = "initial"
+"--dialog-max-width" = "initial"
+"--dialog-min-height" = "initial"
+"--dialog-max-height" = "initial"
+
+"--dialog-color" = "var(--body-color)"
+"--dialog-background" = "var(--body-background)"

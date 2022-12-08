@@ -185,3 +185,8 @@ Variables = []
 Name = "carousel_hestiaUI"
 Include = true
 Variables = []
+
+[[List]]
+Name = "dialog_hestiaUI"
+Include = true
+Variables = []
