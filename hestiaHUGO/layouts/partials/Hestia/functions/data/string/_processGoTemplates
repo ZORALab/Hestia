@@ -90,21 +90,10 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-
-	{{- /* otherwise assumes it is a hestia shortcode */ -}}
-	{{- if not (hasPrefix $fx "Hestia/") -}}
-		{{- if not $console -}}
-			{{- $console = printf "not a Hestia shortcode: '%v'.\n" $fx -}}
-			{{- $console = dict "Message" $console -}}
-		{{- end -}}
-		{{- $list = merge $list (dict $k $k) -}}
-		{{- continue -}}
-	{{- end -}}
-
 	{{- $fx = printf "layouts/partials/Hestia/macros/%s" $fx -}}
 	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $fx) -}}
 		{{- if not $console -}}
-			{{- $console = printf "missing Hestia shortcode: '%v'.\n" $fx -}}
+			{{- $console = printf "missing Hestia macro: '%v'.\n" $fx -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
 		{{- $list = merge $list (dict $k $k) -}}
@@ -112,8 +101,12 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- /* available hestia shortcode */ -}}
+	{{- /* available hestia macro */ -}}
 	{{- range $i, $x := $v -}}
+		{{- if not $x -}}
+			{{- continue -}}
+		{{- end -}}
+
 		{{- if not (eq $i 0) -}}
 			{{- $ret = split $x "=" -}}
 			{{- $ret = dict (index $ret 0) (index $ret 1) -}}
