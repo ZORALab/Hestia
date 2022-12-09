@@ -4,22 +4,19 @@
 	<p>
 		{{ .Descriptions.Page.Pitch }}
 		{{ .Descriptions.Page.Summary }}
-		<br/><br/>
-		This UI component was first made available since:
-		<div class="badge">
+	</p>
+	<div class="row">
+		<div class="column"><div class="badge">
 			<div class="title">Available Since</div>
 			<div class="content">{{- .Data.Page.Component.Available -}}</div>
-		</div>
-		<br/><br/>
-		Its release status is:
-		<div class="badge" style="--badge-background: #009d00;">
-			<div class="title">Available Since</div>
+		</div></div>
+		<div class="column"><div class="badge" style="--badge-background: #009d00;">
+			<div class="title">Release Status</div>
 			<div class="content">{{- .Data.Page.Component.Status -}}</div>
-		</div>
-	</p>
+		</div></div>
+	</div>
 	<nav class='toc'>
 		<a href='#design'>Design</a>
-		<a href='#dependencies'>Dependencies</a>
 		<a href="#html">HTML</a>
 		<a href='#css'>CSS</a>
 		<a href='#javascript'>Javascript</a>
@@ -44,7 +41,7 @@
 		Javascript, or WASM to intervene.
 	</p>
 	<p>
-		Currently, the rendered design is as follows:
+		Currently, the rendered design is shown as follows:
 		<br/><br/>
 		<blockquote>
 			The scientists of today think deeply instead of clearly.
@@ -73,12 +70,14 @@
 	One must be sane to think clearly, but one can think
 	deeply and be quite insane.
 
-	<b>&#60;cite&#62;</b>Nikolai Tesla BLA<b>&#60;/cite&#62;</b>
+	<b>&#60;cite&#62;</b>Nikolai Tesla<b>&#60;/cite&#62;</b>
 <b>&#60;/blockquote&#62;</b></blockquote></pre>
 	<p>
-		This will produce the result shown above. Please take note that
-		the <code>&#60;cite&#62;</code> field is entirely optional but
-		available.
+		This will produce the result shown above.
+	</p>
+	<p>
+		Please take note that the <b><code>&#60;cite&#62;</code> field
+		is entirely optional but available</b>.
 	</p>
 </section>
 
@@ -88,9 +87,10 @@
 <section id='css'>
 	<h2>CSS</h2>
 	<p>
-		ZORALab's Hestia heavily used CSS to style this component while
-		offering its css variables for possible customizations. Among
-		the available CSS variables for customizations are shown in the
+		ZORALab's Hestia heavily used CSS to style
+		<code>{{- .Data.Page.Component.ID -}}</code> UI component while
+		offering its css variables for customizations. Here are the
+		available CSS variables for customizations detailed in the
 		sub-sections.
 	</p>
 
@@ -113,6 +113,11 @@
 			Default is <code>
 			{{- .Data.Page.Component.References.CSS.--blockquote-before-content -}}
 			</code>.
+		</p>
+		<p>
+			Please take note that <b>you **HAVE TO** to supply the
+			cancelled string quotation as part of the value
+			(e.g. <code>\"a\"</code>)</b>.
 		</p>
 	</section>
 
@@ -339,8 +344,8 @@
 <section id='javascript'>
 	<h2>Javascript</h2>
 	<p>
-		{{ .Data.Page.Component.ID }} UI component <b>does NOT</b> need
-		or have any Javascript to deal with.
+		<code>{{ .Data.Page.Component.ID }}</code> UI component
+		<b>does NOT need or have any Javascript to deal with</b>.
 	</p>
 </section>
 
@@ -348,8 +353,8 @@
 <section id='go'>
 	<h2>Go (WASM)</h2>
 	<p>
-		{{ .Data.Page.Component.ID }} UI component for WASM compatible
-		Go is <b>under development and coming soon</b>.
+		<code>{{ .Data.Page.Component.ID }}</code> UI component for WASM
+		compatible Go <b>is under development</b>.
 	</p>
 </section>
 
@@ -357,8 +362,8 @@
 <section id='rust'>
 	<h2>RUST (WASM)</h2>
 	<p>
-		{{ .Data.Page.Component.ID }} UI component for WASM compatible
-		Rust is <b>under development and coming soon</b>.
+		<code>{{ .Data.Page.Component.ID }}</code> UI component for WASM
+		compatible Rust <b>is under development</b>.
 	</p>
 </section>
 
@@ -368,26 +373,29 @@
 		<h2>Hugo</h2>
 		<p>
 			<code>{{- .Data.Page.Component.ID -}}</code> UI
-			component is definitely be supported in Hugo deployment.
+			component is definitely supported in Hugo deployment.
 			However, there are certain conditions are to be met
-			before <code>hestiaHUGO</code> can operate properly.
+			before <code>hestiaHUGO</code> Hugo theme can operate
+			properly.
 		</p>
 		<section>
 			<h3>Dependencies</h3>
 			<p>
 				<code>{{- .Data.Page.Component.ID -}}</code> UI
-				component has a number of dependencies from
-				other components when used with
+				component requires a number of dependencies from
+				other components packed together in
 				<code>hestiaHUGO</code> Hugo theme. They are to
 				be important as shown below:
 			</p>
-<pre>[[List]]
+<pre># COMPULSORY
+[[List]]
 Name = "core_hestiaUI"
 Include = true
 Variables = []
 
 ...
 
+# IMPORT
 [[List]]
 Name = "blockquote_hestiaUI"
 Include = true
@@ -402,8 +410,9 @@ Variables = []
 <section id='epilogue'>
 	<h2>Epilogue</h2>
 	<p>
-		That's all for ZORALab's Hestia {{ .Data.Page.Component.ID }} UI
-		component.
+		That's all for ZORALab's Hestia
+		<code>{{ .Data.Page.Component.ID }}</code> UI component.
+		{{ .Data.Store.common.epilogue.HestiaUI.Content }}
 	</p>
 </section>
 </main>

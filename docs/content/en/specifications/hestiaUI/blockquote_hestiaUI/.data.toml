@@ -2,7 +2,7 @@
 Name = "ZORALab's Hestia Blockquote UI Component"
 Type = "blockquote"
 ID = "blockquote_hestiaUI"
-Status = "Stable Released - Public"
+Status = "Stable - Public"
 Available = "v0.0.1"
 Dependencies = [
 	"core_hestiaUI",
