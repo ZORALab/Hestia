@@ -101,7 +101,7 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $fx = printf "layouts/partials/Hestia/shortcodes/%s" $fx -}}
+	{{- $fx = printf "layouts/partials/Hestia/macros/%s" $fx -}}
 	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $fx) -}}
 		{{- if not $console -}}
 			{{- $console = printf "missing Hestia shortcode: '%v'.\n" $fx -}}
