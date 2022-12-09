@@ -1,4 +1,7 @@
 [CSS.Variables]
+# behaviors
+"--body-scroll-behavior" = "auto"
+
 # layouts
 "--content-grid-area" = "content"
 "--footer-grid-area" = "footer"

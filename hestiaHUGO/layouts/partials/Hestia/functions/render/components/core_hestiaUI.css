@@ -34,7 +34,7 @@ html {
 
 	box-sizing: var(--html-box-sizing);
 
-	scroll-behavior: smooth;
+	scroll-behavior: var(--body-scroll-behavior);
 }
 
 body {
@@ -59,12 +59,6 @@ body {
 }
 
 section, article, div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: 0;
-
 	max-width: 100%;
 
 	margin: 0;
