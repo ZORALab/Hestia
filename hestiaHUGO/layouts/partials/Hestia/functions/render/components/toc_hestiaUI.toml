@@ -2,7 +2,7 @@
 "--toc-margin" = "2rem auto"
 "--toc-padding" = "2rem"
 
-"--toc-min-width" = "initial"
+"--toc-min-width" = "20rem"
 "--toc-width" = "fit-content"
 "--toc-max-width" = "100%"
 "--toc-min-height" = "initial"
