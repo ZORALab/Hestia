@@ -25,6 +25,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Local := dict -}}
+{{- $Site := slice -}}
 {{- $dataList := slice -}}
 {{- $list := slice -}}
 {{- $data := false -}}
@@ -44,7 +45,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source site-level components list */ -}}
-{{- $dataList = slice -}}
+{{- $Site = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.Components.List -}}
 	{{- $data = dict -}}
 
@@ -72,8 +73,8 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Variables" $ret) -}}
 
 
-	{{- /* add to datalist */ -}}
-	{{- $dataList = append $data $dataList -}}
+	{{- /* add to tmpList */ -}}
+	{{- $Site = append $data $Site -}}
 {{- end -}}
 
 
@@ -86,6 +87,7 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
+{{- $list = slice -}}
 {{- range $i, $v := $Local -}}
 	{{- $data = dict -}}
 
@@ -115,29 +117,54 @@ specific language governing permissions and limitations under the License.
 	{{- /* process component's variables */ -}}
 	{{- $ret = dict -}}
 	{{- range $j, $w := $v.Variables -}}
-		{{- $ret = merge $ret (dict (string $j) (string $w)) -}}
+		{{- range $k, $x := $w -}}
+			{{- $ret = merge $ret (dict (string $k) (string $x)) -}}
+		{{- end -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Variables" $ret) -}}
 
 
-	{{- /* refine dataList */ -}}
-	{{- $list = slice -}}
-	{{- $ret = -1 -}}
-	{{- range $j, $w := $dataList -}}
-		{{- if eq $w.Name $data.Name -}}
-			{{- $data = merge $w $data -}}
-			{{- $list = append $data $list -}}
-			{{- $ret = 1 -}}
-		{{- else -}}
-			{{- $list = append $w $list -}}
+	{{- /* save to temporary list */ -}}
+	{{- $list = append $data $list -}}
+{{- end -}}
+{{- $Local = $list -}}
+
+
+
+
+{{- /* sort $Local lists for matching and append */ -}}
+{{- $list = dict -}}
+{{- $ret = slice -}}
+{{- range $i, $v := $Local -}}
+	{{- range $j, $w := $Site -}}
+		{{- if eq $v.Name $w.Name -}}
+			{{- $list = merge $list (dict $w.Name $v) -}}
 		{{- end -}}
 	{{- end -}}
 
-	{{- if eq $ret -1 -}}
-		{{- $list = append $data $list -}}
+	{{- if not (index $list $v.Name) -}}
+		{{- $ret = append $v $ret -}}
 	{{- end -}}
+{{- end -}}
+{{- $Local = $ret -}}
 
-	{{- $dataList = $list -}}
+
+
+
+{{- /* formulate dataList */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := $Site -}}
+	{{- $data = index $list $v.Name -}}
+	{{- if $data -}}
+		{{- $dataList = append (merge $v $data) $dataList -}}
+	{{- else -}}
+		{{- $dataList = append $v $dataList -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- range $i, $v := $ret -}}
+	{{- $dataList = append $v $dataList -}}
 {{- end -}}
 
 

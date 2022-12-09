@@ -49,7 +49,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- if $ret -}}
-		{{- $ret = merge $v.Variables $ret -}}
+		{{- $ret = merge $ret $v.Variables -}}
 	{{- else -}}
 		{{- $ret = $v.Variables -}}
 	{{- end -}}
