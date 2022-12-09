@@ -17,13 +17,13 @@ hasCJKLanguage = true
 
 # content pathing
 archetypeDir = "archetypes"
-contentDir = "../../docs"
+contentDir = "content"
 assetDir = "assets"
-dataDir = "../../docs/.data"
-staticDir = [ "../../docs/.static" ]
+dataDir = "data"
+staticDir = [ "static" ]
 layoutDir = "layouts"
-themesDir = "../../"
-publishDir = "../../public"
+themesDir = "themes"
+publishDir = "public"
 i18nDir = "i18n"
 
 
