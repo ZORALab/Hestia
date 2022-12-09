@@ -119,11 +119,25 @@ footer > * {
 main > * {
 	margin-left: var(--main-padding-left);
 	margin-right: var(--main-padding-right);
+
+	width: calc(var(--main-width) -
+		var(--main-padding-left) -
+		var(--main-padding-right));
+	max-width: calc(var(--main-max-width) -
+		var(--main-padding-left) -
+		var(--main-padding-right));
 }
 
 footer > * {
 	margin-left: var(--footer-padding-left);
 	margin-right: var(--footer-padding-right);
+
+	width: calc(var(--footer-width) -
+			var(--footer-padding-left) -
+			var(--footer-padding-right));
+	max-width: calc(var(--footer-max-width) -
+			var(--footer-padding-left) -
+			var(--footer-padding-right));
 }
 
 main, .content {
@@ -144,6 +158,10 @@ nav.rightnav, .rightnav {
 
 nav.topnav, .topnav {
 	grid-area: var(--topnav-grid-area);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	width: 100%;
 }
 
 h1 {

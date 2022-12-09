@@ -59,18 +59,18 @@
 "--main-max-width" = "100%"
 
 "--main-padding-top" = "3.5rem"
-"--main-padding-left" = "3.5rem"
-"--main-padding-right" = "3.5rem"
+"--main-padding-left" = "15%"
 "--main-padding-bottom" = "3.5rem"
+"--main-padding-right" = "15%"
 
 "--footer-min-width" = "initial"
 "--footer-width" = "100%"
 "--footer-max-width" = "100%"
 
 "--footer-padding-top" = "3.5rem"
-"--footer-padding-left" = "3.5rem"
-"--footer-padding-right" = "3.5rem"
+"--footer-padding-left" = "15%"
 "--footer-padding-bottom" = "3.5rem"
+"--footer-padding-right" = "15%"
 
 
 
@@ -237,7 +237,7 @@
 "--h6-after-color" = "initial"
 "--h6-after-background" = "initial"
 
-"--paragraph-text-align" = "justify"
+"--paragraph-text-align" = "center"
 
 
 
