@@ -1,0 +1,50 @@
+[Component]
+Name = "ZORALab's Hestia Blockquote UI Component"
+Type = "blockquote"
+ID = "blockquote_hestiaUI"
+Status = "Stable Released - Public"
+Available = "v0.0.1"
+Dependencies = [
+	"core_hestiaUI",
+]
+
+[[Component.Designer]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[Component.References.HTML]
+Minimal = """
+&#60;blockquote&#62;
+	...
+	&#60;cite&#62; ... &#60;/cite&#62;
+&#60;/blockquote&#62;
+"""
+
+[Component.References.CSS]
+"--blockquote-display" = "block"
+"--blockquote-before-content" = "\"❝\""
+"--blockquote-margin" = "0 0 3rem"
+"--blockquote-padding" = "4rem 3rem 3rem 10rem"
+"--blockquote-min-width" = "initial"
+"--blockquote-width" = "initial"
+"--blockquote-max-width" = "initial"
+"--blockquote-min-height" = "initial"
+"--blockquote-height" = "initial"
+"--blockquote-max-height" = "initial"
+"--blockquote-text-align" = "justify"
+"--blockquote-border" = "0"
+"--blockquote-border-radius" = "1rem"
+"--blockquote-color" = "var(--color-typography-900)"
+"--blockquote-color-print" = "var(--body-color-print)"
+"--blockquote-background" = "var(--color-primary-100)"
+"--blockquote-background-print" = "var(--body-background-print)"
+"--blockquote-timing" = "var(--timing-rapid)"
+"--blockquote-cite-margin" = "2rem 0 0"
+"--blockquote-cite-border-top" = "2px solid var(--blockquote-color)"
