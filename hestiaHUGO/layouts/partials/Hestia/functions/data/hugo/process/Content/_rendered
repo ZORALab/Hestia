@@ -24,13 +24,19 @@ specific language governing permissions and limitations under the License.
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $console := false -}}
-{{- $ret := false -}}
 
 
 
 
 {{- /* process .Rendered */ -}}
-{{- $dataList = .Content.Rendered -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" .Content.Rendered)) -}}
+{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- if $dataList.Console -}}
+	{{- $console = printf "Content: %v" $dataList.Console -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = $dataList.Output -}}
 
 
 

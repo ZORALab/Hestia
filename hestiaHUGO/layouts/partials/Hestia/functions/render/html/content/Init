@@ -28,6 +28,6 @@ specific language governing permissions and limitations under the License.
 	{{- else if .IsOffline }}
 		{{- partial "Hestia/functions/render/html/content/_offline" . -}}
 	{{- else }}
-		{{- .Content.Rendered -}}
+		{{- safeHTML .Content.Rendered -}}
 	{{- end }}
 {{- /* clean up */ -}}

@@ -17,6 +17,9 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := ".content" -}}
+
 
 
 
@@ -30,23 +33,17 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse specific format content */ -}}
-{{- if strings.HasSuffix (upper $format.Name) "HTML" -}}
-	{{- $dataList = merge $dataList (dict "Rendered" .Page.Content) -}}
-	{{- $dataList = merge $dataList (dict "Raw" .Page.RawContent) -}}
-{{- else if .Page.File -}}
-	{{- $Local = printf "._index%s" $format.Extension -}}
+{{- if .Page.File -}}
+	{{- $Local = printf "%s%s" $CONFIG_FILENAME $format.Extension -}}
 	{{- $Local = path.Join (path.Dir .Page.File.Path) $Local -}}
 	{{- $Local = path.Clean $Local -}}
 	{{- $Local = partial "Hestia/functions/data/hugo/parse/__file" $Local -}}
 	{{- $Local = string $Local -}}
-
-
-	{{- $dataList = merge $dataList (dict "Rendered" $Local) -}}
-	{{- $dataList = merge $dataList (dict "Raw" $Local) -}}
-{{- else -}}
-	{{- $dataList = merge $dataList (dict "Rendered" "") -}}
-	{{- $dataList = merge $dataList (dict "Raw" "") -}}
 {{- end -}}
+
+
+{{- $dataList = merge $dataList (dict "Rendered" $Local) -}}
+{{- $dataList = merge $dataList (dict "Raw" $Local) -}}
 
 
 
