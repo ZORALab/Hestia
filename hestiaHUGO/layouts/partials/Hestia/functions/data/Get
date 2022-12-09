@@ -24,6 +24,7 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
 {{- $list := slice -}}
+{{- $ret := false -}}
 
 
 
@@ -43,7 +44,17 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = . -}}
 	{{- range $i, $v := $list -}}
 		{{- if $dataList -}}
-			{{- $dataList = index $dataList $v -}}
+			{{- if partial "Hestia/functions/data/list/IsMap" $dataList -}}
+				{{- $dataList = index $dataList $v -}}
+			{{- else if partial "Hestia/functions/data/list/IsSlice" $dataList -}}
+				{{- if partial "Hestia/functions/data/number/IsStringInt" $v -}}
+					{{- $dataList = index $dataList (int $v) -}}
+				{{- else -}}
+					{{- /* BROKEN QUERY == Do not proceed */ -}}
+				{{- end -}}
+			{{- else -}}
+				{{- /* BROKEN QUERY == Do not proceed */ -}}
+			{{- end -}}
 		{{- end -}}
 	{{- end -}}
 
