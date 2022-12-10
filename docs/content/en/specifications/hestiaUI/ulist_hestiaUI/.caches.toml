@@ -1,0 +1,23 @@
+# HESTIA PWA PAGE-LEVEL RESOURCES AND CACHING LIST
+# ================================================
+# 1. See: .Data.Hestia.PWA.Caches for info.
+# 2. Hestia will uniquely sort and append this list to the site-level list.
+[[Contents]]
+URL = "index.html"
+Cache = "cache-first"
+
+[[Contents]]
+URL = "index.json"
+Cache = "cache-first"
+
+[[Contents]]
+URL = "thumbnails-1200x630.png"
+Cache = "cache-first"
+
+[[Contents]]
+URL = "thumbnails-1200x1200.png"
+Cache = "cache-first"
+
+[[Contents]]
+URL = "thumbnails-480x480.png"
+Cache = "cache-first"

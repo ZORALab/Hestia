@@ -52,7 +52,9 @@ ul li:before {
 	text-align: var(--ulist-li-before-text-align);
 }
 
-ul.left-aligned {
+ul.left-aligned,
+ul.left-aligned li,
+ul.left-aligned li > * {
 	text-align: var(--ulist-text-align-aligned-left);
 }
 
