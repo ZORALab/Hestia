@@ -33,29 +33,14 @@
 <section id='design'>
 	<h2>Design</h2>
 	<p>
-		<code>{{- .Data.Page.Component.ID -}}</code> UI component was
-		primarily designed for tabulating a list of navigational
-		materials like a list of anchored link to ease reader's ability
-		to jump towards a section of interest. The idea is to keep
-		W3C compatible <code>&#60;nav&#62;</code> syntax styled and
-		working natively as expected without having complicated CSS
-		classing, Javascript, or WASM to intervene.
-		<br/><br/>
-		Moreover, to ensure this component does not limits the
-		creativity of the developer, the <code>&#60;nav&#62;</code>
-		container is merely a layout styling while letting one to
-		fills in any sensible contents with freedom.
+		{{ .Data.Page.Component.Purpose }}
+		<br/>
+		Currently, it is being rendered as follows:
+
+		{{ .Data.Page.Component.Example }}
 	</p>
-	<p>
-		Currently, the rendered design (with paragraphs as content) is
-		shown as follows:
-		<br/><br/>
-		<nav class='toc'>
-			<p>Item 1</p>
-			<p>Item 2</p>
-			<p>Item 3</p>
-		</nav>
-	</p>
+
+	{{ express "html" "hestiaUI/designers.html" -}}
 </section>
 
 
@@ -65,23 +50,11 @@
 	<h2>HTML</h2>
 	<p>
 		ZORALab's Hestia employs the W3C native syntax for simplicity
-		and maximum compatibility sakes.
+		and maximum compatibility sakes. ZORALab's Hestia recommends
+		the following HTML code structure for this component.
 	</p>
-	<p>
-		For reference, ZORALab's Hestia recommends the following
-		minimal HTML codes for using this UI component:
-	</>
-<pre><b>&#60;nav class='toc'&#62;</b>
-	...
-<b>&#60;/nav&#62;</b></pre>
-	<p>
-		This will produce the result shown above.
-	</p>
-	<p>
-		Please take note that the <b><code>.toc</code> CSS class is
-		required</b> to denotes the navigation container as a table of
-		content.
-	</p>
+
+	{{ express "html" "hestiaUI/html.html" -}}
 </section>
 
 
@@ -97,367 +70,7 @@
 		sub-sections.
 	</p>
 
-
-	<section>
-		<h3><code>--toc-margin</code></h3>
-		<p>
-			Change the entire toc <code>margin:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-margin -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-padding</code></h3>
-		<p>
-			Change the entire toc <code>padding:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-padding -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-min-width</code></h3>
-		<p>
-			Change the entire toc <code>min-width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-min-width -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-width</code></h3>
-		<p>
-			Change the entire toc <code>width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-width -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-max-width</code></h3>
-		<p>
-			Change the entire toc <code>max-width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-max-width -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-min-height</code></h3>
-		<p>
-			Change the entire toc <code>min-height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-min-height -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-height</code></h3>
-		<p>
-			Change the entire toc <code>height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-height -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-max-height</code></h3>
-		<p>
-			Change the entire toc <code>max-height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-max-height -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-border</code></h3>
-		<p>
-			Change the entire toc <code>border:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-border -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-border-radius</code></h3>
-		<p>
-			Change the entire toc <code>border-radius:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-border-radius -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-color</code></h3>
-		<p>
-			Change the entire toc <code>color:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-color -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-color-inverted</code></h3>
-		<p>
-			Change the entire toc <code>color:</code> value with
-			inverted color (e.g. when placed in footer with dark
-			background).
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-color-inverted -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-color-print</code></h3>
-		<p>
-			Change the entire toc <code>color:</code> value in print
-			mode.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-color-print -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-background</code></h3>
-		<p>
-			Change the entire toc <code>background:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-background -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-background-inverted</code></h3>
-		<p>
-			Change the entire toc <code>background:</code> value
-			with inverted value (e.g. when placed in footer with
-			dark background).
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-background-inverted -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-background-print</code></h3>
-		<p>
-			Change the entire toc <code>background:</code> value in
-			print mode.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-background-print -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-content-margin</code></h3>
-		<p>
-			Change the toc's content <code>margin:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-content-margin -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-content-min-width</code></h3>
-		<p>
-			Change the toc's content <code>min-width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-content-min-width -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-content-width</code></h3>
-		<p>
-			Change the toc's content <code>width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-content-width -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-content-max-width</code></h3>
-		<p>
-			Change the toc's content <code>max-width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-content-max-width -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-content-min-height</code></h3>
-		<p>
-			Change the toc's content <code>min-height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-content-min-height -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-content-height</code></h3>
-		<p>
-			Change the toc's content <code>height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-content-height -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-content-max-height</code></h3>
-		<p>
-			Change the toc's content <code>height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-content-max-height -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-content</code></h3>
-		<p>
-			Change the toc's title <code>content:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-content -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-margin</code></h3>
-		<p>
-			Change the toc's title <code>margin:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-margin -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-padding</code></h3>
-		<p>
-			Change the toc's title <code>padding:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-padding -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-font-size</code></h3>
-		<p>
-			Change the toc's title <code>font-size:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-font-size -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-font-weight</code></h3>
-		<p>
-			Change the toc's title <code>font-weight:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-font-weight -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-color</code></h3>
-		<p>
-			Change the toc's title <code>color:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-color -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-color-inverted</code></h3>
-		<p>
-			Change the toc's title <code>color:</code> value
-			with inverted value (e.g. when placed in footer with
-			dark background).
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-color-inverted -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-background</code></h3>
-		<p>
-			Change the toc's title <code>background:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-background -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--toc-title-background-inverted</code></h3>
-		<p>
-			Change the toc's title <code>background:</code> value
-			with inverted value (e.g. when placed in footer with
-			dark background).
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--toc-title-background-inverted -}}
-			</code>.
-		</p>
-	</section>
+	{{ express "html" "hestiaUI/css-variables.html" -}}
 </section>
 
 
@@ -507,21 +120,8 @@
 				<code>hestiaHUGO</code> Hugo theme. They are to
 				be important as shown below:
 			</p>
-<pre># COMPULSORY
-[[List]]
-Name = "core_hestiaUI"
-Include = true
-Variables = []
 
-...
-
-# IMPORT
-[[List]]
-Name = "toc_hestiaUI"
-Include = true
-Variables = []
-
-...</pre>
+			{{ express "html" "hestiaUI/dependencies.html" -}}
 		</section>
 	</section>
 </section>
@@ -532,7 +132,7 @@ Variables = []
 	<p>
 		That's all for ZORALab's Hestia
 		<code>{{ .Data.Page.Component.ID }}</code> UI component.
-		{{ .Data.Store.common.epilogue.HestiaUI.Content }}
+		{{ express "html" "hestiaUI/epilogue.html" -}}
 	</p>
 </section>
 </main>
