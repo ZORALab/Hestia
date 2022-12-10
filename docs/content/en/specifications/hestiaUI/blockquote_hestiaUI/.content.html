@@ -33,23 +33,14 @@
 <section id='design'>
 	<h2>Design</h2>
 	<p>
-		<code>{{- .Data.Page.Component.ID -}}</code> UI component was
-		primarily designed for citing a statement from an author. The
-		idea is to make sure the W3C compatible
-		<code>&#60;blockquote&#62;</code> syntax is styled and working
-		natively as expected without having additional CSS classing,
-		Javascript, or WASM to intervene.
+		{{ .Data.Page.Component.Purpose }}
+		<br/>
+		Currently, it is being rendered as follows:
+
+		{{ .Data.Page.Component.Example }}
 	</p>
-	<p>
-		Currently, the rendered design is shown as follows:
-		<br/><br/>
-		<blockquote>
-			The scientists of today think deeply instead of clearly.
-			One must be sane to think clearly, but one can think
-			deeply and be quite insane.
-			<cite>Nikolai Tesla</cite>
-		</blockquote>
-	</p>
+
+	{{ express "html" "hestiaUI/designers.html" -}}
 </section>
 
 
@@ -59,26 +50,11 @@
 	<h2>HTML</h2>
 	<p>
 		ZORALab's Hestia employs the W3C native syntax for simplicity
-		and maximum compatibility sakes.
+		and maximum compatibility sakes. ZORALab's Hestia recommends
+		the following HTML code structure for this component.
 	</p>
-	<p>
-		For reference, ZORALab's Hestia recommends the following
-		minimal HTML codes for using this UI component:
-	</>
-<pre><b>&#60;blockquote&#62;</b>
-	The scientists of today think deeply instead of clearly.
-	One must be sane to think clearly, but one can think
-	deeply and be quite insane.
 
-	<b>&#60;cite&#62;</b>Nikolai Tesla<b>&#60;/cite&#62;</b>
-<b>&#60;/blockquote&#62;</b></blockquote></pre>
-	<p>
-		This will produce the result shown above.
-	</p>
-	<p>
-		Please take note that the <b><code>&#60;cite&#62;</code> field
-		is entirely optional but available</b>.
-	</p>
+	{{ express "html" "hestiaUI/html.html" -}}
 </section>
 
 
@@ -94,250 +70,7 @@
 		sub-sections.
 	</p>
 
-
-	<section>
-		<h3><code>--blockquote-display</code></h3>
-		<p>
-			Change the <code>display:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-display -}}
-			</code>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-before-content</code></h3>
-		<p>
-			Change the blockquote symbolic content value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-before-content -}}
-			</code>.
-		</p>
-		<p>
-			Please take note that <b>you **HAVE TO** to supply the
-			cancelled string quotation as part of the value
-			(e.g. <code>\"a\"</code>)</b>.
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-margin</code></h3>
-		<p>
-			Change the blockquote's <code>margin:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-margin -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-padding</code></h3>
-		<p>
-			Change the blockquote's <code>padding:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-padding -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-min-width</code></h3>
-		<p>
-			Change the blockquote's <code>min-width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-min-width -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-width</code></h3>
-		<p>
-			Change the blockquote's <code>width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-width -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-max-width</code></h3>
-		<p>
-			Change the blockquote's <code>max-width:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-max-width -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-min-height</code></h3>
-		<p>
-			Change the blockquote's <code>min-height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-min-height -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-height</code></h3>
-		<p>
-			Change the blockquote's <code>height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-height -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-max-height</code></h3>
-		<p>
-			Change the blockquote's <code>max-height:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-max-height -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-text-align</code></h3>
-		<p>
-			Change the blockquote's <code>text-align:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-text-align -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-border</code></h3>
-		<p>
-			Change the blockquote's <code>border:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-border -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-border-radius</code></h3>
-		<p>
-			Change the blockquote's <code>border-radius:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-border-radius -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-color</code></h3>
-		<p>
-			Change the blockquote's <code>color:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-color -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-color-print</code></h3>
-		<p>
-			Change the blockquote's <code>color:</code> value in
-			<code>print</code> mode.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-color-print -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-background</code></h3>
-		<p>
-			Change the blockquote's <code>background:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-background -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-background-print</code></h3>
-		<p>
-			Change the blockquote's <code>background:</code> value in
-			<code>print</code> mode.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-background-print -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-timing</code></h3>
-		<p>
-			Change the blockquote's <code>transition:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-timing -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-cite-margin</code></h3>
-		<p>
-			Change the blockquote citation's <code>margin:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-cite-margin -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
-
-
-	<section>
-		<h3><code>--blockquote-cite-border-top</code></h3>
-		<p>
-			Change the blockquote citation's <code>border-top:</code> value.
-			Default is <code>
-			{{- .Data.Page.Component.References.CSS.--blockquote-cite-border-top -}}
-			</code>.
-			<br/><br/>
-		</p>
-	</section>
+	{{ express "html" "hestiaUI/css-variables.html" -}}
 </section>
 
 
@@ -387,21 +120,8 @@
 				<code>hestiaHUGO</code> Hugo theme. They are to
 				be important as shown below:
 			</p>
-<pre># COMPULSORY
-[[List]]
-Name = "core_hestiaUI"
-Include = true
-Variables = []
 
-...
-
-# IMPORT
-[[List]]
-Name = "blockquote_hestiaUI"
-Include = true
-Variables = []
-
-...</pre>
+			{{ express "html" "hestiaUI/dependencies.html" -}}
 		</section>
 	</section>
 </section>
@@ -412,7 +132,7 @@ Variables = []
 	<p>
 		That's all for ZORALab's Hestia
 		<code>{{ .Data.Page.Component.ID }}</code> UI component.
-		{{ .Data.Store.common.epilogue.HestiaUI.Content }}
+		{{ express "html" "hestiaUI/epilogue.html" -}}
 	</p>
 </section>
 </main>
