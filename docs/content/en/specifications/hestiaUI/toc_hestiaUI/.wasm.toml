@@ -1,0 +1,52 @@
+# WASM Settings for This Page
+[Settings]
+# URL - the WASM source URL location. Recommended place it inside the same
+#       directory. Hestia formatting URL is acceptable. This field shall be
+#       ignored if Embed field is set.
+#
+#       This field is REQUIRED.
+URL = ''
+
+
+
+
+# Dependencies - list of javascript dependencies to be loaded before executing
+#                WASM stream instruction. Hestia formatting URL is acceptable.
+#                This field is OPTIONAL.
+#
+#                When Embed is set, all the dependencies shall be sourced,
+#                concatenated, minified, and inline embed into the HTML file.
+Dependencies = [
+]
+
+
+
+
+# Setup - any Javascript instructions right before the WASM stream instruction.
+#         It is meant for WASM compiled from languages requiring their
+#         respective runtime initialization. Example, for Go, it is:
+#                          'const go = new Go();'
+#         This field is OPTIONAL.
+Setup = """\
+// Your WASM Javascript Setup Codes Here.
+"""
+
+
+
+
+# Import - any WASM object import. It is meant for WASM compiled from languages
+#         requiring their respective runtime import. Example, for Go, it is:
+#                            'go.importObject'
+#         This field is OPTIONAL.
+Import = ''
+
+
+
+
+# Init  - Javascript instruction after a successful WASM stream. A 'result'
+#         object is provided for initializing your page. Example, for Go, it is:
+#                            'go.run(result.instance);'
+#         This field is OPTIONAL.
+Init = """\
+// Your WASM Javascript Init Codes Here.
+"""

@@ -1,0 +1,61 @@
+[Component]
+Name = "ZORALab's Hestia Table of Contents UI Component"
+Type = "table of contents"
+ID = "toc_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Dependencies = [
+	"core_hestiaUI",
+]
+
+[[Component.Designer]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[Component.References.HTML]
+Minimal = """
+&#60;nav class="toc"&#62;
+	...
+&#60;/nav&#62;
+"""
+
+[Component.References.CSS]
+"--toc-margin" = "2rem auto"
+"--toc-padding" = "2rem"
+"--toc-min-width" = "35rem"
+"--toc-width" = "fit-content"
+"--toc-max-width" = "100%"
+"--toc-min-height" = "initial"
+"--toc-height" = "fit-content"
+"--toc-max-height" = "initial"
+"--toc-border" = "1px solid var(--toc-color)"
+"--toc-border-radius" = ".5rem"
+"--toc-color" = "var(--body-color)"
+"--toc-color-inverted" = "var(--body-color-inverted)"
+"--toc-color-print" = "var(--body-color-print)"
+"--toc-background" = "transparent"
+"--toc-background-inverted" = "transparent"
+"--toc-background-print" = "transparent"
+"--toc-content-margin" = "2rem auto"
+"--toc-content-min-width" = "initial"
+"--toc-content-width" = "fit-content"
+"--toc-content-max-width" = "initial"
+"--toc-content-min-height" = "initial"
+"--toc-content-height" = "initial"
+"--toc-content-max-height" = "initial"
+"--toc-title-content" = "\"Synopsis\""
+"--toc-title-margin" = "0 auto 2.5rem"
+"--toc-title-padding" = "0"
+"--toc-title-font-size" = "2rem"
+"--toc-title-font-weight" = "600"
+"--toc-title-color" = "var(--toc-color)"
+"--toc-title-color-inverted" = "var(--toc-color-inverted)"
+"--toc-title-background" = "transparent"
+"--toc-title-background-inverted" = "transparent"
