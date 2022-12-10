@@ -116,8 +116,8 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 	{{- end -}}
 
-	{{- $args = merge $Page (dict "Input" $args) -}}
 	{{- $fx = strings.TrimPrefix "layouts/partials/" $fx -}}
+	{{- $args = merge $Page (dict "Input" $args "Macro" $fx) -}}
 	{{- $ret = partial $fx $args -}}
 	{{- $list = merge $list (dict $k $ret) -}}
 {{- end -}}

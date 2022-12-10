@@ -41,12 +41,12 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = printf "%sFile        : %s\n" $dataList $ret -}}
 
 
-	{{- /* states shortcode if available */ -}}
+	{{- /* states macro if available */ -}}
 	{{- $ret = "not applicable" -}}
-	{{- if .Shortcode -}}
-		{{- $ret = .Shortcode -}}
+	{{- if .Macro -}}
+		{{- $ret = .Macro -}}
 	{{- end -}}
-	{{- $dataList = printf "%sShortcode   : %s\n" $dataList $ret -}}
+	{{- $dataList = printf "%sMacro       : %s\n" $dataList $ret -}}
 {{- else -}}
 	{{- /* states the Page relative URL */ -}}
 	{{- $dataList = printf
@@ -54,7 +54,7 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = printf
 		"%sFile        : not available\n" $dataList -}}
 	{{- $dataList = printf
-		"%sShortcode   : not available\n" $dataList -}}
+		"%sMacro       : not available\n" $dataList -}}
 	{{- $dataList = printf "%s\n" $dataList -}}
 {{- end -}}
 
