@@ -30,8 +30,8 @@ picture, img {
 picture > img {
 	display: inherit;
 
-	margin: 0;
-	padding: 0;
+	margin: inherit;
+	padding: inherit;
 
 	min-width: inherit;
 	max-width: inherit;
