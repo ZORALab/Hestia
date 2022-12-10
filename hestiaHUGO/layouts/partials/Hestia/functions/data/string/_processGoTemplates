@@ -25,7 +25,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := .Input.Data -}}
 {{- $console := dict -}}
-{{- $args := dict -}}
+{{- $args := slice -}}
 {{- $list := dict -}}
 {{- $ret := false -}}
 {{- $fx := false -}}
@@ -41,6 +41,8 @@ specific language governing permissions and limitations under the License.
 {{- $ret = $ret.Output -}}
 
 
+
+
 {{- $list = dict -}}
 {{- range $i, $v := $ret -}}
 	{{- /* remove Go template braces and whitespace */ -}}
@@ -50,6 +52,7 @@ specific language governing permissions and limitations under the License.
 	{{- /* remove Go template comments */ -}}
 	{{- $fx = partial "Hestia/functions/data/string/__removeGoTemplateComments" $fx -}}
 	{{- $fx = partial "Hestia/functions/data/string/TrimWhitespace" $fx -}}
+
 
 	{{- /* split template functions segments when available */ -}}
 	{{- if $fx -}}
@@ -76,7 +79,6 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- /* check if it is a data filler */ -}}
-	{{- $args = dict -}}
 	{{- $fx = index $v 0 -}}
 
 	{{- if hasPrefix $fx "." -}}
@@ -101,16 +103,16 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- /* available hestia macro */ -}}
+	{{- /* available hestia macro - process args */ -}}
+	{{- $args = slice -}}
 	{{- range $i, $x := $v -}}
 		{{- if not $x -}}
 			{{- continue -}}
 		{{- end -}}
 
+
 		{{- if not (eq $i 0) -}}
-			{{- $ret = split $x "=" -}}
-			{{- $ret = dict (index $ret 0) (index $ret 1) -}}
-			{{- $args = merge $args $ret -}}
+			{{- $args = append $x $args -}}
 		{{- end -}}
 	{{- end -}}
 

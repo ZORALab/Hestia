@@ -40,6 +40,8 @@ specific language governing permissions and limitations under the License.
 		{{- else if eq $prev "/" -}}
 			{{- $output = append "//" $output -}}
 			{{- $prev = "" -}}
+		{{- else -}}
+			{{- $output = append $v $output -}}
 		{{- end -}}
 	{{- else if eq $v "*" -}}
 		{{- if eq $prev "/" -}}
@@ -53,6 +55,10 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 	{{- else -}}
 		{{- if not $inComment -}}
+			{{- if $prev -}}
+				{{- $output = append $prev $output -}}
+				{{- $prev = "" -}}
+			{{- end -}}
 			{{- $output = append $v $output -}}
 		{{- end -}}
 	{{- end -}}
