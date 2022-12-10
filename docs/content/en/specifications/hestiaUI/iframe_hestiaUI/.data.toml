@@ -1,0 +1,167 @@
+[Component]
+Name = "ZORALab's Hestia IFrame UI Component"
+Type = "iframe"
+ID = "iframe_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for integrating another web page into
+the written page. It was meant for external application integrations or viewing
+dynamic contents without Javascript or WASM assistance. For security reason,
+this component enforces and encourages sandbox deployment.
+"""
+Example = """
+<iframe src="https://www.zoralab.com/en"
+	sandbox="allow-scripts allow-same-origin"
+	width="600"
+	height="600"
+	loading="lazy"
+	id="frame-show-01"
+	class="my-class"
+	title="ZORALab Home">
+	<p>Appearently, iframe is not supported on your browser.</p>
+</iframe>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C compatible 'iframe' syntax to render itself minimally
+alongside recommended sandbox settings:
+"""
+Example = """
+<iframe src="..."
+	sandbox="allow-scripts allow-same-origin"
+	width="..."
+	height="..."
+	title="..."
+	loading="lazy">
+	...
+</iframe>
+"""
+
+
+[[Component.References.HTML]]
+Type = "Hidden"
+Description = """
+The component uses W3C compatible 'iframe' syntax with '.hidden' CSS class to
+render itself hidden from visual minimally alongside recommended sandbox
+settings:
+"""
+Example = """
+<iframe src="..."
+	sandbox="allow-scripts allow-same-origin"
+	width="..."
+	height="..."
+	title="..."
+	loading="lazy"
+	class="hidden">
+	...
+</iframe>
+"""
+
+
+[[Component.References.CSS]]
+Name = "--iframe-display"
+Description = "Affects the entire component's display mode value."
+Property = "display"
+Default = "block"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-margin"
+Description = "Affects the entire component's margin value."
+Property = "margin"
+Default = "0 auto"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-min-width"
+Description = "Affects the entire component's minimum width value."
+Property = "min-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-width-hidden"
+Description = "Affects the entire component's width value when set with hidden CSS class."
+Property = "width"
+Default = "1px"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-max-width"
+Description = "Affects the entire component's maximum width value."
+Property = "max-width"
+Default = "100%"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-min-height"
+Description = "Affects the entire component's minimum height value."
+Property = "min-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-height-hidden"
+Description = "Affects the entire component's height value when set with '.hidden' CSS class."
+Property = "height"
+Default = "1px"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-max-height"
+Description = "Affects the entire component's maximum height value."
+Property = "max-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-border"
+Description = "Affects the entire component's border value."
+Property = "border"
+Default = "none"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-background"
+Description = "Affects the entire component's background value."
+Property = "background"
+Default = "inherit"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-visibility"
+Description = "Affects the entire component's visibility value."
+Property = "visibility"
+Default = "visible"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--iframe-visibility-hidden"
+Description = """
+Affects the entire component's visibility value when set with '.hidden' CSS class.
+"""
+Property = "visibility"
+Default = "hidden"
+Availability = "v0.0.1"

@@ -4,8 +4,8 @@
 "--iframe-margin" = "0 auto"
 
 "--iframe-min-width" = "initial"
-"--iframe-max-width" = "100%"
 "--iframe-width-hidden" = "1px"
+"--iframe-max-width" = "100%"
 "--iframe-min-height" = "initial"
 "--iframe-height-hidden" = "1px"
 "--iframe-max-height" = "initial"
