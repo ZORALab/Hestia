@@ -16,10 +16,10 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.URL = queried URL. (string) */ -}}
-{{- /* .Input.Type = output HTML/CSS/JS data type. (string) */ -}}
-{{- /* .Input.Lang = desired output language. (optional,string) */ -}}
-{{- /* .Input.Format = queried URL file format. (optional,string) */ -}}
+{{- /* [Input 0] = output "string"/"html"/"css"/"js" data type. (string) */ -}}
+{{- /* [Input 1] = queried url path. (string) */ -}}
+{{- /* [Input 2] = desired output language. (optional,string) */ -}}
+{{- /* [Input 3] = desired output file format. (optional,string) */ -}}
 
 
 
@@ -27,27 +27,33 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
+{{- $data := dict -}}
 {{- $type := "" -}}
 {{- $console := dict -}}
 
 
 
 
-{{- /* parse output type */ -}}
-{{- if not (index . "Input") -}}
-	{{- $type = dict "Type" "html" -}}
-{{- else -}}
-	{{- $type = index . "Input" -}}
+{{- /* parse .Input */ -}}
+{{- $dataList = dict "URL" "" "Lang" "" "Format" "" -}}
+{{- range $i, $v := .Input -}}
+	{{- if eq $i 0 -}}
+		{{- $type = $v -}}
+	{{- else if eq $i 1 -}}
+		{{- $dataList = merge $dataList (dict "URL" $v) -}}
+	{{- else if eq $i 2 -}}
+		{{- $dataList = merge $dataList (dict "Lang" $v) -}}
+	{{- else if eq $i 3 -}}
+		{{- $dataList = merge $dataList (dict "Format" $v) -}}
+	{{- end -}}
 {{- end -}}
 
 
-{{- if partial "Hestia/functions/data/list/IsMap" $type -}}
-	{{- $type = index $type "Type" -}}
-{{- end -}}
 
 
+{{- /* process .Type */ -}}
 {{- if not (partial "Hestia/functions/data/string/IsString" $type) -}}
-	{{- $type = "html" -}}
+	{{- $type = "string" -}}
 {{- end -}}
 {{- $type = lower $type -}}
 
@@ -56,26 +62,35 @@ specific language governing permissions and limitations under the License.
 	{{- $type = "application/javascript" -}}
 {{- else if eq $type "css" -}}
 	{{- $type = "text/css" -}}
-{{- else -}}
+{{- else if eq $type "html" -}}
 	{{- $type = "text/html" -}}
+{{- else -}}
+	{{- $type = "string" -}}
 {{- end -}}
+
+
+
+
+{{- /* process output */ -}}
+{{- $dataList = merge $Page (dict "Input" $dataList) -}}
+{{- $dataList = partial "Hestia/functions/data/url/Init" $dataList -}}
+{{- if $dataList.Console -}}
+	{{- $console = printf "%v" $dataList.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = $dataList.Output -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- $dataList = partial "Hestia/functions/data/url/Init" . -}}
-{{- if $dataList.Console -}}
-	{{- $console = printf "urlize: %v" $dataList.Message -}}
-	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
-{{- end -}}
-
-
 {{- if partial "Hestia/functions/data/mime/IsJavascript" $type -}}
-	{{- safeJS $dataList.Output -}}
+	{{- safeJS $dataList -}}
 {{- else if partial "Hestia/functions/data/mime/IsCSS" $type -}}
-	{{- safeCSS $dataList.Output -}}
+	{{- safeCSS $dataList -}}
+{{- else if partial "Hestia/functions/data/mime/IsHTML" $type -}}
+	{{- safeHTML $dataList -}}
 {{- else -}}
-	{{- safeHTML $dataList.Output -}}
+	{{- $dataList -}}
 {{- end -}}
