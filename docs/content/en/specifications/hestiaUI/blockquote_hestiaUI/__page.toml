@@ -88,4 +88,4 @@ Enabled = false
 #                             [[data]]
 #                             Filename = 'file2.toml'
 [[Data]]
-Filename = ".data.toml"
+Filename = "__data.toml"
