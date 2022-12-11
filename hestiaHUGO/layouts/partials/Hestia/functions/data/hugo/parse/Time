@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 {{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := ".page.toml" -}}
+{{- $CONFIG_FILENAME := "__page.toml" -}}
 {{- $TIME_FORMAT := "Mon 02 Jan 2006 15:04:05 PM -07" -}}
 
 
