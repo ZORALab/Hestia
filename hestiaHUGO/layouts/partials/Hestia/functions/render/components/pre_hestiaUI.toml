@@ -5,13 +5,11 @@
 "--pre-overflow" = "auto auto"
 
 "--pre-border" = ".3rem solid var(--pre-color)"
-"--pre-border-inverted" = ".3rem solid var(--pre-color-inverted)"
 "--pre-border-radius" = ".5rem"
 
 "--pre-min-width" = "initial"
 "--pre-width" = "80%"
 "--pre-max-width" = "80%"
-
 "--pre-min-height" = "initial"
 "--pre-height" = "initial"
 "--pre-max-height" = "initial"
@@ -23,6 +21,7 @@
 "--pre-letter-spacing" = 0
 "--pre-line-height" = "var(--body-line-height)"
 "--pre-text-align" = "justify"
+"--pre-white-space" = "pre"
 
 "--pre-color" = "var(--color-primary-300)"
 "--pre-color-inverted" = "var(--color-primary-300)"

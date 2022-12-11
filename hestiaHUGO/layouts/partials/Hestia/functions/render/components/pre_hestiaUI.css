@@ -28,7 +28,6 @@ pre {
 	min-width: var(--pre-min-width);
 	width: var(--pre-width);
 	max-width: var(--pre-max-width);
-
 	min-height: var(--pre-min-height);
 	height: var(--pre-height);
 	max-height: var(--pre-max-height);
@@ -40,6 +39,7 @@ pre {
 	letter-spacing: var(--pre-letter-spacing);
 	line-height: var(--pre-line-height);
 	text-align: var(--pre-text-align);
+	white-space: var(--pre-white-space);
 
 	color: var(--pre-color);
 	background: var(--pre-background);
@@ -49,7 +49,7 @@ pre {
 
 footer pre,
 .footer pre {
-	border: var(--pre-border-inverted);
+	border-color: var(--pre-color-inverted);
 	color: var(--pre-color-inverted);
 	background: var(--pre-background-inverted);
 }
@@ -73,6 +73,7 @@ pre code {
 	color: inherit;
 	background: transparent;
 
+	white-space: normal;
 	font-size: inherit;
 	font-family: inherit;
 	font-weight: inherit;
