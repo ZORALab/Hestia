@@ -5,6 +5,7 @@
 "--code-border" = "initial"
 "--code-border-radius" = ".4rem"
 
+"--code-font-weight" = "700"
 "--code-letter-spacing" = 0
 
 "--code-color" = "var(--color-primary-300)"

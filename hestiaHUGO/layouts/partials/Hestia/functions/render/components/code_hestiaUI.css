@@ -23,6 +23,7 @@ code {
 	border: var(--code-border);
 	border-radius: var(--code-border-radius);
 
+	font-weight: var(--code-font-weight);
 	letter-spacing: var(--code-letter-spacing);
 
 	color: var(--code-color);
