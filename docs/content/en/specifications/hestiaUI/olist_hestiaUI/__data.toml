@@ -1,0 +1,273 @@
+[Component]
+Name = "ZORALab's Hestia Ordered List UI Component"
+Type = "list"
+ID = "olist_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for listing out items in an ordered
+fashion working responsively in various display devices or browser sizes. It is
+kept simple enough for customization without requiring too much localized
+specifications.
+"""
+Example = """
+<ol>
+	<li>
+		<p>Sun</p>
+	</li>
+	<li>
+		<p>Earth</p>
+		<ol>
+			<li><p>Human</p></li>
+			<li><p>Trees</p></li>
+		</ol>
+	</li>
+	<li>
+		<p>Mars</p>
+	</li>
+</ol>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C compatible 'ol' and 'li' syntaxes to render itself
+minimally:
+"""
+Example = """
+<ol>
+	<li>...</li>
+	<li>...</li>
+	<li>...</li>
+</ol>
+"""
+
+[[Component.References.HTML]]
+Type = "Minimum (Left Aligned List)"
+Description = """
+The component uses W3C compatible 'ol' and 'li' syntaxes alongside a
+'.left-aligned' css class to render itself minimally:
+"""
+Example = """
+<ol class='left-aligned'>
+	<li>...</li>
+	<li>...</li>
+	<li>...</li>
+</ol>
+"""
+
+
+[[Component.References.HTML]]
+Type = "Compound"
+Description = """
+The component uses W3C compatible 'ol' and 'li' syntaxes to render itself
+minimally alongside with its own sub-list:
+"""
+Example = """
+<ol>
+	<li>
+		...
+	</li>
+	<li>
+		...
+		<ol style="--ulist-li-before-background:red;">
+			<li>...</li>
+			<li>...</li>
+		</ol>
+	</li>
+	<li>
+		...
+	</li>
+</ol>
+"""
+
+
+[[Component.References.HTML]]
+Type = "Compound (Left-Aligned List)"
+Description = """
+The component uses W3C compatible 'ol' and 'li' syntaxes alongside a
+'.left-aligned' css class to render itself minimally alongside with its own
+sub-list:
+"""
+Example = """
+<ol class='left-aligned'>
+	<li>
+		...
+	</li>
+	<li>
+		...
+		<ol class='left-aligned'>
+			<li>...</li>
+			<li>...</li>
+		</ol>
+	</li>
+	<li>
+		...
+	</li>
+</ol>
+"""
+
+
+[[Component.References.CSS]]
+Name = "--olist-spacing"
+Description = """
+Affects the list item's margin value uniquely when used in both default and
+left-aligned list. You should only supply 1 sided value as the component shall
+construct the margin in its own way.
+"""
+Property = "margin"
+Default = "4rem"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-tab-spacing"
+Description = """
+Affects the list item's margin value uniquely for tab spacing when used in
+left-aligned list. You should only supply 1 sided value as the component shall
+construct the margin in its own way.
+"""
+Property = "margin"
+Default = "6rem"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-display"
+Description = """
+Affects the entire component's display mode value.
+"""
+Property = "display"
+Default = "block"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-margin"
+Description = """
+Affects the entire component's margin value.
+"""
+Property = "margin"
+Default = "0 auto"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-padding"
+Description = """
+Affects the entire component's padding value.
+"""
+Property = "padding"
+Default = "0"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-text-align"
+Description = """
+Affects the entire component's text-align value.
+"""
+Property = "text-align"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-text-align-aligned-left"
+Description = """
+Affects the entire component's text-align value when used with '.left-aligned'
+CSS class.
+"""
+Property = "text-align"
+Default = "justify"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-margin"
+Description = """
+Affects the component's list item's margin value.
+"""
+Property = "margin"
+Default = "var(--olist-spacing) 0"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-margin-aligned-left"
+Description = """
+Affects the component's list item's margin value when used with '.left-aligned'
+CSS class.
+"""
+Property = "margin"
+Default = """
+var(--olist-spacing) 0 var(--olist-spacing) var(--olist-tab-spacing)
+"""
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-padding"
+Description = """
+Affects the component's list item's padding value.
+"""
+Property = "padding"
+Default = "0"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-before-font-size"
+Description = """
+Affects the component's list item's bullet numbering font-size value.
+"""
+Property = "font-size"
+Default = '2rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-before-font-weight"
+Description = """
+Affects the component's list item's bullet numbering font-weight value.
+"""
+Property = "font-weight"
+Default = '700'
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-before-text-align"
+Description = """
+Affects the component's list item's bullet numbering text-align value.
+"""
+Property = "text-align"
+Default = 'center'
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-before-text-align-aligned-left"
+Description = """
+Affects the component's list item's bullet numbering text-align value when used
+with '.left-aligned' CSS class.
+"""
+Property = "text-align"
+Default = 'left'
