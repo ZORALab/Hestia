@@ -1,0 +1,142 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* [Input 0] = output "string"/"html"/"css"/"js" data type. (string) */ -}}
+{{- /* [Input 1] = queried code for transformation. (string) */ -}}
+{{- /* [Input 2] = desired output programming language. (string) */ -}}
+{{- /* [Input 3] = desired output options. (optional,string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := dict -}}
+{{- $data := dict -}}
+{{- $type := "" -}}
+{{- $console := dict -}}
+
+
+
+
+{{- /* parse .Input */ -}}
+{{- $dataList = dict "Input" "" "Lang" "" "Options" "" -}}
+{{- range $i, $v := .Input -}}
+	{{- if eq $i 0 -}}
+		{{- $type = $v -}}
+	{{- else if eq $i 1 -}}
+		{{- $dataList = merge $dataList (dict "Input" $v) -}}
+	{{- else if eq $i 2 -}}
+		{{- $dataList = merge $dataList (dict "Lang" $v) -}}
+	{{- else if eq $i 3 -}}
+		{{- $dataList = merge $dataList (dict "Options" $v) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Type */ -}}
+{{- if not (partial "Hestia/functions/data/string/IsString" $type) -}}
+	{{- $type = "string" -}}
+{{- end -}}
+{{- $type = lower $type -}}
+
+
+{{- if or (eq $type "js") (eq $type "javascript") -}}
+	{{- $type = "application/javascript" -}}
+{{- else if eq $type "css" -}}
+	{{- $type = "text/css" -}}
+{{- else if eq $type "html" -}}
+	{{- $type = "text/html" -}}
+{{- else -}}
+	{{- $type = "string" -}}
+{{- end -}}
+
+
+
+
+{{- /* validate $dataList.Input */ -}}
+{{- $data = merge $Page (dict "Input" (dict "Data" $dataList.Input)) -}}
+{{- $data = partial "Hestia/functions/data/string" $data -}}
+{{- if $data.Console -}}
+	{{- $console = printf ".Input: %v" $dataList.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- $dataList = dict -}}
+{{- else -}}
+	{{- $dataList = merge $dataList (dict "Input" $data.Output) -}}
+{{- end -}}
+
+
+
+
+{{- /* validate $dataList.Lang */ -}}
+{{- if $dataList -}}
+	{{- $data = merge $Page (dict "Input" (dict "Data" $dataList.Lang)) -}}
+	{{- $data = partial "Hestia/functions/data/string" $data -}}
+	{{- if $data.Console -}}
+		{{- $console = printf ".Lang: %v" $dataList.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $dataList = merge $dataList (dict "Lang" "") -}}
+	{{- else -}}
+		{{- $dataList = merge $dataList (dict "Lang" $data.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* validate $dataList.Options */ -}}
+{{- if $dataList -}}
+	{{- $data = merge $Page (dict "Input" (dict "Data" $dataList.Options)) -}}
+	{{- $data = partial "Hestia/functions/data/string" $data -}}
+	{{- if $data.Console -}}
+		{{- $console = printf ".Options: %v" $dataList.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $dataList = merge $dataList (dict "Options" "") -}}
+	{{- else -}}
+		{{- $dataList = merge $dataList (dict "Options" $data.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process output */ -}}
+{{- if $dataList -}}
+	{{- $dataList = highlight $dataList.Input $dataList.Lang $dataList.Options -}}
+{{- else -}}
+	{{- $dataList = "[ MACRO ERROR ]" -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- if partial "Hestia/functions/data/mime/IsJavascript" $type -}}
+	{{- safeJS $dataList -}}
+{{- else if partial "Hestia/functions/data/mime/IsCSS" $type -}}
+	{{- safeCSS $dataList -}}
+{{- else if not partial "Hestia/functions/data/mime/IsHTML" $type -}}
+	{{- string $dataList -}}
+{{- else -}}
+	{{- $dataList -}}
+{{- end -}}
