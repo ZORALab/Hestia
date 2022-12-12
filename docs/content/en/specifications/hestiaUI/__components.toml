@@ -29,11 +29,6 @@ Include = true
 Variables = []
 
 [[List]]
-Name = "gochroma_hestiaUI"
-Include = true
-Variables = []
-
-[[List]]
 Name = "olist_hestiaUI"
 Include = true
 Variables = []
