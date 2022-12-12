@@ -1,0 +1,493 @@
+[Component]
+Name = "ZORALab's Hestia Definitions List UI Component"
+Type = "list"
+ID = "deflist_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for multiple definitions of multiple
+terms in a list. It works natively so that the content creator can focus on the
+writing rather than messing with the code fragment styles.
+"""
+Example = """
+<dl>
+	<dt>Sun</dt>
+	<dd>The core of our solar system.</dd>
+	<dd>
+		Primary source of energy. Its body is primarily consisting of
+		hot plasma consistently dumping light and heat energies to its
+		surrounding.
+	</dd>
+	<dd>
+		Provides heats and gives life to plants on Earth.
+	</dd>
+
+	<dt>Mercury</dt>
+	<dd>FIRST planet away from Sun.</dd>
+
+	<dt>Venus</dt>
+	<dd>SECOND planet away from Sun.</dd>
+
+	<dt>Earth</dt>
+	<dd>THIRD planet away from the Sun.</dd>
+	<dd>Contains organic life on and inside the planet.</dd>
+</dl>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C compatible 'dl', 'dt', and 'dd' syntax to render itself
+minimally:
+"""
+Example = """
+<dl>
+	<dt>...1st term...</dt>
+	<dd>...1st definition for 1st-term...</dd>
+	<dd>...2nd definition for 1st-term...</dd>
+
+	<dt>...2nd term...</dt>
+	<dd>...1st definition for 2nd-term...</dd>
+	<dd>...2nd definition for 2nd-term...</dd>
+
+	...
+</dl>
+"""
+
+
+[[Component.References.CSS]]
+Name = "--deflist-display"
+Description = """
+Affects the entire component's display mode value.
+"""
+Property = "display"
+Default = "block"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-border-top"
+Description = """
+Affects the entire component's top border value.
+"""
+Property = "border-top"
+Default = "2px solid var(--deflist-color)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-border-top-inverted"
+Description = """
+Affects the entire component's top border value in an inverted environment
+(e.g. footer).
+"""
+Property = "border-top"
+Default = "2px solid var(--deflist-color-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-border-bottom"
+Description = """
+Affects the entire component's bottom border value.
+"""
+Property = "border-bottom"
+Default = "2px solid var(--deflist-color)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-border-bottom-inverted"
+Description = """
+Affects the entire component's bottom border value in an inverted environment
+(e.g. footer).
+"""
+Property = "border-bottom"
+Default = "2px solid var(--deflist-color-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-min-width"
+Description = """
+Affects the entire component's minimum width value.
+"""
+Property = "min-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-width"
+Description = """
+Affects the entire component's width value.
+"""
+Property = "width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-max-width"
+Description = """
+Affects the entire component's maximum width value.
+"""
+Property = "max-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-min-height"
+Description = """
+Affects the entire component's minimum height value.
+"""
+Property = "min-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-height"
+Description = """
+Affects the entire component's height value.
+"""
+Property = "height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-max-height"
+Description = """
+Affects the entire component's maximum height value.
+"""
+Property = "max-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-margin"
+Description = """
+Affects the entire component's margin value.
+"""
+Property = "margin"
+Default = "3rem auto"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-padding"
+Description = """
+Affects the entire component's padding value.
+"""
+Property = "padding"
+Default = "0 5rem"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-counter"
+Description = """
+Affects the entire component's numbering bullet counter name value.
+"""
+Property = "counter-reset; AND counter-increment"
+Default = "dd-items"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-color"
+Description = """
+Affects the entire component's color value.
+"""
+Property = "color"
+Default = "var(--color-primary-400)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-color-inverted"
+Description = """
+Affects the entire component's color value in inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = "var(--color-primary-100)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-color-print"
+Description = """
+Affects the entire component's color value in print mode.
+"""
+Property = "color"
+Default = "var(--body-color-print)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-background"
+Description = """
+Affects the entire component's background value.
+"""
+Property = "background"
+Default = "var(--body-background)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-background-inverted"
+Description = """
+Affects the entire component's background value in inverted environment
+(e.g. footer).
+"""
+Property = "background"
+Default = "var(--body-background-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-background-print"
+Description = """
+Affects the entire component's background value in print mode.
+"""
+Property = "background"
+Default = "var(--body-background-print)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-margin"
+Description = """
+Affects the component's term's margin value.
+"""
+Property = "margin"
+Default = "1rem auto 0"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-padding"
+Description = """
+Affects the component's term's padding value.
+"""
+Property = "padding"
+Default = "0"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-border-top"
+Description = """
+Affects the component's term's border-top value.
+"""
+Property = "border-top"
+Default = "1px solid var(--deflist-color)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-border-top-inverted"
+Description = """
+Affects the component's term's top border value in an inverted environment
+(e.g. footer).
+"""
+Property = "border-top"
+Default = "1px solid var(--deflist-color-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-font-size"
+Description = """
+Affects the component's term's font sizing value.
+"""
+Property = "font-size"
+Default = "4rem"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-font-weight"
+Description = """
+Affects the component's term's font weight value.
+"""
+Property = "font-weight"
+Default = "600"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-font-style"
+Description = """
+Affects the component's term's font styling value.
+"""
+Property = "font-style"
+Default = "italic"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-color"
+Description = """
+Affects the component's term's color value.
+"""
+Property = "color"
+Default = "var(--deflist-color)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-color-inverted"
+Description = """
+Affects the component's term's color value in inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = "var(--deflist-color-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-color-print"
+Description = """
+Affects the component's term's color value in print mode.
+"""
+Property = "color"
+Default = "var(--body-color-print)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-background"
+Description = """
+Affects the component's term's background value.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-background-inverted"
+Description = """
+Affects the component's term's background value in inverted environment
+(e.g. footer).
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dt-background-print"
+Description = """
+Affects the component's term's background value in print mode.
+"""
+Property = "background"
+Default = "var(--body-background-print)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-margin"
+Description = """
+Affects the component's definition's margin value.
+"""
+Property = "margin"
+Default = "1rem auto"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-padding"
+Description = """
+Affects the component's definition's padding value.
+"""
+Property = "padding"
+Default = "0"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-color"
+Description = """
+Affects the component's definition's color value.
+"""
+Property = "color"
+Default = "var(--body-color)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-color-inverted"
+Description = """
+Affects the component's definition's color value in inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = "var(--body-color-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-color-print"
+Description = """
+Affects the component's definition's color value in print mode.
+"""
+Property = "color"
+Default = "var(--body-color-print)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-background"
+Description = """
+Affects the component's definition's background value.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-background-inverted"
+Description = """
+Affects the component's definition's background value in inverted environment
+(e.g. footer).
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--deflist-dd-background-print"
+Description = """
+Affects the component's definition's background value in print mode.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
