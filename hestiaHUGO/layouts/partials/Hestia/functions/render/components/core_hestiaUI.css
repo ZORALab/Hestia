@@ -17,6 +17,7 @@ specific language governing permissions and limitations under the License.
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 * {
 	transition: var(--timing-normal);
+	box-sizing: var(--html-box-sizing);
 }
 
 html,
@@ -31,8 +32,6 @@ html {
 
 	height: 100%; /* fallback if calc fails */
 	height: calc(100vh - calc(100vh - 100%));
-
-	box-sizing: var(--html-box-sizing);
 
 	scroll-behavior: var(--body-scroll-behavior);
 }
