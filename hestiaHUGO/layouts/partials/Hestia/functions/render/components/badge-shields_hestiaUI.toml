@@ -35,5 +35,5 @@
 
 
 
-"--badge-content-margin" = "0"
-"--badge-content-padding" = ".5rem 1rem"
+"--badge-value-margin" = "0"
+"--badge-value-padding" = ".5rem 1rem"

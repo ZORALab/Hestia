@@ -84,14 +84,14 @@ specific language governing permissions and limitations under the License.
 	text-align: var(--badge-title-text-align);
 }
 
-.badge .content {
+.badge .value {
 	grid-area: content;
 
 	border-left: var(--badge-border);
 	border-radius: 0 var(--badge-border-radius) var(--badge-border-radius) 0;
 
-	margin: var(--badge-content-margin);
-	padding: var(--badge-content-padding);
+	margin: var(--badge-value-margin);
+	padding: var(--badge-value-padding);
 
 	color: var(--badge-color);
 	background: var(--badge-background);
@@ -108,7 +108,7 @@ specific language governing permissions and limitations under the License.
 		background: var(--badge-background-print) !important;
 	}
 
-	.badge .content {
+	.badge .value {
 		border-color: var(--badge-color-print) !important;
 		color: var(--badge-color-print) !important;
 		background: var(--badge-background-print) !important;
