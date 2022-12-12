@@ -21,10 +21,12 @@ Published = "Mon 12 Dec 2022 05:43:35 AM +08"
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "code_HestiaUI Specification"
+Title = "pre_HestiaUI Specification"
 Keywords = [
-	"code_hestiaUI",
-	"code",
+	"pre_hestiaUI",
+	"preformatted text",
+	"text",
+	"preformatted",
 	"HestiaUI",
 	"UI",
 	"Specifications",
@@ -45,7 +47,7 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = """
-The full specification for code_hestiaUI UI component in ZORALab's Hestia.
+The full specification for pre_hestiaUI UI component in ZORALab's Hestia.
 """
 Summary = """
 It covers its technical designs, limits, available interfaces using Go (WASM),

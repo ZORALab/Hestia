@@ -18,6 +18,7 @@ specific language governing permissions and limitations under the License.
 pre {
 	display: var(--pre-display);
 
+	box-sizing: var(--pre-box-sizing);
 	margin: var(--pre-margin);
 	padding: var(--pre-padding);
 	overflow: var(--pre-overflow);

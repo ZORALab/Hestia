@@ -1,5 +1,6 @@
 [CSS.Variables]
 "--pre-display" = "block"
+"--pre-box-sizing" = "border-box"
 "--pre-margin" = "2rem auto"
 "--pre-padding" = "2rem"
 "--pre-overflow" = "auto auto"
@@ -8,8 +9,8 @@
 "--pre-border-radius" = ".5rem"
 
 "--pre-min-width" = "initial"
-"--pre-width" = "80%"
-"--pre-max-width" = "80%"
+"--pre-width" = "100%"
+"--pre-max-width" = "100%"
 "--pre-min-height" = "initial"
 "--pre-height" = "initial"
 "--pre-max-height" = "initial"

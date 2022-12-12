@@ -81,6 +81,16 @@ Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
+Name = "--pre-box-sizing"
+Description = """
+Affects the entire component's box sizing value.
+"""
+Property = "box-sizing"
+Default = "border-box"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
 Name = "--pre-margin"
 Description = """
 Affects the entire component's margin value.
