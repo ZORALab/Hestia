@@ -1,10 +1,11 @@
 [CSS.Variables]
+"--note-box-sizing" = "border-box"
 "--note-margin" = "1.3rem auto"
 "--note-padding" = "0"
 
 "--note-min-width" = "initial"
-"--note-width" = "80%"
-"--note-max-width" = "80%"
+"--note-width" = "100%"
+"--note-max-width" = "100%"
 "--note-min-height" = "initial"
 "--note-height" = "max-content"
 "--note-max-height" = "initial"
@@ -27,7 +28,7 @@
 "--note-title-color" = "var(--body-color-inverted)"
 "--note-title-color-print" = "var(--body-color-print)"
 "--note-title-indicator-color" = "var(--color-contrast-400)"
-"--note-title-indicator-print" = "var(--body-color-print)"
+"--note-title-indicator-color-print" = "var(--body-color-print)"
 "--note-title-background" = "var(--color-primary-900)"
 "--note-title-background-print" = "var(--body-background-print)"
 

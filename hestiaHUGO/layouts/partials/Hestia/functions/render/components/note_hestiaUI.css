@@ -61,11 +61,15 @@ specific language governing permissions and limitations under the License.
 .note > .content {
 	grid-area: content;
 
+	box-sizing: var(--note-box-sizing);
 	margin: var(--note-content-margin);
 	padding: var(--note-content-padding);
 
 	color: var(--note-content-color);
 	background: var(--note-content-background);
+
+	width: 100%;
+	max-width: 100%;
 
 	opacity: 0;
 	position: absolute;
