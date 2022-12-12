@@ -1,6 +1,6 @@
 [Component]
 Name = "ZORALab's Hestia Table of Contents UI Component"
-Type = "table of contents"
+Type = "nav"
 ID = "toc_hestiaUI"
 Status = "Stable - Public"
 Available = "v0.0.1"
