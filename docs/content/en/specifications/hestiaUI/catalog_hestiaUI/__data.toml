@@ -14,16 +14,17 @@ the developer can have full freedom to fill its content.
 """
 Example = """
 <nav class="catalog">
-	<div class="card">
-		<img class="thumbnail"
-			alt="card thumbnail"
-			src="/img/demo/demo1-1200x1200.webp"
-			width="300"
-			height="300" />
-		<p class="content">
-			Picture above is a Pexels licensed image contributed by
-			Pixabay in Pexels.com. Please check them out below!
-		</p>
+	<figure class="card">
+		<picture class="thumbnail">
+			<img alt="card thumbnail" src="/img/demo/demo1-1200x1200.webp"
+			width="300" height="300" />
+		</picture>
+		<div class="content">
+			<p>
+				Picture above is a Pexels licensed image contributed by
+				Pixabay in Pexels.com. Please check them out below!
+			</p>
+		</div>
 		<div class="actions">
 			<a href="https://www.pexels.com/photo/green-leafed-tree-near-body-of-water-414102/"
 				target="_blank"
@@ -38,19 +39,20 @@ Example = """
 				target="_blank"
 				class="button">Pexels License</a>
 		</div>
-	</div>
+	</figure>
 
 
-	<div class="card">
-		<img class="thumbnail"
-			alt="card thumbnail"
-			src="/img/demo/demo1-1200x1200.webp"
-			width="300"
-			height="300" />
-		<p class="content">
-			Picture above is an CC0 image contributed by Pixabay in
-			Pexels.com. Please check them out below!
-		</p>
+	<figure class="card">
+		<picture class="thumbnail">
+			<img alt="card thumbnail" src="/img/demo/demo1-1200x1200.webp"
+			width="300" height="300" />
+		</picture>
+		<div class="content">
+			<p>
+				Picture above is a Pexels licensed image contributed by
+				Pixabay in Pexels.com. Please check them out below!
+			</p>
+		</div>
 		<div class="actions">
 			<a href="https://www.pexels.com/photo/green-leafed-tree-near-body-of-water-414102/"
 				target="_blank"
@@ -65,19 +67,20 @@ Example = """
 				target="_blank"
 				class="button">Pexels License</a>
 		</div>
-	</div>
+	</figure>
 
 
-	<div class="card">
-		<img class="thumbnail"
-			alt="card thumbnail"
-			src="/img/demo/demo1-1200x1200.webp"
-			width="300"
-			height="300" />
-		<p class="content">
-			Picture above is an CC0 image contributed by Pixabay in
-			Pexels.com. Please check them out below!
-		</p>
+	<figure class="card">
+		<picture class="thumbnail">
+			<img alt="card thumbnail" src="/img/demo/demo1-1200x1200.webp"
+			width="300" height="300" />
+		</picture>
+		<div class="content">
+			<p>
+				Picture above is a Pexels licensed image contributed by
+				Pixabay in Pexels.com. Please check them out below!
+			</p>
+		</div>
 		<div class="actions">
 			<a href="https://www.pexels.com/photo/green-leafed-tree-near-body-of-water-414102/"
 				target="_blank"
@@ -92,7 +95,7 @@ Example = """
 				target="_blank"
 				class="button">Pexels License</a>
 		</div>
-	</div>
+	</figure>
 </nav>
 """
 
