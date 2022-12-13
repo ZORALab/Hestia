@@ -1,6 +1,6 @@
 [Component]
 Name = "ZORALab's Hestia Error Note UI Component"
-Type = "list"
+Type = "note"
 ID = "note-error_hestiaUI"
 Status = "Stable - Public"
 Available = "v0.0.1"
