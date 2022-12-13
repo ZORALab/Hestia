@@ -1,0 +1,126 @@
+[Component]
+Name = "ZORALab's Hestia Success Note UI Component"
+Type = "note"
+ID = "note-success_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for notifying the visitor of a success
+like matter requiring attention. It works natively so that the content creator
+can focus on the writing rather than messing with styling.
+"""
+Example = """
+<div class="note success">
+	<input id="note-uid1" type="checkbox" checked>
+	<label for="note-uid1">SUCCESS!</label>
+	<p class="content">
+		This is an important error note for you to pay attention to.
+		Just in case, you can minimize this note if required. It is set
+		to open by default. Try click on the title.
+	</p>
+</div>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Dependencies]]
+ID = "note_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses '.success' CSS class to denote a container is a success note
+component on top of an existing '.note' CSS class container for rendering itself
+minimally:
+"""
+Example = """
+<div class="note success">
+	... same as note_hestiaUI ...
+</div>
+"""
+
+
+[[Component.References.CSS]]
+Name = "--note-title-success-border-color"
+Description = """
+Affects the entire component's '.title' border color value when the note is
+denoted as a success note.
+"""
+Property = "border-color"
+Default = "var(--body-color-indicator-green-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--note-title-success-color"
+Description = """
+Affects the component's '.title' color value when the note is denoted as a
+success note.
+"""
+Property = "color"
+Default = "#fff"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--note-title-success-indicator-color"
+Description = """
+Affects the component's open/close indicator color value when the note is
+denoted as a success note.
+"""
+Property = "color"
+Default = "#fff"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--note-title-success-background"
+Description = """
+Affects the component's '.title' background value when the note is denoted as
+a success note.
+"""
+Property = "background"
+Default = "var(--body-background-indicator-green-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--note-content-success-color"
+Description = """
+Affects the component's '.content' color value when the note is denoted as a
+success note.
+"""
+Property = "color"
+Default = "var(--body-color-indicator-green-inverted)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--note-content-warning-background"
+Description = """
+Affects the component's '.content' background value when the note is denoted as
+a success note.
+"""
+Property = "background"
+Default = "var(--body-background-indicator-green)"
+Availability = "v0.0.1"
