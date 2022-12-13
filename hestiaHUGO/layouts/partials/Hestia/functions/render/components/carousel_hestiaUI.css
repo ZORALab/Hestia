@@ -97,6 +97,13 @@ specific language governing permissions and limitations under the License.
 	opacity: 0;
 }
 
+@-moz-document url-prefix() {
+	/* gecko engine **must** have width 100% to work */
+	.carousel .viewport > * > input[type="radio"] {
+		width: 100%;
+	}
+}
+
 .carousel .viewport > *:first-child > input[type="radio"] {
 	left: 0;
 	right: unset;

@@ -50,7 +50,7 @@
 "--carousel-panel-padding" = "0"
 
 "--carousel-panel-border" = "none"
-"--carousel-panel-border-radius" = "0"
+"--carousel-panel-border-radius" = ".5rem"
 
 "--carousel-panel-position-top" = "unset"
 "--carousel-panel-position-left" = "50%"

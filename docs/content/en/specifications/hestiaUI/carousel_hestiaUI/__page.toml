@@ -1,0 +1,91 @@
+# PAGE METADATA
+# =============
+# Date fields.
+#
+# NOTE:
+#   1. You can generate date easily on linux using '$ date' command.
+#   2. If date field is left blank, the current time shall be used instead.
+#   3. Date should ONLY comply to this pattern when manually constructed:
+#                    Thu 21 Jul 2022 14:27:39 PM +08
+[Date]
+Created   = "Tue 13 Dec 2022 03:19:09 PM +08"
+Published = "Tue 13 Dec 2022 03:19:09 PM +08"
+
+
+
+
+# Content fields.
+# NOTE:
+#   1. For .Title, Hestia's string processing using page variables are allowed
+#      and only limited to .Titles sub-fields.
+#   2. For .Keywords, Hestia's string processing using page variables are
+#      allowed but strongly discouraged.
+[Content]
+Title = "carousel_HestiaUI Specification"
+Keywords = [
+	"carousel_hestiaUI",
+	"carousel",
+	"HestiaUI",
+	"UI",
+	"Specifications",
+	"Documentations",
+	"Technical Specifications",
+	"Technical Documentations",
+	"ZORALab's Hestia",
+]
+
+
+
+
+# Description fields.
+# NOTE:
+#   1. Hestia's string processing using page variables are allowed.
+#   2. The .Description.Pitch is at maximum 160 characters.
+#   3. The .Description.Summary is at maximum of 250 characters.
+#   4. All fields shall have their whitespace cleansed during the processing.
+[Description]
+Pitch = """
+The full specification for carousel_hestiaUI UI component in ZORALab's Hestia.
+"""
+Summary = """
+It covers its technical designs, limits, available interfaces using Go (WASM),
+Rust (WASM), Hugo, HTML, CSS, and Javascript.
+"""
+
+
+
+
+# Redirect fields.
+# NOTE:
+#   1. Hestia's URL processing is allowed for .URL field.
+#   2. .Delay timing sets the delay time before redirect. Setting to '0' means
+#      an immediate redirect is requested.
+#   3. Redirect is only available if .Enabled is set to 'true'.
+[Redirect]
+Delay = 0 # second
+URL = ""
+Enabled = false
+
+
+
+
+# Data fields.
+# NOTE:
+#   1. List only the page-level data files. It can be in any of the following
+#      formats: '.json', '.toml', or '.yaml'.
+#   2. Hestia string processing is available and shall be processed prior to
+#      dataset transformation.
+#   3. Sequences of the .Data array dictates sequences of loading and overriding
+#      (the latter shall overwrite the former for the same data fields).
+#   4. The final processed dataset shall be served as main data content in
+#      supported output format (e.g. index.json).
+#   5. Missing data file shall be ignored.
+#   6. To add more data files, simply duplicate and add more .Data array entry.
+#      Example:
+#                             [[data]]
+#                             Filename = 'file1.json'
+#
+#                             [[data]]
+#                             Filename = 'file2.toml'
+[[Data]]
+Filename = "__data.toml"
