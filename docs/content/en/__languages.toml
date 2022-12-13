@@ -8,7 +8,7 @@
 #                URL = "/en/my-page-here/"
 #
 #                [zh-Hans]
-#                URL = "/zh-hans/我的网站/"
+#                URL = "/zh-hans/我的网站这儿/"
 #
 # NOTE:
 #   1. The language code **MUST** be one of the Hestia site-level languages.

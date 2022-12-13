@@ -1,5 +1,5 @@
-# PAGE LEVEL JAVASCRIPT ASSETS
-# ============================
+# PAGE SPECIFIC JAVASCRIPT ASSETS
+# ===============================
 # See: .Data.Hestia.JS.List data file for helpers.
 [[Inline]]
 Path = ''

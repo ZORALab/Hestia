@@ -1,15 +1,15 @@
-# PAGE CONTENT METADATA
-# =====================
+# PAGE METADATA
+# =============
 # Date fields.
 #
 # NOTE:
 #   1. You can generate date easily on linux using '$ date' command.
 #   2. If date field is left blank, the current time shall be used instead.
 #   3. Date should ONLY comply to this pattern when manually constructed:
-#                    Thu 21 Jul 2022 04:27:39 PM +08
+#                    Thu 21 Jul 2022 14:27:39 PM +08
 [Date]
-Created   = "Thu 21 Jul 2022 04:27:39 PM +08"
-Published = "Thu 22 Jul 2022 04:27:39 PM +08"
+Created   = "Tue 13 Dec 2022 02:26:42 PM +08"
+Published = "Tue 13 Dec 2022 02:26:42 PM +08"
 
 
 
@@ -21,10 +21,18 @@ Published = "Thu 22 Jul 2022 04:27:39 PM +08"
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "My Page Title Here | {{ .Titles.Site -}}"
+Title = "{{ .Titles.Site.Current.Full -}}"
 Keywords = [
-	"Content Keywords Here",
-	"and another keywords here",
+	"Peaceful Software Library",
+	"Stablity-oriented",
+	"Hugo",
+	"Go",
+	"TinyGo",
+	"Rust",
+	"Software Library",
+	"ZORALab's Hestia",
+	"Hestia",
+	"ZORALab",
 ]
 
 
@@ -38,10 +46,13 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = """
+A unified commonly used software libraries for a peaceful development.
 Straight up sales pitch!
 """
 Summary = """
-Elaborate based on your pitch. Keep it short for SEO.
+The goal is to structure the learning experience align to a single pattern and
+deployment, making the advanced software and control development alongside its
+learning experience a lot easier without worrying about supply chain threat.
 """
 
 
@@ -80,4 +91,4 @@ Enabled = false
 #                             [[data]]
 #                             Filename = 'file2.toml'
 [[Data]]
-Filename = ".data.toml"
+Filename = "__data.toml"
