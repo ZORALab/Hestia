@@ -79,7 +79,6 @@ return_to_current_directory() {
 run_hugo() {
         hugo server --buildDrafts \
                 --disableFastRender \
-                --poll "800ms" \
                 --bind "localhost" \
                 --baseURL "http://localhost" \
                 --port 8080 \
@@ -111,7 +110,6 @@ main $@
 ::##############################################################################
 hugo server --buildDrafts ^
         --disableFastRender ^
-        --poll "800ms" ^
         --bind "localhost" ^
         --baseURL "http://localhost" ^
         --port 8080 ^
