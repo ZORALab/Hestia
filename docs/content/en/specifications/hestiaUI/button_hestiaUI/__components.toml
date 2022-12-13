@@ -1,0 +1,44 @@
+# HESTIA PAGE-LEVEL WEB UI COMPONENTS LIST
+# ========================================
+# All Hestia internal web UI components at page-level specific configurations.
+# ONLY include/exclude those you need/unused. See .Data.Hestia.Components data
+# file for help.
+[[List]]
+Name = "core_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "font-NotoSans_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "anchor_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "code_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "pre_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "toc_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "badge-shields_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "button_hestiaUI"
+Include = true
+Variables = []

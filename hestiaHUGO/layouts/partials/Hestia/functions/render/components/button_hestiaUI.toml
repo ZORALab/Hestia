@@ -1,6 +1,7 @@
 [CSS.Variables]
 "--button-display" = "inline-block"
 "--button-opacity" = "1"
+"--button-opacity-disabled" = ".3"
 
 "--button-margin" = ".5rem 1.2rem"
 "--button-padding" = "1.3rem"
@@ -26,5 +27,4 @@
 "--button-line-height" = "var(--body-line-height)"
 
 "--button-transition" = "var(--timing-rapid)"
-"--button-transform-focus" = "scale(1.05)"
-"--button-opacity-disabled" = ".3"
+"--button-transform-focus" = "scale(1.1)"

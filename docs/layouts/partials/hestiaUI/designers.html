@@ -26,9 +26,9 @@ specific language governing permissions and limitations under the License.
 			{{- if $i -}}, {{ end -}}
 			{{- if and (not (eq $len 1)) (eq $i (sub $len 1)) }}and {{ end -}}
 			<i>{{- $v.Name -}}</i>
-			{{- if eq $i (sub $len 1) -}}.{{- end -}}
 		</span>
 		{{- if $v.Website -}}</a>{{- end -}}
+		{{- if eq $i (sub $len 1) -}}.{{- end -}}
 {{- end }}
 
 {{- if len .Data.Page.Component.Designers }}
