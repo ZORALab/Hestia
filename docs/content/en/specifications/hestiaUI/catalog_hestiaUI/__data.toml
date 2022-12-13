@@ -1,0 +1,247 @@
+[Component]
+Name = "ZORALab's Hestia Catalog UI Component"
+Type = "nav"
+ID = "catalog_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for displaying a list items in a
+visually catalog oriented manner responsive to any devices' screen sizes. It was
+meant for reader's to shop for a subject of interest visually. The component
+works natively without having complicated CSS classing, Javascript, or WASM
+intervention and assistances. It is only responsible for layout orientation so
+the developer can have full freedom to fill its content.
+"""
+Example = """
+<nav class="catalog">
+	<div class="card">
+		<img class="thumbnail"
+			alt="card thumbnail"
+			src="/img/demo/demo1-1200x1200.webp"
+			width="300"
+			height="300" />
+		<p class="content">
+			Picture above is a Pexels licensed image contributed by
+			Pixabay in Pexels.com. Please check them out below!
+		</p>
+		<div class="actions">
+			<a href="https://www.pexels.com/photo/green-leafed-tree-near-body-of-water-414102/"
+				target="_blank"
+				class="button">Image Source</a>
+			<a href="https://www.pexels.com/@pixabay/"
+				target="_blank"
+				class="button">Pixabay</a>
+			<a href="https://www.pexels.com/"
+				target="_blank"
+				class="button">Pexels</a>
+			<a href="https://www.pexels.com/license/"
+				target="_blank"
+				class="button">Pexels License</a>
+		</div>
+	</div>
+
+
+	<div class="card">
+		<img class="thumbnail"
+			alt="card thumbnail"
+			src="/img/demo/demo1-1200x1200.webp"
+			width="300"
+			height="300" />
+		<p class="content">
+			Picture above is an CC0 image contributed by Pixabay in
+			Pexels.com. Please check them out below!
+		</p>
+		<div class="actions">
+			<a href="https://www.pexels.com/photo/green-leafed-tree-near-body-of-water-414102/"
+				target="_blank"
+				class="button">Image Source</a>
+			<a href="https://www.pexels.com/@pixabay/"
+				target="_blank"
+				class="button">Pixabay</a>
+			<a href="https://www.pexels.com/"
+				target="_blank"
+				class="button">Pexels</a>
+			<a href="https://www.pexels.com/license/"
+				target="_blank"
+				class="button">Pexels License</a>
+		</div>
+	</div>
+
+
+	<div class="card">
+		<img class="thumbnail"
+			alt="card thumbnail"
+			src="/img/demo/demo1-1200x1200.webp"
+			width="300"
+			height="300" />
+		<p class="content">
+			Picture above is an CC0 image contributed by Pixabay in
+			Pexels.com. Please check them out below!
+		</p>
+		<div class="actions">
+			<a href="https://www.pexels.com/photo/green-leafed-tree-near-body-of-water-414102/"
+				target="_blank"
+				class="button">Image Source</a>
+			<a href="https://www.pexels.com/@pixabay/"
+				target="_blank"
+				class="button">Pixabay</a>
+			<a href="https://www.pexels.com/"
+				target="_blank"
+				class="button">Pexels</a>
+			<a href="https://www.pexels.com/license/"
+				target="_blank"
+				class="button">Pexels License</a>
+		</div>
+	</div>
+</nav>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C compatible 'nav' syntax with '.catalog' CSS class to
+render itself minimally:
+"""
+Example = """
+<nav class="catalog">
+	<div>...</div>
+	<div>...</div>
+	...
+</nav>
+"""
+
+[[Component.References.CSS]]
+Name = "--catalog-margin"
+Description = "Affects the entire component's margin value."
+Property = "margin"
+Default = "2rem auto"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-padding"
+Description = "Affects the entire component's padding value."
+Property = "padding"
+Default = "2rem"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-min-width"
+Description = "Affects the entire component's minimum width value."
+Property = "min-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-width"
+Description = "Affects the entire component's width value."
+Property = "width"
+Default = "100%"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-max-width"
+Description = "Affects the entire component's maximum width value."
+Property = "max-width"
+Default = "100%"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-min-height"
+Description = "Affects the entire component's minimum height value."
+Property = "min-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-height"
+Description = "Affects the entire component's height value."
+Property = "height"
+Default = "fit-content"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-max-height"
+Description = "Affects the entire component's maximum height value."
+Property = "max-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-border"
+Description = "Affects the entire component's border value."
+Property = "border"
+Default = "1px solid transparent"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-border-radius"
+Description = "Affects the entire component's border radius value."
+Property = "border-radius"
+Default = ".5rem"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-color"
+Description = "Affects the entire component's color value."
+Property = "color"
+Default = "var(--body-color)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-color-inverted"
+Description = """
+Affects the entire component's color value in an inverted environment (e.g.
+footer).
+"""
+Property = "color"
+Default = "var(--body-color-inverted)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-color-print"
+Description = "Affects the entire component's color value in print mode."
+Property = "color"
+Default = "var(--body-color-print)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-background"
+Description = "Affects the entire component's background value."
+Property = "background"
+Default = "var(--body-background)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-background-inverted"
+Description = """
+Affects the entire component's background value in an inverted environment (e.g. footer).
+"""
+Property = "background"
+Default = "var(--body-background-inverted)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--catalog-background-print"
+Description = "Affects the entire component's color value in print mode."
+Property = "background"
+Default = "var(--body-background-print)"
+Availability = "v0.0.1"
