@@ -64,7 +64,7 @@ Example = """
 Name = "--note-title-error-border-color"
 Description = """
 Affects the entire component's '.title' border color value when the note is
-denoted as error note.
+denoted as an error note.
 """
 Property = "border-color"
 Default = "var(--body-color-indicator-red)"
@@ -74,8 +74,8 @@ Availability = "v0.0.1"
 [[Component.References.CSS]]
 Name = "--note-title-error-color"
 Description = """
-Affects the component's '.title' color value when the note is denoted as error
-note.
+Affects the component's '.title' color value when the note is denoted as an
+error note.
 """
 Property = "color"
 Default = "#fff"
@@ -86,7 +86,7 @@ Availability = "v0.0.1"
 Name = "--note-title-error-indicator-color"
 Description = """
 Affects the component's open/close indicator color value when the note is
-denoted as error note.
+denoted as an error note.
 """
 Property = "color"
 Default = "#fff"
@@ -97,7 +97,7 @@ Availability = "v0.0.1"
 Name = "--note-title-error-background"
 Description = """
 Affects the component's '.title' background value when the note is denoted as
-error note.
+an error note.
 """
 Property = "background"
 Default = "var(--body-background-indicator-red-inverted)"
@@ -107,8 +107,8 @@ Availability = "v0.0.1"
 [[Component.References.CSS]]
 Name = "--note-content-error-color"
 Description = """
-Affects the component's '.content' color value when the note is denoted as error
-note.
+Affects the component's '.content' color value when the note is denoted as an
+error note.
 """
 Property = "color"
 Default = "var(--body-color-indicator-red)"
@@ -119,7 +119,7 @@ Availability = "v0.0.1"
 Name = "--note-content-error-background"
 Description = """
 Affects the component's '.content' background value when the note is denoted as
-error note.
+an error note.
 """
 Property = "background"
 Default = "var(--body-background-indicator-red)"
