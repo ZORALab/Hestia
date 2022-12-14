@@ -1,0 +1,152 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = input for processing (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := "" -}}
+{{- $fragments := slice -}}
+{{- $console := dict -}}
+{{- $ret := "" -}}
+{{- $args := slice -}}
+{{- $fx := slice -}}
+{{- $func := "" -}}
+
+
+
+
+{{- /* dissect input string */ -}}
+{{- $fragments = partial "Hestia/functions/data/string/__dissectString" .Input.Data -}}
+{{- if $fragments.Console -}}
+	{{- $console = $fx.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
+	{{- $fragments = slice (dict "Type" "str" "Value" .Input.Data) -}}
+{{- else -}}
+	{{- $fragments = $fragments.Output -}}
+{{- end -}}
+
+
+
+
+{{- /* process fragments */ -}}
+{{- $dataList = "" -}}
+{{- range $i, $v := $fragments -}}
+	{{- if eq $v.Type "str" -}}
+		{{- $dataList = printf "%s%s" $dataList (string $v.Value) -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- /* [ It's a Go template function here on out ] */ -}}
+
+
+	{{- /* remove Go template braces */ -}}
+	{{- $fx = strings.TrimLeft "\r\n\t {-" $v.Value -}}
+	{{- $fx = strings.TrimRight "\r\n\t }-" $fx -}}
+
+
+	{{- /* remove Go template comments */ -}}
+	{{- $fx = partial "Hestia/functions/data/string/__removeGoTemplateComments" $fx -}}
+	{{- $fx = partial "Hestia/functions/data/string/TrimWhitespace" $fx -}}
+	{{- if not $fx -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+
+	{{- /* split fx argument */ -}}
+	{{- $fx = partial "Hestia/functions/data/string/__splitArgs" $fx -}}
+	{{- if and $fx.Console (not $console) -}}
+		{{- $console = $fx.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+	{{- $fx = $fx.Output -}}
+
+
+	{{- /* execute fx */ -}}
+	{{- $func = index $fx 0 -}}
+
+	{{- /* execute if it is a data filler */ -}}
+	{{- if hasPrefix $func "." -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Query" $func)) -}}
+		{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+
+		{{- if not $ret -}}
+			{{- $ret = "" -}}
+		{{- end -}}
+
+		{{- if partial "Hestia/functions/data/list/IsList" $ret -}}
+			{{- if not $console -}}
+				{{- $console = printf
+					"bad Hestia field (see below):\n\n%v\n⥥\n%v\n\n"
+					$func
+					$ret
+				-}}
+				{{- $console = dict "Message" $console -}}
+				{{- $ret = "[!!!ERROR - Data is a List!!!]" -}}
+			{{- end -}}
+		{{- end -}}
+
+		{{- $dataList = printf "%s%s" $dataList (string $ret) -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- /* execute as macro function */ -}}
+	{{- $ret = printf "layouts/partials/Hestia/macros/%s" $func -}}
+	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+		{{- if not $console -}}
+			{{- $console = printf "missing Hestia macro: '%v'.\n" $func -}}
+			{{- $console = dict "Message" $console -}}
+			{{- $dataList = printf "%s[!!!ERROR - Missing Macro!!!]" $dataList -}}
+			{{- continue -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- $args = slice -}}
+	{{- range $i, $x := $fx -}}
+		{{- if not $x -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- if not (eq $i 0) -}}
+			{{- $args = append $x $args -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- $func = printf "Hestia/macros/%s" $func -}}
+	{{- $args = merge $Page (dict "Input" $args "Macro" $func) -}}
+	{{- $ret = partial $func $args -}}
+
+	{{- if partial "Hestia/functions/data/list/IsList" $ret -}}
+		{{- if not $console -}}
+			{{- $console = printf
+				"bad Hestia field (see below):\n\n%v\n⥥\n%v\n\n" $func $ret -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+		{{- $ret = "[!!!ERROR - Data is a List!!!]" -}}
+	{{- end -}}
+	{{- $dataList = printf "%s%s" $dataList (string $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Console" $console -}}
