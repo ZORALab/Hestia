@@ -1,0 +1,133 @@
+[Component]
+Name = "ZORALab's Hestia Cutting Divider UI Component"
+Type = "divider"
+ID = "divider-cut_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for separating 2 elements explicitly
+and physically via cutting. The component works natively without having
+complicated CSS classing, Javascript, or WASM intervention and assistances.
+"""
+Example = """
+<hr class="cut" />
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+[[Component.Dependencies]]
+ID = "divider_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C's 'hr' syntax with a '.cut' CSS class for rendering
+itself minimally:
+"""
+Example = """
+<hr class="cut" />
+"""
+
+[[Component.References.CSS]]
+Name = "--divider-cut-margin"
+Description = """
+Affects the entire component's margin value.
+"""
+Property = "margin"
+Default = "2rem 0"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-border-bottom"
+Description = """
+Affects the entire component's bottom border value.
+"""
+Property = "border-bottom"
+Default = "3px dashed var(--divider-cut-color)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-border-bottom-inverted"
+Description = """
+Affects the entire component's bottom border value when is in inverted
+environment (e.g. footer).
+"""
+Property = "border-bottom"
+Default = "3px dashed var(--divider-cut-color-inverted)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-content"
+Description = """
+Affects the entire component's cut symbol content value. Note that the cancelled
+string quotes are required to be part of the value.
+"""
+Property = "content"
+Default = '\"✀\"'
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-font-size"
+Description = """
+Affects the entire component's font size value.
+"""
+Property = "font-size"
+Default = "3.5rem"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-color"
+Description = """
+Affects the entire component's color value.
+"""
+Property = "color"
+Default = "var(--color-typography-300)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-color-inverted"
+Description = """
+Affects the entire component's color value while in an inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = "var(--color-typography-600)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-background"
+Description = """
+Affects the entire component's background value.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-cut-background-inverted"
+Description = """
+Affects the entire component's background value while in an inverted environment
+(e.g. footer).
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"

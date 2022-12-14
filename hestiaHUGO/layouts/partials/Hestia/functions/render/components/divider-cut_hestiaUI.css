@@ -18,7 +18,6 @@ specific language governing permissions and limitations under the License.
 
 hr.cut {
 	margin: var(--divider-cut-margin);
-	padding: var(--divider-cut-padding);
 
 	overflow: visible;
 
@@ -45,7 +44,7 @@ hr.cut:after {
 
 footer hr.cut,
 .footer hr.cut {
-	border-bottom: var(--divider-cut-border-bottom-color-inverted);
+	border-bottom: var(--divider-cut-border-bottom-inverted);
 	color: var(--divider-cut-color-inverted);
 	background: var(--divider-cut-background-inverted);
 }

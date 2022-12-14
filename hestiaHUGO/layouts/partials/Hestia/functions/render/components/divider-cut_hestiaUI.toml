@@ -1,6 +1,8 @@
 [CSS.Variables]
+"--divider-cut-margin" = "2rem 0"
+
 "--divider-cut-border-bottom" = "3px dashed var(--divider-cut-color)"
-"--divider-cut-border-bottom-color-inverted" = "3px dashed var(--divider-cut-color-inverted)"
+"--divider-cut-border-bottom-inverted" = "3px dashed var(--divider-cut-color-inverted)"
 "--divider-cut-content" = "\"✀\""
 
 "--divider-cut-font-size" = "3.5rem"
@@ -9,5 +11,3 @@
 "--divider-cut-color-inverted" = "var(--color-typography-600)"
 "--divider-cut-background" = "transparent"
 "--divider-cut-background-inverted" = "transparent"
-
-"--divider-cut-margin" = "2rem 0"
