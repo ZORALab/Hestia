@@ -1,0 +1,67 @@
+[Component]
+Name = "ZORALab's Hestia Dashed Divider UI Component"
+Type = "divider"
+ID = "divider-dashed_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for separating 2 elements explicitly
+with a dashed divider line. The component works natively without having
+complicated CSS classing, Javascript, or WASM intervention and assistances.
+"""
+Example = """
+<hr class="dashed" />
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+[[Component.Dependencies]]
+ID = "divider_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C's 'hr' syntax for rendering itself minimally:
+"""
+Example = """
+<hr class="dashed" />
+"""
+
+
+[[Component.References.CSS]]
+Name = "--divider-dashed-border-bottom"
+Description = """
+Affects the entire component's bottom border value.
+"""
+Property = "border-bottom"
+Default = "2px dashed var(--divider-color)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-dashed-border-bottom-inverted"
+Description = """
+Affects the entire component's bottom border value while in an inverted
+environment (e.g. footer).
+"""
+Property = "border-bottom"
+Default = "2px dashed var(--divider-color-inverted)"
+Availability = "v0.0.1"
