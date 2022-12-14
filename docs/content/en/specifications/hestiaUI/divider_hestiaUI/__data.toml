@@ -1,0 +1,226 @@
+[Component]
+Name = "ZORALab's Hestia Divider UI Component"
+Type = "divider"
+ID = "divider_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for separating 2 elements explicitly.
+The component works natively without having complicated CSS classing,
+Javascript, or WASM intervention and assistances.
+"""
+Example = """
+<hr/>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C's 'hr' syntax for rendering itself minimally:
+"""
+Example = """
+<hr/>
+"""
+
+[[Component.References.CSS]]
+Name = "--divider-display"
+Description = """
+Affects the entire component's display mode value.
+"""
+Property = "display"
+Default = "block"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-margin"
+Description = """
+Affects the entire component's margin value.
+"""
+Property = "margin"
+Default = "0 auto"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-padding"
+Description = """
+Affects the entire component's padding value.
+"""
+Property = "padding"
+Default = "0"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-min-width"
+Description = """
+Affects the entire component's minimum width value.
+"""
+Property = "min-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-width"
+Description = """
+Affects the entire component's width value.
+"""
+Property = "width"
+Default = "100%"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-max-width"
+Description = """
+Affects the entire component's maximum width value.
+"""
+Property = "max-width"
+Default = "100%"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-min-height"
+Description = """
+Affects the entire component's minimum height value.
+"""
+Property = "min-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-height"
+Description = """
+Affects the entire component's height value.
+"""
+Property = "height"
+Default = "1px"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-max-height"
+Description = """
+Affects the entire component's maximum height value.
+"""
+Property = "max-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--divider-border"
+Description = """
+Affects the entire component's border value.
+"""
+Property = "border"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-border-top"
+Description = """
+Affects the entire component's top border value.
+"""
+Property = "border-top"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-border-bottom"
+Description = """
+Affects the entire component's bottom border value.
+"""
+Property = "border-bottom"
+Default = "1px solid var(--divider-color)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-color"
+Description = """
+Affects the entire component's color value.
+"""
+Property = "color"
+Default = "var(--color-primary-600)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-color-inverted"
+Description = """
+Affects the entire component's color value while in an inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = "var(--color-primary-300)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-color-print"
+Description = """
+Affects the entire component's color value in print mode.
+"""
+Property = "color"
+Default = "var(--body-color-print)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-background"
+Description = """
+Affects the entire component's background value.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-background-inverted"
+Description = """
+Affects the entire component's background value while in an inverted environment
+(e.g. footer).
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-background-print"
+Description = """
+Affects the entire component's background value in print mode.
+"""
+Property = "background"
+Default = "var(--body-background-print)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-border-color"
+Description = """
+Affects the entire component's border color value.
+"""
+Property = "border-color"
+Default = "var(--divider-color)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--divider-border-color-inverted"
+Description = """
+Affects the entire component's border color value while in an inverted
+environment (e.g. footer).
+"""
+Property = "border-color"
+Default = "var(--divider-color-inverted)"
+Availability = "v0.0.1"
