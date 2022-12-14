@@ -1,0 +1,172 @@
+[Component]
+Name = "ZORALab's Hestia Dialog UI Component"
+Type = "dialog"
+ID = "dialog_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for displaying a dialog prompt to
+reader for immediate ad-hoc attention where it is responsive to any devices'
+screen sizes. The component works natively without having complicated CSS
+classing, Javascript, or WASM intervention and assistances. It is only
+responsible for layout orientation so the developer can have full freedom to
+fill its content.
+"""
+Example = """<br/>
+<button onclick='document.getElementById("dialog-id-1").showModal()'>
+	Open Dialog
+</button>
+<dialog id="dialog-id-1">
+	<div class="row">
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">A1</p>
+		</div></div>
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">B1</p>
+		</div></div>
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">C1</p>
+		</div></div>
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">D1</p>
+		</div></div>
+	</div>
+
+
+	<div class="row">
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">E1</p>
+		</div></div>
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">F1</p>
+		</div></div>
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">G1</p>
+		</div></div>
+		<div class="column"><div class="badge">
+			<p class="title">Achievement</p>
+			<p class="value">H1</p>
+		</div></div>
+	</div>
+
+
+	<div class="row">
+		<div class="column">
+			<form method="dialog">
+				<button>Close</button>
+			</form>
+		</div>
+	</div>
+</dialog>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C 'dialog' syntax and Javascript 'showModal' trigger for
+rendering itself minimally and accurately show a specific dialog in a page:
+"""
+Example = """
+<button onclick='document.getElementById("...ID1...").showModal()'>
+<dialog id="...ID1...">
+	...
+</dialog>
+"""
+
+[[Component.References.CSS]]
+Name = "--dialog-border"
+Description = """
+Affects the entire component's border value when shown.
+"""
+Property = "border"
+Default = "2px solid transparent"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--dialog-border-radius"
+Description = """
+Affects the entire component's overflow mode value when shown.
+"""
+Property = "border-radius"
+Default = ".5rem"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--dialog-min-width"
+Description = """
+Affects the entire component's minimum width value when shown.
+"""
+Property = "min-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--dialog-max-width"
+Description = """
+Affects the entire component's maximum width value when shown.
+"""
+Property = "max-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--dialog-min-height"
+Description = """
+Affects the entire component's minimum height value when shown.
+"""
+Property = "min-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--dialog-max-height"
+Description = """
+Affects the entire component's maximum height value when shown.
+"""
+Property = "max-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--dialog-color"
+Description = """
+Affects the entire component's color value when shown.
+"""
+Property = "color"
+Default = "var(--body-color)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--dialog-background"
+Description = """
+Affects the entire component's color value when shown.
+"""
+Property = "background"
+Default = "var(--body-background)"
+Availability = "v0.0.1"
