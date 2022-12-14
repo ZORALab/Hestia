@@ -1,0 +1,60 @@
+[Component]
+Name = "ZORALab's Hestia Page Break Divider UI Component"
+Type = "divider"
+ID = "divider-page-break_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for separating 2 elements explictly in
+print mode. It does nothing on web display mode. The component works natively
+without having complicated CSS classing, Javascript, or WASM intervention and
+assistances.
+"""
+Example = """
+<p>There is a paragraph here.</p>
+<hr class="page-break" />
+<p>There is another paragraph here. The line is just above this one.</p>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+[[Component.Dependencies]]
+ID = "divider_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimum"
+Description = """
+The component uses W3C's 'hr' syntax with '.page-break' CSS class for rendering
+itself minimally:
+"""
+Example = """
+<hr class='page-break' />
+"""
+
+[[Component.References.CSS]]
+Name = "No additional CSS variables"
+Description = """
+No CSS variables are offered.
+"""
+Property = "[none]"
+Default = "[]"
+Availability = "v0.0.1"
