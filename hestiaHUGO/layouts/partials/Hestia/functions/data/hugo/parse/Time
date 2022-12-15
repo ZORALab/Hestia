@@ -18,8 +18,7 @@ specific language governing permissions and limitations under the License.
 {{- /* . = Hugo data structure */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__page.toml" -}}
-{{- $TIME_FORMAT := "Mon 02 Jan 2006 15:04:05 PM -07" -}}
+{{- $TIME_FORMAT := string (partial "Hestia/functions/data/time/Format") -}}
 
 
 
@@ -32,55 +31,21 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Current */ -}}
+{{- /* process .Current, .Created, .Published, .Updated */ -}}
 {{- $ret = now.Format $TIME_FORMAT -}}
 {{- $dataList = merge $dataList (dict "Current" $ret) -}}
-
-
-
-
-{{- /* process .Updated */ -}}
-{{- $ret = $dataList.Current -}}
-{{- if .Page.Lastmod -}}
-	{{- $ret = .Page.Lastmod.Format $TIME_FORMAT -}}
-{{- end -}}
+{{- $dataList = merge $dataList (dict "Created" $ret) -}}
+{{- $dataList = merge $dataList (dict "Published" $ret) -}}
 {{- $dataList = merge $dataList (dict "Updated" $ret) -}}
 
 
 
 
-{{- /* parse local config file */ -}}
-{{- if .Page.File -}}
-	{{- $Local = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $Local = path.Clean $Local -}}
-	{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
+{{- /* process .Updated if .Page.Lastmod is available */ -}}
+{{- if .Page.Lastmod -}}
+	{{- $ret = .Page.Lastmod.Format $TIME_FORMAT -}}
+	{{- $dataList = merge $dataList (dict "Updated" $ret) -}}
 {{- end -}}
-
-
-
-
-{{- /* source local time data */ -}}
-{{- if $Local -}}
-	{{- if (index $Local "Date") -}}
-		{{- $Local = $Local.Date -}}
-	{{- end -}}
-{{- else -}}
-	{{- $Local = dict "Created" "" "Published" "" -}}
-{{- end -}}
-
-
-
-
-{{- /* process .Created */ -}}
-{{- $ret = default $dataList.Current $Local.Created -}}
-{{- $dataList = merge $dataList (dict "Created" $ret) -}}
-
-
-
-
-{{- /* process .Published */ -}}
-{{- $ret = default $dataList.Current $Local.Published -}}
-{{- $dataList = merge $dataList (dict "Published" $ret) -}}
 
 
 

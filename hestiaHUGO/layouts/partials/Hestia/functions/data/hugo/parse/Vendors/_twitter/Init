@@ -35,16 +35,16 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse .Creator data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/_creator" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $dataList = merge $dataList (dict "Creator" (dict "Handle" "")) -}}
 
 
 
 
 {{- /* parse .Stores data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/_stores" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
+{{- $ret = dict "ID" "" "Name" "" "URL" "" -}}
+{{- $dataList = merge $dataList (dict "Stores" (dict "iphone" $ret)) -}}
+{{- $dataList = merge $dataList (dict "Stores" (dict "ipad" $ret)) -}}
+{{- $dataList = merge $dataList (dict "Stores" (dict "googleplay" $ret)) -}}
 
 
 

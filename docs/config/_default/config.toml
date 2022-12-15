@@ -40,3 +40,7 @@ disableHugoGeneratorInject = true
 # broke its HTML spec. Therefore, Hestia disables it and inject the liveReload
 # in appropriate output using its renderer.
 disableLiveReload = true
+
+
+# Disables the following as Hestia is taking over.
+disableKinds = [ 'sitemap', '404' ]

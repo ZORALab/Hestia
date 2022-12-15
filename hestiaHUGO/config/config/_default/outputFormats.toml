@@ -1,3 +1,27 @@
+[SITEMAP]
+name = "SITEMAP"
+mediaType = "application/xml-index"
+baseName = "index"
+rel = "sitemap"
+protocol = ""
+path = ""
+isPlainText = false
+isHTML = false
+noUgly = true
+permalinkable = false
+
+[XSITEMAP]
+name = "XSITEMAP"
+mediaType = "application/xml-page"
+baseName = "index"
+rel = "sitemap"
+protocol = ""
+path = ""
+isPlainText = false
+isHTML = false
+noUgly = true
+permalinkable = false
+
 [HTML]
 name = "HTML"
 mediaType = "text/html"

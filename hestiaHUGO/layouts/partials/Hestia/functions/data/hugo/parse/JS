@@ -17,35 +17,13 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__js.toml" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
 {{- $list := slice -}}
-{{- $data := false -}}
 {{- $ret := false -}}
-
-
-
-
-{{- /* parse local config file */ -}}
-{{- if .Page.File -}}
-	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $data = path.Clean $data -}}
-	{{- $data = partial "Hestia/functions/data/hugo/parse/__dataFile" $data -}}
-{{- end -}}
-
-
-
-
-{{- /* parse local config data */ -}}
-{{- if not $data -}}
-	{{- $data = dict "Inline" slice "Include" slice -}}
-{{- end -}}
 
 
 
@@ -53,12 +31,12 @@ specific language governing permissions and limitations under the License.
 {{- /* parse inline JS */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.JS.List.Inline -}}
-	{{- $list = append $v.Path $list -}}
-{{- end -}}
+	{{- $ret = index $v "Path" -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
 
-
-{{- range $i, $v := $data.Inline -}}
-	{{- $list = append $v.Path $list -}}
+	{{- $list = append $ret $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Inline" $list) -}}
 
@@ -68,18 +46,13 @@ specific language governing permissions and limitations under the License.
 {{- /* parse include JS */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.JS.List.Include -}}
+	{{- if not (index $v "URL") -}}
+		{{- continue -}}
+	{{- end -}}
+
 	{{- $ret = dict -}}
 	{{- $ret = merge $ret (dict "URL" (default "" $v.URL)) -}}
 	{{- $ret = merge $ret (dict "Timing" (default "defer" $v.Timing)) -}}
-
-	{{- $list = append $ret $list -}}
-{{- end -}}
-
-
-{{- range $i, $v := $data.Include -}}
-	{{- $ret = dict -}}
-	{{- $ret = merge $ret (dict "URL" (default "" (index $v "URL"))) -}}
-	{{- $ret = merge $ret (dict "Timing" (default "defer" (index $v "Timing"))) -}}
 
 	{{- $list = append $ret $list -}}
 {{- end -}}

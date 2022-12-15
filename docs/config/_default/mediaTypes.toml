@@ -6,3 +6,9 @@ suffixes = [ "json" ]
 
 ["application/manifest+json"]
 suffixes = [ "webmanifest" ]
+
+["application/xml-index"]
+suffixes = [ "sitemap.xml" ]
+
+["application/xml-page"]
+suffixes = [ "sitemap-page.xml" ]

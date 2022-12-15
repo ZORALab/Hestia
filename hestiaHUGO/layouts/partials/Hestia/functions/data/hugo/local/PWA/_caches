@@ -1,0 +1,67 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $list := dict -}}
+{{- $dataList := slice -}}
+{{- $ret := false -}}
+{{- $path := false -}}
+{{- $Local := false -}}
+
+
+
+
+{{- /* parse site-level .Caches.List */ -}}
+{{- $list = dict -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Caches.Contents -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not $v.Cache -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "URL" $v.URL) -}}
+	{{- $ret = merge $ret (dict "Cache" $v.Cache) -}}
+	{{- $list = merge $list (dict $ret.URL $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* convert back into array */ -}}
+{{- $dataList = slice -}}
+{{- range $k, $v := $list -}}
+	{{- $dataList = append $v $dataList -}}
+{{- end -}}
+{{- $dataList = dict "List" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Caches" $dataList -}}

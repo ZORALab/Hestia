@@ -17,50 +17,21 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__thumbnails.toml" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Local := dict -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* parse local config file */ -}}
-{{- if .Page.File -}}
-	{{- $Local = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $Local = path.Clean $Local -}}
-	{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
-{{- end -}}
-
-
-
-
-{{- /* source local thumbnails data */ -}}
-{{- if $Local -}}
-	{{- range $i, $v := $Local.Contents -}}
-		{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $v -}}
-		{{- if $ret -}}
-			{{- $dataList = merge $dataList (dict (lower $i) $ret) -}}
-		{{- end -}}
-	{{- end -}}
-{{- end -}}
-
-
-
-
 {{- /* source site-level thumbnails data if unavailable */ -}}
-{{- if and (not $dataList) -}}
-	{{- range $i, $v := .Site.Data.Hestia.Thumbnails.Contents -}}
-		{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $v -}}
-		{{- if $ret -}}
-			{{- $dataList = merge $dataList (dict (lower $i) $ret) -}}
-		{{- end -}}
+{{- range $i, $v := .Site.Data.Hestia.Thumbnails.Contents -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $v -}}
+	{{- if $ret -}}
+		{{- $dataList = merge $dataList (dict (lower $i) $ret) -}}
 	{{- end -}}
 {{- end -}}
 

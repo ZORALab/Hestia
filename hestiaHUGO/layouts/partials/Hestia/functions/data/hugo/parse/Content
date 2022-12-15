@@ -17,33 +17,11 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__content" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Local := "" -}}
-{{- $dataList := dict -}}
-{{- $format := partial "Hestia/functions/data/hugo/parse/Formats" . -}}
-{{- $format = $format.Formats.Current -}}
-
-
-
-
-{{- /* parse specific format content */ -}}
-{{- if .Page.File -}}
-	{{- $Local = printf "%s%s" $CONFIG_FILENAME $format.Extension -}}
-	{{- $Local = path.Join (path.Dir .Page.File.Path) $Local -}}
-	{{- $Local = path.Clean $Local -}}
-	{{- $Local = partial "Hestia/functions/data/hugo/parse/__file" $Local -}}
-	{{- $Local = string $Local -}}
-{{- end -}}
-
-
-{{- $dataList = merge $dataList (dict "Rendered" $Local) -}}
-{{- $dataList = merge $dataList (dict "Raw" $Local) -}}
+{{- $dataList := dict "Rendered" "" "Raw" "" -}}
 
 
 

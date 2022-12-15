@@ -1,0 +1,98 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := "__css.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Local := dict -}}
+{{- $dataList := dict -}}
+{{- $list := slice -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse local config file */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory $CONFIG_FILENAME -}}
+{{- $Local = path.Clean $Local -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
+{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- if $Local.Console -}}
+	{{- $Local = dict "Inline" slice "Include" slice -}}
+{{- else -}}
+	{{- $Local = $Local.Output -}}
+{{- end -}}
+
+
+
+
+{{- /* source .CSS.Inline */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := $Local.Inline -}}
+	{{- $ret = index $v "Path" -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- if $list -}}
+	{{- $list = append $list .CSS.Inline -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Inline" $list) -}}
+
+
+
+
+{{- /* source .CSS.Include */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := $Local.Include -}}
+	{{- if not (index $v "URL") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "URL" (default "" (index $v "URL"))) -}}
+	{{- $ret = merge $ret (dict "Media" (default "" (index $v "Media"))) -}}
+	{{- $ret = merge $ret (dict "OnLoad" (default "" (index $v "OnLoad"))) -}}
+
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- if $list -}}
+	{{- $list = append $list .CSS.Include -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Include" $list) -}}
+
+
+
+
+{{- /* restore $dataList */ -}}
+{{- $dataList = merge . (dict "CSS" $dataList) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

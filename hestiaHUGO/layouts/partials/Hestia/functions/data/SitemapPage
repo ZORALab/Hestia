@@ -1,0 +1,60 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = hugo data structure */ -}}
+
+
+
+
+{{- /*
+	prepare Hestia .Page.URL
+
+	NOTE:
+	1) Position matters.
+	2) First 7 fragments **MUST** be as it is. They are too critical to
+	   fail.
+*/ -}}
+{{- $dataList := dict "IsHestia" true -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/URL" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Time" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Formats" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Languages" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsServerMode" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Is404" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" .) -}}
+
+
+
+
+{{- /* BEGIN LOCALIZING - Hugo interfaces ended beyond this line */ -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/Page" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/Languages" $dataList -}}
+
+
+
+
+{{- /* BEGIN PROCESSING - Hugo interfaces ended beyond this line */ -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Time/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Formats/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Languages/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

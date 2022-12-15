@@ -31,43 +31,43 @@ specific language governing permissions and limitations under the License.
 {{- safeHTML (printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>") }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 	xmlns:xhtml="http://www.w3.org/1999/xhtml">
-	<url>
-		<loc>{{- safeHTML .URL.Current.Absolute -}}</loc>
-		<lastmod>{{- safeHTML .Time.Updated.RFC3339 -}}</lastmod>
-		{{- if .Sitemap.ChangeFreq }}
-		<changefreq>{{- .Sitemap.ChangeFreq -}}</changefreq>
-		{{- end }}
-		{{- if ge .Sitemap.Priority 0 }}
-		<priority>{{- .Sitemap.Priority -}}</priority>
-		{{- end -}}
-
-
-		{{- range $i, $v := .Languages.List -}}
-			{{- if eq $v.Code $Page.Languages.Current.Code -}}
-				{{- continue -}}
-			{{- end -}}
-
-
-			{{- if eq (string $v.URL.PAGE) "" -}}
-				{{- continue -}}
-			{{- end }}
-		<xhtml:link rel="alternate"
-			hreflang="{{- safeHTML $v.Code -}}"
-			href="{{- safeHTML $v.URL.PAGE -}}" />
-		{{- end -}}
-	</url>
 	{{- range $k, $v := .Formats.List -}}
 		{{- if eq $v.URL $Page.Formats.Current.URL -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- if strings.Contains (lower $v.Extension) "sitemap" -}}
 			{{- continue -}}
 		{{- end }}
 	<url>
 		<loc>{{- safeHTML $v.URL -}}</loc>
 		<lastmod>{{- safeHTML $Page.Time.Updated.RFC3339 -}}</lastmod>
+
+
 		{{- if $Page.Sitemap.ChangeFreq }}
 		<changefreq>{{- $Page.Sitemap.ChangeFreq -}}</changefreq>
 		{{- end }}
+
+
 		{{- if and (gt $Page.Sitemap.Priority 0.0) (lt $Page.Sitemap.Priority 1.0) }}
 		<priority>{{- $Page.Sitemap.Priority -}}</priority>
+		{{- end -}}
+
+
+		{{- if eq $v.Type "type/html" -}}
+			{{- range $i, $v := .Languages.List -}}
+				{{- if eq $v.Code $Page.Languages.Current.Code -}}
+					{{- continue -}}
+				{{- end -}}
+
+				{{- if eq (string $v.URL.PAGE) "" -}}
+					{{- continue -}}
+				{{- end }}
+		<xhtml:link rel="alternate"
+			hreflang="{{- safeHTML $v.Code -}}"
+			href="{{- safeHTML $v.URL.PAGE -}}" />
+			{{- end -}}
 		{{- end }}
 	</url>
 	{{- end }}

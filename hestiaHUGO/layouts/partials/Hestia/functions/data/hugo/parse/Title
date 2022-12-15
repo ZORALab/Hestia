@@ -17,9 +17,6 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__page.toml" -}}
-
 
 
 
@@ -28,37 +25,6 @@ specific language governing permissions and limitations under the License.
 {{- $dataList := dict -}}
 {{- $list := dict -}}
 {{- $ret := false -}}
-
-
-
-
-{{- /* parse local config file */ -}}
-{{- if .Page.File -}}
-	{{- $Local = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $Local = path.Clean $Local -}}
-	{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
-{{- end -}}
-
-
-
-
-{{- /* parse local page title */ -}}
-{{- $ret = "" -}}
-{{- if $Local -}}
-	{{- if index $Local "Content" -}}
-		{{- if index $Local.Content "Title" -}}
-			{{- $ret = $Local.Content.Title -}}
-		{{- end -}}
-	{{- end -}}
-{{- end -}}
-
-
-{{- if .Page.Title -}}
-	{{- $ret = .Page.Title -}}
-{{- end -}}
-
-
-{{- $dataList = merge $dataList (dict "Page" $ret) -}}
 
 
 
@@ -83,9 +49,8 @@ specific language governing permissions and limitations under the License.
 
 	{{- $list = merge $list (dict (string $k) $ret) -}}
 {{- end -}}
-
-
 {{- $dataList = merge $dataList (dict "Site" $list) -}}
+{{- $dataList = merge $dataList (dict "Page" $list.Short) -}}
 
 
 

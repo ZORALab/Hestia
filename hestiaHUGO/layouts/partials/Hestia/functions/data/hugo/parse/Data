@@ -17,37 +17,11 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__page.toml" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := .Page -}}
-{{- $Local := dict "Data" slice -}}
 {{- $dataList := slice -}}
-{{- $ret := false -}}
-
-
-
-
-{{- /* parse local config file */ -}}
-{{- if $Page.File -}}
-	{{- $Local = path.Join (path.Dir $Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $Local = path.Clean $Local -}}
-	{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
-{{- end -}}
-
-
-
-
-{{- /* parse data files list */ -}}
-{{- $dataList = slice -}}
-{{- range $i, $v := $Local.Data -}}
-	{{- $ret = path.Join (path.Dir $Page.File.Path) $v.Filename -}}
-	{{- $dataList = append $ret $dataList -}}
-{{- end -}}
 
 
 

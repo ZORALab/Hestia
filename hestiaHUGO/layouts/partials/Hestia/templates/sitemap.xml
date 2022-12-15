@@ -15,80 +15,10 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Hugo data structure */ -}}
-
-
-
-
-{{- /* prepare working variables for this function */ -}}
-{{- $Page := false -}}
-{{- $proceed := false -}}
-{{- $ret := false -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
 {{- /* generate all sitemap.xml files across each pages */ -}}
-{{- range $i, $hugo := .Data.Pages -}}
-	{{- $proceed = true -}}
-	{{- $Page := partial "Hestia/functions/data/Page" $hugo -}}
-
-
-	{{- /* discard if page is redirected */ -}}
-	{{- if $Page.Redirect.Enabled -}}
-		{{- $proceed = false -}}
-	{{- end -}}
-
-
-	{{- /* discard if it is 404 or offline pages */ -}}
-	{{- range $j, $v := $Page.Languages.List -}}
-		{{- if eq (string $Page.URL.Current.Absolute) (string $v.URL.ERROR_404) -}}
-			{{- $proceed = false -}}
-		{{- end -}}
-
-		{{- if eq (string $Page.URL.Current.Absolute) (string $v.URL.ERROR_OFFLINE) -}}
-			{{- $proceed = false -}}
-		{{- end -}}
-	{{- end -}}
-
-
-	{{- /* skip if can't proceed */ -}}
-	{{- if not $proceed -}}
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- /* render page sitemap */ -}}
-	{{- $ret = partial "Hestia/functions/render/xml/sitemap/Page" $Page -}}
-	{{- $ret = string $ret -}}
-	{{- $ret = merge $Page (dict "Input"
-		(dict "Content" $ret "Path" $Page.Sitemap.Path)) -}}
-	{{- $ret = partial "Hestia/functions/data/filesystem/WriteFile" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $ret = printf ".Sitemap '%v': %v" $Page.Sitemap.URL $ret.Console.Message -}}
-		{{- $ret = merge $Page (dict "Console" (dict "Message" $ret)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
-	{{- end -}}
-
-
-	{{- /* render index sitemap */ -}}
-	{{- if eq (string $Page.URL.Current.Absolute) (string $Page.URL.Base) -}}
-		{{- /* return value to this file = base URL + sitemap.xml */ -}}
-		{{- partial "Hestia/functions/render/xml/sitemap/Index" $Page -}}
-	{{- else -}}
-		{{- /* write to targeted sitemap file */ -}}
-		{{- $ret = partial "Hestia/functions/render/xml/sitemap/Index" $Page -}}
-		{{- $ret = string $ret -}}
-		{{- $ret = merge $Page (dict "Input"
-			(dict "Content" $ret "Path" $Page.Sitemap.Index.Path)) -}}
-		{{- $ret = partial "Hestia/functions/data/filesystem/WriteFile" $ret -}}
-		{{- if $ret.Console -}}
-			{{- $ret = printf ".Sitemap '%v': %v"
-				$Page.Sitemap.URL
-				$ret.Console.Message
-				-}}
-			{{- $ret = merge $Page (dict "Console" (dict "Message" $ret)) -}}
-			{{- partial "Hestia/functions/console/Errorf" $ret -}}
-		{{- end -}}
-	{{- end -}}
-{{- end -}}
+{{- partial "Hestia/functions/render/xml/sitemap/Index" . -}}

@@ -30,103 +30,82 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Name */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_name" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- if eq .URL.Base .URL.Current.Absolute -}}
+	{{- /* process .Name */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_name" .) -}}
 
 
+	{{- /* process .Descriptions */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_descriptions" .) -}}
 
 
-{{- /* process .Descriptions */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_descriptions" . -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- /* process .URL */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_url" .) -}}
 
 
+	{{- /* process .Display */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_display" .) -}}
 
 
-{{- /* process .URL */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_url" . -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- /* process .Categories */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_categories" .) -}}
 
 
+	{{- /* process .Colors */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_colors" .) -}}
 
 
-{{- /* process .Display */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_display" . -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- /* process .Relations */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_relations" .) -}}
 
 
+	{{- /* process .Screenshots */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_screenshots" .) -}}
 
 
-{{- /* process .Categories */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_categories" . -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- /* process .Shortcuts */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_shortcuts" .) -}}
 
 
+	{{- /* process .Icons */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_icons" .) -}}
 
 
-{{- /* process .Colors */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_colors" . -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- /* process .Protocols */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_protocols" .) -}}
 
 
+	{{- /* process .Caches */ -}}
+	{{- $dataList = merge $dataList
+		(partial "Hestia/functions/data/hugo/process/PWA/_caches" .) -}}
 
 
-{{- /* process .Relations */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_relations" . -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- /* render output */ -}}
+	{{- $dataList = merge $Page (dict "PWA" $dataList) -}}
 
 
+	{{- /* post processing - utilize .PWA data structure for rendering */ -}}
+	{{- $ret = partial
+		"Hestia/functions/data/hugo/process/PWA/_service-worker" $dataList -}}
+	{{- $dataList = merge $dataList $ret -}}
 
 
-{{- /* process .Screenshots */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_screenshots" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .Shortcuts */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_shortcuts" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .Icons */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_icons" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .Protocols */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_protocols" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* process .Caches */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_caches" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* render output */ -}}
-{{- $dataList = merge $Page (dict "PWA" $dataList) -}}
-
-
-
-
-{{- /* post processing - utilize .PWA data structure for rendering */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_service-worker" $dataList -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_webmanifest" $dataList -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_webmanifest" $dataList -}}
+	{{- $dataList = merge $dataList $ret -}}
+{{- else -}}
+	{{- $dataList = merge $Page (dict "PWA" dict) -}}
+{{- end -}}
 
 
 

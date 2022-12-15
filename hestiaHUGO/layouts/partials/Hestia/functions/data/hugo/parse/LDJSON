@@ -17,28 +17,8 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__page+ld.json" -}}
-
-
-
-
-{{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict -}}
-
-
-
-
-{{- /* parse local config file */ -}}
-{{- if .Page.File -}}
-	{{- $dataList = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $dataList = path.Clean $dataList -}}
-	{{- $dataList = partial "Hestia/functions/data/hugo/parse/__file" $dataList -}}
-{{- end -}}
-{{- $dataList = default "" $dataList -}}
-
 
 
 
 {{- /* render output */ -}}
-{{- return dict "LD+JSON" $dataList -}}
+{{- return dict "LD+JSON" dict -}}

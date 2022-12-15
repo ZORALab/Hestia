@@ -1,0 +1,89 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $source := dict -}}
+{{- $dataList := dict -}}
+{{- $list := dict -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse shortcuts data */ -}}
+{{- $dataList = .Page.Lang -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Shortcuts -}}
+	{{- if eq $i $dataList -}}
+		{{- $source = $v.Contents -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- $dataList = dict -}}
+{{- range $i, $v := $source -}}
+	{{- if not (index $v "URL") -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (index $v "Name") -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (index $v.Name "Full") -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (index $v.Name "Short") -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $data = dict "URL" $v.URL -}}
+	{{- $data = merge $data (dict "Name" (dict "Full" $v.Name.Full)) -}}
+	{{- $data = merge $data (dict "Name" (dict "Short" $v.Name.Short)) -}}
+	{{- $data = merge $data (dict "Description" (default "" $v.Description)) -}}
+
+
+	{{- $list = dict -}}
+	{{- range $j, $w := $v.Icons -}}
+		{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $w -}}
+		{{- if $ret.Console -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $list = merge $list (dict (upper (string $j)) $ret) -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Icons" $list) -}}
+
+
+	{{- $dataList = merge $dataList (dict (upper (string $i)) $data) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Shortcuts" $dataList -}}
