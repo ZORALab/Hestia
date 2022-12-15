@@ -22,42 +22,65 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := "" -}}
+{{- $path := "" -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* parse .ChangeFreq */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Sitemap/_changeFreq" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $dataList = merge $dataList (dict "ChangeFreq" .Page.Sitemap.ChangeFreq) -}}
 
 
 
 
 {{- /* parse .Priority */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Sitemap/_priority" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* parse .URL */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Sitemap/_url" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $dataList = merge $dataList (dict "Priority" .Page.Sitemap.Priority) -}}
 
 
 
 
 {{- /* parse .Path */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Sitemap/_path" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- if .Page.File -}}
+	{{- $path = path.Dir .Page.File.Path -}}
+	{{- $dataList = merge $dataList (dict "Path" $path) -}}
+{{- end -}}
 
 
 
 
-{{- /* parse .Index */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Sitemap/_index/Init" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- /* parse .URL and .Path for both page and index */ -}}
+{{- range $format := .Page.OutputFormats -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/parse/_format" $format -}}
+
+
+	{{- if not (or (eq (lower $ret.Type) "application/xml-page")
+			(eq (lower $ret.Type) "application/xml-index"))
+	 -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if eq (lower $ret.Type) "application/xml-page" -}}
+		{{- $dataList = merge $dataList (dict "URL" $ret.URL) -}}
+
+		{{- if $path -}}
+			{{- $ret = printf "%s/%s%s" $path $ret.Filename $ret.Extension -}}
+		{{- else -}}
+			{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
+		{{- end -}}
+		{{- $dataList = merge $dataList (dict "Path" $ret) -}}
+	{{- else if eq (lower $ret.Type) "application/xml-index" -}}
+		{{- $dataList = merge $dataList (dict "Index" (dict "URL" $ret.URL)) -}}
+
+		{{- if $path -}}
+			{{- $ret = printf "%s/%s%s" $path $ret.Filename $ret.Extension -}}
+		{{- else -}}
+			{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
+		{{- end -}}
+		{{- $dataList = merge $dataList (dict "Index" (dict "Path" $ret)) -}}
+	{{- end -}}
+{{- end -}}
 
 
 

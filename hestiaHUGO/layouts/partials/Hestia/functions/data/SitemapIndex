@@ -30,8 +30,8 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- $dataList := dict "IsHestia" true -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Time" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Nav/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Children" .) -}}
 
 
 
@@ -44,7 +44,6 @@ specific language governing permissions and limitations under the License.
 
 {{- /* BEGIN PROCESSING - Processing the $dataList to match Hestia's data structure */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Time/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Nav/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}
 
 

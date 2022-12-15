@@ -43,19 +43,13 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Creators" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Robots" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Redirect" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/WASM" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Vendors/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Data" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Nav/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" .) -}}
 
 
 
 
 {{- /* BEGIN LOCALIZING - Hugo interfaces ended beyond this line */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Components" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Content" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/CSS" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Page" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Languages" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Thumbnails" $dataList -}}
@@ -63,7 +57,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* BEGIN PROCESSING - Hugo interfaces ended beyond this line */ -}}
+{{- /* BEGIN PROCESSING - Processing the $dataList to match Hestia's data structure */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Time/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Formats/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Languages/Init" $dataList -}}
@@ -73,13 +67,14 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Creators/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Vendors/Init" $dataList -}}
 
 
 
 
 {{- /* BEGIN POST PROCESSING - Hestia data processing ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Robots/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Data/Init" $dataList -}}
 
 
 

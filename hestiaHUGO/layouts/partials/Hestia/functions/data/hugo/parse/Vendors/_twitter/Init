@@ -28,14 +28,15 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse .Site data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_twitter/_site" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $ret = dict "Handle" .Site.Data.Hestia.Vendors.Twitter.Credentials.Site.Handle -}}
+{{- $dataList = merge $dataList (dict "Site" $dataList) -}}
 
 
 
 
 {{- /* parse .Creator data */ -}}
-{{- $dataList = merge $dataList (dict "Creator" (dict "Handle" "")) -}}
+{{- $ret = dict "Handle" "" -}}
+{{- $dataList = merge $dataList (dict "Creator" $ret) -}}
 
 
 

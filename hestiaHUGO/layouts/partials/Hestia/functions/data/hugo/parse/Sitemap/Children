@@ -28,13 +28,31 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse .Children pages */ -}}
+{{- $dataList = slice -}}
 {{- range $i, $v := .Page.Pages -}}
-	{{- $ret = partial "Hestia/functions/data/Metadata" $v -}}
+	{{- $ret := dict "IsHestia" true -}}
+	{{- $ret = merge $ret (partial "Hestia/functions/data/hugo/parse/URL" $v) -}}
+	{{- $ret = merge $ret (partial "Hestia/functions/data/hugo/parse/Time" $v) -}}
+	{{- $ret = merge $ret (partial "Hestia/functions/data/hugo/parse/Redirect" $v) -}}
+	{{- $ret = merge $ret (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" $v) -}}
+
+
+	{{- /* BEGIN LOCALIZING - Hugo interfaces ended beyond this line */ -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/local/Page" $ret -}}
+
+
+	{{- /* BEGIN PROCESSING - Processing $dataList to match Hestia's data structure */ -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Time/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Redirect/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $ret -}}
+
+
 	{{- $dataList = append $ret $dataList -}}
 {{- end -}}
+{{- $dataList = dict "Children" $dataList -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Children" $dataList -}}
+{{- return dict "Nav" $dataList -}}
