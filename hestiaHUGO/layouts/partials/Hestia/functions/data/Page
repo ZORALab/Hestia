@@ -20,6 +20,13 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict "IsHestia" true -}}
+{{- $ret := false -}}
+
+
+
+
 {{- /*
 	prepare Hestia .Page.URL
 
@@ -28,7 +35,6 @@ specific language governing permissions and limitations under the License.
 	2) First 7 fragments **MUST** be as it is. They are too critical to
 	   fail.
 */ -}}
-{{- $dataList := dict "IsHestia" true -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/URL" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Time" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Formats" .) -}}
@@ -68,7 +74,8 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Twitter" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/PWA/Init" $dataList -}}
+{{- $ret = partialCached "Hestia/functions/data/hugo/local/PWA/Init" $dataList -}}
+{{- $dataList = merge $dataList (dict "PWA" $ret) -}}
 
 
 
@@ -86,7 +93,8 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/JS/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/WASM/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
+{{- $ret = partialCached "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
+{{- $dataList = merge $dataList (dict "PWA" $ret) -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Vendors/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}

@@ -28,57 +28,49 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- if eq .URL.Base .URL.Current.Absolute -}}
-	{{- /* parse Metadata */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_metadata" .) -}}
+{{- /* parse Metadata */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_metadata" .) -}}
 
 
-	{{- /* parse .Display */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_display" .) -}}
+{{- /* parse .Display */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_display" .) -}}
 
 
-	{{- /* parse .Colors */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_colors" .) -}}
+{{- /* parse .Colors */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_colors" .) -}}
 
 
-	{{- /* parse .Shortcuts */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_shortcuts" .) -}}
+{{- /* parse .Shortcuts */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_shortcuts" .) -}}
 
 
-	{{- /* parse .Screenshots */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_screenshots" .) -}}
+{{- /* parse .Screenshots */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_screenshots" .) -}}
 
 
-	{{- /* parse .Relations */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_relations" .) -}}
+{{- /* parse .Relations */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_relations" .) -}}
 
 
-	{{- /* parse .Protocols */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_protocols" .) -}}
+{{- /* parse .Protocols */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_protocols" .) -}}
 
 
-	{{- /* parse .Icons */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_icons" .) -}}
+{{- /* parse .Icons */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_icons" .) -}}
 
 
-	{{- /* parse .Caches */ -}}
-	{{- $dataList = merge $dataList
-		(partial "Hestia/functions/data/hugo/local/PWA/_caches" .) -}}
-
-
-	{{- /* render output */ -}}
-	{{- $dataList = merge $Page (dict "PWA" $dataList) -}}
-{{- else -}}
-	{{- $dataList = $Page -}}
-{{- end -}}
+{{- /* parse .Caches */ -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/local/PWA/_caches" .) -}}
 
 
 
