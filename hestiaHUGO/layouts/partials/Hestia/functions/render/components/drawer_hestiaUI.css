@@ -90,29 +90,29 @@ specific language governing permissions and limitations under the License.
 }
 
 .left-drawer > .content {
-	width: var(--drawer-width-left);
-	height: var(--drawer-height-left);
+	width: var(--left-drawer-width);
+	height: var(--left-drawer-height);
 
 	border-right: var(--drawer-border);
-	border-radius: var(--drawer-border-radius-left);
+	border-radius: var(--left-drawer-border-radius);
 }
 
 .top-drawer > .content {
-	width: var(--drawer-width-top);
-	height: var(--drawer-height-top);
+	width: var(--top-drawer-width);
+	height: var(--top-drawer-height);
 
 	border-left: var(--drawer-border);
 	border-bottom: var(--drawer-border);
 	border-right: var(--drawer-border);
-	border-radius: var(--drawer-border-radius-top);
+	border-radius: var(--top-drawer-border-radius);
 }
 
 .right-drawer > .content {
-	width: var(--drawer-width-right);
-	height: var(--drawer-height-right);
+	width: var(--right-drawer-width);
+	height: var(--right-drawer-height);
 
 	border-left: var(--drawer-border);
-	border-radius: var(--drawer-border-radius-right);
+	border-radius: var(--right-drawer-border-radius);
 
 }
 
@@ -131,15 +131,15 @@ specific language governing permissions and limitations under the License.
 }
 
 .left-drawer > input[type='checkbox']:checked ~ *:not(label) {
-	width: var(--drawer-width-opened-left);
-	height: var(--drawer-height-opened-left);
+	width: var(--left-drawer-width-opened);
+	height: var(--left-drawer-height-opened);
 
 	border-right: var(--drawer-border-opened);
 }
 
 .top-drawer > input[type='checkbox']:checked ~ *:not(label) {
-	width: var(--drawer-width-opened-top);
-	height: var(--drawer-height-opened-top);
+	width: var(--top-drawer-width-opened);
+	height: var(--top-drawer-height-opened);
 
 	border-left: var(--drawer-border-opened);
 	border-bottom: var(--drawer-border-opened);
@@ -147,8 +147,8 @@ specific language governing permissions and limitations under the License.
 }
 
 .right-drawer > input[type='checkbox']:checked ~ *:not(label) {
-	width: var(--drawer-width-opened-right);
-	height: var(--drawer-height-opened-right);
+	width: var(--right-drawer-width-opened);
+	height: var(--right-drawer-height-opened);
 
 	border-left: var(--drawer-border-opened);
 }
