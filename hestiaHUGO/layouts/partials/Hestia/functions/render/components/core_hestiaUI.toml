@@ -304,7 +304,7 @@
 "--color-dark-contrast-900" = "#ffff89"
 "--color-dark-contrast-950" = "#ffffb1"
 
-"--color-typography-50" = "#f6f6f6"
+"--color-typography-50" = "#fafafa"
 "--color-typography-100" = "#e3e3e3"
 "--color-typography-200" = "#cfcfcf"
 "--color-typography-300" = "#a8a8a8"
