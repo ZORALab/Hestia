@@ -1,0 +1,957 @@
+[Component]
+Name = "ZORALab's Hestia Core UI Component"
+Type = "core"
+ID = "core_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for structuring the page foundation
+for visually appealing web page content construction. It serves as a base for
+many of the compatible hestiaUI components. The component works natively without
+having complicated CSS classing, Javascript, or WASM intervention and
+assistances. It is only responsible for structuring a page-size responsive
+layouts, providing layout orientation helper system, z-axis layout system,
+color system, font system, and animation system.
+"""
+Example = """
+<div class='row'>
+	<div class='column'>
+		<h3>Color System</h3>
+		<p>
+			This table displays the color toning for each intensity.
+			You may combind the variable name with the toning grade
+			like <code>--color-typography-</code> level
+			<code>500</code> is <code>--color-typography-500</code>.
+			<br/>
+			Dark color palette are meant for inverted environment
+			and dark mode theme switching purposes.
+		</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Variable Type</th>
+					<th>50</th>
+					<th>100</th>
+					<th>200</th>
+					<th>300</th>
+					<th>400</th>
+					<th>500</th>
+					<th>600</th>
+					<th>700</th>
+					<th>800</th>
+					<th>900</th>
+					<th>950</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><code>--color-typography-</code></th>
+					<td style='background: var(--color-typography-50);'></td>
+					<td style='background: var(--color-typography-100);'></td>
+					<td style='background: var(--color-typography-200);'></td>
+					<td style='background: var(--color-typography-300);'></td>
+					<td style='background: var(--color-typography-400);'></td>
+					<td style='background: var(--color-typography-500);'></td>
+					<td style='background: var(--color-typography-600);'></td>
+					<td style='background: var(--color-typography-700);'></td>
+					<td style='background: var(--color-typography-800);'></td>
+					<td style='background: var(--color-typography-900);'></td>
+					<td style='background: var(--color-typography-950);'></td>
+				</tr>
+				<tr>
+					<th><code>--color-dark-typography-</code></th>
+					<td style='background: var(--color-dark-typography-50);'></td>
+					<td style='background: var(--color-dark-typography-100);'></td>
+					<td style='background: var(--color-dark-typography-200);'></td>
+					<td style='background: var(--color-dark-typography-300);'></td>
+					<td style='background: var(--color-dark-typography-400);'></td>
+					<td style='background: var(--color-dark-typography-500);'></td>
+					<td style='background: var(--color-dark-typography-600);'></td>
+					<td style='background: var(--color-dark-typography-700);'></td>
+					<td style='background: var(--color-dark-typography-800);'></td>
+					<td style='background: var(--color-dark-typography-900);'></td>
+					<td style='background: var(--color-dark-typography-950);'></td>
+				</tr>
+				<tr>
+					<th><code>--color-contrast-</code></th>
+					<td style='background: var(--color-contrast-50);'></td>
+					<td style='background: var(--color-contrast-100);'></td>
+					<td style='background: var(--color-contrast-200);'></td>
+					<td style='background: var(--color-contrast-300);'></td>
+					<td style='background: var(--color-contrast-400);'></td>
+					<td style='background: var(--color-contrast-500);'></td>
+					<td style='background: var(--color-contrast-600);'></td>
+					<td style='background: var(--color-contrast-700);'></td>
+					<td style='background: var(--color-contrast-800);'></td>
+					<td style='background: var(--color-contrast-900);'></td>
+					<td style='background: var(--color-contrast-950);'></td>
+				</tr>
+				<tr>
+					<th><code>--color-dark-contrast-</code></th>
+					<td style='background: var(--color-dark-contrast-50);'></td>
+					<td style='background: var(--color-dark-contrast-100);'></td>
+					<td style='background: var(--color-dark-contrast-200);'></td>
+					<td style='background: var(--color-dark-contrast-300);'></td>
+					<td style='background: var(--color-dark-contrast-400);'></td>
+					<td style='background: var(--color-dark-contrast-500);'></td>
+					<td style='background: var(--color-dark-contrast-600);'></td>
+					<td style='background: var(--color-dark-contrast-700);'></td>
+					<td style='background: var(--color-dark-contrast-800);'></td>
+					<td style='background: var(--color-dark-contrast-900);'></td>
+					<td style='background: var(--color-dark-contrast-950);'></td>
+				</tr>
+				<tr>
+					<th><code>--color-primary-</code></th>
+					<td style='background: var(--color-primary-50);'></td>
+					<td style='background: var(--color-primary-100);'></td>
+					<td style='background: var(--color-primary-200);'></td>
+					<td style='background: var(--color-primary-300);'></td>
+					<td style='background: var(--color-primary-400);'></td>
+					<td style='background: var(--color-primary-500);'></td>
+					<td style='background: var(--color-primary-600);'></td>
+					<td style='background: var(--color-primary-700);'></td>
+					<td style='background: var(--color-primary-800);'></td>
+					<td style='background: var(--color-primary-900);'></td>
+					<td style='background: var(--color-primary-950);'></td>
+				</tr>
+				<tr>
+					<th><code>--color-dark-primary-</code></th>
+					<td style='background: var(--color-dark-primary-50);'></td>
+					<td style='background: var(--color-dark-primary-100);'></td>
+					<td style='background: var(--color-dark-primary-200);'></td>
+					<td style='background: var(--color-dark-primary-300);'></td>
+					<td style='background: var(--color-dark-primary-400);'></td>
+					<td style='background: var(--color-dark-primary-500);'></td>
+					<td style='background: var(--color-dark-primary-600);'></td>
+					<td style='background: var(--color-dark-primary-700);'></td>
+					<td style='background: var(--color-dark-primary-800);'></td>
+					<td style='background: var(--color-dark-primary-900);'></td>
+					<td style='background: var(--color-dark-primary-950);'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class='column'>
+		<h3>Indication Color System</h3>
+		<p>
+			These are standards indication color system used for
+			notifications and attention seeking purposes. You may
+			need to combine the variable name and the color ID like
+			<code>--body-color-indicator-</code> and <code>red</code>
+			into a valid <code>--body-color-indicator-red</code>
+			value.
+		</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th><code>red</code></th>
+					<th><code>red-inverted</code></th>
+					<th><code>yellow</code></th>
+					<th><code>yellow-inverted</code></th>
+					<th><code>green</code></th>
+					<th><code>green-inverted</code></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><code>--body-color-indicator-</code></th>
+					<th style='background: var(--body-color-indicator-red);'></th>
+					<th style='background: var(--body-color-indicator-red-inverted);'></th>
+					<th style='background: var(--body-color-indicator-yellow);'></th>
+					<th style='background: var(--body-color-indicator-yellow-inverted);'></th>
+					<th style='background: var(--body-color-indicator-green);'></th>
+					<th style='background: var(--body-color-indicator-green-inverted);'></th>
+				</tr>
+				<tr>
+					<th><code>--body-background-indicator-</code></th>
+					<th style='background: var(--body-background-indicator-red);'></th>
+					<th style='background: var(--body-background-indicator-red-inverted);'></th>
+					<th style='background: var(--body-background-indicator-yellow);'></th>
+					<th style='background: var(--body-background-indicator-yellow-inverted);'></th>
+					<th style='background: var(--body-background-indicator-green);'></th>
+					<th style='background: var(--body-background-indicator-green-inverted);'></th>
+				</tr>
+			</tobdy>
+		</table>
+	</div>
+	<div class='column'>
+		<h3>Animation Timing System</h3>
+		<p>
+			This table displays the animation timing for each
+			intensity from fastest to slowest. You may combind the
+			variable name with the timing grade like
+			<code>--timing-</code> level <code>rapid</code> is
+			<code>--timing-rapid</code>.
+		</p>
+		<table>
+			<thead>
+				<th>Type</th>
+				<th>rapid</th>
+				<th>fast</th>
+				<th>normal</th>
+				<th>slow</th>
+				<th>slowest</th>
+			</thead>
+			<tbody>
+				<th><code>--timing-</code></th>
+				<td><code>.2s</code></td>
+				<td><code>.3s</code></td>
+				<td><code>.4s</code></td>
+				<td><code>.5s</code></td>
+				<td><code>.8s</code></td>
+			</tbody>
+		</table>
+	</div>
+	<div class='column'>
+		<h3>Typography System</h3>
+		<p>
+			This table displays the <code>h1</code> to
+			<code>h6</code> alongside <code>p</code> and
+			<code>a</code> (URL) styling system.
+		</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Rendering</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><code>h1</code></th>
+					<td><h1>A quick falcon flew over horizon.</h1></td>
+				</tr>
+				<tr>
+					<th><code>h2</code></th>
+					<td><h2>A quick falcon flew over horizon.</h2></td>
+				</tr>
+				<tr>
+					<th><code>h3</code></th>
+					<td><h3>A quick falcon flew over horizon.</h3></td>
+				</tr>
+				<tr>
+					<th><code>h4</code></th>
+					<td><h4>A quick falcon flew over horizon.</h4></td>
+				</tr>
+				<tr>
+					<th><code>h5</code></th>
+					<td><h5>A quick falcon flew over horizon.</h5></td>
+				</tr>
+				<tr>
+					<th><code>h6</code></th>
+					<td><h6>A quick falcon flew over horizon.</h6></td>
+				</tr>
+				<tr>
+					<th><code>p</code></th>
+					<td><p>A quick falcon flew over horizon.</p></td>
+				</tr>
+				<tr>
+					<th><code>a</code></th>
+					<td><a href='#'>A quick falcon flew over horizon.</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class='column'>
+		<h3>Z-Index System</h3>
+		<p>
+			This table shows the value and layering of the z-index
+			system from the highest to the lowest. You need to
+			perform subtract calculations for all except
+			<code>--z-index-max</code> and
+			<code>--z-index-hidden</code>. Example, for procuring
+			<code>--z-index-content</code>, you need to deploy it as
+			<code>calc(var(--z-index-max) - var(--z-index-content))</code>.
+		</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><code>--z-index-max</code></th>
+					<td><code>2147483647</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-max-overlay</code></th>
+					<td><code>1</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-nav-top</code></th>
+					<td><code>2</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-nav</code></th>
+					<td><code>3</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-nav-overlay</code></th>
+					<td><code>4</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-content-top</code></th>
+					<td><code>5</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-content</code></th>
+					<td><code>6</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-content-overlay</code></th>
+					<td><code>7</code></td>
+				</tr>
+				<tr>
+					<th><code>--z-index-hidden</code></th>
+					<td><code>0</code></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+"""
+Dependencies = []
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Page Structure"
+Description = """
+The component uses W3C compliant page sturcture and aligned everything to center
+by default for rendering itself minimally:
+"""
+Example = """
+<!DOCTYPE html>
+<html lang="...">
+<head>
+	<meta charset="UTF-8" />
+	<title>...</title>
+	...
+	<style>...</style>
+	<script defer>...</script>
+	...
+</head>
+<body>
+	<main>
+		<section ...>
+			...
+		</section>
+
+		<section ...>
+			...
+		</section>
+
+		...
+	</main>
+
+	<footer>
+		<section ...>
+			...
+		</section>
+
+		<section ...>
+			...
+		</section>
+
+		...
+	</footer>
+
+	<nav class='top-drawer'>
+		...
+	</nav>
+
+	<nav class='left-drawer'>
+		...
+	</nav>
+
+	<nav class='right-drawer'>
+		...  <!-- THE LAST DRAWER HAS THE HIGHEST PRIORITY -->
+	</nav>
+</body>
+</html>
+"""
+
+
+[[Component.References.HTML]]
+Type = "Grid System"
+Description = """
+The component uses CSS Flexbox system for rendering responsive horizontal
+content placement while maintaing centered alignment minimally:
+"""
+Example = """
+<!-- NOTE: PLEASE USE <div> FOR PROPER AND CONSISTENT CONTAINMENT. -->
+<div class='row'>
+	<div class='column'>
+		...
+	</div>
+
+	<div class='column'>
+		...
+	</div>
+
+	<div class='column'>
+		...
+	</div>
+
+	...
+</div>
+"""
+
+[[Component.References.CSS]]
+Name = "--body-scroll-behavior"
+Description = """
+Affects the entire page's scrolling behavior value.
+"""
+Property = "scroll-behavor"
+Default = 'auto'
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--content-grid-area"
+Description = """
+Label value for content container to body's grid layout system. Please DO NOT
+change it.
+"""
+Property = "grid-area"
+Default = "content"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--footer-grid-area"
+Description = """
+Label value for content container to body's footer layout system. Please DO NOT
+change it.
+"""
+Property = "grid-area"
+Default = "footer"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--leftnav-grid-area"
+Description = """
+Label value for content container to body's left navigation layout system.
+Please DO NOT change it.
+"""
+Property = "grid-area"
+Default = "leftnav"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--rightnav-grid-area"
+Description = """
+Label value for content container to body's right navigation layout system.
+Please DO NOT change it.
+"""
+Property = "grid-area"
+Default = "rightnav"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--topnav-grid-area"
+Description = """
+Label value for content container to body's top navigation layout system.
+Please DO NOT change it.
+"""
+Property = "grid-area"
+Default = "topnav"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--html-box-sizing"
+Description = """
+Affects every components' sizing definition value.
+"""
+Property = "box-sizing"
+Default = 'border-box'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-grid"
+Description = """
+Affects the page's primary layout value.
+"""
+Property = "grid"
+Default = '''
+"content" auto
+"footer" minmax(0, max-content)
+"topnav" minmax(0, auto)
+"leftnav" minmax(0, auto)
+"rightnav" minmax(0, auto)
+/ var(--body-width)
+'''
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-justify-items"
+Description = """
+Affects the page's primary layout contents' horizontal alignment value.
+"""
+Property = "justify-items"
+Default = 'stretch'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-align-items"
+Description = """
+Affects the page's primary layout contents' vertical alignment value.
+"""
+Property = "align-items"
+Default = 'stretch'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-grid-gap"
+Description = """
+Affects the page's primary layout contents' gap spacing value.
+"""
+Property = "grid-gap"
+Default = '0'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-width"
+Description = """
+Affects the page's primary layout's content width value.
+"""
+Property = "width"
+Default = '100%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--main-min-width"
+Description = """
+Affects the page's primary layout's content minimum width value.
+"""
+Property = "min-width"
+Default = 'initial'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--main-width"
+Description = """
+Affects the page's primary layout's content width value.
+"""
+Property = "width"
+Default = '100%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--main-max-width"
+Description = """
+Affects the page's primary layout's content maximum width value.
+"""
+Property = "max-width"
+Default = '100%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--main-padding-top"
+Description = """
+Affects the page's primary layout's content top padding value. Affects main
+element.
+"""
+Property = "padding-top"
+Default = '10rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--main-padding-left"
+Description = """
+Affects the page's primary layout's content left padding value. Affects main
+element.
+"""
+Property = "padding-left"
+Default = '15%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--main-padding-bottom"
+Description = """
+Affects the page's primary layout's content bottom padding value. Affects main
+element.
+"""
+Property = "padding-bottom"
+Default = '10rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--main-padding-right"
+Description = """
+Affects the page's primary layout's content right padding value. Affects main
+element.
+"""
+Property = "margin-right"
+Default = '15%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-min-width"
+Description = """
+Affects the page's primary layout's footer minimum width value.
+"""
+Property = "min-width"
+Default = 'initial'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-width"
+Description = """
+Affects the page's primary layout's footer width value.
+"""
+Property = "width"
+Default = '100%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-max-width"
+Description = """
+Affects the page's primary layout's footer maximum width value.
+"""
+Property = "max-width"
+Default = '100%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-padding-top"
+Description = """
+Affects the page's primary layout's content's footer top padding value. Affects
+footer element.
+"""
+Property = "padding-top"
+Default = '3.5rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-padding-left"
+Description = """
+Affects the page's primary layout's content's footer left padding value. Affects
+footer element.
+"""
+Property = "padding-left"
+Default = '15%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-padding-bottom"
+Description = """
+Affects the page's primary layout's content's bottom padding value. Affects
+footer element.
+"""
+Property = "padding-bottom"
+Default = '3.5rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-padding-right"
+Description = """
+Affects the page's primary layout's content's right padding value. Affects
+footer element.
+"""
+Property = "margin-right"
+Default = '15%'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color"
+Description = """
+Affects the page's color value.
+"""
+Property = "color"
+Default = 'var(--color-typography-950)'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-inverted"
+Description = """
+Affects the page's color value while in an inverted environment (e.g. footer).
+"""
+Property = "color"
+Default = 'var(--color-typography-50)'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-print"
+Description = """
+Affects the page's color value while in print mode.
+"""
+Property = "color"
+Default = 'var(--color-typography-950)'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-indicator-red"
+Description = """
+Affects the page's red indication color value.
+"""
+Property = "color"
+Default = '#ff0000'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-indicator-red-inverted"
+Description = """
+Affects the page's red indication color value while in an inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = '#ffc4d0'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-indicator-yellow"
+Description = """
+Affects the page's yellow indication color value.
+"""
+Property = "color"
+Default = '#ffff00'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-indicator-yellow-inverted"
+Description = """
+Affects the page's yellow indication color value while in an inverted
+environment (e.g. footer).
+"""
+Property = "color"
+Default = '#ff4c00'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-indicator-green"
+Description = """
+Affects the page's green indication color value.
+"""
+Property = "color"
+Default = '#00ff00'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-color-indicator-green-inverted"
+Description = """
+Affects the page's green indication color value while in an inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = '#0f3f0f'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background"
+Description = """
+Affects the page's background value.
+"""
+Property = "background"
+Default = 'var(--color-typography-50)'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-inverted"
+Description = """
+Affects the page's background value while in an inverted environment (e.g.
+footer).
+"""
+Property = "background"
+Default = 'var(--color-typography-950)'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-print"
+Description = """
+Affects the page's background value while in print mode.
+"""
+Property = "background"
+Default = '#FFF'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-indicator-red"
+Description = """
+Affects the page's red indication background value.
+"""
+Property = "background"
+Default = '#ffc4d0'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-indicator-red-inverted"
+Description = """
+Affects the page's red indication background value while in an inverted
+environment (e.g. footer).
+"""
+Property = "background"
+Default = '#ff0000'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-indicator-yellow"
+Description = """
+Affects the page's yellow indication background value.
+"""
+Property = "background"
+Default = '#fff3c4'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-indicator-yellow-inverted"
+Description = """
+Affects the page's yellow indication background value while in an inverted
+environment (e.g. footer).
+"""
+Property = "background"
+Default = '#ffff3b'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-indicator-green"
+Description = """
+Affects the page's green indication background value.
+"""
+Property = "background"
+Default = '#d0f3d0'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-background-indicator-green-inverted"
+Description = """
+Affects the page's green indication background value while in an inverted
+environment (e.g. footer).
+"""
+Property = "background"
+Default = '#0c2f0c'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-color"
+Description = """
+Affects the page's footer color value.
+"""
+Property = "color"
+Default = 'var(--body-color-inverted)'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--footer-background"
+Description = """
+Affects the page's footer background value.
+"""
+Property = "background"
+Default = 'var(--body-background-inverted)'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-font-family"
+Description = """
+Affects the page's content font family value. Note that the cancelled string
+quotes must be included as part of the main value.
+"""
+Property = "font-family"
+Default = '\"Roboto\", \"Helvetica Neue\", \"sans-serif\"'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-font-size"
+Description = """
+Affects the page's content font sizing value.
+"""
+Property = "font-size"
+Default = '1.8rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-font-size-print"
+Description = """
+Affects the page's content font sizing value in print mode.
+"""
+Property = "font-size"
+Default = '1.8rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-letter-spacing"
+Description = """
+Affects the page's content letter spacing value.
+"""
+Property = "letter-spacing"
+Default = '.01rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-line-height"
+Description = """
+Affects the page's content line height value.
+"""
+Property = "line-height"
+Default = '1.6'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--body-text-align"
+Description = """
+Affects the page's content text alignment value.
+"""
+Property = "text-align"
+Default = 'center'
+Availability = "v0.0.1"

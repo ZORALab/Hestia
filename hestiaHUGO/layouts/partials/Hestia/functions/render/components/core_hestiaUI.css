@@ -16,8 +16,12 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 * {
-	transition: var(--timing-normal);
+	padding: 0;
+	margin: 0;
+
 	box-sizing: var(--html-box-sizing);
+
+	transition: var(--timing-normal);
 }
 
 html,
@@ -86,7 +90,9 @@ main {
 	max-width: var(--main-max-width);
 
 	padding-top: var(--main-padding-top);
+	padding-left: var(--main-padding-left);
 	padding-bottom: var(--main-padding-bottom);
+	padding-right: var(--main-padding-right);
 
 	color: var(--body-color);
 	background: var(--body-background);
@@ -98,7 +104,9 @@ footer, .footer {
 	max-width: var(--footer-max-width);
 
 	padding-top: var(--footer-padding-top);
+	padding-left: var(--footer-padding-left);
 	padding-bottom: var(--footer-padding-bottom);
+	padding-right: var(--footer-padding-right);
 
 	color: var(--footer-color);
 	background: var(--footer-background);
@@ -107,30 +115,7 @@ footer, .footer {
 main > *,
 footer > * {
 	flex: 0 1 100%;
-}
-
-main > * {
-	margin-left: var(--main-padding-left);
-	margin-right: var(--main-padding-right);
-
-	width: calc(var(--main-width) -
-		var(--main-padding-left) -
-		var(--main-padding-right));
-	max-width: calc(var(--main-max-width) -
-		var(--main-padding-left) -
-		var(--main-padding-right));
-}
-
-footer > * {
-	margin-left: var(--footer-padding-left);
-	margin-right: var(--footer-padding-right);
-
-	width: calc(var(--footer-width) -
-			var(--footer-padding-left) -
-			var(--footer-padding-right));
-	max-width: calc(var(--footer-max-width) -
-			var(--footer-padding-left) -
-			var(--footer-padding-right));
+	width: 100%;
 }
 
 main, .content {

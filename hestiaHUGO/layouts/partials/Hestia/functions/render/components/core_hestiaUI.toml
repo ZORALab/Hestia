@@ -9,7 +9,10 @@
 "--rightnav-grid-area" = "rightnav"
 "--topnav-grid-area" = "topnav"
 
-"--layout-vertical" = """
+# page layout
+"--html-box-sizing" = "border-box"
+
+"--body-grid" = """
 	"content" auto
 	"footer" minmax(0, max-content)
 	"topnav" minmax(0, auto)
@@ -17,53 +20,18 @@
 	"rightnav" minmax(0, auto)
 	/ var(--body-width)
 """
-"--layout-left-top" = """
-	"leftnav topnav" minmax(0, max-content)
-	"leftnav content" auto
-	"leftnav footer" minmax(0, max-content)
-	/ minmax(0, var(--sidenav-width))
-		minmax(auto, calc(var(--body-width) - var(--sidenav-width)))
-"""
-"--layout-right-top" = """
-	"topnav rightnav" minmax(0, max-content)
-	"content rightnav" auto
-	"footer rightnav" minmax(0, max-content)
-	/ minmax(auto, calc(var(--body-width) - var(--sidenav-width)))
-		minmax(0, var(--sidenav-width))
-"""
-"--layout-both-top" = """
-	"leftnav topnav rightnav" minmax(0, max-content)
-	"leftnav content rightnav" auto
-	"footer content footer" minmax(0, max-content)
-	/ minmax(0, var(--sidenav-width))
-		minmax(auto, calc(var(--body-width) - 2*var(--sidenav-width)))
-		minmax(0, var(--sidenav-width))
-"""
-"--layout-top-both" = """
-	"topnav topnav topnav" minmax(0, max-content)
-	"leftnav content rightnav" auto
-	"footer footer footer" minmax(0, max-content)
-	/ minmax(0, var(--sidenav-width))
-		minmax(auto, calc(var(--body-width) - 2*var(--sidenav-width)))
-		minmax(0, var(--sidenav-width))
-"""
-
-"--html-box-sizing" = "border-box"
-
-"--body-grid" = "var(--layout-vertical)"
 "--body-justify-items" = "stretch"
 "--body-align-items" = "stretch"
 "--body-grid-gap" = "0"
 "--body-width" = "100%"
-"--sidenav-width" = "22%"
 
 "--main-min-width" = "initial"
 "--main-width" = "100%"
 "--main-max-width" = "100%"
 
-"--main-padding-top" = "3.5rem"
+"--main-padding-top" = "10rem"
 "--main-padding-left" = "15%"
-"--main-padding-bottom" = "3.5rem"
+"--main-padding-bottom" = "10rem"
 "--main-padding-right" = "15%"
 
 "--footer-min-width" = "initial"
@@ -78,7 +46,44 @@
 
 
 
-# z-axis (3rd-dimension)
+# colors
+"--body-color" = "var(--color-typography-950)"
+"--body-color-inverted" = "var(--color-typography-50)"
+"--body-color-print" = "var(--color-typography-950)"
+"--body-color-indicator-red" = "#ff0000"
+"--body-color-indicator-red-inverted" = "#ffc4d0"
+"--body-color-indicator-yellow" = "#ffff00"
+"--body-color-indicator-yellow-inverted" = "#ff4c00"
+"--body-color-indicator-green" = "#00ff00"
+"--body-color-indicator-green-inverted" = "#0f3f0f"
+"--body-background" = "var(--color-typography-50)"
+"--body-background-inverted" = "var(--color-typography-950)"
+"--body-background-print" = "#FFF"
+"--body-background-indicator-red" = "#ffc4d0"
+"--body-background-indicator-red-inverted" = "#ff0000"
+"--body-background-indicator-yellow" = "#fff3c4"
+"--body-background-indicator-yellow-inverted" = "#ffff3b"
+"--body-background-indicator-green" = "#d0f3d0"
+"--body-background-indicator-green-inverted" = "#0c2f0c"
+"--footer-color" = "var(--body-color-inverted)"
+"--footer-background" = "var(--body-background-inverted)"
+
+
+
+
+# fonts
+"--body-font-family" = "\"Roboto\", \"Helvetica Neue\", \"sans-serif\""
+"--body-font-size" = "1.8rem"
+"--body-font-size-print" = "12pt"
+"--body-font-weight" = "normal"
+"--body-letter-spacing" = ".01rem"
+"--body-line-height" = 1.6
+"--body-text-align" = "center"
+
+
+
+
+# z-axis system
 "--z-index-max" = 2147483647
 "--z-index-max-overlay" = 1
 "--z-index-nav-top" = 2
@@ -92,41 +97,7 @@
 
 
 
-# engine colors
-"--body-color" = "var(--color-typography-950)"
-"--body-color-inverted" = "var(--color-typography-50)"
-"--body-color-print" = "var(--color-typography-950)"
-"--body-color-indicator-red" = "#ff0000"
-"--body-color-indicator-red-inverted" = "#ffc4d0"
-"--body-color-indicator-yellow" = "#ffff00"
-"--body-color-indicator-yellow-inverted" = "#ff4c00"
-"--body-color-indicator-green" = "#00ff00"
-"--body-color-indicator-green-inverted" = "#0f3f0f"
-"--body-background" = "var(--color-typography-50)"
-"--body-background-inverted" = "var(--color-typography-950)"
-"--body-background-indicator-red" = "#ffc4d0"
-"--body-background-indicator-red-inverted" = "#ff0000"
-"--body-background-indicator-yellow" = "#fff3c4"
-"--body-background-indicator-yellow-inverted" = "#ffff3b"
-"--body-background-indicator-green" = "#d0f3d0"
-"--body-background-indicator-green-inverted" = "#0c2f0c"
-"--body-background-print" = "#FFF"
-"--footer-color" = "var(--body-color-inverted)"
-"--footer-background" = "var(--body-background-inverted)"
-
-
-
-
-# font sizing
-"--body-font-family" = "\"Roboto\", \"Helvetica Neue\", \"sans-serif\""
-"--body-font-size" = "1.8rem"
-"--body-font-size-print" = "12pt"
-"--body-font-weight" = "normal"
-"--body-letter-spacing" = ".01rem"
-"--body-line-height" = 1.6
-"--body-text-align" = "center"
-
-
+# typography system
 "--h1-font-size" = "5rem"
 "--h1-line-height" = "1.2"
 "--h1-letter-spacing" = "-.1rem"
@@ -245,7 +216,7 @@
 
 
 
-# timing
+# timing system
 "--timing-rapid" = ".2s"
 "--timing-fast" = ".3s"
 "--timing-normal" = ".4s"
@@ -255,7 +226,7 @@
 
 
 
-# color
+# color system
 "--color-primary-50" = "#e5e5ff"
 "--color-primary-100" = "#bdbdff"
 "--color-primary-200" = "#8282ff"
@@ -288,13 +259,13 @@
 "--color-contrast-500" = "#ffff14"
 "--color-contrast-600" = "#ffff00"
 "--color-contrast-700" = "#ebeb00"
-"--color-contrast-800" = "#d8d800"
-"--color-contrast-900" = "#b1b100"
-"--color-contrast-950" = "#898900"
+"--color-contrast-800" = "#ffd92e"
+"--color-contrast-900" = "#ffd61b"
+"--color-contrast-950" = "#ffd207"
 
-"--color-dark-contrast-50" = "#898900"
-"--color-dark-contrast-100" = "#b1b100"
-"--color-dark-contrast-200" = "#d8d800"
+"--color-dark-contrast-50" = "#ffd207"
+"--color-dark-contrast-100" = "#ffd61b"
+"--color-dark-contrast-200" = "#ffd92e"
 "--color-dark-contrast-300" = "#ebeb00"
 "--color-dark-contrast-400" = "#ffff00"
 "--color-dark-contrast-500" = "#ffff14"
@@ -316,7 +287,7 @@
 "--color-typography-900" = "#282828"
 "--color-typography-950" = "#101010"
 
-"--color-dark-typography-50" = "#151515"
+"--color-dark-typography-50" = "#101010"
 "--color-dark-typography-100" = "#282828"
 "--color-dark-typography-200" = "#3c3c3c"
 "--color-dark-typography-300" = "#505050"
@@ -326,7 +297,7 @@
 "--color-dark-typography-700" = "#a8a8a8"
 "--color-dark-typography-800" = "#cfcfcf"
 "--color-dark-typography-900" = "#e3e3d3"
-"--color-dark-typography-950" = "#f6f6f6"
+"--color-dark-typography-950" = "#fafafa"
 
 
 
