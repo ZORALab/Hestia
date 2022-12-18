@@ -107,13 +107,33 @@ and a container with '.content' CSS class are required. Inside the 'label' with
 changes during the open/closing state. Hence, to rendering itself minimally:
 """
 Example = """
-<nav class="right-drawer">
+<nav class="top-drawer">
 	<input id="...INPUT_ID_1..." type="checkbox" />
 	<label class="trigger" for="...INPUT_ID_1...">
 		<span class="open">☰</span>
 		<span class="close">𝖷</span>
 	</label>
 	<label class="overlay" for="...INPUT_ID_1..."></label>
+	<div class="content">
+		...
+	</div>
+</nav>
+"""
+
+[[Component.References.HTML]]
+Type = "Minimum (Permanent Topbar)"
+Description = """
+The component uses W3C's 'nav' syntax with '.top-drawer' CSS class for its
+main container design. Inside, a 'checkbox type input' with an unique ID,
+a W3C's 'label' syntax with '.trigger' CSS class targetting the input,
+a W3C's 'label' syntax with '.overlay' CSS class targetting the input,
+and a container with '.content' CSS class are required. Inside the 'label' with
+'.trigger', an '.open' and a '.close' CSS classes denotes their character
+changes during the open/closing state. Hence, to rendering itself minimally:
+"""
+Example = """
+<nav class='top-drawer' style='--top-drawer-height: 7rem; --top-drawer-height-opened: 7rem;'>
+	<input id="...INPUT_ID_1..." type="checkbox" checked />
 	<div class="content">
 		...
 	</div>

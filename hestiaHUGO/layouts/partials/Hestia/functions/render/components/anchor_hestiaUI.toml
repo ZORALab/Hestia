@@ -21,7 +21,9 @@
 
 "--anchor-font-size" = "var(--body-font-size)"
 "--anchor-font-family" = "var(--body-font-family)"
+"--anchor-font-weight" = "initial"
 "--anchor-text-decoration" = "none"
+"--anchor-text-transform" = "normal"
 "--anchor-overflow-wrap" = "break-word"
 "--anchor-overflow-wrap-print" = "break-word"
 "--anchor-word-break" = "break-word"

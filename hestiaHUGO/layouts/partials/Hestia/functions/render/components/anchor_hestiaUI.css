@@ -36,7 +36,9 @@ a {
 
 	font-size: var(--anchor-font-size);
 	font-family: var(--anchor-font-family);
+	font-weight: var(--anchor-font-weight);
 	text-decoration: var(--anchor-text-decoration);
+	text-transform: var(--anchor-text-transform);
 	overflow-wrap: var(--anchor-overflow-wrap);
 	word-break: var(--anchor-word-break);
 	letter-spacing: var(--anchor-letter-spacing);
