@@ -1,0 +1,89 @@
+[Component]
+Name = "ZORALab's Hestia Noto Sans Font UI Component"
+Type = "font"
+ID = "font-NotoSans_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for importing and rendering the font
+in the page with NotoSans and its Noto Color Emoji fonts. The component works
+natively without having complicated CSS classing, Javascript, or WASM
+intervention and assistances.
+"""
+Example = """
+<div class='note'>
+	<input id="notice-1" type="checkbox" checked>
+	<label for="notice-1">Heads Up</label>
+	<p class='content'>
+		This site is already using this font natively.
+	</p>
+</div>
+<br/>
+<div class='note warning'>
+	<input id="notice-2" type="checkbox" checked>
+	<label for="notice-2">!!! ATTENTION !!! - Hugo Theme Users</label>
+	<div class="content">
+		<p>
+		This font was designed to host locally and serves via CDN.
+		Hence, please remember to add
+		<code>themes/Hestia/fonts/hestiaUI_font-NotoSans</code> into
+		your <code>config/_default/config.toml: staticDir</code> list.
+		Example:
+		</p>
+		<pre>...
+# content pathing
+archetypeDir = "archetypes"
+contentDir = "content"
+assetDir = "assets"
+dataDir = "data"
+
+staticDir = [
+        "static",
+        "themes/Hestia/fonts/hestiaUI_font-NotoSans",
+]
+
+layoutDir = "layouts"
+themesDir = "themes"
+publishDir = "public"
+i18nDir = "i18n"
+...</pre>
+	</div>
+</div>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "No"
+Description = """
+No HTML code required to use this component.
+"""
+Example = """
+<!-- HOORAY! NO HTML CODES. -->
+"""
+
+[[Component.References.CSS]]
+Name = "No additional CSS variables"
+Description = """
+No CSS variables needed for using this component.
+"""
+Property = "[none]"
+Default = "[]"
+Availability = "v0.0.1"
