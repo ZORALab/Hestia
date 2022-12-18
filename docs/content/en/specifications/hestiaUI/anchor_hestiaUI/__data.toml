@@ -1,0 +1,582 @@
+[Component]
+Name = "ZORALab's Hestia Anchor UI Component"
+Type = "anchor"
+ID = "anchor_hestiaUI"
+Status = "Stable - Public"
+Available = "v0.0.1"
+Purpose = """
+This UI component was primarily designed for promoting interlinked anchor URL
+in the page for user to further explore a subject of related interests. The
+component works natively without having complicated CSS classing, Javascript, or
+WASM intervention and assistances.
+"""
+Example = """
+<br/>
+<div style='
+	background: var(--color-typography-200);
+'
+>
+	<p style='line-height:5rem;'>
+		This is a paragraph with a <a href="#">link</a> in between.
+	</p>
+</div>
+<div style='
+	background: var(--color-primary-900);
+	color: var(--color-typography-50);'
+>
+	<p style='line-height:5rem;'>
+		This is a paragraph with a <a class='prestige' href="#">link</a>
+		in between.
+	</p>
+</div>
+<br/>
+"""
+
+
+[[Component.Dependencies]]
+ID = "core_hestiaUI"
+Priority = "Compulsory"
+Include = true
+
+
+[[Component.Designers]]
+Name = "(Holloway) Chew, Kean Ho"
+Email = "me@hollowaykeanho.com"
+Website = "https://www.hollowaykeanho.com"
+
+
+[Component.References]
+JS = ""
+Go = ""
+Rust = ""
+
+
+[[Component.References.HTML]]
+Type = "Minimal"
+Description = """
+This component employs the W3C compliant 'a' syntax to render its displayable
+link minimally:
+"""
+Example = '''
+<a href='...'>...</a>
+'''
+
+[[Component.References.HTML]]
+Type = "Minimal Wrapping"
+Description = """
+This component employs the W3C compliant 'a' syntax with '.wrap' CSS class to
+render its invisible wrapping link minimally:
+"""
+Example = '''
+<a class='wrap' href='...'>
+	...
+</a>
+'''
+
+[[Component.References.HTML]]
+Type = "Minimal Prestige"
+Description = """
+This component employs the W3C compliant 'a' syntax with '.prestige' CSS class
+to render its prestigous focusing (matching dark background) minimally:
+"""
+Example = '''
+<a class='prestige' href='...'>
+	...
+</a>
+'''
+
+
+[[Component.References.CSS]]
+Name = "--anchor-display"
+Description = """
+Affects the entire component's display mode value.
+"""
+Property = "display"
+Default = "inline-block"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-min-width"
+Description = """
+Affects the entire component's minimum width value.
+"""
+Property = "min-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-width"
+Description = """
+Affects the entire component's width value.
+"""
+Property = "width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-max-width"
+Description = """
+Affects the entire component's maximum width value.
+"""
+Property = "max-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-min-height"
+Description = """
+Affects the entire component's minimum height value.
+"""
+Property = "min-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-height"
+Description = """
+Affects the entire component's height value.
+"""
+Property = "height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-max-height"
+Description = """
+Affects the entire component's maximum height value.
+"""
+Property = "max-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-margin"
+Description = """
+Affects the entire component's margin value.
+"""
+Property = "margin"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-padding"
+Description = """
+Affects the entire component's padding value.
+"""
+Property = "padding"
+Default = "0 .3rem"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-padding-focus"
+Description = """
+Affects the entire component's padding value when focused.
+"""
+Property = "padding"
+Default = "0 .3rem"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-border"
+Description = """
+Affects the entire component's border value.
+"""
+Property = "border"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-border-top"
+Description = """
+Affects the entire component's top border value.
+"""
+Property = "border-top"
+Default = "2px solid transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-border-left"
+Description = """
+Affects the entire component's left border value.
+"""
+Property = "border-left"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-border-bottom"
+Description = """
+Affects the entire component's bottom border value.
+"""
+Property = "border-bottom"
+Default = "2px solid var(--anchor-color)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-border-right"
+Description = """
+Affects the entire component's right border value.
+"""
+Property = "border-right"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-font-size"
+Description = """
+Affects the entire component's font sizing value.
+"""
+Property = "font-size"
+Default = "var(--body-font-size)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-font-family"
+Description = """
+Affects the entire component's font family value.
+"""
+Property = "font-family"
+Default = "var(--body-font-family)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-font-weight"
+Description = """
+Affects the entire component's font weight value.
+"""
+Property = "font-weight"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-text-decoration"
+Description = """
+Affects the entire component's text decoration value.
+"""
+Property = "text-decoration"
+Default = "none"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-text-transform"
+Description = """
+Affects the entire component's text transformation value.
+"""
+Property = "text-transform"
+Default = "normal"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-overflow-wrap"
+Description = """
+Affects the entire component's overflow wrapping value.
+"""
+Property = "overflow-wrap"
+Default = "break-word"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-overflow-wrap-print"
+Description = """
+Affects the entire component's overflow wrapping value in print mode.
+"""
+Property = "overflow-wrap"
+Default = "break-word"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-work-break"
+Description = """
+Affects the entire component's word breaking behavior value.
+"""
+Property = "word-break"
+Default = "break-word"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-word-break-print"
+Description = """
+Affects the entire component's word breaking behavior value in print mode.
+"""
+Property = "word-break"
+Default = "break-word"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-letter-spacing"
+Description = """
+Affects the entire component's letter spacing behavior value.
+"""
+Property = "letter-spacing"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-line-height"
+Description = """
+Affects the entire component's line height value.
+"""
+Property = "line-height"
+Default = "var(--body-line-height)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-text-align"
+Description = """
+Affects the entire component's text alignment value.
+"""
+Property = "text-align"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-color"
+Description = """
+Affects the entire component's color value.
+"""
+Property = "color"
+Default = "var(--color-primary-300)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-color-inverted"
+Description = """
+Affects the entire component's color value while in an inverted environment
+(e.g. footer).
+"""
+Property = "color"
+Default = "var(--color-primary-200)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-color-focus"
+Description = """
+Affects the entire component's color value when focused.
+"""
+Property = "color"
+Default = "var(--color-primary-400)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-color-focus-inverted"
+Description = """
+Affects the entire component's color value when focused while in an inverted
+environment.
+"""
+Property = "color"
+Default = "var(--color-primary-50)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-color-print"
+Description = """
+Affects the entire component's color value in print mode.
+"""
+Property = "color"
+Default = "var(--body-color-print)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-text-decoration-color"
+Description = """
+Affects the entire component's text decoration color value.
+"""
+Property = "text-decoration-color"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-text-decoration-color-inverted"
+Description = """
+Affects the entire component's text decoration color value while in an inverted
+environment (e.g. footer).
+"""
+Property = "text-decoration-color"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-background"
+Description = """
+Affects the entire component's background value.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-background-inverted"
+Description = """
+Affects the entire component's background value while in an inverted environment
+(e.g. footer).
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-background-focus"
+Description = """
+Affects the entire component's background value when focused.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-background-focus-inverted"
+Description = """
+Affects the entire component's background value when focused while in an
+inverted environment (e.g. footer).
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-background-print"
+Description = """
+Affects the entire component's background value in print mode.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-box-shadow"
+Description = """
+Affects the entire component's box shadowing value.
+"""
+Property = "box-shadow"
+Default = "0 .5rem 1rem transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-box-shadow-focus"
+Description = """
+Affects the entire component's box shadowing value when focused.
+"""
+Property = "box-shadow"
+Default = "0 .5rem 1rem var(--color-typography-800)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-box-shadow-focus-inverted"
+Description = """
+Affects the entire component's box shadowing value when focused while in an
+inverted environment (e.g. footer).
+"""
+Property = "box-shadow"
+Default = "0 .5rem 1rem var(--color-typography-200)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-transition"
+Description = """
+Affects the entire component's animation transition value.
+"""
+Property = "transition"
+Default = "var(--timing-rapid)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-transform-focus"
+Description = """
+Affects the entire component's transformation value when focused.
+"""
+Property = "transform"
+Default = "scale(1.1)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-prestige-font-weight"
+Description = """
+Affects the entire '.prestige' tagged component's font weight value.
+"""
+Property = "font-weight"
+Default = "800"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-prestige-text-transform"
+Description = """
+Affects the entire '.prestige' tagged component's text transformation value.
+"""
+Property = "text-transform"
+Default = "uppercase"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-prestige-color-focus"
+Description = """
+Affects the entire '.prestige' tagged component's color value when focused.
+"""
+Property = "color"
+Default = "var(--color-contrast-300)"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-prestige-background"
+Description = """
+Affects the entire '.prestige' tagged component's background value.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--anchor-prestige-background-focused"
+Description = """
+Affects the entire '.prestige' tagged component's background value when focused.
+"""
+Property = "background"
+Default = "transparent"
+Availability = "v0.0.1"
