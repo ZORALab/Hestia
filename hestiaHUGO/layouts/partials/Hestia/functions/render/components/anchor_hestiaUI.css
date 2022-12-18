@@ -152,11 +152,28 @@ a:active {
 	box-shadow: none;
 }
 
-a.wrap {
-	color: initial;
+a.wrap,
+a.wrap:hover,
+a.warp:focus {
+	color: transparent;
 	background: transparent;
-	border-top-color: transparent;
-	border-bottom-color: transparent;
+	border-top: none;
+	border-bottom: none;
+	box-shadow: none;
+}
+
+a.prestige {
+	font-weight: var(--anchor-prestige-font-weight);
+	text-transform: var(--anchor-prestige-text-transform);
+
+	background: var(--anchor-prestige-background);
+}
+
+a.prestige:hover,
+a.prestige:focus {
+	color: var(--anchor-prestige-color-focus);
+	border-color: var(--anchor-prestige-color-focus);
+	background: var(--anchor-prestige-background-focus);
 }
 
 @media print {

@@ -114,3 +114,13 @@
 "--anchor-after-color" = "initial"
 "--anchor-after-text-decoration-color" = "initial"
 "--anchor-after-background" = "initial"
+
+
+
+
+"--anchor-prestige-font-weight" = "800"
+"--anchor-prestige-text-transform" = "uppercase"
+
+"--anchor-prestige-color-focus" = "var(--color-contrast-300)"
+"--anchor-prestige-background" = "transparent"
+"--anchor-prestige-background-focus" = "transparent"
