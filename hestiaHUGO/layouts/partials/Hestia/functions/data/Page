@@ -43,6 +43,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Datastore" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsServerMode" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Is404" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsRoot" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Thumbnails" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Title" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Descriptions" .) -}}
