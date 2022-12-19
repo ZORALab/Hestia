@@ -27,7 +27,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */}}
-	<script type="module">
+	<script>
 {{- if or .Is404 .IsOffline }}
 		let lang = localStorage.getItem('{{- safeJS $key -}}');
 		switch (lang) {
