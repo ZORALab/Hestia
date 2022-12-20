@@ -1,0 +1,37 @@
+{{- $Page := . -}}
+{{- $portrait := "" -}}
+{{- $web := "" -}}
+
+
+<div class='row'>
+	{{- range $i, $v := .Data.Store.Contributors.Developers }}
+		{{- $portrait = merge $Page (dict "Input" (dict "URL" $v.Portrait)) -}}
+		{{- $portrait = partial "Hestia/functions/data/url/Init" $portrait -}}
+		{{- if $portrait.Console -}}
+			{{- $portrait = "" -}}
+		{{- else -}}
+			{{- $portrait = string $portrait.Output -}}
+		{{- end -}}
+
+
+		{{- $web = merge $Page (dict "Input" (dict "URL" $v.Web)) -}}
+		{{- $web = partial "Hestia/functions/data/url/Init" $web -}}
+		{{- if $web.Console -}}
+			{{- $web = "" -}}
+		{{- else -}}
+			{{- $web = string $web.Output -}}
+		{{- end -}}
+
+
+	<div class='column' style='max-width: 200px; margin: 2.5rem;'>
+		{{- if $portrait }}
+		<picture>
+			<img src='{{- $portrait -}}' width='200' height='200' alt='' />
+		</picture>
+		{{- end }}
+		<h3 style='--h3-margin: 0;'>{{- $v.Name -}}</h3>
+		<p>{{- $v.Description -}}</p>
+		<a class='button' href='{{- $web -}}' target='_blank'>{{- $v.Label -}}</a>
+	</div>
+	{{- end }}
+</div>

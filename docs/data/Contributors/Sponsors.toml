@@ -1,0 +1,15 @@
+[JohnsonLam]
+Type = "Person"
+Name = 'Johnson Lam'
+Web = 'https://kakidiy.com/'
+Label = 'Website'
+Description = 'Jack Of All Trades, Leader Of Communities.'
+Portrait = '/img/contributors/contributor-johnson-lam-1200x1200.webp'
+
+[ZORALab]
+Type = 'Organization'
+Name = 'ZORALab'
+Web = 'https://www.zoralab.com'
+Label = 'Website'
+Description = 'Through Knowledge, We Serve.'
+Portrait = '/img/contributors/contributor-zoralab-1200x1200.svg'

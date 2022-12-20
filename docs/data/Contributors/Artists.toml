@@ -1,0 +1,60 @@
+[AnnaTarazevich]
+Type = "Person"
+Name = 'Anna Tarazevich'
+Web = 'https://www.pexels.com/@anntarazevich/'
+Label = 'Pexels'
+Description = '''
+Photographer in Singapore. I'd love to see you there ❤️
+'''
+Portrait = '/img/contributors/pexel-contributor-anna-tarazevich-1200x1200.webp'
+
+[HollowayKeanHo]
+Type = "Person"
+Name = '(Holloway) Chew, Kean Ho'
+Web = 'https://www.hollowaykeanho.com'
+Label = 'Website'
+Description = 'Dare to achieve!'
+Portrait = '/img/contributors/contributor-hollowaykeanho-1200x1200.webp'
+
+[KarolinaGrabowska]
+Type = "Person"
+Name = 'Karolina Grabowska'
+Web = 'https://www.pexels.com/@karolina-grabowska/'
+Label = 'Pexels'
+Description = '''
+A picture is worth a thousand words, and I have 27,000+ of them at:
+Kaboompics.com
+'''
+Portrait = '/img/contributors/pexel-contributor-karolina-grabowska-1200x1200.webp'
+
+[MarkoObrvan]
+Type = "Person"
+Name = 'Marko Obrvan'
+Web = 'https://www.pexels.com/@markiwan/'
+Label = 'Pexels'
+Description = 'My free online gallery - enjoy!'
+Portrait = '/img/contributors/pexel-contributor-marko-obrvan-1200x1200.webp'
+
+[MonicaSilvestre]
+Type = "Person"
+Name = 'Monica Silvestre'
+Web = 'https://www.pexels.com/@monica/'
+Label = 'Pexels'
+Description = 'Community @ Pexels'
+Portrait = '/img/contributors/pexel-contributor-monica-silvestre-1200x1200.webp'
+
+[Pixabay]
+Type = "Organization"
+Name = 'Pixabay'
+Web = 'https://www.pexels.com/@pixabay/'
+Label = 'Pexels'
+Description = 'Find us at pixabay.com!'
+Portrait = '/img/contributors/pexel-contributor-pixabay-1200x1200.webp'
+
+[OliverSjostrom]
+Type = "Person"
+Name = 'Oliver Sjöström'
+Web = 'https://www.pexels.com/@ollivves/'
+Label = 'Pexels'
+Description = ''
+Portrait = '/img/contributors/pexel-contributor-oliver-sjostrom-1200x1200.webp'

@@ -1,8 +1,6 @@
 {
-	"@type": "SoftwareSourceCode",
-	"codeRepository": "https://github.com/ZORALab/Hestia",
-	"programmingLanguage": "Go, TinyGo, Rust, Hugo",
-	"runningPlatform": "any",
+	"schemaVersion": "15.0",
+	"@type": "CreativeWork",
 	"about": "{{- .Descriptions.Page.Pitch -}}",
 	"abstract": "{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}",
 	"accessMode": "diagramOnVisual, textOnVisual, textual, colorDependent",
@@ -22,7 +20,6 @@
 		"location": "Kuala Lumpur, Malaysia",
 		"logo": "https://www.zoralab.com/img/logo/borderless-1200x1200.png"
 	},
-	"schemaVersion": "15.0",
 	"thumbnailUrl": "{{- .Thumbnails.1.Sources.0.URL -}}",
 	"description": "{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}",
 	"image": "{{- .Thumbnails.1.Sources.0.URL -}}",

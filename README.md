@@ -1,11 +1,10 @@
 # ZORALab's Hestia
 ![Banner](artwork/logo/zoralab-hestia-1200x630.svg)
 
-ZORALab's Hestia focuses on unifying all commonly used software libraries under
-a same repository for a peaceful development experiences. The goal is to
-structure the learning experience align to a single pattern and deployment,
-making the advanced software and control development alongside its learning
-experience a lot easier without worrying about supply chain threat.
+Unified software libraries under a common repository for a peaceful realization.
+The goal is to structure the learning experience and tools aligning to a single
+pattern making the development advancement and learning experience a lot
+easier and less worrying about supply chain threat.
 
 Visit its [Official Website](https://hestia.zoralab.com) for its official
 documentations.
@@ -13,9 +12,9 @@ documentations.
 
 
 
-## Installation
+## Getting Started
 To install, please follow this official guide:
-https://hestia.zoralab.com/install
+https://hestia.zoralab.com/getting-started
 
 
 
@@ -27,15 +26,6 @@ https://hestia.zoralab.com/licenses
 Summary:
 1. Codes - <b>OSI compliant Apache 2.0 License</b>
 2. Media (Images, audio, etc) - <b>restricted License</b>
-
-
-
-
-## Code of Conduct
-The official code of conduct documents are made available at:
-https://hestia.zoralab.com/code-of-conduct
-
-In summary: it's <b>contributor covernant version 2.1 adopted</b>
 
 
 

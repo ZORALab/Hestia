@@ -8,8 +8,8 @@
 #   3. Date should ONLY comply to this pattern when manually constructed:
 #                    Thu 21 Jul 2022 14:27:39 PM +08
 [Date]
-Created   = "Tue 13 Dec 2022 02:26:42 PM +08"
-Published = "Tue 13 Dec 2022 02:26:42 PM +08"
+Created   = "Tue 20 Dec 2022 12:49:49 PM +08"
+Published = "Tue 20 Dec 2022 12:49:49 PM +08"
 
 
 
@@ -21,10 +21,10 @@ Published = "Tue 13 Dec 2022 02:26:42 PM +08"
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "{{ .Titles.Site.Current.Full -}}"
+Title = "ZORALab's Hestia"
 Keywords = [
 	"Peaceful Software Library",
-	"Stablity-oriented",
+	"Stablity First",
 	"Hugo",
 	"Go",
 	"TinyGo",
@@ -46,13 +46,12 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = """
-A unified commonly used software libraries for a peaceful development.
-Straight up sales pitch!
+Unified software libraries under a common repository for a peaceful realization.
 """
 Summary = """
-The goal is to structure the learning experience align to a single pattern and
-deployment, making the advanced software and control development alongside its
-learning experience a lot easier without worrying about supply chain threat.
+The goal is to structure the learning experience and tools aligning to a single
+pattern making the development advancement and learning experience a lot
+easier and less worrying about supply chain threat.
 """
 
 

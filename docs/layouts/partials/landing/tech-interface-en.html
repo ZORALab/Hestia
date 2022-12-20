@@ -1,0 +1,36 @@
+{{- $Page := . -}}
+{{- $thumbnail := "" -}}
+{{- $paper := "" -}}
+
+
+<div class='row'>
+	{{- range $i, $v := .Data.Page.Technologies.Interface }}
+		{{- $thumbnail = merge $Page (dict "Input" (dict "URL" $v.Thumbnail)) -}}
+		{{- $thumbnail = partial "Hestia/functions/data/url/Init" $thumbnail -}}
+		{{- if $thumbnail.Console -}}
+			{{- $thumbnail = "" -}}
+		{{- else -}}
+			{{- $thumbnail = string $thumbnail.Output -}}
+		{{- end -}}
+
+
+		{{- $paper = merge $Page (dict "Input" (dict "URL" $v.Paper)) -}}
+		{{- $paper = partial "Hestia/functions/data/url/Init" $paper -}}
+		{{- if $paper.Console -}}
+			{{- $paper = "" -}}
+		{{- else -}}
+			{{- $paper = string $paper.Output -}}
+		{{- end -}}
+
+
+	<div class='column' style='max-width: 200px; margin: 2.5rem;'>
+		{{- if $thumbnail }}
+		<picture>
+			<img src='{{- $thumbnail -}}' width='200' height='200' alt='' />
+		</picture>
+		{{- end }}
+		<h3 style='--h3-margin: 0;'>{{- $v.Name -}}</h3>
+		<p>{{- $v.Deployment -}}</p>
+	</div>
+	{{- end }}
+</div>

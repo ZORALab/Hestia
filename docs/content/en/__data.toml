@@ -1,2 +1,130 @@
-[Table]
-Key = "Value"
+[[Business]]
+Thumbnail = 'mitigate-supply-chain-threat-600x600.webp'
+Benefit = "Mitigate Supply Chain Threat"
+Reason = '''
+Offers as many capabilities in a single source - No more geo-political nuisance;
+after-the-fact cut-throat changes; or other dirty shenanigans.
+'''
+Paper = 'https://doi.org/10.5281/zenodo.6815013'
+
+
+[[Business]]
+Thumbnail = 'decentralized-distribution-600x600.webp'
+Benefit = "Decentralized Distribution"
+Reason = '''
+Distribute using conventional decentralized cryptographically signed archived
+packages: simple, straight-foward, adaptable.
+'''
+Paper = ''
+
+
+[[Business]]
+Thumbnail = 'freedom-to-expand-beyond-600x600.webp'
+Benefit = "Freedom To Expand Beyond"
+Reason = '''
+Develop freely with your local ZORALab's Hestia copy meeting your business
+requirements - don't let our upstream's constraints blocks you.
+'''
+Paper = ''
+
+
+[[Business]]
+Thumbnail = 'continuously-improved-600x600.webp'
+Benefit = "Continuously Improved"
+Reason = '''
+Continuously improved upstream development ZORALab's Hestia by us; released
+using progressive semantic versioning standard practices.
+'''
+Paper = ''
+
+
+[[Business]]
+Thumbnail = 'data-driven-development-600x600.webp'
+Benefit = "Data-Driven Development"
+Reason = '''
+Observable, researchable, testable, measurable, documentable, improvable - our
+standard practices for developing ZORALab's Hestia.
+'''
+Paper = ''
+
+
+[[Business]]
+Thumbnail = 'open-source-freedom-600x600.webp'
+Benefit = "Truly Open Source"
+Reason = '''
+Apache 2.0 licensed code-based products. No dirty tricks and hidden charges.
+Just pure freedom everyone misses for your personal or commercial projects (but
+remember to attribute us back).
+'''
+Paper = 'https://doi.org/10.13140/RG.2.2.27988.30081/1'
+
+
+[[Business]]
+Thumbnail = 'portability-maximized-600x600.webp'
+Benefit = "Portability Maximized"
+Reason = '''
+Be it microprocessor or microcontroller, as long as there is computing
+capability, ZORALab's Hestia wants to be there for the betterment of humanity.
+'''
+Paper = ''
+
+
+[[Business]]
+Thumbnail = 'fly-high-and-beyond-600x600.webp'
+Benefit = "Fly High and Beyond"
+Reason = '''
+As various technologies progress, ZORALab's Hestia always welcome new (real)
+technology changes to improve and move into the future.
+'''
+Paper = ''
+
+
+[[Technologies.Core]]
+Thumbnail = 'hugo.svg'
+Name = 'Hugo'
+Deployment = '''
+A simple and leading compiler for Frontend Web UI Design, Web Content,
+Progressive Web Application deployment.
+'''
+
+
+[[Technologies.Core]]
+Thumbnail = 'go.svg'
+Name = 'Go'
+Deployment = '''
+(UNDER DEVELOPMENT) — A leading simple, secure, scalable programming language
+for concurrency and easy ecosystem integrations supported by Google.
+'''
+
+
+[[Technologies.Core]]
+Thumbnail = 'rust.svg'
+Name = 'Rust'
+Deployment = '''
+(UNDER DEVELOPMENT) — A high-end memory safety and efficiency first programming
+language for building high performing, highly reliable, and high productivity.
+'''
+
+
+[[Technologies.Interface]]
+Thumbnail = 'web.svg'
+Name = 'Web Intefaces'
+Deployment = '''
+A device independent user interface across network.
+'''
+
+
+[[Technologies.Interface]]
+Thumbnail = 'schema-org.svg'
+Name = 'Schema.org'
+Deployment = '''
+A common data structure for easier content parsing and abstractions.
+'''
+
+
+[[Technologies.Interface]]
+Thumbnail = 'pwa.svg'
+Name = 'PWA'
+Deployment = '''
+Progressively improving web applications for seamless integrations and UX.
+'''

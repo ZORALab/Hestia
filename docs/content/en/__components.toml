@@ -49,6 +49,11 @@ Include = true
 Variables = []
 
 [[List]]
+Name = "drawer_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
 Name = "font-NotoSans_hestiaUI"
 Include = true
 Variables = []
@@ -74,11 +79,26 @@ Include = true
 Variables = []
 
 [[List]]
+Name = "button_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
 Name = "badge-shields_hestiaUI"
 Include = true
 Variables = []
 
 [[List]]
 Name = "note_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "card_hestiaUI"
+Include = true
+Variables = []
+
+[[List]]
+Name = "catalog_hestiaUI"
 Include = true
 Variables = []

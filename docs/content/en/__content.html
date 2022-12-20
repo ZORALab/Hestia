@@ -1,0 +1,100 @@
+<main>
+	<section id="introduction">
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>
+			{{ .Descriptions.Page.Pitch }}
+		</p>
+	</section>
+
+
+	<section id="business-values">
+		<h2>Business Values</h2>
+		<p>
+			Done with all the "distruptive and futuristic" pitches
+			whenever a "new" technology is (re-)born, we just want
+			a working, no nonsense, serious, stable, and
+			maintainable software library for our legacy and future
+			projects.
+			<br/><br/>
+			Some good reasons for using ZORALab's Hestia:
+		</p>
+		{{- express "html" "landing/business-en.html" -}}
+	</section>
+
+
+	<section id='technologies-coverage'>
+		<h2>Technologies Coverage</h2>
+		<p>
+			Currently ZORALab's Hestia is supporting and developing
+			for the following technologies. This project is not
+			possible without their contributions.
+		</p>
+
+		<section id='core-technologies'>
+			<h3>Core Technologies</h3>
+			<p>
+				These are the core technologies for deploying
+				many parts of the ZORALab's Hestia libraries:
+			</p>
+			{{- express "html" "landing/tech-core-en.html" -}}
+		</section>
+
+		<section id='interfacing-technologies'>
+			<h3>Interfacing Technologies</h3>
+			<p>
+				With the core technologies, ZORALab's Hestia
+				Project is able to interface and contribute back
+				to these technologies:
+			</p>
+			{{- express "html" "landing/tech-interface-en.html" -}}
+		</section>
+	</section>
+
+
+	<section id='contributors'>
+		<h2>Contributors</h2>
+		<p>
+			The many teams behind this great library project! It
+			cannot be made possible without their various ways of
+			contributions. Credits and thank you for all of them.
+		</p>
+
+
+		<section id='sponsorship'>
+			<h3>Financial Sponsors</h3>
+			<p>
+				All our project financial sponsors.
+			</p>
+			{{- express "html" "landing/contributors-sponsors.html" -}}
+		</section>
+
+
+		<section id='developer'>
+			<h3>Developers</h3>
+			<p>
+				All our codes and researches developers.
+			</p>
+			{{- express "html" "landing/contributors-developers.html" -}}
+		</section>
+
+
+		<section id='artwork'>
+			<h3>Artists</h3>
+			<p>
+				All media artworks artists.
+			</p>
+			{{- express "html" "landing/contributors-artists.html" -}}
+		</section>
+	</section>
+
+
+	<section id='epilogue'>
+		<h2>Convinced?</h2>
+		<p>
+			Freel free to try our for your next project!
+		</p>
+		<a class='button' href='{{- absoluteURL "html" "/en/getting-started" -}}'>Get
+		Started</a>
+	</section>
+</main>
+<!-- line -->{{- parse "html" "assets/html/nav/topbar.html" -}}

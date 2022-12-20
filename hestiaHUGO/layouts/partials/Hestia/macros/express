@@ -33,7 +33,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse input */ -}}
-{{- $dataList = dict "Type" "html" "Data" "" "Path" "" -}}
+{{- $dataList = dict "Type" "html" "Data" "" "Path" false -}}
 {{- range $i, $v := .Input -}}
 	{{- if eq $i 0 -}}
 		{{- $dataList = merge $dataList (dict "Type" $v) -}}
@@ -65,7 +65,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Path */ -}}
 {{- if not (partial "Hestia/functions/data/string/IsString" $dataList.Path) -}}
-	{{- $console = printf "invalid partial filepath (input-0).\n" -}}
+	{{- $console = printf "invalid partial filepath (input-1).\n" -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- $dataList = merge $dataList (dict "Path" "") -}}
