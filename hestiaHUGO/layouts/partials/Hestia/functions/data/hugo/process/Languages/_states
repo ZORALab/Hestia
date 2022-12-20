@@ -16,49 +16,37 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__languages.toml" -}}
+{{- /* .Input.List = processed .Languages.List (dict) */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $Local := dict -}}
-{{- $dataList := . -}}
-{{- $list := slice -}}
-{{- $data := false -}}
-{{- $ret := false -}}
+{{- $current := dict -}}
+{{- $default := dict -}}
+{{- $alternatives := dict -}}
+{{- $dataList := dict -}}
 
 
 
 
-{{- /* parse local config file */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory $CONFIG_FILENAME -}}
-{{- $Local = path.Clean $Local -}}
-{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
-{{- if $Local.Console -}}
-	{{- $Local = dict -}}
-{{- else -}}
-	{{- $Local = $Local.Output -}}
-{{- end -}}
-
-
-
-
-{{- /* source .Langauges data */ -}}
-{{- $list = dict -}}
-{{- range $k, $v := $Local -}}
-	{{- $ret = index $v "URL" -}}
-	{{- if not $ret -}}
-		{{- continue -}}
+{{- /* process all states */ -}}
+{{- range $k, $v := .Input.List -}}
+	{{- if $v.Default -}}
+		{{- $default = $v -}}
 	{{- end -}}
 
-	{{- $list = merge $list (dict (string $k) (dict "URL" (dict "PAGE" $ret))) -}}
+
+	{{- if hasPrefix $Page.Filesystem.Directory $v.Directory -}}
+		{{- $current = $v -}}
+	{{- else if and (not $dataList) $v.Default -}}
+		{{- $current = $v -}}
+	{{- else -}}
+		{{- $alternatives = merge $alternatives (dict $k $v) -}}
+	{{- end -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Languages" (dict "List" $list)) -}}
+{{- $dataList = dict "Current" $current "Alternatives" $alternatives "Default" $default -}}
 
 
 

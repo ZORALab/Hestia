@@ -23,5 +23,26 @@ specific language governing permissions and limitations under the License.
 {{- /* return render */ -}}
 {{- if .Redirect.Enabled }}
 	<meta http-equiv="refresh"
-		content="{{- .Redirect.Delay -}}; url={{- .Redirect.URL -}}" />
+		content="{{- .Redirect.Delay -}}; url={{- string .Redirect.URL -}}" />
+{{- else if .Redirect.Language.Enabled }}
+	<script>
+		window.addEventListener('load', function() {
+			let previous = localStorage.getItem('locale');
+
+			switch (previous) {
+			{{- range $k, $v := .Languages.Alternatives -}}
+				{{- if $v.URL.Page }}
+			case '{{- $v.Code -}}':
+				window.location.href = '{{- $v.URL.Page -}}';
+				{{- end -}}
+			{{- end }}
+			default:
+				window.location.href = '{{- string
+							.Languages.Default.URL.PAGE -}}';
+			}
+		});
+	</script>
+	<meta http-equiv="refresh"
+		content="{{- .Redirect.Delay -}}; url={{- string
+							.Languages.Default.URL.PAGE -}}" />
 {{- end -}}

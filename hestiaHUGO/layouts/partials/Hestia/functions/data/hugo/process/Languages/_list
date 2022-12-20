@@ -137,6 +137,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* park .URL for URL processor to process later */ -}}
+	{{- $data = merge $data (dict "URL" (dict "PAGE" $v.URL.PAGE)) -}}
 	{{- $data = merge $data (dict "URL" (dict "ERROR_404" $v.URL.ERROR_404)) -}}
 	{{- $data = merge $data (dict "URL" (dict "ERROR_OFFLINE" $v.URL.ERROR_OFFLINE)) -}}
 	{{- $data = merge $data (dict "URL" (dict "HOME" (printf "/%s" $data.Directory))) -}}

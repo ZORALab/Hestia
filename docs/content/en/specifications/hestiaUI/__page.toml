@@ -60,9 +60,15 @@ hestiaHUGO products.
 #   2. .Delay timing sets the delay time before redirect. Setting to '0' means
 #      an immediate redirect is requested.
 #   3. Redirect is only available if .Enabled is set to 'true'.
+#   4. Redirect.Language is to redirect the current page to its
+#      language-specific page when Javascript is made available on client side
+#      or fallback to default language.
 [Redirect]
 Delay = 0 # second
 URL = ""
+Enabled = false
+
+[Redirect.Language]
 Enabled = false
 
 

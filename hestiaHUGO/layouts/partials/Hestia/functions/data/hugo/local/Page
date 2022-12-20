@@ -119,16 +119,25 @@ specific language governing permissions and limitations under the License.
 {{- /* source .Redirect */ -}}
 {{- $data = index $Local "Redirect" -}}
 {{- if $data -}}
-	{{- $ret = default 0 (index $Local.Redirect "Delay") -}}
+	{{- $ret = default 0 (index $data "Delay") -}}
 	{{- $dataList = merge $dataList (dict "Redirect" (dict "Delay" $ret)) -}}
 
 
-	{{- $ret = default "" (index $Local.Redirect "URL") -}}
+	{{- $ret = default "" (index $data "URL") -}}
 	{{- $dataList = merge $dataList (dict "Redirect" (dict "URL" $ret)) -}}
 
 
-	{{- $ret = default false (index $Local.Redirect "Enabled") -}}
+	{{- $ret = default false (index $data "Enabled") -}}
 	{{- $dataList = merge $dataList (dict "Redirect" (dict "Enabled" $ret)) -}}
+
+
+	{{- $data = index $data "Language" -}}
+	{{- $ret = false -}}
+	{{- if $data -}}
+		{{- $ret = default false (index $data "Enabled") -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList
+		(dict "Redirect" (dict "Language" (dict "Enabled" $ret))) -}}
 {{- end -}}
 
 

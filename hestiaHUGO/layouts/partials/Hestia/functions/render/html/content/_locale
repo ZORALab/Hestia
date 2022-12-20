@@ -20,15 +20,18 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* prepare working variables for this function */ -}}
+{{- $default := dict -}}
+{{- range $k, $v := .Languages.List -}}
+	{{- if not $v.Default -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $default = $v -}}
+{{- end -}}
+
+
+
+
 {{- /* return render */}}
-	{{- if .Redirect.Enabled }}
-		{{- partial "Hestia/functions/render/html/content/_redirect" . -}}
-	{{- else if .Is404 }}
-		{{- partial "Hestia/functions/render/html/content/_404" . -}}
-	{{- else if .IsOffline }}
-		{{- partial "Hestia/functions/render/html/content/_offline" . -}}
-	{{- else }}
-		{{- partial "Hestia/functions/render/html/content/_locale" . -}}
-		{{- safeHTML .Content.Rendered -}}
-	{{- end }}
 {{- /* clean up */ -}}

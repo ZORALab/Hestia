@@ -39,14 +39,6 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process translate languages */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "List" $dataList.List)) -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Languages/__alternatives" $ret -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
 {{- /* process all URLs */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "List" $dataList.List)) -}}
 {{- $ret = partial "Hestia/functions/data/hugo/process/Languages/__urls" $ret -}}
@@ -55,11 +47,10 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Current */ -}}
+{{- /* process .Current and .Alternatives */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "List" $dataList.List)) -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Languages/_current" $ret -}}
-{{- $dataList = merge $dataList (dict "Current" $ret) -}}
-{{- $dataList = merge $dataList (dict "List" (dict $ret.ID $ret)) -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Languages/_states" $ret -}}
+{{- $dataList = merge $dataList $ret -}}
 
 
 

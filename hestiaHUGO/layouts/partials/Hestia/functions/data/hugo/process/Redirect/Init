@@ -52,6 +52,13 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* process language flag */ -}}
+{{- $ret = partial "Hestia/functions/data/hugo/process/Redirect/_language" . -}}
+{{- $dataList = merge $dataList $ret -}}
+
+
+
+
 {{- /* assemble necessary dependent data */ -}}
 {{- if $dataList.Enabled -}}
 	{{- $ret = dict "Name" "robots" "Content" "noindex" -}}

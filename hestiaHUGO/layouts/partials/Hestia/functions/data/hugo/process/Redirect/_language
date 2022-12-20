@@ -16,31 +16,26 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.List = processed .Languages.List (dict) */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $dataList := false -}}
 
 
 
 
-{{- /* process .Current */ -}}
-{{- $dataList = dict -}}
-{{- range $k, $v := .Input.List -}}
-	{{- if hasPrefix $Page.Filesystem.Directory $v.Directory -}}
-		{{- $dataList = $v -}}
-	{{- else if and (not $dataList) $v.Default -}}
-		{{- $dataList = $v -}}
-	{{- end -}}
+{{- /* process enabled flag */ -}}
+{{- $dataList = false -}}
+{{- if .Redirect.Language.Enabled -}}
+	{{- $dataList = true -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "URL" (dict "PAGE" .URL.Current.Absolute)) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Language" (dict "Enabled" $dataList) -}}
