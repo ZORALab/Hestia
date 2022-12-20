@@ -8,8 +8,8 @@
 #   3. Date should ONLY comply to this pattern when manually constructed:
 #                    Thu 21 Jul 2022 14:27:39 PM +08
 [Date]
-Created   = "Thu 08 Dec 2022 05:55:06 PM +08"
-Published = "Thu 08 Dec 2022 05:55:06 PM +08"
+Created   = "Tue 20 Dec 2022 12:33:45 PM +08"
+Published = "Tue 20 Dec 2022 12:33:45 PM +08"
 
 
 
@@ -41,11 +41,10 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = """
-The entire technical specifications of the ZORALab's Hestia Library.
+Landing page for ZORALab's Hestia's technical specifications and documents.
 """
 Summary = """
-It covers all library suites ZORALab's Hestia has to offer ranging from
-HestiaGO, hestiaRUST, and hestiaHUGO products.
+This page shall redirects you to your chosen language.
 """
 
 
@@ -66,7 +65,7 @@ URL = ""
 Enabled = false
 
 [Redirect.Language]
-Enabled = false
+Enabled = true
 
 
 
