@@ -21,8 +21,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- range $i, $v := .CSS.Include -}}
-{{- if and $v.Media $v.OnLoad }}
+{{- range $i, $v := .CSS.Include -}}{{- if and $v.Media $v.OnLoad }}
 	<link rel="stylesheet"
 		href="{{- safeHTML $v.URL -}}"
 		media="{{- safeHTML $v.Media -}}"
@@ -38,5 +37,4 @@ specific language governing permissions and limitations under the License.
 {{- else }}
 	<link rel="stylesheet"
 		href="{{- safeHTML $v.URL -}}" />
-{{- end -}}
-{{- end -}}
+{{- end -}}{{- end -}}

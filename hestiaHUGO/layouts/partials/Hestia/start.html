@@ -20,27 +20,23 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $dataList := dict -}}
-{{- $console := false -}}
+{{- /* RENDER MAIN PAGE COMPONENTS */ -}}
+{{- partial "Hestia/templates/format.html" . -}}
+{{- partial "Hestia/templates/sitemap-page.xml" . -}}
+{{- partial "Hestia/templates/sitemap.xml" . -}}
 
 
 
 
-{{- /* process page title */ -}}
-{{- $dataList = merge $Page (dict "Input" (dict "Data" .Titles.Page)) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
-{{- if $dataList.Console -}}
-	{{- $console = printf ".Titles.Page: %v" $dataList.Console.Message -}}
-	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- $console = merge . $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- /* RENDER ROOT COMPONENTS */ -}}
+{{- if .IsRoot -}}
+	{{- partialCached "Hestia/templates/robots.txt" . -}}
 {{- end -}}
-{{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 
 
 
 
-{{- /* render output */ -}}
-{{- return dict "Page" $dataList -}}
+{{- /* RENDER OPTIONAL COMPONENTS */ -}}
+{{- if index .Formats "JSON" -}}
+	{{- partial "Hestia/templates/format.json" . -}}
+{{- end -}}

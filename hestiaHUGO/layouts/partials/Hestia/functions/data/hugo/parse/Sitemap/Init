@@ -29,58 +29,29 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse .ChangeFreq */ -}}
-{{- $dataList = merge $dataList (dict "ChangeFreq" .Page.Sitemap.ChangeFreq) -}}
+{{- $dataList = merge $dataList (dict "ChangeFreq" (default "" .Page.Sitemap.ChangeFreq)) -}}
 
 
 
 
 {{- /* parse .Priority */ -}}
-{{- $dataList = merge $dataList (dict "Priority" .Page.Sitemap.Priority) -}}
+{{- $dataList = merge $dataList (dict "Priority" (default -1 .Page.Sitemap.Priority)) -}}
 
 
 
 
-{{- /* parse .Path */ -}}
-{{- if .Page.File -}}
-	{{- $path = path.Dir .Page.File.Path -}}
-	{{- $dataList = merge $dataList (dict "Path" $path) -}}
-{{- end -}}
+{{- /* parse .Filename */ -}}
+{{- $ret = default "" .Site.Data.Hestia.Formats.Sitemap.Page -}}
+{{- $ret = printf "%s%s" $ret ".xml" -}}
+{{- $dataList = merge $dataList (dict "Filename" $path) -}}
 
 
 
 
-{{- /* parse .URL and .Path for both page and index */ -}}
-{{- range $format := .Page.OutputFormats -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/parse/_format" $format -}}
-
-
-	{{- if not (or (eq (lower $ret.Type) "application/xml-page")
-			(eq (lower $ret.Type) "application/xml-index"))
-	 -}}
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- if eq (lower $ret.Type) "application/xml-page" -}}
-		{{- $dataList = merge $dataList (dict "URL" $ret.URL) -}}
-
-		{{- if $path -}}
-			{{- $ret = printf "%s/%s%s" $path $ret.Filename $ret.Extension -}}
-		{{- else -}}
-			{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
-		{{- end -}}
-		{{- $dataList = merge $dataList (dict "Path" $ret) -}}
-	{{- else if eq (lower $ret.Type) "application/xml-index" -}}
-		{{- $dataList = merge $dataList (dict "Index" (dict "URL" $ret.URL)) -}}
-
-		{{- if $path -}}
-			{{- $ret = printf "%s/%s%s" $path $ret.Filename $ret.Extension -}}
-		{{- else -}}
-			{{- $ret = printf "%s%s" $ret.Filename $ret.Extension -}}
-		{{- end -}}
-		{{- $dataList = merge $dataList (dict "Index" (dict "Path" $ret)) -}}
-	{{- end -}}
-{{- end -}}
+{{- /* parse .Index */ -}}
+{{- $ret = default "" .Site.Data.Hestia.Formats.Sitemap.Index -}}
+{{- $ret = printf "%s%s" $ret ".xml" -}}
+{{- $dataList = merge $dataList (dict "Index" $path) -}}
 
 
 

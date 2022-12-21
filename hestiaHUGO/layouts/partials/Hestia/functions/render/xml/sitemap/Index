@@ -30,16 +30,18 @@ specific language governing permissions and limitations under the License.
 {{- /* return render */ -}}
 {{- safeHTML (printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>") }}
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{- if not (or .Redirect.Enabled .Redirect.Language.Enabled) }}
 	<sitemap>
-		<loc>{{- .Sitemap.URL -}}</loc>
+		<loc>{{- printf "%s%s" .URL.Current.Absolute .Sitemap.Filename -}}</loc>
 		<lastmod>{{- .Time.Updated.RFC3339 -}}</lastmod>
 	</sitemap>
+{{- end -}}
 {{- range $i, $v := .Nav.Children }}
-	{{- if $v.Redirect.Enabled -}}
+	{{- if or $v.Redirect.Enabled $v.Redirect.Language.Enabled -}}
 		{{- continue -}}
 	{{- end }}
 	<sitemap>
-		<loc>{{- $v.Sitemap.Index.URL -}}</loc>
+		<loc>{{- printf "%s%s" $v.URL.Current.Absolute $Page.Sitemap.Index -}}</loc>
 		<lastmod>{{- safeHTML $v.Time.Updated.RFC3339 -}}</lastmod>
 	</sitemap>
 {{- end }}

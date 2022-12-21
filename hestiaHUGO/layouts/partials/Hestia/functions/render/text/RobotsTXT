@@ -28,7 +28,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Sitemap */ -}}
-{{- range $i, $v := .Sitemaps -}}
+{{- range $i, $v := .RobotsTXT.Sitemaps -}}
 	{{- $lines = append (printf "Sitemap: %s" $v) $lines -}}
 {{- end -}}
 {{- $lines = append "" $lines -}}
@@ -37,7 +37,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process user-agent 'All' (*) first */ -}}
-{{- range $i, $v := .List -}}
+{{- range $i, $v := .RobotsTXT.List -}}
 	{{- if eq $v.Name "*" -}}
 		{{- $lines = append (printf "User-agent: %s" $v.Name) $lines -}}
 
@@ -62,7 +62,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process all other non user-agent 'All' (*) */ -}}
-{{- range $i, $v := .List -}}
+{{- range $i, $v := .RobotsTXT.List -}}
 	{{- if eq $v.Name "*" -}}
 		{{- continue -}}
 	{{- end -}}

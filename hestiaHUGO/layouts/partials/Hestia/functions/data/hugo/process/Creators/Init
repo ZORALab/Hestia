@@ -25,28 +25,62 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Creators" false) -}}
 {{- $Page = merge $Page (dict "Creators" dict) -}}
 {{- $dataList := dict -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* process .All */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Creators/_all" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Creators.All -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Creators/__creator" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Creators.All: %v: %v" $k $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $list = merge $list (dict $k $ret.Output) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "All" $list) -}}
 
 
 
 
 {{- /* process .Site */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Creators/_site" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Creators.Site -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Creators/__creator" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Creators.Site: %v: %v" $k $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $list = merge $list (dict $k $ret.Output) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Site" $list) -}}
 
 
 
 
 {{- /* process .Page */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Creators/_page" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $list = dict -}}
+{{- range $k, $v := .Creators.Page -}}
+	{{- $ret = merge $Page (dict "Input" $v) -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/process/Creators/__creator" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Creators.Page: %v: %v" $k $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict $k $ret.Output) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Page" $list) -}}
 
 
 

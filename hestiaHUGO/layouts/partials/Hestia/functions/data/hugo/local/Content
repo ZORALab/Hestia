@@ -26,42 +26,29 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $Local := dict -}}
-{{- $Site := slice -}}
 {{- $dataList := dict -}}
-{{- $list := slice -}}
-{{- $data := false -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* parse local config file */ -}}
-{{- $Local = printf "%s/%s%s"
-	.Filesystem.Directory $CONFIG_FILENAME .Formats.Current.Extension
--}}
-{{- $Local = path.Clean $Local -}}
-{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseFile" $Local -}}
-{{- if $Local.Console -}}
-	{{- $Local = "" -}}
-{{- else -}}
-	{{- $Local = string $Local.Output -}}
+{{- range $k, $v := .Formats -}}
+	{{- $Local = printf "%s/%s%s"
+			$Page.Filesystem.Directory $CONFIG_FILENAME $v.Extension -}}
+	{{- $Local = path.Clean $Local -}}
+	{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
+	{{- $Local = partial "Hestia/functions/data/filesystem/ParseFile" $Local -}}
+	{{- if $Local.Console -}}
+		{{- $Local = "" -}}
+	{{- else -}}
+		{{- $Local = string $Local.Output -}}
+	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict $k $Local) -}}
 {{- end -}}
-
-
-{{- if $Local -}}
-	{{- $dataList = dict "Rendered" $Local "Raw" $Local -}}
-{{- end -}}
-
-
-
-
-{{- /* update page datalist to match the latest */ -}}
-{{- if $dataList -}}
-	{{- $dataList = merge . (dict "Content" $dataList) -}}
-{{- else -}}
-	{{- $dataList = . -}}
-{{- end -}}
+{{- $dataList = merge . (dict "Content" $dataList) -}}
 
 
 

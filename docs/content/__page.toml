@@ -21,7 +21,7 @@ Published = "Tue 20 Dec 2022 05:23:29 AM +08"
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "{{ .Titles.Site.Current.Full -}}"
+Title = "ZORALab's Hestia"
 Keywords = [
 	"ZORALab Hestia",
 	"All-in-One Software Libraries",

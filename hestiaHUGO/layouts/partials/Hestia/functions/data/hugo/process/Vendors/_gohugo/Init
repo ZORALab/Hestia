@@ -21,6 +21,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
 
@@ -28,8 +29,15 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Version */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Vendors/_gohugo/_version" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .Vendors.GoHugo.Version)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf ".Vendors.GoHugo.Version: %v" $ret.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Version" $ret) -}}
 
 
 

@@ -21,9 +21,9 @@ contentDir = "content"
 assetDir = "assets"
 dataDir = "data"
 staticDir = [
-        "static",
-        "../archives",
-        "../hestiaHUGO/fonts/hestiaUI_font-NotoSans",
+	"static",
+	"../archives",
+	"../hestiaHUGO/fonts/hestiaUI_font-NotoSans",
 ]
 layoutDir = "layouts"
 themesDir = "../"

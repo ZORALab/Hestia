@@ -20,5 +20,6 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* render outputs */ -}}
 {{- $Page := partial "Hestia/functions/data/Page" . -}}
-{{- partial "Hestia/templates/format.html" $Page -}}
+{{- partial "Hestia/start.html" $Page -}}

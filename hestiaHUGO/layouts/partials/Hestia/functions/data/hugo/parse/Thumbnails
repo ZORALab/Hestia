@@ -28,10 +28,10 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source site-level thumbnails data if unavailable */ -}}
-{{- range $i, $v := .Site.Data.Hestia.Thumbnails.Contents -}}
+{{- range $k, $v := .Site.Data.Hestia.Thumbnails.Contents -}}
 	{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $v -}}
 	{{- if $ret -}}
-		{{- $dataList = merge $dataList (dict (lower $i) $ret) -}}
+		{{- $dataList = merge $dataList (dict (string $k) $ret) -}}
 	{{- end -}}
 {{- end -}}
 

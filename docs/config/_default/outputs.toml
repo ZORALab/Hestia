@@ -1,9 +1,0 @@
-# Hestia requires 'XSITEMAP' and 'SITEMAP' at all times.
-# You may alter any other output types:
-#   (1) 'HTML'
-#   (2) 'JSON'
-home = [ "XSITEMAP", "SITEMAP", "HTML", "JSON" ]
-page = [ "XSITEMAP", "SITEMAP", "HTML", "JSON" ]
-section = [ "XSITEMAP", "SITEMAP", "HTML", "JSON" ]
-taxonomy = [ "XSITEMAP", "SITEMAP", "HTML", "JSON" ]
-term = [ "XSITEMAP", "SITEMAP", "HTML", "JSON" ]

@@ -26,6 +26,7 @@ specific language governing permissions and limitations under the License.
 
 
 
+
 {{- /* render output */}}
 	<script>
 {{- if or .Is404 .IsOffline }}

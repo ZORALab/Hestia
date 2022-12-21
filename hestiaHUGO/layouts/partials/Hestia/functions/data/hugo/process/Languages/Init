@@ -55,5 +55,29 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* update .Current URL */ -}}
+{{- if not $dataList.Current.URL.PAGE -}}
+	{{- $dataList = merge $dataList
+		(dict "Current" (dict "URL" (dict "PAGE" .URL.Current.Absolute))) -}}
+{{- end -}}
+
+
+{{- $dataList = merge $dataList
+	(dict "List"
+	(dict $dataList.Current.ID
+	(dict "URL"
+	(dict "PAGE" .URL.Current.Absolute)))) -}}
+
+
+{{- if eq $dataList.Current.ID $dataList.Default.ID -}}
+	{{- if not $dataList.Default.URL.PAGE -}}
+		{{- $dataList = merge $dataList
+			(dict "Default" (dict "URL" (dict "PAGE" .URL.Current.Absolute))) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return merge $Page (dict "Languages" $dataList) -}}

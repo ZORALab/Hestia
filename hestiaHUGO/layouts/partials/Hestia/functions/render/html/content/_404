@@ -25,9 +25,7 @@ specific language governing permissions and limitations under the License.
 		<h2>404 Not Found.</h2>
 		<p>
 			Sorry, can't find what you're looking for! Head back?
-			<a href="{{- .URL.Base -}}">
-			Head back?
-			</a>
+			<a href="{{- .URL.Base -}}">Head back?</a>
 		</p>
 	</main>
 {{- /* clean up */ -}}

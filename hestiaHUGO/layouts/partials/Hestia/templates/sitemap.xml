@@ -20,5 +20,19 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* generate all sitemap.xml files across each pages */ -}}
-{{- partial "Hestia/functions/render/xml/sitemap/Index" . -}}
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+{{- $path := .Sitemap.Index -}}
+
+
+
+
+{{- /* generate sitemap.xml */ -}}
+{{- if .Filesystem.Directory -}}
+	{{- $path = lower (printf "%s/%s" .Filesystem.Directory $path) -}}
+{{- end -}}
+
+
+{{- $dataList = string (partial "Hestia/functions/render/xml/sitemap/Index" .) -}}
+{{- $dataList = merge . (dict "Input" (dict "Content" $dataList "Path" $path)) -}}
+{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}

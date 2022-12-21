@@ -25,21 +25,52 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Data" false) -}}
 {{- $Page = merge $Page (dict "Data" dict) -}}
 {{- $dataList := dict -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 
 
 
 
 {{- /* process store data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Data/_store" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $dataList = merge $dataList (dict "Store" .Data.Store) -}}
 
 
 
 
 {{- /* process page data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Data/_page" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $list = dict -}}
+{{- range $i, $v := .Data.Page -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- else if partial "Hestia/functions/data/list/IsMap" $v -}}
+		{{- $ret = index $v "Filename" -}}
+	{{- else if partial "Hestia/functions/data/string/IsString" $v -}}
+		{{- $ret = $v -}}
+	{{- else -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseDataFile" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Data.Page: %v" $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+
+	{{- if $ret -}}
+		{{- $list = merge $list $ret -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Page" $list) -}}
 
 
 

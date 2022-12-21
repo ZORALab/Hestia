@@ -48,6 +48,7 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 	{{- end -}}
 
+
 	{{- if $ret -}}
 		{{- $ret = merge $ret $v.Variables -}}
 	{{- else -}}
@@ -71,6 +72,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $data -}}
 		{{- $data = printf "%s\n" $data -}}
 	{{- end -}}
+
 
 	{{- $data = printf "%s%s: %v;" $data $k $v -}}
 {{- end -}}

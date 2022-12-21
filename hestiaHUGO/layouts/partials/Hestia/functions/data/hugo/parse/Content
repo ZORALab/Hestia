@@ -20,11 +20,5 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict "Rendered" "" "Raw" "" -}}
-
-
-
-
 {{- /* render output */ -}}
-{{- return dict "Content" $dataList -}}
+{{- return dict "Content" dict -}}

@@ -22,17 +22,64 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := slice -}}
+{{- $data := dict -}}
+{{- $sitemaps := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* parse .List */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/RobotsTXT/_list" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- /* source data from robots.txt files data source */ -}}
+{{- range $agent, $rules := .Page.Site.Data.Hestia.Robots -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process .Name */ -}}
+	{{- $data = dict "Name" $agent -}}
+
+
+	{{- /* process rules and orders */ -}}
+	{{- range $order, $rule := $rules -}}
+		{{- if eq (lower $order) "sitemap" -}}
+			{{- $ret = slice -}}
+			{{- range $i, $v := $rule -}}
+				{{- $sitemaps = merge $sitemaps (dict $v true) -}}
+			{{- end -}}
+		{{- else if eq (lower $order) "allow" -}}
+			{{- $ret = slice -}}
+			{{- range $i, $v := $rule -}}
+				{{- $ret = append $v $ret -}}
+			{{- end -}}
+
+			{{- $data = merge $data (dict "Allow" $ret) -}}
+		{{- else if eq (lower $order) "disallow" -}}
+			{{- $ret = slice -}}
+			{{- range $i, $v := $rule -}}
+				{{- $ret = append $v $ret -}}
+			{{- end -}}
+
+			{{- $data = merge $data (dict "Disallow" $ret) -}}
+		{{- else if eq (lower $order) "crawl-delay" -}}
+			{{- $data = merge $data (dict "CrawlDelay" $rule) -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+
+
+
+
+{{- /* convert $sitemaps back to slice type */ -}}
+{{- $ret = $sitemaps -}}
+{{- $sitemaps = slice -}}
+{{- range $k, $v := $ret -}}
+	{{- $sitemaps = append $k $sitemaps -}}
+{{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "RobotsTXT" (dict "List" $dataList "Sitemaps" $sitemaps) -}}

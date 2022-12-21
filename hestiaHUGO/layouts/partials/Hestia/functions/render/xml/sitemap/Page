@@ -26,22 +26,14 @@ specific language governing permissions and limitations under the License.
 
 
 
-
 {{- /* return render */ -}}
 {{- safeHTML (printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>") }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 	xmlns:xhtml="http://www.w3.org/1999/xhtml">
-	{{- range $k, $v := .Formats.List -}}
-		{{- if eq $v.URL $Page.Formats.Current.URL -}}
-			{{- continue -}}
-		{{- end -}}
-
-
-		{{- if strings.Contains (lower $v.Extension) "sitemap" -}}
-			{{- continue -}}
-		{{- end }}
+	{{- range $k, $v := .Formats -}}
 	<url>
-		<loc>{{- safeHTML $v.URL -}}</loc>
+		<loc>{{- string (printf "%s%s%s"
+				$Page.URL.Current.Absolute $v.Filename $v.Extension) -}}</loc>
 		<lastmod>{{- safeHTML $Page.Time.Updated.RFC3339 -}}</lastmod>
 
 
@@ -50,7 +42,7 @@ specific language governing permissions and limitations under the License.
 		{{- end }}
 
 
-		{{- if and (gt $Page.Sitemap.Priority 0.0) (lt $Page.Sitemap.Priority 1.0) }}
+		{{- if gt $Page.Sitemap.Priority 0.0 }}
 		<priority>{{- $Page.Sitemap.Priority -}}</priority>
 		{{- end -}}
 

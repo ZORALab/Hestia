@@ -1,0 +1,72 @@
+# HESTIA MULTIPLE FORMATS CONFIGURATIONS
+# ======================================
+# Due to the various modes of presenting a page, Hestia takes over Hugo's role
+# of generating all necessary output files for the entire repository.
+
+
+
+
+# By default, ZORALab's Hestia uses discovery methods to handle the entire
+# repository without hardcoding into a single file (that will hit hard limits
+# of 50000 URLs). There will be 2 files for EACH PAGE:
+#   1. 'Index' type - (the conventional 'sitemap.xml') for discovery where it
+#                     lists its current page alongside all child pages' 'Index'
+#                     sitemap XML files.
+#   2. 'Page' type  - content of the current page's sitemap data that will be
+#                     mapped into its corresponding 'Index' sitemap.
+#
+# When summitting to SEO engine, please ONLY submit the 'Index' one at the root
+# of the repository. Supported engine shall be able to self-discover recursively
+# down your directories.
+#
+# File extension shall always be '.xml'. E.g. if 'Index' is 'sitemap', the
+# generated output filename is 'sitemap.xml'.
+[Sitemap]
+Index = 'sitemap'
+Page = 'sitemap-page'
+
+
+
+
+# By default, ZORALab's Hestia only generates the following outputs listed in
+# .List map table. Example:
+#
+#        [List.HTML]
+#        Type = 'text/html'
+#        Filename = 'index'
+#        Extension = '.html'
+#        Protocol = 'http://'
+#        Relationship = 'canonical'
+#
+# Explaination:
+# [List.{NAME}]            - unique name for the format type. Will be
+#                            transformed into uppercase (e.g. 'html' -> 'HTML').
+#                            If more than 2 tables with same name appeared,
+#                            either error shall be raised or the latest shall
+#                            dominate the former.
+# List.{NAME}.Type         - MIME type value in lowercase (e.g. 'text/html').
+# List.{NAME}.Filename     - Filename of the generated output (e.g. 'index').
+# List.{NAME}.Extension    - File extension of the generated output (e.g. '.html').
+# List.{NAME}.Protocol     - URL protocol for browsing the file (e.g. 'https://').
+# List.{NAME}.Relationship - Relationship to the index.html file (e.g. 'alternate').
+#
+#
+# IMPORTANT NOTE:
+# 1. 'HTML' is always being rendered by default. Hence, DO NOT REMOVE OR
+#    OVERWRITE IT.
+# 2. To disable a format (e.g. 'JSON'), simply remove/comment the entire table
+#    off the list.
+[List.HTML]
+Type = 'text/html'
+Filename = 'index'
+Extension = '.html'
+Protocol = 'http://'
+Relationship = 'canonical'
+
+
+[List.JSON]
+Type = 'application/json'
+Filename = 'index'
+Extension = '.json'
+Protocol = 'http://'
+Relationship = 'alternate'

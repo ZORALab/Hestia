@@ -26,20 +26,25 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Content" dict) -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
-
-
-
-
-{{- /* process .Raw */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Content/_raw" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $console := false -}}
 
 
 
 
 {{- /* process .Rendered */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/Content/_rendered" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- range $k, $v := .Content -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Content: %v" $ret.Console -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+
+	{{- $dataList = merge $dataList (dict (upper (string $k)) $ret) -}}
+{{- end -}}
 
 
 

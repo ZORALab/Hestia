@@ -22,70 +22,62 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* merge page title data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_title" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- /* construct page metadata */ -}}
+{{- $dataList = merge $dataList (dict "title" (string .Titles.Page)) -}}
+{{- $dataList = merge $dataList (dict "description" (string .Descriptions.Page.Pitch)) -}}
+{{- $dataList = merge $dataList (dict "keywords" .Keywords.List) -}}
+{{- $dataList = merge $dataList (dict "url" (string .URL.Current.Absolute)) -}}
+{{- $dataList = merge $dataList (dict "locale"
+	(partial "Hestia/functions/render/json/Language" .Languages.Current)) -}}
 
 
+{{- $list = slice -}}
+{{- range $k, $v := .Formats -}}
+	{{- $ret = dict -}}
+	{{- $ret = merge $ret (dict "name" (string $k)) -}}
+	{{- $ret = merge $ret (dict "type" (string $v.Type)) -}}
+	{{- $ret = merge $ret (dict "url" (string $v.URL)) -}}
+	{{- $ret = merge $ret (dict "relationship" (string $v.Relationship)) -}}
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "formats" $list) -}}
 
 
-{{- /* merge page description data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_description" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- if .Redirect.Enabled -}}
+	{{- $ret = dict "url" (string .Redirect.URL) "enabled" true -}}
+{{- else if .Redirect.Language.Enabled -}}
+	{{- $ret = default .Languages.Current.URL.ERROR_404 .Languages.Current.URL.PAGE -}}
+	{{- $ret = dict "url" (string $ret) "enabled" true -}}
+{{- else -}}
+	{{- $ret = dict "url" "" "enabled" true -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "redirect" $ret) -}}
 
 
+{{- $list = slice -}}
+{{- range $k, $v := .Languages.List -}}
+	{{- if not (string $v.URL.PAGE) -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = partial "Hestia/functions/render/json/Language" $v -}}
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "languages" $list) -}}
 
 
-{{- /* merge page format data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_format" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page keywords data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_keywords" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page redirect data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_redirect" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page alternate languages data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_languages" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page url data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_url" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page thumbnails data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_thumbnails" . -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
-
-
-{{- /* merge page locale data */ -}}
-{{- $ret = partial "Hestia/functions/render/json/meta/_locale" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $list = slice -}}
+{{- range $i, $v := .Thumbnails -}}
+	{{- $ret = partial "Hestia/functions/render/json/Media" $v -}}
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "thumbnails" $list) -}}
 
 
 

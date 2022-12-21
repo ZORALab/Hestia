@@ -32,7 +32,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process list */ -}}
 {{- $dataList = slice -}}
-{{- range $i, $v := .List -}}
+{{- range $i, $v := .RobotsTXT.List -}}
 	{{- $data = dict -}}
 
 

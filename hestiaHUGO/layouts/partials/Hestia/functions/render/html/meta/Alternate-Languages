@@ -32,10 +32,11 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- if not $v.URL.PAGE -}}
+
+	{{- if not (string $v.URL.PAGE) -}}
 		{{- continue -}}
 	{{- end }}
 	<link rel="alternate"
 		hrefLang="{{- $v.Code -}}"
-		href="{{- $v.URL.PAGE -}}" />
+		href="{{- (string $v.URL.PAGE) -}}" />
 {{- end -}}

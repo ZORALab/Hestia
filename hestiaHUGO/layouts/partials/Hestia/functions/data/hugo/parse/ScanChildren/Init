@@ -15,36 +15,33 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* . = Hugo data structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $console := dict -}}
 {{- $dataList := dict -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* run through each page-level creator */ -}}
-{{- $dataList = dict -}}
-{{- range $k, $v := .Creators.Page -}}
-	{{- $ret = merge $Page (dict "Input" $v) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/process/Creators/__creator" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $console = printf "Creators: %v: %v" $k $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- end -}}
-	{{- $dataList = merge $dataList (dict $k $ret.Output) -}}
+{{- /* begin scanning all childrens */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := .Page.Pages -}}
+	{{- /* parse basic metadata */ -}}
+	{{- $ret = partial "Hestia/functions/data/Metadata" $v -}}
+
+
+	{{- /* append to list */ -}}
+	{{- $list = append $ret $list -}}
 {{- end -}}
+{{- $dataList = merge $dataList (dict "Children" $list) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Page" $dataList -}}
+{{- return dict "Nav" $dataList -}}

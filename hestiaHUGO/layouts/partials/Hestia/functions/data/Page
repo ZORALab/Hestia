@@ -54,11 +54,13 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/CSS" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/JS" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Robots" .) -}}
+{{- $dataList = merge $dataList
+	(partialCached "Hestia/functions/data/hugo/parse/RobotsTXT/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Redirect" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/WASM" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Vendors/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Data" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Nav/Init" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/ScanChildren/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/LDJSON" .) -}}
 
@@ -105,6 +107,8 @@ specific language governing permissions and limitations under the License.
 
 {{- /* BEGIN POST PROCESSING - Hestia data processing ended beyond this line */ -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Robots/Init" $dataList -}}
+{{- $dataList = merge $dataList
+	(partialCached "Hestia/functions/data/hugo/process/RobotsTXT/Init" $dataList) -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Data/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Content/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/LDJSON/Init" $dataList -}}

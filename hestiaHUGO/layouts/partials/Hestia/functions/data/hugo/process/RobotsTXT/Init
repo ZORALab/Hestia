@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Hestia RobotsTXT Data Structure */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
@@ -42,4 +42,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return (dict "RobotsTXT" $dataList) -}}

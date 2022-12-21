@@ -22,42 +22,28 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
-{{- $list := dict -}}
+{{- $data := dict -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* obtain list of alternative formats  */ -}}
-{{- $list = dict -}}
-{{- range $format := .Page.AlternativeOutputFormats -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/parse/_format" $format -}}
-	{{- $list = merge $list (dict $ret.Name $ret) -}}
+{{- /* parse from datastore */ -}}
+{{- range $k, $v := .Site.Data.Hestia.Formats.List -}}
+	{{- $data := dict -}}
+	{{- $data = merge $data (dict "Type" (default "" $v.Type)) -}}
+	{{- $data = merge $data (dict "Filename" (default "" $v.Filename)) -}}
+	{{- $data = merge $data (dict "Extension" (default "" $v.Extension)) -}}
+	{{- $data = merge $data (dict "Protocol" (default "" $v.Protocol)) -}}
+	{{- $data = merge $data (dict "Relationship" (default "alternate" $v.Relationship)) -}}
+
+
+	{{- /* save to $dataList */ -}}
+	{{- $dataList = merge $dataList (dict $k $data) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Alternatives" $list) -}}
-
-
-
-
-{{- /* scan for current and all output formats */ -}}
-{{- $ret = false -}}
-{{- $list = dict -}}
-{{- range $format := .Page.OutputFormats -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/parse/_format" $format -}}
-
-
-	{{- if not (index $dataList.Alternatives $format.Name) -}}
-		{{- $dataList = merge $dataList (dict "Current" $ret) -}}
-	{{- end -}}
-
-
-	{{- $list = merge $list (dict $ret.Name $ret) -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "List" $list) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- $dataList = dict "List" $dataList.List "Current" $dataList.Current -}}
 {{- return dict "Formats" $dataList -}}

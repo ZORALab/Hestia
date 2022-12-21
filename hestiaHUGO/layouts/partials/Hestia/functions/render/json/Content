@@ -27,7 +27,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source data */ -}}
-{{- $dataList = dict "content" .Data.Page -}}
+{{- $dataList = .Content.JSON -}}
+{{- if not $dataList -}}
+	{{- $dataList = merge $dataList (partial "Hestia/functions/render/json/meta/Init" .) -}}
+	{{- $dataList = merge $dataList (dict "content" .Data.Page) -}}
+{{- end -}}
 
 
 
