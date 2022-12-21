@@ -60,11 +60,11 @@ This page shall redirects you to your chosen language.
 #      or fallback to default language.
 [Redirect]
 Delay = 0 # second
-URL = ""
-Enabled = false
+URL = "/en/licenses"
+Enabled = true
 
 [Redirect.Language]
-Enabled = true
+Enabled = false
 
 
 

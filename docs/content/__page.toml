@@ -67,11 +67,11 @@ learning experience a lot easier without worrying about supply chain threat.
 #      or fallback to default language.
 [Redirect]
 Delay = 0 # second
-URL = ""
-Enabled = false
+URL = "/en"
+Enabled = true
 
 [Redirect.Language]
-Enabled = true
+Enabled = false
 
 
 
