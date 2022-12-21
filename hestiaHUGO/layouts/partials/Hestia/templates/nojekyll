@@ -20,24 +20,6 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* RENDER MAIN PAGE COMPONENTS */ -}}
-{{- partial "Hestia/templates/format.html" . -}}
-{{- partial "Hestia/templates/sitemap-page.xml" . -}}
-{{- partial "Hestia/templates/sitemap.xml" . -}}
-
-
-
-
-{{- /* RENDER ROOT COMPONENTS */ -}}
-{{- if .IsRoot -}}
-	{{- partialCached "Hestia/templates/robots.txt" . -}}
-	{{- partialCached "Hestia/templates/nojekyll" . -}}
-{{- end -}}
-
-
-
-
-{{- /* RENDER OPTIONAL COMPONENTS */ -}}
-{{- if index .Formats "JSON" -}}
-	{{- partial "Hestia/templates/format.json" . -}}
-{{- end -}}
+{{- /* generate .nojekyll */ -}}
+{{- $dataList := merge . (dict "Input" (dict "Content" "No Jekyll" "Path" ".nojekyll")) -}}
+{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
