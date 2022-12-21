@@ -69,14 +69,6 @@ Source = '{{- .DestinationDir -}}/{{- .MainLang -}}/404.html'
 Target = '{{- .DestinationDir -}}/404.html'
 
 [[CMD]]
-Name = "Script No Jekyll file for Github compatibility"
-Type = "script"
-Condition = [ 'all-all' ]
-Location = '{{- .SourceDir -}}'
-Source = 'No Jekyll'
-Target = '{{- .DestinationDir -}}/.nojekyll'
-
-[[CMD]]
 Name = "Copy GitLab CI if available"
 Type = 'copy-quiet'
 Condition = [ 'all-all' ]
