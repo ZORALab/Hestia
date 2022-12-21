@@ -1,6 +1,10 @@
 <nav class='top-drawer' style='
-	--top-drawer-height: 7rem;
-	--top-drawer-height-opened: 7rem;
+	--top-drawer-min-height: 9rem;
+	--top-drawer-min-height-opened: 9rem;
+	--top-drawer-height: 10%;
+	--top-drawer-height-opened: 10%;
+	--top-drawer-max-height: 100rem;
+	--top-drawer-max-height-opened: 100rem;
 	--border-radius: 0;
 	box-shadow: 0 1rem 1.3rem var(--color-typography-200);'>
 	<input type='checkbox' checked />
@@ -10,21 +14,24 @@
 		--drawer-background: var(--color-primary-800);
 		--anchor-color: var(--color-typography-50);
 	'>
-		<div class='row' style='--grid-gap: 1.5rem; --grid-column-margin: auto 0;'>
+		<div class='row' style='
+			--grid-gap: 2.5rem;
+			--grid-column-margin: auto 0;
+			--anchor-font-size: 2.5rem;'>
 			<div class='column'>
 				<a class='prestige'
-				href='{{- absoluteURL "html" "/licenses" -}}'>Licenses</a>
+				href='{{- absoluteURL "html" "/en/licenses" -}}'>Licenses</a>
 			</div>
 
 
 			<div class='column'>
 				<a class='prestige'
-				href='{{- absoluteURL "html" "/releases" -}}'>Releases</a>
+				href='{{- absoluteURL "html" "/en/releases" -}}'>Releases</a>
 			</div>
 
 
 			<div class='column'>
-				<a class='wrap' href='{{- absoluteURL "html" "/" -}}'>
+				<a class='wrap' href='{{- absoluteURL "html" "/en" -}}'>
 					<img src='{{- absoluteURL "html"
 					"/img/logo/zoralab-hestia-logo-1200x1200.svg" -}}'
 						alt="ZORALab's Hestia"
@@ -36,13 +43,14 @@
 
 			<div class='column'>
 				<a class='prestige'
-				href='{{- absoluteURL "html" "/getting-started" -}}'>Start</a>
+				href='{{- absoluteURL "html" "/en/getting-started" -}}'>
+				Getting Started</a>
 			</div>
 
 
 			<div class='column'>
 				<a class='prestige'
-				href='{{- absoluteURL "html" "/docs" -}}'>Docs</a>
+				href='{{- absoluteURL "html" "/en/docs" -}}'>Docs</a>
 			</div>
 		</div>
 	</div>
