@@ -86,6 +86,7 @@ Deployment = '''
 A simple and leading compiler for Frontend Web UI Design, Web Content,
 Progressive Web Application deployment.
 '''
+Intro = '/en/hugo'
 
 
 [[Technologies.Core]]
@@ -95,6 +96,7 @@ Deployment = '''
 (UNDER DEVELOPMENT) — A leading simple, secure, scalable programming language
 for concurrency and easy ecosystem integrations supported by Google.
 '''
+Intro = ''
 
 
 [[Technologies.Core]]
@@ -104,6 +106,7 @@ Deployment = '''
 (UNDER DEVELOPMENT) — A high-end memory safety and efficiency first programming
 language for building high performing, highly reliable, and high productivity.
 '''
+Intro = ''
 
 
 [[Technologies.Interface]]
@@ -127,4 +130,13 @@ Thumbnail = 'pwa.svg'
 Name = 'PWA'
 Deployment = '''
 Progressively improving web applications for seamless integrations and UX.
+'''
+
+
+[[Technologies.Interface]]
+Thumbnail = 'wasm.svg'
+Name = 'WASM'
+Deployment = '''
+Next generation web and network-based UI technologies with conventional
+programming languages.
 '''

@@ -1,6 +1,7 @@
 {{- $Page := . -}}
 {{- $thumbnail := "" -}}
 {{- $paper := "" -}}
+{{- $intro := "" -}}
 
 
 <div class='row'>
@@ -11,6 +12,15 @@
 			{{- $thumbnail = "" -}}
 		{{- else -}}
 			{{- $thumbnail = string $thumbnail.Output -}}
+		{{- end -}}
+
+
+		{{- $intro = merge $Page (dict "Input" (dict "URL" $v.Intro)) -}}
+		{{- $intro = partial "Hestia/functions/data/url/Init" $intro -}}
+		{{- if $intro.Console -}}
+			{{- $intro = "" -}}
+		{{- else -}}
+			{{- $intro = string $intro.Output -}}
 		{{- end -}}
 
 
@@ -31,6 +41,10 @@
 		{{- end }}
 		<h3 style='--h3-margin: 0;'>{{- $v.Name -}}</h3>
 		<p>{{- $v.Deployment -}}</p>
+		{{- if $intro }}
+		<br/>
+		<a class='button' href='{{- $intro -}}'>EXPLORE</a>
+		{{- end }}
 	</div>
 	{{- end }}
 </div>

@@ -314,7 +314,7 @@
 "--grid-column-display" = "block"
 "--grid-column-width" = "initial"
 "--grid-column-max-width" = "100%"
-"--grid-column-margin" = "auto"
+"--grid-column-margin" = "0 auto auto"
 "--grid-column-padding" = "0"
 "--grid-column-visibility" = "visible"
 "--grid-column-base" = 10

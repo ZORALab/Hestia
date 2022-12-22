@@ -1,0 +1,34 @@
+# PAGE SPECIFIC CREATORS
+# ======================
+# QUICK NOTE:
+#   1. These are the supported entity types:
+#      1.1. 'Person'
+#      1.2. 'Organization'
+#   2. Leaving the field empty shall turn it to be as unused, and shall be
+#      removed. That being said, it is recommended to leave it empty rather than
+#      commented out.
+#   3. All the entries listed here shall be appended or overriden the site-level
+#      creators.
+#   4. Example entries:
+#         [holloway]
+#         Type = "Person"
+#         Name = "(Holloway) Chew Kean Ho"
+#         Title = "The Tech Guy"
+#         Phone = "+12-3456-789"
+#         Email = "hollowaykeanho@gmail.com"
+#         LinkedIn = "https://www.linkedin.com/in/hollowaykeanho/"
+#         Facebook = ""
+#         Instagram = ""
+#         Twitter = "https://www.twitter.com/hollowaykeanho/"
+#         TikTok = ""
+#         Web = "https://www.hollowaykeanho.com/"
+#         Description = """
+#         A passionate individual loving technologies and its processes be it
+#         development and continuous improvements, and new adventures!
+#         """
+#
+#         [zoralab]
+#         Type = "Organization"
+#         Name = "ZORALab"
+#         Title = "Through Knowledge, We Serve"
+#         ... hence and repeat ...

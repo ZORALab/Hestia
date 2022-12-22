@@ -1,0 +1,37 @@
+{{- $Page := . -}}
+{{- $thumbnail := "" -}}
+{{- $description := "" -}}
+
+
+
+
+{{- range $i, $v := .Data.Page.Business }}
+	{{- $thumbnail = merge $Page (dict "Input" (dict "URL" $v.Thumbnail)) -}}
+	{{- $thumbnail = partial "Hestia/functions/data/url/Init" $thumbnail -}}
+	{{- if $thumbnail.Console -}}
+		{{- $thumbnail = "" -}}
+	{{- else -}}
+		{{- $thumbnail = string $thumbnail.Output -}}
+	{{- end -}}
+
+
+	{{- $description = strings.TrimSuffix "." $v.Description -}}
+
+
+	<div class='row' style='margin-bottom:5rem;--grid-column-margin: auto;'>
+		<div class='column'>
+			<picture>
+				<img src='{{- $thumbnail -}}'
+					width='400'
+					alt='{{- $v.Reason -}}' />
+			</picture>
+		</div>
+
+		<div class='column' style='--grid-column-max-width: 60%;'>
+			<h3 style='margin-top:0;'>{{- $v.Reason -}}</h3>
+			<p>
+				{{- $description }} — <b>{{- $v.Outcome -}}</b>
+			</p>
+		</div>
+	</div>
+{{- end }}

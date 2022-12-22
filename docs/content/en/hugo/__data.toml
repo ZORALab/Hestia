@@ -1,0 +1,183 @@
+[[Business]]
+Thumbnail = 'readable-error-digest-600x600.webp'
+Reason = 'Readable Error Digest'
+Description = '''
+Pinpoint location on where, what, and why.
+'''
+Outcome = '''
+No more horrible log jargons just to debug your content construction.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'pwa-ready-600x600.webp'
+Reason = 'PWA Ready'
+Description = '''
+Analyzed, researched, and tested.
+'''
+Outcome = '''
+anytime ready for going beyond static website to Progressive Web Application.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'flexible-ldjson-600x600.webp'
+Reason = 'Flexible LD+JSON Schema'
+Description = '''
+Design with search engine requirements in mind.
+'''
+Outcome = '''
+Go wild with Schema.org data structuring with dynamic data filling!
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'go-compatible-template-codes-600x600.webp'
+Reason = 'Go Compatible Template Codes'
+Description = '''
+Parsed and processed Hugo's data into Hestia's data structure.
+'''
+Outcome = '''
+Create Go compatible and reusable template HTML, JSON, etc codes.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'compoentized-ui-600x600.webp'
+Reason = 'Componentized UI'
+Description = '''
+Continuously improved and reinforced learning.
+'''
+Outcome = '''
+Have all UI componentized for maintainability, reusability, archivability, and
+learnable.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'mobile-first-design-600x600.webp'
+Reason = 'Mobile First Design'
+Description = '''
+Adapting the market pattern and future.
+'''
+Outcome = '''
+Mobile endpoints first, then responsively scaled UI design.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'publishers-ready-600x600.webp'
+Reason = 'Publishers Ready'
+Description = '''
+Custom and specific configuration files for GitHub Pages, GitLab Pages,
+Cloudflare Pages, etc.
+'''
+Outcome = '''
+We got you covered (as far as we can go.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'i18n-capable-600x600.webp'
+Reason = 'I18N Capable'
+Description = '''
+Directly from ZORALab's Hestia to include all people from various languages and
+cultures locally or globally.
+'''
+Outcome = '''
+Facilitate multi-lingual contents repository.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'wholesome-html-600x600.webp'
+Reason = 'Wholesome HTML'
+Description = '''
+Expanding the possibility of HTML being a distributable rich data presentation
+file.
+'''
+Outcome = '''
+Compile and embed precisely used CSS variables, CSS codes, and JS codes into the
+HTML file itself (except assets obviously).
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'wasm-ready.svg'
+Reason = 'WASM Hosting Ready'
+Description = '''
+Expand web UI interactions with proper programming languages.
+'''
+Outcome = '''
+WASM hosting and initialization ready.
+'''
+
+
+
+
+[[Purpose]]
+Thumbnail = 'static-web-content.svg'
+Name = 'Static Web Content'
+Description = '''
+The classic static site web content generator for presenting your content using
+Hugo and HestiaHUGO as your compiler.
+'''
+Action = ''
+Label = ''
+
+
+
+
+[[Purpose]]
+Thumbnail = 'json-data-server.svg'
+Name = 'Static JSON Data Server'
+Description = '''
+Like web content but this serves .json data file instead. Great for static
+data-driven services or mocking backend API server.
+'''
+Action = 'index.json'
+Label = 'SEE JSON'
+
+
+
+
+[[Purpose]]
+Thumbnail = 'ui-designing.svg'
+Name = 'Web UI Component Design'
+Description = '''
+The componentized feature from HestiaHUGO definitely allows you to develop an
+independent UI using pure HTML, CSS, and JS codes.
+'''
+Action = ''
+Label = ''
+
+
+
+
+[[Purpose]]
+Thumbnail = 'app-distribution.svg'
+Name = 'Frontend App Distribution'
+Description = '''
+Using WASM and PWA, release and describute your frontend application using
+HestiaHUGO.
+'''
+Action = ''
+Label = ''

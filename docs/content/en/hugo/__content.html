@@ -1,0 +1,57 @@
+<main>
+	<section id="introduction">
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>
+			{{ .Descriptions.Page.Pitch }}
+		</p>
+	</section>
+
+
+	<section id='why-hestiaHUGO'>
+		<div class='row' style='margin-bottom:5rem;'>
+			<div class='column'>
+				<h2>Why <code>HestiaHUGO</code></h2>
+				<p>
+					We had chosen <a href='https://gohugo.io/'
+					target='_blank'>Hugo</a> as our primary
+					UI and content compiler mainly due to
+					its simplicity and performance. With
+					that, this theme module is extends Hugo's
+					capabilities to meet demands from
+					current ever growing search engines'
+					requirements and endpoint advancements.
+				</p>
+			</div>
+		</div>
+
+		{{- express "html" "landing/hugo/business_en.html" -}}
+	</section>
+
+
+	<section id='designed-for-frontend'>
+		<div class='row'><div class='column'>
+			<h2>Designed For Seasoned Frontend Developers</h2>
+			<p>
+				Anything related to frontend be it web contents
+				presentation, interactive frontend application
+				distribution or experimentation, web UI
+				designing, or static site data server,
+				<code>HestiaHUGO</code> strives to be the best
+				choice.
+			</p>
+		</div></div>
+
+		{{- express "html" "landing/hugo/purpose_en.html" -}}
+	</section>
+
+
+	<section id='epilogue'>
+		<h2>Convinced?</h2>
+		<p>
+			Freel free to try our for your next project!
+		</p>
+		<a class='button' href='{{- absoluteURL "html" "/en/getting-started" -}}'>Get
+		Started</a>
+	</section>
+</main>
+<!-- line -->{{- parse "html" "assets/html/nav/topbar_en.html" -}}
