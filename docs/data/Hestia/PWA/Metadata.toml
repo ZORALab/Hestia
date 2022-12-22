@@ -1,0 +1,51 @@
+# HESTIA PWA MAIN CONFIGURATIONS
+# ==============================
+# Manuals:
+#   1. https://web.dev/
+#   2. https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+#
+# Name.ID              - the application unique ID consist of alphanumeric,
+#                        period (.) and dash only. Non-compliant characters
+#                        shall be automatically be removed or replaced with
+#                        dashes. Use sensible ID like 'com.example.app'.
+# Name.Short           - used in displaying brand and app name. Recommends max 2
+#                        words (e.g. Namespace + product).
+# Name.Full            - used to display brand and app in articles or pages.
+[Name]
+ID = '{{- .Languages.Current.Code -}}'
+Short = '{{- .Titles.Site.Current.Short -}}'
+Full = '{{- .Titles.Site.Current.Full -}}'
+
+
+
+
+# URL.Base             - use as start URL page where lands after the splash
+#                        screen loading.
+# URL.Scope            - limits the navigation scope of your app. Any URL
+#                        outside the scope shall trigger an external browser
+#                        tab instead.
+[Base]
+URL = '{{- .URL.Base -}}'
+Scope = '{{- .URL.Base -}}'
+
+
+
+
+# Descriptions.Pitch   - Short, on-point, sale-pitch like statement to describe
+#                        your app. Keep it max 160 characters.
+# Descriptions.Summary - Expands from your pitch and elaborate your app. Keep it
+#                        max 250 characters overall (including Pitch if used).
+[Descriptions]
+Pitch = '{{- .Descriptions.Site.Current.Pitch -}}'
+Summary = '{{- .Titles.Site.Current.Short }} - {{ .Descriptions.Site.Current.Pitch -}}'
+
+
+
+
+# Categories is the list of catalog your app is associated with. See:
+#       https://developer.mozilla.org/en-US/docs/Web/Manifest/categories
+[Categories]
+List = [
+        'Web',
+        'Tech',
+]

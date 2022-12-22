@@ -1,0 +1,50 @@
+# 赫斯提亚PWA捷径单
+# =================
+# 捷径单是PWA容易接触的互动系统。这单位是由独特的标识（比如’0‘，’1‘，...)来设定
+# 它们的位置。更多资料：
+#       https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts
+#
+# 如果要加更多捷径，只需要加[Contents.N]数据集然后更新N标识的独特设定。如果有多
+# 个数据集使用同样的N标识，那后者将会完全改写前者。
+#
+# 1个数据集的助手：
+# Description - 1个短和重点性的描述说明。推荐最长80字符（如：“今天天气”）。
+# URL         - 服务网址。如果它的价值让空，那整个捷径将会被完全淘汰。
+# Name        - 捷径名字。如果它的价值让空，那整个捷径将会被完全淘汰。
+# Name.Full   - 捷径全名。
+# Name.Short  - 捷径短名。推荐最长2个字。
+# Icons       - 图标单。如果促进这数据单，‘96x96’像素大小的图标单一定要有。推荐
+#               正方形，无透明像素的图标。
+# Icons.X.Design - 图标艺术指导。只能有以下的价值：
+#                  1. 'any'        - 可以在任何环境使用（默认）。
+#                  2. 'maskable'   - 只能在蒙面环境使用。
+#                  3. 'monochrome' - 只能单颜环境使用。
+[Contents.0]
+Description = '最新仪表盘'
+URL = '{{- .Languages.ZH-HANS.URL.HOME -}}'
+
+
+[Contents.0.Name]
+Full = '主页和仪表盘'
+Short = '仪表盘'
+
+
+[Contents.0.Icons.0]
+Name = ''
+Width = '1200'
+Height = '1200'
+CORS = ''
+Relationship = ''
+Design = 'any'
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+
+[[Contents.0.Icons.0.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = 'all'

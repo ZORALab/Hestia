@@ -1,0 +1,12 @@
+# HESTIA PWA COLOR CONFIGURATIONS
+# ===============================
+# Background  - uses for overlaying the favicon. Example usage:
+#                 1. Windows tile background color.
+#                 2. Loading splash screen background color.
+#
+# Theme color - Mainly used for monocromaticizing the logo. Recommend the
+#               highest contrast color against the background color (e.g.
+#               #00000 against #FFFFF or vice versa).
+[Main]
+Background = '#FFFFFF'
+Theme = '#0055FF'

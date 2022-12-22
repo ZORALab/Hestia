@@ -1,0 +1,44 @@
+# HESTIA PWA SCREENSHOTS CONFIGURATIONS
+# =====================================
+# Screenshots are used for platform distributions promotional usage (e.g. App
+# Store).
+#
+# To add more screenshots, just add more '[Contents.N]' dataset entries below
+# without overlapping 'N' value (otherwise, the latter will overwrite the
+# former).
+#
+# NOTE:
+#   For Relationship field, it is the platform field where the screenshot is
+#   associated to. Reusable known values are:
+#   1. 'wide'             - wide screen only (e.g. status board)
+#   2. 'narrow'           - narrow screen only (e.g. mobile devices, wearables)
+#   3. 'android'          - android devices only.
+#   4. 'chromeos'         - chromeOS devices only.
+#   5. 'ios'              - iOS devices only.
+#   6. 'kaios'            - kaiOS devices only.
+#   7. 'macos'            - macOS devices only.
+#   8. 'windows'          - Windows devices only.
+#   9. 'xbox'             - xBox devices only.
+#  10. 'chrome_web_store' - Chrome web store only.
+#  11. 'play'             - Google Play Store only.
+#  12. 'itunes'           - Apple iTunes store only.
+#  13. 'microsoft-inbox'  - Microsoft Inbox only.
+#  14. 'microsoft-store'  - Microsoft Store only.
+[Contents.0]
+Name = "{{- .Titles.Site.Current.Full }} Official"
+Width = '1200'
+Height = '630'
+CORS = ''
+Relationship = 'wide'
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Contents.0.Sources]]
+URL = '/banner-1200x630.png'
+Type = 'image/png'
+Media = 'all'

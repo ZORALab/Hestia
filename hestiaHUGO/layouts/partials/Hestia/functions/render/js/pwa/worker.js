@@ -22,7 +22,7 @@ specific language governing permissions and limitations under the License.
 
 // Constant PWA Definitions
 const POLICY_CACHE_ONLY = 'cache-only';
-const POLICY_NETWORK_FIRST = 'network-first';
+const POLICY_CACHE_FIRST = 'cache-first';
 const POLICY_NETWORK_ONLY = 'network-only';
 
 
@@ -40,73 +40,93 @@ OFFLINE_RESOURCES['{{ safeJS (string $v.URL) -}}'] = '{{- safeJS (string $v.Cach
 
 
 // PWA Caching Mechanisms
-function _fetchByNetwork(event) {
-	event.respondWith(fetch(event.request));
+const __putInCache = async (request, response) => {
+	const cache = await caches.open(OFFLINE_CACHE);
+	await cache.put(request, response);
+}
+
+const _fetchNetworkOnly = async (request) {
+	try {
+		const networkResponse = await fetch(request);
+		__putInCache(request, networkResponse.clone());
+		return networkResponse;
+	} catch {
+		return new Response("Network Error", {
+			status: 408,
+			handlers: { "Content-Type": "text-plain" },
+		});
+	}
+}
+
+const _fetchCacheOnly = async (request) {
+	const cachedResponse = await caches.match(request);
+	if cachedResponse {
+		return cachedResponse;
+	}
+
+	return new Response("Asset Not Found", {
+		status: 404,
+		handlers: { "Content-Type": "text-plain" },
+	});
+}
+
+const _fetchNetworkFirst = async (request) {
+	try {
+		// source from network
+		const networkResponse = await fetch(request);
+		__putInCache(request, networkResponse.clone());
+		return networkResponse;
+	} catch {
+		// source from cache
+		const cachedResponse = await caches.match(request);
+		if cachedResponse {
+			return cachedResponse;
+		}
+	}
+
+	// both failed - return with error response
+	return new Response("Network Error", {
+		status: 408,
+		handlers: { "Content-Type": "text-plain" },
+	});
 }
 
 
-function _fetchByCache(event) {
-	event.respondWith(caches.match(event.request));
-}
+const _fetchCacheFirst = async (request) {
+	// source from cache
+	const cachedResponse = await caches.match(request);
+	if cachedResponse {
+		return cachedResponse;
+	}
 
-
-function _fetchByNetworkFirst(event) {
-	event.respondWith(
-		caches
-		.match(event.request)
-		.then(cachedResponse => {
-			const networkResponse = fetch(event.request)
-			.then(response => {
-				caches
-				.open(OFFLINE_CACHE)
-				.then(cache => {
-					cache.put(event.request,
-						response.clone()
-					);
-				});
-			});
-
-			return networkResponse || cachedResponse;
-		})
-	)
-}
-
-
-function _fetchByCacheFirst(event) {
-	event.respondWith(
-		caches
-		.match(event.request)
-		.then(cachedResponse => {
-			const networkResponse = fetch(event.request)
-			.then(response => {
-				caches
-				.open(OFFLINE_CACHE)
-				.then(cache => {
-					cache.put(event.request,
-						response.clone()
-					);
-				});
-			});
-
-			return cachedResponse || networkResponse;
-		})
-	)
+	try {
+		// fallback to network
+		const networkResponse = await fetch(request);
+		__putInCache(request, networkResponse.clone());
+		return networkResponse;
+	} catch {
+		// both failed -return with error response
+		return new Response("Network Error", {
+			status: 408,
+			handlers: { "Content-Type": "text-plain" },
+		});
+	}
 }
 
 
 self.addEventListener("fetch", event => {
 	switch (OFFLINE_RESOURCES[event.request.url]) {
-	case POLICY_NETWORK_ONLY:
-		_fetchByNetwork(event);
-		break;
-	case POLICY_NETWORK_FIRST:
-		_fetchByNetworkFirst(event);
+	case POLICY_CACHE_FIRST:
+		event.respondWith(_fetchCacheFirst(event.request));
 		break;
 	case POLICY_CACHE_ONLY:
-		_fetchByCache(event);
+		event.respondWith(_fetchCacheOnly(event.request));
 		break;
-	default: // POLICY_CACHE_FIRST
-		_fetchByCacheFirst(event);
+	case POLICY_NETWORK_ONLY:
+		event.respondWith(_fetchNetworkOnly(event.request));
+		break;
+	default: // POLICY_NETWORK_FIRST
+		event.respondWith(_fetchNetworkFirst(event.request));
 		break;
 	}
 });
