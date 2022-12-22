@@ -1,10 +1,11 @@
 # ZORALab's Hestia
 ![Banner](artwork/logo/zoralab-hestia-1200x630.svg)
 
-Unified software libraries under a common repository for a peaceful realization.
-The goal is to structure the learning experience and tools aligning to a single
-pattern making the development advancement and learning experience a lot
-easier and less worrying about supply chain threat.
+One peaceful library for building infinite possibilities.
+
+The goal is to unify all common libraries into a single repository for reusable
+data structure, smoother the learning experience, and tools alignments. Develop
+and learn easily with less worries about supply chain threats and problems.
 
 Visit its [Official Website](https://hestia.zoralab.com) for its official
 documentations.

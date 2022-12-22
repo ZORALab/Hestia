@@ -21,7 +21,10 @@ Full = "ZORALab赫斯提亚"
 # Descriptions.Summary - 扩大Description.Pitch的陈述。最多250字母。
 [Descriptions]
 Pitch = '一个平静代码库来建设眼无限的可能。'
-Summary = '一个平静代码库来建设眼无限的可能 - ZORALab赫斯提亚'
+Summary = '''
+统一话所有的常用代码库获取可重用的数据结构，把学习过程简单化，和对齐一切的工具。
+以后就可以在不需要烦恼供应链的威胁和问题下放松地去发展和学习吧。
+'''
 
 
 

@@ -27,7 +27,9 @@ Full = "ZORALab's Hestia"
 [Descriptions]
 Pitch = 'One peaceful library for building infinite possibilities.'
 Summary = """\
-One peaceful library for building infinite possibilities - ZORALab's Hestia\
+Unifying all common libraries into a single repository for reusable data structure,
+smoother the learning experience, and tools alignments. Develop and learn easily
+with less worries about supply chain threats and problems.
 """
 
 
