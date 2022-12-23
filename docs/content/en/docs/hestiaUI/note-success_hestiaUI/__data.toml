@@ -116,7 +116,7 @@ Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
-Name = "--note-content-warning-background"
+Name = "--note-content-success-background"
 Description = """
 Affects the component's '.content' background value when the note is denoted as
 a success note.
