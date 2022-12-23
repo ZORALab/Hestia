@@ -85,6 +85,16 @@ Pexels curation . Rural life . Coffee, black.
 '''
 Portrait = '/img/contributors/pexel-contributor-lisa-fotios-1200x1200.webp'
 
+[LukasHartmann]
+Type = "Person"
+Name = 'Lukas Hartmann'
+Web = 'https://www.pexels.com/@lukas-hartmann-304281/'
+Label = 'Pexels'
+Description = '''
+Camera enthusiast – give and take… if you like to :)
+'''
+Portrait = '/img/contributors/pexel-contributor-lukas-hartmann-1200x1200.webp'
+
 [ManuelGeissinger]
 Type = "Person"
 Name = 'Manuel Geissinger'
