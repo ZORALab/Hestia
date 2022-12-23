@@ -147,6 +147,17 @@ Label = 'Pexels'
 Description = "I'd love to support dog shelters of Ukraine. Thank you."
 Portrait = '/img/contributors/pexel-contributor-olya-kobruseva-1200x1200.webp'
 
+[SuzyHazelwood]
+Type = "Person"
+Name = 'Suzy Hazelwood'
+Web = 'https://www.pexels.com/@suzyhazelwood/'
+Label = 'Pexels'
+Description = '''
+Vintage found photos are from my own personal collection. (Writer, photographer
+and spoken word artist)
+'''
+Portrait = '/img/contributors/pexel-contributor-suzy-hazelwood-1200x1200.webp'
+
 [YlaniteKoppens]
 Type = "Person"
 Name = 'Ylanite Koppens'
