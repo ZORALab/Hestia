@@ -192,6 +192,16 @@ and spoken word artist)
 '''
 Portrait = '/img/contributors/pexel-contributor-suzy-hazelwood-1200x1200.webp'
 
+[TimGouw]
+Type = "Person"
+Name = 'Tim Gouw'
+Web = 'https://www.pexels.com/@punttim/'
+Label = 'Pexels'
+Description = '''
+I take pictures and share them on the Internet. If you read this buy me a coffee.
+'''
+Portrait = '/img/contributors/pexel-contributor-tim-gouw-1200x1200.webp'
+
 [YlaniteKoppens]
 Type = "Person"
 Name = 'Ylanite Koppens'
