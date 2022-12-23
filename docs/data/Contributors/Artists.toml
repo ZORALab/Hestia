@@ -37,6 +37,16 @@ Kaboompics.com
 '''
 Portrait = '/img/contributors/pexel-contributor-karolina-grabowska-1200x1200.webp'
 
+[LeslieDuarteCastro]
+Type = "Person"
+Name = 'Leslie Duarte Castro'
+Web = 'https://www.pexels.com/@mundointelectual1998/'
+Label = 'Pexels'
+Description = '''
+Licenciada en Comunicación y Diseño Graficó.
+'''
+Portrait = '/img/contributors/pexel-contributor-leslie-duarte-castro-1200x1200.webp'
+
 [MarkoObrvan]
 Type = "Person"
 Name = 'Marko Obrvan'

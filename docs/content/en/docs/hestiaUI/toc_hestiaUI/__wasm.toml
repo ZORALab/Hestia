@@ -28,7 +28,6 @@ Dependencies = [
 #                          'const go = new Go();'
 #         This field is OPTIONAL.
 Setup = """\
-// Your WASM Javascript Setup Codes Here.
 """
 
 
@@ -48,5 +47,4 @@ Import = ''
 #                            'go.run(result.instance);'
 #         This field is OPTIONAL.
 Init = """\
-// Your WASM Javascript Init Codes Here.
 """
