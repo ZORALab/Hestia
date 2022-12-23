@@ -75,6 +75,16 @@ Licenciada en Comunicación y Diseño Graficó.
 '''
 Portrait = '/img/contributors/pexel-contributor-leslie-duarte-castro-1200x1200.webp'
 
+[LisaFotios]
+Type = "Person"
+Name = 'Lisa Fotios'
+Web = 'https://www.pexels.com/@fotios-photos/'
+Label = 'Pexels'
+Description = '''
+Pexels curation . Rural life . Coffee, black.
+'''
+Portrait = '/img/contributors/pexel-contributor-lisa-fotios-1200x1200.webp'
+
 [ManuelGeissinger]
 Type = "Person"
 Name = 'Manuel Geissinger'

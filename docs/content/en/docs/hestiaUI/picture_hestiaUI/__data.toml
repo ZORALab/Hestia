@@ -12,8 +12,8 @@ visitor can browse the page seamlessly without needing extra configurations.
 Example = """
 <picture>
 	<source srcset="/banner-1200x630.png 1x,
-			/banner-1200x1200.png 2x,
-			/banner-480x480.png 3x"
+			/favicon-1200x1200.png 2x,
+			/favicon-480x480.png 3x"
 		type="image/png"
 		media"(max-width: 200px)">
 	<img alt="Sample Banner"
