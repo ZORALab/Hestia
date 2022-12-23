@@ -165,6 +165,14 @@ Label = 'Pexels'
 Description = "I'd love to support dog shelters of Ukraine. Thank you."
 Portrait = '/img/contributors/pexel-contributor-olya-kobruseva-1200x1200.webp'
 
+[RealCalmStudio]
+Type = "Organization"
+Name = 'Real Calm Studio'
+Web = 'https://www.pexels.com/@rc-studio-3493626/'
+Label = 'Pexels'
+Description = "Greatful ... no matter how small."
+Portrait = '/img/contributors/pexel-contributor-real-calm-studio-1200x1200.webp'
+
 [SuzyHazelwood]
 Type = "Person"
 Name = 'Suzy Hazelwood'
