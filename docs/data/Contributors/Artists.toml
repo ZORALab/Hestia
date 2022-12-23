@@ -139,6 +139,14 @@ Label = 'Pexels'
 Description = ''
 Portrait = '/img/contributors/pexel-contributor-oliver-sjostrom-1200x1200.webp'
 
+[OlyaKobruseva]
+Type = "Person"
+Name = 'Olya Kobruseva'
+Web = 'https://www.pexels.com/@leeloothefirst/'
+Label = 'Pexels'
+Description = "I'd love to support dog shelters of Ukraine. Thank you."
+Portrait = '/img/contributors/pexel-contributor-olya-kobruseva-1200x1200.webp'
+
 [YlaniteKoppens]
 Type = "Person"
 Name = 'Ylanite Koppens'
