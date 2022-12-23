@@ -3,7 +3,7 @@
 "--dialog-border-radius" = ".5rem"
 
 "--dialog-min-width" = "initial"
-"--dialog-max-width" = "initial"
+"--dialog-max-width" = "100%"
 "--dialog-min-height" = "initial"
 "--dialog-max-height" = "initial"
 

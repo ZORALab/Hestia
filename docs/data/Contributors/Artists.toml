@@ -76,3 +76,11 @@ Web = 'https://www.pexels.com/@ollivves/'
 Label = 'Pexels'
 Description = ''
 Portrait = '/img/contributors/pexel-contributor-oliver-sjostrom-1200x1200.webp'
+
+[YlaniteKoppens]
+Type = "Person"
+Name = 'Ylanite Koppens'
+Web = 'https://www.pexels.com/@nietjuh/'
+Label = 'Pexels'
+Description = ''
+Portrait = '/img/contributors/pexel-contributor-ylanite-koppens-1200x1200.webp'

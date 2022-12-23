@@ -23,6 +23,9 @@ dialog {
 	align-items: center;
 	gap: 0;
 
+	margin: auto;
+	padding: 0;
+
 	min-width: var(--dialog-min-width);
 	max-width: var(--dialog-max-width);
 	min-height: var(--dialog-min-height);
