@@ -14,7 +14,7 @@
 		{{- range $i, $v := .Data.Page.Components.Core -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -23,7 +23,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -39,10 +39,10 @@
 	<h3>Font Components</h3>
 	<p>Expanding from default system fonts.</p>
 	<nav class='catalog'>
-		{{- range $i, $v := .Data.Page.Components.Anchor -}}
+		{{- range $i, $v := .Data.Page.Components.Font -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -51,7 +51,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -70,7 +70,7 @@
 		{{- range $i, $v := .Data.Page.Components.Anchor -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -79,7 +79,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -98,7 +98,7 @@
 		{{- range $i, $v := .Data.Page.Components.Code -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -107,7 +107,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -126,7 +126,7 @@
 		{{- range $i, $v := .Data.Page.Components.Pre -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -135,7 +135,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -154,7 +154,7 @@
 		{{- range $i, $v := .Data.Page.Components.Nav -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -163,7 +163,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -182,7 +182,7 @@
 		{{- range $i, $v := .Data.Page.Components.Note -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -191,7 +191,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -210,7 +210,7 @@
 		{{- range $i, $v := .Data.Page.Components.List -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -219,7 +219,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -238,7 +238,7 @@
 		{{- range $i, $v := .Data.Page.Components.Divider -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -247,7 +247,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -266,7 +266,7 @@
 		{{- range $i, $v := .Data.Page.Components.Badge -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -275,7 +275,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -294,7 +294,7 @@
 		{{- range $i, $v := .Data.Page.Components.Button -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -303,7 +303,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -322,7 +322,7 @@
 		{{- range $i, $v := .Data.Page.Components.Card -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -331,7 +331,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -347,10 +347,10 @@
 	<h3>Blockquote Components</h3>
 	<p>Cite with style.</p>
 	<nav class='catalog'>
-		{{- range $i, $v := .Data.Page.Components.Card -}}
+		{{- range $i, $v := .Data.Page.Components.Blockquote -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -359,7 +359,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -378,7 +378,7 @@
 		{{- range $i, $v := .Data.Page.Components.Dialog -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -387,7 +387,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -406,7 +406,7 @@
 		{{- range $i, $v := .Data.Page.Components.Picture -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -415,7 +415,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -434,7 +434,7 @@
 		{{- range $i, $v := .Data.Page.Components.Table -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -443,7 +443,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -462,7 +462,7 @@
 		{{- range $i, $v := .Data.Page.Components.Form -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -471,7 +471,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -490,7 +490,7 @@
 		{{- range $i, $v := .Data.Page.Components.IFrame -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -499,7 +499,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>
@@ -518,7 +518,7 @@
 		{{- range $i, $v := .Data.Page.Components.Carousel -}}
 			{{- $id = lower $v.ID -}}
 			{{- $url = printf "%s%s" $Page.URL.Current.Absolute $id }}
-			{{- $img = printf "%s%s" $url $v.Thumbnail }}
+			{{- $img = printf "%s/%s" $url $v.Thumbnail }}
 			<figure class='card'>
 				<picture class="thumbnail">
 					<img src='{{- $img -}}'
@@ -527,7 +527,7 @@
 						alt='thumbnail' />
 				</picture>
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
+					<h3 style='margin-top: 1rem;'>{{- $v.Name -}}</h3>
 					<p>{{- $v.Pitch -}}</p>
 				</div>
 				<div class='actions'>

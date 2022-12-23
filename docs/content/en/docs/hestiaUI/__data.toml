@@ -4,7 +4,7 @@ Pitch = '''
 The ZORALab's Hestia primary "link" component used with its Core component.
 '''
 ID = "anchor_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Badge]]
@@ -13,7 +13,7 @@ Pitch = '''
 Now who says it needs an external server for rendering Shields.io badges.
 '''
 ID = "badge-shields_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Blockquote]]
@@ -22,7 +22,7 @@ Pitch = '''
 Citation with clarity the ZORALab's Hestia way.
 '''
 ID = "blockquote_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Button]]
@@ -31,7 +31,7 @@ Pitch = '''
 Standard buttons - made by ZORALab's Hestia.
 '''
 ID = "button_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Card]]
@@ -40,7 +40,7 @@ Pitch = '''
 Standard cards - made by ZORALab's Hestia.
 '''
 ID = "card_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Carousel]]
@@ -49,7 +49,7 @@ Pitch = '''
 No-JS capable; Left-right scrolling; No autorun.
 '''
 ID = "carousel_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Code]]
@@ -58,7 +58,7 @@ Pitch = '''
 Keep the syntax and codes clean and clear!
 '''
 ID = "code_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Core]]
@@ -67,7 +67,7 @@ Pitch = '''
 The ZORALab's Hestia base foundation for all its complimentary components.
 '''
 ID = "core_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Dialog]]
@@ -76,7 +76,7 @@ Pitch = '''
 Intractively react with your visitor.
 '''
 ID = "dialog_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Divider]]
@@ -85,7 +85,7 @@ Pitch = '''
 Standard divider for separating 2 contexts.
 '''
 ID = "divider_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Divider]]
@@ -94,7 +94,7 @@ Pitch = '''
 For printout: please physically cut here.
 '''
 ID = "divider-cut_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Divider]]
@@ -103,16 +103,16 @@ Pitch = '''
 For those who loves dashing around.
 '''
 ID = "divider-dashed_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
-[[Components.Fonts]]
+[[Components.Font]]
 Name = "ZORALab's Hestia Noto Sans Font UI"
 Pitch = '''
 The ZORALab's primary font for best possible communicative presentation.
 '''
 ID = "font-NotoSans_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Form]]
@@ -121,7 +121,7 @@ Pitch = '''
 Gathering input with great visual feedback for data accuracy.
 '''
 ID = "form_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.IFrame]]
@@ -130,7 +130,7 @@ Pitch = '''
 Integrate 3rd-party sites controllably.
 '''
 ID = "iframe_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.List]]
@@ -139,7 +139,7 @@ Pitch = '''
 Defining subject systematically and scalably organized.
 '''
 ID = "deflist_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.List]]
@@ -148,7 +148,7 @@ Pitch = '''
 Keeping your points straight and scalably organized with numbering.
 '''
 ID = "olist_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.List]]
@@ -157,7 +157,7 @@ Pitch = '''
 Keeping your points straight and scalably organized with bulleting.
 '''
 ID = "ulist_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Nav]]
@@ -166,7 +166,7 @@ ID = "catalog_hestiaUI"
 Pitch = '''
 Who doesn't love shopping catalog style.
 '''
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Nav]]
@@ -175,7 +175,7 @@ Pitch = '''
 The usual and responsive sidebar and topbar.
 '''
 ID = "drawer_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Nav]]
@@ -184,7 +184,7 @@ ID = "toc_hestiaUI"
 Pitch = '''
 Livesaver navigating through a long-winded essay.
 '''
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Note]]
@@ -193,7 +193,7 @@ Pitch = '''
 Hey, there's a note for you.
 '''
 ID = "note_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Note]]
@@ -202,7 +202,7 @@ Pitch = '''
 Red alert! This note is very serious.
 '''
 ID = "note-error_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Note]]
@@ -211,7 +211,7 @@ Pitch = '''
 Excuse me! Please attend this notice as soon as possible.
 '''
 ID = "note-warning_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Note]]
@@ -220,7 +220,7 @@ Pitch = '''
 Good News! Take a look at this note.
 '''
 ID = "note-success_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Picture]]
@@ -229,7 +229,7 @@ Pitch = '''
 Confidently showcase images responsively.
 '''
 ID = "picture_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Pre]]
@@ -238,7 +238,7 @@ Pitch = '''
 It's done formatting already. Just present it as it is.
 '''
 ID = "pre_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
 
 
 [[Components.Table]]
@@ -247,4 +247,4 @@ Pitch = '''
 Presenting dataset clearly.
 '''
 ID = "table_hestiaUI"
-Thumbnail = "thumbnails-1200x1200.png"
+Thumbnail = "thumbnails-1200x1200.jpg"
