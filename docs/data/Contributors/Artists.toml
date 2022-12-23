@@ -173,6 +173,14 @@ Label = 'Pexels'
 Description = "Greatful ... no matter how small."
 Portrait = '/img/contributors/pexel-contributor-real-calm-studio-1200x1200.webp'
 
+[RodionKutsaiev]
+Type = "Person"
+Name = 'Rodion Kutsaiev'
+Web = 'https://www.pexels.com/@frostroomhead/'
+Label = 'Pexels'
+Description = "Photographer and 3D designer"
+Portrait = '/img/contributors/pexel-contributor-rodion-kutsaiev-1200x1200.webp'
+
 [SuzyHazelwood]
 Type = "Person"
 Name = 'Suzy Hazelwood'
