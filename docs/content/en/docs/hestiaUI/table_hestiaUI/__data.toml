@@ -10,7 +10,7 @@ a visually meaninful and interactive way. It works natively so that the
 content creator can focus on the writing rather than messing with styling.
 """
 Example = """
-<table>
+<div style='display:flex;justify-content:center;'><table>
 	<thead>
 		<tr>
 			<th></th>
@@ -50,7 +50,7 @@ Example = """
 			<td>2</td>
 		</tr>
 	</tbody>
-</table>
+</table></div>
 """
 
 
@@ -77,9 +77,9 @@ Type = "Minimum"
 Description = """
 The component uses W3C native 'table', 'thead', 'tr', 'th', 'tbody', and 'td'
 syntaxes and a 'div' alignment container to construct a centered table. Without
-the div container, the default is to occupy the entire width spacing which will
-show a left aligned table if the table content is scarce. The following codes
-shall render itself minimally:
+the 'div' alignment container, the default is to occupy the entire width spacing
+and present the table from left to right, which can be very akward if the
+table's content is scarce. The following codes shall render itself minimally:
 """
 Example = """
 <div style='display:flex;justify-content:center;'><table>
@@ -107,11 +107,11 @@ Type = "2-Axis Headers"
 Description = """
 The component uses W3C native 'table', 'thead', 'tr', 'th', 'tbody', and 'td'
 syntaxes and a 'div' alignment container to construct a centered table. Without
-the div container, the default is to occupy the entire width spacing which will
-show a left aligned table if the table content is scarce. For 2-axis headers,
-each row of the 'tbody' shall contain a leading 'th' while 'thead' has an empty
-leading 'th' to compensate the header column. The following codes shall render
-itself minimally:
+the 'div' alignment container, the default is to occupy the entire width spacing
+and present the table from left to right, which can be very akward if the
+table's content is scarce. For 2-axis headers, each row of the 'tbody' shall
+contain a leading 'th' while 'thead' has an empty leading 'th' to compensate the
+header column. The following codes shall render itself minimally:
 """
 Example = """
 <div style='display:flex;justify-content:center;'><table>

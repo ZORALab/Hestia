@@ -75,6 +75,14 @@ Licenciada en Comunicación y Diseño Graficó.
 '''
 Portrait = '/img/contributors/pexel-contributor-leslie-duarte-castro-1200x1200.webp'
 
+[ManuelGeissinger]
+Type = "Person"
+Name = 'Manuel Geissinger'
+Web = 'https://www.pexels.com/@artunchained/'
+Label = 'Pexels'
+Description = 'Consider attribution and linking to me, please :)'
+Portrait = '/img/contributors/pexel-contributor-manuel-geissinger-1200x1200.webp'
+
 [MarkoObrvan]
 Type = "Person"
 Name = 'Marko Obrvan'
