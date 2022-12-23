@@ -342,7 +342,7 @@ Description = """
 Affects the component's '.content' container's overflow mode value.
 """
 Property = "overflow"
-Default = "auto auto"
+Default = "auto"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
@@ -486,7 +486,7 @@ Description = """
 Affects the component's '.actions' container's margin value.
 """
 Property = "margin"
-Default = "0"
+Default = "3.5rem 0 0"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]

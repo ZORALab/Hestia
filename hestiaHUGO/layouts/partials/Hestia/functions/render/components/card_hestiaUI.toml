@@ -47,7 +47,7 @@
 
 
 
-"--card-content-overflow" = "auto auto"
+"--card-content-overflow" = "auto"
 
 "--card-content-min-width" = "initial"
 "--card-content-width" = "initial"
@@ -71,5 +71,5 @@
 "--card-actions-height" = "max-content"
 "--card-actions-max-height" = "initial"
 
-"--card-actions-margin" = "0"
+"--card-actions-margin" = "3.5rem 0 0"
 "--card-actions-padding" = "0"

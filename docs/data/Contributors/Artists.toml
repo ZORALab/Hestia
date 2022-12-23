@@ -1,3 +1,13 @@
+[AbetLlacer]
+Type = "Person"
+Name = 'Abet Llacer'
+Web = 'https://www.pexels.com/@alxs/'
+Label = 'Pexels'
+Description = '''
+Donate to support my little skills.
+'''
+Portrait = '/img/contributors/pexel-contributor-abet-llacer-1200x1200.webp'
+
 [AnnaTarazevich]
 Type = "Person"
 Name = 'Anna Tarazevich'
