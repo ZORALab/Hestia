@@ -8,6 +8,16 @@ Donate to support my little skills.
 '''
 Portrait = '/img/contributors/pexel-contributor-abet-llacer-1200x1200.webp'
 
+[AleksejsBergmanis]
+Type = "Person"
+Name = 'Aleksejs Bergmanis'
+Web = 'https://www.pexels.com/@vividcafe/'
+Label = 'Pexels'
+Description = '''
+Vivid Cafe!
+'''
+Portrait = '/img/contributors/pexel-contributor-aleksejs-bergmanis-1200x1200.webp'
+
 [AnnaTarazevich]
 Type = "Person"
 Name = 'Anna Tarazevich'
