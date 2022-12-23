@@ -107,7 +107,7 @@ Description = """
 Affects the entire component's width value.
 """
 Property = "width"
-Default = "30rem"
+Default = "25rem"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]

@@ -8,6 +8,16 @@ Photographer in Singapore. I'd love to see you there ❤️
 '''
 Portrait = '/img/contributors/pexel-contributor-anna-tarazevich-1200x1200.webp'
 
+[Cottonbro]
+Type = "Organization"
+Name = 'Cottonbro Studio'
+Web = 'https://www.pexels.com/@cottonbro/'
+Label = 'Pexels'
+Description = '''
+Check out our collections, grouped by topics.
+'''
+Portrait = '/img/contributors/pexel-contributor-cottonbro-studio-1200x1200.webp'
+
 [HollowayKeanHo]
 Type = "Person"
 Name = '(Holloway) Chew, Kean Ho'

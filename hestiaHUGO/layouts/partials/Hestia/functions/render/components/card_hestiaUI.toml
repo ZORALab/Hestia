@@ -3,11 +3,11 @@
 	"thumbnail" minmax(0, var(--card-thumbnail-height))
 	"content" minmax(0, var(--card-content-height))
 	"actions" minmax(0, var(--card-actions-height))
-	/ var(--card-width)
+	/ minmax(var(--card-width), 100%)
 """
 "--card-overflow" = "hidden"
 
-"--card-width" = "30rem"
+"--card-width" = "25rem"
 "--card-height" = "fit-content"
 
 "--card-margin" = "2rem"
