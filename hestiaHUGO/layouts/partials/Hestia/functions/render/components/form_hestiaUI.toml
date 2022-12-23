@@ -24,6 +24,13 @@
 
 
 
+"--form-fieldset-min-width" = "initial"
+"--form-fieldset-width" = "initial"
+"--form-fieldset-max-width" = "100%"
+"--form-fieldset-min-height" = "initial"
+"--form-fieldset-height" = "initial"
+"--form-fieldset-max-height" = "initial"
+
 "--form-fieldset-margin" = "1rem"
 "--form-fieldset-padding" = "0"
 
@@ -70,7 +77,7 @@
 
 "--form-field-min-width" = "5rem"
 "--form-field-width" = "100%"
-"--form-field-max-width" = "initial"
+"--form-field-max-width" = "100%"
 "--form-field-min-height" = "initial"
 "--form-field-height" = "initial"
 "--form-field-max-height" = "initial"

@@ -50,6 +50,13 @@ fieldset {
 	justify-content: center;
 	opacity: 1;
 
+	min-width: var(--form-fieldset-min-width);
+	width: var(--form-fieldset-width);
+	max-width: var(--form-fieldset-max-width);
+	min-height: var(--form-fieldset-min-height);
+	height: var(--form-fieldset-height);
+	max-height: var(--form-fieldset-max-height);
+
 	margin: var(--form-fieldset-margin);
 	padding: var(--form-fieldset-padding);
 
@@ -148,6 +155,11 @@ textarea {
 	box-shadow: var(--form-field-box-shadow);
 
 	transition: var(--form-fieldset-timing);
+}
+
+input[type='datetime-local'] {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 textarea {

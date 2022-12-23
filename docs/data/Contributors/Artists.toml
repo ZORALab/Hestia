@@ -117,6 +117,14 @@ Label = 'Pexels'
 Description = 'Photographer, Cat Mom, Traveler'
 Portrait = '/img/contributors/pexel-contributor-melike-benli-1200x1200.webp'
 
+[MikhailNilov]
+Type = "Person"
+Name = 'Mikhail Nilov'
+Web = 'https://www.pexels.com/@mikhail-nilov/'
+Label = 'Pexels'
+Description = 'Thanks for the support :)'
+Portrait = '/img/contributors/pexel-contributor-mikhail-nilov-1200x1200.webp'
+
 [MonicaSilvestre]
 Type = "Person"
 Name = 'Monica Silvestre'

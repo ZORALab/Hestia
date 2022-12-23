@@ -1571,6 +1571,66 @@ Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
+Name = "--form-fieldset-min-width"
+Description = """
+Affects the form component's fieldset minimum width value.
+"""
+Property = "min-width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--form-fieldset-width"
+Description = """
+Affects the form component's fieldset width value.
+"""
+Property = "width"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--form-fieldset-max-width"
+Description = """
+Affects the form component's fieldset maximum width value.
+"""
+Property = "max-width"
+Default = "100%"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--form-fieldset-min-height"
+Description = """
+Affects the form component's fieldset minimum height value.
+"""
+Property = "min-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--form-fieldset-height"
+Description = """
+Affects the form component's fieldset height value.
+"""
+Property = "height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--form-fieldset-max-height"
+Description = """
+Affects the form component's fieldset maximum height value.
+"""
+Property = "max-height"
+Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
 Name = "--form-fieldset-margin"
 Description = """
 Affects the form component's fieldset margin value.
@@ -1858,7 +1918,7 @@ Description = """
 Affects the form component's field maximum width value.
 """
 Property = "max-width"
-Default = "initial"
+Default = "100%"
 Availability = "v0.0.1"
 
 
