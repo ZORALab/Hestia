@@ -28,7 +28,7 @@ table {
 	max-height: var(--table-max-height);
 
 	border-collapse: collapse;
-	border: var(--table-border);
+	border: none;
 
 	color: var(--table-color);
 	background: var(--table-background);

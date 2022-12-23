@@ -1,6 +1,6 @@
 [CSS.Variables]
-"--table-display" = "table"
-"--table-overflow" = "auto auto"
+"--table-display" = "block"
+"--table-overflow" = "auto"
 
 "--table-margin" = "2rem auto"
 "--table-padding" = "0"

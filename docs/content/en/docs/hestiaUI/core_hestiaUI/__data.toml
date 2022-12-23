@@ -5,9 +5,9 @@ ID = "core_hestiaUI"
 Status = "Stable - Public"
 Available = "v0.0.1"
 Purpose = """
-This UI component was primarily designed for structuring the page foundation
-for visually appealing web page content construction. It serves as a base for
-many of the compatible hestiaUI components. The component works natively without
+This UI component was primarily designed for structuring the page foundation for
+visually appealing web page content construction. It serves as a base for many
+of its compatible hestiaUI components. The component works natively without
 having complicated CSS classing, Javascript, or WASM intervention and
 assistances. It is only responsible for structuring a page-size responsive
 layouts, providing layout orientation helper system, z-axis layout system,
@@ -26,7 +26,7 @@ Example = """
 			Dark color palette are meant for inverted environment
 			and dark mode theme switching purposes.
 		</p>
-		<table>
+		<div style='display:flex;justify-content:center;'><table>
 			<thead>
 				<tr>
 					<th>Variable Type</th>
@@ -129,7 +129,7 @@ Example = """
 					<td style='background: var(--color-dark-primary-950);'></td>
 				</tr>
 			</tbody>
-		</table>
+		</table></div>
 	</div>
 	<div class='column'>
 		<h3>Indication Color System</h3>
@@ -141,7 +141,7 @@ Example = """
 			into a valid <code>--body-color-indicator-red</code>
 			value.
 		</p>
-		<table>
+		<div style='display:flex;justify-content:center;'><table>
 			<thead>
 				<tr>
 					<th>Type</th>
@@ -184,7 +184,7 @@ Example = """
 			<code>--timing-</code> level <code>rapid</code> is
 			<code>--timing-rapid</code>.
 		</p>
-		<table>
+		<div style='display:flex;justify-content:center;'><table>
 			<thead>
 				<th>Type</th>
 				<th>rapid</th>
@@ -201,7 +201,7 @@ Example = """
 				<td><code>.5s</code></td>
 				<td><code>.8s</code></td>
 			</tbody>
-		</table>
+		</table></div>
 	</div>
 	<div class='column'>
 		<h3>Typography System</h3>
@@ -210,7 +210,7 @@ Example = """
 			<code>h6</code> alongside <code>p</code> and
 			<code>a</code> (URL) styling system.
 		</p>
-		<table>
+		<div style='display:flex;justify-content:center;'><table>
 			<thead>
 				<tr>
 					<th>Type</th>
@@ -251,7 +251,7 @@ Example = """
 					<td><a href='#'>A quick falcon flew over horizon.</a></td>
 				</tr>
 			</tbody>
-		</table>
+		</table></div>
 	</div>
 
 	<div class='column'>
@@ -265,7 +265,7 @@ Example = """
 			<code>--z-index-content</code>, you need to deploy it as
 			<code>calc(var(--z-index-max) - var(--z-index-content))</code>.
 		</p>
-		<table>
+		<div style='display:flex;justify-content:center;'><table>
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -310,7 +310,7 @@ Example = """
 					<td><code>0</code></td>
 				</tr>
 			</tbody>
-		</table>
+		</table></div>
 	</div>
 </div>
 """
@@ -413,6 +413,21 @@ Example = """
 </div>
 """
 
+
+[[Component.References.HTML]]
+Type = "Inverted Color Mode"
+Description = """
+The component uses '.inverted' CSS class to denote a container to display in
+an inverted color scheme and mode (like footer). The following codes render
+minimally:
+"""
+Example = """
+<div class='.inverted'>
+	..
+</div>
+"""
+
+
 [[Component.References.CSS]]
 Name = "--body-scroll-behavior"
 Description = """
@@ -426,7 +441,7 @@ Availability = "v0.0.1"
 Name = "--content-grid-area"
 Description = """
 Label value for content container to body's grid layout system. Please DO NOT
-change it.
+CHANGE IT.
 """
 Property = "grid-area"
 Default = "content"
@@ -436,7 +451,7 @@ Availability = "v0.0.1"
 Name = "--footer-grid-area"
 Description = """
 Label value for content container to body's footer layout system. Please DO NOT
-change it.
+CHANGE IT.
 """
 Property = "grid-area"
 Default = "footer"
@@ -446,7 +461,7 @@ Availability = "v0.0.1"
 Name = "--leftnav-grid-area"
 Description = """
 Label value for content container to body's left navigation layout system.
-Please DO NOT change it.
+Please DO NOT CHANGE IT.
 """
 Property = "grid-area"
 Default = "leftnav"
@@ -457,7 +472,7 @@ Availability = "v0.0.1"
 Name = "--rightnav-grid-area"
 Description = """
 Label value for content container to body's right navigation layout system.
-Please DO NOT change it.
+Please DO NOT CHANGE IT.
 """
 Property = "grid-area"
 Default = "rightnav"
@@ -468,7 +483,7 @@ Availability = "v0.0.1"
 Name = "--topnav-grid-area"
 Description = """
 Label value for content container to body's top navigation layout system.
-Please DO NOT change it.
+Please DO NOT CHANGE IT.
 """
 Property = "grid-area"
 Default = "topnav"
@@ -586,11 +601,11 @@ Availability = "v0.0.1"
 [[Component.References.CSS]]
 Name = "--main-padding-left"
 Description = """
-Affects the page's primary layout's content left padding value. Affects main
-element.
+Affects the page's primary layout's content left padding value. Affects all
+immediate main elements' children (not main itself).
 """
 Property = "padding-left"
-Default = '15%'
+Default = '10%'
 Availability = "v0.0.1"
 
 
@@ -608,11 +623,11 @@ Availability = "v0.0.1"
 [[Component.References.CSS]]
 Name = "--main-padding-right"
 Description = """
-Affects the page's primary layout's content right padding value. Affects main
-element.
+Affects the page's primary layout's content right padding value. Affects all
+immediate main elements' children (not main itself).
 """
-Property = "margin-right"
-Default = '15%'
+Property = "padding-right"
+Default = '10%'
 Availability = "v0.0.1"
 
 
@@ -661,10 +676,10 @@ Availability = "v0.0.1"
 Name = "--footer-padding-left"
 Description = """
 Affects the page's primary layout's content's footer left padding value. Affects
-footer element.
+all immediate footer elements' children (not footer itself).
 """
 Property = "padding-left"
-Default = '15%'
+Default = '10%'
 Availability = "v0.0.1"
 
 
@@ -682,11 +697,11 @@ Availability = "v0.0.1"
 [[Component.References.CSS]]
 Name = "--footer-padding-right"
 Description = """
-Affects the page's primary layout's content's right padding value. Affects
-footer element.
+Affects the page's primary layout's content's right padding value. Affects all
+immediate footer elements' children (not footer itself).
 """
-Property = "margin-right"
-Default = '15%'
+Property = "padding-right"
+Default = '10%'
 Availability = "v0.0.1"
 
 
@@ -956,3 +971,169 @@ Affects the page's content text alignment value.
 Property = "text-align"
 Default = 'center'
 Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = '--grid-width'
+Description = '''
+Affects Hestia's grid system width value.
+'''
+Property = 'width'
+Default = '100%'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-justify-content'
+Description = '''
+Affects Hestia's grid system's horizontal alignment for all '.column's value.
+'''
+Property = 'justify-content'
+Default = 'center'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-align-content'
+Description = '''
+Affects Hestia's grid system's entire content position value.
+'''
+Property = 'align-content'
+Default = 'center'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-align-items'
+Description = '''
+Affects Hestia's grid system's vertical alignment for all '.column's value.
+'''
+Property = 'align-items'
+Default = 'stretch'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-flex-wrap'
+Description = '''
+Affects Hestia's grid system's wrapping behavifor for overflowing quantities of
+'.column's value.
+'''
+Property = 'flex-wrap'
+Default = 'wrap'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-flex-direction'
+Description = '''
+Affects Hestia's grid system's directional arrangemnets value.
+'''
+Property = 'flex-direction'
+Default = 'row'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-flex-direction'
+Description = '''
+Affects Hestia's grid system's gap spacing between each '.column' containers
+value.
+'''
+Property = 'gap'
+Default = '0'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-display'
+Description = '''
+Affects Hestia's grid system's '.column' display mode value.
+'''
+Property = 'display'
+Default = 'block'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-width'
+Description = '''
+Affects Hestia's grid system's '.column' width value.
+'''
+Property = 'width'
+Default = 'initial'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-max-width'
+Description = '''
+Affects Hestia's grid system's '.column' maximum width value.
+'''
+Property = 'max-width'
+Default = '100%'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-margin'
+Description = '''
+Affects Hestia's grid system's '.column' margin value.
+'''
+Property = 'margin'
+Default = '0 auto auto'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-padding'
+Description = '''
+Affects Hestia's grid system's '.column' padding value.
+'''
+Property = 'padding'
+Default = '0'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-visibility'
+Description = '''
+Affects Hestia's grid system's '.column' visiblity value.
+'''
+Property = 'visibility'
+Default = 'visible'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-base'
+Description = '''
+Affects Hestia's grid system's '.column' base value. Use for calculating
+flex-grow value:
+'calc(var(--grid-column-base) * var(--grid-column-multiplier))'.
+'''
+Property = 'flex-grow'
+Default = '10'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-multiplier'
+Description = '''
+Affects Hestia's grid system's '.column' multiplier value. Use for calculating
+flex-grow value:
+'calc(var(--grid-column-base) * var(--grid-column-multiplier))'.
+'''
+Property = 'flex-grow'
+Default = '1'
+Availability = 'v0.0.1'
+
+
+[[Component.References.CSS]]
+Name = '--grid-column-basis'
+Description = '''
+Affects Hestia's grid system's '.column' basis value.
+'''
+Property = 'flex-basis'
+Default = 'auto'
+Availability = 'v0.0.1'

@@ -90,23 +90,24 @@ main {
 	max-width: var(--main-max-width);
 
 	padding-top: var(--main-padding-top);
-	padding-left: var(--main-padding-left);
+	padding-left: 0;
 	padding-bottom: var(--main-padding-bottom);
-	padding-right: var(--main-padding-right);
+	padding-right: 0;
 
 	color: var(--body-color);
 	background: var(--body-background);
 }
 
+.inverted,
 footer, .footer {
 	min-width: var(--footer-min-width);
 	width: var(--footer-width);
 	max-width: var(--footer-max-width);
 
 	padding-top: var(--footer-padding-top);
-	padding-left: var(--footer-padding-left);
+	padding-left: 0;
 	padding-bottom: var(--footer-padding-bottom);
-	padding-right: var(--footer-padding-right);
+	padding-right: 0;
 
 	color: var(--footer-color);
 	background: var(--footer-background);
@@ -116,6 +117,16 @@ main > *,
 footer > * {
 	flex: 0 1 100%;
 	width: 100%;
+}
+
+main > * {
+	padding-left: var(--main-padding-left);
+	padding-right: var(--main-padding-right);
+}
+
+footer > * {
+	padding-left: var(--footer-padding-left);
+	padding-right: var(--footer-padding-right);
 }
 
 main, .content {
@@ -144,6 +155,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 h1 {
 	font-size: var(--h1-font-size);
+	font-style: var(--h1-font-style);
 	line-height: var(--h1-line-height);
 	letter-spacing: var(--h1-letter-spacing);
 	margin: var(--h1-margin);
@@ -167,6 +179,7 @@ h1:after {
 
 h2 {
 	font-size: var(--h2-font-size);
+	font-style: var(--h2-font-style);
 	line-height: var(--h2-line-height);
 	letter-spacing: var(--h2-letter-spacing);
 
@@ -207,10 +220,12 @@ h2:not(.clean):after {
 	transform: translate(-50%, 50%);
 }
 
+.inverted h2,
 footer h2 {
 	border-bottom: var(--h2-border-bottom-inverted);
 }
 
+.inverted h2:not(.clean):after,
 footer h2:not(.clean):after {
 	color: var(--h2-after-color-inverted);
 	background: var(--h2-after-background-inverted);
@@ -219,6 +234,7 @@ footer h2:not(.clean):after {
 
 h3 {
 	font-size: var(--h3-font-size);
+	font-style: var(--h3-font-style);
 	line-height: var(--h3-line-height);
 	letter-spacing: var(--h3-letter-spacing);
 
@@ -250,6 +266,7 @@ footer h3 {
 
 h4 {
 	font-size: var(--h4-font-size);
+	font-style: var(--h4-font-style);
 	line-height: var(--h4-line-height);
 	letter-spacing: var(--h4-letter-spacing);
 
@@ -277,6 +294,7 @@ h4:after {
 
 h5 {
 	font-size: var(--h5-font-size);
+	font-style: var(--h5-font-style);
 	line-height: var(--h5-line-height);
 	letter-spacing: var(--h5-letter-spacing);
 
@@ -304,6 +322,7 @@ h5:after {
 
 h6 {
 	font-size: var(--h6-font-size);
+	font-style: var(--h6-font-style);
 	line-height: var(--h6-line-height);
 	letter-spacing: var(--h6-letter-spacing);
 
@@ -331,42 +350,6 @@ h6:after {
 
 p {
 	text-align: var(--paragraph-text-align);
-}
-
-.align-left {
-	justify-content: start;
-}
-
-.align-center {
-	justify-content: center;
-}
-
-.align-right {
-	justify-content: end;
-}
-
-.align-justify {
-	justify-content: space-between;
-}
-
-.align-top {
-	align-items: flex-start;
-}
-
-.align-middle {
-	align-items: center;
-}
-
-.align-bottom {
-	align-items: flex-end;
-}
-
-.align-stretch {
-	align-items: stretch;
-}
-
-.align-baseline {
-	align-items: baseline;
 }
 
 .row {
@@ -480,6 +463,7 @@ p {
 	}
 
 	h2:after,
+	.inverted h2:after,
 	footer  h2:after,
 	.footer h2:after, {
 		color: var(--h2-after-color-print) !important;

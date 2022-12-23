@@ -30,18 +30,18 @@
 "--main-max-width" = "100%"
 
 "--main-padding-top" = "10rem"
-"--main-padding-left" = "15%"
+"--main-padding-left" = "10%"
 "--main-padding-bottom" = "10rem"
-"--main-padding-right" = "15%"
+"--main-padding-right" = "10%"
 
 "--footer-min-width" = "initial"
 "--footer-width" = "100%"
 "--footer-max-width" = "100%"
 
 "--footer-padding-top" = "3.5rem"
-"--footer-padding-left" = "15%"
+"--footer-padding-left" = "10%"
 "--footer-padding-bottom" = "3.5rem"
-"--footer-padding-right" = "15%"
+"--footer-padding-right" = "10%"
 
 
 
@@ -99,6 +99,7 @@
 
 # typography system
 "--h1-font-size" = "5rem"
+"--h1-font-style" = "normal"
 "--h1-line-height" = "1.2"
 "--h1-letter-spacing" = "-.1rem"
 "--h1-margin" = "2rem 0 0"
@@ -114,6 +115,7 @@
 
 
 "--h2-font-size" = "4rem"
+"--h2-font-style" = "normal"
 "--h2-line-height" = "1.25"
 "--h2-letter-spacing" = "-.1rem"
 "--h2-margin" = "10rem 0 5rem"
@@ -144,6 +146,7 @@
 
 
 "--h3-font-size" = "2.5rem"
+"--h3-font-style" = "normal"
 "--h3-line-height" = "1.3"
 "--h3-letter-spacing" = "-.1rem"
 "--h3-margin" = "8rem 0 0"
@@ -162,6 +165,7 @@
 
 
 "--h4-font-size" = "2.2rem"
+"--h4-font-style" = "normal"
 "--h4-line-height" = "1.35"
 "--h4-letter-spacing" = "-.08rem"
 "--h4-margin" = "4.5rem 0 0"
@@ -179,6 +183,7 @@
 
 
 "--h5-font-size" = "1.8rem"
+"--h5-font-style" = "normal"
 "--h5-line-height" = "1.5"
 "--h5-letter-spacing" = "-.05rem"
 "--h5-margin" = "4.5rem 0 0"
@@ -195,8 +200,9 @@
 "--h5-after-background" = "initial"
 
 
-"--h6-font-size" = "1.6rem"
-"--h6-line-height" = "0"
+"--h6-font-size" = "1.8rem"
+"--h6-font-style" = "italic"
+"--h6-line-height" = "1.5"
 "--h6-letter-spacing" = "0"
 "--h6-margin" = "4.5rem 0 0"
 "--h6-text-decoration" = "initial"
@@ -303,7 +309,7 @@
 
 
 # grid system
-"--grid-width" = "initial"
+"--grid-width" = "100%"
 "--grid-justify-content" = "center"
 "--grid-align-content" = "center"
 "--grid-align-items" = "stretch"

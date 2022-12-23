@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 .badge {
 	display: inline-grid;
 	grid: "title content" max-content
-		/ max-content max-content;
+		/ max-content auto;
 	overflow: hidden;
 
 	margin: var(--badge-margin);
@@ -71,6 +71,10 @@ specific language governing permissions and limitations under the License.
 .badge .title {
 	grid-area: title;
 
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
 	border-radius: var(--badge-border-radius) 0 0 var(--badge-border-radius);
 
 	margin: var(--badge-title-margin);
@@ -86,6 +90,10 @@ specific language governing permissions and limitations under the License.
 
 .badge .value {
 	grid-area: content;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	border-left: var(--badge-border);
 	border-radius: 0 var(--badge-border-radius) var(--badge-border-radius) 0;

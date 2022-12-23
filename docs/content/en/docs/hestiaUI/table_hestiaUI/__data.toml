@@ -76,10 +76,13 @@ Rust = ""
 Type = "Minimum"
 Description = """
 The component uses W3C native 'table', 'thead', 'tr', 'th', 'tbody', and 'td'
-syntaxes to render itself minimally:
+syntaxes and a 'div' alignment container to construct a centered table. Without
+the div container, the default is to occupy the entire width spacing which will
+show a left aligned table if the table content is scarce. The following codes
+shall render itself minimally:
 """
 Example = """
-<table>
+<div style='display:flex;justify-content:center;'><table>
 	<thead>
 		<tr>
 			<th>...</th>
@@ -95,7 +98,7 @@ Example = """
 		</tr>
 		...
 	</tbody>
-</table>
+</table></div>
 """
 
 
@@ -103,12 +106,15 @@ Example = """
 Type = "2-Axis Headers"
 Description = """
 The component uses W3C native 'table', 'thead', 'tr', 'th', 'tbody', and 'td'
-syntaxes to render itself without additional css classes. For 2-axis headers,
+syntaxes and a 'div' alignment container to construct a centered table. Without
+the div container, the default is to occupy the entire width spacing which will
+show a left aligned table if the table content is scarce. For 2-axis headers,
 each row of the 'tbody' shall contain a leading 'th' while 'thead' has an empty
-leading 'th' to compensate the header column. Here are the minimal codes:
+leading 'th' to compensate the header column. The following codes shall render
+itself minimally:
 """
 Example = """
-<table>
+<div style='display:flex;justify-content:center;'><table>
 	<thead>
 		<tr>
 			<th></th>
@@ -126,7 +132,7 @@ Example = """
 		</tr>
 		...
 	</tbody>
-</table>
+</table></div>
 """
 
 
@@ -136,7 +142,7 @@ Description = """
 Affects the entire component's display mode value.
 """
 Property = "display"
-Default = "table"
+Default = "block"
 Availability = "v0.0.1"
 
 
@@ -146,7 +152,7 @@ Description = """
 Affects the entire component's overflow mode value.
 """
 Property = "overflow"
-Default = "auto auto"
+Default = "auto"
 Availability = "v0.0.1"
 
 
@@ -207,6 +213,16 @@ Affects the entire component's maximum height value.
 """
 Property = "max-height"
 Default = "initial"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--table-border"
+Description = """
+Defines the table's border value for table cell and table headers.
+"""
+Property = "border"
+Default = "1px solid var(--color-primary-900)"
 Availability = "v0.0.1"
 
 

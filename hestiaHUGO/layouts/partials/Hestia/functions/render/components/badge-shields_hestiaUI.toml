@@ -30,7 +30,7 @@
 "--badge-title-text-align" = "left"
 
 "--badge-title-color" = "var(--color-typography-50)"
-"--badge-title-background" = "var(--color-typography-800)"
+"--badge-title-background" = "var(--color-typography-900)"
 
 
 
