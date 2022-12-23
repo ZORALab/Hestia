@@ -28,6 +28,14 @@ Check out our collections, grouped by topics.
 '''
 Portrait = '/img/contributors/pexel-contributor-cottonbro-studio-1200x1200.webp'
 
+[FransVanHeerden]
+Type = "Person"
+Name = 'Frans van Heerden'
+Web = 'https://www.pexels.com/@frans-van-heerden-201846/'
+Label = 'Pexels'
+Description = "I enjoy photographing Africa's wild life. I also enjoy travelling."
+Portrait = '/img/contributors/pexel-contributor-frans-van-heerden-1200x1200.webp'
+
 [HollowayKeanHo]
 Type = "Person"
 Name = '(Holloway) Chew, Kean Ho'
