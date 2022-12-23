@@ -55,6 +55,16 @@ Kaboompics.com
 '''
 Portrait = '/img/contributors/pexel-contributor-karolina-grabowska-1200x1200.webp'
 
+[KellyMLacy]
+Type = "Person"
+Name = 'Kelly M Lacy'
+Web = 'https://www.pexels.com/@kelly-1179532/'
+Label = 'Pexels'
+Description = '''
+Filmmaker and Photographer.
+'''
+Portrait = '/img/contributors/pexel-contributor-kelly-lacy-1200x1200.webp'
+
 [LeslieDuarteCastro]
 Type = "Person"
 Name = 'Leslie Duarte Castro'
