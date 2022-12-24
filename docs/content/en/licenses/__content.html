@@ -5,7 +5,7 @@
 			{{ .Descriptions.Page.Pitch }}
 			{{ .Descriptions.Page.Summary }}
 		</p>
-		<table>
+		<div style='display:flex;justify-content:center;'><table>
 			<thead>
 				<th>TYPE</th>
 				<th>PDF</th>
@@ -54,7 +54,7 @@
 					</td>
 				</tr>
 			</tbody>
-		</table>
+		</table></div>
 		<nav class="toc">
 			<a href='#business-direction'>Business Direction</a>
 			<a href='#compulsory-requirements'>Compulsory Requirements</a>
@@ -167,10 +167,10 @@
 				video, or audio of any kinds, to prevent
 				ZORALab's Hestia Project from being a
 				re-distributor, <b>you are prohibited from using
-				them directly from us</b>. However, we will
-				always credit the original arists so you can
-				source their artwork of your interest directly
-				from them.
+				them directly from us</b>. However, we always
+				<a href='{{- absoluteURL "html" "/en/#artwork" -}}'>credit
+				the original artists</a> so you can source their
+				artworks directly from them.
 			</p>
 			<br/><br/>
 			<p>Please <b>DO</b>:</p>
@@ -224,4 +224,5 @@
 		</p>
 	</section>
 </main>
+<!-- line -->{{- parse "html" "assets/html/footer/common_en.html" -}}
 <!-- line -->{{- parse "html" "assets/html/nav/topbar_en.html" -}}
