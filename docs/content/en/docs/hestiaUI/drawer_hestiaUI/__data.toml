@@ -335,7 +335,7 @@ Description = """
 Affects the entire component's color value.
 """
 Property = "color"
-Default = "var(--body-color)"
+Default = "var(--body-color-inverted)"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
@@ -345,7 +345,7 @@ Affects the entire component's color value in an inverted environment
 (e.g. footer).
 """
 Property = "color"
-Default = "var(--body-color-inverted)"
+Default = "var(--body-color)"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
@@ -454,7 +454,7 @@ Affects the component's '.trigger' container's border radius value. Used for
 constructing border radius for each drawer type.
 """
 Property = "border-radius"
-Default = "30%"
+Default = "50%"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
@@ -488,6 +488,26 @@ Default = "var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-r
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
+Name = "--right-drawer-trigger-box-shadow"
+Description = """
+Affects the '.right-drawer' component's '.trigger' container's box shadowing
+value.
+"""
+Property = "box-shadow"
+Default = "0 0 2rem var(--drawer-overlay-background)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--right-drawer-trigger-box-shadow-focus"
+Description = """
+Affects the '.right-drawer' component's '.trigger' container's box shadowing
+value while being focused.
+"""
+Property = "box-shadow"
+Default = "0 0 4rem var(--drawer-overlay-background)"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
 Name = "--drawer-trigger-font-size"
 Description = """
 Affects the component's '.trigger' container's font size value.
@@ -503,6 +523,16 @@ Affects the component's '.trigger' container's font style value.
 """
 Property = "font-style"
 Default = "normal"
+Availability = "v0.0.1"
+
+[[Component.References.CSS]]
+Name = "--drawer-trigger-transform-focus"
+Description = """
+Affects the component's '.trigger' container's transformation value while being
+focused.
+"""
+Property = "transform"
+Default = "scale(1.1)"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]

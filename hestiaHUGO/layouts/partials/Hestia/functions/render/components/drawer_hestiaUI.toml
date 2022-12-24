@@ -23,10 +23,10 @@
 "--top-drawer-border-radius" = "0 0 var(--drawer-border-radius) var(--drawer-border-radius)"
 "--right-drawer-border-radius" = "var(--drawer-border-radius) 0 0 var(--drawer-border-radius)"
 
-"--drawer-color" = "var(--body-color)"
-"--drawer-color-inverted" = "var(--body-color-inverted)"
+"--drawer-color" = "var(--body-color-inverted)"
+"--drawer-color-inverted" = "var(--body-color)"
 "--drawer-color-primary" = "var(--color-primary-600)"
-"--drawer-background" = "var(--body-background)"
+"--drawer-background" = "var(--color-primary-800)"
 "--drawer-overlay-color" = "transparent"
 "--drawer-overlay-background" = "rgba(0,0,0,.75)"
 
@@ -43,7 +43,7 @@
 "--left-drawer-trigger-border" = "unset"
 "--top-drawer-trigger-border" = "unset"
 "--right-drawer-trigger-border" = "unset"
-"--drawer-trigger-border-radius" = "30%"
+"--drawer-trigger-border-radius" = "50%"
 "--left-drawer-trigger-border-radius" = """
 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius) 0
 """
@@ -54,8 +54,14 @@
 var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
 """
 
+"--drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-overlay-background)"
+"--drawer-trigger-box-shadow-focus" = "0 0 4rem var(--drawer-overlay-background)"
+
 "--drawer-trigger-font-size" = "2rem"
 "--drawer-trigger-font-style" = "normal"
+
+"--drawer-trigger-transform-focus" = "scale(1.1)"
+
 
 "--left-drawer-trigger-position-top" = "50%"
 "--left-drawer-trigger-position-left" = "0"

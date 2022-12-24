@@ -171,6 +171,7 @@ specific language governing permissions and limitations under the License.
 
 	border: var(--drawer-trigger-border);
 	border-radius: var(--drawer-trigger-border-radius);
+	box-shadow: var(--drawer-trigger-box-shadow);
 
 	font-size: var(--drawer-trigger-font-size);
 	font-style: var(--drawer-trigger-font-style);
@@ -180,6 +181,16 @@ specific language governing permissions and limitations under the License.
 
 	opacity: 1;
 	transition: var(--drawer-transition);
+}
+
+.left-drawer:hover > label.trigger,
+.left-drawer:focus > label.trigger,
+.top-drawer:hover > label.trigger,
+.top-drawer:focus > label.trigger,
+.right-drawer:hover > label.trigger,
+.right-drawer:focus > label.trigger {
+	box-shadow: var(--drawer-trigger-box-shadow-focus);
+	transform: var(--drawer-trigger-transform-focus);
 }
 
 .left-drawer > label.trigger {
@@ -215,7 +226,7 @@ specific language governing permissions and limitations under the License.
 .top-drawer > input[type='checkbox']:checked ~ label.trigger {
 	z-index: var(--drawer-overlay-z-index);
 
-	top: var(--drawer-width-opened-top);
+	top: var(--top-drawer-width-opened);
 }
 
 .right-drawer > label.trigger {
