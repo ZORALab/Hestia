@@ -46,6 +46,11 @@ Summary = '{{- .Titles.Site.Current.Short }} - {{ .Descriptions.Site.Current.Pit
 #       https://developer.mozilla.org/en-US/docs/Web/Manifest/categories
 [Categories]
 List = [
-        'Web',
-        'Tech',
+	'Web',
+	'Tech',
+	'Software',
+	'Library',
+	"ZORALab's Hestia",
+	'Development',
+	"ZORALab",
 ]
