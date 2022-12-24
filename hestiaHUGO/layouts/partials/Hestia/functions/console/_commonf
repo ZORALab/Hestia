@@ -30,7 +30,12 @@ specific language governing permissions and limitations under the License.
 
 {{- if (partial "Hestia/functions/IsHestia" .) -}}
 	{{- /* states the Page relative URL */ -}}
-	{{- $dataList = printf "%sOn Page     : %s\n" $dataList .URL.Current.Relative -}}
+	{{- $dataList = .URL.Current.Relative -}}
+	{{- if strings.Contains $dataList "__content" -}}
+		{{- $dataList = strings.TrimSuffix "/" $dataList -}}
+		{{- $dataList = path.Dir $dataList -}}
+	{{- end -}}
+	{{- $dataList = printf "\nOn Page     : %s\n" $dataList -}}
 
 
 	{{- /* states the Filepath if available */ -}}
@@ -49,12 +54,9 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = printf "%sMacro       : %s\n" $dataList $ret -}}
 {{- else -}}
 	{{- /* states the Page relative URL */ -}}
-	{{- $dataList = printf
-		"%sOn Page     : not applicable (non-Hestia data)\n" $dataList -}}
-	{{- $dataList = printf
-		"%sFile        : not available\n" $dataList -}}
-	{{- $dataList = printf
-		"%sMacro       : not available\n" $dataList -}}
+	{{- $dataList = printf "\nOn Page     : not applicable (non-Hestia data)\n" -}}
+	{{- $dataList = printf "%sFile        : not available\n" $dataList -}}
+	{{- $dataList = printf "%sMacro       : not available\n" $dataList -}}
 	{{- $dataList = printf "%s\n" $dataList -}}
 {{- end -}}
 
