@@ -55,9 +55,9 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data
 		(dict "UNIX" $ret.UnixNano) -}}
 	{{- $data = merge $data
-		(dict "ID" ($ret.Format "200601261504050700")) -}}
+		(dict "ID" ($ret.Format "200601021504050700")) -}}
 	{{- $data = merge $data
-		(dict "RFC3339" ($ret.Format "2006-01-26T15:04:05Z07:00")) -}}
+		(dict "RFC3339" ($ret.Format "2006-01-02T15:04:05Z07:00")) -}}
 	{{- $data = merge $data
 		(dict "RFC1123Z" ($ret.Format "Mon, 02 Jan 2006 15:04:05 -0700")) -}}
 	{{- $data = merge $data
