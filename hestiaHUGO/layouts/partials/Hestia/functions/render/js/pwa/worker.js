@@ -45,7 +45,7 @@ const __putInCache = async (request, response) => {
 	await cache.put(request, response);
 }
 
-const _fetchNetworkOnly = async (request) {
+const _fetchNetworkOnly = async (request) => {
 	try {
 		const networkResponse = await fetch(request);
 		__putInCache(request, networkResponse.clone());
@@ -58,9 +58,9 @@ const _fetchNetworkOnly = async (request) {
 	}
 }
 
-const _fetchCacheOnly = async (request) {
+const _fetchCacheOnly = async (request) => {
 	const cachedResponse = await caches.match(request);
-	if cachedResponse {
+	if (cachedResponse) {
 		return cachedResponse;
 	}
 
@@ -70,7 +70,7 @@ const _fetchCacheOnly = async (request) {
 	});
 }
 
-const _fetchNetworkFirst = async (request) {
+const _fetchNetworkFirst = async (request) => {
 	try {
 		// source from network
 		const networkResponse = await fetch(request);
@@ -79,7 +79,7 @@ const _fetchNetworkFirst = async (request) {
 	} catch {
 		// source from cache
 		const cachedResponse = await caches.match(request);
-		if cachedResponse {
+		if (cachedResponse) {
 			return cachedResponse;
 		}
 	}
@@ -92,10 +92,10 @@ const _fetchNetworkFirst = async (request) {
 }
 
 
-const _fetchCacheFirst = async (request) {
+const _fetchCacheFirst = async (request) => {
 	// source from cache
 	const cachedResponse = await caches.match(request);
-	if cachedResponse {
+	if (cachedResponse) {
 		return cachedResponse;
 	}
 
