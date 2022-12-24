@@ -220,6 +220,16 @@ and spoken word artist)
 '''
 Portrait = '/img/contributors/pexel-contributor-suzy-hazelwood-1200x1200.webp'
 
+[TerrenceBowen]
+Type = "Person"
+Name = 'Terrence Bowen'
+Web = 'https://www.pexels.com/@terrence-bowen-6926582/'
+Label = 'Pexels'
+Description = '''
+Professional photographer saving a moment in time with a click.
+'''
+Portrait = '/img/contributors/pexel-contributor-terrence-bowen-1200x1200.webp'
+
 [TimGouw]
 Type = "Person"
 Name = 'Tim Gouw'
