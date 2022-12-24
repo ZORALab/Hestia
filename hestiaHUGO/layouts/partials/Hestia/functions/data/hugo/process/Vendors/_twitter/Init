@@ -37,6 +37,10 @@ specific language governing permissions and limitations under the License.
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
 {{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $ret = strings.TrimPrefix "@" $ret -}}
+{{- if $ret -}}
+	{{- $ret = printf "@%s" $ret -}}
+{{- end -}}
 {{- $dataList = merge $dataList (dict "Site" (dict "Handle" $ret)) -}}
 
 
@@ -51,6 +55,10 @@ specific language governing permissions and limitations under the License.
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
 {{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $ret = strings.TrimPrefix "@" $ret -}}
+{{- if $ret -}}
+	{{- $ret = printf "@%s" $ret -}}
+{{- end -}}
 {{- $dataList = merge $dataList (dict "Creator" (dict "Handle" $ret)) -}}
 
 
