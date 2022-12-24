@@ -85,7 +85,7 @@ Custom and specific configuration files for GitHub Pages, GitLab Pages,
 Cloudflare Pages, etc.
 '''
 Outcome = '''
-We got you covered (as far as we can go.
+We got you covered (as far as we can reach).
 '''
 
 
@@ -128,6 +128,33 @@ Expand web UI interactions with proper programming languages.
 '''
 Outcome = '''
 WASM hosting and initialization ready.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'favicon-generator.svg'
+Reason = 'Icons and Favicons Ready'
+Description = '''
+Generate Favicons, icons, MSFT Tile image, buttons, iPhones, Android, browsers,
+etc
+'''
+Outcome = '''
+No more depending on 3rd-party external website.
+'''
+
+
+
+
+[[Business]]
+Thumbnail = 'og-ready-1200x1200.webp'
+Reason = 'Social Media & Open Graph'
+Description = '''
+Open Graph, Twitter Card, Messengers icons, etc
+'''
+Outcome = '''
+Configured, Tested, and Confident.
 '''
 
 
