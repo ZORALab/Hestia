@@ -68,10 +68,10 @@ learning experience a lot easier without worrying about supply chain threat.
 [Redirect]
 Delay = 0 # second
 URL = "/en"
-Enabled = true
+Enabled = false
 
 [Redirect.Language]
-Enabled = false
+Enabled = true
 
 
 
