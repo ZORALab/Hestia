@@ -1,0 +1,256 @@
+<main>
+	<section id="introduction">
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>
+			{{ .Descriptions.Page.Pitch }}
+		</p>
+	</section>
+
+
+	<section id="purpose">
+		<h2>Purpose</h2>
+		<p>
+			This page is the engineering specifications for the
+			entire ZORALab's Hestia Project. It is meant for
+			developers to reference to and from while developing
+			new project.
+		</p>
+		<p>
+			There are primarily 3 goals:
+			<ol>
+				<li><p>
+					<b>FROM THE PAST</b><br/>To archive
+					legacy algorithms for the purposes of
+					continuous improvements and future
+					learning use.
+				</p></li>
+
+				<li><p>
+					<b>AT PRESENT</b><br/>To provide
+					engineering details for development and
+					utilizing the libaries offered by
+					ZORALab's Hestia.
+				</p></li
+>
+				<li><p>
+					<b>INTO THE FUTURE</b><br/>To serve as
+					an industrial education tool and
+					research and development baseline.
+				</p></li>
+			</ol>
+		</p>
+	</section>
+
+
+	<section id="technical-values">
+		<h2>Technical Values</h2>
+		<p>
+			There are some engineering values that ZORALab's Hestia
+			maintains in order to offer stable services to anyone,
+			everyone. These were formed based on cumulated
+			experiences in the past and using their insights to
+			prevent it from happening again.
+		</p>
+
+
+		<div class='row'>
+			<div class='column' style='max-width:400px;'>
+				<h3>Assimilate Dependencies</h3>
+				<p>
+					<b>DO NOT, as in STRICTLY DON'T
+					INTEGRATE EXTERNAL DEPENDENCIES</b>.
+					Read (and audit) them codes; Understand
+					or procure algorithm; then assimilate it
+					into ZORALab's Hestia.
+				</p>
+				<p>
+					The problems with integrations are
+					always related to supply chain and
+					geopolitical nuisance; unnecessary
+					and resources wasting dramas, and etc.
+				</p>
+			</div>
+
+
+			<div class='column' style='max-width:400px;'>
+				<h3>Regressively Improvable</h3>
+				<p>
+					<b>ALWAYS DEVELOP TECHNOLOGIES THAT ARE
+					RECURSIVELY IMPROVABLE</b>. Improve the
+					existing; not keep rolling new product
+					just for each iterations. Make sure the
+					product is <b>improvable, measurable,
+					testable, documentable, and
+					presentable</b>.
+				</p>
+			</div>
+
+
+			<div class='column' style='max-width:400px;'>
+				<h3>Provide Integration Services</h3>
+				<p>
+					<b>DO OFFER THE BEST INTEGRATION
+					SERVICES TO CUSTOMER</b>. Allow
+					customers to integrate ZORALab's Hestia
+					easily; or have the freedom to
+					assimilate directly from us.
+				</p>
+			</div>
+
+
+			<div class='column' style='max-width:400px;'>
+				<h3>Appreciates and Recognizes</h3>
+				<p>
+					<b>ALWAYS APPRECIATES AND RECOGNIZES
+					ALL CONTRIBUTORS, BIG OR SMALL</b>. No
+					being left behind. Resources are scarce;
+					Compliment, not compete with the
+					existing teams.
+				</p>
+			</div>
+
+
+			<div class='column' style='max-width:400px;'>
+				<h3>Steadly Push Towards Extreme</h3>
+				<p>
+					<b>ALWAYS PUSH AND OPTIMIZE TO THE
+					EXTREME POSSIBLE IN A STABLE AND
+					CONFIDENT MANNER</b>. Choose the best of
+					the best for everyone to benefits from
+					and trusted with.
+				</p>
+			</div>
+
+
+			<div class='column' style='max-width:400px;'>
+				<h3>Stays Open For Distruption</h3>
+				<p>
+					<b>ALWAYS KEEP OPEN END FOR ANY FUTURE
+					DISTRUPTIVE TECHNOLOGIES</b>. Leave room
+					for possible metamorphosis improvements.
+				</p>
+			</div>
+		</div>
+	</section>
+
+
+	<section id="common-convention">
+		<h2>Common Convetions</h2>
+		<p>
+			To ensures we have common understanding for
+			contributions, we established some conventions that are
+			being used across all divisions. This does not limits
+			each division to impose its additional conventions
+			specific to itself.
+		</p>
+
+
+		<div class='row'>
+			<div class='column' style='max-width:400px;'>
+				<h3><code>X_</code> Prefix for Experimentals</h3>
+				<p>
+					<code>X_</code> or <code>x_</code>
+					prefix on an identifier (e.g. name)
+					stands for experimental and things may
+					break. Examples:
+					<code>X_S16_TrimWhitespace</code> (Go),
+					<code>x_s16_trim_whitespace</code>
+					(Rust), or
+					<code>X_core_designer.html</code>
+					(Hugo). When in doubt, always do this to
+					let customer knows something is
+					experimental.
+				</p>
+			</div>
+
+
+			<div class='column' style='max-width:400px;'>
+				<h3>Unique Tracking Identifier</h3>
+				<p>
+					Ensures all features, products, artists,
+					developers, etc are uniquely identified
+					in the project. This is
+					inter-transatable Project so common
+					name conflicts can be disasterous.
+					Example: for <code>core_hestiaUI</code>
+					Hugo component; it is translated to
+					<code>hestiaUI/Core</code> in Go and
+					<code>hestia_ui::Core</code> in Rust.
+				</p>
+			</div>
+
+
+			<div class='column' style='max-width: 400px;'>
+				<h3>Always Semi-Automatic</h3>
+				<p>
+					Keep things semi-automatic - scripting,
+					semi-automation tool, etc. These
+					libraries are eventually for human to
+					main at scale beyond reach. We need the
+					best of both worlds to complement one
+					another.
+				</p>
+				<br/>
+			</div>
+		</div>
+	</section>
+
+
+	<section id='epilogue'>
+		<h2>Available Libraries</h2>
+		<p>
+			With the above general specifications, ZORALab's Hestia
+			offers the following libraries for your needs:
+		</p>
+
+
+		<nav class='catalog'>
+			<figure class='card'>
+				<picture class='thumbnail'>
+					<img src='{{- absoluteURL "html"
+					"hestiaui/thumbnails-1200x1200.svg" -}}'
+					width='250' />
+				</picture>
+				<div class='content'>
+					<h3 style='margin-top: 0;'>HestiaUI</h3>
+					<p>
+						All graphical user interface design and
+						artwork. Primarily uses <a
+						href='{{- absoluteURL "html"
+						"/en/hugo" -}}'>Hugo</a> for its
+						design work and content
+						management system.
+					</p>
+				</div>
+				<div class='actions'>
+					<a href='{{- absoluteURL "html" "/en/docs/hestiaui" -}}'
+					class='button'>PROCEED</a>
+				</div>
+			</figure>
+
+
+			<figure class='card'>
+				<picture class='thumbnail'>
+					<img src='{{- absoluteURL "html"
+					"hestiaLIB.svg" -}}'
+					width='250' />
+				</picture>
+				<div class='content'>
+					<h3 style='margin-top: 0;'>HestiaLIBS</h3>
+					<p>
+						All software programmable functions
+						libraries inter-translatable across
+						different languages. Primarily uses
+						Go and Rust for its development and
+						distributions.
+					</p>
+				</div>
+				<div class='actions'>
+					<p><b>UNDER DEVELOPMENT</b></p>
+				</div>
+			</figure>
+		</nav>
+	</section>
+</main>
+<!-- line -->{{- parse "html" "assets/html/footer/common_en.html" -}}
+<!-- line -->{{- parse "html" "assets/html/nav/topbar_en.html" -}}

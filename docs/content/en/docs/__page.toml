@@ -21,7 +21,7 @@ Published = "Thu 08 Dec 2022 05:55:06 PM +08"
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "ZORALab's Hestia Documentation"
+Title = "ZORALab's Hestia Specifications"
 Keywords = [
 	"Specifications",
 	"Documentations",
@@ -41,11 +41,11 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = """
-The entire technical specifications of the ZORALab's Hestia Library.
+The entire technical specifications of the ZORALab's Hestia Project.
 """
 Summary = """
-It covers all library suites ZORALab's Hestia has to offer ranging from
-HestiaGO, hestiaRUST, and hestiaHUGO products.
+It covers all suites ZORALab's Hestia has to offer ranging from HestiaGO,
+hestiaRUST, and hestiaHUGO products.
 """
 
 
