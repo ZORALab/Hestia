@@ -21,47 +21,20 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
-{{- $list := dict -}}
-{{- $dataList := slice -}}
-{{- $ret := false -}}
-{{- $path := false -}}
-{{- $Local := false -}}
-
-
-
-
-{{- /* parse site-level .Caches.List */ -}}
-{{- $list = dict -}}
-{{- range $i, $v := .Data.Store.Hestia.PWA.Caches.Contents -}}
-	{{- if not $v.URL -}}
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- if not $v.Cache -}}
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- $ret = dict -}}
-	{{- $ret = merge $ret (dict "URL" $v.URL) -}}
-	{{- $ret = merge $ret (dict "Cache" $v.Cache) -}}
-	{{- $list = merge $list (dict $ret.URL $ret) -}}
-{{- end -}}
-
-
-
-
-{{- /* convert back into array */ -}}
-{{- $dataList = slice -}}
-{{- range $k, $v := $list -}}
-	{{- $dataList = append $v $dataList -}}
-{{- end -}}
-{{- $dataList = dict "List" $dataList -}}
+{{- $dataList := "" -}}
+{{- $path := "app.js" -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Caches" $dataList -}}
+{{- $path = lower (printf "%s%s" .URL.Current.Absolute.Path $path) -}}
+{{- $dataList = string (partial "Hestia/functions/render/js/pwa/worker.js" .) -}}
+{{- if not .IsServerMode -}}
+	{{- $dataList = dict "Type" "application/javascript" "Data" $dataList -}}
+	{{- $dataList = merge . (dict "Input" $dataList) -}}
+	{{- $dataList = partial "Hestia/functions/data/string/Minify" $dataList -}}
+	{{- $dataList = $dataList.Output -}}
+{{- end -}}
+{{- $dataList = merge . (dict "Input" (dict "Content" (string $dataList) "Path" $path)) -}}
+{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}

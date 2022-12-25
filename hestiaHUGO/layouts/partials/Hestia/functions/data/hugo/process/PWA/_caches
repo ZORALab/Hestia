@@ -30,20 +30,16 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* run through each .Caches.List */ -}}
-{{- $dataList = slice -}}
-{{- range $i, $v := .PWA.Caches.List -}}
+{{- /* run through each .Caches */ -}}
+{{- range $k, $v := .PWA.Caches -}}
 	{{- $data = dict -}}
 
 
 	{{- /* process .URL */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $k)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: Caches.%v.URL: %v"
-			$i
-			$ret.Console.Message
-		-}}
+		{{- $console = printf "PWA: Caches.'%v': %v" $k $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 		{{- $console = merge $Page (dict "Console" $console) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
@@ -53,13 +49,10 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* process .Cache policy */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Cache)) -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: Caches.%v.Cache: %v"
-			$i
-			$ret.Console.Message
-		-}}
+		{{- $console = printf "PWA: Caches.'%v'.Cache: %v" $k $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 		{{- $console = merge $Page (dict "Console" $console) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
@@ -78,10 +71,7 @@ specific language governing permissions and limitations under the License.
 	{{- else if not $ret -}}
 		{{- $ret = "cache-first" -}}
 	{{- else -}}
-		{{- $console = printf "PWA: Caches.%v.Cache: unknown policy '%v'\n"
-			$i
-			$ret
-		-}}
+		{{- $console = printf "PWA: Caches.'%v'.Cache: unknown policy '%v'\n" $k $ret -}}
 		{{- $console = dict "Message" $console -}}
 		{{- $console = merge $Page (dict "Console" $console) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}

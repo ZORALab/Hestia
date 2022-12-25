@@ -71,20 +71,20 @@
 #   Cache = "cache-first"
 [[Contents]]
 URL = "index.html"
-Cache = "network-first"
+Cache = "cache-first"
 
 [[Contents]]
 URL = "index.json"
-Cache = "network-first"
+Cache = "cache-first"
 
 [[Contents]]
-URL = "thumbnails-1200x630.jpg"
-Cache = "network-first"
+URL = "thumbnails-1200x630.png"
+Cache = "cache-first"
 
 [[Contents]]
-URL = "thumbnails-1200x1200.jpg"
-Cache = "network-first"
+URL = "thumbnails-1200x1200.png"
+Cache = "cache-first"
 
 [[Contents]]
-URL = "thumbnails-480x480.jpg"
-Cache = "network-first"
+URL = "thumbnails-480x480.png"
+Cache = "cache-first"

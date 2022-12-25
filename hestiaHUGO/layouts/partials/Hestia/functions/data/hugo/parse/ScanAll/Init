@@ -19,14 +19,18 @@ specific language governing permissions and limitations under the License.
 
 {{- /* CONTANTS */ -}}
 {{- $CACHE_LABEL := "Cached-NavALL" -}}
+{{- $CACHE_FILENAME := "__caches.toml" -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
-{{- $list := slice -}}
+{{- $nav := slice -}}
+{{- $pwa := dict -}}
 {{- $ret := false -}}
+{{- $path := false -}}
+{{- $Local := dict -}}
 
 
 
@@ -38,26 +42,67 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- if .IsHome -}}
 	{{- /* begin scanning all pages */ -}}
-	{{- $list = slice -}}
+	{{- $nav = slice -}}
+	{{- $pwa = dict -}}
 	{{- range $i, $v := .Site.Pages -}}
 		{{- /* skip __content.* data page mistreatment */ -}}
 		{{- if strings.Contains $v.Permalink "__content" -}}
 			{{- continue -}}
 		{{- end -}}
 
-
 		{{- /* parse basic metadata */ -}}
 		{{- $ret = partial "Hestia/functions/data/Metadata" $v -}}
 
-
 		{{- /* append to list */ -}}
-		{{- $list = append $ret $list -}}
+		{{- $nav = append $ret $nav -}}
+
+
+
+
+		{{- /* parse PWA.Caches */ -}}
+		{{- $Local = dict -}}
+		{{- $path = "" -}}
+		{{- if $v.Page.File -}}
+			{{- $path = path.Dir $v.Page.File.Path -}}
+			{{- $Local = path.Join $path $CACHE_FILENAME -}}
+			{{- $Local = path.Clean $Local -}}
+			{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile"
+				$Local -}}
+		{{- end -}}
+
+
+		{{- if $Local -}}
+			{{- range $j, $w := $Local.Contents -}}
+				{{- if not (index $w "URL") -}}
+					{{- continue -}}
+				{{- end -}}
+
+				{{- if not (index $w "Cache") -}}
+					{{- continue -}}
+				{{- end -}}
+
+				{{- $ret = urls.Parse $w.URL -}}
+				{{- if $ret.Scheme -}}
+					{{- /* DO NOTHING - absolute URL */ -}}
+					{{- $ret = $w.URL -}}
+				{{- else if (hasPrefix $ret.Path "/") -}}
+					{{- /* DO NOTHING - absolute URL */ -}}
+					{{- $ret = $w.URL -}}
+				{{- else -}}
+					{{- $ret = path.Join "/" $path $w.URL -}}
+				{{- end -}}
+				{{- $ret = lower $ret -}}
+
+				{{- $pwa = merge $pwa (dict $ret $w.Cache) -}}
+			{{- end -}}
+		{{- end -}}
 	{{- end -}}
 {{- end -}}
-{{ $dataList = dict "All" $list -}}
+
+{{ $dataList = dict "Nav" (dict "All" $nav) "PWA" (dict "Caches" $pwa) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Nav" $dataList -}}
+{{- return $dataList -}}

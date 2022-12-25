@@ -54,8 +54,8 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/CSS" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/JS" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Robots" .) -}}
-{{- $dataList = merge $dataList
-	(partialCached "Hestia/functions/data/hugo/parse/RobotsTXT/Init" .) -}}
+{{- $dataList = merge $dataList (partialCached "Hestia/functions/data/hugo/parse/RobotsTXT/Init" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/PWA/Init" $dataList) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Redirect" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/WASM" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Vendors/Init" .) -}}
@@ -78,8 +78,6 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Twitter" $dataList -}}
-{{- $ret = partialCached "Hestia/functions/data/hugo/local/PWA/Init" $dataList -}}
-{{- $dataList = merge $dataList (dict "PWA" $ret) -}}
 
 
 
@@ -97,8 +95,8 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/JS/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/WASM/Init" $dataList -}}
-{{- $ret = partialCached "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
-{{- $dataList = merge $dataList (dict "PWA" $ret) -}}
+{{- $dataList = merge $dataList
+	(partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList) -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Vendors/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}

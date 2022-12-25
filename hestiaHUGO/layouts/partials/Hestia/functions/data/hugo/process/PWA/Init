@@ -95,11 +95,6 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* post processing - utilize .PWA data structure for rendering */ -}}
-{{- $ret = partial
-	"Hestia/functions/data/hugo/process/PWA/_service-worker" $dataList -}}
-{{- $dataList = merge $dataList $ret -}}
-
-
 {{- $ret = partial "Hestia/functions/data/hugo/process/PWA/_webmanifest" $dataList -}}
 {{- $dataList = merge $dataList $ret -}}
 
@@ -107,4 +102,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* return output */ -}}
-{{- return $dataList.PWA -}}
+{{- return dict "PWA" $dataList.PWA -}}
