@@ -41,10 +41,17 @@ specific language governing permissions and limitations under the License.
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+
+	{{- /* merge back required assets */ -}}
+	{{- $ret = merge $ret (dict "Asset" $v.Asset) -}}
+	{{- $ret = merge $ret (dict "Filename" $v.Filename) -}}
+	{{- $ret = merge $ret (dict "Resize" $v.Resize) -}}
 
 
 	{{- /* append into list */ -}}
-	{{- $dataList = append $ret.Output $dataList -}}
+	{{- $dataList = append $ret $dataList -}}
 {{- end -}}
 
 

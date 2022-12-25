@@ -20,28 +20,30 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* RENDER MAIN PAGE COMPONENTS */ -}}
-{{- partial "Hestia/templates/format.html" . -}}
-{{- partial "Hestia/templates/sitemap-page.xml" . -}}
-{{- partial "Hestia/templates/sitemap.xml" . -}}
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := "" -}}
+{{- $path := "" -}}
+{{- $ret := "" -}}
 
 
 
 
-{{- /* RENDER ROOT COMPONENTS */ -}}
-{{- if .IsRoot -}}
-	{{- partialCached "Hestia/templates/robots.txt" . -}}
-	{{- partialCached "Hestia/templates/nojekyll" . -}}
-	{{- partialCached "Hestia/templates/cname" . -}}
-	{{- partialCached "Hestia/templates/app.webmanifest" . -}}
-	{{- partialCached "Hestia/templates/worker.js" . -}}
-	{{- partialCached "Hestia/templates/icons" . -}}
-{{- end -}}
+{{- /* render output */ -}}
+{{- range $i, $v := .PWA.Icons -}}
+	{{- /* load the image */ -}}
+	{{- $ret = resources.GetMatch $v.Asset.URL -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
 
 
+	{{- /* resize */ -}}
+	{{- if $v.Resize -}}
+		{{- $ret = $ret.Resize (printf "%vx%v" $v.Width $v.Height) -}}
+	{{- end -}}
 
 
-{{- /* RENDER OPTIONAL COMPONENTS */ -}}
-{{- if index .Formats "JSON" -}}
-	{{- partial "Hestia/templates/format.json" . -}}
+	{{- /* render image */ -}}
+	{{- $ret = resources.FromString $v.Filename $ret.Content -}}
+	{{- $ret = $ret.Permalink -}}
 {{- end -}}

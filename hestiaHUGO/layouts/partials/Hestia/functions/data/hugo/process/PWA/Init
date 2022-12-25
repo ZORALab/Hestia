@@ -32,57 +32,57 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Name */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_name" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_name" .) -}}
 
 
 {{- /* process .Descriptions */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_descriptions" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_descriptions" .) -}}
 
 
 {{- /* process .URL */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_url" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_url" .) -}}
 
 
 {{- /* process .Display */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_display" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_display" .) -}}
 
 
 {{- /* process .Categories */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_categories" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_categories" .) -}}
 
 
 {{- /* process .Colors */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_colors" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_colors" .) -}}
 
 
 {{- /* process .Relations */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_relations" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_relations" .) -}}
 
 
 {{- /* process .Screenshots */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_screenshots" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_screenshots" .) -}}
 
 
 {{- /* process .Shortcuts */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_shortcuts" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_shortcuts" .) -}}
 
 
 {{- /* process .Icons */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_icons" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_icons" .) -}}
 
 
 {{- /* process .Protocols */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/_protocols" .) -}}
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_protocols" .) -}}
 
 
 {{- /* process .Caches */ -}}

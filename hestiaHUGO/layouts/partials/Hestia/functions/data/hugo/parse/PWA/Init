@@ -28,42 +28,42 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse Metadata */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_metadata" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_metadata" .) -}}
 
 
 {{- /* parse .Display */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_display" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_display" .) -}}
 
 
 {{- /* parse .Colors */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_colors" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_colors" .) -}}
 
 
 {{- /* parse .Shortcuts */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_shortcuts" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_shortcuts" .) -}}
 
 
 {{- /* parse .Screenshots */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_screenshots" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_screenshots" .) -}}
 
 
 {{- /* parse .Relations */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_relations" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_relations" .) -}}
 
 
 {{- /* parse .Protocols */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_protocols" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_protocols" .) -}}
 
 
 {{- /* parse .Icons */ -}}
 {{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/parse/PWA/_icons" .) -}}
+	(partialCached "Hestia/functions/data/hugo/parse/PWA/_icons" .) -}}
 
 
 {{- /* parse .Caches */ -}}

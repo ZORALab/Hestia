@@ -282,23 +282,10 @@ specific language governing permissions and limitations under the License.
 	{{- $data = dict -}}
 
 
-	{{- /* parse the image .Sources */ -}}
-	{{- $ret = index $v.Source.Sources 0 -}}
-	{{- if not $ret -}}
-		{{- continue -}}
-	{{- end -}}
-
-	{{- $ret = resources.GetMatch $ret.URL -}}
-	{{- if not $ret -}}
-		{{- continue -}}
-	{{- end -}}
-
-	{{- if $v.Resize -}}
-		{{- $ret = $ret.Resize (printf "%vx%v" $v.Width $v.Height) -}}
-	{{- end -}}
-
-	{{- $ret = resources.FromString $v.Filename $ret.Content -}}
-	{{- $data = merge $data (dict "URL" $ret.Permalink) -}}
+	{{- /* process output URL */ -}}
+	{{- $ret = strings.TrimPrefix "/" $v.Filename -}}
+	{{- $ret = printf "/%s" $v.Filename -}}
+	{{- $data = merge $data (dict "URL" $ret) -}}
 	{{- $data = merge $data (dict "Type" $v.Type) -}}
 	{{- $data = merge $data (dict "Media" "all") -}}
 	{{- $data = dict "Sources" (slice $data) -}}
@@ -310,6 +297,16 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Height" $v.Height) -}}
 	{{- $data = merge $data (dict "Design" $v.Design) -}}
 	{{- $data = partial "Hestia/functions/data/hugo/parse/_media" $data -}}
+
+
+	{{- /* parse the image source */ -}}
+	{{- $ret = index $v.Source.Sources 0 -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Asset" $ret) -}}
+	{{- $data = merge $data (dict "Filename" $v.Filename) -}}
+	{{- $data = merge $data (dict "Resize" $v.Resize) -}}
 
 
 	{{- /* merge into dataList */ -}}
