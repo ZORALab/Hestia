@@ -28,11 +28,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* generate sitemap.xml */ -}}
-{{- if .Filesystem.Directory -}}
-	{{- $path = lower (printf "%s/%s" .Filesystem.Directory $path) -}}
-{{- end -}}
-
-
+{{- $path = lower (printf "%s%s" .URL.Current.Absolute.Path $path) -}}
 {{- $dataList = string (partial "Hestia/functions/render/xml/sitemap/Index" .) -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" $dataList "Path" $path)) -}}
 {{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}

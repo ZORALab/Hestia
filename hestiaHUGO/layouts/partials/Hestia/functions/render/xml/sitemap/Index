@@ -22,7 +22,10 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := . -}}
-
+{{- $list := .Nav.Children -}}
+{{- if .IsRoot -}}
+	{{- $list = .Nav.All -}}
+{{- end -}}
 
 
 
@@ -36,12 +39,16 @@ specific language governing permissions and limitations under the License.
 		<lastmod>{{- .Time.Updated.RFC3339 -}}</lastmod>
 	</sitemap>
 {{- end -}}
-{{- range $i, $v := .Nav.Children }}
+{{- range $i, $v := $list }}
+	{{- if strings.Contains $v.URL.Current.Absolute "__content" -}}
+		{{- continue -}}
+	{{- end -}}
+
 	{{- if or $v.Redirect.Enabled $v.Redirect.Language.Enabled -}}
 		{{- continue -}}
 	{{- end }}
 	<sitemap>
-		<loc>{{- printf "%s%s" $v.URL.Current.Absolute $Page.Sitemap.Index -}}</loc>
+		<loc>{{- printf "%s%s" $v.URL.Current.Absolute $Page.Sitemap.Filename -}}</loc>
 		<lastmod>{{- safeHTML $v.Time.Updated.RFC3339 -}}</lastmod>
 	</sitemap>
 {{- end }}
