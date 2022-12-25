@@ -63,11 +63,15 @@
 #
 # Example:
 #   [[Contents]]
-#   URL = "/en"
+#   URL = "/en"                # --means-> '/en'
 #   Cache = "cache-first"
 #
 #   [[Contents]]
-#   URL = "/zh-hans"
+#   URL = "/zh-hans"           # --means--> '/zh-hans'
+#   Cache = "cache-first"
+#
+#   [[Contents]]
+#   URL = "image.jpg"          # --means--> 'path/to/this-page/image.jpg'
 #   Cache = "cache-first"
 [[Contents]]
 URL = "index.html"
@@ -87,4 +91,8 @@ Cache = "network-first"
 
 [[Contents]]
 URL = "thumbnails-480x480.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "hestiaLIB.svg"
 Cache = "network-first"
