@@ -9,7 +9,7 @@ Type = 'https-download'
 
 
 [Variables]
-Version = '0.104.3'
+Version = '0.109.0'
 BaseURL = 'https://github.com/gohugoio/hugo/releases/download'
 
 [FMTVariables]
@@ -33,47 +33,47 @@ Format = 'hex'
 
 [Sources.dragonfly-amd64]
 [Sources.dragonfly-amd64.Checksum]
-Value = 'e1efcddd8d7a38479a67b4d96f38445b12704c245a5d6470a7a38518b9b0bbdb'
+Value = 'dd6de881bd2ff4d08b378a81d7f3d340fe3b621ceb56a9c783535c6e5e9124f9'
 
 [Sources.freebsd-amd64]
 [Sources.freebsd-amd64.Checksum]
-Value = '040ce2b32238554951b15276d1dcb14bbe6a747bbfc6ee7e02d119158388707e'
+Value = '938e3e7cf0335a89e4cf28c8b8c422b1cb5497e2672921bd50096338ad03dca0'
 
 [Sources.linux-amd64]
 [Sources.linux-amd64.Checksum]
-Value = 'da45809872c2c3a318c277adcacd80d00f4e0cd4527640f67055beac3b642333'
+Value = '36cfd9a0c4e0a084c3b4d2802d408211d2599cab960f223eb10b433579634d9c'
 
 [Sources.linux-arm64]
 [Sources.linux-arm64.Checksum]
-Value = 'e14c9402873fb6b6bb676d7c5ebf1af60a0cd9473d56a759324fcd71032c59a5'
+Value = '40d1906e5d389f899f07cfe35320c90d205a41f0d1633aa8ac8b5f02113a430e'
 
 [Sources.darwin-amd64]
 Archive = 'hugo_{{- .Version -}}_darwin-universal.{{- .Format -}}'
 [Sources.darwin-amd64.Checksum]
-Value = 'd353c5081d9beb228ac61c943a37051706e5c71f60a1cbac30559834d03ea98d'
+Value = '5f89380760a6bb7c3b4156614c4772ee740f298b2e8b18c7f053c3ec334a8cad'
 
 [Sources.darwin-arm64]
 Archive = 'hugo_{{- .Version -}}_darwin-universal.{{- .Format -}}'
 [Sources.darwin-arm64.Checksum]
-Value = 'd353c5081d9beb228ac61c943a37051706e5c71f60a1cbac30559834d03ea98d'
+Value = '5f89380760a6bb7c3b4156614c4772ee740f298b2e8b18c7f053c3ec334a8cad'
 
 [Sources.netbsd-amd64]
 [Sources.netbsd-amd64.Checksum]
-Value = '91617c1415044d3cb6bc92942da79e3ba06dc8ceb695af80d0c633752f821770'
+Value = '50a1055a59e2d29b38773447eb9a060e60e7385c7fda592af1194d311c33bc09'
 
 [Sources.openbsd-amd64]
 [Sources.openbsd-amd64.Checksum]
-Value = '4912a709dbe0c1bdb472f7b1f93ceaf66b8bb3e926be5847678f0777a09be3e4'
+Value = '47c8e4c77e87216e3502ac9da5b261b62d22522e0d290b24939dcff24664f12e'
 
 [Sources.windows-amd64]
 Format = 'zip'
 [Sources.windows-amd64.Checksum]
-Value = '2c8ffd8283b819cd2c6f6cefbd27ffb070c15402e4e2a01395da948f8ab05769'
+Value = '7653cbc94a8faa05ee0a77bf31d5548ecbdeda08be9c44057dcbdefe426fff40'
 
 [Sources.windows-arm64]
 Format = 'zip'
 [Sources.windows-arm64.Checksum]
-Value = '04e78edbdcc78c1a3a2e5ddb138e5ae5328cddcfd39c21a21eeb4497c45d9d6d'
+Value = '01a58d0d2abf50045dc07b074add3d01d19cc29baa64dd69abda3875e7b537fb'
 
 
 
