@@ -95,8 +95,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/JS/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/WASM/Init" $dataList -}}
-{{- $dataList = merge $dataList
-	(partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList) -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Vendors/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}
