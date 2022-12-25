@@ -22,8 +22,8 @@
 "--button-text-align" = "center"
 "--button-text-decoration" = "none"
 "--button-text-transform" = "uppercase"
-"--button-overflow-wrap" = "break-word"
-"--button-word-break" = "break-word"
+"--button-overflow-wrap" = "normal"
+"--button-word-break" = "normal"
 "--button-line-height" = "var(--body-line-height)"
 
 "--button-transition" = "var(--timing-rapid)"

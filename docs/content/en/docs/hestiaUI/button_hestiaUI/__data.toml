@@ -221,14 +221,14 @@ Availability = "v0.0.1"
 Name = "--button-overflow-wrap"
 Description = "Affects the entire component's overflow wrapping behavior value."
 Property = "overflow-wrap"
-Default = "break-word"
+Default = "normal"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
 Name = "--button-word-break"
 Description = "Affects the entire component's word breaking behavior value."
 Property = "word-break"
-Default = "break-word"
+Default = "normal"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
