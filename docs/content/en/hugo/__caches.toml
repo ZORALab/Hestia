@@ -63,28 +63,100 @@
 #
 # Example:
 #   [[Contents]]
-#   URL = "/en"
+#   URL = "/en"                # --means-> '/en'
 #   Cache = "cache-first"
 #
 #   [[Contents]]
-#   URL = "/zh-hans"
+#   URL = "/zh-hans"           # --means--> '/zh-hans'
+#   Cache = "cache-first"
+#
+#   [[Contents]]
+#   URL = "image.jpg"          # --means--> 'path/to/this-page/image.jpg'
 #   Cache = "cache-first"
 [[Contents]]
 URL = "index.html"
-Cache = "cache-first"
+Cache = "network-first"
 
 [[Contents]]
 URL = "index.json"
-Cache = "cache-first"
+Cache = "network-first"
 
 [[Contents]]
 URL = "thumbnails-1200x630.png"
-Cache = "cache-first"
+Cache = "network-first"
 
 [[Contents]]
 URL = "thumbnails-1200x1200.png"
-Cache = "cache-first"
+Cache = "network-first"
 
 [[Contents]]
 URL = "thumbnails-480x480.png"
-Cache = "cache-first"
+Cache = "network-first"
+
+[[Contents]]
+URL = "app-distribution.svg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "compoentized-ui-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "favicon-generator.svg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "flexible-ldjson-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "go-compatible-template-codes-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "i18n-capable-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "json-data-server.svg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "mobile-first-design-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "og-ready-1200x1200.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "publishers-ready-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "pwa-ready-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "readable-error-digest-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "static-web-content.svg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "ui-designing.svg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "wasm-ready.svg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "wholesome-html-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "wholesome-html-600x600.webp"
+Cache = "network-first"
