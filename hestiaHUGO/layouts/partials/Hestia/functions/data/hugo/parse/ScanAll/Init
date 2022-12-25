@@ -1,0 +1,63 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Hugo data structure */ -}}
+
+{{- /* CONTANTS */ -}}
+{{- $CACHE_LABEL := "Cached-NavALL" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := dict -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process data alongside secure manual caching so that:
+	1) only root page or 1st rendering page can refresh the values
+	2) speeds up all pages rendering so that every page does not need to
+	   scan all pages all the time.
+*/ -}}
+{{- if .IsHome -}}
+	{{- /* begin scanning all pages */ -}}
+	{{- $list = slice -}}
+	{{- range $i, $v := .Site.Pages -}}
+		{{- /* skip __content.* data page mistreatment */ -}}
+		{{- if strings.Contains $v.Permalink "__content" -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- /* parse basic metadata */ -}}
+		{{- $ret = partial "Hestia/functions/data/Metadata" $v -}}
+
+
+		{{- /* append to list */ -}}
+		{{- $list = append $ret $list -}}
+	{{- end -}}
+{{- end -}}
+{{ $dataList = dict "All" $list -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Nav" $dataList -}}
