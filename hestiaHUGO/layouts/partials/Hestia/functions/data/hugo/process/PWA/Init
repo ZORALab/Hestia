@@ -90,6 +90,11 @@ specific language governing permissions and limitations under the License.
 	(partial "Hestia/functions/data/hugo/process/PWA/_caches" .) -}}
 
 
+{{- /* process .URL.Worker */ -}}
+{{- $dataList = merge $dataList
+	(partialCached "Hestia/functions/data/hugo/process/PWA/_worker" .) -}}
+
+
 {{- /* process .URL.Manifest */ -}}
 {{- $dataList = merge $dataList
 	(partialCached "Hestia/functions/data/hugo/process/PWA/_webmanifest" .) -}}
