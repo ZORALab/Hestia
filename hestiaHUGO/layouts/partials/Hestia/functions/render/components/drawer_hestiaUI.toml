@@ -12,7 +12,7 @@
 "--left-drawer-height" = "100%"
 "--left-drawer-height-opened" = "100%"
 "--top-drawer-height" = "0"
-"--top-drawer-height-opened" = "90vh"
+"--top-drawer-height-opened" = "70vh"
 "--right-drawer-height" = "100%"
 "--right-drawer-height-opened" = "100%"
 
@@ -60,7 +60,7 @@ var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
 "--drawer-trigger-font-size" = "2rem"
 "--drawer-trigger-font-style" = "normal"
 
-"--drawer-trigger-transform-focus" = "scale(1.1)"
+"--drawer-trigger-transform-focus" = "scale(1.1) translateX(-50%)"
 
 
 "--left-drawer-trigger-position-top" = "50%"
@@ -70,10 +70,10 @@ var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
 "--left-drawer-trigger-transform" = "translateY(-50%)"
 
 "--top-drawer-trigger-position-top" = "0"
-"--top-drawer-trigger-position-left" = "0"
+"--top-drawer-trigger-position-left" = "50%"
 "--top-drawer-trigger-position-bottom" = "unset"
 "--top-drawer-trigger-position-right" = "unset"
-"--top-drawer-trigger-transform" = "unset"
+"--top-drawer-trigger-transform" = "translateX(-50%)"
 
 "--right-drawer-trigger-position-top" = "50%"
 "--right-drawer-trigger-position-left" = "unset"
