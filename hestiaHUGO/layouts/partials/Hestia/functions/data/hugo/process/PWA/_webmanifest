@@ -23,45 +23,16 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := dict -}}
-{{- $console := dict -}}
-{{- $ret := false -}}
 
 
 
 
-{{- /* generate webmanifest file */ -}}
-{{- $dataList = partial "Hestia/functions/render/json/pwa/Manifest" . -}}
-{{- $dataList = merge $Page (dict "Input" (dict "Data" (string $dataList))) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
-{{- if $dataList.Console -}}
-	{{- $console = printf "PWA: webmanifest: %v" $dataList.Console.Message -}}
-	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
-{{- end -}}
-{{- $dataList = $dataList.Output -}}
-
-
-{{- if not .IsServerMode -}}
-	{{- $ret = dict "Type" "application/json" "Data" $dataList -}}
-	{{- $ret = merge $Page (dict "Input" $ret) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Minify" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: webmanifest: %v" $ret.Console.Message -}}
-		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- else -}}
-		{{- $dataList = $ret.Output -}}
-	{{- end -}}
-{{- end -}}
-
-
-{{- $dataList = resources.FromString "app.webmanifest" $dataList -}}
-{{- $dataList = dict "Manifest" $dataList.Permalink -}}
+{{- /* process web manifest URL */ -}}
+{{- $dataList = printf "%s/%s" (strings.TrimSuffix "/" .URL.Base) "app.webmanifest" -}}
+{{- $dataList = dict "Manifest" $dataList -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "PWA" (dict "URL" $dataList) -}}
+{{- return dict "URL" $dataList -}}
