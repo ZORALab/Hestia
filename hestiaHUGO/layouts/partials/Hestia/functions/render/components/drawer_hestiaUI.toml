@@ -1,6 +1,7 @@
 [CSS.Variables]
 "--drawer-trigger-z-index" = "calc(var(--z-index-max) - var(--z-index-nav-top))"
-"--drawer-z-index" = "calc(var(--z-index-max) - var(--z-index-nav))"
+"--drawer-z-index" = "var(--z-index-hidden)"
+"--drawer-z-index-opened" = "calc(var(--z-index-max) - var(--z-index-nav))"
 "--drawer-overlay-z-index" = "calc(var(--z-index-max) - var(--z-index-nav-overlay))"
 
 "--left-drawer-width" = "0"

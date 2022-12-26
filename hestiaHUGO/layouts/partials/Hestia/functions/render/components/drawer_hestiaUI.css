@@ -27,7 +27,7 @@ specific language governing permissions and limitations under the License.
 
 	position: fixed;
 	top: 0;
-	z-index: var(--drawer-z-index);
+	z-index: var(--drawer-z-index-opened);
 
 	transition: var(--drawer-transition);
 }
@@ -84,8 +84,6 @@ specific language governing permissions and limitations under the License.
 	color: var(--drawer-color);
 	background: var(--drawer-background);
 
-	z-index: var(--drawer-z-index);
-
 	transition: var(--drawer-transition);
 }
 
@@ -113,7 +111,6 @@ specific language governing permissions and limitations under the License.
 
 	border-left: var(--drawer-border);
 	border-radius: var(--right-drawer-border-radius);
-
 }
 
 .left-drawer > *:not(label),
@@ -123,11 +120,26 @@ specific language governing permissions and limitations under the License.
 	opacity: 0;
 }
 
+.left-drawer > *:not(label) > *,
+.top-drawer > *:not(label) > *,
+.right-drawer > *:not(label) > * {
+	z-index: var(--drawer-z-index);
+
+	transition: var(--drawer-transition);
+}
+
 .left-drawer > input[type='checkbox']:checked ~ *:not(label),
 .top-drawer > input[type='checkbox']:checked ~ *:not(label),
 .right-drawer > input[type='checkbox']:checked ~ *:not(label) {
+	z-index: var(--drawer-z-index-opened);
 	visibility: visible;
 	opacity: 1;
+}
+
+.left-drawer > input[type='checkbox']:checked ~ *:not(label) > *,
+.top-drawer > input[type='checkbox']:checked ~ *:not(label) > *,
+.right-drawer > input[type='checkbox']:checked ~ *:not(label) > * {
+	z-index: var(--drawer-z-index-opened);
 }
 
 .left-drawer > input[type='checkbox']:checked ~ *:not(label) {
