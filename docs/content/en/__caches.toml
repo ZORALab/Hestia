@@ -98,7 +98,15 @@ URL = "continuously-improved-600x600.webp"
 Cache = "network-first"
 
 [[Contents]]
+URL = "continuously-improved-600x600.jpg"
+Cache = "network-first"
+
+[[Contents]]
 URL = "data-driven-development-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "data-driven-development-600x600.jpg"
 Cache = "network-first"
 
 [[Contents]]
@@ -106,11 +114,47 @@ URL = "decentralized-distribution-600x600.webp"
 Cache = "network-first"
 
 [[Contents]]
+URL = "decentralized-distribution-600x600.jpg"
+Cache = "network-first"
+
+[[Contents]]
 URL = "fly-high-and-beyond-600x600.webp"
 Cache = "network-first"
 
 [[Contents]]
+URL = "fly-high-and-beyond-600x600.jpg"
+Cache = "network-first"
+
+[[Contents]]
 URL = "freedom-to-expand-beyond-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "freedom-to-expand-beyond-600x600.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "mitigate-supply-chain-threat-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "mitigate-supply-chain-threat-600x600.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "open-source-freedom-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "open-source-freedom-600x600.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "portability-maximized-600x600.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "portability-maximized-600x600.jpg"
 Cache = "network-first"
 
 [[Contents]]
@@ -119,18 +163,6 @@ Cache = "network-first"
 
 [[Contents]]
 URL = "hugo.svg"
-Cache = "network-first"
-
-[[Contents]]
-URL = "mitigate-supply-chain-threat-600x600.webp"
-Cache = "network-first"
-
-[[Contents]]
-URL = "open-source-freedom-600x600.webp"
-Cache = "network-first"
-
-[[Contents]]
-URL = "portability-maximized-600x600.webp"
 Cache = "network-first"
 
 [[Contents]]

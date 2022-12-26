@@ -2,8 +2,9 @@
 Thumbnail = 'mitigate-supply-chain-threat-600x600.webp'
 Benefit = "Mitigate Supply Chain Threat"
 Reason = '''
-Offers as many capabilities in a single source - No more geo-political nuisance;
-after-the-fact cut-throat changes; or other dirty shenanigans.
+No more geo-political nuisance; No more after-the-fact changes; No more
+cut-throat charges; and No more other dirty shenanigans. Just a peaceful library
+for building your project.
 '''
 Paper = 'https://doi.org/10.5281/zenodo.6815013'
 
@@ -12,8 +13,9 @@ Paper = 'https://doi.org/10.5281/zenodo.6815013'
 Thumbnail = 'decentralized-distribution-600x600.webp'
 Benefit = "Decentralized Distribution"
 Reason = '''
-Distribute using conventional decentralized cryptographically signed archived
-packages: simple, straight-foward, adaptable.
+VERY simple zip/tar.gz packaging signed with cryptographic keys for integrity
+checking. Easy to install and share in the organization + no more complicated
+toolchain manintenances.
 '''
 Paper = ''
 
@@ -22,8 +24,8 @@ Paper = ''
 Thumbnail = 'freedom-to-expand-beyond-600x600.webp'
 Benefit = "Freedom To Expand Beyond"
 Reason = '''
-Develop freely with your local ZORALab's Hestia copy meeting your business
-requirements - don't let our upstream's constraints blocks you.
+Upstream maintainers like us won't slow you down or stop you from expressing
+your innovation. Develop on-top of your localized copy. Upstream later.
 '''
 Paper = ''
 
@@ -32,8 +34,8 @@ Paper = ''
 Thumbnail = 'continuously-improved-600x600.webp'
 Benefit = "Continuously Improved"
 Reason = '''
-Continuously improved upstream development ZORALab's Hestia by us; released
-using progressive semantic versioning standard practices.
+Get continuously developed updates by us in the same project; don't need to
+hop around.
 '''
 Paper = ''
 
