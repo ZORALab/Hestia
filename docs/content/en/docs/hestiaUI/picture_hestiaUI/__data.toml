@@ -60,10 +60,8 @@ Example = """
 			... 3x"
 		type="image/..."
 		media"(max-width: ...)">
-	<img alt="..."
-		src="..."
-		width="1200"
-		height="630"
+	<img alt="..." src="..."
+		width="1200" height="630"
 		loading="lazy"/>
 </picture>
 """

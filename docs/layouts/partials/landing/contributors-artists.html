@@ -26,7 +26,10 @@
 	<div class='column' style='max-width: 200px; margin: 2.5rem;'>
 		{{- if $portrait }}
 		<picture>
-			<img src='{{- $portrait -}}' width='200' height='200' alt='' />
+			<img src='{{- $portrait -}}'
+				width='200' height='200'
+				loading='lazy'
+				alt='Artist {{ $v.Name -}}' />
 		</picture>
 		{{- end }}
 		<h3 style='--h3-margin: 0;'>{{- $v.Name -}}</h3>
