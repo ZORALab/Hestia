@@ -15,9 +15,10 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- range $i, $v := .Data.Page.Component.References.CSS -}}
-	<section>
+	<section style='--h3-text-align: left;'>
 		<h3><code>{{- $v.Name -}}</code></h3>
 		<p>{{- $v.Description -}}</p>
+		<br/>
 		<p>CSS Property: <code>{{- $v.Property -}}</code></p>
 		<p>Default value: <code>{{- $v.Default -}}</code></p>
 		<p>Available Since: <code>{{- $v.Availability -}}</code></p>

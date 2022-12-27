@@ -98,7 +98,6 @@ main {
 	background: var(--body-background);
 }
 
-.inverted,
 footer, .footer {
 	min-width: var(--footer-min-width);
 	width: var(--footer-width);
@@ -108,9 +107,12 @@ footer, .footer {
 	padding-left: 0;
 	padding-bottom: var(--footer-padding-bottom);
 	padding-right: 0;
+}
 
-	color: var(--footer-color);
-	background: var(--footer-background);
+.inverted,
+footer, .footer {
+	color: var(--inverted-color);
+	background: var(--inverted-background);
 }
 
 main > *,
@@ -154,48 +156,69 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
+	margin: var(--h1-margin);
+
+	border-bottom: var(--h1-border-bottom);
+
 	font-size: var(--h1-font-size);
 	font-style: var(--h1-font-style);
 	line-height: var(--h1-line-height);
 	letter-spacing: var(--h1-letter-spacing);
-	margin: var(--h1-margin);
 	text-decoration: var(--h1-text-decoration);
+	text-align: var(--h1-text-align);
+
 	text-decoration-color: var(--h1-decoration-color);
-	border-bottom: var(--h1-border-bottom);
 }
 
 h1:before {
 	content: var(--h1-before-content);
+
 	margin: var(--h1-before-margin);
+
+	text-align: var(--h1-before-text-align);
+
 	color: var(--h1-before-color);
 }
 
 h1:after {
 	content: var(--h1-after-content);
+
 	margin: var(--h1-after-margin);
+
+	text-align: var(--h1-after-text-align);
+
 	color: var(--h1-after-color);
 	background: var(--h1-after-background);
 }
 
 h2 {
-	font-size: var(--h2-font-size);
-	font-style: var(--h2-font-style);
-	line-height: var(--h2-line-height);
-	letter-spacing: var(--h2-letter-spacing);
+	border-bottom: var(--h2-border-bottom);
 
 	margin: var(--h2-margin);
 	padding: var(--h2-padding);
 
+	font-size: var(--h2-font-size);
+	font-style: var(--h2-font-style);
+	line-height: var(--h2-line-height);
+	letter-spacing: var(--h2-letter-spacing);
+	text-align: var(--h2-text-align);
 	text-decoration: var(--h2-text-decoration);
 	text-decoration-color: var(--h2-decoration-color);
-	border-bottom: var(--h2-border-bottom);
 }
 
 h2:before {
 	content: var(--h2-before-content);
+
 	margin: var(--h2-before-margin);
+
+	text-align: var(--h2-before-text-align);
+
 	color: var(--h2-before-color);
 	background: var(--h2-before-background);
+}
+
+h2:after {
+	text-align: var(--h2-after-text-align);
 }
 
 h2:not(.clean):after {
@@ -207,6 +230,7 @@ h2:not(.clean):after {
 
 	height: 7rem;
 	width: 7.8rem;
+
 	font-size: 5rem;
 
 	color: var(--h2-after-color);
@@ -233,122 +257,166 @@ footer h2:not(.clean):after {
 }
 
 h3 {
+	margin: var(--h3-margin);
+	padding: var(--h3-padding);
+
+	border-bottom: var(--h3-border-bottom);
+
 	font-size: var(--h3-font-size);
 	font-style: var(--h3-font-style);
 	line-height: var(--h3-line-height);
 	letter-spacing: var(--h3-letter-spacing);
-
-	margin: var(--h3-margin);
-	padding: var(--h3-padding);
-
 	text-decoration: var(--h3-text-decoration);
+	text-align: var(--h3-text-align);
+
 	text-decoration-color: var(--h3-decoration-color);
-	border-bottom: var(--h3-border-bottom);
 }
 
 h3:before {
 	content: var(--h3-before-content);
+
 	margin: var(--h3-before-margin);
+
+	text-align: var(--h3-before-text-align);
+
 	color: var(--h3-before-color);
 	background: var(--h3-before-background);
 }
 
 h3:after {
 	content: var(--h3-after-content);
+
 	margin: var(--h3-after-margin);
+
+	text-align: var(--h3-after-text-align);
+
 	color: var(--h3-after-color);
 	background: var(--h3-after-background);
 }
 
+.inverted h3,
 footer h3 {
 	border-bottom: var(--h3-border-bottom-inverted);
 }
 
 h4 {
+	margin: var(--h4-margin);
+	padding: var(--h4-padding);
+
+	border-bottom: var(--h4-border-bottom);
+
 	font-size: var(--h4-font-size);
 	font-style: var(--h4-font-style);
 	line-height: var(--h4-line-height);
 	letter-spacing: var(--h4-letter-spacing);
-
-	margin: var(--h4-margin);
-	padding: var(--h4-padding);
-
 	text-decoration: var(--h4-text-decoration);
+	text-align: var(--h4-text-align);
+
 	text-decoration-color: var(--h4-decoration-color);
-	border-bottom: var(--h4-border-bottom);
 }
 
 h4:before {
 	content: var(--h4-before-content);
+
 	margin: var(--h4-before-margin);
+
+	text-align: var(--h4-before-text-align);
+
 	color: var(--h4-before-color);
 	background: var(--h4-before-background);
 }
 
 h4:after {
 	content: var(--h4-after-content);
+
 	margin: var(--h4-after-margin);
+
+	text-align: var(--h4-after-text-align);
+
 	color: var(--h4-after-color);
 	background: var(--h4-after-background);
 }
 
 h5 {
+	margin: var(--h5-margin);
+	padding: var(--h5-padding);
+
+	border-bottom: var(--h5-border-bottom);
+
 	font-size: var(--h5-font-size);
 	font-style: var(--h5-font-style);
 	line-height: var(--h5-line-height);
 	letter-spacing: var(--h5-letter-spacing);
-
-	margin: var(--h5-margin);
-	padding: var(--h5-padding);
-
 	text-decoration: var(--h5-text-decoration);
+	text-align: var(--h5-text-align);
+
 	text-decoration-color: var(--h5-decoration-color);
-	border-bottom: var(--h5-border-bottom);
 }
 
 h5:before {
 	content: var(--h5-before-content);
+
 	margin: var(--h5-before-margin);
+
+	text-align: var(--h5-before-text-align);
+
 	color: var(--h5-before-color);
 	background: var(--h5-before-background);
 }
 
 h5:after {
 	content: var(--h5-after-content);
+
 	margin: var(--h5-after-margin);
+
+	text-align: var(--h5-after-text-align);
+
 	color: var(--h5-after-color);
 	background: var(--h5-after-background);
 }
 
 h6 {
+	margin: var(--h6-margin);
+	padding: var(--h6-padding);
+
+	border-bottom: var(--h6-border-bottom);
+
 	font-size: var(--h6-font-size);
 	font-style: var(--h6-font-style);
 	line-height: var(--h6-line-height);
 	letter-spacing: var(--h6-letter-spacing);
-
-	margin: var(--h6-margin);
-	padding: var(--h6-padding);
-
 	text-decoration: var(--h6-text-decoration);
+	text-align: var(--h6-text-align);
+
 	text-decoration-color: var(--h6-decoration-color);
-	border-bottom: var(--h6-border-bottom);
 }
 
 h6:before {
 	content: var(--h6-before-content);
+
 	margin: var(--h6-before-margin);
+
+	text-align: var(--h6-before-text-align);
+
 	color: var(--h6-before-color);
 	background: var(--h6-before-background);
 }
 
 h6:after {
 	content: var(--h6-after-content);
+
 	margin: var(--h6-after-margin);
+
+	text-align: var(--h6-after-text-align);
+
 	color: var(--h6-after-color);
 	background: var(--h6-after-background);
 }
 
 p {
+	margin: var(--paragraph-margin);
+	padding: var(--paragraph-padding);
+
 	text-align: var(--paragraph-text-align);
 }
 
@@ -429,6 +497,7 @@ p {
 
 	body,
 	main,
+	.inverted,
 	footer, .footer {
 		color: var(--body-color-print) !important;
 		border-color: var(--body-color-print) !important;
