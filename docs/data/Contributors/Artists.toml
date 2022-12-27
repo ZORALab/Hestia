@@ -161,6 +161,14 @@ Label = 'Pexels'
 Description = 'Russian Photographer and Videomaker'
 Portrait = '/img/contributors/pexel-contributor-monstera-1200x1200.webp'
 
+[NateWiley]
+Type = "Person"
+Name = 'Nate Wiley'
+Web = 'https://codepen.io/natewiley/pens/public'
+Label = 'CodePen'
+Description = '@natewiley'
+Portrait = '/img/contributors/codepen-contributor-nate-wiley-512x512.webp'
+
 [Pixabay]
 Type = "Organization"
 Name = 'Pixabay'

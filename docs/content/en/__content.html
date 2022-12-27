@@ -1,25 +1,37 @@
-<main>
-	<section id="introduction">
+<main style='padding-top: 0;'>
+	<section id="introduction" style='
+	min-height: 90vh;
+	background: url({{- absoluteURL "html" "nate-wiley-particles.svg" -}})
+			var(--color-primary-950);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding-top: var(--main-padding-top);
+	border-radius: 0 0 10rem 0;
+' class='inverted'>
 		<h1>{{- .Titles.Page -}}</h1>
 		<p>
 			{{ .Descriptions.Page.Pitch }}
 		</p>
+		<br/><br/>
+		<p style='font-size: 2.3rem; font-weight: bold;'>Simple To Install</p>
+		<br/>
+		<p style='font-size: 2.3rem; font-weight: bold;'>Free Forever</p>
+		<br/>
+		<p style='font-size: 2.3rem; font-weight: bold;'>Deploy Everywhere</p>
 	</section>
 
 
-	<section id="why-use-zoralab-hestia">
-		<h2>Why Use ZORALab's Hestia</h2>
+	<section id="why-it-matters">
+		<h2>Why It Matters</h2>
 		<p>
-			Done with all the "distruptive and futuristic" pitches
-			whenever a "new" technology is (re-)born, we just want
-			a working, no nonsense, serious, stable, and
-			maintainable software library for our legacy and future
-			projects.
-			<br/><br/>
-			Some good reasons for using ZORALab's Hestia:
+			We're done with all the "distruptive and futuristic"
+			pitches; we just want a suite of working, no nonsense,
+			serious, stable, and maintainable software libraries
+			for our legacy and future projects.
 		</p>
 
-		<nav class='catalog' style='--h3-margin: 0;'>
+		<nav class='catalog' style='--h3-margin: 0; --card-width:40rem;'>
 			<div class='card'>
 				<picture class='thumbnail'>
 					<source srcset='{{- absoluteURL "html"
@@ -34,16 +46,12 @@
 				</picture>
 
 				<div class='content'>
-					<h3>Mitigate Supply Chain Threat</h3>
+					<h3>Stable Supply Chain</h3>
 					<p><b>NO MORE</b><br/>geo-political nuisance.</p>
 					<br/>
-					<p><b>NO MORE</b><br/>after-the-fact changes.</p>
+					<p><b>NO MORE</b><br/>dirty and after-the-fact shenanigans.</p>
 					<br/>
 					<p><b>NO MORE</b><br/>cut-throat charges.</p>
-					<br/>
-					<p><b>NO MORE</b><br/>dirty shenanigans.</p>
-					<br/>
-					<p><b>NO MORE</b><br/>lame excuses.</p>
 				</div>
 
 				<div class='actions'>
@@ -69,36 +77,24 @@
 				</picture>
 
 				<div class='content'>
-					<h3>Simple Decentralized Distribution</h3>
+					<h3>Simple To Install</h3>
 					<p>
 						<b>Simple and basic
 						<code>zip</code>/<code>.tar.gz</code>
 						packaging and distribution</b>;
-						directly from us or share among
-						your team members.
+						Easy to setup and easy to share.
 					</p>
 					<br/>
 					<p>
 						GPG <b>cryptographically signed
-						certificate included for
-						integrity checking</b>.
+						certificate for integrity
+						checking</b>.
 					</p>
 					<br/>
 					<p>
-						<b>Easy to install</b>, easy
-						to update, and <b>easy to
-						share</b> among team members.
-					</p>
-					<br/>
-					<p>
-						<b>NO MORE</b> messing with
-						"easy to use" toolchains
-						complicated configurations.
-					</p>
-					<br/>
-					<p>
-						<b>NO MORE</b> discriminatory
-						entry requirements.
+						<b>Host a copy locally</b> for
+						securing downstream distribution
+						in your organization.
 					</p>
 				</div>
 			</div>
@@ -107,42 +103,42 @@
 			<div class='card'>
 				<picture class='thumbnail'>
 					<source srcset='{{- absoluteURL "html"
-						"freedom-to-expand-beyond-600x600.jpg" }} 1x'
+						"open-source-freedom-600x600.jpg" }} 1x'
 						type='image/jpeg'/>
 					<source srcset='{{- absoluteURL "html"
-						"freedom-to-expand-beyond-600x600.webp" }} 1x'
+						"open-source-freedom-600x600.webp" }} 1x'
 						type='image/webp'/>
 					<img src='{{- absoluteURL "html"
-						"freedom-to-expand-beyond-600x600.webp" -}}'
+						"open-source-freedom-600x600.webp" -}}'
 						width='300' />
 				</picture>
 
 				<div class='content'>
-					<h3>Freedom To Expand Beyond</h3>
+					<h3>Free Forever</h3>
 					<p>
-						<b>DO NOT</b> let upstream folks
-						like us impeding your development.
+						Designed for <b>Business and
+						market security first</b>:
+						customize freely, personally and
+						commercially.
 					</p>
 					<br/>
 					<p>
-						<b>Expand your localized
-						ZORALab's Hestia FREELY</b>
-						wherever and whenever you see
-						fit.
+						Always <b>upstream available</b>
+						for the community's betterment.
 					</p>
 					<br/>
 					<p>
-						<b>Business and securing the
-						market comes first</b>; drama
-						and excuses later (hopefully
-						never).
+						Just plain old <b>Apache 2.0</b>
+						license for our code-based
+						libraries.
 					</p>
-					<br/>
-					<p>
-						<b>Don't worry</b>; upstream
-						doors are always open for your
-						contributions.
-					</p>
+				</div>
+
+				<div class='actions'>
+					<a class='button' target='_blank'
+					href='{{- absoluteURL "html" "/en/licenses/" -}}'>
+						Project Licenses
+					</a>
 				</div>
 			</div>
 
@@ -163,6 +159,12 @@
 				<div class='content'>
 					<h3>Continuously Improved</h3>
 					<p>
+						Designed for <b>adapting
+						metamorphic level of
+						changes.</b>
+					</p>
+					<br/>
+					<p>
 						Get improvement updates
 						continuously from us <b>HERE:
 						same place, same way to
@@ -170,18 +172,9 @@
 					</p>
 					<br/>
 					<p>
-						Systematic <a target='_blank'
-						href='https://semver.org/'>
-						Versioning</a> tracking.
-					</p>
-					<br/>
-					<p>
-						<b>NO MORE</b> small repos
-						clogging all over the places.
-					</p>
-					<br/>
-					<p>
-						<b>NO MORE</b> treasure hunting.
+						<b>tracking using
+						<a target='_blank' href='https://semver.org/'>
+						Semantic Versioning</a></b>.
 					</p>
 				</div>
 			</div>
@@ -201,9 +194,9 @@
 				</picture>
 
 				<div class='content'>
-					<h3>Data Driven Development</h3>
+					<h3>Data Driven</h3>
 					<p>
-						Contributions are <b>observable,
+						Products are <b>observable,
 						researchable, testable, measurable,
 						documentable, and
 						improvable.</b>
@@ -227,48 +220,6 @@
 			<div class='card'>
 				<picture class='thumbnail'>
 					<source srcset='{{- absoluteURL "html"
-						"open-source-freedom-600x600.jpg" }} 1x'
-						type='image/jpeg'/>
-					<source srcset='{{- absoluteURL "html"
-						"open-source-freedom-600x600.webp" }} 1x'
-						type='image/webp'/>
-					<img src='{{- absoluteURL "html"
-						"open-source-freedom-600x600.webp" -}}'
-						width='300' />
-				</picture>
-
-				<div class='content'>
-					<h3>Simply Open Source</h3>
-					<p><b>NO</b> hidden tricks.</p>
-					<br/>
-					<p><b>NO</b> obfuscated clauses.</p>
-					<br/>
-					<p><b>NO</b> funky patterns.</p>
-					<br/>
-					<p>
-						Just plain old <b>Apache 2.0</b>
-						license for our software
-						libraries.
-					</p>
-					<br/>
-					<p>
-						<b>Expand freely</b>; both
-						personally and commercially.
-					</p>
-				</div>
-
-				<div class='actions'>
-					<a class='button' target='_blank'
-					href='{{- absoluteURL "html" "/en/licenses/" -}}'>
-						Project Licenses
-					</a>
-				</div>
-			</div>
-
-
-			<div class='card'>
-				<picture class='thumbnail'>
-					<source srcset='{{- absoluteURL "html"
 						"portability-maximized-600x600.jpg" }} 1x'
 						type='image/jpeg'/>
 					<source srcset='{{- absoluteURL "html"
@@ -280,55 +231,22 @@
 				</picture>
 
 				<div class='content'>
-					<h3>Portability Maximized</h3>
+					<h3>Deploy Everywhere</h3>
 					<p>
-						<b>WORK ON Web</b> technologies.
-					</p>
-					<br/>
-					<p>
-						<b>WORK ON Microprocessor</b>
-						hardware.
-					</p>
-					<br/>
-					<p>
-						<b>Aspire to WORK ON
-						Microcontroller</b> electronic
-						chips.
-					</p>
-					<br/>
-					<p>
-						<b>Same libraries</b>; maximum
+						<b>Same libraries; maximizing
+						reusability</b> through maximum
 						portability.
 					</p>
-				</div>
-			</div>
-
-
-			<div class='card'>
-				<picture class='thumbnail'>
-					<source srcset='{{- absoluteURL "html"
-						"fly-high-and-beyond-600x600.jpg" }} 1x'
-						type='image/jpeg'/>
-					<source srcset='{{- absoluteURL "html"
-						"fly-high-and-beyond-600x600.webp" }} 1x'
-						type='image/webp'/>
-					<img src='{{- absoluteURL "html"
-						"fly-high-and-beyond-600x600.webp" -}}'
-						width='300' />
-				</picture>
-
-				<div class='content'>
-					<h3>Fly High and Beyond</h3>
+					<br/>
 					<p>
-						Designed for <b>adapting
-						metamorphic level of
-						changes.</b>
+						<b>Readily working</b> for web
+						and microprocessor technologies.
 					</p>
 					<br/>
 					<p>
-						<b>Stays open and welcoming</b>
-						or new (and real) distruptive
-						changes.
+						<b>Aspire to work</b> for
+						Microcontroller electronic
+						chips technologies.
 					</p>
 				</div>
 			</div>
@@ -586,7 +504,7 @@
 	<section id='epilogue'>
 		<h2>Convinced?</h2>
 		<p>
-			Freel free to try our for your next project!
+			Feel free to try our for your next project!
 		</p>
 		<a class='button' href='{{- absoluteURL "html" "/en/getting-started" -}}'>Get
 		Started</a>
