@@ -1,7 +1,7 @@
 # ZORALab's Hestia
 ![Banner](artwork/logo/zoralab-hestia-1200x630.svg)
 
-One peaceful library for building infinite possibilities.
+One peaceful libraries suite for building infinite possibilities.
 
 The goal is to unify all common libraries into a single repository for reusable
 data structure, smoother the learning experience, and tools alignments. Develop
@@ -32,14 +32,4 @@ Summary:
 
 
 ## Offline Environment Setup
-In case you need to operate offline or disconnected environment, you need to
-first prepare the following:
-
-1. Ensure you have a local copy of [Hugo](https://github.com/gohugoio/hugo) in
-   your operating system of your choice.
-2. Download the `HestiaDOCS` version you're working on from our download page
-   here: https://hestia.zoralab.com/install
-3. Un-package the document in a desired directory.
-4. Enter `docs/` directory and execute the `server.cmd`. Once Hugo server is
-   up and running, you can then visit the presented `localhost` URL location
-   (default is http://localhost:8080).
+**COMING SOON**.

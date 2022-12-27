@@ -25,7 +25,7 @@ Full = "ZORALab's Hestia"
 # Descriptions.Summary - Expands from your pitch and elaborate your app. Keep it
 #                        max 250 characters overall (including Pitch if used).
 [Descriptions]
-Pitch = 'One peaceful library for building infinite possibilities.'
+Pitch = 'One peaceful libraries suite for building infinite possibilities.'
 Summary = """\
 Unifying all common libraries into a single repository for reusable data structure,
 smoother the learning experience, and tools alignments. Develop and learn easily

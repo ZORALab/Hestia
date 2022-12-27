@@ -94,6 +94,10 @@ URL = "thumbnails-480x480.jpg"
 Cache = "network-first"
 
 [[Contents]]
+URL = "nate-wiley-particles.svg"
+Cache = "network-first"
+
+[[Contents]]
 URL = "continuously-improved-600x600.webp"
 Cache = "network-first"
 
@@ -115,22 +119,6 @@ Cache = "network-first"
 
 [[Contents]]
 URL = "decentralized-distribution-600x600.jpg"
-Cache = "network-first"
-
-[[Contents]]
-URL = "fly-high-and-beyond-600x600.webp"
-Cache = "network-first"
-
-[[Contents]]
-URL = "fly-high-and-beyond-600x600.jpg"
-Cache = "network-first"
-
-[[Contents]]
-URL = "freedom-to-expand-beyond-600x600.webp"
-Cache = "network-first"
-
-[[Contents]]
-URL = "freedom-to-expand-beyond-600x600.jpg"
 Cache = "network-first"
 
 [[Contents]]
