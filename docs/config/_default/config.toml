@@ -43,4 +43,4 @@ disableLiveReload = true
 
 
 # Disables the following as Hestia is taking over.
-disableKinds = [ 'sitemap', '404' ]
+disableKinds = [ 'sitemap', '404', 'RSS', 'term', 'taxonomy', 'robotsTXT' ]

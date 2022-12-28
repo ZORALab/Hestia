@@ -35,10 +35,9 @@ disableHugoGeneratorInject = true
 
 
 # AMP disallowed javascript loading. Also, Hugo injects it as second line and
-# broke its HTML spec. Therefore, Hestia disables it and inject the liveReload
-# in appropriate output using its renderer.
+# broke its HTML spec. Therefore, Hestia disables it.
 disableLiveReload = true
 
 
 # Disables the following as Hestia is taking over.
-disableKinds = [ 'sitemap', '404' ]
+disableKinds = [ 'sitemap', '404', 'RSS', 'term', 'taxonomy', 'robotsTXT' ]

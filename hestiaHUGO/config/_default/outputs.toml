@@ -1,7 +1,0 @@
-# Hestia only needs HTML format (1 input file per page). It shall takes over
-# other format files' generation with its own system.
-page = [ "HTML" ]
-home = [ "HTML" ]
-section = [ "HTML" ]
-taxonomy = [ "HTML" ]
-term = [ "HTML" ]
