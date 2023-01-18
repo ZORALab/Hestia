@@ -30,7 +30,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Sitemaps */ -}}
 {{- $dataList = slice -}}
-{{- range $i, $v := .Sitemaps -}}
+{{- range $i, $v := .RobotsTXT.Sitemaps -}}
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if $ret.Console -}}
