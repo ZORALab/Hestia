@@ -1147,8 +1147,8 @@ Affects Hestia's header level 'N' font-size value. Supported 'N' values are
 '''
 Property = 'font-size'
 Default = '''
-{1: "5rem"},
-{2: "4rem"},
+{1: "4rem"},
+{2: "3rem"},
 {3: "2.5rem"},
 {4: "2.2rem"},
 {5: "1.8rem"},
