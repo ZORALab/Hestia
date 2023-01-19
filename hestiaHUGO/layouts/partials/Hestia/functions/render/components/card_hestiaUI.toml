@@ -7,10 +7,10 @@
 """
 "--card-overflow" = "hidden"
 
-"--card-width" = "25rem"
+"--card-width" = "23rem"
 "--card-height" = "fit-content"
 
-"--card-margin" = "2rem"
+"--card-margin" = "2rem auto"
 "--card-padding" = "0"
 
 "--card-border" = "1px solid var(--color-typography-300)"

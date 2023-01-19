@@ -107,7 +107,7 @@ Description = """
 Affects the entire component's width value.
 """
 Property = "width"
-Default = "25rem"
+Default = "23rem"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
@@ -125,7 +125,7 @@ Description = """
 Affects the entire component's margin value.
 """
 Property = "margin"
-Default = "2rem"
+Default = "2rem auto"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
