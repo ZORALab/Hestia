@@ -255,6 +255,14 @@ specific language governing permissions and limitations under the License.
 		"Resize" false
 		"Source" .Data.Store.Hestia.PWA.Icons.Vector
 	) (dict
+		"Filename" "icon-vector.svg"
+		"Type" "image/svg+xml"
+		"Width" .Data.Store.Hestia.PWA.Icons.Vector.Width
+		"Height" .Data.Store.Hestia.PWA.Icons.Vector.Height
+		"Design" "maskable"
+		"Resize" false
+		"Source" .Data.Store.Hestia.PWA.Icons.Vector
+	) (dict
 		"Filename" "favicon-vector.svg"
 		"Type" "image/svg+xml"
 		"Width" .Data.Store.Hestia.PWA.Icons.FaviconVector.Width
