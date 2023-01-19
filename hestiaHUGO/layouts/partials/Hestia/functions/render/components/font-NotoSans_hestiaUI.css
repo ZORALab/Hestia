@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 100;
@@ -24,6 +25,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 100;
@@ -32,6 +34,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 200;
@@ -40,6 +43,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 200;
@@ -48,6 +52,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 300;
@@ -56,6 +61,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 300;
@@ -64,6 +70,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 400;
@@ -72,6 +79,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 400;
@@ -80,6 +88,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 500;
@@ -88,6 +97,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 500;
@@ -96,6 +106,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 600;
@@ -104,6 +115,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 600;
@@ -112,6 +124,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 700;
@@ -120,6 +133,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 700;
@@ -128,6 +142,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 800;
@@ -136,6 +151,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 800;
@@ -144,6 +160,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: normal;
 	font-weight: 900;
@@ -152,6 +169,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Sans";
 	font-style: italic;
 	font-weight: 900;
@@ -160,6 +178,7 @@ specific language governing permissions and limitations under the License.
 }
 
 @font-face {
+	font-display: swap;
 	font-family: "Noto Color Emoji";
 	src local("Noto Color Emoji"),
 		url("/fonts/NotoColorEmoji.ttf");
