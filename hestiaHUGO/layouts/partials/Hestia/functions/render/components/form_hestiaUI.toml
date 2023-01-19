@@ -65,8 +65,8 @@
 "--form-label-font-weight" = "700"
 "--form-label-text-transform" = "titlecase"
 
-"--form-label-color" = "var(--form-color-inverted)"
-"--form-label-background" = "var(--form-fieldset-color)"
+"--form-label-color" = "var(--form-color)"
+"--form-label-background" = "var(--form-background)"
 
 
 

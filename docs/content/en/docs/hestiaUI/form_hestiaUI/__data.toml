@@ -1848,7 +1848,7 @@ Description = """
 Affects the form component's label color value.
 """
 Property = "color"
-Default = "var(--form-color-inverted)"
+Default = "var(--form-color)"
 Availability = "v0.0.1"
 
 
@@ -1858,7 +1858,7 @@ Description = """
 Affects the form component's label background value.
 """
 Property = "background"
-Default = "var(--form-fieldset-color)"
+Default = "var(--form-background)"
 Availability = "v0.0.1"
 
 
