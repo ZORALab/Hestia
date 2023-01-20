@@ -62,21 +62,6 @@ Example = """
 """
 
 [[Component.References.HTML]]
-Type = "Minimum (Left Aligned List)"
-Description = """
-The component uses W3C compatible 'ul' and 'li' syntaxes alongside a
-'.left-aligned' css class to render itself minimally:
-"""
-Example = """
-<ul class='left-aligned'>
-	<li>...</li>
-	<li>...</li>
-	<li>...</li>
-</ul>
-"""
-
-
-[[Component.References.HTML]]
 Type = "Compound"
 Description = """
 The component uses W3C compatible 'ul' and 'li' syntaxes to render itself
@@ -101,55 +86,17 @@ Example = """
 </ul>
 """
 
-
 [[Component.References.HTML]]
-Type = "Compound (Left-Aligned List)"
+Type = "Centered Bullet"
 Description = """
-The component uses W3C compatible 'ul' and 'li' syntaxes alongside a
-'.left-aligned' css class to render itself minimally alongside with its own
-sub-list:
+The component uses inline styling to set all the bullets to be centered using
+'auto' value on left and right margins:
 """
 Example = """
-<ul class='left-aligned'>
-	<li>
-		...
-	</li>
-	<li>
-		...
-		<ul class='left-aligned'>
-			<li>...</li>
-			<li>...</li>
-		</ul>
-	</li>
-	<li>
-		...
-	</li>
+<ul style='--ulist-li-before-margin: .5rem auto;'>
+	...
 </ul>
 """
-
-
-[[Component.References.CSS]]
-Name = "--ulist-spacing"
-Description = """
-Affects the list item's margin value uniquely when used in both default and
-left-aligned list. You should only supply 1 sided value as the component shall
-construct the margin in its own way.
-"""
-Property = "margin"
-Default = "5rem"
-Availability = "v0.0.1"
-
-
-[[Component.References.CSS]]
-Name = "--ulist-tab-spacing"
-Description = """
-Affects the list item's margin value uniquely for tab spacing when used in
-left-aligned list. You should only supply 1 sided value as the component shall
-construct the margin in its own way.
-"""
-Property = "margin"
-Default = "6rem"
-Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
@@ -188,18 +135,18 @@ Description = """
 Affects the entire component's text-align value.
 """
 Property = "text-align"
-Default = "initial"
+Default = "left"
 Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
-Name = "--ulist-text-align-aligned-left"
+Name = "--ulist-spacing"
 Description = """
-Affects the entire component's text-align value when used with '.left-aligned'
-CSS class.
+Affects the component's list item's margin and padding value in a specific
+ways.
 """
-Property = "text-align"
-Default = "justify"
+Property = "margin; padding"
+Default = "2rem"
 Availability = "v0.0.1"
 
 
@@ -210,19 +157,6 @@ Affects the component's list item's margin value.
 """
 Property = "margin"
 Default = "var(--ulist-spacing) 0"
-Availability = "v0.0.1"
-
-
-[[Component.References.CSS]]
-Name = "--ulist-li-margin-aligned-left"
-Description = """
-Affects the component's list item's margin value when used with '.left-aligned'
-CSS class.
-"""
-Property = "margin"
-Default = """
-var(--ulist-spacing) 0 var(--ulist-spacing) var(--ulist-tab-spacing)
-"""
 Availability = "v0.0.1"
 
 
@@ -258,23 +192,22 @@ Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
+Name = "--ulist-li-before-size"
+Description = """
+Affects the component's list item's bullet icon width and height value.
+"""
+Property = "width & height"
+Default = '3rem'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
 Name = "--ulist-li-before-margin"
 Description = """
 Affects the component's list item's bullet icon margin value.
 """
 Property = "margin"
 Default = '.5rem auto'
-Availability = "v0.0.1"
-
-
-[[Component.References.CSS]]
-Name = "--ulist-li-before-margin-aligned-left"
-Description = """
-Affects the component's list item's bullet icon margin value when the component
-is used with '.left-aligned' value.
-"""
-Property = "margin"
-Default = '.5rem 0'
 Availability = "v0.0.1"
 
 
@@ -305,16 +238,6 @@ Affects the component's list item's bullet icon border-radius value.
 """
 Property = "border"
 Default = '50%'
-Availability = "v0.0.1"
-
-
-[[Component.References.CSS]]
-Name = "--ulist-li-before-size"
-Description = """
-Affects the component's list item's bullet icon width and height value.
-"""
-Property = "width & height"
-Default = '3rem'
 Availability = "v0.0.1"
 
 
@@ -365,7 +288,7 @@ Affects the component's list item's bullet icon color value in an inverted
 environment (e.g. footer).
 """
 Property = "color"
-Default = 'var(--color-typography-50)'
+Default = 'var(--color-contrast-50)'
 Availability = "v0.0.1"
 
 

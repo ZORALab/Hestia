@@ -1,23 +1,13 @@
 [CSS.Variables]
-"--ulist-spacing" = "5rem"
-"--ulist-tab-spacing" = "6rem"
-
-
-
-
 "--ulist-display" = "block"
 "--ulist-margin" = "0"
 "--ulist-padding" = "0"
-"--ulist-text-align" = "initial"
-"--ulist-text-align-aligned-left" = "justify"
+"--ulist-text-align" = "left"
 
 
 
-
+"--ulist-spacing" = "2rem"
 "--ulist-li-margin" = "var(--ulist-spacing) 0"
-"--ulist-li-margin-aligned-left" = """
-var(--ulist-spacing) 0 var(--ulist-spacing) var(--ulist-tab-spacing)
-"""
 "--ulist-li-padding" = "0"
 
 
@@ -26,14 +16,14 @@ var(--ulist-spacing) 0 var(--ulist-spacing) var(--ulist-tab-spacing)
 "--ulist-li-before-content" = "\"Ψ\""
 "--ulist-li-before-display" = "block"
 
-"--ulist-li-before-margin" = ".5rem auto"
-"--ulist-li-before-margin-aligned-left" = ".5rem 0"
+"--ulist-li-before-size" = "3rem"
+
+"--ulist-li-before-margin" = ".5rem 1rem"
 "--ulist-li-before-padding" = "0"
 
 "--ulist-li-before-border" = "1px solid transparent"
 "--ulist-li-before-border-radius" = "50%"
 
-"--ulist-li-before-size" = "3rem"
 "--ulist-li-before-font-size" = "2rem"
 "--ulist-li-before-font-weight" = "700"
 "--ulist-li-before-text-align" = "center"
