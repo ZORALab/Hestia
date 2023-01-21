@@ -68,7 +68,7 @@ Availability = "v0.0.1"
 Name = "--toc-min-width"
 Description = "Affects the entire component's minimum width value."
 Property = "min-width"
-Default = "25rem"
+Default = "20rem"
 Availability = "v0.0.1"
 
 [[Component.References.CSS]]
