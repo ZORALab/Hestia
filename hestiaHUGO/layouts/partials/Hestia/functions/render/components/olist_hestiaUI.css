@@ -35,22 +35,13 @@ ol li {
 ol li:before {
 	display: block;
 
+	margin: var(--olist-li-before-margin);
+	padding: var(--olist-li-before-padding);
+
 	counter-increment: ol-counters;
 	content: "(" counters(ol-counters, ".") ")";
 
 	font-size: var(--olist-li-before-font-size);
 	font-weight: var(--olist-li-before-font-weight);
 	text-align: var(--olist-li-before-text-align);
-}
-
-ol.left-aligned {
-	text-align: var(--olist-text-align-aligned-left);
-}
-
-ol.left-aligned li {
-	margin: var(--olist-li-margin-aligned-left);
-}
-
-ol.left-aligned li:before {
-	text-align: var(--olist-li-before-text-align-aligned-left);
 }

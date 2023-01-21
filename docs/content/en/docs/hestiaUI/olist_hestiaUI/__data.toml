@@ -140,18 +140,6 @@ Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
-Name = "--olist-tab-spacing"
-Description = """
-Affects the list item's margin value uniquely for tab spacing when used in
-left-aligned list. You should only supply 1 sided value as the component shall
-construct the margin in its own way.
-"""
-Property = "margin"
-Default = "6rem"
-Availability = "v0.0.1"
-
-
-[[Component.References.CSS]]
 Name = "--olist-display"
 Description = """
 Affects the entire component's display mode value.
@@ -187,18 +175,7 @@ Description = """
 Affects the entire component's text-align value.
 """
 Property = "text-align"
-Default = "initial"
-Availability = "v0.0.1"
-
-
-[[Component.References.CSS]]
-Name = "--olist-text-align-aligned-left"
-Description = """
-Affects the entire component's text-align value when used with '.left-aligned'
-CSS class.
-"""
-Property = "text-align"
-Default = "justify"
+Default = "left"
 Availability = "v0.0.1"
 
 
@@ -213,25 +190,32 @@ Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
-Name = "--olist-li-margin-aligned-left"
-Description = """
-Affects the component's list item's margin value when used with '.left-aligned'
-CSS class.
-"""
-Property = "margin"
-Default = """
-var(--olist-spacing) 0 var(--olist-spacing) var(--olist-tab-spacing)
-"""
-Availability = "v0.0.1"
-
-
-[[Component.References.CSS]]
 Name = "--olist-li-padding"
 Description = """
 Affects the component's list item's padding value.
 """
 Property = "padding"
 Default = "0"
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-before-margin"
+Description = """
+Affects the component's list item's bullet numbering margin value.
+"""
+Property = "margin"
+Default = '0'
+Availability = "v0.0.1"
+
+
+[[Component.References.CSS]]
+Name = "--olist-li-before-padding"
+Description = """
+Affects the component's list item's bullet numbering padding value.
+"""
+Property = "padding"
+Default = '0'
 Availability = "v0.0.1"
 
 
@@ -252,6 +236,7 @@ Affects the component's list item's bullet numbering font-weight value.
 """
 Property = "font-weight"
 Default = '700'
+Availability = "v0.0.1"
 
 
 [[Component.References.CSS]]
@@ -260,14 +245,5 @@ Description = """
 Affects the component's list item's bullet numbering text-align value.
 """
 Property = "text-align"
-Default = 'center'
-
-
-[[Component.References.CSS]]
-Name = "--olist-li-before-text-align-aligned-left"
-Description = """
-Affects the component's list item's bullet numbering text-align value when used
-with '.left-aligned' CSS class.
-"""
-Property = "text-align"
 Default = 'left'
+Availability = "v0.0.1"
