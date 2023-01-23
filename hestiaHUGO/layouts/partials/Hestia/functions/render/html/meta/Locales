@@ -46,6 +46,8 @@ specific language governing permissions and limitations under the License.
 			break;
 		{{- end }}
 		}
+{{- else if .Redirect.Enabled }}
+{{- else if .Redirect.Language.Enabled }}
 {{- else }}
 		localStorage.setItem('{{- safeJS $key -}}', '{{- safeJS .Languages.Current.Code -}}');
 {{- end }}

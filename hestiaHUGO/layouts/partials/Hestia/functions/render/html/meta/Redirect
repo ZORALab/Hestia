@@ -31,14 +31,17 @@ specific language governing permissions and limitations under the License.
 
 			switch (previous) {
 			{{- range $k, $v := .Languages.Alternatives -}}
-				{{- if $v.URL.Page }}
+				{{- if $v.URL.PAGE }}
 			case '{{- $v.Code -}}':
-				window.location.href = '{{- $v.URL.Page -}}';
+				console.log(previous);
+				window.location.href = '{{- string $v.URL.PAGE -}}';
+				break;
 				{{- end -}}
 			{{- end }}
 			default:
 				window.location.href = '{{- string
 							.Languages.Default.URL.PAGE -}}';
+				break;
 			}
 		});
 	</script>
