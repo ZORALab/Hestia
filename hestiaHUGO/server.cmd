@@ -78,6 +78,7 @@ return_to_current_directory() {
 
 run_hugo() {
         hugo server --buildDrafts \
+                --noBuildLock \
                 --disableFastRender \
                 --bind "localhost" \
                 --baseURL "http://localhost" \
@@ -109,6 +110,7 @@ main $@
 :: Windows Main Codes                                                          #
 ::##############################################################################
 hugo server --buildDrafts ^
+        --noBuildLock ^
         --disableFastRender ^
         --bind "localhost" ^
         --baseURL "http://localhost" ^
