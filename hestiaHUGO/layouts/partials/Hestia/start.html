@@ -30,6 +30,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* RENDER ROOT COMPONENTS */ -}}
 {{- if .IsRoot -}}
+	{{- partialCached "Hestia/templates/404.html" . -}}
 	{{- partialCached "Hestia/templates/robots.txt" . -}}
 	{{- partialCached "Hestia/templates/nojekyll" . -}}
 	{{- partialCached "Hestia/templates/cname" . -}}

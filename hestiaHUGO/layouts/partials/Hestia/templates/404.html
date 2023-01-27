@@ -20,12 +20,18 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* return render */}}
-	<main>
-		<h2>404 Not Found.</h2>
-		<p>
-			Sorry, can't find what you're looking for! Head back?
-			<a href="{{- .URL.Base -}}">Head back?</a>
-		</p>
-	</main>
-{{- /* clean up */ -}}
+{{- /* convert page to 404.html */ -}}
+{{- $dataList := "" -}}
+{{- $path := "404.html" -}}
+{{- $Page := merge . (dict "Is404" true) -}}
+{{- $Page := merge $Page (dict "Titles" (dict "Page" "404")) -}}
+{{- $Page := merge $Page (dict "Descriptions" (dict "Page" (dict "Pitch" "404"))) -}}
+{{- $Page := merge $Page (dict "Descriptions" (dict "Page" (dict "Summary" ""))) -}}
+
+
+
+
+{{- /* render output file */ -}}
+{{- $dataList = partial "Hestia/templates/format.html" $Page -}}
+{{- $dataList = merge . (dict "Input" (dict "Content" (string $dataList) "Path" $path)) -}}
+{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}

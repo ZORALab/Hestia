@@ -20,20 +20,47 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* prepare working variables for this function */ -}}
+{{- $key := "locale" -}}
+
+
+
 {{- /* return render */ -}}
-{{- if .Redirect.Enabled }}
+{{- if .Is404 -}}
+	<script>
+		window.addEventListener('load', function() {
+			let previous = localStorage.getItem('{{- $key -}}');
+
+			switch (previous) {
+			{{- range $k, $v := .Languages.List -}}
+				{{- if $v.URL.ERROR_404 }}
+			case '{{- $v.Code -}}':
+				window.location.href = '{{- string $v.URL.ERROR_404 -}}';
+				break;
+				{{- end -}}
+			{{- end }}
+			default:
+				window.location.href = '{{- string
+							.Languages.Default.URL.ERROR_404 -}}';
+				break;
+			}
+		});
+	</script>
+	<meta http-equiv="refresh"
+		content="{{- .Redirect.Delay -}}; url={{- string
+							.Languages.Default.URL.ERROR_404 -}}" />
+{{- else if .Redirect.Enabled }}
 	<meta http-equiv="refresh"
 		content="{{- .Redirect.Delay -}}; url={{- string .Redirect.URL -}}" />
 {{- else if .Redirect.Language.Enabled }}
 	<script>
 		window.addEventListener('load', function() {
-			let previous = localStorage.getItem('locale');
+			let previous = localStorage.getItem('{{- $key -}}');
 
 			switch (previous) {
 			{{- range $k, $v := .Languages.Alternatives -}}
 				{{- if $v.URL.PAGE }}
 			case '{{- $v.Code -}}':
-				console.log(previous);
 				window.location.href = '{{- string $v.URL.PAGE -}}';
 				break;
 				{{- end -}}
@@ -48,4 +75,10 @@ specific language governing permissions and limitations under the License.
 	<meta http-equiv="refresh"
 		content="{{- .Redirect.Delay -}}; url={{- string
 							.Languages.Default.URL.PAGE -}}" />
+{{- else }}
+	<script>
+		window.addEventListener('load', function() {
+			localStorage.setItem('{{- safeJS $key -}}', '{{- safeJS .Languages.Current.Code -}}');
+		});
+	</script>
 {{- end -}}
