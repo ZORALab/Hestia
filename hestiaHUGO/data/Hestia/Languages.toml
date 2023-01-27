@@ -66,10 +66,6 @@
 # The Hestia compatible 404 page URL for that specific language.
 #
 #
-# URL.ERROR_Offline FIELD
-# The Hestia compatible offline page URL for that specific language.
-#
-#
 # The data structure pattern for a language is as follows:
 #                [{[code]}{-[Script]}{-[COUNTRY]}]
 #                Name        = "[NAME]"
@@ -91,7 +87,6 @@ Default = true
 
 [en.URL]
 ERROR_404 = "/en/404"
-ERROR_Offline = "/en/offline"
 
 
 
@@ -104,4 +99,3 @@ Default = false
 
 [zh-Hans.URL]
 ERROR_404 = "/zh-hans/404"
-ERROR_Offline = "/zh-hans/offline"

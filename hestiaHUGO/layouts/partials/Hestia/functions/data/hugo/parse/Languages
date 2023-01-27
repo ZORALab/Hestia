@@ -63,11 +63,6 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "URL" (dict "ERROR_404" $ret)) -}}
 
 
-	{{- /* parse language ERROR_Offline URL */ -}}
-	{{- $ret = default "" $v.URL.ERROR_Offline -}}
-	{{- $data = merge $data (dict "URL" (dict "ERROR_OFFLINE" $ret)) -}}
-
-
 	{{- /* save into list */ -}}
 	{{- $list = merge $list (dict (string $k) $data) -}}
 {{- end -}}
