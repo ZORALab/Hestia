@@ -15,7 +15,6 @@ LicenseSourcePath = 'licenses/hestia-software-license.pdf'
 [FMTVariables]
 LicenseSourceDir = '{{- .RootDir -}}/docs/content'
 PackageDir = '{{- .WorkingDir -}}/{{- .Product -}}'
-PackagePath = '{{- .WorkingDir -}}/{{- .Product -}}-{{- .App.Version -}}-pack.tar.gz'
 
 
 [[Dependencies]]
@@ -56,7 +55,7 @@ Source = '{{ .PackageDir -}}'
 Name = 'Copy Source Product into Packaging Directory'
 Type = 'command'
 Condition = [ 'all-all' ]
-Source = 'cp -r "{{- .RootDir -}}/{{- .Product -}}" "{{- .PackageDir -}}/hestia"'
+Source = 'cp -r "{{- .RootDir -}}/{{- .Product -}}" "{{- .PackageDir -}}/{{- .Product -}}"'
 
 
 [[CMD]]
@@ -64,7 +63,7 @@ Name = 'Copy English License File into Packaging Directory'
 Type = 'copy'
 Condition = [ 'all-all' ]
 Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}'
-Target = '{{- .PackageDir -}}/hestia/License-Code-en.pdf'
+Target = '{{- .PackageDir -}}/License-en.pdf'
 
 
 [[CMD]]
@@ -72,11 +71,12 @@ Name = 'Copy English License Signature File into Packaging Directory'
 Type = 'copy'
 Condition = [ 'all-all' ]
 Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}.asc'
-Target = '{{- .PackageDir -}}/hestia/License-Code-en.pdf.asc'
+Target = '{{- .PackageDir -}}/License-en.pdf.asc'
 
 
 [[CMD]]
 Name = 'Compress into TarGz'
 Type = 'command'
 Condition = [ 'all-all' ]
-Source = 'tar cfzv "{{- .PackagePath -}}" "{{- .PackageDir -}}"'
+Location = '{{- .WorkingDir -}}'
+Source = 'tar cfzv "{{- .Product -}}-{{- .App.Version -}}.tar.gz" "{{- .Product -}}"'
