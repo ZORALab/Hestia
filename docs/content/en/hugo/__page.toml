@@ -21,9 +21,10 @@ Published = "Thu 22 Dec 2022 06:34:07 AM +08"
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "ZORALab's Hestia for Hugo"
+Title = "HestiaHUGO"
 Keywords = [
 	"Hugo",
+	"HestiaHUGO",
 	"Static Site Generator",
 	"Content Compiler",
 	"Theme Module",
@@ -48,11 +49,10 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = """
-Supporting Hugo through ZORALab's Hestia Hugo Theme — hestiaHUGO!
+Express Hugo freely with ZORALab's Hestia!
 """
 Summary = """
-This theme module takes over a lot of hugo and web functionalities for
-generating content repository in a consistent and reliable manner.
+Simple, reliable, and friendly to use for profressionals.
 """
 
 

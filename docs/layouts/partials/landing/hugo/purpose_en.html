@@ -1,5 +1,6 @@
 {{- $Page := . -}}
 {{- $thumbnail := "" -}}
+{{- $fallback := "" -}}
 {{- $description := "" -}}
 {{- $action := "" -}}
 
@@ -17,6 +18,15 @@
 	{{- end -}}
 
 
+	{{- $fallback = merge $Page (dict "Input" (dict "URL" $v.Fallback)) -}}
+	{{- $fallback = partial "Hestia/functions/data/url/Init" $fallback -}}
+	{{- if $fallback.Console -}}
+		{{- $fallback = "" -}}
+	{{- else -}}
+		{{- $fallback = string $fallback.Output -}}
+	{{- end -}}
+
+
 	{{- $action = merge $Page (dict "Input" (dict "URL" $v.Action)) -}}
 	{{- $action = partial "Hestia/functions/data/url/Init" $action -}}
 	{{- if $action.Console -}}
@@ -28,13 +38,18 @@
 
 	<div class='column'>
 		<picture>
-			<img src='{{- $thumbnail -}}' width="200" alt='{{- $v.Name -}}' />
+			<source width='200' height='200' type='{{- $v.ThumbnailType -}}'
+				srcset='{{- $thumbnail -}}' />
+			<source width='200' height='200' type='image/jpeg'
+				srcset='{{- $fallback -}}' />
+			<img width='200' height='200' alt='{{- $v.Name -}}'
+				src='{{- $fallback -}}' />
 		</picture>
 		<h3 style='margin-top:0;'>{{- $v.Name -}}</h3>
 		<p>{{- $v.Description -}}</p>
 		{{- if $action }}
 		<br/>
-		<a href='{{- $action -}}' class='button'>{{- $v.Label -}}</a>
+		<a href='{{- $action -}}' class='button' target='_blank'>{{- $v.Label -}}</a>
 		{{- end }}
 	</div>
 {{- end }}

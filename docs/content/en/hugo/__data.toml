@@ -1,11 +1,13 @@
 [[Business]]
 Thumbnail = 'readable-error-digest-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'readable-error-digest-600x600.jpg'
 Reason = 'Readable Error Digest'
 Description = '''
-Pinpoint location on where, what, and why.
+No more complicated log jargons.
 '''
 Outcome = '''
-No more horrible log jargons just to debug your content construction.
+Pinpoint error exactly where and why.
 '''
 
 
@@ -13,12 +15,14 @@ No more horrible log jargons just to debug your content construction.
 
 [[Business]]
 Thumbnail = 'pwa-ready-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'pwa-ready-600x600.jpg'
 Reason = 'PWA Ready'
 Description = '''
-Analyzed, researched, and tested.
+Analyzed, researched, tested, and simplified.
 '''
 Outcome = '''
-anytime ready for going beyond static website to Progressive Web Application.
+Deploy PWA seamlessly and easily.
 '''
 
 
@@ -26,12 +30,14 @@ anytime ready for going beyond static website to Progressive Web Application.
 
 [[Business]]
 Thumbnail = 'flexible-ldjson-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'flexible-ldjson-600x600.jpg'
 Reason = 'Flexible LD+JSON Schema'
 Description = '''
-Design with search engine requirements in mind.
+No more hackish integrations.
 '''
 Outcome = '''
-Go wild with Schema.org data structuring with dynamic data filling!
+Go wild with Schema.org SEO!
 '''
 
 
@@ -39,12 +45,14 @@ Go wild with Schema.org data structuring with dynamic data filling!
 
 [[Business]]
 Thumbnail = 'go-compatible-template-codes-600x600.webp'
-Reason = 'Go Compatible Template Codes'
+ThumbnailType = 'image/webp'
+Fallback = 'go-compatible-template-codes-600x600.jpg'
+Reason = 'Go Compatible Codes'
 Description = '''
-Parsed and processed Hugo's data into Hestia's data structure.
+No more Markdown+Shortcode frankenstein-ing.
 '''
 Outcome = '''
-Create Go compatible and reusable template HTML, JSON, etc codes.
+Create Go compatible and reusable codes.
 '''
 
 
@@ -52,13 +60,15 @@ Create Go compatible and reusable template HTML, JSON, etc codes.
 
 [[Business]]
 Thumbnail = 'compoentized-ui-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'compoentized-ui-600x600.jpg'
 Reason = 'Componentized UI'
 Description = '''
-Continuously improved and reinforced learning.
+Ready to cope with UI fashion trends changes.
 '''
 Outcome = '''
-Have all UI componentized for maintainability, reusability, archivability, and
-learnable.
+Easily design your content page with stable, continuously improved, learnable,
+maintainable, reusable, and archivable UI.
 '''
 
 
@@ -66,12 +76,14 @@ learnable.
 
 [[Business]]
 Thumbnail = 'mobile-first-design-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'mobile-first-design-600x600.jpg'
 Reason = 'Mobile First Design'
 Description = '''
-Adapting the market pattern and future.
+Everyone uses mobile first.
 '''
 Outcome = '''
-Mobile endpoints first, then responsively scaled UI design.
+Proritizing wider audience and mobile experience.
 '''
 
 
@@ -79,13 +91,14 @@ Mobile endpoints first, then responsively scaled UI design.
 
 [[Business]]
 Thumbnail = 'publishers-ready-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'publishers-ready-600x600.jpg'
 Reason = 'Publishers Ready'
 Description = '''
-Custom and specific configuration files for GitHub Pages, GitLab Pages,
-Cloudflare Pages, etc.
+No need external scripts for common publishers.
 '''
 Outcome = '''
-We got you covered (as far as we can reach).
+Ready serving GitHub Pages, GitLab Pages, and Cloudflare Pages natively.
 '''
 
 
@@ -93,13 +106,14 @@ We got you covered (as far as we can reach).
 
 [[Business]]
 Thumbnail = 'i18n-capable-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'i18n-capable-600x600.jpg'
 Reason = 'I18N Capable'
 Description = '''
-Directly from ZORALab's Hestia to include all people from various languages and
-cultures locally or globally.
+No more half-baked and confusing features.
 '''
 Outcome = '''
-Facilitate multi-lingual contents repository.
+Recognizes visitors' language on-site; redirect accordingly; including 404 page.
 '''
 
 
@@ -107,41 +121,45 @@ Facilitate multi-lingual contents repository.
 
 [[Business]]
 Thumbnail = 'wholesome-html-600x600.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'wholesome-html-600x600.jpg'
 Reason = 'Wholesome HTML'
 Description = '''
-Expanding the possibility of HTML being a distributable rich data presentation
-file.
+No more dirty page codes.
 '''
 Outcome = '''
-Compile and embed precisely used CSS variables, CSS codes, and JS codes into the
-HTML file itself (except assets obviously).
+Extremely friendly to page developer to debug output codes.
 '''
 
 
 
 
 [[Business]]
-Thumbnail = 'wasm-ready.svg'
+Thumbnail = 'wasm-ready-600x600.svg'
+ThumbnailType = 'image/svg+xml'
+Fallback = 'wasm-ready-600x600.jpg'
 Reason = 'WASM Hosting Ready'
 Description = '''
-Expand web UI interactions with proper programming languages.
+No more complication for WASM deployment.
 '''
 Outcome = '''
-WASM hosting and initialization ready.
+Go beyond standard pages to WASM expansions.
 '''
 
 
 
 
 [[Business]]
-Thumbnail = 'favicon-generator.svg'
+Thumbnail = 'favicon-generator-600x600.svg'
+ThumbnailType = 'image/svg+xml'
+Fallback = 'favicon-generator-600x600.jpg'
 Reason = 'Icons and Favicons Ready'
 Description = '''
-Generate Favicons, icons, MSFT Tile image, buttons, iPhones, Android, browsers,
-etc
+No more depending on 3rd-party generator.
 '''
 Outcome = '''
-No more depending on 3rd-party external website.
+Natively generate Favicons, icons, MSFT Tile image, buttons, iPhones, Android,
+browsers, etc.
 '''
 
 
@@ -149,12 +167,15 @@ No more depending on 3rd-party external website.
 
 [[Business]]
 Thumbnail = 'og-ready-1200x1200.webp'
+ThumbnailType = 'image/webp'
+Fallback = 'og-ready-1200x1200.jpg'
 Reason = 'Social Media & Open Graph'
 Description = '''
-Open Graph, Twitter Card, Messengers icons, etc
+No more awkward looks on social media.
 '''
 Outcome = '''
-Configured, Tested, and Confident.
+Natively supports Open Graph, Twitter, Messengers, Whatsapp, Telegram, and
+Signal.
 '''
 
 
@@ -162,10 +183,11 @@ Configured, Tested, and Confident.
 
 [[Purpose]]
 Thumbnail = 'static-web-content.svg'
+ThumbnailType = 'image/svg+xml'
+Fallback = 'static-web-content.jpg'
 Name = 'Static Web Content'
 Description = '''
-The classic static site web content generator for presenting your content using
-Hugo and HestiaHUGO as your compiler.
+Classic static website using Hugo. You're looking at one now!
 '''
 Action = ''
 Label = ''
@@ -175,36 +197,53 @@ Label = ''
 
 [[Purpose]]
 Thumbnail = 'json-data-server.svg'
+ThumbnailType = 'image/svg+xml'
+Fallback = 'json-data-server.jpg'
 Name = 'Static JSON Data Server'
 Description = '''
-Like web content but this serves .json data file instead. Great for static
-data-driven services or mocking backend API server.
+Like web content but serves .json data file alongside.
 '''
 Action = 'index.json'
-Label = 'SEE JSON'
+Label = 'EXAMPLE'
+
+
+
+
+[[Purpose]]
+Thumbnail = 'commerce-600x600.svg'
+ThumbnailType = 'image/svg+xml'
+Fallback = 'commerce-600x600.jpg'
+Name = 'Commerce Payment Site'
+Description = '''
+Setup static site store and reputable payment gateway service providers!
+'''
+Action = 'https://store.hollowaykeanho.com/en/sponsorship/'
+Label = 'EXAMPLE'
 
 
 
 
 [[Purpose]]
 Thumbnail = 'ui-designing.svg'
+ThumbnailType = 'image/svg+xml'
+Fallback = 'ui-designing.jpg'
 Name = 'Web UI Component Design'
 Description = '''
-The componentized feature from HestiaHUGO definitely allows you to develop an
-independent UI using pure HTML, CSS, and JS codes.
+Simple enough to build and test an web UI component easily.
 '''
-Action = ''
-Label = ''
+Action = '/en/docs/hestiaui/'
+Label = 'EXAMPLE'
 
 
 
 
 [[Purpose]]
 Thumbnail = 'app-distribution.svg'
+ThumbnailType = 'image/svg+xml'
+Fallback = 'app-distribution.jpg'
 Name = 'Frontend App Distribution'
 Description = '''
-Using WASM and PWA, release and describute your frontend application using
-HestiaHUGO.
+Builds frontend display applications easily via WASM+PWA.
 '''
 Action = ''
 Label = ''

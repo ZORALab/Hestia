@@ -1,43 +1,79 @@
-<main>
-	<section id="introduction">
+<main style='padding-top: 0;'>
+	<section id="introduction" style='
+	min-height: 90vh;
+	background: url({{- absoluteURL "html" "yusuke-nakaya-stars.svg" -}})
+			var(--color-primary-950);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding-top: 6rem;
+	border-radius: 0 0 10rem 0;
+	overflow-y: hidden;
+' class='inverted'>
 		<h1>{{- .Titles.Page -}}</h1>
 		<p>
 			{{ .Descriptions.Page.Pitch }}
 		</p>
+		<p style='margin-top: 2.3rem;font-size: 2.3rem; font-weight: bold;'>
+			Continuosuly Improved
+		</p>
+		<p style='margin-top: 2.3rem;font-size: 2.3rem; font-weight: bold;'>
+			Modular and Flexible
+		</p>
+		<p style='margin-top: 2.3rem;font-size: 2.3rem; font-weight: bold;'>
+			No Nonsense
+		</p>
+		<picture style='margin-right: 0;'>
+			<source srcset='{{- absoluteURL "html" "gopher-hero.svg" -}}'
+				media='(max-width: 280px)'
+				width='224'
+				height='224'
+				type='image/svg+xml' />
+			<source srcset='{{- absoluteURL "html" "gopher-hero.svg" -}}'
+				media='(max-width: 375px)'
+				width='300'
+				height='300'
+				type='image/svg+xml' />
+			<source srcset='{{- absoluteURL "html" "gopher-hero.svg" -}}'
+				media='(max-width: 375px)'
+				width='300'
+				height='300'
+				type='image/svg+xml' />
+			<source srcset='{{- absoluteURL "html" "gopher-hero.svg" -}}'
+				media='(max-width: 500px)'
+				width='400'
+				height='400'
+				type='image/svg+xml' />
+			<source srcset='{{- absoluteURL "html" "gopher-hero.svg" -}}'
+				media='(min-width: 501px)'
+				width='500'
+				height='500'
+				type='image/svg+xml' />
+			<img alt="ZORALab's HestiaHUGO"
+				width='500'
+				loading='lazy'
+				src='{{- absoluteURL "html" "gopher-hero.svg" -}}' />
+		</picture>
 	</section>
 
 
 	<section id='why-hestiaHUGO'>
-		<div class='row' style='margin-bottom:5rem;'>
-			<div class='column'>
-				<h2>Why <code>HestiaHUGO</code></h2>
-				<p>
-					We had chosen <a href='https://gohugo.io/'
-					target='_blank'>Hugo</a> as our primary
-					UI and content compiler mainly due to
-					its simplicity and performance. With
-					that, this theme module is extends Hugo's
-					capabilities to meet demands from
-					current ever growing search engines'
-					requirements and endpoint advancements.
-				</p>
-			</div>
-		</div>
+		<div class='row' style='margin-bottom:5rem;'><div class='column'>
+			<h2>Why <code>HestiaHUGO</code></h2>
+			<p style='text-align: center;'>
+				Some great reasons to use this theme module.
+			</p>
+		</div></div>
 
 		{{- express "html" "landing/hugo/business_en.html" -}}
 	</section>
 
 
-	<section id='designed-for-frontend'>
+	<section id='purpose'>
 		<div class='row'><div class='column'>
-			<h2>Designed For Seasoned Frontend Developers</h2>
-			<p>
-				Anything related to frontend be it web contents
-				presentation, interactive frontend application
-				distribution or experimentation, web UI
-				designing, or static site data server,
-				<code>HestiaHUGO</code> strives to be the best
-				choice.
+			<h2>Purposes</h2>
+			<p style='text-align: center;'>
+				After why; now it is about what's for.
 			</p>
 		</div></div>
 
@@ -47,10 +83,9 @@
 
 	<section id='epilogue'>
 		<h2>Convinced?</h2>
-		<p>
-			Freel free to try our for your next project!
-		</p>
-		<a class='button' href='{{- absoluteURL "html" "/en/getting-started" -}}'>Get
+		<p style='text-align: center;'>Feel free to try our for your next project!</p>
+		<a class='button'
+			href='{{- absoluteURL "html" "/en/getting-started#hugo" -}}'>Get
 		Started</a>
 	</section>
 </main>
