@@ -1,2 +1,10 @@
-# [Table]
-# Key = "Value"
+[Packages."v1.0.0"]
+Version = '1.0.0'
+Summary = '''
+First launch with Hugo theme supports. Its main focus is to enable web hosting
+and presnetation of WASM-driven and conventional web content.
+'''
+Technologies = [
+	"hestiaHUGO",
+]
+URL = 'v1p0p0'

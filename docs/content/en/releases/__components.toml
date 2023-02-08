@@ -64,11 +64,6 @@ Include = true
 Variables = []
 
 [[List]]
-Name = "toc_hestiaUI"
-Include = true
-Variables = []
-
-[[List]]
 Name = "code_hestiaUI"
 Include = true
 Variables = []
@@ -84,12 +79,7 @@ Include = true
 Variables = []
 
 [[List]]
-Name = "badge-shields_hestiaUI"
-Include = true
-Variables = []
-
-[[List]]
-Name = "note_hestiaUI"
+Name = "olist_hestiaUI"
 Include = true
 Variables = []
 

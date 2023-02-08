@@ -1,0 +1,30 @@
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+
+
+
+
+<nav class='catalog' style='--h3-margin: 0;'>
+	{{- range $i, $v := .Data.Page.Packages }}
+	<figure class='card'>
+		<div class='content'>
+			<h3><code>{{- $v.Version -}}</code></h3>
+			<p>{{- $v.Summary -}}</p>
+			<br/>
+			<p>
+				Affected technologies:
+				{{ range $j, $w := $v.Technologies -}}
+				{{- if $j -}}, {{ end -}}<code>{{- $w -}}</code>
+				{{ end -}}
+			</p>
+		</div>
+
+
+		<div class='actions'>
+			{{- $url := merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
+			{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+			{{- $url = string $url.Output -}}
+			<a href='{{- $url -}}' class='button'>DETAILS</a>
+		</div>
+	</figure>
+	{{- end }}
+</nav>
