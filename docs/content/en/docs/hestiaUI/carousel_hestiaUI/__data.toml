@@ -20,7 +20,7 @@ Example = """
 		<div>
 			<input id="carousel1-slide1" name="carousel1" type="radio" checked />
 			<div class="content" style="background: red">
-				<p>Slide 1</p>
+				<p style='text-align: center;'>Slide 1</p>
 			</div>
 			<nav class="nav">
 				<label class="previous" for="carousel1-slide3">❮</label>
@@ -32,7 +32,7 @@ Example = """
 		<div>
 			<input id="carousel1-slide2" name="carousel1" type="radio" />
 			<div class="content" style="background: green">
-				<p>Slide 2</p>
+				<p style='text-align: center;'>Slide 2</p>
 			</div>
 			<nav class="nav">
 				<label class="previous" for="carousel1-slide1">❮</label>
@@ -44,7 +44,7 @@ Example = """
 		<div>
 			<input id="carousel1-slide3" name="carousel1" type="radio" />
 			<div class="content" style="background: blue">
-				<p>Slide 3</p>
+				<p style='text-align: center;'>Slide 3</p>
 			</div>
 			<nav class="nav">
 				<label class="previous" for="carousel1-slide2">❮</label>
