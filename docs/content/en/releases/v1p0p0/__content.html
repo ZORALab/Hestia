@@ -7,6 +7,13 @@
 	</section>
 
 
+	<section id="downloadables">
+		<h2>Downloadables</h2>
+		<p>All downloadable contents for this version:</p>
+		{{- express "html" "releases/downloads-table_en.html" -}}
+	</section>
+
+
 	<section id="highlights">
 		<h2>Highlights</h2>
 		<p>{{- .Data.Page.Package.Summary -}}</p>
@@ -53,19 +60,12 @@
 	</section>
 
 
-	<section id="setup">
-		<h2>Downloadables</h2>
-		<p>All downloadable contents for this version:</p>
-		{{- express "html" "releases/downloads-table_en.html" -}}
-	</section>
-
-
 	<section id='epilogue'>
-		<h2>Still Stuck?</h2>
+		<h2>Got Some Ideas?</h2>
 		<p>
 			Feel free to contact us at our <a
-			href='https://github.com/ZORALab/Hestia/issues'>GitHub
-			Issues Portal</a>.
+			href='https://github.com/ZORALab/Hestia/discussions'>GitHub
+			Discussion Portal</a>.
 		</p>
 	</section>
 </main>
