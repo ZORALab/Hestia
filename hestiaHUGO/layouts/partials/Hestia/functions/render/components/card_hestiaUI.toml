@@ -7,7 +7,7 @@
 """
 "--card-overflow" = "hidden"
 
-"--card-width" = "23rem"
+"--card-width" = "22rem"
 "--card-height" = "fit-content"
 
 "--card-margin" = "2rem auto"
