@@ -1,0 +1,215 @@
+[Package]
+Version = '1.0.0'
+Summary = '''
+First launch with Hugo theme supports. Its main focus is to enable web hosting
+and presnetation of WASM-driven and conventional web content.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Established standard library foundation via ZORALab's Bissetii Project
+assimilation.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Core UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Noto Sans Font UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Anchor UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Code UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Preformatted Text UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Catalog UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Drawer UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia TOC UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Note UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Error Note UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Warning Note UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Success Note UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Definitions List UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Ordered List UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Unordered List UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Divider UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Cutting Divider UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Dashed Divider UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Shields.io Badge UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Button UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Card UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Blockquote UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Dialog UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Picture UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Table UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Form UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia iFrame UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped ZORALab's Hestia Carousel UI.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped Google Analytics 4 support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped Twitter Card support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped Progressive Web Application (PWA) support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped seamless PWA Offline support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped seamless PWA Offline support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped seamless PWA icons and favicons file generation support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped seamless GitHub Pages and Cloudflare Pages support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped seamless i18n redirection support.
+'''
+
+[[Package.Hugo]]
+Statement = '''
+Shipped seamless i18n redirection for 404.html page support.
+'''
+
+[[Package.Go]]
+Statement = '''
+Established standard library foundation via ZORALab's Cerigo Project
+assimilation.
+'''
+
+[[Package.TinyGo]]
+Statement = '''
+Established standard library foundation via ZORALab's Cerigo Project
+assimilation.
+'''
+
+[[Package.Rust]]
+Statement = '''
+Established standard library foundation via ZORALab's Cerigo Project
+assimilation.
+'''

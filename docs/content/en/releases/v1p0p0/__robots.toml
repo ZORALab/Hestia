@@ -1,0 +1,7 @@
+# PAGE SPECIFIC ROBOTS INSTRUCTIONS LIST
+# ======================================
+#
+# Example:
+#     [[Meta]]
+#     Name = "googleBot"
+#     Content = "noindex, nofollow"

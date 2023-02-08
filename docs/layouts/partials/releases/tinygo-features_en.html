@@ -1,0 +1,10 @@
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+
+
+
+
+<ol>
+{{- range $i, $v := .Data.Page.Package.TinyGo }}
+	<li><p>{{- $v.Statement -}}</p></li>
+{{- end }}
+</ol>
