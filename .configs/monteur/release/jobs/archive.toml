@@ -33,6 +33,11 @@ OS = [ "all" ]
 Arch = [ "all" ]
 Source = '{{- .PackageDir -}}/hestiaHUGO-{{- .App.Version -}}.zip'
 
+[Releases.Packages.all-all-hestiaHUGO-GPG]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaHUGO-{{- .App.Version -}}.zip.asc'
+
 
 
 

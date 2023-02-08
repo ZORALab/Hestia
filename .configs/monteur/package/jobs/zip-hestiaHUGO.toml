@@ -17,7 +17,20 @@ LicenseSourceDir = '{{- .RootDir -}}/docs/content'
 PackageDir = '{{- .WorkingDir -}}/{{- .Product -}}'
 
 
+
+
 [[Dependencies]]
+Name = 'Zip Program for Archive and Compression'
+Conditions = 'all-all'
+Type = 'command'
+Command = 'zip'
+
+
+[[Dependencies]]
+Name = 'GPG Program for Cryptography Certificate Generation'
+Conditions = 'all-all'
+Type = 'command'
+Command = 'gpg'
 
 
 
@@ -80,3 +93,16 @@ Type = 'command'
 Condition = [ 'all-all' ]
 Location = '{{- .WorkingDir -}}'
 Source = 'zip -r "{{- .Product -}}-{{- .App.Version -}}.zip" "{{- .Product -}}"'
+
+
+[[CMD]]
+Name = 'Generate GPG Certificate'
+Type = 'command'
+Condition = [ 'all-all' ]
+Location = '{{- .WorkingDir -}}'
+Source = '''gpg \
+--local-user hello@zoralab.com \
+--armor \
+--detach-sign \
+"{{- .Product -}}-{{- .App.Version -}}.zip" \
+'''
