@@ -58,8 +58,15 @@ Example = """
 	<source srcset="... 1x,
 			... 2x,
 			... 3x"
+		type="image/webp"
+		width="1200" height="630"
+		media"(max-width: ...)">     <!-- modern-format -->
+	<source srcset="... 1x,
+			... 2x,
+			... 3x"
 		type="image/..."
-		media"(max-width: ...)">
+		width="1200" height="630"
+		media"(max-width: ...)">     <!-- fallback-format -->
 	<img alt="..." src="..."
 		width="1200" height="630"
 		loading="lazy"/>
