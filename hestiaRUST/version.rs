@@ -15,4 +15,4 @@
 // the License.
 //
 // WARNING: auto-generated file. DO NOT EDIT!!!
-pub const NUMBER: &str = "v0.0.1";
+pub const NUMBER: &str = "v1.0.0";
