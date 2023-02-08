@@ -1,7 +1,7 @@
 [Metadata]
-Name = 'Tar-GZip HestiaHUGO'
+Name = 'Zip HestiaHUGO'
 Description = """
-Package application into a single .tar.gz package.
+Package application into a single .zip package.
 """
 Type = 'manual'
 
@@ -75,8 +75,8 @@ Target = '{{- .PackageDir -}}/License-en.pdf.asc'
 
 
 [[CMD]]
-Name = 'Compress into TarGz'
+Name = 'Compress into Zip'
 Type = 'command'
 Condition = [ 'all-all' ]
 Location = '{{- .WorkingDir -}}'
-Source = 'tar cfzv "{{- .Product -}}-{{- .App.Version -}}.tar.gz" "{{- .Product -}}"'
+Source = 'zip -r "{{- .Product -}}-{{- .App.Version -}}.zip" "{{- .Product -}}"'

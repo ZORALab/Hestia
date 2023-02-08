@@ -21,32 +21,17 @@ Type = 'archive'
 
 
 [Releases]
-Target = '{{- .RootDir -}}/archives/releases'
+Target = '{{- .RootDir -}}/releases'
 Checksum = 'sha512'
 
 [Releases.Data]
-Path = '{{- .RootDir -}}/archives/releases'
+Path = '{{- .RootDir -}}/releases'
 Format = 'toml'
-
-[Releases.Packages.all-all-hestiaDOCS]
-OS = [ "all" ]
-Arch = [ "all" ]
-Source = '{{- .PackageDir -}}/hestiaDOCS-{{- .App.Version -}}-pack.tar.gz'
-
-[Releases.Packages.all-all-hestiaGO]
-OS = [ "all" ]
-Arch = [ "all" ]
-Source = '{{- .PackageDir -}}/hestiaGO-{{- .App.Version -}}-pack.tar.gz'
-
-[Releases.Packages.all-all-hestiaRUST]
-OS = [ "all" ]
-Arch = [ "all" ]
-Source = '{{- .PackageDir -}}/hestiaRUST-{{- .App.Version -}}-pack.tar.gz'
 
 [Releases.Packages.all-all-hestiaHUGO]
 OS = [ "all" ]
 Arch = [ "all" ]
-Source = '{{- .PackageDir -}}/hestiaHUGO-{{- .App.Version -}}-pack.tar.gz'
+Source = '{{- .PackageDir -}}/hestiaHUGO-{{- .App.Version -}}.zip'
 
 
 
