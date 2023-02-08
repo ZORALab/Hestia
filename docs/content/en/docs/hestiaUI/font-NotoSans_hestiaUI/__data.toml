@@ -39,7 +39,7 @@ dataDir = "data"
 
 staticDir = [
         "static",
-        "themes/Hestia/fonts/hestiaUI_font-NotoSans",
+        "themes/hestiaHUGO/fonts/hestiaUI_font-NotoSans",
 ]
 
 layoutDir = "layouts"
