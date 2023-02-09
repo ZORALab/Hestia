@@ -1,7 +1,7 @@
 [Metadata]
-Name = 'Tar-GZip HestiaRUST'
+Name = 'Zip HestiaGO'
 Description = """
-Package application into a single .tar.gz package.
+Package application into a single .zip package.
 """
 Type = 'manual'
 
@@ -9,16 +9,28 @@ Type = 'manual'
 
 
 [Variables]
-Product = 'hestiaRUST'
+Product = 'hestiaGO'
 LicenseSourcePath = 'licenses/hestia-software-license.pdf'
 
 [FMTVariables]
 LicenseSourceDir = '{{- .RootDir -}}/docs/content'
 PackageDir = '{{- .WorkingDir -}}/{{- .Product -}}'
-PackagePath = '{{- .WorkingDir -}}/{{- .Product -}}-{{- .App.Version -}}-pack.tar.gz'
+
+
 
 
 [[Dependencies]]
+Name = 'Zip Program for Archive and Compression'
+Conditions = 'all-all'
+Type = 'command'
+Command = 'zip'
+
+
+[[Dependencies]]
+Name = 'GPG Program for Cryptography Certificate Generation'
+Conditions = 'all-all'
+Type = 'command'
+Command = 'gpg'
 
 
 
@@ -53,18 +65,10 @@ Source = '{{ .PackageDir -}}'
 
 
 [[CMD]]
-Name = 'Clean Rust Target Directory if Exists'
-Type = 'delete-recursive'
-Condition = [ 'all-all' ]
-Source = '{{- .RootDir -}}/{{- .Product -}}/target'
-
-
-[[CMD]]
 Name = 'Copy Source Product into Packaging Directory'
-Type = 'copy'
+Type = 'command'
 Condition = [ 'all-all' ]
-Source = '{{- .RootDir -}}/{{- .Product -}}'
-Target = '{{- .PackageDir -}}/hestia'
+Source = 'cp -r "{{- .RootDir -}}/{{- .Product -}}" "{{- .PackageDir -}}/{{- .Product -}}"'
 
 
 [[CMD]]
@@ -72,7 +76,7 @@ Name = 'Copy English License File into Packaging Directory'
 Type = 'copy'
 Condition = [ 'all-all' ]
 Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}'
-Target = '{{- .PackageDir -}}/hestia/License-Code-en.pdf'
+Target = '{{- .PackageDir -}}/License-en.pdf'
 
 
 [[CMD]]
@@ -80,11 +84,25 @@ Name = 'Copy English License Signature File into Packaging Directory'
 Type = 'copy'
 Condition = [ 'all-all' ]
 Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}.asc'
-Target = '{{- .PackageDir -}}/hestia/License-Code-en.pdf.asc'
+Target = '{{- .PackageDir -}}/License-en.pdf.asc'
 
 
 [[CMD]]
-Name = 'Compress into TarGz'
+Name = 'Compress into Zip'
 Type = 'command'
 Condition = [ 'all-all' ]
-Source = 'tar cfzv "{{- .PackagePath -}}" "{{- .PackageDir -}}"'
+Location = '{{- .WorkingDir -}}'
+Source = 'zip -r "{{- .Product -}}-{{- .App.Version -}}.zip" "{{- .Product -}}"'
+
+
+[[CMD]]
+Name = 'Generate GPG Certificate'
+Type = 'command'
+Condition = [ 'all-all' ]
+Location = '{{- .WorkingDir -}}'
+Source = '''gpg \
+--local-user hello@zoralab.com \
+--armor \
+--detach-sign \
+"{{- .Product -}}-{{- .App.Version -}}.zip" \
+'''
