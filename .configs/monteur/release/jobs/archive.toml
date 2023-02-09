@@ -38,6 +38,26 @@ OS = [ "all" ]
 Arch = [ "all" ]
 Source = '{{- .PackageDir -}}/hestiaHUGO-{{- .App.Version -}}.zip.asc'
 
+[Releases.Packages.all-all-hestiaGO]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaGO-{{- .App.Version -}}.zip'
+
+[Releases.Packages.all-all-hestiaGO-GPG]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaGO-{{- .App.Version -}}.zip.asc'
+
+[Releases.Packages.all-all-hestiaRUST]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaRUST-{{- .App.Version -}}.zip'
+
+[Releases.Packages.all-all-hestiaRUST-GPG]
+OS = [ "all" ]
+Arch = [ "all" ]
+Source = '{{- .PackageDir -}}/hestiaRUST-{{- .App.Version -}}.zip.asc'
+
 
 
 
