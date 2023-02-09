@@ -1,0 +1,17 @@
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $copyrightURL := merge $Page (dict "Input" (dict "URL" "/en/licenses")) -}}
+{{- $copyrightURL = partial "Hestia/functions/data/url/Init" $copyrightURL -}}
+{{- $copyrightURL = string $copyrightURL.Output -}}
+
+
+
+
+<footer>
+	<section>
+		<p>
+			© Copyrighted under
+			<a href='{{- $copyrightURL -}}'>ZORALab's Hestia Licenses</a>
+			and all its contributors.
+		</p>
+	</section>
+</footer>
