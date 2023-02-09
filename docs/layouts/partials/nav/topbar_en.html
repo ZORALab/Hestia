@@ -1,0 +1,58 @@
+<nav class='top-drawer' style='--drawer-trigger-width:80px;--drawer-trigger-height:80px;'>
+	<input id='nav-topbar-main' type='checkbox' />
+	<label class='trigger' for='nav-topbar-main'>
+		<span class='open'>
+			<img style='display: block'
+			src='{{- .URL.Base -}}/img/logo/zoralab-hestia-logo-1200x1200.svg'
+			alt="ZORALab's Hestia"
+			width="80"
+			height="80" />
+		</span>
+		<span class='close'>
+			<img style='display: block'
+			src='{{- .URL.Base -}}/img/logo/zoralab-hestia-logo-1200x1200.svg'
+			alt="ZORALab's Hestia"
+			width="80"
+			height="80" />
+		</span>
+	</label>
+	<label class='overlay' for='nav-topbar-main'></label>
+	<div class='content'>
+		<div class='row' style='--grid-flex-direction: column; --grid-gap: 2rem;'>
+			<div class='column'>
+				<a class='prestige'
+				style='color: var(--color-typography-50);'
+				href='{{- .URL.Base -}}/en'>Home</a>
+			</div>
+
+
+			<div class='column'>
+				<a class='prestige'
+				style='color: var(--color-typography-50);'
+				href='{{- .URL.Base -}}/en/licenses'>Licenses</a>
+			</div>
+
+
+			<div class='column'>
+				<a class='prestige'
+				style='color: var(--color-typography-50);'
+				href='{{- .URL.Base -}}/en/releases'>Releases</a>
+			</div>
+
+
+			<div class='column'>
+				<a class='prestige'
+				style='color: var(--color-typography-50);'
+				href='{{- .URL.Base -}}/en/getting-started'>
+				Getting Started</a>
+			</div>
+
+
+			<div class='column'>
+				<a class='prestige'
+				style='color: var(--color-typography-50);'
+				href='{{- .URL.Base -}}/en/docs'>Docs</a>
+			</div>
+		</div>
+	</div>
+</nav>
