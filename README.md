@@ -1,21 +1,34 @@
 # ZORALab's Hestia
-![Banner](artwork/logo/zoralab-hestia-1200x630.svg)
+![Banner](artworks/logos/zoralab-hestia-1200x630.svg)
 
-One peaceful libraries suite for building infinite possibilities.
+One peaceful libraries suite from developer; for developer.
 
-The goal is to unify all common libraries into a single repository for reusable
-data structure, smoother the learning experience, and tools alignments. Develop
-and learn easily with less worries about supply chain threats and problems.
-
-Visit its [Official Website](https://hestia.zoralab.com) for its official
-documentations.
+The project is to unify all common libraries and data structure into a single
+repository for highest possible reusablity, smoother learning curves, and a more
+wholesome tools alignments. Develop and learn advanced products easily with less
+worries about supply chain problems.
 
 
+### Get Started
+Visit the [Official Website](https://hestia.zoralab.com) for its documentations,
+getting started guides, and etc.
 
 
-## Getting Started
-To install, please follow this official guide:
-https://hestia.zoralab.com/getting-started
+
+
+## Offline Documentation
+The existing offical website containing the coding documentation are offline
+capable by default. All you need to do is to install it as a PWA app and visit
+the pages you need while online within the app:
+
+### Desktop Prompt
+
+![Desktop Install](artworks/screenshots/desktop-install.jpg)
+
+
+### Android Based Mobile Prompt
+
+![Mobile Install](artworks/screenshots/mobile-install.jpg)
 
 
 
@@ -27,9 +40,3 @@ https://hestia.zoralab.com/licenses
 Summary:
 1. Codes - <b>OSI compliant Apache 2.0 License</b>
 2. Media (Images, audio, etc) - <b>restricted License</b>
-
-
-
-
-## Offline Environment Setup
-**COMING SOON**.
