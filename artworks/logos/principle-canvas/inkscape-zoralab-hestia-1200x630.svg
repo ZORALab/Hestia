@@ -6,7 +6,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="inkscape-zoralab-hestia-g2-1200x630.svg"
+   sodipodi:docname="inkscape-zoralab-hestia-1200x630.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -429,6 +429,86 @@
          d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
          id="path1599-5-5" />
     </marker>
+    <rect
+       x="131.14299"
+       y="13.856486"
+       width="183.27531"
+       height="14.454085"
+       id="rect1495-3" />
+    <rect
+       x="271.99814"
+       y="94.906273"
+       width="23.218782"
+       height="27.683262"
+       id="rect1489-6" />
+    <rect
+       x="227.45917"
+       y="25.503441"
+       width="0"
+       height="16.920668"
+       id="rect1483-5" />
+    <rect
+       x="163.021"
+       y="27.195084"
+       width="149.20512"
+       height="80.913071"
+       id="rect1477-6" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1602-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1599-8" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend-7-1"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1602-5-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart-3-9"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path1599-5-3" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -438,8 +518,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.69346038"
-     inkscape:cx="493.89988"
-     inkscape:cy="318.6916"
+     inkscape:cx="643.8724"
+     inkscape:cy="199.002"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -601,10 +681,10 @@
        y="0"><tspan
          x="163.02148"
          y="92.685156"
-         id="tspan1466"><tspan
+         id="tspan1381"><tspan
            dx="0 10.763212 19.621441 11.461691 17.906975 19.526245 12.477676"
            style="font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';text-align:end;text-anchor:end;fill:#ffffff"
-           id="tspan1464">Integra</tspan></tspan></text>
+           id="tspan1379">Integra</tspan></tspan></text>
     <text
        xml:space="preserve"
        id="text1481"
@@ -619,7 +699,7 @@
        style="font-weight:100;font-size:13.3333px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Thin';white-space:pre;shape-inside:url(#rect15891)"><tspan
          x="489.44922"
          y="526.87187"
-         id="tspan1468">`</tspan></text>
+         id="tspan1383">`</tspan></text>
     <text
        xml:space="preserve"
        id="text1481-5"
@@ -674,8 +754,8 @@
     </g>
     <g
        inkscape:label="Layer 1"
-       id="layer1-6"
-       transform="matrix(0.46533946,0,0,0.46533946,39.999989,35.796324)">
+       id="layer1-8"
+       transform="matrix(0.45833335,0,0,0.45833335,15.99999,39.99999)">
       <g
          id="g15160">
         <g
@@ -707,7 +787,7 @@
            r="575.41498" />
         <path
            id="path18896"
-           style="fill:#d5f6ff;stroke:none;stroke-width:0.997446px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:#ffffff;stroke:none;stroke-width:0.997446px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            d="m 582.9055,2.50958 c 0,0 -3.58917,33.90982 -0.78453,58.60737 1.95704,17.23361 -6.5478,48.96894 -8.89652,65.59534 -2.83085,20.03937 -13.3116,48.13082 -19.94842,59.81424 -17.34685,34.4245 -31.08522,51.49381 -41.94053,64.90219 -10.3159,16.67963 -29.64944,35.52443 -40.25348,48.0683 l -30.74242,29.634 c 0.67441,1.05307 15.93497,-35.89763 21.70908,-53.50237 3.85118,-11.7419 8.33749,-36.99354 7.37292,-53.05602 -2.289,-38.1177 -28.41992,-59.4082 -28.41993,-59.4082 0.021,42.47548 -17.75398,99.85026 -36.46799,129.37124 -16.21472,26.749 -44.71096,59.04606 -63.94513,77.41954 -17.98017,17.17558 -47.30192,48.63775 -69.26973,80.12931 -10.3111,14.7813 -38.50927,61.11507 -44.57697,73.36232 -2.86367,5.78014 -16.09939,29.66155 -24.24044,55.14289 -7.68436,24.05188 -12.00517,49.13424 -13.3814,56.41451 -1.1237,5.94437 -2.09006,20.31565 -2.64728,34.07528 -0.89149,22.01419 1.09732,46.57586 4.70353,58.62882 2.79958,9.35695 7.34505,19.89651 11.65073,29.3152 9.50916,20.80128 25.50638,42.72803 32.50583,49.85652 6.23373,6.34865 25.60169,24.8333 45.03291,40.54646 16.99346,13.7418 44.13183,31.1809 58.24649,39.2119 15.96681,9.0848 42.84918,20.9877 57.23052,26.5793 10.49854,5.0726 40.48737,12.6154 40.48737,12.6154 0,0 352.62993,5.0299 362.33785,0 65.64115,-34.0102 112.15839,-62.9862 143.69822,-89.86717 23.10265,-19.69008 55.02167,-45.58427 75.26092,-83.7282 11.928,-22.47994 26.5948,-60.52955 24.7062,-96.46838 -2.0875,-39.72425 -20.3044,-62.68014 -25.8711,-73.91624 -6.0677,-12.2472 -47.94463,-58.071 -62.27908,-68.99484 -33.22654,-25.32091 -64.69364,-58.23755 -93.45452,-87.58675 -32.91869,-33.59206 -47.96691,-53.50872 -62.34308,-90.79901 -13.58019,-29.40597 -13.07694,-56.2343 -13.05594,-98.70978 l -16.96173,26.02266 c -11.90476,18.26427 -23.1997,41.5704 -31.97641,58.86451 -10.44664,26.90382 -14.40438,47.51614 -20.18077,65.50689 -8.9175,-13.64932 -18.77418,-53.72444 -23.3558,-77.23892 -5.59433,-22.88203 -8.49831,-47.18128 -13.63566,-73.81864 -2.24248,-16.81368 -8.97642,-40.57302 -15.7517,-60.7136 C 655.84374,151.72278 649.76643,132.4199 639.28926,111.28852 623.46644,84.23119 619.8171,46.9081 582.9055,2.50958 Z"
            sodipodi:nodetypes="cssccccssccsssssssssssccsssssssccsccccscc" />
         <path
@@ -759,24 +839,24 @@
       </g>
       <text
          xml:space="preserve"
-         id="text1481-3"
-         style="font-size:10.5833px;line-height:1.25;font-family:FreeSerif;-inkscape-font-specification:'FreeSerif, Normal';white-space:pre;shape-inside:url(#rect1483-9);stroke:none" />
+         id="text1481-8"
+         style="font-size:10.5833px;line-height:1.25;font-family:FreeSerif;-inkscape-font-specification:'FreeSerif, Normal';white-space:pre;shape-inside:url(#rect1483-5);stroke:none" />
       <text
          xml:space="preserve"
-         id="text1487-8"
-         style="font-size:10.5833px;line-height:1.25;font-family:FreeSerif;-inkscape-font-specification:'FreeSerif, Normal';white-space:pre;shape-inside:url(#rect1489-563);stroke:none" />
+         id="text1487-5"
+         style="font-size:10.5833px;line-height:1.25;font-family:FreeSerif;-inkscape-font-specification:'FreeSerif, Normal';white-space:pre;shape-inside:url(#rect1489-6);stroke:none" />
       <g
          aria-label="Z"
          transform="matrix(1.0269635,0,0,0.97374443,-258.09634,-17.017357)"
-         id="text1007-56"
+         id="text1007-0"
          style="font-weight:300;font-size:44.5719px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Light';fill:#002b00;stroke:none;stroke-width:0.264583" />
       <g
          aria-label="Z"
          transform="matrix(1.0269635,0,0,0.97374444,-254.9046,-17.301867)"
-         id="text1007-5-1"
+         id="text1007-5-9"
          style="font-weight:300;font-size:44.5719px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Light';fill:#002255;stroke:none;stroke-width:0.264583" />
       <g
-         id="g1413-1"
+         id="g1413-6"
          transform="translate(-260.28485,16.968656)"
          style="opacity:0.99;fill:none;stroke:none" />
     </g>
