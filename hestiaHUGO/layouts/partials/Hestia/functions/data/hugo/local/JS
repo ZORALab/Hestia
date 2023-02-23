@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := "__js.toml" -}}
+{{- $CONTENT_FILENAME := "__content.js" -}}
 
 
 
@@ -60,6 +61,14 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 {{- if $list -}}
 	{{- $list = append $list .JS.Inline -}}
+{{- end -}}
+
+
+{{- /* parse local content file */ -}}
+{{- $ret = printf "%s/%s" .Filesystem.Directory $CONTENT_FILENAME -}}
+{{- $ret = path.Clean $ret -}}
+{{- if partial "Hestia/functions/data/filesystem/IsFileExists" $ret -}}
+	{{- $list = append $CONTENT_FILENAME $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Inline" $list) -}}
 

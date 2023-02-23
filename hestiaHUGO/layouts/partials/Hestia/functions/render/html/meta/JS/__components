@@ -34,9 +34,8 @@ specific language governing permissions and limitations under the License.
 {{- $js = dict -}}
 {{- range $k, $v := .Components -}}
 	{{- /* process JS */ -}}
-	{{- $ret = partial (printf "%s.js" $v.Path) -}}
-	{{- $ret = string $ret -}}
-	{{- $js = merge $js (dict $k $ret) -}}
+	{{- $ret = string (partial (printf "%s.js" $v.Path)) -}}
+	{{- $js = merge $js (dict (string $k) $ret) -}}
 {{- end -}}
 
 
@@ -49,7 +48,6 @@ specific language governing permissions and limitations under the License.
 		{{- $data = printf "%s\n" $data -}}
 	{{- end -}}
 
-
 	{{- $data = printf "%s%s" $data $v -}}
 {{- end -}}
 
@@ -61,7 +59,7 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- if $data.Content -}}
+{{- if index $data "Content" -}}
 	{{- $data = safeJS $data.Content -}}
 {{- else -}}
 	{{- $data = safeJS "" -}}
