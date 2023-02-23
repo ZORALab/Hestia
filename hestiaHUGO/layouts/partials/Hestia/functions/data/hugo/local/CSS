@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := "__css.toml" -}}
+{{- $CONTENT_FILENAME := "__content.css" -}}
 
 
 
@@ -61,6 +62,14 @@ specific language governing permissions and limitations under the License.
 {{- if $list -}}
 	{{- $list = append $list .CSS.Inline -}}
 {{- end -}}
+
+
+{{- /* parse local content file */ -}}
+{{- $ret = printf "%s/%s" .Filesystem.Directory $CONTENT_FILENAME -}}
+{{- $ret = path.Clean $ret -}}
+{{- if partial "Hestia/functions/data/filesystem/IsFileExists" $ret -}}
+	{{- $list = append $CONTENT_FILENAME $list -}}
+{{- end -}}
 {{- $dataList = merge $dataList (dict "Inline" $list) -}}
 
 
@@ -88,11 +97,5 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* restore $dataList */ -}}
-{{- $dataList = merge . (dict "CSS" $dataList) -}}
-
-
-
-
-{{- /* render output */ -}}
-{{- return $dataList -}}
+{{- /* restore $dataList and render output */ -}}
+{{- return merge . (dict "CSS" $dataList) -}}

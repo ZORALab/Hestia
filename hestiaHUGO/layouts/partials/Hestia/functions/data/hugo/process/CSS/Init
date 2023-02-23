@@ -25,28 +25,118 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "CSS" false) -}}
 {{- $Page = merge $Page (dict "CSS" dict) -}}
 {{- $dataList := dict -}}
+{{- $list := slice -}}
 {{- $ret := false -}}
 
 
 
 
+{{- /* process .IncludeFirst */ -}}
+{{- $ret = true -}}
+{{- if not .CSS.Settings.IncludeFirst -}}
+	{{- $ret = false -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "IncludeFirst" $ret) -}}
+
+
+
+
 {{- /* process .Include */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/CSS/_include" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $list = slice -}}
+{{- range $i, $v := .CSS.Include -}}
+	{{- $data = dict -}}
+
+
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* process .URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
+	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $ret = printf "CSS.Include.%v.URL: %v" $i $ret.Console.Message -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- /* process .Media */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Media)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $ret = printf "CSS.Include.%v.Media: %v" $i $ret.Console.Message -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Media" $ret.Output) -}}
+
+
+	{{- /* process .URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.OnLoad)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $ret = printf "CSS.Include.%v.OnLoad: %v" $i $ret.Console.Message -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "OnLoad" $ret.Output) -}}
+
+
+	{{- $list = append $data $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Include" $list) -}}
 
 
 
 
 {{- /* process .Inline */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/CSS/_inline" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $list = slice -}}
+{{- range $i, $v := .CSS.Inline -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- end -}}
 
 
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $ret = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 
 
-{{- /* process .IncludeFirst */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/process/CSS/_includeFirst" . -}}
-{{- $dataList = merge $dataList $ret -}}
+	{{- /* process relative pathing */ -}}
+	{{- if not (hasPrefix $ret "assets") -}}
+		{{- $ret = path.Join $Page.Filesystem.Directory $ret -}}
+	{{- end -}}
+
+
+	{{- /* validate asset file is there */ -}}
+	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+		{{- $ret = printf "CSS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
+		{{- $ret = dict "Console" (dict "Message" $ret) -}}
+		{{- $ret = merge $Page $ret -}}
+		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Inline" $list) -}}
 
 
 
