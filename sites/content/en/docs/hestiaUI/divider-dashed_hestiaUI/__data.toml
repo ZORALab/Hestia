@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Dashed Divider UI Component"
 Type = "divider"
 ID = "divider-dashed_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for separating 2 elements explicitly
 with a dashed divider line. The component works natively without having
@@ -54,7 +54,7 @@ Affects the entire component's bottom border value.
 """
 Property = "border-bottom"
 Default = "2px dashed var(--divider-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-dashed-border-bottom-inverted"
@@ -64,4 +64,4 @@ environment (e.g. footer).
 """
 Property = "border-bottom"
 Default = "2px dashed var(--divider-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

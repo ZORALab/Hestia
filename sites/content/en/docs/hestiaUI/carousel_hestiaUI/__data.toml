@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Carousel UI Component"
 Type = "carousel"
 ID = "carousel_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for displaying multiple contents in a
 same-sized, same-position viewing space. It was meant for dynamic content
@@ -146,7 +146,7 @@ Affects the entire component's minimum width value.
 """
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-width"
@@ -155,7 +155,7 @@ Affects the entire component's width value.
 """
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-max-width"
@@ -164,7 +164,7 @@ Affects the entire component's maximum width value.
 """
 Property = "max-width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-min-height"
@@ -173,7 +173,7 @@ Affects the entire component's minimum height value.
 """
 Property = "min-height"
 Default = "40rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-height"
@@ -182,7 +182,7 @@ Affects the entire component's height value.
 """
 Property = "height"
 Default = "40rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-max-height"
@@ -191,7 +191,7 @@ Affects the entire component's maximum height value.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-margin"
@@ -200,7 +200,7 @@ Affects the entire component's margin value.
 """
 Property = "margin"
 Default = "2rem auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-padding"
@@ -209,7 +209,7 @@ Affects the entire component's padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-color"
@@ -218,7 +218,7 @@ Affects the entire component's color value.
 """
 Property = "color"
 Default = "var(--body-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-background"
@@ -227,7 +227,7 @@ Affects the entire component's background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-perspective"
@@ -236,7 +236,7 @@ Affects the entire component's perspective value.
 """
 Property = "perspective"
 Default = "2rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-timing"
@@ -245,7 +245,7 @@ Affects the entire component's animation timing value.
 """
 Property = "transition"
 Default = "var(--timing-normal)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-grid"
@@ -257,7 +257,7 @@ Default = """
 "carousel-nav-prev    content    carousel-nav-next" 100%
 / max-content         auto       max-content
 """
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-justify-items"
@@ -266,7 +266,7 @@ Affects the component's '.content's slide navigation justify-items value.
 """
 Property = "justify-items"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-align-items"
@@ -275,7 +275,7 @@ Affects the component's '.content's slide navigation align-items value.
 """
 Property = "align-items"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-width"
@@ -284,7 +284,7 @@ Affects the component's '.content's slide navigation width value.
 """
 Property = "width"
 Default = "10rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-height"
@@ -293,7 +293,7 @@ Affects the component's '.content's slide navigation height value.
 """
 Property = "height"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-color"
@@ -302,7 +302,7 @@ Affects the component's '.content's slide navigation color value.
 """
 Property = "color"
 Default = "var(--carousel-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-background"
@@ -311,7 +311,7 @@ Affects the component's '.content's slide navigation background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-nav-transition"
@@ -320,7 +320,7 @@ Affects the component's '.content's slide navigation transition value.
 """
 Property = "transition"
 Default = "var(--timing-rapid)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-justify-content"
@@ -329,7 +329,7 @@ Affects the component's '.panel' justify-content value.
 """
 Property = "justify-content"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-align-content"
@@ -338,7 +338,7 @@ Affects the component's '.panel' align-content value.
 """
 Property = "align-content"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-align-items"
@@ -347,7 +347,7 @@ Affects the component's '.panel' align-items value.
 """
 Property = "align-items"
 Default = "flex-end"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-flex-direction"
@@ -356,7 +356,7 @@ Affects the component's '.panel' flex-direction value.
 """
 Property = "flex-direction"
 Default = "row"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-flex-wrap"
@@ -365,7 +365,7 @@ Affects the component's '.panel' flex-wrap value.
 """
 Property = "flex-wrap"
 Default = "nowrap"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-width"
@@ -374,7 +374,7 @@ Affects the component's '.panel' width value.
 """
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-height"
@@ -383,7 +383,7 @@ Affects the component's '.panel' height value.
 """
 Property = "height"
 Default = "fit-content"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-margin"
@@ -392,7 +392,7 @@ Affects the component's '.panel' margin value.
 """
 Property = "margin"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-padding"
@@ -401,7 +401,7 @@ Affects the component's '.panel' padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-border"
@@ -410,7 +410,7 @@ Affects the component's '.panel' border value.
 """
 Property = "border"
 Default = "none"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-border-radius"
@@ -419,7 +419,7 @@ Affects the component's '.panel' border-radius value.
 """
 Property = "border-radius"
 Default = ".5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-position-top"
@@ -428,7 +428,7 @@ Affects the component's '.panel' top position value.
 """
 Property = "top"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-position-left"
@@ -437,7 +437,7 @@ Affects the component's '.panel' left position value.
 """
 Property = "left"
 Default = "50%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-position-right"
@@ -446,7 +446,7 @@ Affects the component's '.panel' right position value.
 """
 Property = "right"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-position-bottom"
@@ -455,7 +455,7 @@ Affects the component's '.panel' bottom position value.
 """
 Property = "bottom"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-transform"
@@ -464,7 +464,7 @@ Affects the component's '.panel' transformation value.
 """
 Property = "transform"
 Default = "translateX(-50%)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-color"
@@ -473,7 +473,7 @@ Affects the component's '.panel' color value.
 """
 Property = "color"
 Default = "var(--carousel-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-background"
@@ -482,7 +482,7 @@ Affects the component's '.panel' background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-item-margin"
@@ -491,7 +491,7 @@ Affects the component's '.panel's items margin value.
 """
 Property = "margin"
 Default = "0 1rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-item-padding"
@@ -500,7 +500,7 @@ Affects the component's '.panel's items padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-item-color"
@@ -509,7 +509,7 @@ Affects the component's '.panel's items color value.
 """
 Property = "color"
 Default = "var(--carousel-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--carousel-panel-item-background"
@@ -518,4 +518,4 @@ Affects the component's '.panel's items background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

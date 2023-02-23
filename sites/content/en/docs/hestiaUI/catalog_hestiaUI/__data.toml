@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Catalog UI Component"
 Type = "nav"
 ID = "catalog_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for displaying a list items in a
 visually catalog oriented manner responsive to any devices' screen sizes. It was
@@ -137,77 +137,77 @@ Name = "--catalog-margin"
 Description = "Affects the entire component's margin value."
 Property = "margin"
 Default = "2rem auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-padding"
 Description = "Affects the entire component's padding value."
 Property = "padding"
 Default = "2rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-min-width"
 Description = "Affects the entire component's minimum width value."
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-width"
 Description = "Affects the entire component's width value."
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-max-width"
 Description = "Affects the entire component's maximum width value."
 Property = "max-width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-min-height"
 Description = "Affects the entire component's minimum height value."
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-height"
 Description = "Affects the entire component's height value."
 Property = "height"
 Default = "fit-content"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-max-height"
 Description = "Affects the entire component's maximum height value."
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-border"
 Description = "Affects the entire component's border value."
 Property = "border"
 Default = "1px solid transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-border-radius"
 Description = "Affects the entire component's border radius value."
 Property = "border-radius"
 Default = ".5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-color"
 Description = "Affects the entire component's color value."
 Property = "color"
 Default = "var(--body-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-color-inverted"
@@ -217,21 +217,21 @@ footer).
 """
 Property = "color"
 Default = "var(--body-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-color-print"
 Description = "Affects the entire component's color value in print mode."
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-background"
 Description = "Affects the entire component's background value."
 Property = "background"
 Default = "var(--body-background)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-background-inverted"
@@ -240,11 +240,11 @@ Affects the entire component's background value in an inverted environment (e.g.
 """
 Property = "background"
 Default = "var(--body-background-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--catalog-background-print"
 Description = "Affects the entire component's color value in print mode."
 Property = "background"
 Default = "var(--body-background-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

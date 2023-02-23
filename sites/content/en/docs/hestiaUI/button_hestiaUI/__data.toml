@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Button UI Component"
 Type = "button"
 ID = "button_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for displaying a visually interactable
 knob for reader to react upon that is responsive to any devices' screen sizes.
@@ -82,7 +82,7 @@ Affects the entire component's display mode value.
 """
 Property = "display"
 Default = "inline-block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-opacity"
@@ -91,7 +91,7 @@ Affects the entire component's opacity value.
 """
 Property = "opacity"
 Default = "1"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-opacity-disabled"
@@ -100,49 +100,49 @@ Affects the entire component's opacity value when disabled.
 """
 Property = "opacity"
 Default = ".3"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-margin"
 Description = "Affects the entire component's margin value."
 Property = "margin"
 Default = ".5rem 1.2rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-padding"
 Description = "Affects the entire component's padding value."
 Property = "padding"
 Default = "1.3rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-border"
 Description = "Affects the entire component's border value."
 Property = "border"
 Default = "2px solid var(--button-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-border-radius"
 Description = "Affects the entire component's border radius value."
 Property = "border-radius"
 Default = ".5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-box-shadow"
 Description = "Affects the entire component's box shadow value."
 Property = "box-shadow"
 Default = "0 .5rem 1rem var(--color-typography-400)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-color"
 Description = "Affects the entire component's color value."
 Property = "color"
 Default = "var(--color-primary-600)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-color-inverted"
@@ -152,98 +152,98 @@ Affects the entire component's color value when in an inverted environemnt
 """
 Property = "color"
 Default = "var(--color-typography-100)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-color-print"
 Description = "Affects the entire component's color value in print mode."
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-background"
 Description = "Affects the entire component's background value."
 Property = "color"
 Default = "var(--body-background)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-background-print"
 Description = "Affects the entire component's background value in print mode."
 Property = "color"
 Default = "var(--body-background-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-font-size"
 Description = "Affects the entire component's font sizing value."
 Property = "font-size"
 Default = "var(--body-font-size)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-font-weight"
 Description = "Affects the entire component's font weight value."
 Property = "font-weight"
 Default = "700"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-letter-spacing"
 Description = "Affects the entire component's letter spacing value."
 Property = "letter-spacing"
 Default = ".1rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-text-align"
 Description = "Affects the entire component's text alignment value."
 Property = "text-align"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-text-decoration"
 Description = "Affects the entire component's text decoration value."
 Property = "text-decoration"
 Default = "none"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-text-transform"
 Description = "Affects the entire component's text transformation value."
 Property = "text-transform"
 Default = "uppercase"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-overflow-wrap"
 Description = "Affects the entire component's overflow wrapping behavior value."
 Property = "overflow-wrap"
 Default = "normal"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-word-break"
 Description = "Affects the entire component's word breaking behavior value."
 Property = "word-break"
 Default = "normal"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-line-height"
 Description = "Affects the entire component's line height behavior value."
 Property = "line-height"
 Default = "var(--body-line-height)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-transition"
 Description = "Affects the entire component's animation behavior value."
 Property = "transition"
 Default = "var(--timing-rapid)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--button-transform-focus"
@@ -252,4 +252,4 @@ Affects the entire component's transformation animation value when focused or ho
 """
 Property = "transform"
 Default = "scale(1.1)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Shields.io Badge UI Component"
 Type = "badge"
 ID = "badge-shields_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for displaying features and
 recognitions in an attractive shields.io badge. It works natively so that the
@@ -69,7 +69,7 @@ Affects the entire component's margin value.
 """
 Property = "margin"
 Default = ".2rem .5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -79,7 +79,7 @@ Affects the entire component's padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -89,7 +89,7 @@ Affects the entire component's border value.
 """
 Property = "border"
 Default = "2px solid transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -99,7 +99,7 @@ Affects the entire component's border radius value.
 """
 Property = "border-radius"
 Default = ".4rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -109,7 +109,7 @@ Affects the entire component's shining ray's width value.
 """
 Property = "width"
 Default = ".6rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -119,7 +119,7 @@ Affects the entire component's box-shadow value.
 """
 Property = "box-shadow"
 Default = "0 .2rem 1rem transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -129,7 +129,7 @@ Affects the entire component's box-shadow value when it is shining.
 """
 Property = "box-shadow"
 Default = "0 .2rem 1rem var(--badge-color-shine)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -139,7 +139,7 @@ Affects the entire component's color value.
 """
 Property = "color"
 Default = "var(--color-typography-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -149,7 +149,7 @@ Affects the entire component's shining color value.
 """
 Property = "color"
 Default = "var(--color-contrast-400)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -159,7 +159,7 @@ Affects the entire component's color value in print mode.
 """
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -169,7 +169,7 @@ Affects the component's value field's background value.
 """
 Property = "background"
 Default = "var(--color-primary-400)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -179,7 +179,7 @@ Affects the component's value field's background value in print mode.
 """
 Property = "background"
 Default = "var(--body-background-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -189,7 +189,7 @@ Affects the entire component's animation timing value.
 """
 Property = "transition"
 Default = "var(--timing-normal)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -199,7 +199,7 @@ Affects the entire component's shining animation timing value.
 """
 Property = "transition"
 Default = "1.3s"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -209,7 +209,7 @@ Affects the component's title margin value.
 """
 Property = "margin"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -219,7 +219,7 @@ Affects the component's title padding value.
 """
 Property = "padding"
 Default = ".5rem 1rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -229,7 +229,7 @@ Affects the component's title font sizing value.
 """
 Property = "font-size"
 Default = "var(--body-font-size)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -239,7 +239,7 @@ Affects the component's title text transformation value.
 """
 Property = "text-transform"
 Default = "uppercase"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -249,7 +249,7 @@ Affects the component's title text alignment value.
 """
 Property = "text-align"
 Default = "left"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -259,7 +259,7 @@ Affects the component's title color value.
 """
 Property = "color"
 Default = "var(--color-typography-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -269,7 +269,7 @@ Affects the component's title background value.
 """
 Property = "background"
 Default = "var(--color-typography-800)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -279,7 +279,7 @@ Affects the component's value field margin value.
 """
 Property = "margin"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -289,4 +289,4 @@ Affects the component's value field padding value.
 """
 Property = "padding"
 Default = ".5rem 1rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

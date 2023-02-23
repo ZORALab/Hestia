@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Code UI Component"
 Type = "text"
 ID = "code_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for highlighting code fragment in text
 like a programming language syntax. It works natively so that the content
@@ -53,7 +53,7 @@ Affects the entire component's margin value.
 """
 Property = "margin"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -63,7 +63,7 @@ Affects the entire component's padding value.
 """
 Property = "padding"
 Default = "0 .2rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -73,7 +73,7 @@ Affects the entire component's border value.
 """
 Property = "border"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -83,7 +83,7 @@ Affects the entire component's border-radius value.
 """
 Property = "border-radius"
 Default = ".4rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -93,7 +93,7 @@ Affects the entire component's font weight value.
 """
 Property = "font-weight"
 Default = "700"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -103,7 +103,7 @@ Affects the entire component's letter spacing value.
 """
 Property = "letter-spacing"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -113,7 +113,7 @@ Affects the entire component's color value.
 """
 Property = "color"
 Default = "var(--color-primary-300)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -123,7 +123,7 @@ Affects the entire component's color value in print mode.
 """
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -133,7 +133,7 @@ Affects the entire component's background value.
 """
 Property = "background"
 Default = "var(--color-contrast-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -143,7 +143,7 @@ Affects the entire component's background value in print mode.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -153,4 +153,4 @@ Affects the entire component's overflow wrap value.
 """
 Property = "overflow-wrap"
 Default = "break-word"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

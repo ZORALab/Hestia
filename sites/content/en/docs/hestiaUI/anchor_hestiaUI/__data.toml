@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Anchor UI Component"
 Type = "anchor"
 ID = "anchor_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for promoting interlinked anchor URL
 in the page for user to further explore a subject of related interests. The
@@ -93,7 +93,7 @@ Affects the entire component's display mode value.
 """
 Property = "display"
 Default = "inline-block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -103,7 +103,7 @@ Affects the entire component's minimum width value.
 """
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -113,7 +113,7 @@ Affects the entire component's width value.
 """
 Property = "width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -123,7 +123,7 @@ Affects the entire component's maximum width value.
 """
 Property = "max-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -133,7 +133,7 @@ Affects the entire component's minimum height value.
 """
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -143,7 +143,7 @@ Affects the entire component's height value.
 """
 Property = "height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -153,7 +153,7 @@ Affects the entire component's maximum height value.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -163,7 +163,7 @@ Affects the entire component's margin value.
 """
 Property = "margin"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -173,7 +173,7 @@ Affects the entire component's padding value.
 """
 Property = "padding"
 Default = "0 .3rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -183,7 +183,7 @@ Affects the entire component's padding value when focused.
 """
 Property = "padding"
 Default = "0 .3rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -193,7 +193,7 @@ Affects the entire component's border value.
 """
 Property = "border"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -203,7 +203,7 @@ Affects the entire component's top border value.
 """
 Property = "border-top"
 Default = "2px solid transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -213,7 +213,7 @@ Affects the entire component's left border value.
 """
 Property = "border-left"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -223,7 +223,7 @@ Affects the entire component's bottom border value.
 """
 Property = "border-bottom"
 Default = "2px solid var(--anchor-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -233,7 +233,7 @@ Affects the entire component's right border value.
 """
 Property = "border-right"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -243,7 +243,7 @@ Affects the entire component's font sizing value.
 """
 Property = "font-size"
 Default = "var(--body-font-size)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -253,7 +253,7 @@ Affects the entire component's font family value.
 """
 Property = "font-family"
 Default = "var(--body-font-family)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -263,7 +263,7 @@ Affects the entire component's font weight value.
 """
 Property = "font-weight"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -273,7 +273,7 @@ Affects the entire component's text decoration value.
 """
 Property = "text-decoration"
 Default = "none"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -283,7 +283,7 @@ Affects the entire component's text transformation value.
 """
 Property = "text-transform"
 Default = "normal"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -293,7 +293,7 @@ Affects the entire component's overflow wrapping value.
 """
 Property = "overflow-wrap"
 Default = "break-word"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -303,7 +303,7 @@ Affects the entire component's overflow wrapping value in print mode.
 """
 Property = "overflow-wrap"
 Default = "break-word"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -313,7 +313,7 @@ Affects the entire component's word breaking behavior value.
 """
 Property = "word-break"
 Default = "break-word"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -323,7 +323,7 @@ Affects the entire component's word breaking behavior value in print mode.
 """
 Property = "word-break"
 Default = "break-word"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -333,7 +333,7 @@ Affects the entire component's letter spacing behavior value.
 """
 Property = "letter-spacing"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -343,7 +343,7 @@ Affects the entire component's line height value.
 """
 Property = "line-height"
 Default = "var(--body-line-height)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -353,7 +353,7 @@ Affects the entire component's text alignment value.
 """
 Property = "text-align"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -363,7 +363,7 @@ Affects the entire component's color value.
 """
 Property = "color"
 Default = "var(--color-primary-300)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -374,7 +374,7 @@ Affects the entire component's color value while in an inverted environment
 """
 Property = "color"
 Default = "var(--color-primary-200)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -384,7 +384,7 @@ Affects the entire component's color value when focused.
 """
 Property = "color"
 Default = "var(--color-primary-400)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -395,7 +395,7 @@ environment.
 """
 Property = "color"
 Default = "var(--color-primary-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -405,7 +405,7 @@ Affects the entire component's color value in print mode.
 """
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -415,7 +415,7 @@ Affects the entire component's text decoration color value.
 """
 Property = "text-decoration-color"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -426,7 +426,7 @@ environment (e.g. footer).
 """
 Property = "text-decoration-color"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -436,7 +436,7 @@ Affects the entire component's background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -447,7 +447,7 @@ Affects the entire component's background value while in an inverted environment
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -457,7 +457,7 @@ Affects the entire component's background value when focused.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -468,7 +468,7 @@ inverted environment (e.g. footer).
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -478,7 +478,7 @@ Affects the entire component's background value in print mode.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -488,7 +488,7 @@ Affects the entire component's box shadowing value.
 """
 Property = "box-shadow"
 Default = "0 .5rem 1rem transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -498,7 +498,7 @@ Affects the entire component's box shadowing value when focused.
 """
 Property = "box-shadow"
 Default = "0 .5rem 1rem var(--color-typography-800)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -509,7 +509,7 @@ inverted environment (e.g. footer).
 """
 Property = "box-shadow"
 Default = "0 .5rem 1rem var(--color-typography-200)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -519,7 +519,7 @@ Affects the entire component's animation transition value.
 """
 Property = "transition"
 Default = "var(--timing-rapid)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -529,7 +529,7 @@ Affects the entire component's transformation value when focused.
 """
 Property = "transform"
 Default = "scale(1.1)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -539,7 +539,7 @@ Affects the entire '.prestige' tagged component's font weight value.
 """
 Property = "font-weight"
 Default = "800"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -549,7 +549,7 @@ Affects the entire '.prestige' tagged component's text transformation value.
 """
 Property = "text-transform"
 Default = "uppercase"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -559,7 +559,7 @@ Affects the entire '.prestige' tagged component's color value when focused.
 """
 Property = "color"
 Default = "var(--color-contrast-300)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -569,7 +569,7 @@ Affects the entire '.prestige' tagged component's background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -579,4 +579,4 @@ Affects the entire '.prestige' tagged component's background value when focused.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

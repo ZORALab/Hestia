@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Noto Sans Font UI Component"
 Type = "font"
 ID = "font-NotoSans_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for importing and rendering the font
 in the page with NotoSans and its Noto Color Emoji fonts. The component works
@@ -86,4 +86,4 @@ No CSS variables needed for using this component.
 """
 Property = "[none]"
 Default = "[]"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Page Break Divider UI Component"
 Type = "divider"
 ID = "divider-page-break_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for separating 2 elements explictly in
 print mode. It does nothing on web display mode. The component works natively
@@ -57,4 +57,4 @@ No CSS variables are offered.
 """
 Property = "[none]"
 Default = "[]"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

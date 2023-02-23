@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia IFrame UI Component"
 Type = "iframe"
 ID = "iframe_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for integrating another web page into
 the written page. It was meant for external application integrations or viewing
@@ -85,77 +85,77 @@ Name = "--iframe-display"
 Description = "Affects the entire component's display mode value."
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-margin"
 Description = "Affects the entire component's margin value."
 Property = "margin"
 Default = "0 auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-min-width"
 Description = "Affects the entire component's minimum width value."
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-width-hidden"
 Description = "Affects the entire component's width value when set with hidden CSS class."
 Property = "width"
 Default = "1px"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-max-width"
 Description = "Affects the entire component's maximum width value."
 Property = "max-width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-min-height"
 Description = "Affects the entire component's minimum height value."
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-height-hidden"
 Description = "Affects the entire component's height value when set with '.hidden' CSS class."
 Property = "height"
 Default = "1px"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-max-height"
 Description = "Affects the entire component's maximum height value."
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-border"
 Description = "Affects the entire component's border value."
 Property = "border"
 Default = "none"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-background"
 Description = "Affects the entire component's background value."
 Property = "background"
 Default = "inherit"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-visibility"
 Description = "Affects the entire component's visibility value."
 Property = "visibility"
 Default = "visible"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--iframe-visibility-hidden"
@@ -164,4 +164,4 @@ Affects the entire component's visibility value when set with '.hidden' CSS clas
 """
 Property = "visibility"
 Default = "hidden"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

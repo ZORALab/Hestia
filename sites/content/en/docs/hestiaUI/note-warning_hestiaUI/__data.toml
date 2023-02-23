@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Warning Note UI Component"
 Type = "note"
 ID = "note-warning_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for notifying the visitor of a warning
 like matter requiring attention. It works natively so that the content creator
@@ -68,7 +68,7 @@ denoted as a warning note.
 """
 Property = "border-color"
 Default = "var(--body-color-indicator-yellow-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -79,7 +79,7 @@ warning note.
 """
 Property = "color"
 Default = "var(--body-color-indicator-yellow-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -90,7 +90,7 @@ denoted as a warning note.
 """
 Property = "color"
 Default = "var(--body-color-indicator-yellow-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -101,7 +101,7 @@ a warning note.
 """
 Property = "background"
 Default = "var(--body-background-indicator-yellow-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -112,7 +112,7 @@ warning note.
 """
 Property = "color"
 Default = "var(--body-color-indicator-yellow-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -123,4 +123,4 @@ a warning note.
 """
 Property = "background"
 Default = "var(--body-background-indicator-yellow)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

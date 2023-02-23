@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Picture UI Component"
 Type = "image"
 ID = "picture_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for displaying images on a web page
 responsively towards the viewer's browser size. The goal is to make sure any
@@ -79,46 +79,46 @@ Name = "--picture-display"
 Description = "Affects the entire component's display mode value."
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--picture-margin"
 Description = "Affects the entire component's margin value."
 Property = "margin"
 Default = "2rem auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--picture-padding"
 Description = "Affects the entire component's padding value."
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--picture-min-width"
 Description = "Affects the entire component's minimum width value."
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--picture-max-width"
 Description = "Affects the entire component's maximum width value."
 Property = "max-width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--picture-min-height"
 Description = "Affects the entire component's minimum height value."
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--picture-max-height"
 Description = "Affects the entire component's maximum height value."
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

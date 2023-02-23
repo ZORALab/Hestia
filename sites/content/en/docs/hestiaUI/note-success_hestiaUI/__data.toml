@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Success Note UI Component"
 Type = "note"
 ID = "note-success_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for notifying the visitor of a success
 like matter requiring attention. It works natively so that the content creator
@@ -68,7 +68,7 @@ denoted as a success note.
 """
 Property = "border-color"
 Default = "var(--body-color-indicator-green-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -79,7 +79,7 @@ success note.
 """
 Property = "color"
 Default = "#fff"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -90,7 +90,7 @@ denoted as a success note.
 """
 Property = "color"
 Default = "#fff"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -101,7 +101,7 @@ a success note.
 """
 Property = "background"
 Default = "var(--body-background-indicator-green-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -112,7 +112,7 @@ success note.
 """
 Property = "color"
 Default = "var(--body-color-indicator-green-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -123,4 +123,4 @@ a success note.
 """
 Property = "background"
 Default = "var(--body-background-indicator-green)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

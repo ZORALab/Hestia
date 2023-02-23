@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Drawer Divider UI Component"
 Type = "nav"
 ID = "drawer_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for providing an overlaying drawer
 panel display across the main content. This is primarily designed for navigation
@@ -147,7 +147,7 @@ Affects the component's '.trigger' label's z-index value.
 """
 Property = "z-index"
 Default = "calc(var(--z-index-max) - var(--z-index-nav-top))"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-z-index"
@@ -156,7 +156,7 @@ Affects the entire component's z-index value.
 """
 Property = "z-index"
 Default = "calc(var(--z-index-max) - var(--z-index-nav))"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-overlay-z-index"
@@ -165,7 +165,7 @@ Affects the component's '.overlay' label's z-index value.
 """
 Property = "z-index"
 Default = "calc(var(--z-index-max) - var(--z-index-nav-overlay))"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-width"
@@ -174,7 +174,7 @@ Affects the '.left-drawer' entire component's width value when closed.
 """
 Property = "width"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-width-opened"
@@ -183,7 +183,7 @@ Affects the '.left-drawer' entire component's width value when opened.
 """
 Property = "width"
 Default = "90vw"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-width"
@@ -192,7 +192,7 @@ Affects the '.top-drawer' entire component's width value when closed.
 """
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-width-opened"
@@ -201,7 +201,7 @@ Affects the '.top-drawer' entire component's width value when opened.
 """
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-width"
@@ -210,7 +210,7 @@ Affects the '.right-drawer' entire component's width value when closed.
 """
 Property = "width"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-width-opened"
@@ -219,7 +219,7 @@ Affects the '.right-drawer' entire component's width value when opened.
 """
 Property = "width"
 Default = "90w"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-height"
@@ -228,7 +228,7 @@ Affects the '.left-drawer' entire component's height value when closed.
 """
 Property = "height"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-height-opened"
@@ -237,7 +237,7 @@ Affects the '.left-drawer' entire component's height value when opened.
 """
 Property = "height"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-height"
@@ -246,7 +246,7 @@ Affects the '.top-drawer' entire component's height value when closed.
 """
 Property = "height"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-height-opened"
@@ -255,7 +255,7 @@ Affects the '.top-drawer' entire component's height value when opened.
 """
 Property = "height"
 Default = "90vh"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-height"
@@ -264,7 +264,7 @@ Affects the '.right-drawer' entire component's height value when closed.
 """
 Property = "height"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-height-opened"
@@ -273,7 +273,7 @@ Affects the '.right-drawer' entire component's height value when opened.
 """
 Property = "height"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-border"
@@ -282,7 +282,7 @@ Affects the entire component's border value.
 """
 Property = "border"
 Default = "1rem solid transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-border-opened"
@@ -291,7 +291,7 @@ Affects the entire component's border value when opened.
 """
 Property = "border"
 Default = "1rem solid var(--drawer-color-primary)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-border-radius"
@@ -300,7 +300,7 @@ Affects the entire component's border radius value.
 """
 Property = "border-radius"
 Default = ".5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-border-radius"
@@ -309,7 +309,7 @@ Affects the '.left-drawer' entire component's border radius value.
 """
 Property = "border-radius"
 Default = "0 var(--drawer-border-radius) var(--drawer-border-radius) 0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-border-radius"
@@ -318,7 +318,7 @@ Affects the '.top-drawer' entire component's border radius value.
 """
 Property = "border-radius"
 Default = "0 0 var(--drawer-border-radius) var(--drawer-border-radius)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-border-radius"
@@ -327,7 +327,7 @@ Affects the '.right-drawer' entire component's border radius value.
 """
 Property = "border-radius"
 Default = "var(--drawer-border-radius) 0 0 var(--drawer-border-radius)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-color"
@@ -336,7 +336,7 @@ Affects the entire component's color value.
 """
 Property = "color"
 Default = "var(--body-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-color-inverted"
@@ -346,7 +346,7 @@ Affects the entire component's color value in an inverted environment
 """
 Property = "color"
 Default = "var(--body-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-color-primary"
@@ -355,7 +355,7 @@ Affects the entire component's primary color value.
 """
 Property = "color"
 Default = "var(--color-primary-600)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-overlay-color"
@@ -364,7 +364,7 @@ Affects the component's '.overlay' container's color value.
 """
 Property = "color"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-overlay-background"
@@ -373,7 +373,7 @@ Affects the component's '.overlay' container's background value.
 """
 Property = "background"
 Default = "rgba(0,0,0,.75)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-transition"
@@ -382,7 +382,7 @@ Affects the entire component's animation timing value.
 """
 Property = "transition"
 Default = "var(--timing-normal)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-overlay-transition"
@@ -391,7 +391,7 @@ Affects the component's '.overlay' container's animation timing value.
 """
 Property = "transition"
 Default = "var(--timing-fast)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-width"
@@ -400,7 +400,7 @@ Affects the component's '.trigger' container's width value.
 """
 Property = "width"
 Default = "4.5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-height"
@@ -409,7 +409,7 @@ Affects the component's '.trigger' container's height value.
 """
 Property = "height"
 Default = "4.5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-border"
@@ -418,7 +418,7 @@ Affects the component's '.trigger' container's border value.
 """
 Property = "border"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-trigger-border"
@@ -427,7 +427,7 @@ Affects the '.left-drawer' component's '.trigger' container's border value.
 """
 Property = "border"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-trigger-border"
@@ -436,7 +436,7 @@ Affects the '.top-drawer' component's '.trigger' container's border value.
 """
 Property = "border"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-border"
@@ -445,7 +445,7 @@ Affects the '.right-drawer' component's '.trigger' container's border value.
 """
 Property = "border"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-border-radius"
@@ -455,7 +455,7 @@ constructing border radius for each drawer type.
 """
 Property = "border-radius"
 Default = "50%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-trigger-border-radius"
@@ -465,7 +465,7 @@ value.
 """
 Property = "border-radius"
 Default = "0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius) 0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-trigger-border-radius"
@@ -475,7 +475,7 @@ value.
 """
 Property = "border-radius"
 Default = "0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-border-radius"
@@ -485,7 +485,7 @@ value.
 """
 Property = "border-radius"
 Default = "var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-box-shadow"
@@ -495,7 +495,7 @@ value.
 """
 Property = "box-shadow"
 Default = "0 0 2rem var(--drawer-overlay-background)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-box-shadow-focus"
@@ -505,7 +505,7 @@ value while being focused.
 """
 Property = "box-shadow"
 Default = "0 0 4rem var(--drawer-overlay-background)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-font-size"
@@ -514,7 +514,7 @@ Affects the component's '.trigger' container's font size value.
 """
 Property = "font-size"
 Default = "2rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-font-style"
@@ -523,7 +523,7 @@ Affects the component's '.trigger' container's font style value.
 """
 Property = "font-style"
 Default = "normal"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-transform-focus"
@@ -533,7 +533,7 @@ focused.
 """
 Property = "transform"
 Default = "scale(1.1)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-trigger-position-top"
@@ -542,7 +542,7 @@ Affects the '.left-drawer' component's '.trigger' container's top position value
 """
 Property = "position-top"
 Default = "50%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-trigger-position-left"
@@ -551,7 +551,7 @@ Affects the '.left-drawer' component's '.trigger' container's left position valu
 """
 Property = "position-left"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-trigger-position-bottom"
@@ -560,7 +560,7 @@ Affects the '.left-drawer' component's '.trigger' container's bottom position va
 """
 Property = "position-bottom"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-trigger-position-right"
@@ -569,7 +569,7 @@ Affects the '.left-drawer' component's '.trigger' container's right position val
 """
 Property = "position-right"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--left-drawer-trigger-transform"
@@ -578,7 +578,7 @@ Affects the '.left-drawer' component's '.trigger' container's transformation val
 """
 Property = "transform"
 Default = "translateY(-50%)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-trigger-position-top"
@@ -587,7 +587,7 @@ Affects the '.top-drawer' component's '.trigger' container's top position value.
 """
 Property = "position-top"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-trigger-position-left"
@@ -596,7 +596,7 @@ Affects the '.top-drawer' component's '.trigger' container's left position value
 """
 Property = "position-left"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-trigger-position-bottom"
@@ -605,7 +605,7 @@ Affects the '.top-drawer' component's '.trigger' container's bottom position val
 """
 Property = "position-bottom"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-trigger-position-right"
@@ -614,7 +614,7 @@ Affects the '.top-drawer' component's '.trigger' container's right position valu
 """
 Property = "position-right"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--top-drawer-trigger-transform"
@@ -623,7 +623,7 @@ Affects the '.top-drawer' component's '.trigger' container's transformation valu
 """
 Property = "transform"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-position-top"
@@ -632,7 +632,7 @@ Affects the '.right-drawer' component's '.trigger' container's top position valu
 """
 Property = "position-top"
 Default = "50%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-position-left"
@@ -641,7 +641,7 @@ Affects the '.right-drawer' component's '.trigger' container's left position val
 """
 Property = "position-left"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-position-bottom"
@@ -650,7 +650,7 @@ Affects the '.right-drawer' component's '.trigger' container's bottom position v
 """
 Property = "position-bottom"
 Default = "unset"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-position-right"
@@ -659,7 +659,7 @@ Affects the '.right-drawer' component's '.trigger' container's right position va
 """
 Property = "position-right"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--right-drawer-trigger-transform"
@@ -668,7 +668,7 @@ Affects the '.right-drawer' component's '.trigger' container's transformation va
 """
 Property = "transform"
 Default = "translateY(-50%)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-color"
@@ -677,7 +677,7 @@ Affects the component's '.trigger' container's color value.
 """
 Property = "color"
 Default = "var(--drawer-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--drawer-trigger-background"
@@ -686,4 +686,4 @@ Affects the component's '.trigger' container's background value.
 """
 Property = "background"
 Default = "var(--drawer-color-primary)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

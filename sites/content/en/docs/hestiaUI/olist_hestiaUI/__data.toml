@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Ordered List UI Component"
 Type = "list"
 ID = "olist_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for listing out items in an ordered
 fashion working responsively in various display devices or browser sizes. It is
@@ -136,7 +136,7 @@ construct the margin in its own way.
 """
 Property = "margin"
 Default = "4rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -146,7 +146,7 @@ Affects the entire component's display mode value.
 """
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -156,7 +156,7 @@ Affects the entire component's margin value.
 """
 Property = "margin"
 Default = "0 auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -166,7 +166,7 @@ Affects the entire component's padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -176,7 +176,7 @@ Affects the entire component's text-align value.
 """
 Property = "text-align"
 Default = "left"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -186,7 +186,7 @@ Affects the component's list item's margin value.
 """
 Property = "margin"
 Default = "var(--olist-spacing) 0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -196,7 +196,7 @@ Affects the component's list item's padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -206,7 +206,7 @@ Affects the component's list item's bullet numbering margin value.
 """
 Property = "margin"
 Default = '0'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -216,7 +216,7 @@ Affects the component's list item's bullet numbering padding value.
 """
 Property = "padding"
 Default = '0'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -226,7 +226,7 @@ Affects the component's list item's bullet numbering font-size value.
 """
 Property = "font-size"
 Default = '2rem'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -236,7 +236,7 @@ Affects the component's list item's bullet numbering font-weight value.
 """
 Property = "font-weight"
 Default = '700'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -246,4 +246,4 @@ Affects the component's list item's bullet numbering text-align value.
 """
 Property = "text-align"
 Default = 'left'
-Availability = "v0.0.1"
+Availability = "v1.0.0"

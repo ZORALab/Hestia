@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Blockquote UI Component"
 Type = "quote"
 ID = "blockquote_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for citing a statement from a creator.
 It will highlight this quote in an emphasis manner. The component works natively
@@ -56,7 +56,7 @@ Name = "--blockquote-display"
 Description = "Affects the entire component's display mode value."
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-before-content"
@@ -66,130 +66,130 @@ quotes are required to be included as part of the main value.
 """
 Property = "content"
 Default = '\"❝\"'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-margin"
 Description = "Affects the entire component's margin value."
 Property = "margin"
 Default = "0 0 3rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-padding"
 Description = "Affects the entire component's padding value."
 Property = "margin"
 Default = "4rem 3rem 3rem 10rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-min-width"
 Description = "Affects the entire component's minimum width value."
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-width"
 Description = "Affects the entire component's width value."
 Property = "width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-width"
 Description = "Affects the entire component's maximum width value."
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-min-height"
 Description = "Affects the entire component's minimum height value."
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-height"
 Description = "Affects the entire component's height value."
 Property = "height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-height"
 Description = "Affects the entire component's maximum height value."
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-text-align"
 Description = "Affects the entire component's text alignment value."
 Property = "text-align"
 Default = "justify"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-border"
 Description = "Affects the entire component's border value."
 Property = "border"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-border-radius"
 Description = "Affects the entire component's border radius value."
 Property = "border-radius"
 Default = "1rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-color"
 Description = "Affects the entire component's color value."
 Property = "color"
 Default = "var(--color-typography-900)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-color-print"
 Description = "Affects the entire component's color value in print mode."
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-background"
 Description = "Affects the entire component's background value."
 Property = "color"
 Default = "var(--color-primary-100)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-background-print"
 Description = "Affects the entire component's background value in print mode."
 Property = "color"
 Default = "var(--body-background-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-timing"
 Description = "Affects the entire component's animation timing value."
 Property = "transition"
 Default = "var(--timing-rapid)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-cite-margin"
 Description = "Affects the component's citation margin value."
 Property = "margin"
 Default = "2rem 0 0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--blockquote-cite-border-top"
 Description = "Affects the component's citation border top value."
 Property = "border-top"
 Default = "2px solid var(--blockquote-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Divider UI Component"
 Type = "divider"
 ID = "divider_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for separating 2 elements explicitly.
 The component works natively without having complicated CSS classing,
@@ -48,7 +48,7 @@ Affects the entire component's display mode value.
 """
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-margin"
@@ -57,7 +57,7 @@ Affects the entire component's margin value.
 """
 Property = "margin"
 Default = "0 auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-padding"
@@ -66,7 +66,7 @@ Affects the entire component's padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-min-width"
@@ -75,7 +75,7 @@ Affects the entire component's minimum width value.
 """
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-width"
@@ -84,7 +84,7 @@ Affects the entire component's width value.
 """
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-max-width"
@@ -93,7 +93,7 @@ Affects the entire component's maximum width value.
 """
 Property = "max-width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-min-height"
@@ -102,7 +102,7 @@ Affects the entire component's minimum height value.
 """
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-height"
@@ -111,7 +111,7 @@ Affects the entire component's height value.
 """
 Property = "height"
 Default = "1px"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-max-height"
@@ -120,7 +120,7 @@ Affects the entire component's maximum height value.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -130,7 +130,7 @@ Affects the entire component's border value.
 """
 Property = "border"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-border-top"
@@ -139,7 +139,7 @@ Affects the entire component's top border value.
 """
 Property = "border-top"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-border-bottom"
@@ -148,7 +148,7 @@ Affects the entire component's bottom border value.
 """
 Property = "border-bottom"
 Default = "1px solid var(--divider-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-color"
@@ -157,7 +157,7 @@ Affects the entire component's color value.
 """
 Property = "color"
 Default = "var(--color-primary-600)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-color-inverted"
@@ -167,7 +167,7 @@ Affects the entire component's color value while in an inverted environment
 """
 Property = "color"
 Default = "var(--color-primary-300)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-color-print"
@@ -176,7 +176,7 @@ Affects the entire component's color value in print mode.
 """
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-background"
@@ -185,7 +185,7 @@ Affects the entire component's background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-background-inverted"
@@ -195,7 +195,7 @@ Affects the entire component's background value while in an inverted environment
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-background-print"
@@ -204,7 +204,7 @@ Affects the entire component's background value in print mode.
 """
 Property = "background"
 Default = "var(--body-background-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-border-color"
@@ -213,7 +213,7 @@ Affects the entire component's border color value.
 """
 Property = "border-color"
 Default = "var(--divider-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--divider-border-color-inverted"
@@ -223,4 +223,4 @@ environment (e.g. footer).
 """
 Property = "border-color"
 Default = "var(--divider-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

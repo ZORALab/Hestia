@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Dialog UI Component"
 Type = "dialog"
 ID = "dialog_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for displaying a dialog prompt to
 reader for immediate ad-hoc attention where it is responsive to any devices'
@@ -106,7 +106,7 @@ Affects the entire component's border value when shown.
 """
 Property = "border"
 Default = "2px solid transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--dialog-border-radius"
@@ -115,7 +115,7 @@ Affects the entire component's overflow mode value when shown.
 """
 Property = "border-radius"
 Default = ".5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--dialog-min-width"
@@ -124,7 +124,7 @@ Affects the entire component's minimum width value when shown.
 """
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--dialog-max-width"
@@ -133,7 +133,7 @@ Affects the entire component's maximum width value when shown.
 """
 Property = "max-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--dialog-min-height"
@@ -142,7 +142,7 @@ Affects the entire component's minimum height value when shown.
 """
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--dialog-max-height"
@@ -151,7 +151,7 @@ Affects the entire component's maximum height value when shown.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--dialog-color"
@@ -160,7 +160,7 @@ Affects the entire component's color value when shown.
 """
 Property = "color"
 Default = "var(--body-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 [[Component.References.CSS]]
 Name = "--dialog-background"
@@ -169,4 +169,4 @@ Affects the entire component's color value when shown.
 """
 Property = "background"
 Default = "var(--body-background)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"

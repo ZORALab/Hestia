@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Form UI Component"
 Type = "form"
 ID = "form_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for gathering inputs from reader and
 submit to a server or client-side processing. It is kept simple enough for
@@ -1384,7 +1384,7 @@ Affects the entire form component's minimum width value.
 """
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1394,7 +1394,7 @@ Affects the entire form component's width value.
 """
 Property = "width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1404,7 +1404,7 @@ Affects the entire form component's maximum width value.
 """
 Property = "max-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1414,7 +1414,7 @@ Affects the entire form component's minimum height value.
 """
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1424,7 +1424,7 @@ Affects the entire form component's height value.
 """
 Property = "height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1434,7 +1434,7 @@ Affects the entire form component's maximum height value.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1444,7 +1444,7 @@ Affects the entire form component's margin value.
 """
 Property = "margin"
 Default = "2rem auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1454,7 +1454,7 @@ Affects the entire form component's padding value.
 """
 Property = "padding"
 Default = ".5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1464,7 +1464,7 @@ Affects the entire form component's color value.
 """
 Property = "color"
 Default = "var(--body-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1475,7 +1475,7 @@ Affects the entire form component's color value while in an inverted environment
 """
 Property = "color"
 Default = "var(--body-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1485,7 +1485,7 @@ Affects the entire form component's primary color value.
 """
 Property = "color"
 Default = "var(--color-primary-700)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1496,7 +1496,7 @@ environment (e.g. footer).
 """
 Property = "color"
 Default = "var(--body-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1506,7 +1506,7 @@ Affects the entire form component's valid indicator color value.
 """
 Property = "color"
 Default = "var(--body-color-indicator-green)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1516,7 +1516,7 @@ Affects the entire form component's invalid indicator color value.
 """
 Property = "color"
 Default = "var(--body-color-indicator-red)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1526,7 +1526,7 @@ Affects the entire form component's focus indicator color value.
 """
 Property = "color"
 Default = "var(--body-color-indicator-yellow)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1536,7 +1536,7 @@ Affects the entire form component's color value in print mode.
 """
 Property = "color"
 Default = "var(--body-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1546,7 +1546,7 @@ Affects the entire form component's background value.
 """
 Property = "background"
 Default = "var(--body-background)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1557,7 +1557,7 @@ environment (e.g. footer).
 """
 Property = "background"
 Default = "var(--body-background-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1567,7 +1567,7 @@ Affects the entire form component's background value in print mode.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1577,7 +1577,7 @@ Affects the form component's fieldset minimum width value.
 """
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1587,7 +1587,7 @@ Affects the form component's fieldset width value.
 """
 Property = "width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1597,7 +1597,7 @@ Affects the form component's fieldset maximum width value.
 """
 Property = "max-width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1607,7 +1607,7 @@ Affects the form component's fieldset minimum height value.
 """
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1617,7 +1617,7 @@ Affects the form component's fieldset height value.
 """
 Property = "height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1627,7 +1627,7 @@ Affects the form component's fieldset maximum height value.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1637,7 +1637,7 @@ Affects the form component's fieldset margin value.
 """
 Property = "margin"
 Default = "1rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1647,7 +1647,7 @@ Affects the form component's fieldset padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1657,7 +1657,7 @@ Affects the form component's fieldset border value.
 """
 Property = "border"
 Default = ".1rem solid var(--form-fieldset-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1667,7 +1667,7 @@ Affects the form component's fieldset border radius value.
 """
 Property = "border-radius"
 Default = ".4rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1677,7 +1677,7 @@ Affects the form component's fieldset color value.
 """
 Property = "color"
 Default = "var(--form-color-primary)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1688,7 +1688,7 @@ environment (e.g. footer).
 """
 Property = "color"
 Default = "var(--form-color-primary-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1698,7 +1698,7 @@ Affects the form component's fieldset background value.
 """
 Property = "background"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1709,7 +1709,7 @@ environment (e.g. footer).
 """
 Property = "transparent"
 Default = "transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1719,7 +1719,7 @@ Affects the form component's fieldset animation timing value.
 """
 Property = "transition"
 Default = "var(--timing-normal)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1729,7 +1729,7 @@ Affects the form component's fieldset transformation value when focused.
 """
 Property = "transformation"
 Default = "scale(1.06)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1739,7 +1739,7 @@ Affects the form component's legend font weight value.
 """
 Property = "font-weight"
 Default = "700"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1749,7 +1749,7 @@ Affects the form component's legend text transform value.
 """
 Property = "text-transform"
 Default = "uppercase"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1759,7 +1759,7 @@ Affects the form component's label display mode value.
 """
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1769,7 +1769,7 @@ Affects the form component's label width value.
 """
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1779,7 +1779,7 @@ Affects the form component's label height value.
 """
 Property = "height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1789,7 +1789,7 @@ Affects the form component's label margin value.
 """
 Property = "margin"
 Default = "0 auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1799,7 +1799,7 @@ Affects the form component's label padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1809,7 +1809,7 @@ Affects the form component's label font size value.
 """
 Property = "font-size"
 Default = "1.6rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1819,7 +1819,7 @@ Affects the form component's label font style value.
 """
 Property = "font-style"
 Default = "italic"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1829,7 +1829,7 @@ Affects the form component's label font weight value.
 """
 Property = "font-weight"
 Default = "700"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1839,7 +1839,7 @@ Affects the form component's label text transformation value.
 """
 Property = "text-transform"
 Default = "titlecase"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1849,7 +1849,7 @@ Affects the form component's label color value.
 """
 Property = "color"
 Default = "var(--form-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1859,7 +1859,7 @@ Affects the form component's label background value.
 """
 Property = "background"
 Default = "var(--form-background)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1869,7 +1869,7 @@ Affects the form component's field display mode value.
 """
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1879,7 +1879,7 @@ Affects the form component's field opacity value.
 """
 Property = "opacity"
 Default = "1"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1889,7 +1889,7 @@ Affects the form component's field opacity value when disabled.
 """
 Property = "opacity"
 Default = ".3"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1899,7 +1899,7 @@ Affects the form component's field minimum width value.
 """
 Property = "min-width"
 Default = "5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1909,7 +1909,7 @@ Affects the form component's field width value.
 """
 Property = "width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1919,7 +1919,7 @@ Affects the form component's field maximum width value.
 """
 Property = "max-width"
 Default = "100%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1929,7 +1929,7 @@ Affects the form component's field minimum height value.
 """
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1939,7 +1939,7 @@ Affects the form component's field height value.
 """
 Property = "height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1949,7 +1949,7 @@ Affects the form component's field maximum height value.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1959,7 +1959,7 @@ Affects the form component's field margin value.
 """
 Property = "margin"
 Default = "0 auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1969,7 +1969,7 @@ Affects the form component's field padding value.
 """
 Property = "padding"
 Default = "1rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1979,7 +1979,7 @@ Affects the form component's field border value.
 """
 Property = "border"
 Default = "1px solid transparent"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1989,7 +1989,7 @@ Affects the form component's field border radius value.
 """
 Property = "border-radius"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -1999,7 +1999,7 @@ Affects the form component's field font family value.
 """
 Property = "font-family"
 Default = "var(--body-font-family)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2009,7 +2009,7 @@ Affects the form component's field font size value.
 """
 Property = "font-size"
 Default = "var(--body-font-size)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2019,7 +2019,7 @@ Affects the form component's field font style value.
 """
 Property = "font-style"
 Default = "normal"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2029,7 +2029,7 @@ Affects the form component's field's placeholder font style value.
 """
 Property = "font-style"
 Default = "italic"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2039,7 +2039,7 @@ Affects the form component's field font weight value.
 """
 Property = "font-weight"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2049,7 +2049,7 @@ Affects the form component's field text transformation value.
 """
 Property = "text-transform"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2059,7 +2059,7 @@ Affects the form component's field text align value.
 """
 Property = "text-align"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2069,7 +2069,7 @@ Affects the form component's textarea field text align value.
 """
 Property = "text-transform"
 Default = "justify"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2079,7 +2079,7 @@ Affects the form component's field color value.
 """
 Property = "color"
 Default = "var(--body-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2090,7 +2090,7 @@ Affects the form component's field color value while in an inverted environment
 """
 Property = "color"
 Default = "var(--body-color-inverted)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2100,7 +2100,7 @@ Affects the form component's field's placeholder color value.
 """
 Property = "color"
 Default = "var(--color-typography-400)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2110,7 +2110,7 @@ Affects the form component's field background value.
 """
 Property = "background"
 Default = "var(--color-primary-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2120,7 +2120,7 @@ Affects the form component's field box shadow value.
 """
 Property = "box-shadow"
 Default = "0 1rem 2rem var(--color-typography-950)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2131,7 +2131,7 @@ environment (e.g. footer).
 """
 Property = "box-shadow"
 Default = "0 1rem 2rem var(--color-typography-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2141,7 +2141,7 @@ Affects the form component's optgroup margin value.
 """
 Property = "margin"
 Default = "2rem 1rem 0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2151,7 +2151,7 @@ Affects the form component's optgroup padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2161,7 +2161,7 @@ Affects the form component's optgroup font styling value.
 """
 Property = "font-style"
 Default = "italic"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2171,7 +2171,7 @@ Affects the form component's optgroup text alignment value.
 """
 Property = "text-align"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2181,7 +2181,7 @@ Affects the form component's option padding value.
 """
 Property = "padding"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2191,7 +2191,7 @@ Affects the form component's option font styling value.
 """
 Property = "font-style"
 Default = "normal"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2201,7 +2201,7 @@ Affects the form component's option text alignment value.
 """
 Property = "text-align"
 Default = "center"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2211,7 +2211,7 @@ Affects the form component's option's before pseudo-element content value.
 """
 Property = "content"
 Default = '\"\"'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2221,7 +2221,7 @@ Affects the form component's option's color value.
 """
 Property = "color"
 Default = 'var(--form-field-color)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2231,7 +2231,7 @@ Affects the form component's option's color value when selected.
 """
 Property = "color"
 Default = 'var(--form-field-color-inverted)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2241,7 +2241,7 @@ Affects the form component's option's background value.
 """
 Property = "color"
 Default = 'transparent'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2251,7 +2251,7 @@ Affects the form component's option's background value when selected.
 """
 Property = "color"
 Default = 'var(--color-primary-300)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2262,7 +2262,7 @@ width and height.
 """
 Property = "width & height"
 Default = '1rem'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2273,7 +2273,7 @@ border-top and the last child's border-bottom.
 """
 Property = "border-top; border-bottom (only last child)"
 Default = '1rem'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2283,7 +2283,7 @@ Affects the form component's select type field width value.
 """
 Property = "width"
 Default = '100%'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2293,7 +2293,7 @@ Affects the form component's color type field padding value.
 """
 Property = "padding"
 Default = '0'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2303,7 +2303,7 @@ Affects the form component's color type field width value.
 """
 Property = "width"
 Default = '100%'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2313,7 +2313,7 @@ Affects the form component's color type field height value.
 """
 Property = "height"
 Default = '3rem'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2323,7 +2323,7 @@ Affects the form component's button type field display mode value.
 """
 Property = "display"
 Default = 'inline-block'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2333,7 +2333,7 @@ Affects the form component's button type field margin value.
 """
 Property = "margin"
 Default = '1rem'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2343,7 +2343,7 @@ Affects the form component's button type field margin value in print mode.
 """
 Property = "margin"
 Default = '1rem auto'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2353,7 +2353,7 @@ Affects the form component's button type field width value.
 """
 Property = "width"
 Default = 'fit-content'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2363,7 +2363,7 @@ Affects the form component's button type field border value.
 """
 Property = "border"
 Default = '2px solid transparent'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2373,7 +2373,7 @@ Affects the form component's button type field border radius value.
 """
 Property = "border-radius"
 Default = '.5rem'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2383,7 +2383,7 @@ Affects the form component's button type field box shadow value.
 """
 Property = "box-shadow"
 Default = '0 1rem 2rem var(--color-typography-300)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2393,7 +2393,7 @@ Affects the form component's button type field text transformation value.
 """
 Property = "text-transform"
 Default = 'uppercase'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2403,7 +2403,7 @@ Affects the form component's button type field color value.
 """
 Property = "color"
 Default = 'var(--color-typography-50)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2414,7 +2414,7 @@ environment (e.g. footer).
 """
 Property = "color"
 Default = 'var(--body-color)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2424,7 +2424,7 @@ Affects the form component's button type field background value.
 """
 Property = "background"
 Default = 'var(--color-primary-800)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -2435,4 +2435,4 @@ environment (e.g. footer).
 """
 Property = "background"
 Default = 'var(--color-primary-100)'
-Availability = "v0.0.1"
+Availability = "v1.0.0"

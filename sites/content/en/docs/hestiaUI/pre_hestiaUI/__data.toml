@@ -3,7 +3,7 @@ Name = "ZORALab's Hestia Pre UI Component"
 Type = "text"
 ID = "pre_hestiaUI"
 Status = "Stable - Public"
-Available = "v0.0.1"
+Available = "v1.0.0"
 Purpose = """
 This UI component was primarily designed for highlighting preformatted text
 like a programming language snippets. It works natively so that the content
@@ -77,7 +77,7 @@ Affects the entire component's display mode value.
 """
 Property = "display"
 Default = "block"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -87,7 +87,7 @@ Affects the entire component's box sizing value.
 """
 Property = "box-sizing"
 Default = "border-box"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -97,7 +97,7 @@ Affects the entire component's margin value.
 """
 Property = "margin"
 Default = "2rem auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -107,7 +107,7 @@ Affects the entire component's padding value.
 """
 Property = "padding"
 Default = "2rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -117,7 +117,7 @@ Affects the entire component's overflow value.
 """
 Property = "oveflow"
 Default = "auto auto"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -127,7 +127,7 @@ Affects the entire component's border value.
 """
 Property = "border"
 Default = ".3rem solid var(--pre-color)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -137,7 +137,7 @@ Affects the entire component's border radius value.
 """
 Property = "border-radius"
 Default = ".5rem"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -147,7 +147,7 @@ Affects the entire component's minimum width value.
 """
 Property = "min-width"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -157,7 +157,7 @@ Affects the entire component's width value.
 """
 Property = "width"
 Default = "80%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -167,7 +167,7 @@ Affects the entire component's maximum width value.
 """
 Property = "max-width"
 Default = "80%"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -177,7 +177,7 @@ Affects the entire component's minimum height value.
 """
 Property = "min-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -187,7 +187,7 @@ Affects the entire component's height value.
 """
 Property = "height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -197,7 +197,7 @@ Affects the entire component's maximum height value.
 """
 Property = "max-height"
 Default = "initial"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -207,7 +207,7 @@ Affects the entire component's font size value.
 """
 Property = "font-size"
 Default = "var(--body-font-size)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -217,7 +217,7 @@ Affects the entire component's font family value.
 """
 Property = "font-family"
 Default = "monospace"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -227,7 +227,7 @@ Affects the entire component's text decoration value.
 """
 Property = "text-decoration"
 Default = "normal"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -237,7 +237,7 @@ Affects the entire component's word breaking behavior value.
 """
 Property = "word-break"
 Default = "keep-all"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -247,7 +247,7 @@ Affects the entire component's letter spacing value.
 """
 Property = "letter-spacing"
 Default = "0"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -257,7 +257,7 @@ Affects the entire component's line height value.
 """
 Property = "line-height"
 Default = "var(--body-line-height)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -267,7 +267,7 @@ Affects the entire component's text alignment value.
 """
 Property = "text-align"
 Default = "justify"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -277,7 +277,7 @@ Affects the entire component's whitespace value.
 """
 Property = "white-space"
 Default = "pre"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -287,7 +287,7 @@ Affects the entire component's color value.
 """
 Property = "color"
 Default = "var(--color-primary-300)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -298,7 +298,7 @@ Affects the entire component's color value in an inverted environment
 """
 Property = "color"
 Default = "var(--color-primary-300)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -308,7 +308,7 @@ Affects the entire component's color value in print mode.
 """
 Property = "color"
 Default = "var(--body-color-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -318,7 +318,7 @@ Affects the entire component's background value.
 """
 Property = "background"
 Default = "var(--color-contrast-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -329,7 +329,7 @@ Affects the entire component's background value in an inverted environment
 """
 Property = "background"
 Default = "var(--color-contrast-50)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -339,7 +339,7 @@ Affects the entire component's background value in print mode.
 """
 Property = "background"
 Default = "var(--body-background-print)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
 
 
 [[Component.References.CSS]]
@@ -349,4 +349,4 @@ Affects the entire component's animation timing value.
 """
 Property = "transition"
 Default = "var(--timing-rapid)"
-Availability = "v0.0.1"
+Availability = "v1.0.0"
