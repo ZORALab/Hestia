@@ -1,0 +1,113 @@
+<main>
+	<section id="introduction">
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>
+			{{ .Descriptions.Page.Pitch }}
+		</p>
+	</section>
+
+
+	<section id="downloadables">
+		<h2>Downloadables</h2>
+		<p>All downloadable contents for this version:</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Products</th>
+					<th>GPG Signature</th>
+					<th>SHA512</th>
+				</tr>
+			</thead>
+
+			<tbody>
+{{- range $i, $v := .Data.Page.Package.Downloads }}
+				<tr>
+					<td>
+						<a class="button" download
+						href="{{- $v.URL -}}"><p>{{- $v.Name -}}</p></a>
+					</td>
+					<td>
+						<a class="button" download
+						href="{{- $v.Signature -}}"><p>CERT</p></a>
+					</td>
+					<td>
+						<p><code>{{- $v.SHA512 -}}</code></p>
+					</td>
+				</tr>
+{{- end }}
+			</tbody>
+		</table>
+	</section>
+
+
+	<section id="highlights">
+		<h2>Highlights</h2>
+		<p>{{- .Data.Page.Package.Summary -}}</p>
+
+
+		<section id='hugo'>
+			<h3>Hugo</h3>
+			<p>
+				Here are the features and updates related to
+				<code>hestiaHUGO</code> Hugo theme modules:
+			</p>
+			<ol>
+{{- range $i, $v := .Data.Page.Package.Hugo }}
+				<li><p>{{- $v.Statement -}}</p></li>
+{{- end }}
+			</ol>
+		</section>
+
+
+		<section id='go'>
+			<h3>Go</h3>
+			<p>
+				Here are the features and updates related to
+				<code>hestiaGO</code> libraries:
+			</p>
+			<ol>
+{{- range $i, $v := .Data.Page.Package.Go }}
+				<li><p>{{- $v.Statement -}}</p></li>
+{{- end }}
+			</ol>
+		</section>
+
+
+		<section id='tinygo'>
+			<h3>TinyGo</h3>
+			<p>
+				Here are the features and updates related to
+				<code>hestiaGO</code> TinyGo specific libraries:
+			</p>
+			<ol>
+{{- range $i, $v := .Data.Page.Package.TinyGo }}
+				<li><p>{{- $v.Statement -}}</p></li>
+{{- end }}
+			</ol>
+		</section>
+
+
+		<section id='rust'>
+			<h3>Rust</h3>
+			<p>
+				Here are the features and updates related to
+				<code>hestiaRUST</code> Rust specific libraries:
+			</p>
+			<ol>
+{{- range $i, $v := .Data.Page.Package.Rust }}
+				<li><p>{{- $v.Statement -}}</p></li>
+{{- end }}
+			</ol>
+		</section>
+	</section>
+
+
+	<section id='epilogue'>
+		<h2>Got Some Ideas?</h2>
+		<p>
+			Feel free to contact us at our <a
+			href='https://github.com/ZORALab/Hestia/discussions'>GitHub
+			Discussion Portal</a>.
+		</p>
+	</section>
+</main>
