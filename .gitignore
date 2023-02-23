@@ -1,7 +1,8 @@
 #####################
 # User defined
 #####################
-releases/
+/releases/
+!/*/releases/
 
 #####################
 # Standard FHS
