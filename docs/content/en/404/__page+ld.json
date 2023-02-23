@@ -1,0 +1,71 @@
+{
+	"@type": "WebPage",
+	"mainContentOfPage": {
+		"@type": "WebPageElement",
+		"about": {
+			"@type": "Thing",
+			"name": "(Holloway) Chew, Kean Ho"
+		}
+	},
+	"significantLink": "https://www.hollowaykeanho.com",
+	"about": {
+		"@type": "Thing",
+		"name": "(Holloway) Chew, Kean Ho"
+	},
+	"abstract": "A full archives for knowing and verifying Holloway's Credentials",
+	"accessMode": "colorDependent, diagramOnVisual, textOnVisual, textual, visual",
+	"accessModeSufficient": {
+		"@type": "ItemList",
+		"itemListElement": "textual, colorDependent, visual, textOnVisual",
+		"itemListOrder": "Descending",
+		"numberOfItems": "4"
+	},
+	"accountablePerson": {
+		"@type": "Person",
+		"name": "(Holloway) Chew, Kean Ho",
+		"email": "me@hollowaykeanho.com"
+	},
+	"archivedAt": "{{- .URL.Current.Absolute -}}",
+	"author": {
+		"@type": "Person",
+		"name": "(Holloway) Chew, Kean Ho",
+		"email": "me@hollowaykeanho.com"
+	},
+	"contributor": {
+		"@type": "Person",
+		"name": "(Holloway) Chew, Kean Ho",
+		"email": "me@hollowaykeanho.com"
+	},
+	"copyrightHolder": {
+		"@type": "Person",
+		"name": "(Holloway) Chew, Kean Ho",
+		"email": "me@hollowaykeanho.com"
+	},
+	"copyrightNotice": "All Rights Reserved",
+	"copyrightYear": 2023,
+	"countryOfOrigin": {
+		"@type": "Country",
+		"address": "Kuala Lumpur, Malaysia"
+	},
+	"creativeWorkStatus": "Published",
+	"dateCreated": "{{- .Time.Created.RFC1123Z -}}",
+	"dateModified": "{{- .Time.Updated.RFC1123Z -}}",
+	"datePublished": "{{- .Time.Published.RFC1123Z -}}",
+	"editor": {
+		"@type": "Person",
+		"name": "(Holloway) Chew, Kean Ho",
+		"email": "me@hollowaykeanho.com"
+	},
+	"educationalLevel": "advanced",
+	"maintainer": {
+		"@type": "Person",
+		"name": "(Holloway) Chew, Kean Ho",
+		"email": "me@hollowaykeanho.com"
+	},
+	"schemaVersion": "15.0",
+	"thumbnailUrl": "{{- .Thumbnails.1.Sources.0.URL -}}",
+	"description": "{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}",
+	"image": "{{- .Thumbnails.1.Sources.0.URL -}}",
+	"name": "{{- .Titles.Page -}}",
+	"url": "{{- .URL.Current.Absolute -}}"
+}
