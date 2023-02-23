@@ -102,6 +102,16 @@ Intro = ''
 
 
 [[Technologies.Core]]
+Thumbnail = 'tinygo.svg'
+Name = 'TinyGo'
+Deployment = '''
+(UNDER DEVELOPMENT) — A Go compiler focusing on embedded and WASM compilation
+for extremely small footprint using LLVM.
+'''
+Intro = ''
+
+
+[[Technologies.Core]]
 Thumbnail = 'rust.svg'
 Name = 'Rust'
 Deployment = '''
