@@ -11,7 +11,7 @@ PublishBranch = 'gh-pages'
 PublishCommitID='Will be overwritten by publish command sequences'
 
 [FMTVariables]
-SourceDir = '{{- .RootDir -}}/docs'
+SourceDir = '{{- .RootDir -}}/sites'
 DestinationDir = '{{- .WorkingDir -}}/public'
 CacheDir = '{{- .WorkingDir -}}/caches'
 PublishDir = '{{- .WorkingDir -}}/{{- .PublishBranch -}}'
