@@ -1,15 +1,13 @@
 # ZORALab's Hestia
 ![Banner](artworks/logos/zoralab-hestia-1200x630.svg)
 
-One peaceful libraries suite from developer; for developer.
+Frontend+Backend in One Peaceful Suite; by Developers; for Developers.
 
-The project is to unify all common libraries and data structure into a single
-repository for highest possible reusablity, smoother learning curves, and a more
-wholesome tools alignments. Develop and learn advanced products easily with less
-worries about supply chain problems.
+The project is to unify all common libraries and data structure into 1 single
+repository for highest attributes of reusablity, smoother learning curves, and a
+more wholesome tools alignments. Develop and learn advanced products easily with
+less worries about supply chain problems.
 
-
-### Get Started
 Visit the [Official Website](https://hestia.zoralab.com) for its documentations,
 getting started guides, and etc.
 

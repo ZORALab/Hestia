@@ -46,7 +46,7 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = '''
-One peaceful libraries suite for building infinite possibilities.
+Frontend+Backend in One Peaceful Suite; by Developers; for Developers.
 '''
 Summary = '''
 The goal is to unify all common libraries into a single repository for reusable
