@@ -41,9 +41,18 @@ specific language governing permissions and limitations under the License.
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
+	{{- $k = upper (string $k) -}}
 
 
-	{{- $dataList = merge $dataList (dict (upper (string $k)) $ret) -}}
+	{{- /* parse data structure for data-type output */ -}}
+	{{- if $ret -}}
+		{{- if eq $k "JSON" -}}
+			{{- $ret = transform.Unmarshal $ret -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict $k $ret) -}}
 {{- end -}}
 
 
