@@ -111,7 +111,7 @@ specific language governing permissions and limitations under the License.
 		{{- $dataList = time $ret -}}
 	{{- else -}}
 		{{- if not $console -}}
-			{{- $console = printf "time: incompatible format '$v'.\n" $dataList -}}
+			{{- $console = printf "time: incompatible format '%v'.\n" $dataList -}}
 			{{- $console = dict "Message" $console -}}
 			{{- $dataList = $now -}}
 		{{- end -}}
