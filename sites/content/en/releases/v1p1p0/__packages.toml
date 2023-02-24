@@ -1,0 +1,5 @@
+[Package.Downloads.0]
+Name = 'hestiaHUGO-v1.1.0.zip'
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip'
+Signature = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip.asc'
+SHA512 = 'af8b17a3521d130c34c90cf59329073ac0d7ff63f99b1fd445765b34873ae022fe4004b033fb363445bae5073637da7c254ba79384f76869b31d69b2ab933e60'

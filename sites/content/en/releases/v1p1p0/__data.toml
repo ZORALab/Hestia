@@ -1,0 +1,54 @@
+[Keys]
+Title = 'Title'
+Pitch = 'Pitch'
+Version = 'Version'
+Changelog = 'Changelog'
+Name = 'Name'
+URL = 'URL'
+Signature = 'Signature'
+SHA512 = 'SHA512'
+Downloads = 'Downloads'
+
+
+[Package]
+Version = '1.1.0'
+Summary = """
+Minor patch against version 1.0.0. It main focuses are to perform critical bug \
+fixes discovered from the deployment of its predecessor.
+"""
+
+[[Package.Hugo]]
+Statement = """
+Added localized __content.js for page-level overall styling purposes.
+"""
+
+[[Package.Hugo]]
+Statement = """
+Added localized __content.css for page-level overall styling purposes.
+"""
+
+[[Package.Hugo]]
+Statement = """
+Fixed a time processor's ugly log output.
+"""
+
+[[Package.Hugo]]
+Statement = """
+Fixed __content.json improper rendering bug where the entire data structure is \
+rendered as a large string.
+"""
+
+[[Package.Go]]
+Statement = """
+Added CI packages and releases jobs and automation support.
+"""
+
+[[Package.TinyGo]]
+Statement = """
+Added CI packages and releases jobs and automation support.
+"""
+
+[[Package.Rust]]
+Statement = """
+Added CI packages and releases jobs and automation support.
+"""
