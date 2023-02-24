@@ -1,0 +1,59 @@
+{{- /* prepare variables for function */ -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+{{- $keys := .Data.Page.Keys -}}
+{{- $dataList := dict -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = dict $keys.Title .Titles.Page -}}
+{{- $dataList = merge $dataList (dict $keys.Pitch .Descriptions.Page.Pitch) -}}
+{{- $dataList = merge $dataList (dict $keys.Version .Data.Page.Package.Version) -}}
+
+
+{{- $list := slice -}}
+{{- range $i, $v := .Data.Page.Package.Hugo -}}
+	{{- $list = append $v.Statement $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $keys.Changelog (dict "hestiaHUGO" $list)) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := .Data.Page.Package.Go -}}
+	{{- $list = append $v.Statement $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $keys.Changelog (dict "hestiaGO" $list)) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := .Data.Page.Package.TinyGo -}}
+	{{- $list = append $v.Statement $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $keys.Changelog (dict "TinyGo" $list)) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := .Data.Page.Package.Rust -}}
+	{{- $list = append $v.Statement $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $keys.Changelog (dict "hestiaRUST" $list)) -}}
+
+
+{{- $list = slice -}}
+{{- $ret = dict -}}
+{{- range $i, $v := .Data.Page.Package.Downloads -}}
+	{{- $ret = dict $keys.Name $v.Name -}}
+	{{- $ret = merge $ret (dict $keys.URL $v.URL) -}}
+	{{- $ret = merge $ret (dict $keys.Signature $v.Signature) -}}
+	{{- $ret = merge $ret (dict $keys.SHA512 $v.SHA512) -}}
+	{{- $list = append $ret $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $keys.Downloads $list) -}}
+
+
+
+
+{{- /* render json */ -}}
+{{- jsonify $dataList -}}
