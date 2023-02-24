@@ -13,7 +13,7 @@ Product = 'hestiaRUST'
 LicenseSourcePath = 'licenses/hestia-software-license.pdf'
 
 [FMTVariables]
-LicenseSourceDir = '{{- .RootDir -}}/docs/content'
+LicenseSourceDir = '{{- .RootDir -}}/sites/content'
 PackageDir = '{{- .WorkingDir -}}/{{- .Product -}}'
 
 
