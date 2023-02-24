@@ -4,10 +4,10 @@ ThumbnailType = 'image/webp'
 Fallback = 'readable-error-digest-600x600.jpg'
 Reason = 'Readable Error Digest'
 Description = '''
-No more complicated log jargons.
+Pinpoint error exactly where and why.
 '''
 Outcome = '''
-Pinpoint error exactly where and why.
+Reduced complicated log jargons as many as possible.
 '''
 
 
@@ -49,7 +49,7 @@ ThumbnailType = 'image/webp'
 Fallback = 'go-compatible-template-codes-600x600.jpg'
 Reason = 'Go Compatible Codes'
 Description = '''
-No more Markdown+Shortcode frankenstein-ing.
+No more frankenstein-ing Markdown with shortcodes.
 '''
 Outcome = '''
 Create Go compatible and reusable codes.
@@ -64,7 +64,7 @@ ThumbnailType = 'image/webp'
 Fallback = 'compoentized-ui-600x600.jpg'
 Reason = 'Componentized UI'
 Description = '''
-Ready to cope with UI fashion trends changes.
+Ready to cope with UI fashion trends.
 '''
 Outcome = '''
 Easily design your content page with stable, continuously improved, learnable,
@@ -98,7 +98,7 @@ Description = '''
 No need external scripts for common publishers.
 '''
 Outcome = '''
-Ready serving GitHub Pages, GitLab Pages, and Cloudflare Pages natively.
+Seamlessly served by GitHub Pages, GitLab Pages, and Cloudflare Pages.
 '''
 
 
@@ -140,10 +140,10 @@ ThumbnailType = 'image/svg+xml'
 Fallback = 'wasm-ready-600x600.jpg'
 Reason = 'WASM Hosting Ready'
 Description = '''
-No more complication for WASM deployment.
+No more complications for using WASM.
 '''
 Outcome = '''
-Go beyond standard pages to WASM expansions.
+Seamless integrations with WASM deployments.
 '''
 
 
@@ -155,7 +155,7 @@ ThumbnailType = 'image/svg+xml'
 Fallback = 'favicon-generator-600x600.jpg'
 Reason = 'Icons and Favicons Ready'
 Description = '''
-No more depending on 3rd-party generator.
+No more 3rd-party generator dependencies.
 '''
 Outcome = '''
 Natively generate Favicons, icons, MSFT Tile image, buttons, iPhones, Android,
@@ -187,10 +187,10 @@ ThumbnailType = 'image/svg+xml'
 Fallback = 'static-web-content.jpg'
 Name = 'Static Web Content'
 Description = '''
-Classic static website using Hugo. You're looking at one now!
+Classic static website using Hugo to present a web content.
 '''
-Action = ''
-Label = ''
+Action = 'https://www.hollowaykeanho.com/en/index.html'
+Label = 'SHOWCASE'
 
 
 
@@ -203,8 +203,8 @@ Name = 'Static JSON Data Server'
 Description = '''
 Like web content but serves .json data file alongside.
 '''
-Action = 'index.json'
-Label = 'EXAMPLE'
+Action = 'https://www.hollowaykeanho.com/en/index.json'
+Label = 'SHOWCASE'
 
 
 
@@ -218,7 +218,7 @@ Description = '''
 Setup static site store and reputable payment gateway service providers!
 '''
 Action = 'https://store.hollowaykeanho.com/en/sponsorship/'
-Label = 'EXAMPLE'
+Label = 'SHOWCASE'
 
 
 
@@ -232,7 +232,7 @@ Description = '''
 Simple enough to build and test an web UI component easily.
 '''
 Action = '/en/docs/hestiaui/'
-Label = 'EXAMPLE'
+Label = 'SHOWCASE'
 
 
 
@@ -247,3 +247,17 @@ Builds frontend display applications easily via WASM+PWA.
 '''
 Action = ''
 Label = ''
+
+
+
+[i18n]
+Title = 'Title'
+Pitch = 'Pitch'
+Reason = 'Reason'
+Description = 'Description'
+Outcome = 'Outcome'
+Name = 'Name'
+Business = 'Business'
+Purpose = 'Purpose'
+Type = 'Type'
+Value = 'Value'

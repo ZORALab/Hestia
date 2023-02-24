@@ -1,0 +1,202 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $url := "" -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $url = merge $Page (dict "Input" (dict "URL" "yusuke-nakaya-stars.svg")) -}}
+{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+{{- $url = string $url.Output -}}
+<main style='padding-top: 0;'>
+	<section id="introduction" style='
+	min-height: 90vh;
+	background: url({{- $url -}}) var(--color-primary-950);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	padding-top: 6rem;
+	border-radius: 0 0 10rem 0;
+	overflow-y: hidden;
+' class='inverted'>
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
+		<p style='margin-top: 2.3rem;font-size: 2.3rem; font-weight: bold;'>
+			Continuosuly Improved
+		</p>
+		<p style='margin-top: 2.3rem;font-size: 2.3rem; font-weight: bold;'>
+			Modular and Flexible
+		</p>
+		<p style='margin-top: 2.3rem;font-size: 2.3rem; font-weight: bold;'>
+			No Nonsense
+		</p>
+		<picture style='margin-right: 0;'>
+			{{- $url = merge $Page (dict "Input" (dict "URL" "gopher-hero.svg")) -}}
+			{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+			{{- $url = string $url.Output }}
+			<source srcset='{{- $url }} 1x'
+				media='(max-width: 280px)'
+				width='224'
+				height='224'
+				type='image/svg+xml' />
+			<source srcset='{{- $url }} 1x'
+				media='(max-width: 375px)'
+				width='300'
+				height='300'
+				type='image/svg+xml' />
+			<source srcset='{{- $url }} 1x'
+				media='(max-width: 375px)'
+				width='300'
+				height='300'
+				type='image/svg+xml' />
+			<source srcset='{{- $url }} 1x'
+				media='(max-width: 500px)'
+				width='400'
+				height='400'
+				type='image/svg+xml' />
+			<source srcset='{{- $url }} 1x'
+				media='(min-width: 501px)'
+				width='500'
+				height='500'
+				type='image/svg+xml' />
+			<img alt="ZORALab's HestiaHUGO"
+				width='500'
+				loading='lazy'
+				src='{{- $url }} 1x' />
+		</picture>
+	</section>
+
+
+	<section id='why-hestiaHUGO'>
+		<div class='row' style='margin-bottom:5rem;'><div class='column'>
+			<h2>Why <code>HestiaHUGO</code></h2>
+			<p style='text-align: center;'>
+				Some great reasons to use this theme module.
+			</p>
+		</div></div>
+
+
+{{- range $i, $v := .Data.Page.Business }}
+		<div class='row' style='margin-bottom:5rem;--grid-column-margin: auto;'>
+			<div class='column'>
+				<picture class='column'>
+					{{ $url = merge $Page (dict "Input"
+						(dict "URL" $v.Thumbnail)) -}}
+					{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+					{{- $url = string $url.Output }}
+					<source srcset='{{- $url -}}'
+						media='(max-width: 280px)'
+						width='224'
+						height='224'
+						type='{{- $v.ThumbnailType -}}' />
+					<source srcset='{{- $url -}}'
+						media='(max-width: 400px)'
+						width='300'
+						height='300'
+						type='{{- $v.ThumbnailType -}}' />
+					<source srcset='{{- $url -}}'
+						media='(min-width: 401px)'
+						width='400'
+						height='400'
+						type='{{- $v.ThumbnailType -}}' />
+					{{ $url = merge $Page (dict "Input"
+						(dict "URL" $v.Fallback)) -}}
+					{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+					{{- $url = string $url.Output }}
+					<source srcset='{{- $url -}}'
+						media='(max-width: 280px)'
+						width='224'
+						height='224'
+						type='image/jpeg' />
+					<source srcset='{{- $url -}}'
+						media='(max-width: 400px)'
+						width='300'
+						height='300'
+						type='image/jpeg' />
+					<source srcset='{{- $url -}}'
+						media='(min-width: 401px)'
+						width='400'
+						height='400'
+						type='image/jpeg' />
+					<img src='{{- $url -}}'
+						width='400'
+						loading='lazy'
+						alt='{{- $v.Reason -}}' />
+				</picture>
+			</div>
+
+			<div class='column' style='--grid-column-width:60%;'>
+				<h3 style='margin-top:0;'>{{- $v.Reason -}}</h3>
+				<p>
+					{{- strings.TrimSuffix "." $v.Description }} —
+					<b>{{- $v.Outcome -}}</b>
+				</p>
+			</div>
+		</div>
+{{ end -}}
+	</section>
+
+
+	<section id='purpose'>
+		<div class='row'><div class='column'>
+			<h2>Purposes</h2>
+			<p style='text-align: center;'>
+				After why; now it is about what's for.
+			</p>
+		</div></div>
+
+		<div class='row' style='--grid-column-max-width:200px;'>
+{{- range $i, $v := .Data.Page.Purpose }}
+			<div class='column'>
+				<picture>
+					{{ $url = merge $Page (dict "Input"
+						(dict "URL" $v.Thumbnail)) -}}
+					{{- $url = partial
+						"Hestia/functions/data/url/Init" $url -}}
+					{{- $url = string $url.Output }}
+					<source width='200' height='200'
+						type='{{- $v.ThumbnailType -}}'
+						srcset='{{- $url -}}' />
+					{{ $url = merge $Page (dict "Input"
+						(dict "URL" $v.Fallback)) -}}
+					{{- $url = partial
+						"Hestia/functions/data/url/Init" $url -}}
+					{{- $url = string $url.Output }}
+					<source width='200' height='200'
+						type='image/jpeg'
+						srcset='{{- $url -}}' />
+					<img width='200' height='200'
+						alt='{{- $v.Name -}}'
+					src='{{- $url -}}' />
+				</picture>
+
+				<h3 style='margin-top:0;'>{{- $v.Name -}}</h3>
+				<p>{{- $v.Description -}}</p>
+				{{ $url = merge $Page (dict "Input" (dict "URL" $v.Action)) -}}
+				{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+				{{- if $url.Console -}}
+					{{- $url = "" -}}
+				{{- else -}}
+					{{- $url = string $url.Output -}}
+				{{- end -}}
+				{{- if $url }}
+				<br/>
+				<a href='{{- $url -}}'
+					class='button' target='_blank'>{{- $v.Label -}}</a>
+				{{- end }}
+			</div>
+{{ end -}}
+		</div>
+	</section>
+
+
+	<section id='epilogue'>
+		<h2>Convinced?</h2>
+		<p style='text-align: center;'>Feel free to try our for your next project!</p>
+		{{ $url = merge $Page (dict "Input" (dict "URL" "getting-started")) -}}
+		{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+		{{- $url = string $url.Output }}
+		<a class='button' href='{{- $url -}}'>GET STARTED</a>
+	</section>
+</main>

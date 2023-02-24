@@ -1,57 +1,83 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $url := false -}}
+
+
+
+
+{{- /* render function */ -}}
 <nav class='top-drawer' style='--drawer-trigger-width:80px;--drawer-trigger-height:80px;'>
 	<input id='nav-topbar-main' type='checkbox' />
 	<label class='trigger' for='nav-topbar-main'>
-		<span class='open'>
-			<img style='display: block'
-			src='{{- .URL.Base -}}/img/logo/zoralab-hestia-logo-1200x1200.svg'
-			alt="ZORALab's Hestia"
-			width="80"
-			height="80" />
-		</span>
-		<span class='close'>
-			<img style='display: block'
-			src='{{- .URL.Base -}}/img/logo/zoralab-hestia-logo-1200x1200.svg'
-			alt="ZORALab's Hestia"
-			width="80"
-			height="80" />
-		</span>
+		{{- $url = merge $Page (dict "Input"
+			(dict "URL" "/img/logo/zoralab-hestia-logo-1200x1200.svg")) -}}
+		{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+		{{- $url = string $url.Output }}
+		<img alt="ZORALab's Hestia" src='{{- $url -}}'
+			width="80" height="80"
+			loading='lazy'
+			class='open'
+		/>
+		<img alt="ZORALab's Hestia" src='{{- $url -}}'
+			width="80" height="80"
+			loading='lazy'
+			class='close'
+		/>
 	</label>
 	<label class='overlay' for='nav-topbar-main'></label>
 	<div class='content'>
 		<div class='row' style='--grid-flex-direction: column; --grid-gap: 2rem;'>
 			<div class='column'>
+				{{- $url = merge $Page (dict "Input" (dict "URL" "/en")) -}}
+				{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+				{{- $url = string $url.Output }}
 				<a class='prestige'
-				style='color: var(--color-typography-50);'
-				href='{{- .URL.Base -}}/en'>Home</a>
+					style='color: var(--color-typography-50);'
+					href='{{- $url -}}'>Home</a>
 			</div>
 
 
 			<div class='column'>
+				{{- $url = merge $Page (dict "Input"
+					(dict "URL" "/en/licenses")) -}}
+				{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+				{{- $url = string $url.Output }}
 				<a class='prestige'
-				style='color: var(--color-typography-50);'
-				href='{{- .URL.Base -}}/en/licenses'>Licenses</a>
+					style='color: var(--color-typography-50);'
+					href='{{- $url -}}'>Licenses</a>
 			</div>
 
 
 			<div class='column'>
+				{{- $url = merge $Page (dict "Input"
+					(dict "URL" "/en/releases")) -}}
+				{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+				{{- $url = string $url.Output }}
 				<a class='prestige'
-				style='color: var(--color-typography-50);'
-				href='{{- .URL.Base -}}/en/releases'>Releases</a>
+					style='color: var(--color-typography-50);'
+					href='{{- $url -}}'>Releases</a>
 			</div>
 
 
 			<div class='column'>
+				{{- $url = merge $Page (dict "Input"
+					(dict "URL" "/en/releases")) -}}
+				{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+				{{- $url = string $url.Output }}
 				<a class='prestige'
-				style='color: var(--color-typography-50);'
-				href='{{- .URL.Base -}}/en/getting-started'>
-				Getting Started</a>
+					style='color: var(--color-typography-50);'
+					href='{{- $url -}}'>Getting Started</a>
 			</div>
 
 
 			<div class='column'>
+				{{- $url = merge $Page (dict "Input"
+					(dict "URL" "/en/docs")) -}}
+				{{- $url = partial "Hestia/functions/data/url/Init" $url -}}
+				{{- $url = string $url.Output }}
 				<a class='prestige'
-				style='color: var(--color-typography-50);'
-				href='{{- .URL.Base -}}/en/docs'>Docs</a>
+					style='color: var(--color-typography-50);'
+					href='{{- $url -}}'>Docs</a>
 			</div>
 		</div>
 	</div>
