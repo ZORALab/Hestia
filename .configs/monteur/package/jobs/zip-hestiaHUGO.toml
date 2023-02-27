@@ -68,7 +68,7 @@ Source = '{{ .PackageDir -}}'
 Name = 'Copy Source Product into Packaging Directory'
 Type = 'command'
 Condition = [ 'all-all' ]
-Source = 'cp -r "{{- .RootDir -}}/{{- .Product -}}" "{{- .PackageDir -}}/{{- .Product -}}"'
+Source = 'cp -r "{{- .RootDir -}}/{{- .Product -}}"/* "{{- .PackageDir -}}/."'
 
 
 [[CMD]]
@@ -101,6 +101,7 @@ Type = 'command'
 Condition = [ 'all-all' ]
 Location = '{{- .WorkingDir -}}'
 Source = '''gpg \
+--batch --yes \
 --local-user hello@zoralab.com \
 --armor \
 --detach-sign \
