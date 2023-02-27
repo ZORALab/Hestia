@@ -1,0 +1,160 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render function */ -}}
+<main>
+	<section id='introduction'>
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
+	</section>
+
+
+
+
+	<section id='intentions'>
+		<h2>Intentions</h2>
+		<p>Select a guide based on your learning intention.</p>
+
+		<section id='user'>
+			<h3>As User</h3>
+			<p>
+				Using <b>hestiaHUGO</b> for your next web
+				project as it is.
+			</p>
+
+			<div class='catalog'>{{- range $i, $v := .Data.Page.Guides.User }}
+				<figure class='card'>
+					<picture class='thumbnail'>
+					{{- $ret = printf "%s/thumbnails-240x240.avif" $v.ID -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "URL" $ret )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<source srcset='{{- $ret }} 1x'
+							type='image/avif'
+							width='240' height='240'
+							loading='lazy' />
+
+					{{- $ret = printf "%s/thumbnails-240x240.webp" $v.ID -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "URL" $ret )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<source srcset='{{- $ret }} 1x'
+							type='image/webp'
+							width='240' height='240'
+							loading='lazy' />
+
+					{{- $ret = printf "%s/thumbnails-240x240.jpg" $v.ID -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "URL" $ret )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<source srcset='{{- $ret }} 1x'
+							type='image/jpeg'
+							width='240' height='240'
+							loading='lazy' />
+						<img alt='{{- $v.Name -}}'
+							src='{{- $ret -}}'
+							width='240' height='240'
+							loading='lazy' />
+					</picture>
+
+					<div class='content' style='--h4-margin:0;'>
+						<h4>{{- $v.Name -}}</h4>
+						<p>{{- $v.Pitch -}}</p>
+					</div>
+
+					<div class='actions'>
+					{{- $ret = merge $Page (dict "Input" (dict "URL" $v.ID )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<a href='{{- $ret -}}'
+							class='button'>READ MODE</a>
+					</div>
+				</figure>
+			{{ end -}}</div>
+		</section>
+
+
+		<section id='developer'>
+			<h3>As Developer</h3>
+			<p>
+				Wants to improve <b>hestiaHUGO</b> for the
+				benefits of all.
+			</p>
+
+			<div class='catalog'>{{- range $i, $v := .Data.Page.Guides.Developer }}
+				<figure class='card'>
+					<picture class='thumbnail'>
+					{{- $ret = printf "%s/thumbnails-240x240.avif" $v.ID -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "URL" $ret )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<source srcset='{{- $ret }} 1x'
+							type='image/avif'
+							width='240' height='240'
+							loading='lazy' />
+
+					{{- $ret = printf "%s/thumbnails-240x240.webp" $v.ID -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "URL" $ret )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<source srcset='{{- $ret }} 1x'
+							type='image/webp'
+							width='240' height='240'
+							loading='lazy' />
+
+					{{- $ret = printf "%s/thumbnails-240x240.jpg" $v.ID -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "URL" $ret )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<source srcset='{{- $ret }} 1x'
+							type='image/jpeg'
+							width='240' height='240'
+							loading='lazy' />
+						<img alt='{{- $v.Name -}}'
+							src='{{- $ret -}}'
+							width='240' height='240'
+							loading='lazy' />
+					</picture>
+
+					<div class='content' style='--h4-margin:0;'>
+						<h4>{{- $v.Name -}}</h4>
+						<p>{{- $v.Pitch -}}</p>
+					</div>
+
+					<div class='actions'>
+					{{- $ret = merge $Page (dict "Input" (dict "URL" $v.ID )) -}}
+					{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+					{{- $ret = string $ret.Output }}
+						<a href='{{- $ret -}}'
+							class='button'>READ MODE</a>
+					</div>
+				</figure>
+			{{ end -}}</div>
+		</section>
+	</section>
+
+
+
+
+	<section id='epilogue'>
+		<h2>Epilogue</h2>
+		<p>
+			In case you found something is missing, please do not
+			hestitate to contact us at our
+			<a href='https://github.com/ZORALab/Hestia/issues'>
+				GitHub Issues Portal
+			</a>. Please keep in mind that this is an open-source
+			project and there is no schedule guarentee for delivery.
+		</p>
+	</section>
+</main>
