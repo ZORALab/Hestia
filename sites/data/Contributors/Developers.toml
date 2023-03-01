@@ -5,3 +5,11 @@ Web = 'https://www.hollowaykeanho.com'
 Label = 'Website'
 Description = 'Dare to achieve!'
 Portrait = '/img/contributors/contributor-hollowaykeanho-1200x1200.webp'
+
+[GalynaCory]
+Type = "Person"
+Name = 'Galyna, Cory'
+Web = 'https://github.com/CoryGalyna'
+Label = 'Profile'
+Description = "Don't Ping Me!"
+Portrait = '/img/contributors/contributor-galyna-cory-1200x1200.webp'
