@@ -1,0 +1,514 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $dataList := dict -}}
+{{- $list := slice -}}
+{{- $images := slice -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render function */ -}}
+{{- $dataList = merge $dataList (dict "Title" .Titles.Page) -}}
+{{- $dataList = merge $dataList (dict "Pitch" .Descriptions.Page.Pitch) -}}
+
+
+
+{{- $list = slice -}}
+
+
+
+{{- $data = dict "Step" "0" "Action" "Download Latest Package" -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "/en/releases")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $data = merge $data (dict "Description"
+	(printf "%s %s."
+		"To start, headover to our download portal and get the latest hestiaHUGO package. The link is available at"
+		$ret)) -}}
+
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-240x240.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "240px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-240x240.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "240px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-240x240.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "240px" "Type" "image/jpg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-400x400.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "400px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-400x400.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "400px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-400x400.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "400px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-800x800.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "800px" "Height" "800px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-800x800.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "800px" "Height" "800px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "00-download-latest-package-800x800.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "800px" "Height" "800px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $data = dict "Step" "1a" "Action" "Check Package Integrity by SHASUM" -}}
+{{- $data = merge $data (dict "Description" "To make sure you're downloading the correct package from ZORALab, we recommend you to check the package integrity before use. There are 2 ways for completing this step. The easiest method is to use SHASUM comparison. On Linux, the command is something like '$ sha512sum hestiaHUGO-vXXXX.zip'. This produces a hashed value. With that, you should compare the value on the download page. Both presented value and displayed value MUST be 100% exactly the same.") -}}
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-240x360.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "360px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-240x360.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "360px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-240x360.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "360px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-400x360.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "360px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-400x360.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "360px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-400x360.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "360px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-735x410.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "735px" "Height" "410px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-735x410.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "735px" "Height" "410px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "01-check-package-integrity-735x410.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "735px" "Height" "410px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $data = dict "Step" "2" "Action" "Unpack Into Themes Directory" -}}
+{{- $data = merge $data (dict "Description" "The hestiaHUGO is packaged as a theme module by default. Hence, you just need to create the 'themes' folder and unzip the package into it.") -}}
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-240x440.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "440px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-240x440.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "440px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-240x440.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "440px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-400x460.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-400x460.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-400x460.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-700x770.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "700px" "Height" "770px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-700x770.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "700px" "Height" "770px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "02-upack-into-themes-directory-700x770.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "700px" "Height" "770px" "Type" "image/jpg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $data = dict "Step" "3" "Action" "Move Config Directory" -}}
+{{- $data = merge $data (dict "Description" "hestiaHUGO shipped with a pre-configured Hugo's 'config' directory and a quick 'server.cmd' script for easy server initialization. Hence, it's easier to just extract them out and place it into your repo. On linux terminal command, it is something as such '$ cd /path/to/repo && mv themes/hestiaHUGO/{config,server.cmd} .'.") -}}
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-240x560.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "560px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-240x560.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "560px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-240x560.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "560px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-400x560.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "560px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-400x560.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "560px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-400x560.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "560px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-680x600.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "680px" "Height" "600px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-680x600.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "680px" "Height" "600px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "03-move-config-directory-680x600.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "680px" "Height" "600px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $data = dict "Step" "4" "Action" "Update Config Data" -}}
+{{- $data = merge $data (dict "Description" "Now that the hugo directory is in placed, you have to update a few critical data matching your website. Note that you only needs to modify the configurations inside 'config/_default' directory and rarely on others. As of now, the fields you need to update are 'baseURL' into your website URL and 'themes' field is having 'hestiaHUGO' value in placed") -}}
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "04-update-config-data-240x240.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "240px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "04-update-config-data-240x240.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "240px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "04-update-config-data-240x240.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "240px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "04-update-config-data-400x400.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "400px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "04-update-config-data-400x400.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "400px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "04-update-config-data-400x400.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "400px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $data = dict "Step" "5" "Action" "Start Hugo Server" -}}
+{{- $data = merge $data (dict "Description" "Since everything is now in place, you can proceed to start the hugo server. ZORALab's Hestia recommends this command 'hugo server --buildDrafts --noBuildLock --disableFastRender --bind 'localhost' --baseURL 'http://localhost' --port 8080 --cleanDestinationDir --gc'. You need to observe the server's registered URL for visiting the website. It's not always 'https://localhost:8080</code>' as it depends on the availability of the port number ('8080').") -}}
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-240x260.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "260px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-240x260.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "260px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-240x260.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "260px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-400x361.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "361px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-400x361.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "361px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-400x361.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "361px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-900x648.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "648px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-900x648.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "648px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "05-start-hugo-server-900x648.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "648px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $data = dict "Step" "6" "Action" "Check Rendering Website" -}}
+{{- $data = merge $data (dict "Description" "Now that the server is up, you can open up a browser of your choice and visit the prompted URL website. You should observe the empty page is rendered properly. The noticable item is the Hestia Debug Console where it presents all the page data in a tabulated manner.") -}}
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-240x260.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "260px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-240x260.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "260px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-240x260.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "260px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-400x460.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-400x460.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-400x460.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-900x538.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "538px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-900x538.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "538px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "06-check-rendered-website-900x538.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "538px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $data = dict "Step" "7" "Action" "Git Commit and Push" -}}
+{{- $data = merge $data (dict "Description" "Now that we have completed the file placements and everything, you can proceed to commit the change and push it out to your remote repository.") -}}
+
+{{- $images = slice -}}
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-240x360.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "360px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-240x360.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "360px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-240x360.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "240px" "Height" "360px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-400x460.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-400x460.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-400x460.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "400px" "Height" "460px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-900x560.avif")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "560px" "Type" "image/avif" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-900x560.webp")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "560px" "Type" "image/webp" -}}
+{{- $images = append $ret $images -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "URL" "07-git-commit-and-push-900x560.jpg")) -}}
+{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = string $ret.Output }}
+{{- $ret = dict "URL" $ret "Width" "900px" "Height" "560px" "Type" "image/jpeg" -}}
+{{- $images = append $ret $images -}}
+
+{{- $data = merge $data (dict "Images" $images) -}}
+{{- $list = append $data $list -}}
+
+
+{{- $dataList = merge $dataList (dict "Steps" $list) -}}
+
+
+
+
+{{- /* render JSON */ -}}
+{{- jsonify $dataList -}}

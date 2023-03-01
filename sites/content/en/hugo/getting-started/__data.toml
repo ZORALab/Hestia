@@ -12,13 +12,13 @@ Developer = 'Developer'
 
 
 [[Guides.User]]
-ID = 'setup-hestiahugo'
+ID = 'setup'
 Name = 'Setup HestiaHUGO'
 Pitch = 'Focus on just cleanly setting up your Hugo repository.'
 
 
 [[Guides.User]]
-ID = 'create-page'
+ID = 'create-basic-page'
 Name = 'Create A Page'
 Pitch = 'Focus on creating a page using hestiaHUGO theme.'
 
