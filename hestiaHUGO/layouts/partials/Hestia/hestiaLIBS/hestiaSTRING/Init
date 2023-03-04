@@ -28,3 +28,4 @@ specific language governing permissions and limitations under the License.
 {{- /* INITIATE HESTIALIBS */ -}}
 {{- partial "Hestia/hestiaLIBS/hestiaSTRING/IsSTRING" . -}}
 {{- partial "Hestia/hestiaLIBS/hestiaSTRING/Trim" . -}}
+{{- partial "Hestia/hestiaLIBS/hestiaSTRING/ConvertableINT" . -}}
