@@ -20,6 +20,12 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* INITIATE HESTIALIB */ -}}
+{{- partial "Hestia/hestiaLIBS/Init" . -}}
+
+
+
+
 {{- /* RENDER MAIN PAGE COMPONENTS */ -}}
 {{- partial "Hestia/templates/format.html" . -}}
 {{- partial "Hestia/templates/sitemap-page.xml" . -}}
