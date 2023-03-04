@@ -23,28 +23,27 @@ Name = 'Create A Page'
 Pitch = 'Focus on creating a page using hestiaHUGO theme.'
 
 
-[[Guides.User]]
-ID = 'publish-github'
-Name = 'Publish on GitHub'
-Pitch = 'Focus on composing and publishing your sites to GitHub Pages.'
+#[[Guides.User]]
+#ID = 'publish-github'
+#Name = 'Publish on GitHub'
+#Pitch = 'Focus on composing and publishing your sites to GitHub Pages.'
 
 
-[[Guides.User]]
-ID = 'publish-gitlab'
-Name = 'Publish on GitLab'
-Pitch = 'Focus on composing and publishing your sites to GitLab Pages.'
+#[[Guides.User]]
+#ID = 'publish-gitlab'
+#Name = 'Publish on GitLab'
+#Pitch = 'Focus on composing and publishing your sites to GitLab Pages.'
 
 
-[[Guides.User]]
-ID = 'publish-cloudflare'
-Name = 'Publish on CloudFlare Pages'
-Pitch = 'Focus on composing and publishing your sites to CloudFlare Pages.'
+#[[Guides.User]]
+#ID = 'publish-cloudflare'
+#Name = 'Publish on CloudFlare Pages'
+#Pitch = 'Focus on composing and publishing your sites to CloudFlare Pages.'
 
 
 
 
-
-[[Guides.Developer]]
-ID = 'develop-ui'
-Name = 'Develop New UI'
-Pitch = 'Focus on developing a new UI component using hestiaHUGO.'
+#[[Guides.Developer]]
+#ID = 'develop-ui'
+#Name = 'Develop New UI'
+#Pitch = 'Focus on developing a new UI component using hestiaHUGO.'

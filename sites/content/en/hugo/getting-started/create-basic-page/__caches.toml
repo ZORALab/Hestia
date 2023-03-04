@@ -1,0 +1,826 @@
+# HESTIA PWA RESOURCES AND CACHING LIST
+# =====================================
+# All URLs for PWA offline caching.
+#
+# Hestia compatible URL processing is available for this list. All URLs must be
+# bounded within the base URL and PWA scope URL pathing. You need to decide what
+# kind of resources to be served offline or cached during work. To fully
+# implement PWA, you **MUST** assemble and support offline resources when
+# network is not available.
+#
+# For each dataset:
+#   URL     - The URL that is required for local offline caching before use.
+#   Cache   - Caching policy. They can only accept the following values:
+#             'cache-first'      - Default. Resource shall use the cache version
+#                                  first and then perform a network update on it
+#                                  in the background. The updated resource shall
+#                                  be used in the next serving. Error shall be
+#                                  returned if both cached resource and network
+#                                  fetched resource are simultenously
+#                                  unavailable.
+#                                  USED FOR:
+#                                    1. fastest response.
+#                                    2. always available including offline.
+#                                  COMPROMISE:
+#                                    1. not always up-to-date. Updated resource
+#                                       only seen in next serving.
+#
+#             'network-first'    - Opposite of 'cache-first'. Resource shall use
+#                                  the latest network fetching first and then
+#                                  update the cache. If network fetching fails
+#                                  (e.g. offline), the local cache version is
+#                                  then used. Error shall be returned if both
+#                                  cached resource and network fetched resource
+#                                  are simultenously unavailable.
+#                                  USED FOR:
+#                                    1. always up-to-date.
+#                                    2. always available including offline.
+#                                  COMPROMISE:
+#                                    1. slower response - due to waiting for
+#                                       network for updated content.
+#
+#             'network-only'     - Conventional network-only resource.
+#                                  USED FOR:
+#                                    1. always up-to-date.
+#                                    2. ultra sensitive data (confidentiality)
+#                                       not suitable to retain on PWA client
+#                                       side.
+#                                  COMPROMISE:
+#                                    1. slower response - due to waiting for
+#                                       network for updated content.
+#                                    3. not always available - online mode only.
+#
+#             'cache-only'       - Only loads from resources cached after
+#                                  installation.
+#                                  USED FOR:
+#                                    1. fastest response.
+#                                    2. always available including offline.
+#                                    3. no need to burden server network.
+#                                  COMPROMISE:
+#                                    1. not up-to-date.
+#                                    2. only can be updated during each update
+#                                       or fresh installation.
+#
+# Example:
+#   [[Contents]]
+#   URL = "/en"                # --means-> '/en'
+#   Cache = "cache-first"
+#
+#   [[Contents]]
+#   URL = "/zh-hans"           # --means--> '/zh-hans'
+#   Cache = "cache-first"
+#
+#   [[Contents]]
+#   URL = "image.jpg"          # --means--> 'path/to/this-page/image.jpg'
+#   Cache = "cache-first"
+[[Contents]]
+URL = "index.html"
+Cache = "network-first"
+
+[[Contents]]
+URL = "index.json"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-1200x630.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-1200x1200.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-480x480.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "00-create-content-directory-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "01-generate-new-page-language-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "02-commit-placeholder-pages-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "03-generate-main-language-404-page-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "04-launch-server-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "05-setup-page-twitter-settings-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "06-setup-page-settings-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "07-setup-page-seo-robots-rules-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "08-setup-page-ldjson-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "09-setup-languages-settings-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "10-create-page-content-html-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "11-add-ui-components-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "12-styling-page-css-js-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "13-url-and-assets-placement-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "14-setup-page-thumbnails-settings-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "15-create-page-content-json-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "16-setup-page-offline-caches-settings-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "17-commit-page-main-language-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "18-translate-page-680x680.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-240x240.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-240x240.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-240x240.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-400x400.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-400x400.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-400x400.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-680x680.avif"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-680x680.webp"
+Cache = "network-first"
+
+[[Contents]]
+URL = "19-commit-page-translated-language-680x680.jpg"
+Cache = "network-first"
