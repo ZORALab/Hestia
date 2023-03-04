@@ -26,4 +26,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* INITIATE HESTIALIBS */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaSTRING/IsString" . -}}
+{{- partial "Hestia/hestiaLIBS/hestiaSTRING/IsSTRING" . -}}
