@@ -25,21 +25,22 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* INITIATE KERNEL LIBRARY */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaVENDORS/hestiaHUGO/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaLIST/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaBOOL/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaMATH/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaSTRING/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/Init" . -}}
+{{- /* INITIATE HESTIALIBS */ -}}
+{{- define "hestiaMATH.IsFLOAT" -}}
+	{{- /* prepare working variables for this function */ -}}
+	{{- $dataList := false -}}
 
 
 
 
-{{- /* INITIATE HESTIALIBS LIBRARIES */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaCSS/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaHTML/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaJS/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaURL/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaVENDORS/Init" . -}}
+	{{- /* check data type */ -}}
+	{{- if hasPrefix (printf "%T" .Input) "float" -}}
+		{{- $dataList = true -}}
+	{{- end -}}
+
+
+
+
+	{{- /* return output */ -}}
+	{{- .Output.Set "Value" $dataList -}}
+{{- end -}}

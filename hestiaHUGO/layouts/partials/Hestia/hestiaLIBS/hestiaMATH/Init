@@ -25,21 +25,8 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* INITIATE KERNEL LIBRARY */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaVENDORS/hestiaHUGO/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaLIST/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaBOOL/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaMATH/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaSTRING/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/Init" . -}}
-
-
-
-
-{{- /* INITIATE HESTIALIBS LIBRARIES */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaCSS/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaHTML/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaJS/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaURL/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaVENDORS/Init" . -}}
+{{- /* INITIATE HESTIALIBS */ -}}
+{{- partial "Hestia/hestiaLIBS/hestiaMATH/IsINT" . -}}
+{{- partial "Hestia/hestiaLIBS/hestiaMATH/IsUINT" . -}}
+{{- partial "Hestia/hestiaLIBS/hestiaMATH/IsFLOAT" . -}}
+{{- partial "Hestia/hestiaLIBS/hestiaMATH/IsNUMBER" . -}}
