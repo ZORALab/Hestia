@@ -25,19 +25,31 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* INITIATE KERNEL LIBRARY */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaVENDORS/hestiaHUGO/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaLIST/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaSTRING/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/Init" . -}}
+{{- /* INITIATE HESTIALIBS */ -}}
+{{- define "hestiaLIST.IsList" -}}
+	{{- /* prepare working variables for this function */ -}}
+	{{- $Page := merge . (dict "Output" newScratch) -}}
+	{{- $dataList := false -}}
 
 
 
 
-{{- /* INITIATE HESTIALIBS LIBRARIES */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaCSS/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaHTML/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaJS/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaURL/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaVENDORS/Init" . -}}
+	{{- /* check data type */ -}}
+	{{- template "hestiaLIST.IsSlice" $Page -}}
+	{{- if ($Page.Output.Get "Value") -}}
+		{{- $dataList = true -}}
+	{{- end -}}
+
+	{{- if (not $dataList) -}}
+		{{- template "hestiaLIST.IsMap" $Page -}}
+		{{- if ($Page.Output.Get "Value") -}}
+			{{- $dataList = true -}}
+		{{- end -}}
+	{{- end -}}
+
+
+
+
+	{{- /* return output */ -}}
+	{{- .Output.Set "Value" $dataList -}}
+{{- end -}}
