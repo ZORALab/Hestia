@@ -32,7 +32,7 @@ specific language governing permissions and limitations under the License.
 {{- partial "Hestia/hestiaLIBS/hestiaMATH/Init" . -}}
 {{- partial "Hestia/hestiaLIBS/hestiaSTRING/Init" . -}}
 {{- partial "Hestia/hestiaLIBS/hestiaIO/Init" . -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/Init" . -}}
+{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/__init__" . -}}
 
 
 

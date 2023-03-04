@@ -77,9 +77,7 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = printf "%s══════════════════════\n" $dataList -}}
 	{{- $ret = "<Missing Message. False Alarm?>\n" -}}
 	{{- if index . "Console" -}}
-		{{- if index .Console "Message" -}}
-			{{- $ret = .Console.Message -}}
-		{{- end -}}
+		{{- $ret = .Console -}}
 	{{- end -}}
 	{{- $dataList = printf "%s%s" $dataList $ret -}}
 	{{- $dataList = printf "%s══════════════════════\n\n\n" $dataList -}}

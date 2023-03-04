@@ -20,23 +20,5 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* PREPARE VARIABLES FOR FUNCTION */ -}}
-
-
-
-
-{{- /* INITIATE LIBRARY */ -}}
-{{- define "hestiaTERMINAL.Errorf" -}}
-	{{- /* prepare working variables for this function */ -}}
-	{{- $Page := merge . (dict "Output" newScratch) -}}
-	{{- template "hestiaHUGO.ProcessConsole" $Page -}}
-	{{- errorf "%s" ($Page.Output.Get "Value") -}}
-{{- end -}}
-
-
-{{- define "hestiaTERMINAL.Warnf" -}}
-	{{- /* prepare working variables for this function */ -}}
-	{{- $Page := merge . (dict "Output" newScratch) -}}
-	{{- template "hestiaHUGO.ProcessConsole" $Page -}}
-	{{- warnf "%s" ($Page.Output.Get "Value") -}}
-{{- end -}}
+{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/Errorf" . -}}
+{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/Warnf" . -}}

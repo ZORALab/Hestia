@@ -20,11 +20,9 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* PREPARE VARIABLES FOR FUNCTION */ -}}
-{{- $response := newScratch -}}
-
-
-
-
-{{- /* INITIATE LIBRARY */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaIO/hestiaTERMINAL/Printer" . -}}
+{{- define "hestiaTERMINAL.Errorf" -}}
+	{{- /* prepare working variables for this function */ -}}
+	{{- $Page := merge . (dict "Output" newScratch) -}}
+	{{- template "hestiaHUGO.ProcessConsole" $Page -}}
+	{{- errorf "%s" ($Page.Output.Get "Value") -}}
+{{- end -}}
