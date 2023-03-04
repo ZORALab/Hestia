@@ -26,4 +26,21 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* INITIATE HESTIALIBS */ -}}
-{{- partial "Hestia/hestiaLIBS/hestiaSTRING/IsString" . -}}
+{{- define "hestiaSTRING.IsString" -}}
+	{{- /* prepare working variables for this function */ -}}
+	{{- $dataList := false -}}
+
+
+
+
+	{{- /* check data type */ -}}
+	{{- if hasPrefix (printf "%T" .) "str" -}}
+		{{- $dataList = true -}}
+	{{- end -}}
+
+
+
+
+	{{- return output -}}
+	{{- .Output.Set $dataList -}}
+{{- end -}}
