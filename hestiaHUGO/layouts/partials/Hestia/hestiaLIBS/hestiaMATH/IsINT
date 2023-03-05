@@ -15,17 +15,16 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hugo Structure */ -}}
+{{- /* . = Page data in Hugo/Hestia Structure */ -}}
+{{- /* .Input = Subject to be tested (any) */ -}}
+{{- /* .Output = Scratchpad for saving output (scratchPad) */ -}}
+
+{{- /* OUTPUT */ -}}
+{{- /* "Value" = The verdict (bool) */ -}}
 
 
 
 
-{{- /* PREPARE VARIABLES FOR FUNCTION */ -}}
-
-
-
-
-{{- /* INITIATE HESTIALIBS */ -}}
 {{- define "hestiaMATH.IsINT" -}}
 	{{- /* prepare working variables for this function */ -}}
 	{{- $dataList := false -}}

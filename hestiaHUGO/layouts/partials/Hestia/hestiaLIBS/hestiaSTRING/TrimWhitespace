@@ -15,63 +15,14 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hugo Structure */ -}}
+{{- /* . = Page data in Hugo/Hestia Structure */ -}}
+{{- /* .Input = Subject for whitespace trimming (string) */ -}}
+{{- /* .Output = Scratchpad for saving output (scratchPad) */ -}}
+
+{{- /* OUTPUT */ -}}
+{{- /* "Value" = The processed string (string) */ -}}
 
 
-
-
-{{- /* PREPARE VARIABLES FOR FUNCTION */ -}}
-
-
-
-
-{{- /* INITIATE LIBRARY */ -}}
-{{- define "hestiaSTRING.TrimWhitespaceLeft" -}}
-	{{- /* prepare working variables for this function */ -}}
-	{{- $dataList := default "" (index . "Input") -}}
-
-
-
-
-	{{- /* trim only the left side */ -}}
-	{{- $dataList = merge . (dict "Input" $dataList "Output" newScratch) -}}
-	{{- template "hestiaSTRING.IsSTRING" $dataList -}}
-	{{- if ($dataList.Output.Get "Value") -}}
-		{{- $dataList = strings.TrimLeft "\n\r\t " $dataList.Input -}}
-	{{- else -}}
-		{{- $dataList = index . "Input" -}}
-	{{- end -}}
-
-
-
-
-	{{- /* return output */ -}}
-	{{- .Output.Set "Value" $dataList -}}
-{{- end -}}
-
-
-{{- define "hestiaSTRING.TrimWhitespaceRight" -}}
-	{{- /* prepare working variables for this function */ -}}
-	{{- $dataList := default "" (index . "Input") -}}
-
-
-
-
-	{{- /* trim only the left side */ -}}
-	{{- $dataList = merge . (dict "Input" $dataList "Output" newScratch) -}}
-	{{- template "hestiaSTRING.IsSTRING" $dataList -}}
-	{{- if ($dataList.Output.Get "Value") -}}
-		{{- $dataList = strings.TrimRight "\n\r\t " $dataList.Input -}}
-	{{- else -}}
-		{{- $dataList = index . "Input" -}}
-	{{- end -}}
-
-
-
-
-	{{- /* return output */ -}}
-	{{- .Output.Set "Value" $dataList -}}
-{{- end -}}
 
 
 {{- define "hestiaSTRING.TrimWhitespace" -}}

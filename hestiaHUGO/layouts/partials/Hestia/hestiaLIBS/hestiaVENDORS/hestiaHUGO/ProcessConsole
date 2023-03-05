@@ -16,16 +16,15 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hugo/Hestia Structure */ -}}
+{{- /* .Input.Console = The console message to be processed (string) */ -}}
+{{- /* .Output = Clean scratchpad for saving output (scratchPad) */ -}}
+
+{{- /* OUTPUT */ -}}
+{{- /* "Value" = The extracted output. Default is empty map if failed. (any) */ -}}
 
 
 
 
-{{- /* PREPARE VARIABLES FOR FUNCTION */ -}}
-
-
-
-
-{{- /* INITIATE LIBRARY */ -}}
 {{- define "hestiaHUGO.ProcessConsole" -}}
 	{{- /* prepare working variables for this function */ -}}
 	{{- $scratch := newScratch -}}

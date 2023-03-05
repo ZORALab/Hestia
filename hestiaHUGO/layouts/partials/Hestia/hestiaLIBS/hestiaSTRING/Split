@@ -15,9 +15,10 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hugo Structure */ -}}
+{{- /* . = Page data in Hugo/Hestia Structure */ -}}
 {{- /* .Input.Delimiter = String pattern for splitting recognition (string) */ -}}
 {{- /* .Input.Data = Data string for the splitting to perform on (string) */ -}}
+{{- /* .Output = Scratchpad for saving output (scratchPad) */ -}}
 
 {{- /* OUTPUT */ -}}
 {{- /* "Value" = The processed string (string) */ -}}
