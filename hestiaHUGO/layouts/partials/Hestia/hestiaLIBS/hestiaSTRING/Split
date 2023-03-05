@@ -1,0 +1,101 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hugo Structure */ -}}
+{{- /* .Input.Delimiter = String pattern for splitting recognition (string) */ -}}
+{{- /* .Input.Data = Data string for the splitting to perform on (string) */ -}}
+
+{{- /* OUTPUT */ -}}
+{{- /* "Value" = The processed string (string) */ -}}
+{{- /* "Console" = Error messages if any (string) */ -}}
+
+
+
+
+{{- define "hestiaSTRING.Split" -}}
+	{{- /* prepare working variables for this function */ -}}
+	{{- $dataList := default dict (index . "Input") -}}
+	{{- $delimiter := "" -}}
+	{{- $console := "" -}}
+	{{- $status := true -}}
+
+
+
+
+	{{- if $dataList -}}
+		{{- $dataList = merge . (dict "Input" $dataList "Output" newScratch) -}}
+		{{- template "hestiaLIST.IsMap" $dataList -}}
+		{{- if $dataList.Output.Get "Value" -}}
+			{{- $delimiter = merge . (dict
+				"Input" (default "" (index .Input "Delimiter"))
+				"Output" newScratch
+			) -}}
+			{{- template "hestiaSTRING.IsSTRING" $delimiter -}}
+			{{- if ($delimiter.Output.Get "Value") -}}
+				{{- $delimiter = default "" (index .Input "Delimiter") -}}
+			{{- else -}}
+				{{- $delimiter = index .Input "Delimiter" -}}
+				{{- $console = printf
+					"invalid delimiter data type: (%T) '%v'\n"
+					$delimiter $delimiter
+				-}}
+				{{- $status = false -}}
+			{{- end -}}
+
+
+			{{- $dataList = default "" (index .Input "Data") -}}
+			{{- $dataList = merge . (dict "Input" $dataList "Output" newScratch) -}}
+			{{- template "hestiaSTRING.IsSTRING" $dataList -}}
+			{{- if ($dataList.Output.Get "Value") -}}
+				{{- $dataList = default "" (index .Input "Data") -}}
+			{{- else -}}
+				{{- $dataList = index .Input "Data" -}}
+				{{- $console = printf
+					"invalid provided data type: (%T) '%v'\n"
+					$dataList $dataList
+				-}}
+				{{- $status = false -}}
+			{{- end -}}
+		{{- else -}}
+			{{- $dataList = index . "Input" -}}
+			{{- $console = printf "invalid provided input type: (%T) '%v'\n"
+				$dataList $dataList
+			-}}
+			{{- $status = false -}}
+		{{- end -}}
+	{{- else -}}
+		{{- $console = printf "missing .Input data.\n" -}}
+		{{- $status = false -}}
+	{{- end -}}
+
+
+
+
+	{{- /* perform string trimming */ -}}
+	{{- if $status -}}
+		{{- $dataList = split $dataList $delimiter -}}
+	{{- else -}}
+		{{- $dataList = "[ ERROR ]" -}}
+	{{- end -}}
+
+
+
+
+	{{- /* return output */ -}}
+	{{- .Output.Set "Value" $dataList -}}
+	{{- .Output.Set "Console" $console -}}
+{{- end -}}
