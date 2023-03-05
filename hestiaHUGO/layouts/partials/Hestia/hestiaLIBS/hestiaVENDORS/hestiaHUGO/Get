@@ -1,0 +1,133 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Any Map/Slice Data Structure */ -}}
+{{- /* .Input.Query = The string query connected by period '.' (string) */ -}}
+{{- /* .Output = Clean scratchpad for saving output (scratchPad) */ -}}
+
+{{- /* OUTPUT */ -}}
+{{- /* "Value" = The extracted output. Default is empty map if failed. (any) */ -}}
+{{- /* "Console" = Error messages if any (string) */ -}}
+
+
+
+
+{{- define "hestiaHUGO.Get" -}}
+	{{- /* prepare working variables for this function */ -}}
+	{{- $Page := merge . (dict "Output" newScratch) -}}
+	{{- $dataList := false -}}
+	{{- $status := true -}}
+	{{- $list := false -}}
+	{{- $ret := false -}}
+
+
+
+
+	{{- /* query from a given data structure */ -}}
+	{{- $ret = merge $Page (dict "Input" .) -}}
+	{{- template "hestiaLIST.IsList" $ret -}}
+	{{- if not ($ret.Output.Get "Value") -}}
+		{{- $status = false -}}
+	{{- end -}}
+
+
+	{{- if $status -}}
+		{{- $ret = index . "Input" -}}
+		{{- $ret = merge $Page (dict "Input" $ret) -}}
+		{{- template "hestiaLIST.IsList" $ret -}}
+		{{- if not ($ret.Output.Get "Value") -}}
+			{{- $status = false -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- if $status -}}
+		{{- $ret = default "" (index .Input "Query") -}}
+		{{- $ret = merge $Page (dict "Input" $ret) -}}
+		{{- template "hestiaSTRING.IsSTRING" $ret -}}
+		{{- if not ($ret.Output.Get "Value") -}}
+			{{- $status = false -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- if $status -}}
+		{{- $list = merge $Page (dict "Input" .Input.Query) -}}
+		{{- template "hestiaSTRING.TrimWhitespace" $list -}}
+		{{- $list = $list.Output.Get "Value" -}}
+
+
+		{{- $list = merge $Page (dict "Input" (dict "Prefix" "." "Data" $list)) -}}
+		{{- template "hestiaSTRING.TrimPrefix" $list -}}
+		{{- $list = $list.Output.Get "Value" -}}
+
+
+		{{- $list = merge $Page (dict "Input" (dict "Delimiter" "." "Data" $list)) -}}
+		{{- template "hestiaSTRING.Split" $list -}}
+		{{- $list = $list.Output.Get "Value" -}}
+
+
+		{{- /* begin querying data structure */ -}}
+		{{- $dataList = . -}}
+		{{- range $i, $v := $list -}}
+			{{- if $dataList -}}
+				{{- $ret = merge $Page (dict "Input" $dataList) -}}
+				{{- template "hestiaLIST.IsMap" $ret -}}
+				{{- if $ret.Output.Get "Value" -}}
+					{{- $dataList = index $dataList $v -}}
+					{{- continue -}}
+				{{- end -}}
+
+				{{- $ret = merge $Page (dict "Input" $dataList) -}}
+				{{- template "hestiaLIST.IsSlice" $ret -}}
+				{{- if $ret.Output.Get "Value" -}}
+					{{- $ret = merge $Page (dict "Input" $v) -}}
+					{{- template "hestiaSTRING.ConvertableINT" $ret -}}
+					{{- if $ret.Output.Get "Value" -}}
+						{{- $dataList = index $dataList (int $v) -}}
+						{{- continue -}}
+					{{- end -}}
+
+					{{- /* BROKEN QUERY == STOP PROCEEDING */ -}}
+					{{- $status = false -}}
+					{{- break -}}
+				{{- end -}}
+
+				{{- /* BROKEN QUERY == STOP PROCEEDING */ -}}
+				{{- $status = false -}}
+				{{- break -}}
+			{{- end -}}
+		{{- end -}}
+
+		{{- /* verify queried data */ -}}
+		{{- if eq $dataList . -}}
+			{{- /* DID NOT PROGRESS == NO SUCH DATA */ -}}
+			{{- $status = false -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- if not $status -}}
+		{{- $dataList = dict -}}
+	{{- end -}}
+
+
+
+
+	{{- /* save to output */ -}}
+	{{- .Output.Set "Value" $dataList -}}
+{{- end -}}
