@@ -6,6 +6,14 @@ Label = 'Website'
 Description = 'Jack Of All Trades, Leader Of Communities.'
 Portrait = '/img/contributors/contributor-johnson-lam-1200x1200.webp'
 
+[RiverSaxtons]
+Type = "Person"
+Name = 'RiverSaxton'
+Web = 'https://github.com/Xenador77'
+Label = 'GitHub'
+Description = 'Cybersecurity.'
+Portrait = '/img/contributors/contributor-river-saxton-1200x1200.webp'
+
 [ZORALab]
 Type = 'Organization'
 Name = 'ZORALab'
