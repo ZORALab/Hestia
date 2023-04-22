@@ -53,6 +53,7 @@ specific language governing permissions and limitations under the License.
 			{{- $console = printf "FS.WriteFile.Path: %v" $ret.Console.Message -}}
 			{{- $console = dict "Message" $console -}}
 		{{- end -}}
+
 		{{- $ret = "" -}}
 	{{- else -}}
 		{{- $ret = $ret.Output -}}
@@ -66,14 +67,23 @@ specific language governing permissions and limitations under the License.
 {{- /* safe querying .Input.Content */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Content")) -}}
 {{- $ret = partial "Hestia/functions/data/Get" $ret -}}
-{{- if not $ret -}}
+{{- if partial "Hestia/functions/data/string/IsString" $ret -}}
+	{{- /* DO NOTHING */ -}}
+{{- else if not $ret -}}
 	{{- if not $console -}}
 		{{- $console = printf "FS.WriteFile: missing/bad .Input.Content.\n" -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
+
+	{{- $ret = "" -}}
+{{- else -}}
+	{{- if not $console -}}
+		{{- $console = printf "FS.WriteFile: .Input.Content is not a string!.\n" -}}
+		{{- $console = dict "Message" $console -}}
+	{{- end -}}
+
 	{{- $ret = "" -}}
 {{- end -}}
-{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret -}}
 {{- $dataList = merge $dataList (dict "Content" $ret) -}}
 
 
