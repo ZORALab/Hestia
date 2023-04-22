@@ -256,7 +256,7 @@ specific language governing permissions and limitations under the License.
 .right-drawer > input[type='checkbox']:checked ~ label.trigger {
 	z-index: var(--drawer-overlay-z-index);
 
-	right: var(--drawer-width-opened-right);
+	right: var(--right-drawer-width-opened);
 }
 
 .left-drawer > label.trigger > .open,
