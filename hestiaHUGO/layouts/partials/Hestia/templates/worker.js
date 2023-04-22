@@ -22,13 +22,18 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := "" -}}
-{{- $path := "app.js" -}}
+{{- $path := "" -}}
+
+
+
+
+{{- /* process pathing */ -}}
+{{- $path = lower (printf "%s%s" .URL.Current.Absolute.Path "app.js") -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- $path = lower (printf "%s%s" .URL.Current.Absolute.Path $path) -}}
 {{- $dataList = string (partial "Hestia/functions/render/js/pwa/worker.js" .) -}}
 {{- if not .IsServerMode -}}
 	{{- $dataList = dict "Type" "application/javascript" "Data" $dataList -}}

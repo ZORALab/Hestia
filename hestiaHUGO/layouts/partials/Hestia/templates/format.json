@@ -21,18 +21,22 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := .Formats.JSON -}}
-{{- $path := printf "%s%s" $dataList.Filename $dataList.Extension -}}
+{{- $dataList := "" -}}
+{{- $path := "" -}}
 
 
 
 
-{{- /* render output */ -}}
+{{- /* process path */ -}}
+{{- $path = printf "%s%s" .Formats.JSON.Filename .Formats.JSON.Extension -}}
 {{- if .Filesystem.Directory -}}
 	{{- $path = lower (printf "%s/%s" .Filesystem.Directory $path) -}}
 {{- end -}}
 
 
+
+
+{{- /* render output */ -}}
 {{- $dataList = partial "Hestia/functions/render/json/Content" . -}}
 {{- $dataList = string (jsonify $dataList) -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" $dataList "Path" $path)) -}}

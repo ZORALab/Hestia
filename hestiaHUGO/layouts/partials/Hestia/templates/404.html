@@ -20,18 +20,22 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* convert page to 404.html */ -}}
+{{- /* prepare variables for function */ -}}
 {{- $dataList := "" -}}
-{{- $path := "404.html" -}}
-{{- $Page := merge . (dict "Is404" true) -}}
-{{- $Page := merge $Page (dict "Titles" (dict "Page" "404")) -}}
-{{- $Page := merge $Page (dict "Descriptions" (dict "Page" (dict "Pitch" "404"))) -}}
-{{- $Page := merge $Page (dict "Descriptions" (dict "Page" (dict "Summary" ""))) -}}
+
+
+
+
+{{- /* convert page to 404.html */ -}}
+{{- $dataList = merge . (dict "Is404" true) -}}
+{{- $dataList = merge $dataList (dict "Titles" (dict "Page" "404")) -}}
+{{- $dataList = merge $dataList (dict "Descriptions" (dict "Page" (dict "Pitch" "404"))) -}}
+{{- $dataList = merge $dataList (dict "Descriptions" (dict "Page" (dict "Summary" ""))) -}}
 
 
 
 
 {{- /* render output file */ -}}
-{{- $dataList = partial "Hestia/templates/format.html" $Page -}}
-{{- $dataList = merge . (dict "Input" (dict "Content" (string $dataList) "Path" $path)) -}}
+{{- $dataList = partial "Hestia/templates/format.html" $dataList -}}
+{{- $dataList = merge . (dict "Input" (dict "Content" (string $dataList) "Path" "404.html")) -}}
 {{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
