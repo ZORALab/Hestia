@@ -20,14 +20,18 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* INITIATE HESTIALIB */ -}}
-
-
-
 {{- /* RENDER MAIN PAGE COMPONENTS */ -}}
 {{- partial "Hestia/templates/format.html" . -}}
 {{- partial "Hestia/templates/sitemap-page.xml" . -}}
 {{- partial "Hestia/templates/sitemap.xml" . -}}
+
+
+
+
+{{- /* RENDER OPTIONAL COMPONENTS */ -}}
+{{- if index .Content "JSON" -}}
+	{{- partial "Hestia/templates/format.json" . -}}
+{{- end -}}
 
 
 
@@ -41,12 +45,4 @@ specific language governing permissions and limitations under the License.
 	{{- partialCached "Hestia/templates/app.webmanifest" . -}}
 	{{- partialCached "Hestia/templates/worker.js" . -}}
 	{{- partialCached "Hestia/templates/icons" . -}}
-{{- end -}}
-
-
-
-
-{{- /* RENDER OPTIONAL COMPONENTS */ -}}
-{{- if index .Formats "JSON" -}}
-	{{- partial "Hestia/templates/format.json" . -}}
 {{- end -}}
