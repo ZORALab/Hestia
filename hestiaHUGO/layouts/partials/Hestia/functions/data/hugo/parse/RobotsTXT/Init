@@ -29,8 +29,8 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* source data from robots.txt files data source */ -}}
-{{- range $agent, $rules := .Page.Site.Data.Hestia.Robots -}}
+{{- /* source data for robots.txt file */ -}}
+{{- range $agent, $rules := .Site.Data.Hestia.Robots -}}
 	{{- $data = dict -}}
 
 

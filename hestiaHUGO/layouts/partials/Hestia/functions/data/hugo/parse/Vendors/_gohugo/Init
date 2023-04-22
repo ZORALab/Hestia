@@ -28,8 +28,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse GoHugo version data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_gohugo/_version" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $dataList = merge $dataList (dict "Version" (printf "Hugo %v" hugo.Version)) -}}
 
 
 

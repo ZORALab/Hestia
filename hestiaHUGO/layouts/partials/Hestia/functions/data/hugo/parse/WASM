@@ -17,96 +17,20 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__wasm.toml" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict -}}
-{{- $data := dict -}}
-{{- $ret := false -}}
-
-
-
-
-{{- /* parse local config file */ -}}
-{{- if .Page.File -}}
-	{{- $data = path.Join (path.Dir .Page.File.Path) $CONFIG_FILENAME -}}
-	{{- $data = path.Clean $data -}}
-	{{- $data = partial "Hestia/functions/data/hugo/parse/__dataFile" $data -}}
-{{- end -}}
-
-
-
-
-{{- /* parse local config data */ -}}
-{{- if $data -}}
-	{{- if not (index $data "Settings") -}}
-		{{- $data = dict -}}
-	{{- end -}}
-{{- end -}}
-
-
-{{- if not $data -}}
-	{{- $data = dict "Settings" (dict
-		"URL" ""
-		"Setup" ""
-		"Import" ""
-		"Init" ""
-		"Embed" ""
-		"Dependencies" slice
-	) -}}
-{{- end -}}
-
-
-
-
-{{- /* parse .URL */ -}}
-{{- $ret = default "" (index $data.Settings "URL") -}}
-{{- $dataList = merge $dataList (dict "URL" $ret) -}}
-
-
-
-
-{{- /* parse .Setup */ -}}
-{{- $ret = default "" (index $data.Settings "Setup") -}}
-{{- $dataList = merge $dataList (dict "Setup" $ret) -}}
-
-
-
-
-{{- /* parse .Import */ -}}
-{{- $ret = default "" (index $data.Settings "Import") -}}
-{{- $dataList = merge $dataList (dict "Import" $ret) -}}
-
-
-
-
-{{- /* parse .Init */ -}}
-{{- $ret = default "" (index $data.Settings "Init") -}}
-{{- $dataList = merge $dataList (dict "Init" $ret) -}}
-
-
-
-
-{{- /* parse .Embed */ -}}
-{{- $ret = default "" (index $data.Settings "Embed") -}}
-{{- $dataList = merge $dataList (dict "Embed" $ret) -}}
-
-
-
-
-{{- /* parse .Dependencies */ -}}
-{{- $ret = slice -}}
-{{- range $i, $v := index $data.Settings "Dependencies" -}}
-	{{- $ret = append $v $ret -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "Dependencies" $ret) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "WASM" $dataList -}}
+{{- return dict "WASM" (dict
+	"URL" ""
+	"Setup" ""
+	"Import" ""
+	"Init" ""
+	"Embed" ""
+	"Dependencies" slice
+) -}}

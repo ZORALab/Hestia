@@ -28,8 +28,9 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse ZORALab's Hestia data */ -}}
-{{- $ret = partial "Hestia/functions/data/hugo/parse/Vendors/_zoralab/_hestia" . -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $dataList = merge $dataList (dict "Hestia"
+	(dict "Version" .Site.Data.Hestia.Vendors.ZORALab.Hestia.Metadata.Version)
+) -}}
 
 
 

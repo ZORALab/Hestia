@@ -34,7 +34,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Embed */ -}}
 {{- $ret = partial "Hestia/functions/data/hugo/process/WASM/_embed" . -}}
-{{- /* SECURITY BUG: disable embed feature for now until HUGO fixes it */ -}}
+{{- /* (!!!) SECURITY BUG: disable embed feature for now until HUGO fixes it (!!!) */ -}}
 {{- /* $dataList = merge $dataList $ret */ -}}
 
 

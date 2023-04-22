@@ -27,14 +27,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /*
-	prepare Hestia .Page.URL
-
-	NOTE:
-	1) Position matters.
-	2) First 7 fragments **MUST** be as it is. They are too critical to
-	   fail.
-*/ -}}
+{{- /* Prepare Hestia critical data structure. (!!!) POSITION MATTERS (!!!) */ -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/URL" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Time" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Formats" .) -}}
@@ -44,6 +37,9 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsServerMode" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Is404" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsRoot" .) -}}
+
+
+{{- /* prepare Hestia data structures. */ -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Thumbnails" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Title" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Descriptions" .) -}}
@@ -79,6 +75,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Robots" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Twitter" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/WASM" $dataList -}}
 
 
 

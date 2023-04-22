@@ -36,9 +36,9 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process data alongside secure manual caching so that:
-	1) only root page or 1st rendering page can refresh the values
+	1) only root page or 1st rendering page can refresh the values.
 	2) speeds up all pages rendering so that every page does not need to
-	   scan all pages all the time.
+	   scan all the pages every time.
 */ -}}
 {{- if .IsHome -}}
 	{{- /* begin scanning all pages */ -}}
