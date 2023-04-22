@@ -24,6 +24,7 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := "" -}}
+{{- $filename := "" -}}
 {{- $console := dict -}}
 
 
@@ -34,17 +35,13 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
 {{- if not $dataList -}}
 	{{- $dataList = "" -}}
-{{- end -}}
-
-
-{{- if partial "Hestia/functions/data/string/IsString" $dataList -}}
-	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-	{{- $dataList = partial "Hestia/functions/data/string/_processGoTemplates" $dataList -}}
-	{{- if $dataList.Console -}}
-		{{- $console = printf "string: %s" $dataList.Console.Message -}}
-		{{- $console = dict "Message" $console -}}
-	{{- end -}}
-	{{- $dataList = $dataList.Output -}}
+{{- else if partial "Hestia/functions/data/string/IsString" $dataList -}}
+	{{- $filename = printf "deletable-%v-%v"
+				(now.Format "200601021504050700")
+				(crypto.FNV32a $dataList) -}}
+	{{- $dataList = resources.FromString $filename $dataList -}}
+	{{- $dataList = resources.ExecuteAsTemplate $filename $Page $dataList -}}
+	{{- $dataList = string $dataList.Content -}}
 {{- else -}}
 	{{- $console = printf "string: invalid data type '%v'.\n" .Input.Data -}}
 	{{- $console = dict "Message" $console -}}
