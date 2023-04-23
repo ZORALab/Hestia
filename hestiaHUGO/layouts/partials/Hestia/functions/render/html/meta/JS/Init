@@ -21,11 +21,24 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- if .JS.Settings.IncludeFirst -}}
-	{{- partial "Hestia/functions/render/html/meta/JS/_include" . -}}
-	{{- partial "Hestia/functions/render/html/meta/JS/_inline" . -}}
-{{- else -}}
-	{{- partial "Hestia/functions/render/html/meta/JS/_inline" . -}}
-	{{- partial "Hestia/functions/render/html/meta/JS/_include" . -}}
+{{- if and .JS.Inline (not .JS.Settings.IncludeFirst) }}
+	<script {{- if eq .JS.Settings.Inline.Timing "defer" }} type='module'{{- end -}}>
+{{ safeJS .JS.Inline }}
+	</script>
+{{- end -}}
+
+
+{{- range $i, $v := .JS.Include }}
+	<script
+		{{- if eq $v.Timing "defer" }} defer
+		{{- else if eq $v.Timing "async" }} async
+		{{- end }} src="{{- safeHTML $v.URL -}}"></script>
+{{- end -}}
+
+
+{{- if and .JS.Inline .JS.Settings.IncludeFirst }}
+	<script {{- if eq .JS.Settings.Inline.Timing "defer" }} type='module'{{- end -}}>
+{{ safeJS .JS.Inline }}
+	</script>
 {{- end -}}
 {{- /* clean up */ -}}

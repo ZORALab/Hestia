@@ -26,6 +26,9 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "CSS" dict) -}}
 {{- $dataList := dict -}}
 {{- $list := slice -}}
+{{- $data := dict -}}
+{{- $variables := dict -}}
+{{- $console := false -}}
 {{- $ret := false -}}
 
 
@@ -56,10 +59,9 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $v.URL)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $ret = printf "CSS.Include.%v.URL: %v" $i $ret.Console.Message -}}
-		{{- $ret = dict "Console" (dict "Message" $ret) -}}
-		{{- $ret = merge $Page $ret -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- $console = printf "CSS.Include.%v.URL: %v" $i $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "URL" $ret.Output) -}}
@@ -69,10 +71,9 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Media)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $ret = printf "CSS.Include.%v.Media: %v" $i $ret.Console.Message -}}
-		{{- $ret = dict "Console" (dict "Message" $ret) -}}
-		{{- $ret = merge $Page $ret -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- $console = printf "CSS.Include.%v.Media: %v" $i $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Media" $ret.Output) -}}
@@ -82,10 +83,9 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.OnLoad)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $ret = printf "CSS.Include.%v.OnLoad: %v" $i $ret.Console.Message -}}
-		{{- $ret = dict "Console" (dict "Message" $ret) -}}
-		{{- $ret = merge $Page $ret -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- $console = printf "CSS.Include.%v.OnLoad: %v" $i $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "OnLoad" $ret.Output) -}}
@@ -98,8 +98,50 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Inline */ -}}
-{{- $list = slice -}}
+{{- /* process Inline CSS */ -}}
+{{- /* process list of components CSS files */ -}}
+{{- $variables = dict -}}
+{{- $list = "" -}}
+{{- range $k, $v := .Components -}}
+	{{- /* process CSS variables */ -}}
+	{{- $ret = printf "layouts/partials/%s.toml" $v.Path -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseDataFile" $ret -}}
+	{{- if index $ret.Output "CSS" -}}
+		{{- $ret = $ret.Output.CSS -}}
+		{{- if index $ret "Variables" -}}
+			{{- $ret = $ret.Variables -}}
+		{{- else -}}
+			{{- $ret = dict -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- if $ret -}}
+		{{- $ret = merge $ret $v.Variables -}}
+	{{- else -}}
+		{{- $ret = $v.Variables -}}
+	{{- end -}}
+	{{- $variables = merge $variables $ret -}}
+
+	{{- /* process CSS */ -}}
+	{{- $ret = string (partial (printf "%s.css" $v.Path)) -}}
+	{{- $list = printf "%s%s" $list $ret -}}
+{{- end -}}
+
+{{- $ret = "" -}}
+{{- range $k, $v := $variables -}}
+	{{- if $ret -}}
+		{{- $ret = printf "%s\n" $ret -}}
+	{{- end -}}
+
+	{{- $ret = printf "%s\t\t%s: %v;" $ret $k $v -}}
+{{- end -}}
+{{- if $ret -}}
+	{{- $list = printf ":root{\n%s\n}\n\n%s" $ret $list -}}
+{{- end -}}
+
+
+{{- /* process list of inline CSS files */ -}}
 {{- range $i, $v := .CSS.Inline -}}
 	{{- if not $v -}}
 		{{- continue -}}
@@ -109,10 +151,9 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $ret = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
-		{{- $ret = dict "Console" (dict "Message" $ret) -}}
-		{{- $ret = merge $Page $ret -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- $console = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -126,17 +167,84 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* validate asset file is there */ -}}
 	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
-		{{- $ret = printf "CSS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
-		{{- $ret = dict "Console" (dict "Message" $ret) -}}
-		{{- $ret = merge $Page $ret -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- $console = printf "CSS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
 
-	{{- $list = append $ret $list -}}
+	{{- /* parse file */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = string $ret.Output -}}
+
+	{{- $list = printf "%s%s" $list $ret -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Inline" $list) -}}
+
+
+{{- /* process page control inline CSS file */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .CSS.Main)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- $ret = "" -}}
+{{- else -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- end -}}
+
+{{- if not $ret -}}
+	{{- /* DO NOTHING */ -}}
+{{- else if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+	{{- $ret = "" -}}
+{{- end -}}
+
+{{- if $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "" -}}
+	{{- else -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "" -}}
+	{{- else -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $ret -}}
+	{{- $list = printf "%s%s" $list $ret -}}
+{{- end -}}
+
+{{- $ret = printf "deletable-inline-%s.css" (sha256 $list) -}}
+{{- $ret = resources.FromString $ret $list -}}
+{{- if not .IsServerMode -}}
+	{{- $ret = resources.Minify $ret -}}
+{{- end -}}
+{{- $ret = string $ret.Content -}}
+
+{{- $dataList = merge $dataList (dict "Inline" $ret) -}}
 
 
 

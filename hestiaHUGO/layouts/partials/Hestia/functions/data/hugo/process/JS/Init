@@ -26,6 +26,8 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "JS" dict) -}}
 {{- $list := slice -}}
 {{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $data := dict -}}
 {{- $ret := false -}}
 
 
@@ -37,6 +39,36 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = false -}}
 {{- end -}}
 {{- $dataList = dict "IncludeFirst" $dataList -}}
+
+
+
+
+{{- /* process all .IncludeTiming */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .JS.Settings.Inline.Timing)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "JS.Settings.Inline.Timing: %v" $ret.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- $ret = "defer" -}}
+{{- else -}}
+	{{- $ret = lower (partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output) -}}
+{{- end -}}
+
+
+{{- if eq $ret "defer" -}}
+	{{- /* PASS */ -}}
+{{- else if eq $ret "sync" -}}
+	{{- /* PASS */ -}}
+{{- else if eq $ret "async" -}}
+	{{- /* PASS */ -}}
+{{- else -}}
+	{{- $console = printf "JS.Settings.Inline.Timing: unknown value '%v'.\n" $ret -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- $ret = "defer" -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Settings" (dict "Inline" (dict "Timing" $ret))) -}}
 
 
 
@@ -98,73 +130,119 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* process Inline JS */ -}}
+{{- /* process list of components JS files */ -}}
+{{- $list = "" -}}
+{{- range $k, $v := .Components -}}
+	{{- if $list -}}
+		{{- $list = printf "%s\n" $list -}}
+	{{- end -}}
+	{{- $ret = string (partial (printf "%s.js" $v.Path)) -}}
+
+	{{- $list = printf "%s%s" $list $ret -}}
+{{- end -}}
+
+
 {{- /* process all .Inline */ -}}
-{{- $list = slice -}}
 {{- range $i, $v := .JS.Inline -}}
 	{{- if not $v -}}
 		{{- continue -}}
 	{{- end -}}
 
-
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $ret = printf "JS.Inline.%v: %v" $i $ret.Console.Message -}}
+		{{- $console = printf "JS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 
-
 	{{- /* process relative pathing */ -}}
 	{{- if not (hasPrefix $ret "assets") -}}
 		{{- $ret = path.Join $Page.Filesystem.Directory $ret -}}
 	{{- end -}}
 
-
 	{{- /* validate asset file is there */ -}}
 	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
-		{{- $ret = printf "JS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
+		{{- $console = printf "JS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
+	{{- /* parse file */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "JS.Inline.%v: %v" $i $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = string $ret.Output -}}
 
-	{{- $list = append $ret $list -}}
+	{{- $list = printf "%s%s" $list $ret -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Inline" $list) -}}
 
 
-
-
-{{- /* process all .IncludeTiming */ -}}
-{{- $ret = merge $Page (dict "Input" (dict "Data" .JS.Settings.Inline.Timing)) -}}
+{{- /* process page control inline JS file */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .JS.Main)) -}}
 {{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 {{- if $ret.Console -}}
-	{{- $console = printf "JS.Settings.Inline.Timing: %v" $ret.Console.Message -}}
+	{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- $ret = "defer" -}}
+	{{- $ret = "" -}}
 {{- else -}}
-	{{- $ret = lower (partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output) -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- end -}}
 
-
-{{- if eq $ret "defer" -}}
-	{{- /* PASS */ -}}
-{{- else if eq $ret "sync" -}}
-	{{- /* PASS */ -}}
-{{- else if eq $ret "async" -}}
-	{{- /* PASS */ -}}
-{{- else -}}
-	{{- $console = printf "JS.Settings.Inline.Timing: unknown value '%v'.\n" $ret -}}
-	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- $ret = "defer" -}}
+{{- if not $ret -}}
+	{{- /* DO NOTHING */ -}}
+{{- else if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+	{{- $ret = "" -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Settings" (dict "Inline" (dict "Timing" $ret))) -}}
+
+{{- if $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "" -}}
+	{{- else -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $ret = "" -}}
+	{{- else -}}
+		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $ret -}}
+	{{- $list = printf "%s%s" $list $ret -}}
+{{- end -}}
+
+{{- $ret = printf "deletable-inline-js.css" (sha256 $list) -}}
+{{- $ret = resources.FromString $ret $list -}}
+{{- if not .IsServerMode -}}
+	{{- $ret = resources.Minify $ret -}}
+{{- end -}}
+{{- $ret = string $ret.Content -}}
+
+{{- $dataList = merge $dataList (dict "Inline" $list) -}}
 
 
 

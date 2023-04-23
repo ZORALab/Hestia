@@ -21,11 +21,23 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- if .CSS.Settings.IncludeFirst -}}
-	{{- partial "Hestia/functions/render/html/meta/CSS/_include" . -}}
-	{{- partial "Hestia/functions/render/html/meta/CSS/_inline" . -}}
-{{- else -}}
-	{{- partial "Hestia/functions/render/html/meta/CSS/_inline" . -}}
-	{{- partial "Hestia/functions/render/html/meta/CSS/_include" . -}}
+{{- if and .CSS.Inline (not .CSS.Settings.IncludeFirst) }}
+	<style>
+{{ safeCSS .CSS.Inline }}
+	</style>
+{{- end -}}
+
+
+{{- range $i, $v := .CSS.Include }}
+	<link rel='stylesheet' href='{{- safeHTML $v.URL -}}'
+		{{ if $v.Media -}}media='{{- safeHTML $v.Media -}}'{{- end -}}
+		{{ if $v.OnLoad -}}onload='{{- safeJS $v.OnLoad -}}'{{- end }} />
+{{- end -}}
+
+
+{{- if and .CSS.Inline .CSS.Settings.IncludeFirst }}
+	<style>
+{{ safeCSS .CSS.Inline }}
+	</style>
 {{- end -}}
 {{- /* clean up */ -}}

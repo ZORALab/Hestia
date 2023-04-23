@@ -6,9 +6,9 @@
 # Name.ID              - the application unique ID consist of alphanumeric,
 #                        period (.) and dash (-) ONLY. Non-compliant characters
 #                        shall be automatically be removed or replaced with
-#                        dashes. Use sensible ID like 'com.example.app'. This
-#                        ID shall be used to uniquely identify you across
-#                        various app stores.
+#                        dashes. Use sensible reverse domain ID like
+#                        'com.example.app' as it shall be used to uniquely
+#                        identify you across various app stores.
 # Name.Short           - used in displaying brand and app name. Recommends max 2
 #                        words (e.g. Namespace + product).
 # Name.Full            - used to display brand and app in articles or pages.
@@ -27,15 +27,15 @@ Full = "ZORALab's Hestia"
 [Descriptions]
 Pitch = 'One peaceful libraries suite for building infinite possibilities.'
 Summary = """\
-Unifying all common libraries into a single repository for reusable data structure,
-smoother the learning experience, and tools alignments. Develop and learn easily
-with less worries about supply chain threats and problems.
+Unifying all common libraries into a single repository for reusable data
+structure, smoother the learning experience, and tools alignments. Develop and
+learn easily with less worries about supply chain threats and problems.
 """
 
 
 
 
-# Site-oriented keywords list.
+# Site-oriented keywords list used for categorization and keyword searching.
 [Categories]
 List = [
         'Web',
