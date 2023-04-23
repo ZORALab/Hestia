@@ -34,8 +34,25 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse local config file */ -}}
 {{- range $k, $v := .Formats -}}
+	{{- /* NOTE:
+		Hugo has a stubborn way of processing .html file. We don't have
+		any choice but to use a special extension .hestiaHTML implicitly
+		if we want a pure Go HTML implementations.
+
+		We can document this and present it to the user so that they
+		know and aware what to do with it.
+	*/ -}}
+	{{- if eq $v.Extension ".html" -}}
+		{{- $ret = ".hestiaHTML" -}}
+	{{- else if eq $v.Extension ".json" -}}
+		{{- $ret = ".hestiaJSON" -}}
+	{{- else -}}
+		{{- $ret = $v.Extension -}}
+	{{- end -}}
+
+
 	{{- $Local = printf "%s/%s%s"
-			$Page.Filesystem.Directory $CONFIG_FILENAME $v.Extension -}}
+			$Page.Filesystem.Directory $CONFIG_FILENAME $ret -}}
 	{{- $Local = path.Clean $Local -}}
 	{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
 	{{- $Local = partial "Hestia/functions/data/filesystem/ParseFile" $Local -}}

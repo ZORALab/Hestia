@@ -1,0 +1,17 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render outputs */ -}}
+<main>
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $Page.Titles.Page)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/ID-fy" $ret -}}
+	{{- $ret = $ret.Output -}}
+	<section id='{{- $ret -}}'>
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
+	</section>
+</main>

@@ -19,7 +19,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* CONSTANTS */ -}}
 {{- $CONFIG_FILENAME := "__css.toml" -}}
-{{- $CONTENT_FILENAME := "__content.css" -}}
+{{- $CONTENT_FILENAME := "__content.hestiaCSS" -}}
 
 
 

@@ -18,7 +18,7 @@ specific language governing permissions and limitations under the License.
 {{- /* . = Page data in Hestia Structure */ -}}
 
 {{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__content.ldjson" -}}
+{{- $CONFIG_FILENAME := "__content.hestiaLDJSON" -}}
 
 
 
