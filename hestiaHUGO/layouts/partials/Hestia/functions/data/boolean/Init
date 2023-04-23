@@ -25,44 +25,40 @@ specific language governing permissions and limitations under the License.
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := false -}}
 {{- $console := dict -}}
-{{- $ret := false -}}
 
 
 
 
 {{- /* standardize boolean data */ -}}
-{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
-{{- if not $ret -}}
-	{{- $ret = false -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = false -}}
 {{- end -}}
 
 
-{{- if partial "Hestia/functions/data/boolean/IsBoolean" $ret -}}
-	{{- $dataList = $ret -}}
-{{- else if partial "Hestia/functions/data/string/IsString" $ret -}}
-	{{- if eq $ret "true" -}}
+{{- if partial "Hestia/functions/data/boolean/IsBoolean" $dataList -}}
+	{{- /* DO NOTHING */ -}}
+{{- else if partial "Hestia/functions/data/string/IsString" $dataList -}}
+	{{- if eq (lower $dataList) "true" -}}
 		{{- $dataList = true -}}
-	{{- else if eq $ret "false" -}}
+	{{- else if eq (lower $dataList) "false" -}}
 		{{- $dataList = false -}}
 	{{- else -}}
-		{{- $dataList = false -}}
-		{{- $console = printf
-			"boolean: given data is not a boolean: '%v'\n"
-			.Input.Data -}}
+		{{- $console = printf "boolean: given data is not a bool: '%v'\n" $dataList -}}
 		{{- $console = dict "Message" $console -}}
+		{{- $dataList = false -}}
 	{{- end -}}
-{{- else if partial "Hestia/functions/data/number/IsNumber" $ret -}}
-	{{- if gt $ret 0 -}}
+{{- else if partial "Hestia/functions/data/number/IsNumber" $dataList -}}
+	{{- if gt $dataList 0 -}}
 		{{- $dataList = true -}}
 	{{- else -}}
 		{{- $dataList = false -}}
 	{{- end -}}
 {{- else -}}
-	{{- $dataList = false -}}
-	{{- $console = printf "boolean: given data is not a boolean: '%v'\n"
-		.Input.Data -}}
+	{{- $console = printf "boolean: given data is not a boolean: '%v'\n" $dataList -}}
 	{{- $console = dict "Message" $console -}}
+	{{- $dataList = false -}}
 {{- end -}}
 
 
