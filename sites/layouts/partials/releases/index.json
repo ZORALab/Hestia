@@ -1,4 +1,0 @@
-{{- $dataList := dict "Title" .Titles.Page -}}
-{{- $dataList = merge $dataList (dict "Pitch" .Descriptions.Page.Pitch) -}}
-{{- $dataList = merge $dataList (dict "Packages" .Data.Page.Packages) -}}
-{{- jsonify $dataList -}}

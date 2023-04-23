@@ -1,21 +1,10 @@
+# CONFIGURE THESE DATA #
 baseURL = "https://hestia.zoralab.com"
-canonifyURLs = true
-buildDrafts = false
-buildExpired = false
-buildFuture = false
-theme = [ "hestiaHUGO" ]
-metaDataFormat = "toml"
-paginate = 10
-summaryLength = 70
-sectionPagesMenu = "sections"
-enableEmoji = true
-pluralizeListTitles = false
-enableGitInfo = true
-enableRobotsTXT = true
-hasCJKLanguage = true
+theme = [
+	"hestiaHUGO",
+]
+timeout = '10m'
 
-
-# content pathing
 archetypeDir = "archetypes"
 contentDir = "content"
 assetDir = "assets"
@@ -26,20 +15,41 @@ staticDir = [
 ]
 layoutDir = "layouts"
 themesDir = "../"
-publishDir = "../output/docs"
+publishDir = "public"
 i18nDir = "i18n"
 
 
+
+
+# !!! STOP !!!    Let the following be the default for Hestia    !!! STOP !!! #
+canonifyURLs = true
+buildDrafts = false
+buildExpired = false
+buildFuture = false
+cleanDestinationDir = true
+disableAliases = true
+disablePathToLower = false
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+hasCJKLanguage = true
+metaDataFormat = "toml"
+paginate = 10
+summaryLength = 70
+sectionPagesMenu = "sections"
+pluralizeListTitles = false
+ignoreFiles = []
+
+
 # Hugo injected generator as first line and broke HTML spec. Therefore, Hestia
-# disables it and inject later using its renderer.
+# disables it and inject using its own renderer.
 disableHugoGeneratorInject = true
 
 
 # AMP disallowed javascript loading. Also, Hugo injects it as second line and
-# broke its HTML spec. Therefore, Hestia disables it and inject the liveReload
-# in appropriate output using its renderer.
+# broke its HTML spec. Therefore, Hestia disables it.
 disableLiveReload = true
 
 
-# Disables the following as Hestia is taking over.
+# Disables the following as Hestia is taking over their rendering completely.
 disableKinds = [ 'sitemap', '404', 'RSS', 'term', 'taxonomy', 'robotsTXT' ]
