@@ -41,7 +41,7 @@ specific language governing permissions and limitations under the License.
 {{- if partial "Hestia/functions/data/list/IsSlice" $ret -}}
 	{{- $dataList = dict -}}
 	{{- range $i, $v := $ret -}}
-		{{- $dataList = merge $dataList (dict $i $v) -}}
+		{{- $dataList = merge $dataList (dict (string $i) $v) -}}
 	{{- end -}}
 {{- else if partial "Hestia/functions/data/list/IsMap" $ret -}}
 	{{- $dataList = $ret -}}
