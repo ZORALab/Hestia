@@ -22,8 +22,10 @@ picture, img {
 	padding: var(--picture-padding);
 
 	min-width: var(--picture-min-width);
+	width: var(--picture-width);
 	max-width: var(--picture-max-width);
 	min-height: var(--picture-min-height);
+	height: var(--picture-height);
 	max-height: var(--picture-max-height);
 }
 
@@ -34,8 +36,10 @@ picture > img {
 	padding: inherit;
 
 	min-width: inherit;
+	width: inherit;
 	max-width: inherit;
 	min-height: inherit;
+	height: inherit;
 	max-height: inherit;
 }
 
