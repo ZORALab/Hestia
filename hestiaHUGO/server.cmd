@@ -77,13 +77,9 @@ return_to_current_directory() {
 
 
 run_hugo() {
-        hugo server --buildDrafts \
-                --noBuildLock \
+        hugo server --noBuildLock \
                 --disableFastRender \
-                --bind "localhost" \
-                --baseURL "http://localhost" \
                 --port 8080 \
-                --cleanDestinationDir \
                 --gc
 }
 
@@ -109,13 +105,9 @@ main $@
 ::##############################################################################
 :: Windows Main Codes                                                          #
 ::##############################################################################
-hugo server --buildDrafts ^
-        --noBuildLock ^
+hugo server --noBuildLock ^
         --disableFastRender ^
-        --bind "localhost" ^
-        --baseURL "http://localhost" ^
         --port 8080 ^
-        --cleanDestinationDir ^
         --gc
 ::##############################################################################
 :: Windows Main Codes                                                          #

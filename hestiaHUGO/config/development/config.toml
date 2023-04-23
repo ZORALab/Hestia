@@ -1,0 +1,5 @@
+# !!! STOP !!!    Let the following be the default for Hestia    !!! STOP !!! #
+baseURL = "http://localhost"
+buildDrafts = true
+buildFuture = true
+ignoreFiles = []
