@@ -28,6 +28,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* Prepare Hestia critical data structure. (!!!) POSITION MATTERS (!!!) */ -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Memory/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/URL" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Time" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Formats" .) -}}
