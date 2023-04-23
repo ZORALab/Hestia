@@ -40,4 +40,6 @@ learn easily with less worries about supply chain threats and problems.
 List = [
         'Web',
         'Tech',
+        'PWA',
+        'WASM',
 ]

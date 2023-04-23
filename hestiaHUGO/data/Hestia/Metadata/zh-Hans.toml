@@ -34,4 +34,6 @@ Summary = '''
 List = [
         '网站',
         '科技',
+        'PWA',
+        'WASM',
 ]

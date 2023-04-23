@@ -5,18 +5,18 @@
 #      defining the value for this particular user-agent:
 #
 #               Sitemap = [
-#               	"/sitemap.xml",
+#                       "/sitemap.xml",
 #               ]
 #
 #               Allow = [
-#               	"/",
-#               	"/en/",
-#               	"/zh-hans",
+#                       "/",
+#                       "/en/",
+#                       "/zh-hans",
 #               ]
 #
 #               Disallow = [
-#               	"/en/some-path/there/",
-#               	"/zh-hans/some-path/here/*",
+#                       "/en/some-path/there/",
+#                       "/zh-hans/some-path/here/*",
 #               ]
 #
 #               Crawl-delay = 5

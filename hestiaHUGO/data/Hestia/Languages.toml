@@ -86,7 +86,7 @@ Direction = "left-to-right"
 Default = true
 
 [en.URL]
-ERROR_404 = "/en/404"
+ERROR_404 = "/en/404/"
 
 
 
@@ -98,4 +98,4 @@ Direction = "left-to-right"
 Default = false
 
 [zh-Hans.URL]
-ERROR_404 = "/zh-hans/404"
+ERROR_404 = "/zh-hans/404/"
