@@ -1,0 +1,7 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+
+
+
+
+{{- /* render your page output */ -}}
