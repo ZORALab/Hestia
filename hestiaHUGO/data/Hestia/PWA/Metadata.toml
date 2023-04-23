@@ -44,8 +44,8 @@ Summary = '{{- .Titles.Site.Current.Short }} - {{ .Descriptions.Site.Current.Pit
 
 # Categories is the list of catalog your app is associated with. See:
 #       https://developer.mozilla.org/en-US/docs/Web/Manifest/categories
+#
+# If left empty, '.Data.Store.Metadata.LANG.Categories' shall be used as default
+# automatically.
 [Categories]
-List = [
-        'Web',
-        'Tech',
-]
+List = []

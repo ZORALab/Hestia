@@ -15,13 +15,14 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* . = Page data in Hugo Data Structure */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
+{{- $list := slice -}}
 {{- $ret := false -}}
 
 
@@ -80,10 +81,27 @@ specific language governing permissions and limitations under the License.
 {{- $ret = dict -}}
 {{- range $i, $v := .Data.Store.Hestia.PWA.Metadata.Categories.List -}}
 	{{- if $v -}}
-		{{- $ret = merge $ret (dict (upper (string $i)) $v) -}}
+		{{- $ret = merge $ret (dict (string $v) true) -}}
 	{{- end -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Categories" $ret) -}}
+
+
+{{- if not $ret -}}
+	{{- range $i, $v := .Data.Store.Hestia.Metadata -}}
+		{{- range $j, $w := $v.Categories.List -}}
+			{{- if $w -}}
+				{{- $ret = merge $ret (dict (string $w) true) -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end }}
+{{- end -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $ret -}}
+	{{- $list = append $i $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Categories" $list) -}}
 
 
 
