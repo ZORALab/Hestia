@@ -1,0 +1,14 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+
+
+
+
+{{- /* execute function */ -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}
