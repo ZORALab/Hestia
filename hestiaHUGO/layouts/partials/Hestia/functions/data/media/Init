@@ -20,6 +20,7 @@ specific language governing permissions and limitations under the License.
 {{- /* .Input.Width                   = frame width (number/string) */ -}}
 {{- /* .Input.Height                  = frame height (number/string) */ -}}
 {{- /* .Input.Decorative              = denotes the media is decorative (optional,bool) */ -}}
+{{- /* .Input.Loading                 = media's loading state (optional,string) */ -}}
 {{- /* .Input.Sources                 = media download source (slice) */ -}}
 {{- /* .Input.Sources.[ARRAY_N].URL   = source URL (url) */ -}}
 {{- /* .Input.Sources.[ARRAY_N].Type  = source MIME type (string) */ -}}
@@ -87,6 +88,13 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "Media.Decorative: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
+
+
+{{- /* process .Loading */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_loading" . -}}
+{{- $dataList = merge $dataList (dict "Loading" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Loading: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
