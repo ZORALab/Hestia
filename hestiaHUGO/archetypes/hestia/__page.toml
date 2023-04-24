@@ -87,3 +87,6 @@ Enabled = false
 #                             Filename = 'file2.toml'
 [[Data]]
 Filename = "__data.toml"
+
+[[Data]]
+Filename = "__i18n.toml"
