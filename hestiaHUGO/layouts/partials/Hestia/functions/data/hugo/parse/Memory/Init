@@ -21,4 +21,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- return dict "Memory" .Scratch -}}
+{{- return dict "Memory" .Store -}}

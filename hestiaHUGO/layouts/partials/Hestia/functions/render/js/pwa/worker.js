@@ -32,8 +32,7 @@ const POLICY_NETWORK_ONLY = 'network-only';
 let OFFLINE_CACHE = '{{- safeJS .PWA.Caches.ID -}}';
 let OFFLINE_RESOURCES = {};
 
-{{- $ret := partial "Hestia/functions/data/caches/offline/Load" . -}}
-{{- range $url, $policy := $ret }}
+{{- range $url, $policy := (partial "Hestia/functions/data/caches/offline/Load" .) }}
 OFFLINE_RESOURCES['{{ safeJS (string $url) -}}'] = '{{- safeJS (string $policy) -}}';
 {{- end }}
 

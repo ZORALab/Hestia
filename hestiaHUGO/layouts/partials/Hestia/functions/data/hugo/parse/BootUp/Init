@@ -34,10 +34,10 @@ specific language governing permissions and limitations under the License.
 	NOTE: only runs on 'first boot' or 'on request' for initialize the
 	persistent memory of the repository.
 */ -}}
-{{- $ret = .Scratch.Get $KEY_BOOT -}}
+{{- $ret = .Store.Get $KEY_BOOT -}}
 {{- if not $ret -}}
 	{{- $dataList = partial "Hestia/functions/data/hugo/parse/BootUp/_scanAll" . -}}
-	{{- .Scratch.Set $KEY_BOOT true -}}
+	{{- .Store.Set $KEY_BOOT true -}}
 {{- end -}}
 
 
