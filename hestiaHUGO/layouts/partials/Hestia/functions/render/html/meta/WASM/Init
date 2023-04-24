@@ -22,7 +22,22 @@ specific language governing permissions and limitations under the License.
 
 {{- /* return render */ -}}
 {{- if and (or .WASM.URL .WASM.Embed) .WASM.Init -}}
-	{{- partial "Hestia/functions/render/html/meta/WASM/_dependencies" . }}
+	{{- if .WASM.Embed -}}
+		{{- range $i, $v := .WASM.Dependencies -}}
+			{{- $ret = resources.Get (string $v) -}}
+			{{- $dataList = append $ret $dataList -}}
+		{{- end -}}
+
+
+	{{- $dataList = resources.Concat "wasm-dep.js" $dataList }}
+	<script type="module">
+		{{ safeJS $dataList.Content }}
+	</script>
+	{{- else -}}
+		{{- range $i, $v := .WASM.Dependencies }}
+	<script defer src="{{- safeHTML (string $v) -}}"></script>
+		{{- end -}}
+	{{- end }}
 	<script type="module">
 		{{ safeJS (partial "Hestia/functions/render/js/wasm/Init.js" .) }}
 	</script>

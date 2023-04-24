@@ -20,7 +20,24 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* return render */}}
-	<meta name="engine"
-		content="{{- safeHTML .Vendors.ZORALab.Hestia.Version -}}" />
+{{- /* prepare variables for function */ -}}
+{{- $current := .Languages.Current.Code -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- range $i, $v := .Languages.List -}}
+	{{- if eq $v.Code $current -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (string $v.URL.PAGE) -}}
+		{{- continue -}}
+	{{- end }}
+	<link rel="alternate"
+		hrefLang="{{- $v.Code -}}"
+		href="{{- (string $v.URL.PAGE) -}}" />
+{{- end -}}
 {{- /* clean up */ -}}

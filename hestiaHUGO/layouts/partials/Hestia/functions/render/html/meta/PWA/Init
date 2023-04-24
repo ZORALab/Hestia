@@ -1,6 +1,6 @@
 {{- /*
-Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
-Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -20,8 +20,13 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* return render */ -}}
-{{- if .Keywords.List }}
-	<meta name="keywords"
-		content="{{- delimit .Keywords.List ", " -}}" />
-{{- end -}}
+{{- /* render output */}}
+	<link rel='manifest'
+		href='{{- .PWA.URL.Manifest -}}' />
+
+	{{- if .PWA.URL.Worker }}
+	<script type="module">
+		{{ safeJS (partial "Hestia/functions/render/js/pwa/Init.js" .) }}
+	</script>
+	{{- end }}
+{{- /* clean up */ -}}

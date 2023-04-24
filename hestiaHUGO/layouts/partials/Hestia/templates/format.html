@@ -20,49 +20,62 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* render output */ -}}
 <!DOCTYPE html>
 <html lang="{{- .Languages.Current.Code -}}">
 <head>
 	{{- partial "Hestia/functions/render/html/meta/vendors/google/Analytics4.html" . }}
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	{{- partial "Hestia/functions/render/html/meta/Redirect" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Title" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Favicons" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Robots" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Card" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/open-graph/Title" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Title" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/open-graph/Site-Name" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Site" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Creator" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Keywords" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Formats" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Alternate-Languages" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/open-graph/Locale" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/open-graph/Locale-Alternate" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Description" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/open-graph/Description" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Description" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/open-graph/Thumbnails" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Image" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Media" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/twitter/Stores" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/open-graph/URL" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/microsoft/XMLBrowserConfig" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/gohugo/Generator" . -}}
-	{{- partial "Hestia/functions/render/html/meta/vendors/zoralab/Hestia" . -}}
-	{{- partial "Hestia/functions/render/html/meta/LDJSON" . -}}
-	{{- partial "Hestia/functions/render/html/meta/CSS/Init" . -}}
-	{{- partial "Hestia/functions/render/html/meta/Manifest" . -}}
-	{{- partial "Hestia/functions/render/html/meta/ServiceWorker" . -}}
-	{{- partial "Hestia/functions/render/html/meta/JS/Init" . -}}
-	{{- partial "Hestia/functions/render/html/meta/WASM/Init" . -}}
+	{{- partial "Hestia/functions/render/html/meta/Redirect" . }}
+	<title>{{- safeHTML .Titles.Page -}}</title>
+	{{- partial "Hestia/functions/render/html/meta/Favicons/Init" . }}
+	{{- partial "Hestia/functions/render/html/meta/Languages/Init" . }}
+	<meta name="description"
+		content="{{- safeHTML .Descriptions.Page.Pitch -}}" />
+	<meta name="generator"
+		content="{{- safeHTML .Vendors.GoHugo.Version -}}" />
+	<meta name="engine"
+		content="{{- safeHTML .Vendors.ZORALab.Hestia.Version -}}" />
+
+	{{- range $i, $v := .Robots }}
+	<meta name="{{- safeHTML $v.Name -}}"
+		content="{{- safeHTML $v.Content -}}" />
+	{{- end }}
+
+	{{- if .Keywords.List }}
+	<meta name="keywords"
+		content="{{- delimit .Keywords.List ", " -}}" />
+	{{- end }}
+
+	{{- range $i, $v := .Formats.List }}
+	<link rel="{{- $v.Relationship -}}"
+		type="{{- $v.Type -}}"
+		href="{{- $v.URL -}}" />
+	{{- end }}
+
+	{{- if (index . "LD+JSON") }}
+	<script type="application/ld+json">
+		{{ safeJS (jsonify (index . "LD+JSON")) }}
+	</script>
+	{{- end }}
+
+	{{- if .BrowserConfig.URL }}
+	<meta name="msapplication-config"
+		content="{{- safeHTML .BrowserConfig.URL -}}" />
+	{{- end }}
+
+	{{- partial "Hestia/functions/render/html/meta/vendors/OpenGraph" . }}
+	{{- partial "Hestia/functions/render/html/meta/vendors/Twitter" . }}
+	{{- partial "Hestia/functions/render/html/meta/CSS/Init" . }}
+	{{- partial "Hestia/functions/render/html/meta/PWA/Init" . }}
+	{{- partial "Hestia/functions/render/html/meta/JS/Init" . }}
+	{{- partial "Hestia/functions/render/html/meta/WASM/Init" . }}
 	{{- /* Prevent new line clean up */}}
 </head>
 <body>
-	{{- partial "Hestia/functions/render/html/content/Init" . -}}
-	{{- partial "Hestia/functions/render/html/debug/Init" . -}}
+	{{ safeHTML (index .Content "HTML") }}
+	{{- partial "Hestia/functions/render/html/debug/Init" . }}
 	{{- /* Prevent new line clean up */}}
 </body>
 </html>

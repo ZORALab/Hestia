@@ -1,6 +1,6 @@
 {{- /*
-Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
-Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -20,47 +20,68 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* return render */ -}}
-{{- range $i, $v := .Thumbnails -}}
+{{- /* prepare variables for this function */ -}}
+{{- $source := false -}}
 
 
-{{- $source := index $v.Sources "0" -}}
-{{- if hasPrefix $source.Type "image" }}
+
+
+{{- /* render output */}}
+	<meta property="og:title"
+		content="{{- safeHTML .Titles.Page -}}" />
+	<meta property="og:site_name"
+		content="{{- safeHTML .Titles.Site.Current.Full -}}" />
+	<meta property="og:locale"
+		content="{{- safeHTML .Languages.Current.Code -}}" />
+	<meta property="og:description"
+		content="{{- safeHTML .Descriptions.Page.Pitch -}}" />
+	<meta property="og:url"
+		content="{{- safeHTML .URL.Current.Absolute -}}" />
+
+
+	{{- range $k, $v := .Languages.Alternatives }}
+	<meta property="og:locale:alternate"
+		content="{{- safeHTML $v.Code -}}" />
+	{{- end -}}
+
+
+	{{- range $i, $v := .Thumbnails -}}
+		{{- $source = index $v.Sources "0" -}}
+		{{- if hasPrefix $source.Type "image" }}
 	<meta property="og:image"
 		content="{{- safeHTMLAttr $source.URL -}}" />
 	<meta property="og:image:type"
 		content="{{- safeHTMLAttr $source.Type -}}" />
-	{{- if $v.Width }}
+			{{- if $v.Width }}
 	<meta property="og:image:width"
 		content="{{- safeHTMLAttr $v.Width -}}" />
-	{{- end }}
-	{{- if $v.Height }}
+			{{- end }}
+			{{- if $v.Height }}
 	<meta property="og:image:height"
 		content="{{- safeHTMLAttr $v.Height -}}" />
-	{{- end }}
+			{{- end }}
 	<meta property="og:image:alt"
 		content="{{- safeHTMLAttr $v.Name -}}" />
-{{- else if hasPrefix $source.Type "video" }}
+		{{- else if hasPrefix $source.Type "video" }}
 	<meta property="og:video"
 		content="{{- safeHTMLAttr $source.URL -}}" />
 	<meta property="og:video:type"
 		content="{{- safeHTMLAttr $source.Type -}}" />
-	{{- if $v.Width }}
+			{{- if $v.Width }}
 	<meta property="og:video:width"
 		content="{{- safeHTMLAttr $v.Width -}}" />
-	{{- end -}}
-	{{- if $v.Height }}
+			{{- end -}}
+			{{- if $v.Height }}
 	<meta property="og:video:height"
 		content="{{- safeHTMLAttr $v.Height -}}" />
-	{{- end }}
+			{{- end }}
 	<meta property="og:video:alt"
 		content="{{- safeHTMLAttr $v.Name -}}" />
-{{- else if hasPrefix $source.Type "audio" }}
+		{{- else if hasPrefix $source.Type "audio" }}
 	<meta property="og:audio"
 		content="{{- safeHTMLAttr $source.URL -}}" />
 	<meta property="og:audio:type"
 		content="{{- safeHTMLAttr $source.Type -}}" />
+	{{- end -}}
 {{- end -}}
-
-
-{{- end -}}
+{{- /* clean up */ -}}
