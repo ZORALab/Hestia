@@ -38,13 +38,12 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
 {{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 {{- if not $ret -}}
-	{{- $console = printf "caches: empty data value." -}}
-	{{- $console = dict "Message" $console -}}
+	{{- $console = dict "Message" "empty data value.\n" -}}
 	{{- $url = false -}}
 {{- else if partial "Hestia/functions/data/url/IsURL" $ret -}}
 	{{- $url = $ret -}}
 {{- else -}}
-	{{- $console = printf "caches: invalid data type '%v'.\n" .Input.Data -}}
+	{{- $console = printf "invalid data type '%v'.\n" .Input.Data -}}
 	{{- $console = dict "Message" $console -}}
 	{{- $url = false -}}
 {{- end -}}
@@ -53,13 +52,12 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Policy")) -}}
 {{- $ret = partial "Hestia/functions/data/Get" $ret -}}
 {{- if not $ret -}}
-	{{- $console = printf "caches: empty cache policy." -}}
-	{{- $console = dict "Message" $console -}}
+	{{- $console = dict "Message" "empty cache policy.\n" -}}
 	{{- $policy = false -}}
 {{- else if partial "Hestia/functions/data/string/IsString" $ret -}}
 	{{- $policy = $ret -}}
 {{- else -}}
-	{{- $console = printf "caches: invalid policy data type '%v'.\n" .Input.Data -}}
+	{{- $console = printf "invalid data type for policy '%T'.\n" .Input.Data -}}
 	{{- $console = dict "Message" $console -}}
 	{{- $policy = false -}}
 {{- end -}}

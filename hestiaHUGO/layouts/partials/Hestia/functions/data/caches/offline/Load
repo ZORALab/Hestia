@@ -25,7 +25,6 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := false -}}
-{{- $console := dict -}}
 {{- $ret := false -}}
 
 
