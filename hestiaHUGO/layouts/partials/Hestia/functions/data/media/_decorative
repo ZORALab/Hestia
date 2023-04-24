@@ -16,7 +16,7 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Loop = media loop value (optional,bool) */ -}}
+{{- /* .Input.Decorative = given flag for decorative indication (optional,bool) */ -}}
 
 
 

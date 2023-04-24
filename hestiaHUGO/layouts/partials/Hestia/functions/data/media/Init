@@ -82,9 +82,11 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Decorative */ -}}
 {{- $ret = partial "Hestia/functions/data/media/_decorative" . -}}
-{{- $dataList = merge $dataList (dict "Loop" $ret.Output) -}}
+{{- $dataList = merge $dataList (dict "Decorative" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
-	{{- $console = printf "Media.Loop: %v" $ret.Console.Message -}}
+	{{- $console = printf "Media.Decorative: %v" $ret.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
