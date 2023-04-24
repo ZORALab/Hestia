@@ -19,6 +19,7 @@ specific language governing permissions and limitations under the License.
 {{- /* .Input.Name                    = alt-text or title (string) */ -}}
 {{- /* .Input.Width                   = frame width (number/string) */ -}}
 {{- /* .Input.Height                  = frame height (number/string) */ -}}
+{{- /* .Input.Decorative              = denotes the media is decorative (optional,bool) */ -}}
 {{- /* .Input.Sources                 = media download source (slice) */ -}}
 {{- /* .Input.Sources.[ARRAY_N].URL   = source URL (url) */ -}}
 {{- /* .Input.Sources.[ARRAY_N].Type  = source MIME type (string) */ -}}
@@ -75,6 +76,15 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (dict "Height" $ret.Output) -}}
 {{- if and $ret.Console (not $console) -}}
 	{{- $console = printf "Media.Height: %v" $ret.Console.Message -}}
+	{{- $console = dict "Message" $console -}}
+{{- end -}}
+
+
+{{- /* process .Decorative */ -}}
+{{- $ret = partial "Hestia/functions/data/media/_decorative" . -}}
+{{- $dataList = merge $dataList (dict "Loop" $ret.Output) -}}
+{{- if and $ret.Console (not $console) -}}
+	{{- $console = printf "Media.Loop: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
 {{- end -}}
 
