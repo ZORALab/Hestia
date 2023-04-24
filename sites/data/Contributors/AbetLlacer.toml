@@ -11,7 +11,7 @@ URL = 'https://www.pexels.com/@alxs/'
 Label = 'Pexels'
 
 
-[Metadata.Languages.ZH_HANS]
+[Metadata.Languages.ZH-HANS]
 Name = 'Abet Llacer'
 Description = '''
 通过资助来支持我的小小技术吧。
