@@ -31,6 +31,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* run through each .Caches */ -}}
+{{- $dataList = slice -}}
 {{- range $k, $v := .PWA.Caches -}}
 	{{- $data = dict -}}
 
@@ -77,14 +78,18 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Cache" $ret) -}}
 
 
-	{{- /* save to persistent memory cache list */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $data.URL "Policy" $data.Cache)) -}}
-	{{- $ret = partial "Hestia/functions/data/caches/offline/Save" $ret -}}
-	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: Caches (%v): %v" $v.URL $ret.Console.Message -}}
-		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
-	{{- end -}}
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+
+
+{{- /* save to persistent memory cache list */ -}}
+{{- $ret = dict "Key" $Page.Filesystem.Directory "Dataset" $dataList -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "Hestia/functions/data/caches/offline/Save" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "PWA: Caches: %v" $ret.Console.Message -}}
+	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = dict "List" (partial "Hestia/functions/data/caches/offline/Load" .) -}}
 

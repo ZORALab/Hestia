@@ -16,8 +16,11 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hestia data structure */ -}}
-{{- /* .Input.Data = URL for offline caches (url) */ -}}
-{{- /* .Input.Policy = cache policy (string) */ -}}
+{{- /* .Input.Data = Hestia PWA's Cache data structure (dict) */ -}}
+{{- /* .Input.Data.Key = key for recognizing the collection (string) */ -}}
+{{- /* .Input.Data.Dataset = collection of url and policies (slice) */ -}}
+{{- /* .Input.Data.Dataset.N.URL = url for caching (url) */ -}}
+{{- /* .Input.Data.Dataset.N.Cache = cache policy (string) */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $KEY_CACHES := "Caches" -}}
@@ -27,52 +30,55 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $console := dict -}}
-{{- $url := false -}}
-{{- $policy := false -}}
+{{- $dataset := dict -}}
+{{- $key := false -}}
 {{- $ret := false -}}
 
 
 
 
-{{- /* process url for saving */ -}}
-{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
-{{- if not $ret -}}
-	{{- $console = dict "Message" "empty data value.\n" -}}
-	{{- $url = false -}}
-{{- else if partial "Hestia/functions/data/url/IsURL" $ret -}}
-	{{- $url = $ret -}}
+{{- /* process .Input.Data */ -}}
+{{- $dataset = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
+{{- $dataset = partial "Hestia/functions/data/Get" $dataset -}}
+{{- if not $dataset -}}
+	{{- $console = dict "Message" "empty .Input.Data value.\n" -}}
+	{{- $dataset = dict -}}
+{{- else if partial "Hestia/functions/data/list/IsMap" $dataset -}}
+	{{- /* PASS */ -}}
 {{- else -}}
-	{{- $console = printf "invalid data type '%v'.\n" .Input.Data -}}
+	{{- $console = printf "invalid .Input.Data type '%T'.\n" .Input.Data -}}
 	{{- $console = dict "Message" $console -}}
-	{{- $url = false -}}
+	{{- $dataset = dict -}}
 {{- end -}}
 
 
-{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Policy")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
-{{- if not $ret -}}
-	{{- $console = dict "Message" "empty cache policy.\n" -}}
-	{{- $policy = false -}}
-{{- else if partial "Hestia/functions/data/string/IsString" $ret -}}
-	{{- $policy = $ret -}}
-{{- else -}}
-	{{- $console = printf "invalid data type for policy '%T'.\n" .Input.Data -}}
-	{{- $console = dict "Message" $console -}}
-	{{- $policy = false -}}
+{{- if $dataset -}}
+	{{- $key = merge . (dict "Input" (dict "Query" ".Input.Data.Key")) -}}
+	{{- $key = partial "Hestia/functions/data/Get" $key -}}
+	{{- if not $key -}}
+		{{- $console = dict "Message" "empty .Input.Data.Key value.\n" -}}
+		{{- $dataset = dict -}}
+	{{- else if partial "Hestia/functions/data/string/IsString" $key -}}
+		{{- /* PASS */ -}}
+	{{- else -}}
+		{{- $console = printf "invalid Key data type '%T'.\n" $key -}}
+		{{- $console = dict "Message" $console -}}
+		{{- $dataset = dict -}}
+	{{- end -}}
 {{- end -}}
 
 
 
 
 {{- /* save to persistent memory */ -}}
-{{- if and $url $policy -}}
+{{- if $dataset -}}
 	{{- $ret = .Memory.Get $KEY_CACHES -}}
 	{{- if not $ret -}}
 		{{- $ret = dict -}}
 	{{- end -}}
 
-	{{- $ret = merge $ret (dict (string $url) $policy) -}}
+	{{- $ret = merge $ret (dict $key false) -}}
+	{{- $ret = merge $ret (dict $key $dataset) -}}
 
 	{{- .Memory.Set $KEY_CACHES $ret -}}
 {{- end -}}
