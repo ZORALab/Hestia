@@ -17,6 +17,7 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hestia data structure */ -}}
 {{- /* .Input.Data = URL for offline caches (url) */ -}}
+{{- /* .Input.Policy = cache policy (string) */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $KEY_CACHES := "Caches" -}}
@@ -25,8 +26,9 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := false -}}
 {{- $console := dict -}}
+{{- $url := false -}}
+{{- $policy := false -}}
 {{- $ret := false -}}
 
 
@@ -38,22 +40,59 @@ specific language governing permissions and limitations under the License.
 {{- if not $ret -}}
 	{{- $console = printf "caches: empty data value." -}}
 	{{- $console = dict "Message" $console -}}
+	{{- $url = false -}}
 {{- else if partial "Hestia/functions/data/url/IsURL" $ret -}}
-	{{- $dataList = .Memory.Get $KEY_CACHES -}}
-	{{- if not $dataList -}}
-		{{- $dataList = dict -}}
-	{{- end -}}
-
-	{{- $dataList = merge $dataList (dict (string $ret) true) -}}
-
-	{{- .Memory.Set $KEY_CACHES $dataList -}}
+	{{- $url = $ret -}}
 {{- else -}}
 	{{- $console = printf "caches: invalid data type '%v'.\n" .Input.Data -}}
 	{{- $console = dict "Message" $console -}}
+	{{- $url = false -}}
+{{- end -}}
+
+
+{{- $ret = merge . (dict "Input" (dict "Query" ".Input.Policy")) -}}
+{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- if not $ret -}}
+	{{- $console = printf "caches: empty cache policy." -}}
+	{{- $console = dict "Message" $console -}}
+	{{- $policy = false -}}
+{{- else if partial "Hestia/functions/data/string/IsString" $ret -}}
+	{{- $policy = lower $ret -}}
+
+	{{- if eq $policy "cache-first" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $policy "network-first" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $policy "network-only" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $policy "cache-only" -}}
+		{{- /* PASS */ -}}
+	{{- else -}}
+		{{- $policy = "network-first" -}}
+	{{- end -}}
+{{- else -}}
+	{{- $console = printf "caches: invalid policy data type '%v'.\n" .Input.Data -}}
+	{{- $console = dict "Message" $console -}}
+	{{- $policy = false -}}
+{{- end -}}
+
+
+
+
+{{- /* save to persistent memory */ -}}
+{{- if and $url $policy -}}
+	{{- $ret = .Memory.Get $KEY_CACHES -}}
+	{{- if not $ret -}}
+		{{- $ret = dict -}}
+	{{- end -}}
+
+	{{- $ret = merge $ret (dict (string $url) $policy) -}}
+
+	{{- .Memory.Set $KEY_CACHES $ret -}}
 {{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return dict "Output" dict "Console" $console -}}

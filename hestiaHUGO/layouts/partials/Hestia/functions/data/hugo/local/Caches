@@ -1,0 +1,65 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := "__caches.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Local := dict -}}
+{{- $dataList := . -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse local config file */ -}}
+{{- $Local = printf "%s/%s%s" $Page.Filesystem.Directory $CONFIG_FILENAME $ret -}}
+{{- $Local = path.Clean $Local -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
+{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- if $Local.Console -}}
+	{{- $Local = dict -}}
+{{- else -}}
+	{{- $Local = $Local.Output -}}
+{{- end -}}
+
+
+{{- $ret = dict -}}
+{{- range $i, $v := $Local.Contents -}}
+	{{- if not (index $v "URL") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not (index $v "Caches") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = merge $ret (dict $v.URL $v.Cache) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" $ret)) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

@@ -32,15 +32,9 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* extract and load URL list */ -}}
-{{- $ret = .Memory.Get $KEY_CACHES -}}
-{{- if not $ret -}}
-	{{- $ret = dict -}}
-{{- end -}}
-
-
-{{- $dataList = slice -}}
-{{- range $i, $v := $ret -}}
-	{{- $dataList = append $i $dataList -}}
+{{- $dataList = .Memory.Get $KEY_CACHES -}}
+{{- if not $dataList -}}
+	{{- $dataList = dict -}}
 {{- end -}}
 
 
