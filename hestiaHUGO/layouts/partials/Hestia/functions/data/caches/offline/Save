@@ -57,19 +57,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = dict "Message" $console -}}
 	{{- $policy = false -}}
 {{- else if partial "Hestia/functions/data/string/IsString" $ret -}}
-	{{- $policy = lower $ret -}}
-
-	{{- if eq $policy "cache-first" -}}
-		{{- /* PASS */ -}}
-	{{- else if eq $policy "network-first" -}}
-		{{- /* PASS */ -}}
-	{{- else if eq $policy "network-only" -}}
-		{{- /* PASS */ -}}
-	{{- else if eq $policy "cache-only" -}}
-		{{- /* PASS */ -}}
-	{{- else -}}
-		{{- $policy = "network-first" -}}
-	{{- end -}}
+	{{- $policy = $ret -}}
 {{- else -}}
 	{{- $console = printf "caches: invalid policy data type '%v'.\n" .Input.Data -}}
 	{{- $console = dict "Message" $console -}}
