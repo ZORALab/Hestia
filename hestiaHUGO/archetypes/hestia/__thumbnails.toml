@@ -1,5 +1,6 @@
 [Contents.0]
 Name = "{{- .Titles.Page -}}"
+Decorative = false
 Width = "1200"
 Height = "630"
 CORS = ""
@@ -28,6 +29,7 @@ Default = false
 
 [Contents.1]
 Name = "{{- .Titles.Page -}}"
+Decorative = false
 Width = "1200"
 Height = "1200"
 CORS = ""
@@ -56,6 +58,7 @@ Default = false
 
 [Contents.2]
 Name = "{{- .Titles.Page -}}"
+Decorative = false
 Width = "480"
 Height = "480"
 CORS = ""
