@@ -37,7 +37,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- $dataList = partial "Hestia/functions/render/json/Content" . -}}
+{{- $dataList = default dict (index .Content "JSON") -}}
 {{- $dataList = string (jsonify $dataList) -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" $dataList "Path" $path)) -}}
 {{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
