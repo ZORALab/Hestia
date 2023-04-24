@@ -27,6 +27,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $Local := dict -}}
 {{- $dataList := . -}}
+{{- $list := dict -}}
 {{- $ret := false -}}
 
 
@@ -44,7 +45,7 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- $ret = dict -}}
+{{- $list = dict -}}
 {{- range $i, $v := $Local.Contents -}}
 	{{- if not (index $v "URL") -}}
 		{{- continue -}}
@@ -54,9 +55,21 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $ret = merge $ret (dict $v.URL $v.Cache) -}}
+	{{- $ret = urls.Parse $v.URL -}}
+	{{- if $ret.Scheme -}}
+		{{- /* DO NOTHING - absolute URL */ -}}
+		{{- $ret = $v.URL -}}
+	{{- else if (hasPrefix $ret.Path "/") -}}
+		{{- /* DO NOTHING - absolute URL */ -}}
+		{{- $ret = $v.URL -}}
+	{{- else -}}
+		{{- $ret = path.Join "/" $Page.Filesystem.Directory $v.URL -}}
+	{{- end -}}
+	{{- $ret = lower $ret -}}
+
+	{{- $list = merge $list (dict $ret $v.Cache) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" $ret)) -}}
+{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" $list)) -}}
 
 
 

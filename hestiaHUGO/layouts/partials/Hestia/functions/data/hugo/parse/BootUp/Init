@@ -1,0 +1,47 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Hugo data structure */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $KEY_BOOT := "Boot" -}}
+
+
+
+
+{{- /* prepare variables for function */ -}}
+{{- $dataList := dict -}}
+{{- $ret := true -}}
+
+
+
+
+{{- /* execute function.
+	NOTE: only runs on 'first boot' or 'on request' for initialize the
+	persistent memory of the repository.
+*/ -}}
+{{- $ret = .Scratch.Get $KEY_BOOT -}}
+{{- if not $ret -}}
+	{{- $dataList = partial "Hestia/functions/data/hugo/parse/BootUp/_scanAll" . -}}
+	{{- .Scratch.Set $KEY_BOOT true -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

@@ -38,6 +38,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsServerMode" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Is404" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsRoot" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/BootUp/Init" .) -}}
 
 
 {{- /* prepare Hestia data structures. */ -}}
@@ -58,7 +59,6 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Vendors/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Data" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/ScanChildren/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/ScanAll/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/LDJSON" .) -}}
 

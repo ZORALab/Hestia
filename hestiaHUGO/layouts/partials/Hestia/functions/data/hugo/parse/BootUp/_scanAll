@@ -35,11 +35,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process data alongside secure manual caching so that:
-	1) only root page or 1st rendering page can refresh the values.
-	2) speeds up all pages rendering so that every page does not need to
-	   scan all the pages every time.
-*/ -}}
+{{- /* recursively scan the entire repository */ -}}
 {{- if .IsHome -}}
 	{{- /* begin scanning all pages */ -}}
 	{{- $nav = slice -}}
@@ -66,8 +62,7 @@ specific language governing permissions and limitations under the License.
 			{{- $path = path.Dir $v.Page.File.Path -}}
 			{{- $Local = path.Join $path $CACHE_FILENAME -}}
 			{{- $Local = path.Clean $Local -}}
-			{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile"
-				$Local -}}
+			{{- $Local = partial "Hestia/functions/data/hugo/parse/__dataFile" $Local -}}
 		{{- end -}}
 
 
