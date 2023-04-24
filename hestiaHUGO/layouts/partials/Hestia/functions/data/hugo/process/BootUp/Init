@@ -15,30 +15,16 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Hugo data structure */ -}}
-
-{{- /* CONSTANTS */ -}}
-{{- $KEY_BOOT := "Boot" -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
-{{- /* prepare variables for function */ -}}
-{{- $dataList := dict -}}
-
-
-
-
-{{- /* execute function.
-	NOTE: only runs on 'first boot' or 'on request' for initialize the
-	persistent memory of the repository.
-*/ -}}
-{{- if not (.Store.Get $KEY_BOOT) -}}
-	{{- $dataList = partial "Hestia/functions/data/hugo/parse/BootUp/_scanAll" . -}}
-{{- end -}}
+{{- /* process boot states */ -}}
+{{- partial "Hestia/functions/data/caches/boot/Set" . -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return . -}}
