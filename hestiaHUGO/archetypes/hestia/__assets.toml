@@ -43,12 +43,13 @@
 # For .Include list, should .Media or .Onload is used for asynchonous loading,
 # there is no guarentee for the actual CSS loading sequences (see:
 # https://web.dev/critical-rendering-path-render-blocking-css/). When in doubt,
-# leaving them blank will be the wisest choice.
+# leaving them blank.
 #
 # NOTE:
-# The '__content.hestiaCSS', the page-specific CSS control file will
-# automatically be appended into .CSS.Inline as the last item (most powerful).
-# You do not need to manually add it in.
+# The '__content.hestiaCSS', the page-specific CSS control file will be
+# automatically appended into .CSS.Inline as the last item (demmed the most
+# powerful among all when operating in .Include leading the .Inline mode). You
+# DO NOT need to manually add it in.
 [[CSS.Inline]]
 Path = ''
 
@@ -109,8 +110,9 @@ OnLoad = ''
 #
 # NOTE:
 # The '__content.hestiaJS', the page-specific JS control file will
-# automatically be appended into .JS.Inline as the last item (most powerful).
-# You do not need to manually add it in.
+# automatically be appended into .JS.Inline as the last item (deemed the most
+# powerful among all when operating in .Include leading .Inline mode). You DO
+# NOT need to manually add it in.
 [[JS.Inline]]
 Path = ''
 

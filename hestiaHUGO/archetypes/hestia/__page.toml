@@ -8,8 +8,8 @@
 #   3. Date should ONLY comply to this pattern when manually constructed:
 #                    Thu 21 Jul 2022 14:27:39 PM +08
 [Date]
-Created   = ""
-Published = ""
+Created   = ''
+Published = ''
 
 
 
@@ -21,10 +21,10 @@ Published = ""
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "My Page Title Here"
+Title = 'My Page Title Here'
 Keywords = [
-	"Content Keywords Here",
-	"and another keywords here",
+	'Content Keywords Here',
+	'Another keywords here',
 ]
 
 
@@ -37,12 +37,12 @@ Keywords = [
 #   3. The .Description.Summary is at maximum of 250 characters.
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
-Pitch = """
+Pitch = '''
 Straight up sales pitch!
-"""
-Summary = """
+'''
+Summary = '''
 Elaborate based on your pitch. Keep it short for SEO.
-"""
+'''
 
 
 
@@ -58,7 +58,7 @@ Elaborate based on your pitch. Keep it short for SEO.
 #      or fallback to default language.
 [Redirect]
 Delay = 0 # second
-URL = ""
+URL = ''
 Enabled = false
 
 [Redirect.Language]
@@ -86,7 +86,7 @@ Enabled = false
 #                             [[data]]
 #                             Filename = 'file2.toml'
 [[Data]]
-Filename = "__data.toml"
+Filename = '__data.toml'
 
 [[Data]]
-Filename = "__i18n.toml"
+Filename = '__i18n.toml'

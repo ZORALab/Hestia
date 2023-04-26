@@ -1,6 +1,7 @@
 # HESTIA PAGE-LEVEL WEB UI COMPONENTS LIST
 # ========================================
-# All Hestia internal web UI components at page-level configurations.
+# All Hestia internal web UI components for this page.
+#
 # The components' low-level codes are auto-generated from hestiaGO code
 # libraries for rendering consistency between non-WASM users and WASM users.
 #
