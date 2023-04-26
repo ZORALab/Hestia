@@ -1,0 +1,68 @@
+[Metadata]
+ID = 'hugo'
+
+[Metadata.Languages.EN]
+Title = 'Hugo'
+Label = 'Explore More'
+URL = '/en/hugo/'
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = 'Handles web frontend artwork and content compilation'
+Summary = 'for steadily and rapdily handles large volume data.'
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = 'Best suited for static web presentation and WASM application'
+Summary = "for distributed and decentralized software services."
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = "Client side friendly interface"
+Summary = "PWA supported by default."
+
+
+[Metadata.Languages.ZH-HANS]
+Title = 'Hugo'
+Label = '探索奥秘'
+URL = '/zh-hans/hugo/'
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = '处理网站前端艺术和内容编译需求'
+Summary = '很稳重地处理大量网站数据。'
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = '最适合展示静态网页和WASM应用程序'
+Summary = "容易实行分布式和去中心化软件服务。"
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = "为顾客方面容易接触"
+Summary = "原型支持PWA。"
+
+
+
+
+[Logo]
+Name = "Hugo Mascot"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Logo.Sources]]
+URL = "/img/logos/gohugo-gohper-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Logo.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
