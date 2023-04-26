@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1200"
+   height="1200"
+   version="1.1"
+   viewBox="0 0 317.5 317.5"
+   id="svg16"
+   sodipodi:docname="borderless-1200x1200.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="0.68794702"
+     inkscape:cx="600"
+     inkscape:cy="600"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <path
+     d="M 27.729085,0 H 289.77093 c 15.36219,0 27.72908,12.366891 27.72908,27.729085 V 289.77093 c 0,15.36219 -12.36689,27.72908 -27.72908,27.72908 H 27.729085 C 12.366891,317.50001 0,305.13312 0,289.77093 V 27.729085 C 0,12.366891 12.366891,0 27.729085,0 Z"
+     style="opacity:0.99;fill:#ffffff;stroke-width:1"
+     id="path2" />
+  <g
+     transform="translate(-17.747 -26.062)"
+     style="fill:none;opacity:.99"
+     id="g10">
+    <path
+       d="m227.96 77.349c-6.0852-5.1999-15.343-4.0676-20.327 1.7728l-120.08 140.74c-4.9831 5.8405-4.6485 15.167 1.4366 20.367 6.0852 5.1999 15.344 4.0704 20.327-1.7701l120.08-140.74c4.9831-5.8405 4.6483-15.17-1.4368-20.37z"
+       style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:#000080;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"
+       id="path4" />
+    <path
+       d="m107.75 73.592c-7.9017 0-14.553 6.6511-14.553 14.553 0 7.9017 6.6511 14.551 14.553 14.551h110.64c7.9017 0 14.551-6.6491 14.551-14.551s-6.6491-14.553-14.551-14.553z"
+       style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:#00f;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"
+       id="path6" />
+    <path
+       d="m98.892 214.8c-8.0454 0-14.815 6.6491-14.815 14.551 0 7.9017 6.7701 14.553 14.815 14.553h118.54c8.0454 0 14.815-6.6511 14.815-14.553 0-7.9017-6.7701-14.551-14.815-14.551z"
+       style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:#00002b;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"
+       id="path8" />
+  </g>
+  <path
+     d="m117.98 240.87c-8.3489 0-15.376 6.6511-15.376 14.553 0 7.9017 7.0275 14.551 15.376 14.551h117.42c8.3489 0 15.376-6.6491 15.376-14.551 0-7.9017-7.0275-14.553-15.376-14.553z"
+     style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:#002b00;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;opacity:.99;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"
+     id="path12" />
+  <path
+     d="m246.28 103.71c-6.0852-5.1999-15.343-4.0676-20.327 1.7728l-120.08 140.74c-4.9831 5.8405-4.6486 15.167 1.4366 20.367 6.0852 5.1999 15.344 4.0704 20.327-1.7701l120.08-140.74c4.9831-5.8405 4.6483-15.17-1.4368-20.37z"
+     style="color-rendering:auto;color:#000000;dominant-baseline:auto;fill:#0f0;font-feature-settings:normal;font-variant-alternates:normal;font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-variant-position:normal;font-variation-settings:normal;image-rendering:auto;inline-size:0;isolation:auto;mix-blend-mode:normal;opacity:.99;shape-margin:0;shape-padding:0;shape-rendering:auto;solid-color:#000000;stop-color:#000000;text-decoration-color:#000000;text-decoration-line:none;text-decoration-style:solid;text-indent:0;text-orientation:mixed;text-transform:none;white-space:normal"
+     id="path14" />
+</svg>
