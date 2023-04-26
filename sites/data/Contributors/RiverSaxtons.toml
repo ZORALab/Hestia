@@ -1,0 +1,109 @@
+[Metadata]
+Type = 'Person'
+
+
+[Metadata.Languages.EN]
+Name = 'RiverSaxton'
+Description = '''
+Cybersecurity.
+'''
+URL = 'https://github.com/Xenador77'
+Label = 'GitHub'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = 'RiverSaxton'
+Description = '''
+网路安全。
+'''
+URL = 'https://github.com/Xenador77'
+Label = 'GitHub'
+
+
+
+
+[Contribution.Artwork]
+Past = false
+Current = false
+
+[Contribution.Sponsor]
+Past = true
+Current = false
+
+[Contribution.Developer]
+Past = false
+Current = false
+
+[Contribution.Knowledge]
+Past = false
+Current = false
+
+
+
+
+[Portrait]
+Name = "RiverSaxton's Portrait"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+
+[[Portrait.Sources]]
+URL = "/img/portraits/riversaxton-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+
+[Portrait.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
