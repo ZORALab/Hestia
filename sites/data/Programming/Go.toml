@@ -1,0 +1,68 @@
+[Metadata]
+ID = 'go'
+
+[Metadata.Languages.EN]
+Title = 'Go'
+Label = 'Under Development'
+URL = ''
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = 'Handles prototyping and path finding'
+Summary = 'for rapidly changing environment.'
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = 'Best suited for early stage development and testing'
+Summary = "epscially during idea realization."
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = "Inter-translatable with ZORALab's Hestia Rust and TinyGo"
+Summary = "for data reusability and code compatibility."
+
+
+[Metadata.Languages.ZH-HANS]
+Title = 'Go'
+Label = '正在研制'
+URL = ''
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = '处理原型制造和寻路需求'
+Summary = '适合一直改变的工作环境。'
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = '最适合早期研制和实验使用'
+Summary = "尤其是实现计划的黄金时间。"
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = "和ZORALab's Hestia Rust和TinyGo互通兼容"
+Summary = "可以回用现有的数据和同用代码。"
+
+
+
+
+[Logo]
+Name = "Go Mascot"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Logo.Sources]]
+URL = "/img/logos/google-go-gopher-t2-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Logo.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
