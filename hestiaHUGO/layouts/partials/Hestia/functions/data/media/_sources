@@ -20,6 +20,7 @@ specific language governing permissions and limitations under the License.
 {{- /* .Input.Sources.[ARRAY_N].URL = source's URL (url) */ -}}
 {{- /* .Input.Sources.[ARRAY_N].Type = source's MIME Type (string) */ -}}
 {{- /* .Input.Sources.[ARRAY_N].Media = source's media query (string) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Descriptor = source's descriptor (string) */ -}}
 
 
 
@@ -129,6 +130,26 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 	{{- $entry = merge $entry (dict "Media" $ret.Output) -}}
+
+
+	{{- /* process .source.Descriptor */ -}}
+	{{- $ret = merge $v (dict "Input" (dict "Query" ".Descriptor")) -}}
+	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- if not $ret -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- if not $console -}}
+			{{- $console = printf ".Source.%v.Descriptor: %s" $k $ret.Console.Message -}}
+			{{- $console = dict "Message" $console -}}
+		{{- end -}}
+
+		{{- continue -}}
+	{{- end -}}
+	{{- $entry = merge $entry (dict "Descriptor" $ret.Output) -}}
 
 
 	{{- /* merge into $list */ -}}

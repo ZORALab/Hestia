@@ -16,30 +16,31 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Name                    = alt-text or title (string) */ -}}
-{{- /* .Input.Width                   = frame width (number/string) */ -}}
-{{- /* .Input.Height                  = frame height (number/string) */ -}}
-{{- /* .Input.Decorative              = denotes the media is decorative (optional,bool) */ -}}
-{{- /* .Input.Loading                 = media's loading state (optional,string) */ -}}
-{{- /* .Input.Sources                 = media download source (slice) */ -}}
-{{- /* .Input.Sources.[ARRAY_N].URL   = source URL (url) */ -}}
-{{- /* .Input.Sources.[ARRAY_N].Type  = source MIME type (string) */ -}}
-{{- /* .Input.Sources.[ARRAY_N].Media = source media query (string) */ -}}
-{{- /* .Input.Sizes                   = frame sizes (optional,string) */ -}}
-{{- /* .Input.CORS                    = cross-origin data (optional,string) */ -}}
-{{- /* .Input.Relationship            = relationship data (optional,string) */ -}}
-{{- /* .Input.Design                  = art design data (optional,string) */ -}}
-{{- /* .Input.Preload                 = pre-load value (optional,string) */ -}}
-{{- /* .Input.Control                 = control interface flag (optional,bool) */ -}}
-{{- /* .Input.Autoplay                = autoplay flag (optional,bool) */ -}}
-{{- /* .Input.Loop                    = looping flag (optional,bool) */ -}}
-{{- /* .Input.Mute                    = mute audio flag (optional,bool) */ -}}
-{{- /* .Input.Inline                  = inline playing flag (optional,bool) */ -}}
-{{- /* .Input.Tracks                  = track (e.g. VTT) list (optional,map) */ -}}
-{{- /* .Input.Tracks.[LANG].URL       = track source file URL (url) */ -}}
-{{- /* .Input.Tracks.[LANG].Kind      = track kind (string) */ -}}
-{{- /* .Input.Tracks.[LANG].Label     = track label (string) */ -}}
-{{- /* .Input.Tracks.[LANG].Default   = track default flag (optional,bool) */ -}}
+{{- /* .Input.Name                         = alt-text or title (string) */ -}}
+{{- /* .Input.Width                        = frame width (number/string) */ -}}
+{{- /* .Input.Height                       = frame height (number/string) */ -}}
+{{- /* .Input.Decorative                   = set the media is decorative (optional,bool) */ -}}
+{{- /* .Input.Loading                      = media's loading state (optional,string) */ -}}
+{{- /* .Input.Sources                      = media download source (slice) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].URL        = source URL (url) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Type       = source MIME type (string) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Media      = source media query (string) */ -}}
+{{- /* .Input.Sources.[ARRAY_N].Descriptor = source descriptor (string) */ -}}
+{{- /* .Input.Sizes                        = frame sizes (optional,string) */ -}}
+{{- /* .Input.CORS                         = cross-origin data (optional,string) */ -}}
+{{- /* .Input.Relationship                 = relationship data (optional,string) */ -}}
+{{- /* .Input.Design                       = art design data (optional,string) */ -}}
+{{- /* .Input.Preload                      = pre-load value (optional,string) */ -}}
+{{- /* .Input.Control                      = control interface flag (optional,bool) */ -}}
+{{- /* .Input.Autoplay                     = autoplay flag (optional,bool) */ -}}
+{{- /* .Input.Loop                         = looping flag (optional,bool) */ -}}
+{{- /* .Input.Mute                         = mute audio flag (optional,bool) */ -}}
+{{- /* .Input.Inline                       = inline playing flag (optional,bool) */ -}}
+{{- /* .Input.Tracks                       = track (e.g. VTT) list (optional,map) */ -}}
+{{- /* .Input.Tracks.[LANG].URL            = track source file URL (url) */ -}}
+{{- /* .Input.Tracks.[LANG].Kind           = track kind (string) */ -}}
+{{- /* .Input.Tracks.[LANG].Label          = track label (string) */ -}}
+{{- /* .Input.Tracks.[LANG].Default        = track default flag (optional,bool) */ -}}
 
 
 
