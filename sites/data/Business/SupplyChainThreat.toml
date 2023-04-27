@@ -1,0 +1,117 @@
+[Metadata]
+Type = 'Person'
+
+
+[Metadata.Languages.EN]
+Name = 'Resolving Supply Chain Threat'
+URL = 'https://doi.org/10.5281/zenodo.6815013'
+Label = 'Paper'
+
+[[Metadata.Languages.EN.Descriptions]]
+Pitch = 'NO MORE'
+Summary = 'geo-political nuisance.'
+
+[[Metadata.Languages.EN.Descriptions]]
+Pitch = 'NO MORE'
+Summary = 'dirty and after-the-fact shenanigans.'
+
+[[Metadata.Languages.EN.Descriptions]]
+Pitch = 'NO MORE'
+Summary = 'cut-throat charges.'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = '解决供应链的威胁'
+URL = 'https://doi.org/10.5281/zenodo.6815013'
+Label = '白皮书'
+
+[[Metadata.Languages.ZH-HANS.Descriptions]]
+Pitch = '不再担忧'
+Summary = '地缘政治带来无畏无聊的麻烦。'
+
+[[Metadata.Languages.ZH-HANS.Descriptions]]
+Pitch = '不再担忧'
+Summary = '事后的肮脏诡计。'
+
+[[Metadata.Languages.ZH-HANS.Descriptions]]
+Pitch = '不再担忧'
+Summary = '残酷无情不择手段的价钱更改。'
+
+
+
+
+[Portrait]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/peace-in-mind-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[Portrait.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
