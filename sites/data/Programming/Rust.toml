@@ -24,15 +24,15 @@ Title = 'Rust'
 Label = '正在研制'
 URL = ''
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = '处理高弹性和高性能需求'
 Summary = '来造出很稳定的程序成绩。'
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = '最适合优化阶段和稳定性升级使用'
 Summary = "尤其是Go成功寻路之后的黄金时间。"
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = "和ZORALab's Hestia Go互通兼容"
 Summary = "可以回用现有的数据。"
 

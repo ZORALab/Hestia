@@ -24,15 +24,15 @@ Title = 'Go'
 Label = '正在研制'
 URL = ''
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = '处理原型制造和寻路需求'
 Summary = '适合一直改变的工作环境。'
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = '最适合早期研制和实验使用'
 Summary = "尤其是实现计划的黄金时间。"
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = "和ZORALab's Hestia Rust和TinyGo互通兼容"
 Summary = "可以回用现有的数据和同用代码。"
 

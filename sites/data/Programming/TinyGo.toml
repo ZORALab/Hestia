@@ -24,15 +24,15 @@ Title = 'TinyGo'
 Label = '正在研制'
 URL = ''
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = '处理微小占用空间的高度优化开发需求'
 Summary = '适合嵌入式系统和WASM系统研制环境。'
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = '最适合Go在极端环境下研制和实验使用'
 Summary = "如微小占用空间和小量计算周期。"
 
-[[Metadata.Languages.EN.Strengths]]
+[[Metadata.Languages.ZH-HANS.Strengths]]
 Pitch = "和ZORALab's Hestia TinyGo互通兼容"
 Summary = "可以回用现有的数据和同用代码。"
 
