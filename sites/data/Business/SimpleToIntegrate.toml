@@ -1,0 +1,117 @@
+[Metadata]
+Type = 'Person'
+
+
+[Metadata.Languages.EN]
+Name = 'Simple to Integrate'
+URL = ''
+Label = ''
+
+[[Metadata.Languages.EN.Descriptions]]
+Pitch = 'With simple .zip archive fromat'
+Summary = 'works on Windows, Linux, and MacOS.'
+
+[[Metadata.Languages.EN.Descriptions]]
+Pitch = 'GPG cryptographically signed'
+Summary = "for mathematically securing the package's originality and genuity."
+
+[[Metadata.Languages.EN.Descriptions]]
+Pitch = 'Local hosting capable'
+Summary = 'for securing and stabilizing downstream distributions.'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = '容易综合化'
+URL = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Descriptions]]
+Pitch = '运用最简单的.zip压缩包装格式'
+Summary = '可以在Windows，Linux，和MacOS通用。'
+
+[[Metadata.Languages.ZH-HANS.Descriptions]]
+Pitch = '用GPG加密签名'
+Summary = "通过数学来确保分发的代码包装是原装和来自原本制作者。"
+
+[[Metadata.Languages.ZH-HANS.Descriptions]]
+Pitch = '具有本地托管能力'
+Summary = '确保下游分销稳固和安全。'
+
+
+
+
+[Portrait]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Portrait.Sources]]
+URL = "/img/thumbnails/common-drink-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[Portrait.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
