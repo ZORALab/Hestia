@@ -1,5 +1,5 @@
 [Metadata]
-Type = 'Person'
+Type = 'Core'
 
 
 [Metadata.Languages.EN]
@@ -40,7 +40,7 @@ Summary = '确保下游分销稳固和安全。'
 
 
 
-[Portrait]
+[Thumbnail]
 Name = ""
 Decorative = true
 Loading = 'lazy'
@@ -56,61 +56,61 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-1200x1200.avif"
 Type = "image/avif"
 Media = "min-width: 600px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-1200x1200.webp"
 Type = "image/webp"
 Media = "min-width: 600px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-1200x1200.jpg"
 Type = "image/jpeg"
 Media = "min-width: 600px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-480x480.avif"
 Type = "image/avif"
 Media = "min-width: 400px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-480x480.webp"
 Type = "image/webp"
 Media = "min-width: 400px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-480x480.jpg"
 Type = "image/jpeg"
 Media = "min-width: 400px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-220x220.avif"
 Type = "image/avif"
 Media = "max-width: 250px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-220x220.webp"
 Type = "image/webp"
 Media = "max-width: 250px"
 Descriptor = '1x'
 
-[[Portrait.Sources]]
+[[Thumbnail.Sources]]
 URL = "/img/thumbnails/common-drink-220x220.jpg"
 Type = "image/jpeg"
 Media = "max-width: 250px"
 Descriptor = '1x'
 
-[Portrait.Tracks.en]
+[Thumbnail.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"
