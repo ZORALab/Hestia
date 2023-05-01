@@ -13,6 +13,8 @@
 #      use the .Vector dataset.
 [Main]
 Name = ""
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "1200"
 CORS = ""
@@ -30,6 +32,7 @@ Inline = false
 URL = "images/icon-main.png"
 Type = "image/png"
 Media = "all"
+Descriptor = '1x'
 
 
 [Main.Tracks.en]
@@ -49,6 +52,8 @@ Default = false
 #   2. This will only be used in web app manifest file.
 [Vector]
 Name = ""
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "1200"
 CORS = ""
@@ -66,6 +71,7 @@ Inline = false
 URL = "images/icon-vector.svg"
 Type = "image/svg+xml"
 Media = "all"
+Descriptor = '1x'
 
 
 [Vector.Tracks.en]
@@ -94,6 +100,8 @@ Default = false
 #   https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html
 [Monochrome]
 Name = ""
+Decorative = false
+Loading = 'lazy'
 Width = "1500"
 Height = "1500"
 CORS = ""
@@ -111,6 +119,7 @@ Inline = false
 URL = "images/favicon-monochrome.svg"
 Type = "image/svg+xml"
 Media = "all"
+Descriptor = '1x'
 
 
 [Monochrome.Tracks.en]
@@ -136,6 +145,8 @@ Default = false
 #      PNG type. Hence, please supply non-vector image here. For vector format,
 #      use the .Vector dataset.
 Name = ""
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "1200"
 CORS = ""
@@ -153,6 +164,7 @@ Inline = false
 URL = "images/favicon-main.png"
 Type = "image/png"
 Media = "all"
+Descriptor = '1x'
 
 
 [Favicon.Tracks.en]
@@ -176,6 +188,8 @@ Default = false
 #      can recolor the favicon transparent pixels, making the brand logo outside
 #      of your control.
 Name = ""
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "1200"
 CORS = ""
@@ -193,6 +207,7 @@ Inline = false
 URL = "images/favicon-vector.svg"
 Type = "image/svg+xml"
 Media = "all"
+Descriptor = '1x'
 
 
 [FaviconVector.Tracks.en]
@@ -222,6 +237,8 @@ Default = false
 # More info:
 #  https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)
 Name = ""
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "580.65"
 CORS = ""
@@ -239,6 +256,7 @@ Inline = false
 URL = "images/banner-mstile.png"
 Type = "image/png"
 Media = "all"
+Descriptor = '1x'
 
 
 [MSBanner.Tracks.en]
@@ -263,6 +281,8 @@ Default = false
 #      use the .Vector dataset.
 [Banner]
 Name = ""
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "630"
 CORS = ""
@@ -280,6 +300,7 @@ Inline = false
 URL = "images/banner-main.png"
 Type = "image/png"
 Media = "all"
+Descriptor = '1x'
 
 
 [Banner.Tracks.en]

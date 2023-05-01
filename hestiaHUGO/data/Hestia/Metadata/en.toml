@@ -25,11 +25,12 @@ Full = "ZORALab's Hestia"
 # Descriptions.Summary - Expands from your pitch and elaborate your app. Keep it
 #                        max 250 characters overall (including Pitch if used).
 [Descriptions]
-Pitch = 'One peaceful libraries suite for building infinite possibilities.'
+Pitch = 'Frontend+Backend in One Peaceful Suite; by Developers; for Developers.'
 Summary = """\
-Unifying all common libraries into a single repository for reusable data
-structure, smoother the learning experience, and tools alignments. Develop and
-learn easily with less worries about supply chain threats and problems.
+The project is to unify all common libraries and data structure into 1 single
+repository for highest attributes of reusablity, smoother learning curves, and a
+more wholesome tools alignments. Develop and learn advanced products easily with
+less worries about supply chain problems.
 """
 
 
@@ -42,4 +43,11 @@ List = [
         'Tech',
         'PWA',
         'WASM',
+        'Software Libraries',
+        'Hugo',
+        'Go',
+        'TinyGo',
+        'Rust',
+        'ZORALab',
+        "ZORALab's Hestia",
 ]

@@ -31,6 +31,8 @@ Short = '仪表盘'
 
 [Contents.0.Icons.0]
 Name = ''
+Decorative = false
+Loading = 'lazy'
 Width = '1200'
 Height = '1200'
 CORS = ''
@@ -48,3 +50,4 @@ Inline = false
 URL = '/favicon-1200x1200.png'
 Type = 'image/png'
 Media = 'all'
+Descriptor = '1x'

@@ -37,7 +37,7 @@ Scope = '{{- .URL.Base -}}'
 #                        max 250 characters overall (including Pitch if used).
 [Descriptions]
 Pitch = '{{- .Descriptions.Site.Current.Pitch -}}'
-Summary = '{{- .Titles.Site.Current.Short }} - {{ .Descriptions.Site.Current.Pitch -}}'
+Summary = '{{- .Descriptions.Site.Current.Pitch }} {{ .Descriptions.Site.Current.Summary -}}'
 
 
 
