@@ -1,4 +1,5 @@
-# WASM Settings for This Page
+# Page-level WASM Configurations
+# ------------------------------
 [Settings]
 # URL - the WASM source URL location. Recommended place it inside the same
 #       directory. Hestia formatting URL is acceptable. This field shall be

@@ -1,3 +1,19 @@
+# Hestia PAGE-LEVEL thumbnails configurations
+# -------------------------------------------
+# By default, Hestia supplies 3 dataset of thumbnails the 1200x630, 480x480, and
+# 1200x1200 JPEG format images mainly used across social network via OpenGraph
+# or their own requirements. All you need to do is to prepare these thumbnails
+# and place it inside your page-level directory according to the URL name.
+#
+# Each image complies to the Hestia's Media data structure for image.
+#
+# Hugo's and Go's data processor is available in case you want to fill in a
+# dynamic data.
+#
+# Although the configurations permit multiple sources, only the first source
+# is selected for rendering in the case of OpenGraph. For specialized thumbnail
+# requirement, a built-in aspect ratio detection algorithm shall be ran to
+# select the best suitable thumbnail matching the requirement.
 [Contents.0]
 Name = '{{- .Titles.Page -}}'
 Decorative = false

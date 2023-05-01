@@ -2,9 +2,9 @@
 Page's CSS Prime Control
 
 This page constructs the page-specific CSS codes that will be appeneded into
-.CSS.Inline as last entry (most powerful). Hugo's and Go's template processors
-are available at your disposal in case of mathematical or logical algorithms
-needs.
+.CSS.Inline as the last entry (most powerful). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
 */ -}}
 {{- /* prepare variables for function */ -}}
 {{- $Page := . -}}

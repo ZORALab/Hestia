@@ -1,7 +1,26 @@
-# HESTIA SITE-LEVEL THUMBNAILS CONFIGURATIONS
-# ===========================================
+# Hestia SITE-LEVEL thumbnails configurations
+# -------------------------------------------
+# By default, Hestia supplies 3 dataset of thumbnails the 1200x630, 480x480, and
+# 1200x1200 PNG format images mainly used across social network via OpenGraph
+# or their own requirements. It re-uses the banner and images used by PWA and
+# Favicons to keep the dataset lean, consistent, and efficient.
+#
+# Site-level thumbnails are the fallbacks of thumbnails should a page fails to
+# deliver a set of them.
+#
+# Each image complies to the Hestia's Media data structure for image.
+#
+# Hugo's and Go's data processor is available in case you want to fill in a
+# dynamic data.
+#
+# Although the configurations permit multiple sources, only the first source
+# is selected for rendering in the case of OpenGraph. For specialized thumbnail
+# requirement, a built-in aspect ratio detection algorithm shall be ran to
+# select the best suitable thumbnail matching the requirement.
 [Contents.0]
 Name = "{{- .Titles.Site.Current.Full -}}"
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "630"
 CORS = ""
@@ -18,6 +37,7 @@ Inline = false
 URL = "/banner-1200x630.png"
 Type = "image/png"
 Media = "all"
+Descriptor = '1x'
 
 [Contents.0.Tracks.en]
 URL = ""
@@ -30,6 +50,8 @@ Default = false
 
 [Contents.1]
 Name = "{{- .Titles.Site.Current.Full -}}"
+Decorative = false
+Loading = 'lazy'
 Width = "1200"
 Height = "1200"
 CORS = ""
@@ -46,6 +68,7 @@ Inline = false
 URL = "/favicon-1200x1200.png"
 Type = "image/png"
 Media = "all"
+Descriptor = '1x'
 
 [Contents.1.Tracks.en]
 URL = ""
@@ -58,6 +81,8 @@ Default = false
 
 [Contents.2]
 Name = "{{- .Titles.Site.Current.Full -}}"
+Decorative = false
+Loading = 'lazy'
 Width = "480"
 Height = "480"
 CORS = ""
@@ -74,6 +99,7 @@ Inline = false
 URL = "/favicon-480x480.png"
 Type = "image/png"
 Media = "all"
+Descriptor = '1x'
 
 [Contents.2.Tracks.en]
 URL = ""
