@@ -7,7 +7,6 @@
 #####################
 # Standard FHS
 #####################
-docs/resources/
 themes/
 *.log
 .bin/
@@ -31,6 +30,7 @@ target/
 #####################
 # Hugo
 #####################
+sites/resources/
 public/
 .hugo_build.lock
 
