@@ -114,3 +114,46 @@ URL = ""
 Kind = "subtitles"
 Label = "English"
 Default = false
+
+
+
+
+[Background]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Background.Sources]]
+URL = "/img/thumbnails/microcontroller-1200x630.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Background.Sources]]
+URL = "/img/thumbnails/microcontroller-1200x630.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Background.Sources]]
+URL = "/img/thumbnails/microcontroller-1200x630.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+[Background.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
