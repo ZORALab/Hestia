@@ -34,10 +34,15 @@ specific language governing permissions and limitations under the License.
 {{- /* parse .Creators.Site */ -}}
 {{- range $k, $v := .Site.Data.Hestia.Creators -}}
 	{{- $creator = dict "Type" (default "" $v.Type) -}}
+	{{- $creator = merge $creator (dict "ID" (default "" $v.ID)) -}}
 	{{- $creator = merge $creator (dict "Name" (default "" $v.Name)) -}}
+	{{- $creator = merge $creator (dict "Brand" (default "" $v.Brand)) -}}
+	{{- $creator = merge $creator (dict "CallSign" (default "" $v.CallSign)) -}}
 	{{- $creator = merge $creator (dict "Title" (default "" $v.Title)) -}}
+	{{- $creator = merge $creator (dict "Slogan" (default "" $v.Slogan)) -}}
 	{{- $creator = merge $creator (dict "Phone" (default "" $v.Phone)) -}}
 	{{- $creator = merge $creator (dict "Email" (default "" $v.Email)) -}}
+	{{- $creator = merge $creator (dict "Address" (default "" $v.Address)) -}}
 	{{- $creator = merge $creator (dict "LinkedIn" (default "" $v.LinkedIn)) -}}
 	{{- $creator = merge $creator (dict "Facebook" (default "" $v.Facebook)) -}}
 	{{- $creator = merge $creator (dict "Instagram" (default "" $v.Instagram)) -}}

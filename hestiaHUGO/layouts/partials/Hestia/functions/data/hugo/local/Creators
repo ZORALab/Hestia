@@ -55,10 +55,15 @@ specific language governing permissions and limitations under the License.
 	{{- $preset = index $dataList.Site (lower $k) -}}
 	{{- if not $preset -}}
 		{{- $preset  = dict "Type" "" -}}
+		{{- $preset = merge $preset (dict "ID" "") -}}
 		{{- $preset = merge $preset (dict "Name" "") -}}
+		{{- $preset = merge $preset (dict "Brand" "") -}}
+		{{- $preset = merge $preset (dict "CallSign" "") -}}
 		{{- $preset = merge $preset (dict "Title" "") -}}
+		{{- $preset = merge $preset (dict "Slogan" "") -}}
 		{{- $preset = merge $preset (dict "Phone" "") -}}
 		{{- $preset = merge $preset (dict "Email" "") -}}
+		{{- $preset = merge $preset (dict "Address" "") -}}
 		{{- $preset = merge $preset (dict "LinkedIn" "") -}}
 		{{- $preset = merge $preset (dict "Facebook" "") -}}
 		{{- $preset = merge $preset (dict "Instagram" "") -}}
@@ -73,20 +78,28 @@ specific language governing permissions and limitations under the License.
 	{{- $creator = dict "Type" $ret -}}
 
 
-	{{- $ret = default $preset.Name $v.Name -}}
-	{{- $creator = merge $creator (dict "Name" $ret) -}}
-
-
-	{{- $ret = default $preset.Type $v.Type -}}
-	{{- $creator = dict "Type" $ret -}}
+	{{- $ret = default $preset.ID $v.ID -}}
+	{{- $creator = merge $creator (dict "ID" $ret) -}}
 
 
 	{{- $ret = default $preset.Name $v.Name -}}
 	{{- $creator = merge $creator (dict "Name" $ret) -}}
+
+
+	{{- $ret = default $preset.Brand $v.Brand -}}
+	{{- $creator = merge $creator (dict "Brand" $ret) -}}
+
+
+	{{- $ret = default $preset.CallSign $v.CallSign -}}
+	{{- $creator = merge $creator (dict "CallSign" $ret) -}}
 
 
 	{{- $ret = default $preset.Title $v.Title -}}
 	{{- $creator = merge $creator (dict "Title" $ret) -}}
+
+
+	{{- $ret = default $preset.Slogan $v.Slogan -}}
+	{{- $creator = merge $creator (dict "Slogan" $ret) -}}
 
 
 	{{- $ret = default $preset.Phone $v.Phone -}}
@@ -95,6 +108,10 @@ specific language governing permissions and limitations under the License.
 
 	{{- $ret = default $preset.Email $v.Email -}}
 	{{- $creator = merge $creator (dict "Email" $ret) -}}
+
+
+	{{- $ret = default $preset.Address $v.Address -}}
+	{{- $creator = merge $creator (dict "Address" $ret) -}}
 
 
 	{{- $ret = default $preset.LinkedIn $v.LinkedIn -}}

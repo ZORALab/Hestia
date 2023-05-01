@@ -13,23 +13,29 @@
 #   4. Example entries:
 #         [holloway]
 #         Type = "Person"
+#         ID = 'XXX-XXX-XXX'
 #         Name = "(Holloway) Chew Kean Ho"
-#         Title = "The Tech Guy"
-#         Phone = "+12-3456-789"
-#         Email = "hollowaykeanho@gmail.com"
+#         Brand = 'HollowayKeanHo'
+#         CallSign = 'Holloway'
+#         Title = ''
+#         Slogan = 'Dare to Achieve!'
+#         Phone = '+12-3456-789'
+#         Email = 'hollowaykeanho@gmail.com'
+#         Address = '123, Main Street, 42000, City, State, Country.'
 #         LinkedIn = "https://www.linkedin.com/in/hollowaykeanho/"
-#         Facebook = ""
-#         Instagram = ""
-#         Twitter = "https://www.twitter.com/hollowaykeanho/"
-#         TikTok = ""
-#         Web = "https://www.hollowaykeanho.com/"
-#         Description = """
+#         Facebook = ''
+#         Instagram = ''
+#         Twitter = 'https://www.twitter.com/hollowaykeanho/'
+#         TikTok = ''
+#         Web = 'https://www.hollowaykeanho.com/'
+#         Description = '''
 #         A passionate individual loving technologies and its processes be it
 #         development and continuous improvements, and new adventures!
-#         """
+#         '''
 #
 #         [zoralab]
 #         Type = "Organization"
+#         ID = 'XXXXXXXXXXXXX'
 #         Name = "ZORALab"
 #         Title = "Through Knowledge, We Serve"
 #         ... hence and repeat ...

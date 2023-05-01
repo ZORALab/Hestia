@@ -1,0 +1,103 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Entity data in Hestia Structure */ -}}
+{{- /* .Type = type of entity (string) */ -}}
+{{- /* .Name = name of the organization (string) */ -}}
+{{- /* .Brand = brand identifier of the organization (string) */ -}}
+{{- /* .ID = registered ID of the organization (optional,string) */ -}}
+{{- /* .Address = address of the organization (optional,string) */ -}}
+{{- /* .CallSign = call-sign the organization (optional,string) */ -}}
+{{- /* .Email = email address of the organization (optional,string) */ -}}
+{{- /* .Phone = phone number of the organization (optional,string) */ -}}
+{{- /* .Slogan = slogan of the organization (optional,string) */ -}}
+{{- /* .Web = website of the organization (optional,string) */ -}}
+
+
+
+
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- if eq .Type "person" -}}
+	{{- $dataList = dict "@type" "Person" -}}
+{{- else -}}
+	{{- $dataList = dict "@type" "Organization" "legalName" .Name -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "name" .Name) -}}
+
+
+{{- if .Address -}}
+	{{- $dataList = merge $dataList (dict "address" .Address) -}}
+{{- end -}}
+
+
+{{- if .Brand -}}
+	{{- $dataList = merge $dataList (dict "brand" .Brand "identifier" .Brand) -}}
+{{- end -}}
+
+
+{{- if .ID -}}
+	{{- $dataList = merge $dataList (dict "identifier" .ID) -}}
+{{- end -}}
+
+
+{{- if .CallSign -}}
+	{{- if eq .Type "person" -}}
+		{{- $dataList = merge $dataList (dict "callSign" .CallSign) -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict "alternateName" .CallSign) -}}
+{{- end -}}
+
+
+{{- if .Email -}}
+	{{- $dataList = merge $dataList (dict "email" .Email) -}}
+{{- end -}}
+
+
+{{- if .Phone -}}
+	{{- $dataList = merge $dataList (dict "telephone" .Phone) -}}
+{{- end -}}
+
+
+{{- if and .Slogan (eq .Type "organization") -}}
+	{{- $dataList = merge $dataList (dict "slogan" .Slogan) -}}
+{{- end -}}
+
+
+{{- if .Web -}}
+	{{- $ret = string .Web -}}
+
+	{{- $dataList = merge $dataList (dict
+		"url" $ret
+		"mainEntityOfPage" $ret
+		"sameAs" $ret
+	) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
