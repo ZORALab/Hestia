@@ -1,4 +1,6 @@
-# !!! STOP !!!    Let the following be the default for Hestia    !!! STOP !!! #
+# ╔══════════╗                                                      ╔══════════╗
+# ║!! STOP !!║      Let the following be the default for Hestia     ║!! STOP !!║
+# ╚══════════╝                                                      ╚══════════╝
 ignoreFiles = [
 	'(__.*)',
 ]
