@@ -1,0 +1,140 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $list := slice -}}
+{{- $data := false -}}
+{{- $icon := dict -}}
+{{- $creators := slice -}}
+{{- $contributors := slice -}}
+{{- $copyrightHolders := slice -}}
+{{- $editors := slice -}}
+{{- $funders := slice -}}
+{{- $maintainers := slice -}}
+{{- $owner := dict -}}
+{{- $producers := slice -}}
+{{- $providers := slice -}}
+{{- $publishers := slice -}}
+{{- $sponsors := slice -}}
+{{- $url := string .URL.Current.Absolute -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $icon = partial "Hestia/functions/render/ldjson/Thumbnail" . -}}
+
+
+{{- $creators = slice -}}
+{{- $contributors = slice -}}
+{{- $copyrightHolders = slice -}}
+{{- $editors = slice -}}
+{{- $funders = slice -}}
+{{- $maintainers = slice -}}
+{{- $owner = dict -}}
+{{- $producers = slice -}}
+{{- $providers = slice -}}
+{{- $publishers = slice -}}
+{{- $sponsors = slice -}}
+{{- range $i, $v := .Contributors.Site -}}
+	{{- $ret = partial "Hestia/functions/render/ldjson/Entity" $v -}}
+
+	{{- if or $v.Contribution.Creator.Past $v.Contribution.Creator.Current -}}
+		{{- $creators = append $ret $creators -}}
+	{{- end -}}
+
+	{{- if or $v.Contribution.Editor.Past $v.Contribution.Editor.Current -}}
+		{{- $editors = append $ret $editors -}}
+	{{- end -}}
+
+	{{- if or $v.Contribution.Funder.Past $v.Contribution.Funder.Current -}}
+		{{- $editors = append $ret $editors -}}
+	{{- end -}}
+
+	{{- if or $v.Contribution.Maintainer.Past $v.Contribution.Maintainer.Current -}}
+		{{- $maintainers = append $ret $maintainers -}}
+	{{- end -}}
+
+	{{- if or $v.Contribution.Producer.Past $v.Contribution.Producer.Current -}}
+		{{- $producers = append $ret $producers -}}
+	{{- end -}}
+
+	{{- if or $v.Contribution.Provider.Past $v.Contribution.Provider.Current -}}
+		{{- $providers = append $ret $providers -}}
+	{{- end -}}
+
+	{{- if or $v.Contribution.Publisher.Past $v.Contribution.Publisher.Current -}}
+		{{- $publishers = append $ret $publishers -}}
+	{{- end -}}
+
+	{{- if or $v.Contribution.Sponsor.Past $v.Contribution.Sponsor.Current -}}
+		{{- $sponsors = append $ret $sponsors -}}
+	{{- end -}}
+
+	{{- if $v.Contribution.Owner.Current -}}
+		{{- $owner = $ret -}}
+	{{- end -}}
+
+	{{- $contributors = append $ret $contributors -}}
+{{- end -}}
+
+
+{{- $dataList = merge $dataList (dict
+	"@type" "CreativeWork"
+	"abstract" .Descriptions.Page.Pitch
+	"accessMode" "diagramOnVisual, textOnVisual, textual, colorDependent"
+	"accessModeSufficient" (slice "textual" "visual")
+	"archivedAt" $url
+	"author" $creators
+	"copyrightHolder" $owner
+	"contributor" $contributors
+	"creator" $creators
+	"editor" $editors
+	"funder" $funders
+	"maintainer" $maintainers
+	"dateCreated" .Time.Created.ISO8601
+	"dateModified" .Time.Modified.ISO8601
+	"datePublished" .Time.Published.ISO8601
+	"producer" $producers
+	"provider" $providers
+	"publisher" $publishers
+	"schemaVersion" "15.0"
+	"sponsor" $sponsors
+	"thumbnailUrl" $icon
+	"description" (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+	"image" $icon
+	"name" .Titles.Page
+	"url" $url
+) -}}
+
+{{- if eq (index $owner "@type") "person" -}}
+	{{- $dataList = merge $dataList (dict "accountablePerson" $owner) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
