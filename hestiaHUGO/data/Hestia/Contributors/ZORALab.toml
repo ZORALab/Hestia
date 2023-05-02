@@ -80,7 +80,7 @@ Value = 'https://www.linkedin.com/company/zoralab/'
 
 
 
-[Contribution.Creation]
+[Contribution.Creator]
 Past = false
 Current = false
 
@@ -105,6 +105,10 @@ Past = false
 Current = false
 
 [Contribution.Maintainer]
+Past = false
+Current = false
+
+[Contribution.Owner]
 Past = false
 Current = false
 
