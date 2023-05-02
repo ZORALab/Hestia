@@ -73,7 +73,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Contribution */ -}}
 	{{- $dataset = dict -}}
-	{{- range $j, $w := .Constants.Contributors.Roles -}}
+	{{- range $j, $w := $Page.Constants.Contributors.Roles -}}
 		{{- $ret = index $v.Contribution $w -}}
 		{{- if not $ret -}}
 			{{- continue -}}

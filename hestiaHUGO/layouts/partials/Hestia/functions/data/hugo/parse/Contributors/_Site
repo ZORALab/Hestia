@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
 {{- $data := false -}}
+{{- $roles := dict -}}
 {{- $creator := false -}}
 {{- $ret := false -}}
 
@@ -58,8 +59,8 @@ specific language governing permissions and limitations under the License.
 					"Value" (default "" $w.Phone.Value))
 			"Email" (dict "Label" (default "" $w.Email.Label)
 					"Value" (default "" $w.Email.Value))
-			"Address" (dict "Label" (default "" $w.Address.Label)
-					"Value" (default "" $w.Address.Value))
+			"Location" (dict "Label" (default "" $w.Location.Label)
+					"Value" (default "" $w.Location.Value))
 			"Web" (dict "Label" (default "" $w.Web.Label)
 					"Value" (default "" $w.Web.Value))
 			"Social" $data
@@ -71,7 +72,9 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* parse all contributor's contribution types */ -}}
 	{{- if index $v "Contribution" -}}
-		{{- range $j, $w := .Constants.Contributors.Roles -}}
+		{{- $roles = partial "Hestia/functions/data/constants/Init" . -}}
+		{{- $roles = $roles.Constants.Contributors.Roles -}}
+		{{- range $j, $w := $roles -}}
 			{{- $ret = index $v.Contribution $w -}}
 			{{- if $ret -}}
 				{{- $creator = merge $creator (dict "Contribution"

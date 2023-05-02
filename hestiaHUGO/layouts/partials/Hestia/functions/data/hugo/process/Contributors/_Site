@@ -124,8 +124,8 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Description" $ret.Output) -}}
 
 
-	{{- /* process .Phone .Email .Address .Web */ -}}
-	{{- range $j, $w := (slice "Phone" "Email" "Address" "Web") -}}
+	{{- /* process .Phone .Email .Location .Web */ -}}
+	{{- range $j, $w := (slice "Phone" "Email" "Location" "Web") -}}
 		{{- if not (index $dataset $w) -}}
 			{{- $data = merge $data (dict $w (dict "Label" "" "Value" "")) -}}
 			{{- continue -}}
@@ -199,7 +199,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- /* process .Contribution */ -}}
-	{{- range $j, $w := .Constants.Contributors.Roles -}}
+	{{- range $j, $w := $Page.Constants.Contributors.Roles -}}
 		{{- if not (index $v.Contribution $w) -}}
 			{{- $data = merge $data
 				(dict "Contribution" (dict $w (dict "Label" "" "Value" ""))) -}}

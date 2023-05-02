@@ -48,8 +48,8 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (dict "name" .Name) -}}
 
 
-{{- if .Address.Value -}}
-	{{- $dataList = merge $dataList (dict "address" .Address.Value) -}}
+{{- if .Location.Value -}}
+	{{- $dataList = merge $dataList (dict "address" .Location.Value) -}}
 {{- end -}}
 
 
