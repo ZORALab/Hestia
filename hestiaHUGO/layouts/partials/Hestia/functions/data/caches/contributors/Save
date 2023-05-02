@@ -24,7 +24,6 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $console := dict -}}
 {{- $dataset := dict -}}
-{{- $KEY_CACHES := partial "Hestia/functions/data/constants/contributors/RolesMemKey" . -}}
 {{- $ret := false -}}
 
 
@@ -49,7 +48,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* save to persistent memory */ -}}
 {{- if $dataset -}}
-	{{- .Memory.Set $KEY_CACHES $ret -}}
+	{{- .Memory.Set .Constants.Contributors.RolesMemKey $ret -}}
 {{- end -}}
 
 

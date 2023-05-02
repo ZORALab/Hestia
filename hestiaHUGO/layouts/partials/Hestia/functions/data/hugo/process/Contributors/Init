@@ -26,7 +26,6 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Contributors" false) -}}
 {{- $Page = merge $Page (dict "Contributors" dict) -}}
 {{- $langID := .Languages.Current.ID -}}
-{{- $ROLES := partial "Hestia/functions/data/constants/contributors/Roles" . -}}
 {{- $console := dict -}}
 {{- $dataList := dict -}}
 {{- $dataset := dict -}}
@@ -74,7 +73,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Contribution */ -}}
 	{{- $dataset = dict -}}
-	{{- range $j, $w := $ROLES -}}
+	{{- range $j, $w := .Constants.Contributors.Roles -}}
 		{{- $ret = index $v.Contribution $w -}}
 		{{- if not $ret -}}
 			{{- continue -}}

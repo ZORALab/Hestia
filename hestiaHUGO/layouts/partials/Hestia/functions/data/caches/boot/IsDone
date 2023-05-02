@@ -17,9 +17,6 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hestia data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $KEY_CACHES := "Boot" -}}
-
 
 
 
@@ -30,7 +27,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* extract and load boot status */ -}}
-{{- $dataList = .Memory.Get $KEY_CACHES -}}
+{{- $dataList = .Memory.Get .Constants.Boot.MemKey -}}
 {{- if $dataList -}}
 	{{- $dataList = true -}}
 {{- end -}}

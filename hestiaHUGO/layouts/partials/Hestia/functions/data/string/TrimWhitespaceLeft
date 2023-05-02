@@ -17,9 +17,6 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = data for trimming (string) */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CHARSET := partial "Hestia/functions/data/string/CONST_WHITESPACE" . -}}
-
 
 
 
@@ -31,7 +28,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* trim only the left side */ -}}
 {{- if partial "Hestia/functions/data/string/IsString" $dataList -}}
-	{{- $dataList = strings.TrimLeft $CHARSET $dataList -}}
+	{{- $dataList = strings.TrimLeft " \n\r\t" $dataList -}}
 {{- end -}}
 
 

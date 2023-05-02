@@ -22,9 +22,6 @@ specific language governing permissions and limitations under the License.
 {{- /* .Input.Data.Dataset.N.URL = url for caching (url) */ -}}
 {{- /* .Input.Data.Dataset.N.Cache = cache policy (string) */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $KEY_CACHES := "Caches" -}}
-
 
 
 
@@ -72,7 +69,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* save to persistent memory */ -}}
 {{- if $dataset -}}
-	{{- $ret = .Memory.Get $KEY_CACHES -}}
+	{{- $ret = .Memory.Get .Constants.Offline.MemKey -}}
 	{{- if not $ret -}}
 		{{- $ret = dict -}}
 	{{- end -}}
@@ -80,7 +77,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $ret (dict $key false) -}}
 	{{- $ret = merge $ret (dict $key $dataset) -}}
 
-	{{- .Memory.Set $KEY_CACHES $ret -}}
+	{{- .Memory.Set .Constants.Offline.MemKey $ret -}}
 {{- end -}}
 
 

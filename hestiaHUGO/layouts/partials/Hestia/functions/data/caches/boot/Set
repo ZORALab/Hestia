@@ -17,13 +17,10 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hestia data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $KEY_CACHES := "Boot" -}}
-
 
 
 
 {{- /* render output */ -}}
 {{- if not (partial "Hestia/functions/data/offline/IsDone" .) -}}
-	{{- .Memory.Set $KEY_CACHES true -}}
+	{{- .Memory.Set .Constants.Boot.MemKey true -}}
 {{- end -}}

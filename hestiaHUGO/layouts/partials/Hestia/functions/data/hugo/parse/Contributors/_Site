@@ -22,7 +22,6 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
-{{- $ROLES := partial "Hestia/functions/data/constants/contributors/Roles" . -}}
 {{- $data := false -}}
 {{- $creator := false -}}
 {{- $ret := false -}}
@@ -72,7 +71,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* parse all contributor's contribution types */ -}}
 	{{- if index $v "Contribution" -}}
-		{{- range $j, $w := $ROLES -}}
+		{{- range $j, $w := .Constants.Contributors.Roles -}}
 			{{- $ret = index $v.Contribution $w -}}
 			{{- if $ret -}}
 				{{- $creator = merge $creator (dict "Contribution"

@@ -17,9 +17,6 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hestia data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $KEY_CACHES := "Caches" -}}
-
 
 
 
@@ -33,7 +30,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* extract and load URL list */ -}}
-{{- $dataset = .Memory.Get $KEY_CACHES -}}
+{{- $dataset = .Memory.Get .Constants.Offline.MemKey -}}
 {{- if not $dataset -}}
 	{{- $dataset = dict -}}
 {{- end -}}

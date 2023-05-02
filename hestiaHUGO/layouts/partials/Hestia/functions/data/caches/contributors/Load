@@ -22,13 +22,12 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := false -}}
-{{- $KEY_CACHES := partial "Hestia/functions/data/constants/contributors/RolesMemKey" . -}}
 
 
 
 
 {{- /* extract and load .Contributors.Site data */ -}}
-{{- $dataList = .Memory.Get $KEY_CACHES -}}
+{{- $dataList = .Memory.Get .Constants.Contributors.RolesMemKey -}}
 {{- if not $dataList -}}
 	{{- $dataList = dict -}}
 {{- end -}}
