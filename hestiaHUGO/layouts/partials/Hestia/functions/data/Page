@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict "IsHestia" true -}}
+{{- $dataList := dict "IsHestia" true "IsMetadata" false -}}
 {{- $ret := false -}}
 
 
@@ -47,7 +47,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Descriptions" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Keywords" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Content" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Creators" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Contributors/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Components" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/CSS" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/JS" .) -}}
@@ -69,6 +69,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Caches" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Components" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Content" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/Contributors" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Assets" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Page" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Languages" $dataList -}}
@@ -88,7 +89,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Titles/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Creators/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Contributors/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Components/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/CSS/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/JS/Init" $dataList -}}

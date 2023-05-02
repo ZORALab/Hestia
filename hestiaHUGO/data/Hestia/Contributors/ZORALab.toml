@@ -1,0 +1,160 @@
+[Metadata]
+Type = 'Organization'
+ID = '201603356108'
+
+
+[Metadata.Languages.EN]
+Name = 'ZORALab Enterprise'
+Title = ''
+Brand = 'ZORALab'
+CallSign = 'ZORALab'
+Slogan = '''
+Through Knowledge, We Serve.
+'''
+Description = '''
+Research and build technologies for the sustainable future!
+'''
+
+[Metadata.Languages.EN.Phone]
+Label = 'Phone'
+Value = ''
+
+[Metadata.Languages.EN.Email]
+Label = 'Email'
+Value = 'hello@zoralab.com'
+
+[Metadata.Languages.EN.Address]
+Label = 'Location'
+Value = 'Kuala Lumpur, Malaysia'
+
+[Metadata.Languages.EN.Web]
+Label = 'Official Website'
+Value = 'https://www.zoralab.com'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Twitter'
+Value = 'https://www.twitter.com/zoralab_team/'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'LinkedIn'
+Value = 'https://www.linkedin.com/company/zoralab/'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = "ZORALab公司"
+Title = ''
+Brand = 'ZORALab'
+CallSign = 'ZORALab'
+Slogan = '''
+通过慧根，一致服务。
+'''
+Description = '''
+为可持续的未来研究和构建新科技！
+'''
+
+[Metadata.Languages.ZH-HANS.Phone]
+Label = '电话'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Email]
+Label = '电邮'
+Value = 'hello@zoralab.com'
+
+[Metadata.Languages.ZH-HANS.Address]
+Label = '地点'
+Location = '吉隆坡 - 马来西亚'
+Value = 'Kuala Lumpur, Malaysia'
+
+[Metadata.Languages.ZH-HANS.Web]
+Label = '官方网站'
+Value = 'https://www.zoralab.com'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = 'Twitter'
+Value = 'https://www.twitter.com/zoralab_team/'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = 'LinkedIn'
+Value = 'https://www.linkedin.com/company/zoralab/'
+
+
+
+
+[Contribution.Creation]
+Past = false
+Current = false
+
+[Contribution.Contact]
+Past = false
+Current = false
+
+[Contribution.Artwork]
+Past = false
+Current = false
+
+[Contribution.Knowledge]
+Past = false
+Current = false
+
+[Contribution.Editor]
+Past = false
+Current = false
+
+[Contribution.Developer]
+Past = false
+Current = false
+
+[Contribution.Maintainer]
+Past = false
+Current = false
+
+[Contribution.Producer]
+Past = false
+Current = false
+
+[Contribution.Provider]
+Past = true
+Current = true
+
+[Contribution.Publisher]
+Past = false
+Current = false
+
+[Contribution.Funder]
+Past = false
+Current = false
+
+[Contribution.Sponsor]
+Past = false
+Current = false
+
+
+
+
+[Image]
+Name = "ZORALab's Logo"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/hestia/zoralab-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

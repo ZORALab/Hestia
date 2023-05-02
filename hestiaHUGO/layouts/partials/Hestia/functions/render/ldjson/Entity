@@ -20,12 +20,12 @@ specific language governing permissions and limitations under the License.
 {{- /* .Name = name of the organization (string) */ -}}
 {{- /* .Brand = brand identifier of the organization (string) */ -}}
 {{- /* .ID = registered ID of the organization (optional,string) */ -}}
-{{- /* .Address = address of the organization (optional,string) */ -}}
+{{- /* .Address.Value = address of the organization (optional,string) */ -}}
 {{- /* .CallSign = call-sign the organization (optional,string) */ -}}
-{{- /* .Email = email address of the organization (optional,string) */ -}}
-{{- /* .Phone = phone number of the organization (optional,string) */ -}}
+{{- /* .Email.Value = email address of the organization (optional,string) */ -}}
+{{- /* .Phone.Value = phone number of the organization (optional,string) */ -}}
 {{- /* .Slogan = slogan of the organization (optional,string) */ -}}
-{{- /* .Web = website of the organization (optional,string) */ -}}
+{{- /* .Web.Value = website of the organization (optional,string) */ -}}
 
 
 
@@ -33,6 +33,7 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare variables for function */ -}}
 {{- $Page := . -}}
 {{- $dataList := dict -}}
+{{- $list := slice -}}
 {{- $ret := false -}}
 
 
@@ -47,8 +48,8 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (dict "name" .Name) -}}
 
 
-{{- if .Address -}}
-	{{- $dataList = merge $dataList (dict "address" .Address) -}}
+{{- if .Address.Value -}}
+	{{- $dataList = merge $dataList (dict "address" .Address.Value) -}}
 {{- end -}}
 
 
@@ -71,13 +72,13 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- if .Email -}}
-	{{- $dataList = merge $dataList (dict "email" .Email) -}}
+{{- if .Email.Value -}}
+	{{- $dataList = merge $dataList (dict "email" .Email.Value) -}}
 {{- end -}}
 
 
-{{- if .Phone -}}
-	{{- $dataList = merge $dataList (dict "telephone" .Phone) -}}
+{{- if .Phone.Value -}}
+	{{- $dataList = merge $dataList (dict "telephone" .Phone.Value) -}}
 {{- end -}}
 
 
@@ -86,17 +87,35 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- if .Web -}}
-	{{- $ret = string .Web -}}
+{{- $list = slice -}}
+{{- range $i, $v := .Social -}}
+	{{- $list = append (string $v.Value) $list -}}
+{{- end -}}
+
+{{- if .Web.Value -}}
+	{{- $ret = string .Web.Value -}}
 
 	{{- $dataList = merge $dataList (dict
 		"url" $ret
 		"mainEntityOfPage" $ret
-		"sameAs" $ret
+		"sameAs" $list
 	) -}}
 {{- end -}}
 
 
+{{- if .Image -}}
+	{{- $list = slice -}}
+	{{- range $i, $v := .Image.Sources -}}
+		{{- $list = append (string $v.URL) $list -}}
+	{{- end -}}
+
+	{{- if not $list -}}
+	{{- else if eq (len $list) 1 -}}
+		{{- $dataList = merge $dataList (dict "image" (index $list 0)) -}}
+	{{- else -}}
+		{{- $dataList = merge $dataList (dict "image" $list) -}}
+	{{- end -}}
+{{- end -}}
 
 
 {{- /* render output */ -}}
