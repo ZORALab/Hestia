@@ -1,0 +1,214 @@
+[Metadata]
+Type = 'Person'
+ID = ''
+
+
+[Metadata.Languages.EN]
+Name = 'Manuel Geissinger'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+Consider attribution and linking to me, please :)
+'''
+Description = '''
+Consider attribution and linking to me, please :)
+'''
+
+[Metadata.Languages.EN.Phone]
+Label = 'Phone'
+Value = ''
+
+[Metadata.Languages.EN.Email]
+Label = 'Email'
+Value = ''
+
+[Metadata.Languages.EN.Location]
+Label = 'Location'
+Value = 'Freiburg, Germany'
+
+[Metadata.Languages.EN.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@artunchained/'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Website'
+Value = 'https://www.amp-tracks.com/'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Instagram'
+Value = 'https://instagram.com/amptracks'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Twitter'
+Value = 'https://twitter.com/AMP_Tracks'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = 'Manuel Geissinger'
+Description = '''
+请考虑给我署名和链接吧 :)
+'''
+
+
+[Metadata.Languages.ZH-HANS.Phone]
+Label = '电话'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Email]
+Label = '电邮'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Location]
+Label = '地点'
+Value = 'Freiburg, Germany'
+
+[Metadata.Languages.ZH-HANS.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@artunchained/'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = '官方网站'
+Value = 'https://www.amp-tracks.com/'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = 'Instagram'
+Value = 'https://instagram.com/amptracks'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = '推特'
+Value = 'https://twitter.com/AMP_Tracks'
+
+
+
+
+[Contribution.Creator]
+Past = false
+Current = false
+
+[Contribution.Contact]
+Past = false
+Current = false
+
+[Contribution.Artwork]
+Past = true
+Current = false
+
+[Contribution.Knowledge]
+Past = false
+Current = false
+
+[Contribution.Editor]
+Past = false
+Current = false
+
+[Contribution.Developer]
+Past = false
+Current = false
+
+[Contribution.Maintainer]
+Past = false
+Current = false
+
+[Contribution.Owner]
+Past = false
+Current = false
+
+[Contribution.Producer]
+Past = false
+Current = false
+
+[Contribution.Provider]
+Past = false
+Current = false
+
+[Contribution.Publisher]
+Past = false
+Current = false
+
+[Contribution.Funder]
+Past = false
+Current = false
+
+[Contribution.Sponsor]
+Past = false
+Current = false
+
+
+
+
+[Image]
+Name = "Manuel Geissinger's Portrait"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/manuel-geissinger-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

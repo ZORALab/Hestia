@@ -1,0 +1,205 @@
+[Metadata]
+Type = 'Person'
+ID = ''
+
+
+[Metadata.Languages.EN]
+Name = 'Ylanite Koppens'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+Donations are much appreciated and help me to keep creating new content for you.
+'''
+Description = '''
+Donations are much appreciated and help me to keep creating new content for you.
+'''
+
+[Metadata.Languages.EN.Phone]
+Label = ''
+Value = ''
+
+[Metadata.Languages.EN.Email]
+Label = ''
+Value = ''
+
+[Metadata.Languages.EN.Location]
+Label = 'Location'
+Value = 'Netherlands'
+
+[Metadata.Languages.EN.Web]
+Value = 'https://www.pexels.com/@nietjuh/'
+Label = 'Pexels'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'iStock'
+Value = 'https://www.istockphoto.com/nl/portfolio/Nietjuh78'
+
+
+
+
+[Metadata.Languages.ZH-HANS]
+Name = 'Ylanite Koppens'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+您的赞助是非常重视的而且还能帮我继续制造新内容产品给您。
+'''
+Description = '''
+您的赞助是非常重视的而且还能帮我继续制造新内容产品给您。
+'''
+
+[Metadata.Languages.ZH-HANS.Phone]
+Label = '电话'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Email]
+Label = '电邮'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Location]
+Label = '地点'
+Value = 'Netherlands'
+
+[Metadata.Languages.ZH-HANS.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@nietjuh/'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = 'iStock'
+Value = 'https://www.istockphoto.com/nl/portfolio/Nietjuh78'
+
+
+
+
+[Contribution.Creator]
+Past = false
+Current = false
+
+[Contribution.Contact]
+Past = false
+Current = false
+
+[Contribution.Artwork]
+Past = true
+Current = false
+
+[Contribution.Knowledge]
+Past = false
+Current = false
+
+[Contribution.Editor]
+Past = false
+Current = false
+
+[Contribution.Developer]
+Past = false
+Current = false
+
+[Contribution.Maintainer]
+Past = false
+Current = false
+
+[Contribution.Owner]
+Past = false
+Current = false
+
+[Contribution.Producer]
+Past = false
+Current = false
+
+[Contribution.Provider]
+Past = false
+Current = false
+
+[Contribution.Publisher]
+Past = false
+Current = false
+
+[Contribution.Funder]
+Past = false
+Current = false
+
+[Contribution.Sponsor]
+Past = false
+Current = false
+
+
+
+
+[Image]
+Name = "Ylanite Koppens's Portrait"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/ylanite-koppens-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

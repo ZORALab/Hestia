@@ -1,18 +1,18 @@
 [Metadata]
 Type = 'Organization'
-ID = '201603356108'
+ID = ''
 
 
 [Metadata.Languages.EN]
-Name = 'ZORALab Enterprise'
+Name = 'SpaceX'
 Title = ''
-Brand = 'ZORALab'
-CallSign = 'ZORALab'
+Brand = ''
+CallSign = ''
 Slogan = '''
-Through Knowledge, We Serve.
+SpaceX Media.
 '''
 Description = '''
-Research and build technologies for the sustainable future!
+SpaceX Media.
 '''
 
 [Metadata.Languages.EN.Phone]
@@ -21,35 +21,31 @@ Value = ''
 
 [Metadata.Languages.EN.Email]
 Label = 'Email'
-Value = 'hello@zoralab.com'
+Value = ''
 
 [Metadata.Languages.EN.Location]
 Label = 'Location'
-Value = 'Kuala Lumpur, Malaysia'
+Value = ''
 
 [Metadata.Languages.EN.Web]
-Label = 'Official Website'
-Value = 'https://www.zoralab.com'
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@spacex/'
 
 [[Metadata.Languages.EN.Social]]
-Label = 'Twitter'
-Value = 'https://www.twitter.com/zoralab_team/'
-
-[[Metadata.Languages.EN.Social]]
-Label = 'LinkedIn'
-Value = 'https://www.linkedin.com/company/zoralab/'
+Label = 'Website'
+Value = 'http://www.spacex.com/media'
 
 
 [Metadata.Languages.ZH-HANS]
-Name = "ZORALab公司"
+Name = 'SpaceX'
 Title = ''
-Brand = 'ZORALab'
-CallSign = 'ZORALab'
+Brand = ''
+CallSign = ''
 Slogan = '''
-通过慧根，一致服务。
+SpaceX媒体。
 '''
 Description = '''
-为可持续的未来研究和构建新科技！
+SpaceX媒体。
 '''
 
 [Metadata.Languages.ZH-HANS.Phone]
@@ -58,23 +54,19 @@ Value = ''
 
 [Metadata.Languages.ZH-HANS.Email]
 Label = '电邮'
-Value = 'hello@zoralab.com'
+Value = ''
 
 [Metadata.Languages.ZH-HANS.Location]
 Label = '地点'
-Value = '吉隆坡 - 马来西亚'
+Value = ''
 
 [Metadata.Languages.ZH-HANS.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@spacex/'
+
+[[Metadata.Languages.ZH-HANS.Social]]
 Label = '官方网站'
-Value = 'https://www.zoralab.com'
-
-[[Metadata.Languages.ZH-HANS.Social]]
-Label = '推特'
-Value = 'https://www.twitter.com/zoralab_team/'
-
-[[Metadata.Languages.ZH-HANS.Social]]
-Label = 'LinkedIn'
-Value = 'https://www.linkedin.com/company/zoralab/'
+Value = 'http://www.spacex.com/media'
 
 
 
@@ -88,7 +80,7 @@ Past = false
 Current = false
 
 [Contribution.Artwork]
-Past = false
+Past = true
 Current = false
 
 [Contribution.Knowledge]
@@ -116,8 +108,8 @@ Past = false
 Current = false
 
 [Contribution.Provider]
-Past = true
-Current = true
+Past = false
+Current = false
 
 [Contribution.Publisher]
 Past = false
@@ -135,7 +127,7 @@ Current = false
 
 
 [Image]
-Name = "ZORALab's Logo"
+Name = "SpaceX's Logo"
 Decorative = false
 Loading = 'lazy'
 Width = "1200"
@@ -151,9 +143,57 @@ Mute = false
 Inline = false
 
 [[Image.Sources]]
-URL = "/hestia/zoralab-1200x1200.svg"
-Type = "image/svg+xml"
-Media = "all"
+URL = "/img/portraits/spacex-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/spacex-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
 Descriptor = '1x'
 
 [Image.Tracks.en]

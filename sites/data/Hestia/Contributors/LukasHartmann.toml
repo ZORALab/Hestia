@@ -1,0 +1,207 @@
+[Metadata]
+Type = 'Person'
+ID = ''
+
+
+[Metadata.Languages.EN]
+Name = 'Lukas Hartmann'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+Camera enthusiast – give and take… if you like to :)
+'''
+Description = '''
+Camera enthusiast – give and take… if you like to :)
+'''
+
+[Metadata.Languages.EN.Phone]
+Label = 'Phone'
+Value = ''
+
+[Metadata.Languages.EN.Email]
+Label = 'Email'
+Value = ''
+
+[Metadata.Languages.EN.Location]
+Label = 'Location'
+Value = 'Emden, Germany'
+
+[Metadata.Languages.EN.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@lukas-hartmann-304281/'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Sponsor'
+Value = 'http://paypal.me/dieserLukas'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Instagram'
+Value = 'https://instagram.com/lukas_hartm'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = 'Lukas Hartmann'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+相机爱好者 – 如果你愿意的话，给予和采取 :) 。
+'''
+Description = '''
+相机爱好者 – 如果你愿意的话，给予和采取 :) 。
+'''
+
+[Metadata.Languages.ZH-HANS.Phone]
+Label = '电话'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Email]
+Label = '电邮'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Location]
+Label = '地点'
+Value = 'Emden, Germany'
+
+[Metadata.Languages.ZH-HANS.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@lukas-hartmann-304281/'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = '赞助'
+Value = 'http://paypal.me/dieserLukas'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = 'Instagram'
+Value = 'https://instagram.com/lukas_hartm'
+
+
+
+
+[Contribution.Creator]
+Past = false
+Current = false
+
+[Contribution.Contact]
+Past = false
+Current = false
+
+[Contribution.Artwork]
+Past = true
+Current = false
+
+[Contribution.Knowledge]
+Past = false
+Current = false
+
+[Contribution.Editor]
+Past = false
+Current = false
+
+[Contribution.Developer]
+Past = false
+Current = false
+
+[Contribution.Maintainer]
+Past = false
+Current = false
+
+[Contribution.Owner]
+Past = false
+Current = false
+
+[Contribution.Producer]
+Past = false
+Current = false
+
+[Contribution.Publisher]
+Past = false
+Current = false
+
+[Contribution.Funder]
+Past = false
+Current = false
+
+[Contribution.Sponsor]
+Past = false
+Current = false
+
+
+
+
+[Image]
+Name = "Lukas Hartmann's Portrait"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/lukas-hartmann-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

@@ -84,8 +84,8 @@ Past = false
 Current = false
 
 [Contribution.Contact]
-Past = false
-Current = false
+Past = true
+Current = true
 
 [Contribution.Artwork]
 Past = false
@@ -108,8 +108,8 @@ Past = false
 Current = false
 
 [Contribution.Owner]
-Past = false
-Current = false
+Past = true
+Current = true
 
 [Contribution.Producer]
 Past = false
@@ -120,16 +120,16 @@ Past = true
 Current = true
 
 [Contribution.Publisher]
-Past = false
-Current = false
+Past = true
+Current = true
 
 [Contribution.Funder]
-Past = false
-Current = false
+Past = true
+Current = true
 
 [Contribution.Sponsor]
-Past = false
-Current = false
+Past = true
+Current = true
 
 
 

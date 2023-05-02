@@ -1,0 +1,195 @@
+[Metadata]
+Type = 'Organization'
+ID = ''
+
+
+[Metadata.Languages.EN]
+Name = 'Real Calm Studio'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+Greatful ... no matter how small.
+'''
+Description = '''
+Greatful ... no matter how small.
+'''
+
+[Metadata.Languages.EN.Phone]
+Label = 'Phone'
+Value = ''
+
+[Metadata.Languages.EN.Email]
+Label = 'Email'
+Value = ''
+
+[Metadata.Languages.EN.Location]
+Label = 'Location'
+Value = 'UK'
+
+[Metadata.Languages.EN.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@rc-studio-3493626/'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = 'Real Calm Studio'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+无论几小，感激 。
+'''
+Description = '''
+无论几小，感激 。
+'''
+
+[Metadata.Languages.ZH-HANS.Phone]
+Label = '电话'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Email]
+Label = '电邮'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Location]
+Label = '地点'
+Value = 'UK'
+
+[Metadata.Languages.ZH-HANS.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@rc-studio-3493626/'
+
+
+
+
+[Contribution.Creator]
+Past = false
+Current = false
+
+[Contribution.Contact]
+Past = false
+Current = false
+
+[Contribution.Artwork]
+Past = true
+Current = false
+
+[Contribution.Knowledge]
+Past = false
+Current = false
+
+[Contribution.Editor]
+Past = false
+Current = false
+
+[Contribution.Developer]
+Past = false
+Current = false
+
+[Contribution.Maintainer]
+Past = false
+Current = false
+
+[Contribution.Owner]
+Past = false
+Current = false
+
+[Contribution.Producer]
+Past = false
+Current = false
+
+[Contribution.Provider]
+Past = false
+Current = false
+
+[Contribution.Publisher]
+Past = false
+Current = false
+
+[Contribution.Funder]
+Past = false
+Current = false
+
+[Contribution.Sponsor]
+Past = false
+Current = false
+
+
+
+
+[Image]
+Name = "Real Calm Studio's Logo"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/real-calm-studio-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
