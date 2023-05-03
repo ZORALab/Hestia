@@ -41,8 +41,10 @@ OFFLINE_RESOURCES['{{ safeJS (string $url) -}}'] = '{{- safeJS (string $policy) 
 
 // PWA Caching Mechanisms
 const __putInCache = async (request, response) => {
-	const cache = await caches.open(OFFLINE_CACHE);
-	await cache.put(request, response);
+	if request.url.indexOf('http') === 0) {
+		const cache = await caches.open(OFFLINE_CACHE);
+		await cache.put(request, response);
+	}
 }
 
 const _fetchNetworkOnly = async (request) => {
