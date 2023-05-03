@@ -7,11 +7,12 @@
 #                        适合的反向域名ID如'com.example.app'。ID是在各种不同的
 #                        APP购物中心寻找这网站或网络APP。
 # Name.Short           - 短名来直接称呼这网站或网络APP。推荐最多2个字（如：
-#                        公司名+物品名）。
+#                        公司名+物品名）。由于PWA用这短名设为Protocol，短名必须
+#                        只能运用ASCII字母而已。
 # Name.Full            - 全名来称呼这网站或网络APP。官方网站使用。
 [Name]
 ID = "com.zoralab.hestia"
-Short = "赫斯提亚"
+Short = "Hestia"
 Full = "ZORALab：赫斯提亚"
 
 

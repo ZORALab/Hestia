@@ -15,5 +15,5 @@
 #
 # To add more protocols, simply add more `[[Contents]]` dataset below.
 [[Contents]]
-Protocol = 'web+hestia'
+Protocol = 'web+{{- .Titles.Site.Current.Short -}}'
 URL = '{{- .URL.Base -}}?query=%s'
