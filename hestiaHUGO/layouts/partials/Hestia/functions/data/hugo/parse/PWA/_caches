@@ -29,18 +29,20 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse site-level .Caches.List */ -}}
 {{- $dataList = dict -}}
-{{- range $i, $v := .Data.Store.Hestia.PWA.Caches.Contents -}}
-	{{- if not $v.URL -}}
-		{{- continue -}}
+{{- range $i, $v := .Data.Store.Hestia.Caches -}}
+	{{- range $j, $w := $v.Contents -}}
+		{{- if not $w.URL -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- if not $w.Cache -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- $dataList = merge $dataList (dict $w.URL $w.Cache) -}}
 	{{- end -}}
-
-
-	{{- if not $v.Cache -}}
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- $dataList = merge $dataList (dict $v.URL $v.Cache) -}}
 {{- end -}}
 
 

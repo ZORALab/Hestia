@@ -1,11 +1,16 @@
-# HESTIA PWA RESOURCES AND CACHING CONFIGURATIONS
-# ===============================================
-# All URLs for PWA offline caching configurations.
-
-
-
-
-#   Policy   - Default Caching policy. They can only be the following values:
+# HESTIA PWA RESOURCES AND CACHING LIST
+# =====================================
+# All URLs for PWA offline caching.
+#
+# Hestia compatible URL processing is available for this list. All URLs must be
+# bounded within the base URL and PWA scope URL pathing. You need to decide what
+# kind of resources to be served offline or cached during work. To fully
+# implement PWA, you **MUST** assemble and support offline resources when
+# network is not available.
+#
+# For each dataset:
+#   URL     - The URL that is required for local offline caching before use.
+#   Cache   - Caching policy. They can only accept the following values:
 #             'cache-first'      - Default. Resource shall use the cache version
 #                                  first and then perform a network update on it
 #                                  in the background. The updated resource shall
@@ -55,4 +60,31 @@
 #                                    1. not up-to-date.
 #                                    2. only can be updated during each update
 #                                       or fresh installation.
-Policy = 'network-first'
+#
+# Example:
+#   [[Contents]]
+#   URL = "/en"
+#   Cache = "cache-first"
+#
+#   [[Contents]]
+#   URL = "/zh-hans"
+#   Cache = "cache-first"
+[[Contents]]
+URL = "index.html"
+Cache = "network-first"
+
+[[Contents]]
+URL = "index.json"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-1200x630.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-1200x1200.jpg"
+Cache = "network-first"
+
+[[Contents]]
+URL = "thumbnails-480x480.jpg"
+Cache = "network-first"
