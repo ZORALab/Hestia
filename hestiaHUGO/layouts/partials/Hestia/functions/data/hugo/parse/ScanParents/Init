@@ -1,0 +1,80 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Hugo data structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $parents := dict -}}
+{{- $currentURL := dict -}}
+{{- $list := dict -}}
+{{- $path := false -}}
+{{- $label := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* breaks URL for obtaining the hierarchy structure */ -}}
+{{- $list = urls.Parse .Page.Permalink -}}
+{{- $currentURL = $list.Path -}}
+{{- $list = split (strings.TrimPrefix "/" $currentURL) "/" -}}
+{{- if not $list -}}
+	{{- $list = slice -}}
+{{- else if and (eq (len $list) 1) (eq (index $list 1) "") -}}
+	{{- $list = slice -}}
+{{- end -}}
+
+
+{{- /* source each .Metadata page */ -}}
+{{- $path = "/" -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := $list -}}
+	{{- /* process new path */ -}}
+	{{- if $i -}}
+		{{- $path = printf "%s/%s" $path $v -}}
+	{{- end -}}
+	{{- if eq $path $currentURL -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- /* parse page metadata */ -}}
+	{{- $ret = $Page.Site.GetPage $path -}}
+	{{- $ret = partial "Hestia/functions/data/Metadata" $ret -}}
+
+	{{- $label = index $Page.Site.Data.Hestia.Languages $v -}}
+	{{- if $label -}}
+		{{- $label = $label.Name -}}
+	{{- else -}}
+		{{- $label = $v -}}
+	{{- end -}}
+	{{- $ret = merge $ret (dict "Label" $label) -}}
+
+	{{- /* append to list */ -}}
+	{{- $dataList = append $ret $dataList -}}
+{{- end -}}
+{{- $dataList = dict "Parents" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Nav" $dataList -}}
