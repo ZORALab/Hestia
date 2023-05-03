@@ -48,7 +48,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* save to persistent memory */ -}}
 {{- if $dataset -}}
-	{{- .Memory.Set .Constants.Contributors.RolesMemKey $ret -}}
+	{{- .Memory.Set .Constants.Contributors.RolesMemKey $dataset -}}
 {{- end -}}
 
 

@@ -37,19 +37,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Site */ -}}
-{{- if .IsRoot -}}
-	{{- if .IsMetadata -}}
-		{{- $dataList = partial "Hestia/functions/data/caches/contributors/Load" . -}}
-	{{- end -}}
-
-
-	{{- if not $dataList -}}
-		{{- $dataList = partial "Hestia/functions/data/hugo/process/Contributors/_Site" . -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-		{{- $ret = partial "Hestia/functions/data/caches/contributors/Save" $ret -}}
-	{{- end -}}
-{{- else -}}
-	{{- $dataList = partial "Hestia/functions/data/caches/contributors/Load" . -}}
+{{- $dataList = partial "Hestia/functions/data/caches/contributors/Load" . -}}
+{{- if or .IsRoot (not $dataList) -}}
+	{{- $dataList = partial "Hestia/functions/data/hugo/process/Contributors/_Site" . -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $ret = partial "Hestia/functions/data/caches/contributors/Save" $ret -}}
 {{- end -}}
 {{- $dataList = dict "Site" $dataList -}}
 

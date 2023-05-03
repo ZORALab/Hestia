@@ -17,6 +17,9 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* .  = Hugo data structure */ -}}
 
+{{- /* CONSTANTS */ -}}
+{{- $cacheKey := "hugo-parser-contributors" -}}
+
 
 
 
@@ -27,9 +30,10 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse .Contributors.Site */ -}}
-{{- $dataList = dict -}}
-{{- if .IsHome -}}
+{{- $dataList = .Store.Get $cacheKey -}}
+{{- if or .IsHome (not $dataList) -}}
 	{{- $dataList = partial "Hestia/functions/data/hugo/parse/Contributors/_Site" . -}}
+	{{- .Store.Set $cacheKey $dataList -}}
 {{- end -}}
 {{- $dataList = dict "Site" $dataList "Page" dict -}}
 
