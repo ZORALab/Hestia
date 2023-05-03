@@ -1,0 +1,76 @@
+# PAGE-SPECIFIC CONTRIBUTORS
+# ==========================
+# QUICK NOTE:
+#   1. Your contributor data shall be supplied in the .Data.Hestia.Creators/
+#      directory. Here, you only list them out using their data filename as the
+#      Key for this page and update their contribution.
+#   2. Example entries:
+#        [[Contributor]]
+#        Key = 'Holloway'
+#
+#        [Contributors.Contribution]
+#        Creation = true
+#        Contact = true
+#        Artwork = false
+#        Knowledge = true
+#        Editor = true
+#        Developer = false
+#        Maintainer = false
+#        Producer = false
+#        Provider = false
+#        Publisher = false
+#        Funder = false
+#        Sponsor = false
+#
+#        [[Contributor]]
+#        Key = 'CoryGalyna'
+#
+#        [Contributors.Contribution]
+#        Creation = false
+#        Contact = false
+#        Artwork = false
+#        Knowledge = false
+#        Editor = true
+#        Developer = false
+#        Maintainer = false
+#        Producer = false
+#        Provider = false
+#        Publisher = false
+#        Funder = true
+#        Sponsor = false
+#
+#        ...
+[[Contributors]]
+Key = 'ZORALab'
+
+[Contributors.Contribution]
+Creation = true
+Contact = true
+Artwork = false
+Knowledge = false
+Editor = true
+Developer = false
+Maintainer = false
+Producer = true
+Provider = true
+Publisher = true
+Funder = false
+Sponsor = true
+
+
+[[Contributors]]
+Key = 'HollowayKeanHo'
+
+[Contributors.Contribution]
+Creation = true
+Contact = false
+Artwork = false
+Knowledge = true
+Editor = true
+Developer = false
+Maintainer = false
+Producer = false
+Provider = false
+Publisher = false
+Funder = false
+Sponsor = false
