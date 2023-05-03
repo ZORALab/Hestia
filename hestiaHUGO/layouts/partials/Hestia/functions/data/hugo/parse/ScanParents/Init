@@ -35,8 +35,8 @@ specific language governing permissions and limitations under the License.
 
 {{- /* breaks URL for obtaining the hierarchy structure */ -}}
 {{- $list = urls.Parse .Page.Permalink -}}
-{{- $currentURL = $list.Path -}}
-{{- $list = split (strings.TrimPrefix "/" $currentURL) "/" -}}
+{{- $currentURL = strings.TrimSuffix "/" $list.Path -}}
+{{- $list = split $currentURL "/" -}}
 {{- if not $list -}}
 	{{- $list = slice -}}
 {{- else if and (eq (len $list) 1) (eq (index $list 1) "") -}}
@@ -45,13 +45,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source each .Metadata page */ -}}
-{{- $path = "/" -}}
+{{- $path = "" -}}
 {{- $dataList = slice -}}
 {{- range $i, $v := $list -}}
 	{{- /* process new path */ -}}
-	{{- if $i -}}
-		{{- $path = printf "%s/%s" $path $v -}}
-	{{- end -}}
+	{{- $path = printf "%s/%s" (strings.TrimPrefix "/" $path) $v -}}
 	{{- if eq $path $currentURL -}}
 		{{- continue -}}
 	{{- end -}}
