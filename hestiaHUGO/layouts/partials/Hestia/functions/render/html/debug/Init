@@ -189,8 +189,12 @@ specific language governing permissions and limitations under the License.
 		<div style='
 			grid-area: content;
 
+			box-sizing: border-box;
 			width: 100%;
-			overflow: auto;
+
+			margin: 15pt 0;
+
+			overflow-y: auto;
 
 			color: inherit;
 			background: transparent;

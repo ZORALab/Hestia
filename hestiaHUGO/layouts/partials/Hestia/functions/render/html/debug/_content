@@ -17,12 +17,93 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 
-<p style='
-	font-family: var(--hestia-debugger-font-family);
-	font-size: 12pt;
+<div id='hestia-debug-console-thumbnails'>
+	<div style='
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: row wrap;
+		gap: 10pt;
 
-	color: var(--hestia-debugger-color);
-	background: transparent;
-'>
-	Placeholder text here
-</p>
+		box-sizing: border-box;
+		width: 100%;
+
+		margin: 0;
+		padding: 0;
+
+		background: transparent;
+	'>
+		{{- range $i, $v := .Thumbnails }}
+		<div id='hestia-debug-console-thumbnails-{{- string $i -}}' style='
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			box-sizing: border-box;
+
+			margin: 0;
+			padding: 5pt;
+
+			border: 2px solid var(--hestia-debugger-color);
+			background: rgba(255, 255, 255, .25);
+		'>
+			{{- range $j, $w := $v.Sources }}
+			<div style='
+				width: auto;
+				min-width: 100px;
+				height: auto;
+				min-height: 100px;
+
+				box-sizing: border-box;
+
+				margin: 0;
+				padding: 0;
+
+				background: transparent;
+			'>
+				<img alt='' src='{{- $w.URL -}}'
+					width='{{- $v.Width -}}' height='{{- $v.Height -}}'
+					loading='lazy'
+					style='
+						width: auto;
+						max-width: 100px;
+						height: auto;
+						max-height: 100px;
+
+						box-sizing: border-box;
+
+						margin: 0;
+						padding: 0;
+
+						background: transparent;
+				'/>
+				<p style='
+					margin: 0;
+					padding: 0;
+
+					text-align: center;
+
+					color: var(--hestia-debugger-color);
+					background: transparent;
+				'>
+					<code>.Sources.{{- string $j -}}</code>
+				</p>
+			</div>
+			{{- end }}
+
+			<h4 style='
+				margin: 3pt;
+				padding: 0;
+
+				text-align: center;
+
+				color: var(--hestia-debugger-color);
+				background: transparent;
+			'>
+				<b><code>.Thumbnails.{{- string $i -}}</code></b>
+			</h4>
+		</div>
+		{{- end }}
+	</div>
+</div>
