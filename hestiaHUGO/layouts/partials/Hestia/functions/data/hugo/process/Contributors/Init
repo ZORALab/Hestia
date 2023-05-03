@@ -99,6 +99,11 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (dict "Page" $list) -}}
 
 
+{{- /* make sure we are not including .Site for every Metadata data structure */ -}}
+{{- if .IsMetadata -}}
+	{{- $dataList = dict "Page" $dataList.Page -}}
+{{- end -}}
+
 
 
 {{- /* render output */ -}}
