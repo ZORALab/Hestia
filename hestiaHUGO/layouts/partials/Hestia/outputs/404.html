@@ -36,6 +36,6 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output file */ -}}
-{{- $dataList = partial "Hestia/templates/format.html" $dataList -}}
+{{- $dataList = partial "Hestia/outputs/format.html" $dataList -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" (string $dataList) "Path" "404.html")) -}}
 {{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}

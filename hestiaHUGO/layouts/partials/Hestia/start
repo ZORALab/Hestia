@@ -21,16 +21,16 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* RENDER MAIN PAGE COMPONENTS */ -}}
-{{- partial "Hestia/templates/format.html" . -}}
-{{- partial "Hestia/templates/sitemap-page.xml" . -}}
-{{- partial "Hestia/templates/sitemap.xml" . -}}
+{{- partial "Hestia/outputs/format.html" . -}}
+{{- partial "Hestia/outputs/sitemap-page.xml" . -}}
+{{- partial "Hestia/outputs/sitemap.xml" . -}}
 
 
 
 
 {{- /* RENDER OPTIONAL COMPONENTS */ -}}
 {{- if index .Content "JSON" -}}
-	{{- partial "Hestia/templates/format.json" . -}}
+	{{- partial "Hestia/outputs/format.json" . -}}
 {{- end -}}
 
 
@@ -38,11 +38,11 @@ specific language governing permissions and limitations under the License.
 
 {{- /* RENDER ROOT COMPONENTS */ -}}
 {{- if .IsRoot -}}
-	{{- partialCached "Hestia/templates/404.html" . -}}
-	{{- partialCached "Hestia/templates/robots.txt" . -}}
-	{{- partialCached "Hestia/templates/nojekyll" . -}}
-	{{- partialCached "Hestia/templates/cname" . -}}
-	{{- partialCached "Hestia/templates/app.webmanifest" . -}}
-	{{- partialCached "Hestia/templates/worker.js" . -}}
-	{{- partialCached "Hestia/templates/icons" . -}}
+	{{- partialCached "Hestia/outputs/404.html" . -}}
+	{{- partialCached "Hestia/outputs/robots.txt" . -}}
+	{{- partialCached "Hestia/outputs/nojekyll" . -}}
+	{{- partialCached "Hestia/outputs/cname" . -}}
+	{{- partialCached "Hestia/outputs/app.webmanifest" . -}}
+	{{- partialCached "Hestia/outputs/worker.js" . -}}
+	{{- partialCached "Hestia/outputs/icons" . -}}
 {{- end -}}
