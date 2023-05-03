@@ -109,6 +109,10 @@ Current = false
 Past = false
 Current = false
 
+[Contribution.Reviewer]
+Past = false
+Current = false
+
 [Contribution.Funder]
 Past = false
 Current = false

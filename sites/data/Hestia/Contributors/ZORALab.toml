@@ -123,6 +123,10 @@ Current = true
 Past = true
 Current = true
 
+[Contribution.Reviewer]
+Past = false
+Current = false
+
 [Contribution.Funder]
 Past = true
 Current = true
