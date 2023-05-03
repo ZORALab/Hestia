@@ -27,6 +27,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page := . -}}
 {{- $dataList := dict -}}
 {{- $breadcrumb := dict -}}
+{{- $reviewers := slice -}}
 {{- $ret := false -}}
 
 
@@ -54,6 +55,20 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* prepare reviewers as WebPage has such a field */ -}}
+{{- $reviewers = slice -}}
+{{- range $i, $v := $Page.Contributors.Site -}}
+	{{- if not (or $v.Contribution.Reviewer.Current $v.Contribution.Reviewer.Past) -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = partial "Hestia/functions/render/ldjson/Entity" $v -}}
+	{{- $reviewers = append $ret $reviewers -}}
+{{- end -}}
+
+
+
+
 {{- /* inherit CreativeWork and append/overrides fields */ -}}
 {{- $dataList = partial "Hestia/functions/render/ldjson/CreativeWork" . -}}
 {{- $dataList = merge $dataList (dict
@@ -62,6 +77,10 @@ specific language governing permissions and limitations under the License.
 
 {{- if $breadcrumb -}}
 	{{- $dataList = merge $dataList (dict "breadcrumb" $breadcrumb) -}}
+{{- end -}}
+
+{{- if $reviewers -}}
+	{{- $dataList = merge $dataList (dict "reviewedBy" $reviewers) -}}
 {{- end -}}
 
 
