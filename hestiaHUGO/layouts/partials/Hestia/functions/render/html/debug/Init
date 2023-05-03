@@ -53,12 +53,22 @@ specific language governing permissions and limitations under the License.
 	'>⚒</button>
 	<dialog id="hestia-debug-console" style='
 		/* NOTE: DO NOT set display for dialog object - reserved by browser. */
+		--hestia-debugger-margin-content: 5pt;
+		--hestia-debugger-margin-section: 30pt;
+		--hestia-debugger-padding-content: 5pt;
+
+		--hestia-debugger-font-size-text: 12pt;
+		--hestia-debugger-line-height-text: 15pt;
+		--hestia-debugger-font-family: san-serif;
+
+		--hestia-debugger-border-content: 2px solid var(--hestia-debugger-color);
+
 		--hestia-debugger-bg: linear-gradient(144deg, #AF40FF,
 								#5B42F3 50%,
 								#00DDEB);
+		--hestia-debugger-bg-inverted: rgba(255, 255, 255, .25);
 		--hestia-debugger-color: #FFF;
 		--hestia-debugger-color-inverted: #5B42F3;
-		--hestia-debugger-font-family: san-serif;
 
 		margin: auto;
 		padding: 0;
@@ -175,7 +185,7 @@ specific language governing permissions and limitations under the License.
 
 				font-family: var(--hestia-debugger-font-family);
 				font-size: 20pt;
-				line-height: 1em;
+				line-height: .8pt;
 				text-decoration: none;
 				white-space: nowrap;
 				cursor: pointer;
@@ -192,7 +202,7 @@ specific language governing permissions and limitations under the License.
 			box-sizing: border-box;
 			width: 100%;
 
-			margin: 15pt 0;
+			margin: var(--hestia-debugger-margin-section) 0;
 
 			overflow-y: auto;
 

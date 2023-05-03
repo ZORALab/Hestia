@@ -17,6 +17,16 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 
+
+
+
+{{- /* prepare variables for function */ -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
 <div id='hestia-debug-console-thumbnails'>
 	<div style='
 		display: flex;
@@ -45,8 +55,8 @@ specific language governing permissions and limitations under the License.
 			margin: 0;
 			padding: 5pt;
 
-			border: 2px solid var(--hestia-debugger-color);
-			background: rgba(255, 255, 255, .25);
+			border: var(--hestia-debugger-border-content);
+			background: var(--hestia-debugger-bg-inverted);
 		'>
 			{{- range $j, $w := $v.Sources }}
 			<div style='
@@ -106,4 +116,12 @@ specific language governing permissions and limitations under the License.
 		</div>
 		{{- end }}
 	</div>
+</div>
+
+
+
+
+<div id='hestia-debug-console-data' style='margin: var(--hestia-debugger-margin-section);'>
+	{{- $ret = dict "DebugKey" "" "DebugValue" . -}}
+	{{- partial "Hestia/functions/render/html/debug/_page-value" $ret -}}
 </div>

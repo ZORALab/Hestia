@@ -50,13 +50,67 @@ specific language governing permissions and limitations under the License.
 		{{- $ret = dict $KEY $key $VALUE $v -}}
 		{{- partial "Hestia/functions/render/html/debug/_page-value" $ret -}}
 	{{- else -}}
-		<tr>
-			<td>
-				<code>{{- $key -}}</code>
-			</td>
-			<td>
-				<code>{{- printf "%v" $v -}}</code>
-			</td>
-		</tr>
+		<div style='
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			box-sizing: border-box;
+
+			margin: var(--hestia-debugger-margin-content);
+			padding: var(--hestia-debugger-padding-content);
+
+			border: var(--hestia-debugger-border-content);
+			background: transparent;
+		'>
+			<p style='
+				min-width: 100%;
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				box-sizing: border-box;
+
+				margin: var(--hestia-debugger-margin-content);
+
+				font-family: var(--hestia-debugger-font-family);
+				font-size: var(--hestia-debugger-font-size-text);
+				line-height: var(--hestia-debugger-line-height-text);
+				text-decoration: none;
+
+				color: var(--hestia-debugger-color-inverted);
+				background: var(--hestia-debugger-bg-inverted);
+			'>
+				<b><code style='
+					overflow-wrap: break-word;
+
+					color: var(--hestia-debugger-color);
+					background: transparent;
+				'>{{- $key -}}</code></b>
+			</p>
+			<p style='
+				min-width: 100%;
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+				box-sizing: border-box;
+
+				margin: var(--hestia-debugger-margin-content);
+
+				font-family: var(--hestia-debugger-font-family);
+				font-size: var(--hestia-debugger-font-size-text);
+				line-height: var(--hestia-debugger-line-height-text);
+				text-decoration: none;
+
+				color: var(--hestia-debugger-color);
+				background: transparent;
+			'>
+				<code style='
+					overflow-wrap: break-word;
+
+					background: transparent;
+				'>{{- printf "%v" $v -}}</code>
+			</p>
+		</div>
 	{{- end -}}
 {{- end -}}
