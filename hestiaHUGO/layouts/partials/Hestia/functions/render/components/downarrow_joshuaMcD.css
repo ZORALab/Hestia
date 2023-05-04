@@ -1,0 +1,87 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+Copyright 2023 Joshua MacDonald (https://codepen.io/JoshMac/pen/MaYEmJ)
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+.downarrow-joshuaMcD,
+.downarrow-joshuaMcD::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.downarrow-joshuaMcD {
+	width: var(--downarrow-joshuaMcD-size);
+	height: var(--downarrow-joshuaMcD-size);
+
+	margin: var(--downarrow-joshuaMcD-margin-vertical)
+		0
+		0
+		var(--downarrow-joshuaMcD-margin-horizontal);
+
+	border-top: none;
+	border-right: var(--downarrow-joshuaMcD-border);
+	border-bottom: var(--downarrow-joshuaMcD-border);
+	border-left: none;
+
+	color: transparent;
+	background: transparent;
+
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+.downarrow-joshuaMcD:before {
+	content: '';
+
+	width: var(--downarrow-joshuaMcD-size-shadow);
+	height: var(--downarrow-joshuaMcD-size-shadow);
+
+	margin: calc(var(--downarrow-joshuaMcD-margin-vertical)/2)
+		0
+		0
+		calc(var(--downarrow-joshuaMcD-margin-horizontal)/2);
+
+	border-top: none;
+	border-right: var(--downarrow-joshuaMcD-border-shadow);
+	border-bottom: var(--downarrow-joshuaMcD-border-shadow);
+	border-left: none;
+
+	animation-duration: var(--downarrow-joshuaMcD-animation-timing);
+	animation-iteration-count: infinite;
+	animation-name: downarrow-joshuaMcD;
+}
+
+@keyframes downarrow-joshuaMcD {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translate(
+			var(--downarrow-joshuaMcD-margin-shadow),
+			var(--downarrow-joshuaMcD-margin-shadow)
+		);
+	}
+}
+
+@media print {
+	.downarrow-joshuaMcD {
+		color: transparent !important;
+		border-color: var(--downarrow-joshuaMcD-color-print) !important;
+		background: transparent !important;
+	}
+}

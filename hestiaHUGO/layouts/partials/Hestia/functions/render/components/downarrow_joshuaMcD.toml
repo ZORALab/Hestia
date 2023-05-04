@@ -1,0 +1,14 @@
+[CSS.Variables]
+--downarrow-joshuaMcD-size = "40px"
+--downarrow-joshuaMcD-size-shadow = "calc(var(--downarrow-joshuaMcD-size)/2)"
+
+--downarrow-joshuaMcD-border = "2px var(--downarrow-joshuaMcD-color) solid"
+--downarrow-joshuaMcD-border-shadow = "1px var(--downarrow-joshuaMcD-color) solid"
+
+--downarrow-joshuaMcD-margin-vertical = "-20px"
+--downarrow-joshuaMcD-margin-horizontal = "-20px"
+
+--downarrow-joshuaMcD-color = "#FFF"
+--downarrow-joshuaMcD-color-print = "#000"
+
+--downarrow-joshuaMcD-animation-timing = "2s"
