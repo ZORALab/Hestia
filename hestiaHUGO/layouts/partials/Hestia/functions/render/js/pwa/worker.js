@@ -41,10 +41,8 @@ OFFLINE_RESOURCES['{{ safeJS (string $url) -}}'] = '{{- safeJS (string $policy) 
 
 // PWA Caching Mechanisms
 const __putInCache = async (request, response) => {
-	if request.url.indexOf('http') === 0) {
-		const cache = await caches.open(OFFLINE_CACHE);
-		await cache.put(request, response);
-	}
+	const cache = await caches.open(OFFLINE_CACHE);
+	await cache.put(request, response);
 }
 
 const _fetchNetworkOnly = async (request) => {
@@ -117,19 +115,21 @@ const _fetchCacheFirst = async (request) => {
 
 
 self.addEventListener("fetch", event => {
-	switch (OFFLINE_RESOURCES[event.request.url]) {
-	case POLICY_CACHE_FIRST:
-		event.respondWith(_fetchCacheFirst(event.request));
-		break;
-	case POLICY_CACHE_ONLY:
-		event.respondWith(_fetchCacheOnly(event.request));
-		break;
-	case POLICY_NETWORK_ONLY:
-		event.respondWith(_fetchNetworkOnly(event.request));
-		break;
-	default: // POLICY_NETWORK_FIRST
-		event.respondWith(_fetchNetworkFirst(event.request));
-		break;
+	if((event.request.url.indexOf('http') === 0)) {
+		switch (OFFLINE_RESOURCES[event.request.url]) {
+		case POLICY_CACHE_FIRST:
+			event.respondWith(_fetchCacheFirst(event.request));
+			break;
+		case POLICY_CACHE_ONLY:
+			event.respondWith(_fetchCacheOnly(event.request));
+			break;
+		case POLICY_NETWORK_ONLY:
+			event.respondWith(_fetchNetworkOnly(event.request));
+			break;
+		default: // POLICY_NETWORK_FIRST
+			event.respondWith(_fetchNetworkFirst(event.request));
+			break;
+		}
 	}
 });
 
