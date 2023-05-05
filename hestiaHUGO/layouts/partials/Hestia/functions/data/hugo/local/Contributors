@@ -67,12 +67,9 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- /* extract .Key */ -}}
+	{{- /* extract creator data */ -}}
 	{{- $creator = dict -}}
-
-
-	{{- /* extract each .Contribution */ -}}
-	{{- range $j, $w := .Constants.Contributors.Roles -}}
+	{{- range $j, $w := $Page.Constants.Contributors.Roles -}}
 		{{- $ret = false -}}
 		{{- if index $v.Contribution $w -}}
 			{{- $ret = true -}}

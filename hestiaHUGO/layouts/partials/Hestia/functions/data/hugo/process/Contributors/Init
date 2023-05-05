@@ -20,7 +20,6 @@ specific language governing permissions and limitations under the License.
 
 
 
-
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $Page = merge $Page (dict "Contributors" false) -}}
@@ -37,66 +36,277 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Site */ -}}
-{{- $dataList = partial "Hestia/functions/data/caches/contributors/Load" . -}}
-{{- if or .IsRoot (not $dataList) -}}
-	{{- $dataList = partial "Hestia/functions/data/hugo/process/Contributors/_Site" . -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-	{{- $ret = partial "Hestia/functions/data/caches/contributors/Save" $ret -}}
-{{- end -}}
-{{- $dataList = dict "Site" $dataList -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := .Contributors.Site -}}
+	{{- $data = dict -}}
 
 
-
-
-{{- /* process .Page */ -}}
-{{- $list = dict -}}
-{{- range $k, $v := .Contributors.Page -}}
-	{{- if not (index $dataList.Site $k) -}}
-		{{- $console = printf ".Contributors.Page: unknown entity '%v'.\n" $k -}}
+	{{- /* process language specific fields */ -}}
+	{{- $dataset = index $v.Languages $langID -}}
+	{{- if not $dataset -}}
+		{{- $console = printf ".Contributors.Site.%v.Languages: missing %v data.\n"
+			$k $langID -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
-	{{- if not (index $v "Contribution") -}}
-		{{- continue -}}
+
+	{{- /* process .Name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Name)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Contributors.Site.%v.Name: %v"
+			$k $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
 	{{- end -}}
+	{{- $data = merge $data (dict "Name" $ret.Output) -}}
 
 
-	{{- /* process .Contribution */ -}}
-	{{- $dataset = dict -}}
-	{{- range $j, $w := $Page.Constants.Contributors.Roles -}}
-		{{- $ret = index $v.Contribution $w -}}
-		{{- if not $ret -}}
+	{{- /* process .Title */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Title)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Contributors.Site.%v.Title: %v"
+			$k $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Title" $ret.Output) -}}
+
+
+	{{- /* process .Brand */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Brand)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Contributors.Site.%v.Brand: %v"
+			$k $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Brand" $ret.Output) -}}
+
+
+	{{- /* process .CallSign */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.CallSign)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Contributors.Site.%v.CallSign: %v"
+			$k $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "CallSign" $ret.Output) -}}
+
+
+	{{- /* process .Slogan */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Slogan)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Contributors.Site.%v.Slogan: %v"
+			$k $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Slogan" $ret.Output) -}}
+
+
+	{{- /* process .Description */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Description)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Contributors.Site.%v.Description: %v"
+			$k $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Description" $ret.Output) -}}
+
+
+	{{- /* process .Phone .Email .Location .Web */ -}}
+	{{- range $j, $w := (slice "Phone" "Email" "Location" "Web") -}}
+		{{- if not (index $dataset $w) -}}
+			{{- $data = merge $data (dict $w (dict "Label" "" "Value" "")) -}}
 			{{- continue -}}
 		{{- end -}}
 
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+		{{- /* process .Label */ -}}
+		{{- $ret = index $dataset $w -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Label)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 		{{- if $ret.Console -}}
-			{{- $console = printf ".Contributors.Page.%v.Contribution.%v: %v"
+			{{- $console = printf ".Contributors.Site.%v.%v.Label: %v"
 				$k $w $ret.Console.Message -}}
 			{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $data = merge $data (dict $w (dict "Label" $ret.Output)) -}}
+
+		{{- /* process .Value */ -}}
+		{{- if (eq $w "Web") -}}
+			{{- $ret = index $dataset $w -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Value)) -}}
+			{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+			{{- if $ret.Console -}}
+				{{- $console = printf ".Contributors.Site.%v.%v.Value: %v"
+					$k $w $ret.Console.Message -}}
+				{{- $console = merge $Page (dict
+					"Console" (dict "Message" $console)) -}}
+				{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- end -}}
+			{{- $data = merge $data (dict $w (dict "Value" $ret.Output)) -}}
+		{{- else -}}
+			{{- $ret = index $dataset $w -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Value)) -}}
+			{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+			{{- if $ret.Console -}}
+				{{- $console = printf ".Contributors.Site.%v.%v.Value: %v"
+					$k $w $ret.Console.Message -}}
+				{{- $console = merge $Page (dict
+					"Console" (dict "Message" $console)) -}}
+				{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- end -}}
+			{{- $data = merge $data (dict $w (dict "Value" $ret.Output)) -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- /* process .Social */ -}}
+	{{- range $j, $w := $dataset.Social -}}
+		{{- /* process .Label */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Label)) -}}
+		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf ".Contributors.Site.%v.Social.%v.Label: %v"
+				$k $j $w $ret.Console.Message -}}
+			{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $ret = dict (string $j) (dict "Label" $ret.Output) -}}
+		{{- $data = merge $data (dict "Social" $ret) -}}
+
+		{{- /* process .Value */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "URL" $w.Value)) -}}
+		{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf ".Contributors.Site.%v.Social.%v.Value: %v"
+					$k $j $ret.Console.Message -}}
+			{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $ret = dict (string $j) (dict "Value" $ret.Output) -}}
+		{{- $data = merge $data (dict "Social" $ret) -}}
+	{{- end -}}
+
+	{{- /* process .Contribution */ -}}
+	{{- range $j, $w := $Page.Constants.Contributors.Roles -}}
+		{{- if not (index $v.Contribution $w) -}}
+			{{- $data = merge $data
+				(dict "Contribution" (dict $w (dict "Label" "" "Value" ""))) -}}
 			{{- continue -}}
 		{{- end -}}
-		{{- $dataset = merge $dataset (dict "Contribution"
+
+		{{- /* process .Past */ -}}
+		{{- $ret = index $v.Contribution $w -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Past)) -}}
+		{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf ".Contributors.Site.%v.Contribution.%v.: %v"
+				$k $w $ret.Console.Message -}}
+			{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $data = merge $data (dict "Contribution"
+			(dict $w (dict "Past" $ret.Output))) -}}
+
+		{{- /* process .Current */ -}}
+		{{- $ret = index $v.Contribution $w -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Current)) -}}
+		{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf ".Contributors.Site.%v.Contribution.%v: %v"
+				$k $w $ret.Console.Message -}}
+			{{- $console = merge $Page (dict
+				"Console" (dict "Message" $console)) -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- end -}}
+		{{- $data = merge $data (dict "Contribution"
 			(dict $w (dict "Current" $ret.Output))) -}}
 	{{- end -}}
-	{{- $dataset = merge (index $dataList.Site $k) $dataset -}}
 
 
-	{{- $list = merge $list (dict $k $dataset) -}}
+	{{- /* process .Type */ -}}
+	{{- if not $v.Type -}}
+		{{- $console = printf ".Contributors.Site.%v: .Type is unset. Default to 'organization'.\n" $k -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Warningf" $console -}}
+		{{- $console = dict -}}
+		{{- $data = merge $data (dict "Type" "organization") -}}
+	{{- else if eq (lower $v.Type) "person" -}}
+		{{- $data = merge $data (dict "Type" "person") -}}
+	{{- else if eq (lower $v.Type) "organization" -}}
+		{{- $data = merge $data (dict "Type" "organization") -}}
+	{{- else -}}
+		{{- $console = printf ".Contributors.Site.%v: unknown .Type '%v'.\n"
+			$k $v.Type -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- $data = merge $data (dict "Type" "organization") -}}
+	{{- end -}}
+
+
+	{{- /* process .ID */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.ID)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Contributors.Site.%v.ID: %v" $k $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "ID" $ret.Output) -}}
+
+
+	{{- /* process .Image */ -}}
+	{{- $ret = dict -}}
+	{{- if index $v "Image" -}}
+		{{- $ret = merge $Page (dict "Input" $v.Image) -}}
+		{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf ".Contributors.Site.%v.Image: %v"
+				$k $ret.Console.Message -}}
+			{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- $ret = dict -}}
+		{{- else -}}
+			{{- $ret = $ret.Output -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Image" $ret) -}}
+
+
+	{{- /* process .Background */ -}}
+	{{- $ret = dict -}}
+	{{- if index $v "Background" -}}
+		{{- $ret = merge $Page (dict "Input" $v.Background) -}}
+		{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+		{{- if $ret.Console -}}
+			{{- $console = printf ".Contributors.Site.%v.Background: %v"
+				$k $ret.Console.Message -}}
+			{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+			{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- $ret = dict -}}
+		{{- else -}}
+			{{- $ret = $ret.Output -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Background" $ret) -}}
+
+
+	{{- $dataList = merge $dataList (dict $k $data) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Page" $list) -}}
 
-
-{{- /* make sure we are not including .Site for every Metadata data structure */ -}}
-{{- if .IsMetadata -}}
-	{{- $dataList = dict "Page" $dataList.Page -}}
-{{- end -}}
 
 
 
 {{- /* render output */ -}}
-{{- return merge $Page (dict "Contributors" $dataList) -}}
+{{- return $dataList -}}

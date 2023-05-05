@@ -28,7 +28,6 @@ specific language governing permissions and limitations under the License.
 {{- $Local := dict -}}
 {{- $dataList := . -}}
 {{- $data := false -}}
-{{- $list := slice -}}
 {{- $ret := false -}}
 
 
@@ -50,18 +49,16 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source data */ -}}
 {{- $data = index $Local "Meta" -}}
-{{- $list = slice -}}
 {{- range $i, $v := $data -}}
 	{{- if and (not (index $v "Name")) (not (index $v "Content")) -}}
 		{{- continue -}}
 	{{- end -}}
 
 
-	{{- $ret = dict "Name" $v.Name "Content" $v.Content -}}
-	{{- $list = append $ret $list -}}
+	{{- $dataList = merge $dataList (dict "Robots" (dict "List" (
+		(dict "Name" $v.Name "Content" $v.Content)
+	))) -}}
 {{- end -}}
-{{- $list = append $list .Robots -}}
-{{- $dataList = merge $dataList (dict "Robots" $list) -}}
 
 
 

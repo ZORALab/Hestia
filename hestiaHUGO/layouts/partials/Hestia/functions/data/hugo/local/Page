@@ -73,11 +73,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source .Data */ -}}
-{{- $list = slice -}}
+{{- $list = dict -}}
 {{- $data = index $Local "Data" -}}
 {{- range $i, $v := $data -}}
 	{{- $ret = printf "%s/%s" $dataList.Filesystem.Directory $v.Filename -}}
-	{{- $list = append $ret $list -}}
+	{{- $list = merge $list (dict (string $i) $ret) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Data" (dict "Page" $list)) -}}
 

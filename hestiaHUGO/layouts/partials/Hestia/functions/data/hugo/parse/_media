@@ -46,96 +46,38 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $ret = dict "URL" $v.URL -}}
-	{{- $ret = merge $ret (dict "Type" $v.Type) -}}
-	{{- $ret = merge $ret (dict "Media" $v.Media) -}}
-	{{- $list = merge $list (dict (lower $i) $ret) -}}
+	{{- $list = merge $list (dict (lower $i) (dict
+		"URL" $v.URL
+		"Type" $v.Type
+		"Media" $v.Media
+		"Descriptor" (default "1x" $v.Descriptor)
+	)) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Sources" $list) -}}
 
 
-
-
-{{- /* parse .Name */ -}}
-{{- $dataList = merge $dataList (dict "Name" .Name) -}}
-
-
-
-
-{{- /* parse .Width */ -}}
-{{- $dataList = merge $dataList (dict "Width" (default 0 .Width)) -}}
-
-
-
-
-{{- /* parse .Height */ -}}
-{{- $dataList = merge $dataList (dict "Height" (default 0 .Height)) -}}
-
-
-
-
-{{- /* parse .Sizes */ -}}
-{{- $dataList = merge $dataList (dict "Sizes" (default "" .Sizes)) -}}
-
-
-
-
-{{- /* parse .CORS */ -}}
-{{- $dataList = merge $dataList (dict "CORS" (default "anonymous" .CORS)) -}}
-
-
-
-
-{{- /* parse .Relationship */ -}}
-{{- $dataList = merge $dataList (dict "Relationship" (default "" .Relationship)) -}}
-
-
-
-
-{{- /* parse .Design */ -}}
-{{- $dataList = merge $dataList (dict "Design" (default "any" .Design)) -}}
-
-
-
-
-{{- /* parse .Preload */ -}}
-{{- $dataList = merge $dataList (dict "Preload" (default "metadata" .Preload)) -}}
-
-
-
-
-{{- /* parse .Control */ -}}
-{{- $dataList = merge $dataList (dict "Control" (default false .Control)) -}}
-
-
-
-
-{{- /* parse .Autoplay */ -}}
-{{- $dataList = merge $dataList (dict "Autoplay" (default false .Autoplay)) -}}
-
-
-
-
-{{- /* parse .Loop */ -}}
-{{- $dataList = merge $dataList (dict "Loop" (default false .Loop)) -}}
-
-
-
-
-{{- /* parse .Mute */ -}}
-{{- $dataList = merge $dataList (dict "Mute" (default false .Mute)) -}}
-
-
-
-
-{{- /* parse .Inline */ -}}
-{{- $dataList = merge $dataList (dict "Inline" (default false .Inline)) -}}
+{{- $dataList = merge $dataList (dict
+	"Sources" $list
+	"Name" .Name
+	"Decorative" (default false .Decorative)
+	"Loading" (default "lazy" .Loading)
+	"Width" (default 0 .Width)
+	"Height" (default 0 .Height)
+	"Sizes" (default "" .Sizes)
+	"CORS" (default "anonymous" .CORS)
+	"Relationship" (default "" .Relationship)
+	"Design" (default "" .Design)
+	"Preload" (default "" .Preload)
+	"Control" (default false .Control)
+	"Autoplay" (default false .Autoplay)
+	"Loop" (default false .Loop)
+	"Mute" (default false .Mute)
+	"Inline" (default false .Inline)
+) -}}
 
 
 
 
 {{- /* parse .Tracks */ -}}
-{{- $list = dict -}}
 {{- range $k, $v := .Tracks -}}
 	{{- if not $v.URL -}}
 		{{- continue -}}
@@ -152,13 +94,14 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $ret = dict "URL" $v.URL -}}
-	{{- $ret = merge $ret (dict "Kind" (default "" $v.Kind)) -}}
-	{{- $ret = merge $ret (dict "Label" (default "" $v.Label)) -}}
-	{{- $ret = merge $ret (dict "Default" (default false $v.Default)) -}}
-	{{- $list = merge $list (dict (lower $k) $ret) -}}
+	{{- $ret = dict
+		"URL" $v.URL
+		"Kind" (default "" $v.Kind)
+		"Label" (default "" $v.Label)
+		"Default" (default false $v.Default) -}}
+	-}}
+	{{- $dataList = merge $dataList (dict "Tracks" (dict (lower $k) $ret)) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Tracks" $list) -}}
 
 
 

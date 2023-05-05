@@ -27,9 +27,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* extract and load .Contributors.Site data */ -}}
-{{- $dataList = .Memory.Get .Constants.Contributors.RolesMemKey -}}
-{{- if not $dataList -}}
-	{{- $dataList = dict -}}
+{{- if .Constants.Contributors.RolesMemKey -}}
+	{{- $dataList = .Memory.Get .Constants.Contributors.RolesMemKey -}}
+	{{- if not $dataList -}}
+		{{- $dataList = dict -}}
+	{{- end -}}
 {{- end -}}
 
 

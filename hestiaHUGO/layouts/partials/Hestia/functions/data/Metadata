@@ -21,31 +21,8 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* Prepare Hestia critical data structure. (!!!) POSITION MATTERS (!!!) */ -}}
-{{- $dataList := dict "IsHestia" true "IsMetadata" true -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/constants/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Memory/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/URL" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Time" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Formats" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Filesystems" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Languages" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsServerMode" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Is404" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/IsRoot" .) -}}
-
-
-
-
-{{- /* prepare Hestia data structures. */ -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Thumbnails" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Title" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Descriptions" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Keywords" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Contributors/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Robots" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Redirect" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Vendors/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Data" .) -}}
+{{- $dataList := partial "Hestia/functions/data/hugo/parse/Critical/Init" . -}}
+{{- $dataList = merge $dataList (dict "IsMetadata" true) -}}
 
 
 
@@ -60,23 +37,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* BEGIN PROCESSING - Processing the $dataList to match Hestia's data structure */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Time/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Formats/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Languages/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Titles/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Descriptions/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Keywords/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Contributors/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Redirect/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Thumbnails/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Vendors/Init" $dataList -}}
-
-
-
-
-{{- /* BEGIN POST PROCESSING - Hestia data processing ended beyond this line */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Robots/Init" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Data/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Critical/Init" $dataList -}}
 
 
 

@@ -38,7 +38,7 @@ specific language governing permissions and limitations under the License.
 	<meta name="engine"
 		content="{{- safeHTML .Vendors.ZORALab.Hestia.Version -}}" />
 
-	{{- range $i, $v := .Robots }}
+	{{- range $i, $v := .Robots.List }}
 	<meta name="{{- safeHTML $v.Name -}}"
 		content="{{- safeHTML $v.Content -}}" />
 	{{- end }}

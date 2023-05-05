@@ -17,28 +17,109 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* .  = Hugo data structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $cacheKey := "hugo-parser-contributors" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
+{{- $data := false -}}
+{{- $roles := dict -}}
+{{- $creator := false -}}
+{{- $ret := false -}}
 
 
 
 
-{{- /* parse .Contributors.Site */ -}}
-{{- $dataList = .Store.Get $cacheKey -}}
-{{- if or .IsHome (not $dataList) -}}
-	{{- $dataList = partial "Hestia/functions/data/hugo/parse/Contributors/_Site" . -}}
-	{{- .Store.Set $cacheKey $dataList -}}
+{{- /* parse .Site */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := .Site.Data.Hestia.Contributors -}}
+	{{- $creator = dict "Type" (default "" $v.Metadata.Type) -}}
+	{{- $creator = merge $creator (dict "ID" (default "" $v.Metadata.ID)) -}}
+
+
+	{{- /* parse contributor's language-specific data */ -}}
+	{{- range $lang, $w := $v.Metadata.Languages -}}
+		{{- $data = slice -}}
+		{{- range $i, $x := $w.Social -}}
+			{{- $data = append (dict
+				"Label" (default "" $x.Label)
+				"Value" (default "" $x.Value)
+				) $data
+			-}}
+		{{- end -}}
+
+		{{- $data = dict
+			"Name" (default "" $w.Name)
+			"Title" (default "" $w.Title)
+			"Brand" (default "" $w.Brand)
+			"CallSign" (default "" $w.CallSign)
+			"Slogan" (default "" $w.Slogan)
+			"Description" (default "" $w.Description)
+			"Phone" (dict "Label" (default "" $w.Phone.Label)
+					"Value" (default "" $w.Phone.Value))
+			"Email" (dict "Label" (default "" $w.Email.Label)
+					"Value" (default "" $w.Email.Value))
+			"Location" (dict "Label" (default "" $w.Location.Label)
+					"Value" (default "" $w.Location.Value))
+			"Web" (dict "Label" (default "" $w.Web.Label)
+					"Value" (default "" $w.Web.Value))
+			"Social" $data
+		-}}
+
+		{{- $creator = merge $creator (dict "Languages" (dict (upper $lang) $data)) -}}
+	{{- end -}}
+
+
+	{{- /* parse all contributor's contribution types */ -}}
+	{{- if index $v "Contribution" -}}
+		{{- $roles = partial "Hestia/functions/data/constants/Init" . -}}
+		{{- $roles = $roles.Constants.Contributors.Roles -}}
+		{{- range $j, $w := $roles -}}
+			{{- $ret = index $v.Contribution $w -}}
+			{{- if $ret -}}
+				{{- $creator = merge $creator (dict "Contribution"
+					(dict $w (dict
+						"Past" (default false $ret.Past)
+						"Current" (default false $ret.Current)
+				))) -}}
+			{{- end -}}
+		{{- end -}}
+	{{- else -}}
+		{{- range $j, $w := $data -}}
+			{{- $creator = merge $creator (dict "Contribution"
+				(dict $w (dict "Past" false "Current" false))
+			) -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- /* parse contributor's .Image */ -}}
+	{{- if index $v "Image" -}}
+		{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $v.Image -}}
+		{{- if $ret -}}
+			{{- $creator = merge $creator (dict "Image" $ret) -}}
+		{{- end -}}
+	{{- else -}}
+		{{- $creator = merge $creator (dict "Image" dict) -}}
+	{{- end -}}
+
+
+	{{- /* parse contributor's .Background */ -}}
+	{{- if index $v "Background" -}}
+		{{- $ret = partial "Hestia/functions/data/hugo/parse/_media" $v.Background -}}
+		{{- if $ret -}}
+			{{- $creator = merge $creator (dict "Background" $ret) -}}
+		{{- end -}}
+	{{- else -}}
+		{{- $creator = merge $creator (dict "Background" dict) -}}
+	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict $k $creator) -}}
 {{- end -}}
-{{- $dataList = dict "Site" $dataList "Page" dict -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Contributors" $dataList -}}
+{{- return $dataList -}}

@@ -30,6 +30,11 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (dict "Boot" $data) -}}
 
 
+{{- /* process .Time */ -}}
+{{- $data = dict "Format" "Mon 02 Jan 2006 15:04:05 PM -07" -}}
+{{- $dataList = merge $dataList (dict "Time" $data) -}}
+
+
 {{- /* process .Offline */ -}}
 {{- $data = dict "MemKey" "Caches" -}}
 {{- $dataList = merge $dataList (dict "Offline" $data) -}}
