@@ -11,4 +11,5 @@
 --downarrow-joshuaMcD-color = "#FFF"
 --downarrow-joshuaMcD-color-print = "#000"
 
+--downarrow-joshuaMcD-animation-translate-factor = '2'
 --downarrow-joshuaMcD-animation-timing = "2s"

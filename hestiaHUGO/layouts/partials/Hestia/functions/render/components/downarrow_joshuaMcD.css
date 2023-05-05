@@ -50,10 +50,10 @@ specific language governing permissions and limitations under the License.
 	width: var(--downarrow-joshuaMcD-size-shadow);
 	height: var(--downarrow-joshuaMcD-size-shadow);
 
-	margin: calc(var(--downarrow-joshuaMcD-margin-vertical)/2)
+	margin: var(--downarrow-joshuaMcD-margin-vertical)
 		0
 		0
-		calc(var(--downarrow-joshuaMcD-margin-horizontal)/2);
+		var(--downarrow-joshuaMcD-margin-horizontal);
 
 	border-top: none;
 	border-right: var(--downarrow-joshuaMcD-border-shadow);
@@ -62,18 +62,20 @@ specific language governing permissions and limitations under the License.
 
 	animation-duration: var(--downarrow-joshuaMcD-animation-timing);
 	animation-iteration-count: infinite;
-	animation-name: downarrow-joshuaMcD;
+	animation-name: downarrow-joshuaMcD-animation;
 }
 
-@keyframes downarrow-joshuaMcD {
+@keyframes downarrow-joshuaMcD-animation {
 	0% {
 		opacity: 1;
 	}
 	100% {
 		opacity: 0;
 		transform: translate(
-			var(--downarrow-joshuaMcD-margin-shadow),
-			var(--downarrow-joshuaMcD-margin-shadow)
+			calc(var(--downarrow-joshuaMcD-margin-horizontal)/
+				var(--downarrow-joshuaMcD-animation-translate-factor)),
+			calc(var(--downarrow-joshuaMcD-margin-vertical)/
+				var(--downarrow-joshuaMcD-animation-translate-factor))
 		);
 	}
 }
