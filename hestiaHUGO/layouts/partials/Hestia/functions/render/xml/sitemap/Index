@@ -40,10 +40,6 @@ specific language governing permissions and limitations under the License.
 	</sitemap>
 {{- end -}}
 {{- range $i, $v := $list }}
-	{{- if strings.Contains $v.URL.Current.Absolute "__content" -}}
-		{{- continue -}}
-	{{- end -}}
-
 	{{- if or $v.Redirect.Enabled $v.Redirect.Language.Enabled -}}
 		{{- continue -}}
 	{{- end }}

@@ -26,7 +26,6 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := dict -}}
-{{- $nav := slice -}}
 {{- $pwa := dict -}}
 {{- $ret := false -}}
 {{- $path := false -}}
@@ -38,23 +37,8 @@ specific language governing permissions and limitations under the License.
 {{- /* recursively scan the entire repository */ -}}
 {{- if .IsHome -}}
 	{{- /* begin scanning all pages */ -}}
-	{{- $nav = slice -}}
 	{{- $pwa = dict -}}
 	{{- range $i, $v := .Site.Pages -}}
-		{{- /* skip __content.* data page mistreatment */ -}}
-		{{- if strings.Contains $v.Permalink "__content" -}}
-			{{- continue -}}
-		{{- end -}}
-
-		{{- /* parse basic metadata */ -}}
-		{{- $ret = partial "Hestia/functions/data/Metadata" $v -}}
-
-		{{- /* append to list */ -}}
-		{{- $nav = append $ret $nav -}}
-
-
-
-
 		{{- /* parse PWA.Caches */ -}}
 		{{- $Local = dict -}}
 		{{- $path = "" -}}
@@ -94,7 +78,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 {{- end -}}
 
-{{ $dataList = dict "Nav" (dict "All" $nav) "PWA" (dict "Caches" $pwa) -}}
+{{ $dataList = dict "PWA" (dict "Caches" $pwa) -}}
 
 
 

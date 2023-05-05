@@ -50,5 +50,17 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* process .Nav.All */ -}}
+{{- $Page = merge $Page (dict "Nav" (dict "All" false)) -}}
+{{- $Page = merge $Page (dict "Nav" (dict "All" dict)) -}}
+{{- range $i, $v := .Nav.All -}}
+	{{- $Page = merge $Page (dict "Nav" (dict "All"
+		(dict (string $i) (partial "Hestia/functions/data/Metadata" $v))
+	)) -}}
+{{- end -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return $Page -}}

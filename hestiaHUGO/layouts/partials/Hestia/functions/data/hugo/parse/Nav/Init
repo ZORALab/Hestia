@@ -31,6 +31,15 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* initialize .Nav.All */ -}}
+{{- $dataList = dict "All" dict -}}
+{{- if .IsHome -}}
+	{{- $dataList = merge $dataList (dict "All" .Site.Pages) -}}
+{{- end -}}
+
+
+
+
 {{- /* initialize .Nav.Children */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .Page.Pages -}}
@@ -42,26 +51,29 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* initialize .Nav.Parents */ -}}
-{{- $URL = urls.Parse .Page.Permalink -}}
-{{- $URL = strings.TrimSuffix "/" $URL.Path -}}
-{{- $URLFragments = split $URL "/" -}}
-{{- if not $URLFragments -}}
-	{{- $URLFragments = slice -}}
-{{- else if and (eq (len $URLFragments) 1) (eq (index $URLFragments 1) "") -}}
-	{{- $URLFragments = slice -}}
-{{- end -}}
-
-
-{{- $list = slice -}}
-{{- $ret = "" -}}
-{{- range $i, $v := $URLFragments -}}
-	{{- $ret = printf "%s/%s" (strings.TrimPrefix "/" $ret) $v -}}
-	{{- if eq $ret $URL -}}
-		{{- continue -}}
+{{- $dataList = merge $dataList (dict "Parents" slice) -}}
+{{- if not .IsHome -}}
+	{{- $URL = urls.Parse .Page.Permalink -}}
+	{{- $URL = strings.TrimSuffix "/" $URL.Path -}}
+	{{- $URLFragments = split $URL "/" -}}
+	{{- if not $URLFragments -}}
+		{{- $URLFragments = slice -}}
+	{{- else if and (eq (len $URLFragments) 1) (eq (index $URLFragments 1) "") -}}
+		{{- $URLFragments = slice -}}
 	{{- end -}}
-	{{- $list = append ($Page.Site.GetPage $ret) $list -}}
+
+
+	{{- $list = slice -}}
+	{{- $ret = "" -}}
+	{{- range $i, $v := $URLFragments -}}
+		{{- $ret = printf "%s/%s" (strings.TrimPrefix "/" $ret) $v -}}
+		{{- if eq $ret $URL -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $list = append ($Page.Site.GetPage $ret) $list -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict "Parents" $list) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Parents" $list) -}}
 
 
 
