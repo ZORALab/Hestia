@@ -59,7 +59,6 @@ specific language governing permissions and limitations under the License.
 	(strings.TrimSuffix "/" $dataList.URL.Base)
 	(strings.TrimPrefix "/" $data.Path) -}}
 
-
 {{- if $data.RawQuery -}}
 	{{- $ret = printf "%s?%s" $ret $data.RawQuery -}}
 {{- end -}}
@@ -68,26 +67,23 @@ specific language governing permissions and limitations under the License.
 {{- if $data.Fragment -}}
 	{{- $ret = printf "%s#%s" $ret $data.Fragment -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "URL" (dict "Current" (dict "Absolute" $data))) -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Current" (dict "Absolute" $ret))) -}}
 
 
 
 
 {{- /* initiate page's .URL.Current.Relative */ -}}
-{{- $ret = strings.TrimPrefix $dataList.URL.Base $dataList.URL.Current.Abosolute -}}
-{{- if not $ret -}}
-	{{- $ret = "/" -}}
-{{- end -}}
-{{- $ret = dict "URL" (dict "Current" (dict "Relative" (urls.Parse $ret))) -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $ret = strings.TrimPrefix $dataList.URL.Base $dataList.URL.Current.Absolute -}}
+{{- $ret = urls.Parse (printf "/%s" $ret) -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Current" (dict "Relative" $ret))) -}}
 
 
-{{- $ret = dict "URL" (dict "Current" (dict "Absolute" (urls.Parse $dataList.URL.Absolute))) -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $ret = urls.Parse $dataList.URL.Current.Absolute -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Current" (dict "Absolute" $ret))) -}}
 
 
-{{- $ret = dict "URL" (dict "Base" (urls.Parse $dataList.URL.Base)) -}}
-{{- $dataList = merge $dataList $ret -}}
+{{- $ret = urls.Parse $dataList.URL.Base -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Base" $ret)) -}}
 
 
 
@@ -141,6 +137,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $ret (dict "Direction" (default "" $v.Direction)) -}}
 	{{- $ret = merge $ret (dict "Default" $v.Default) -}}
 	{{- $ret = merge $ret (dict "URL" (dict "ERROR_404" (default "" $v.URL.ERROR_404))) -}}
+	{{- $ret = merge $ret (dict "URL" (dict "HOME" (printf "/%s" $v.Directory))) -}}
 	{{- $ret = dict "List" (dict (string $k) $ret) -}}
 
 	{{- $dataList = merge $dataList (dict "Languages" $ret) -}}

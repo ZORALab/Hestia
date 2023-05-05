@@ -74,7 +74,6 @@
 #
 #                [{[code]}{-[Script]}{-[COUNTRY]}.URL]
 #                ERROR_404     = "[URL.ERROR_404]"
-#                ERROR_Offline = "[URL.ERROR_Offline]"
 # By default, Hestia supplies international English and Simplified Chinese. You
 # can add|modify|remove them according to your site content and design.
 #

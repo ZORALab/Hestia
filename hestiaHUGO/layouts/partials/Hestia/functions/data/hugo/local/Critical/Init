@@ -221,8 +221,8 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "Languages" (dict (string $k)
-		(dict "URL" (dict "PAGE" $ret)
+	{{- $Page = merge $Page (dict "Languages" (dict "List"
+		(dict (string $k) (dict "URL" (dict "PAGE" (urls.Parse $ret)))
 	))) -}}
 {{- end -}}
 
