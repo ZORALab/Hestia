@@ -20,13 +20,6 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* prepare working variables for this function */ -}}
-{{- $dataList := dict "IsHestia" true "IsMetadata" false -}}
-{{- $ret := false -}}
-
-
-
-
 {{- /* Prepare Hestia critical data structure. (!!!) POSITION MATTERS (!!!) */ -}}
 {{- $dataList := partial "Hestia/functions/data/hugo/parse/Critical/Init" . -}}
 {{- $dataList = merge $dataList (dict "IsMetadata" false) -}}
@@ -51,16 +44,13 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* BEGIN LOCALIZING - Hugo interfaces ended beyond this line */ -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/Critical/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/Content" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/LDJSON" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Caches" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Components" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Content" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Contributors" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Assets" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Page" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Languages" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/LDJSON" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Robots" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Thumbnails" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/Twitter" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/local/WASM" $dataList -}}
 

@@ -67,6 +67,24 @@ Enabled = false
 
 
 
+# Content Files' Sourcing Location
+# NOTE:
+#   1. To denote where are the content sources.
+#   2. If you're sourcing from assets directory, prefix 'assets/'.
+#   3. If you're sourcing from layouts directory, prefix 'layouts/'.
+#   2. If you're sourcing from static directory, prefix 'static/'.
+#   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
+[Sources]
+HTML = 'content.hestiaHTML'
+JSON = 'content.hestiaJSON'
+LDJSON = 'content.hestiaLDJSON'
+Contributors = '__contributors.toml'
+Thumbnails = '__thumbnails.toml'
+Languages = '__languages.toml'
+
+
+
+
 # Data fields.
 # NOTE:
 #   1. List only the page-level data files. It can be in any of the following

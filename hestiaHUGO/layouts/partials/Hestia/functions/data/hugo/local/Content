@@ -17,14 +17,11 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__content" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := . -}}
 {{- $Local := dict -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
@@ -33,7 +30,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse local config file */ -}}
-{{- range $k, $v := .Formats -}}
+{{- range $k, $v := .Content -}}
 	{{- /* NOTE:
 		Hugo has a stubborn way of processing .html file. We don't have
 		any choice but to use a special extension .hestiaHTML implicitly
@@ -42,17 +39,17 @@ specific language governing permissions and limitations under the License.
 		We can document this and present it to the user so that they
 		know and aware what to do with it.
 	*/ -}}
-	{{- if eq $v.Extension ".html" -}}
-		{{- $ret = ".hestiaHTML" -}}
-	{{- else if eq $v.Extension ".json" -}}
-		{{- $ret = ".hestiaJSON" -}}
-	{{- else -}}
-		{{- $ret = $v.Extension -}}
+	{{- $Local = false -}}
+	{{- range $j, $w := (slice "layouts/" "assets/" "static/") -}}
+		{{ if strings.HasPrefix $v $w -}}
+			{{- $Local = true -}}
+		{{- end -}}
 	{{- end -}}
 
-
-	{{- $Local = printf "%s/%s%s"
-			$Page.Filesystem.Directory $CONFIG_FILENAME $ret -}}
+	{{- $Local = $v -}}
+	{{- if not $Local -}}
+		{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $v -}}
+	{{- end -}}
 	{{- $Local = path.Clean $Local -}}
 	{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
 	{{- $Local = partial "Hestia/functions/data/filesystem/ParseFile" $Local -}}
@@ -63,12 +60,11 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $dataList = merge $dataList (dict $k $Local) -}}
+	{{- $Page = merge $Page (dict "Content" (dict $k $Local)) -}}
 {{- end -}}
-{{- $dataList = merge . (dict "Content" $dataList) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return $Page -}}

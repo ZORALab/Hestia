@@ -17,37 +17,25 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
 
-{{- /* CONSTANTS */ -}}
-{{- $CONFIG_FILENAME := "__content.hestiaLDJSON" -}}
-
 
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := . -}}
 {{- $Local := dict -}}
-{{- $dataList := . -}}
-{{- $data := false -}}
-{{- $ret := false -}}
 
 
 
 
 {{- /* parse local config file */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory $CONFIG_FILENAME -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory (index $Page "LD+JSON") -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
 {{- $Local = partial "Hestia/functions/data/filesystem/ParseFile" $Local -}}
-{{- $Local = $Local.Output -}}
-
-
-
-
-{{- /* source data */ -}}
-{{- $dataList = merge $dataList (dict "LD+JSON" $Local) -}}
+{{- $Page = merge $Page (dict "LD+JSON" $Local.Output) -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return $Page -}}

@@ -23,20 +23,7 @@ specific language governing permissions and limitations under the License.
 {{- /* Prepare Hestia critical data structure. (!!!) POSITION MATTERS (!!!) */ -}}
 {{- $dataList := partial "Hestia/functions/data/hugo/parse/Critical/Init" . -}}
 {{- $dataList = merge $dataList (dict "IsMetadata" true) -}}
-
-
-
-
-{{- /* BEGIN LOCALIZING - Hugo interfaces ended beyond this line */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Contributors" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Page" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Languages" $dataList -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/local/Thumbnails" $dataList -}}
-
-
-
-
-{{- /* BEGIN PROCESSING - Processing the $dataList to match Hestia's data structure */ -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/local/Critical/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Critical/Init" $dataList -}}
 
 
