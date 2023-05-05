@@ -21,4 +21,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- return dict "LD+JSON" dict -}}
+{{- return dict "LDJSON" dict -}}

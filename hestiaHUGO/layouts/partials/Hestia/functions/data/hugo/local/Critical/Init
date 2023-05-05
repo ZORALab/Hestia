@@ -62,7 +62,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Content" (dict "JSON" $ret)) -}}
 
 {{- $ret = default "__content.hestiaLDSON" $data.LDJSON -}}
-{{- $Page = merge $Page (dict ".LD+JSON" $ret) -}}
+{{- $Page = merge $Page (dict "LDJSON" $ret) -}}
 
 {{- $location = merge $location (dict "Contributors"
 	(default "__contributors.toml" $data.Contributors)

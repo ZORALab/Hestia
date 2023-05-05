@@ -28,11 +28,27 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse local config file */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory (index $Page "LD+JSON") -}}
+{{- $Local = false -}}
+{{- range $i, $v := (slice "layouts/" "assets/" "static/") -}}
+	{{ if strings.HasPrefix $Page.LDJSON $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $Local -}}
+	{{- $Local = $Page.LDJSON -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $Page.LDJSON -}}
+{{- end -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
 {{- $Local = partial "Hestia/functions/data/filesystem/ParseFile" $Local -}}
-{{- $Page = merge $Page (dict "LD+JSON" $Local.Output) -}}
+{{- if $Local.Console -}}
+	{{- $Local = "" -}}
+{{- else -}}
+	{{- $Local = string $Local.Output -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "LDJSON" $Local) -}}
 
 
 
