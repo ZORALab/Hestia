@@ -261,6 +261,30 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* parse automation .PWA.Caches.Automation flag */ -}}
+{{- $ret = false -}}
+{{- if .Site.Data.Hestia.PWA.Caches.Automation.Enabled -}}
+	{{- $ret = true -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" (dict "Automation" $ret))) -}}
+
+
+
+
+{{- /* parse default PWA.Caches.Default.Policy flag */ -}}
+{{- $ret = "network-first" -}}
+{{- if eq (lower .Site.Data.Hestia.PWA.Caches.Default.Policy) "cache-first" -}}
+	{{- $ret = "cache-first" -}}
+{{- else if eq (lower .Site.Data.Hestia.PWA.Caches.Default.Policy) "network-only" -}}
+	{{- $ret = "network-only" -}}
+{{- else if eq (lower .Site.Data.Hestia.PWA.Caches.Default.Policy) "cache-only" -}}
+	{{- $ret = "cache-only" -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" (dict "Policy" $ret))) -}}
+
+
+
+
 {{- /* initiate page's .IsRoot */ -}}
 {{- if .IsHome -}}
 	{{- $dataList = merge $dataList (dict "IsRoot" true) -}}

@@ -194,24 +194,12 @@ specific language governing permissions and limitations under the License.
 
 {{- /* automatic save to caches */ -}}
 {{- $ret = string $dataList -}}
-{{- if and (not $console) (and $ret (strings.HasPrefix $ret (string .URL.Base))) -}}
-	{{- $Args = lower .Data.Store.Hestia.PWA.Caches.Policy -}}
-	{{- if eq $Args "cache-first" -}}
-		{{- /* PASS */ -}}
-	{{- else if eq $Args "network-only" -}}
-		{{- /* PASS */ -}}
-	{{- else if eq $Args "cache-only" -}}
-		{{- /* PASS */ -}}
-	{{- else -}}
-		{{- $Args = "network-first" -}}
-	{{- end -}}
-
-	{{- $ret = slice (dict "URL" $dataList "Cache" $Args) -}}
-	{{- $ret = dict "Key" "%%AutomataURL%%" "Dataset" $ret -}}
+{{- if and .PWA.Caches.Automation (and (not $console) $ret) -}}
+	{{- $ret = dict $ret $Page.PWA.Caches.Policy -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "Hestia/functions/data/caches/offline/Save" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
-		{{- $console = printf "URL: automatic cache: %v" $ret.Console.Message -}}
+		{{- $console = printf "URL: automatic caching: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 {{- end -}}

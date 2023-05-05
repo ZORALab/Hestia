@@ -17,19 +17,15 @@ specific language governing permissions and limitations under the License.
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Hestia data structure */ -}}
 {{- /* .Input.Data = Hestia PWA's Cache data structure (dict) */ -}}
-{{- /* .Input.Data.Key = key for recognizing the collection (string) */ -}}
-{{- /* .Input.Data.Dataset = collection of url and policies (slice) */ -}}
-{{- /* .Input.Data.Dataset.N.URL = url for caching (url) */ -}}
-{{- /* .Input.Data.Dataset.N.Cache = cache policy (string) */ -}}
 
 
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
 {{- $console := dict -}}
 {{- $dataset := dict -}}
-{{- $key := false -}}
-{{- $ret := false -}}
+{{- $dataList := false -}}
 
 
 
@@ -49,39 +45,28 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- if $dataset -}}
-	{{- $key = merge . (dict "Input" (dict "Query" ".Input.Data.Key")) -}}
-	{{- $key = partial "Hestia/functions/data/Get" $key -}}
-	{{- if not $key -}}
-		{{- $console = dict "Message" "empty .Input.Data.Key value.\n" -}}
-		{{- $dataset = dict -}}
-	{{- else if partial "Hestia/functions/data/string/IsString" $key -}}
-		{{- /* PASS */ -}}
-	{{- else -}}
-		{{- $console = printf "invalid Key data type '%T'.\n" $key -}}
-		{{- $console = dict "Message" $console -}}
-		{{- $dataset = dict -}}
-	{{- end -}}
-{{- end -}}
-
-
 
 
 {{- /* save to persistent memory */ -}}
 {{- if $dataset -}}
-	{{- $ret = .Memory.Get .Constants.Offline.MemKey -}}
-	{{- if not $ret -}}
-		{{- $ret = dict -}}
+	{{- $dataList = $Page.Memory.Get $Page.Constants.Offline.MemKey -}}
+	{{- if not $dataList -}}
+		{{- $dataList = dict -}}
 	{{- end -}}
 
-	{{- $ret = merge $ret (dict $key false) -}}
-	{{- $ret = merge $ret (dict $key $dataset) -}}
+	{{- range $k, $v := $dataset -}}
+		{{- if not (strings.HasPrefix $k (string $Page.URL.Base)) -}}
+			{{- continue -}}
+		{{- end -}}
 
-	{{- .Memory.Set .Constants.Offline.MemKey $ret -}}
+		{{- $dataList = merge $dataList (dict $k $v) -}}
+	{{- end -}}
+
+	{{- $Page.Memory.Set $Page.Constants.Offline.MemKey $dataList -}}
 {{- end -}}
 
 
 
 
 {{- /* render output */ -}}
-{{- return dict "Output" dict "Console" $console -}}
+{{- return dict "Output" $dataList "Console" $console -}}

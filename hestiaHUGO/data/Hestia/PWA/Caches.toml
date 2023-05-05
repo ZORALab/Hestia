@@ -5,6 +5,18 @@
 
 
 
+# Automation - automatic URL Inclusion
+#
+#   Enabled (true/false) - To enable automatic URL caching. Only URLs being
+#                          processed by Hestia URL API that has the .URL.Base
+#                          prefix are cached regardless of its actual use in
+#                          any of the display contents.
+[Automation]
+Enabled = true
+
+
+
+
 #   Policy   - Default Caching policy. They can only be the following values:
 #             'cache-first'      - Default. Resource shall use the cache version
 #                                  first and then perform a network update on it
@@ -55,4 +67,5 @@
 #                                    1. not up-to-date.
 #                                    2. only can be updated during each update
 #                                       or fresh installation.
+[Default]
 Policy = 'network-first'

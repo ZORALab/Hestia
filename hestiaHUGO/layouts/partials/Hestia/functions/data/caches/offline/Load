@@ -22,43 +22,14 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare working variables for this function */ -}}
 {{- $dataList := false -}}
-{{- $dataset := dict -}}
-{{- $url := false -}}
-{{- $data := false -}}
 
 
 
 
 {{- /* extract and load URL list */ -}}
-{{- $dataset = .Memory.Get .Constants.Offline.MemKey -}}
-{{- if not $dataset -}}
-	{{- $dataset = dict -}}
-{{- end -}}
-
-
-
-
-{{- /* extract and load URL list */ -}}
-{{- $dataList = dict -}}
-{{- range $i, $v := $dataset -}}
-	{{- if not (partial "Hestia/functions/data/list/IsSlice" (index $v "Dataset")) -}}
-		{{- continue -}}
-	{{- end -}}
-
-
-	{{- range $j, $w := $v.Dataset -}}
-		{{- $url = index $w "URL" -}}
-		{{- if not $url -}}
-			{{- continue -}}
-		{{- end -}}
-
-		{{- $data = index $w "Cache" -}}
-		{{- if not $data -}}
-			{{- continue -}}
-		{{- end -}}
-
-		{{- $dataList = merge $dataList (dict (string $url) $data) -}}
-	{{- end -}}
+{{- $dataList = .Memory.Get .Constants.Offline.MemKey -}}
+{{- if not $dataList -}}
+	{{- $dataList = dict -}}
 {{- end -}}
 
 

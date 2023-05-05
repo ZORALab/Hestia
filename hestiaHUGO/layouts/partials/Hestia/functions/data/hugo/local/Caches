@@ -34,7 +34,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse local config file */ -}}
-{{- $Local = printf "%s/%s%s" $Page.Filesystem.Directory $CONFIG_FILENAME $ret -}}
+{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $CONFIG_FILENAME -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
 {{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
@@ -51,7 +51,7 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- if not (index $v "Caches") -}}
+	{{- if not (index $v "Cache") -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -69,7 +69,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- $list = merge $list (dict $ret $v.Cache) -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" $list)) -}}
+{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" (dict "List" $list))) -}}
 
 
 

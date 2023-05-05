@@ -24,15 +24,22 @@ specific language governing permissions and limitations under the License.
 {{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $console := false -}}
 {{- $dataList := slice -}}
+{{- $list := dict -}}
 {{- $data := dict -}}
 {{- $ret := false -}}
 
 
 
 
+{{- /* process default values for .Caches.Policy .Caches.Automation */ -}}
+{{- $dataList = dict "Policy" .PWA.Caches.Policy "Automation" .PWA.Caches.Automation -}}
+
+
+
+
 {{- /* run through each .Caches */ -}}
-{{- $dataList = slice -}}
-{{- range $k, $v := .PWA.Caches -}}
+{{- $list = dict -}}
+{{- range $k, $v := .PWA.Caches.List -}}
 	{{- $data = dict -}}
 
 
@@ -40,9 +47,12 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $k)) -}}
 	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: Caches (%v): %v" $k $ret.Console.Message -}}
+		{{- $console = printf "PWA.Caches.List.%v: %v" $k $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- if not (string $ret.Output) -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "URL" $ret.Output) -}}
@@ -52,7 +62,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
 	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
 	{{- if $ret.Console -}}
-		{{- $console = printf "PWA: Caches (%v): %v" $k $ret.Console.Message -}}
+		{{- $console = printf "PWA.Caches.List.%v: %v" $k $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
@@ -70,7 +80,7 @@ specific language governing permissions and limitations under the License.
 	{{- else if not $ret -}}
 		{{- $ret = "cache-first" -}}
 	{{- else -}}
-		{{- $console = printf "PWA: Caches (%v): unknown policy '%v'.\n" $k $ret -}}
+		{{- $console = printf "PWA.Caches.List.%v: unknown policy '%v'.\n" $k $ret -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
 		{{- continue -}}
@@ -78,20 +88,21 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Cache" $ret) -}}
 
 
-	{{- $dataList = append $data $dataList -}}
+	{{- $list = merge $list (dict (string $data.URL) $data.Cache) -}}
 {{- end -}}
 
 
 {{- /* save to persistent memory cache list */ -}}
-{{- $ret = dict "Key" $Page.Filesystem.Directory "Dataset" $dataList -}}
-{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $list)) -}}
 {{- $ret = partial "Hestia/functions/data/caches/offline/Save" $ret -}}
 {{- if $ret.Console -}}
-	{{- $console = printf "PWA: Caches: %v" $ret.Console.Message -}}
+	{{- $console = printf "PWA.Caches.List: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 	{{- partial "Hestia/functions/console/Errorf" $console -}}
 {{- end -}}
-{{- $dataList = dict "List" (partial "Hestia/functions/data/caches/offline/Load" .) -}}
+{{- $dataList = merge $dataList (dict "List"
+	(partial "Hestia/functions/data/caches/offline/Load" .)
+) -}}
 
 
 
