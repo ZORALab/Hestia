@@ -95,11 +95,6 @@ specific language governing permissions and limitations under the License.
 {{- /* save to persistent memory cache list */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" $list)) -}}
 {{- $ret = partial "Hestia/functions/data/caches/offline/Save" $ret -}}
-{{- if $ret.Console -}}
-	{{- $console = printf "PWA.Caches.List: %v" $ret.Console.Message -}}
-	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
-{{- end -}}
 {{- $dataList = merge $dataList (dict "List"
 	(partial "Hestia/functions/data/caches/offline/Load" .)
 ) -}}

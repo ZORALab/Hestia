@@ -34,7 +34,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataset = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
 {{- $dataset = partial "Hestia/functions/data/Get" $dataset -}}
 {{- if not $dataset -}}
-	{{- $console = dict "Message" "empty .Input.Data value.\n" -}}
+	{{- $console = dict "Message" "caches.offline: empty .Input.Data value.\n" -}}
 	{{- $dataset = dict -}}
 {{- else if partial "Hestia/functions/data/list/IsMap" $dataset -}}
 	{{- /* PASS */ -}}
