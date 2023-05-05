@@ -35,8 +35,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $dataList (partialCached "Hestia/functions/data/hugo/parse/RobotsTXT/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/PWA/Init" $dataList) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/WASM" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/ScanChildren/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/ScanParents/Init" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Nav/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/LDJSON" .) -}}
 
@@ -64,6 +63,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = partial "Hestia/functions/data/hugo/process/JS/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/WASM/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/PWA/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Nav/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/Sitemap/Init" $dataList -}}
 
 
