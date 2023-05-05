@@ -158,11 +158,12 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = dict
 		"Full" (default "" $v.Name.Full)
 		"Short" (default "" $v.Name.Short)
+		"SKU" (default "" $v.Name.SKU)
 		"ID" (default "" $v.Name.ID)
 	-}}
 	{{- $ret = dict (string $k) $ret -}}
 
-	{{- $dataList = merge $dataList (dict "Titles" (dict "Site" $ret)) -}}
+	{{- $dataList = merge $dataList (dict "Titles" (dict "Site" (dict "List" $ret))) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Titles" (dict "Page" "")) -}}
 

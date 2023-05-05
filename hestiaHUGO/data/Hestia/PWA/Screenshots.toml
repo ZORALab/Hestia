@@ -25,7 +25,7 @@
 #  13. 'microsoft-inbox'  - Microsoft Inbox only.
 #  14. 'microsoft-store'  - Microsoft Store only.
 [Contents.0]
-Name = "{{- .Titles.Site.Current.Full }} Official"
+Name = "{{- .Titles.Default.Full }}"
 Decorative = false
 Loading = 'lazy'
 Width = '1200'

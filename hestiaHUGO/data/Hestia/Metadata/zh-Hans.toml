@@ -6,13 +6,15 @@
 #                        而已。不符合的字母将会被自动删除或被破折号代替。请使用
 #                        适合的反向域名ID如'com.example.app'。ID是在各种不同的
 #                        APP购物中心寻找这网站或网络APP。
+# Name.SKU             - 用来ID和命令称名所用（如：PWA Protocol）。名字必须只能
+#                        运用ASCII小字母而已。
 # Name.Short           - 短名来直接称呼这网站或网络APP。推荐最多2个字（如：
-#                        公司名+物品名）。由于PWA用这短名设为Protocol，短名必须
-#                        只能运用ASCII字母而已。
+#                        公司名+物品名）。
 # Name.Full            - 全名来称呼这网站或网络APP。官方网站使用。
 [Name]
 ID = "com.zoralab.hestia"
-Short = "Hestia"
+SKU = "hestia"
+Short = "赫斯提亚"
 Full = "ZORALab：赫斯提亚"
 
 

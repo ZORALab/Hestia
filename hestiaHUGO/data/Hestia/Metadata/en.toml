@@ -9,13 +9,14 @@
 #                        dashes. Use sensible reverse domain ID like
 #                        'com.example.app' as it shall be used to uniquely
 #                        identify you across various app stores.
+# Name.SKU             - used in ID and command name (e.g. PWA Protocol). The
+#                        value shall only comply to lowercase ASCII wording.
 # Name.Short           - used in displaying brand and app name. Recommends max 2
-#                        words (e.g. Namespace + product). Due to PWA using this
-#                        field to construct Protocol, the value shall comply to
-#                        ASCII wording only.
+#                        words (e.g. Namespace + product).
 # Name.Full            - used to display brand and app in articles or pages.
 [Name]
 ID = "com.zoralab.hestia"
+SKU = "hestia"
 Short = "Hestia"
 Full = "ZORALab's Hestia"
 
