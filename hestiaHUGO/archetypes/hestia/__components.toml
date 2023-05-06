@@ -31,7 +31,7 @@
 #
 # EXAMPLE:
 #        [[List]]
-#        Name = "core_hestiaUI"
+#        Name = "zoralab_core"
 #        Include = true
 #        Variables = [
 #                  { "--test-variable-1" = "1rem" },
@@ -39,7 +39,7 @@
 #        ]
 #
 #        [[List]]
-#        Name = "font-NotoSans_hestiaUI"
+#        Name = "zoralab_font_notosans"
 #        Include = true
 #        Variables = []
 #

@@ -27,9 +27,10 @@ specific language governing permissions and limitations under the License.
 		align-items: center;
 		gap: 0;
 
-		position: absolute;
+		position: fixed;
 		right: 5%;
 		bottom: 5%;
+		z-index: 2147483647;
 
 		box-sizing: border-box;
 		min-width: 50pt;
@@ -43,6 +44,7 @@ specific language governing permissions and limitations under the License.
 
 		font-family: sans-serif;
 		font-size: 25pt;
+		line-height: 25pt;
 
 		color: #FFF;
 		background: linear-gradient(144deg, #AF40FF,
@@ -54,7 +56,7 @@ specific language governing permissions and limitations under the License.
 	<dialog id="hestia-debug-console" style='
 		/* NOTE: DO NOT set display for dialog object - reserved by browser. */
 		--hestia-debugger-margin-content: 5pt;
-		--hestia-debugger-margin-section: 30pt;
+		--hestia-debugger-margin-section: 2%;
 		--hestia-debugger-padding-content: 5pt;
 
 		--hestia-debugger-font-size-text: 12pt;
@@ -108,7 +110,7 @@ specific language governing permissions and limitations under the License.
 			grid-area: header;
 
 			display: grid;
-			grid: "title close" 100% / auto 25pt;
+			grid: "title close" 100% / auto 30pt;
 			justify-items: stretch;
 			align-items: stretch;
 			gap: 0;
@@ -120,7 +122,7 @@ specific language governing permissions and limitations under the License.
 
 			background: transparent;
 		'>
-			<h2 style='
+			<p style='
 				grid-area: title;
 
 				display: flex;
@@ -143,7 +145,7 @@ specific language governing permissions and limitations under the License.
 				background: transparent;
 			'>
 				⚒ ZORALab's Hestia Debugger
-			</h2>
+			</p>
 			<form method='dialog' style='
 				grid-area: close;
 
@@ -178,14 +180,14 @@ specific language governing permissions and limitations under the License.
 				width: 25pt;
 				height: 25pt;
 
-				margin: 0;
+				margin: auto;
 
 				border: 0;
 				border-radius: 8px;
 
 				font-family: var(--hestia-debugger-font-family);
 				font-size: 20pt;
-				line-height: .8pt;
+				line-height: 20pt;
 				text-decoration: none;
 				white-space: nowrap;
 				cursor: pointer;
@@ -204,7 +206,7 @@ specific language governing permissions and limitations under the License.
 
 			margin: var(--hestia-debugger-margin-section) 0;
 
-			overflow-y: auto;
+			overflow: hidden auto;
 
 			color: inherit;
 			background: transparent;
