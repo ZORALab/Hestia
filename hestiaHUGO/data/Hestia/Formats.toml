@@ -37,6 +37,7 @@ Page = 'sitemap-page'
 #        Extension = '.html'
 #        Protocol = 'http://'
 #        Relationship = 'canonical'
+#        Marshallable = false
 #
 # Explaination:
 # [List.{NAME}]            - unique name for the format type. Will be
@@ -49,6 +50,7 @@ Page = 'sitemap-page'
 # List.{NAME}.Extension    - File extension of the generated output (e.g. '.html').
 # List.{NAME}.Protocol     - URL protocol for browsing the file (e.g. 'https://').
 # List.{NAME}.Relationship - Relationship to the index.html file (e.g. 'alternate').
+# List.{NAME}.Marshallable - The output can be parsed as dataset (true/false).
 #
 #
 # IMPORTANT NOTE:
@@ -62,6 +64,7 @@ Filename = 'index'
 Extension = '.html'
 Protocol = 'http://'
 Relationship = 'canonical'
+Marshallable = false
 
 
 [List.JSON]
@@ -70,3 +73,4 @@ Filename = 'index'
 Extension = '.json'
 Protocol = 'http://'
 Relationship = 'alternate'
+Marshallable = true

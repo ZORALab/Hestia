@@ -38,12 +38,12 @@ specific language governing permissions and limitations under the License.
 
 {{- /* RENDER ROOT COMPONENTS */ -}}
 {{- if .IsRoot -}}
-	{{- partialCached "Hestia/outputs/404.html" . -}}
-	{{- partialCached "Hestia/outputs/robots.txt" . -}}
-	{{- partialCached "Hestia/outputs/browserconfig.xml" . -}}
+	{{- partial "Hestia/outputs/404.html" . -}}
+	{{- partial "Hestia/outputs/robots.txt" . -}}
+	{{- partial "Hestia/outputs/browserconfig.xml" . -}}
 	{{- partialCached "Hestia/outputs/nojekyll" . -}}
-	{{- partialCached "Hestia/outputs/cname" . -}}
-	{{- partialCached "Hestia/outputs/app.webmanifest" . -}}
-	{{- partialCached "Hestia/outputs/worker.js" . -}}
-	{{- partialCached "Hestia/outputs/icons" . -}}
+	{{- partial "Hestia/outputs/cname" . -}}
+	{{- partial "Hestia/outputs/app.webmanifest" . -}}
+	{{- partial "Hestia/outputs/app.js" . -}}
+	{{- partial "Hestia/outputs/icons" . -}}
 {{- end -}}

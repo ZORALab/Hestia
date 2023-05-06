@@ -26,6 +26,7 @@ specific language governing permissions and limitations under the License.
 {{- $console := dict -}}
 {{- $dataset := dict -}}
 {{- $dataList := false -}}
+{{- $ret := false -}}
 
 
 
@@ -56,6 +57,15 @@ specific language governing permissions and limitations under the License.
 
 	{{- range $k, $v := $dataset -}}
 		{{- if not (strings.HasPrefix $k (string $Page.URL.Base)) -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- if strings.HasSuffix $k "/" -}}
+			{{- range $j, $w := $Page.Formats -}}
+				{{- $ret = printf "%s%s%s" $k $w.Filename $w.Extension -}}
+				{{- $dataList = merge $dataList (dict $ret $v) -}}
+			{{- end -}}
+
 			{{- continue -}}
 		{{- end -}}
 

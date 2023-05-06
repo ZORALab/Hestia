@@ -158,11 +158,40 @@ specific language governing permissions and limitations under the License.
 	{{- $data = merge $data (dict "Relationship" (lower $ret)) -}}
 
 
+	{{- /* process .Marshallable */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Marshallable)) -}}
+	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf ".Formats.%v.Marshallable: %s" $ret.Console.Message -}}
+		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
+		{{- partial "Hestia/console/Errorf" $console -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Marshallable" $ret.Output) -}}
+
+
 	{{- /* merge to $dataList */ -}}
 	{{- $dataList = merge $dataList (dict (upper (string $k)) $data) -}}
 {{- end -}}
 {{- $Page = merge $Page (dict "Formats" false) -}}
 {{- $Page = merge $Page (dict "Formats" $dataList) -}}
+
+
+
+
+{{- /* process .URL.Base */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "URL" $Page.URL.Base)) -}}
+{{- $dataList = partial "Hestia/functions/data/url/Init" $dataList -}}
+{{- $Page = merge $Page (dict "URL" (dict "Base" false)) -}}
+{{- $Page = merge $Page (dict "URL" (dict "Base" $dataList.Output)) -}}
+
+
+
+
+{{- /* process .URL.Current.Absolute */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "URL" $Page.URL.Current.Absolute)) -}}
+{{- $dataList = partial "Hestia/functions/data/url/Init" $dataList -}}
+{{- $Page = merge $Page (dict "URL" (dict "Current" (dict "Absolute" false))) -}}
+{{- $Page = merge $Page (dict "URL" (dict "Current" (dict "Absolute" $dataList.Output))) -}}
 
 
 

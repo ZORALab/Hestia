@@ -193,7 +193,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* automatic save to caches */ -}}
-{{- $ret = string $dataList -}}
+{{- $ret = printf "%s://%s%s" $dataList.Scheme $dataList.Host $dataList.Path -}}
 {{- if and .PWA.Caches.Automation (and (not $console) $ret) -}}
 	{{- $ret = dict $ret $Page.PWA.Caches.Policy -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}

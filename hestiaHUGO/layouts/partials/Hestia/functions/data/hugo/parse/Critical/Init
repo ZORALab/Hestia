@@ -111,6 +111,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $ret (dict "Extension" (default "" $v.Extension)) -}}
 	{{- $ret = merge $ret (dict "Protocol" (default "" $v.Protocol)) -}}
 	{{- $ret = merge $ret (dict "Relationship" (default "alternate" $v.Relationship)) -}}
+	{{- $ret = merge $ret (dict "Marshallable" (default false $v.Marshallable)) -}}
 
 	{{- $dataList = merge $dataList (dict "Formats" (dict $k $ret)) -}}
 {{- end -}}

@@ -26,6 +26,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Content" dict) -}}
 {{- $dataList := dict -}}
 {{- $ret := false -}}
+{{- $cache := false -}}
 {{- $console := false -}}
 
 
@@ -46,8 +47,14 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* parse data structure for data-type output */ -}}
 	{{- if $ret -}}
-		{{- if eq $k "JSON" -}}
-			{{- $ret = transform.Unmarshal $ret -}}
+		{{- range $j, $w := $Page.Formats -}}
+			{{- if not (eq (upper $k) (upper $j)) -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- if $w.Marshallable -}}
+				{{- $ret = transform.Unmarshal $ret -}}
+			{{- end -}}
 		{{- end -}}
 	{{- end -}}
 
