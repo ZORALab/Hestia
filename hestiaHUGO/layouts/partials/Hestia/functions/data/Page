@@ -67,8 +67,8 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* BEGIN POST PROCESSING - Hestia data processing ended beyond this line */ -}}
-{{- $dataList = partial "Hestia/functions/data/hugo/process/Content/Init" $dataList -}}
 {{- $dataList = partial "Hestia/functions/data/hugo/process/LDJSON/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/hugo/process/Content/Init" $dataList -}}
 
 
 

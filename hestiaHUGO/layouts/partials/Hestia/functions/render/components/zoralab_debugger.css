@@ -1,0 +1,464 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+.zoralab-hestia-debugger-console-trigger,
+#zoralab-hestia-debugger-console,
+#zoralab-hestia-debugger-console * {
+	box-sizing: border-box !important;
+
+	font-family: sans-serif !important;
+
+	background: transparent !important;
+
+	transition: .2s !important;
+}
+
+.zoralab-hestia-debugger-console-trigger,
+.zoralab-hestia-debugger-console-trigger:before,
+.zoralab-hestia-debugger-console-trigger:after {
+	position: fixed !important;
+
+	margin: 0 !important;
+
+	border: none !important;
+
+	border-radius: 50% !important;
+}
+
+.zoralab-hestia-debugger-console-trigger,
+.zoralab-hestia-debugger-console-trigger:after {
+	min-width: 50pt !important;
+	width: 50pt !important;
+	min-height: 50pt !important;
+	height: 50pt !important;
+
+	background: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB) !important;
+}
+
+.zoralab-hestia-debugger-console-trigger {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	gap: 0 !important;
+
+	right: 5% !important;
+	bottom: 5% !important;
+	z-index: 2147483647 !important;
+
+	padding: 10pt !important;
+
+	font-size: 25pt !important;
+	line-height: 25pt !important;
+
+	color: #FFF !important;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px !important;
+}
+
+.zoralab-hestia-debugger-console-trigger:after,
+.zoralab-hestia-debugger-console-trigger:before {
+	content: '' !important;
+
+	z-index: -1 !important;
+}
+
+.zoralab-hestia-debugger-console-trigger:before {
+	min-width: 55pt !important;
+	width: 55pt !important;
+	min-height: 55pt !important;
+	height: 55pt !important;
+
+	padding: 0 !important;
+
+	background: linear-gradient(45deg,
+		#ff0000,
+		#ff7300,
+		#fffb00,
+		#48ff00,
+		#00ffd5,
+		#002bff,
+		#7a00ff,
+		#ff00c8,
+		#ff0000
+	) !important;
+	filter: blur(5px) !important;
+	opacity: 0 !important;
+
+	animation: zoralab-hestia-debugger-console-trigger-animation
+			2s
+			linear
+			infinite !important;
+	transition: opacity .3s ease-in-out !important;
+}
+
+@keyframes zoralab-hestia-debugger-console-trigger-animation {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+.zoralab-hestia-debugger-console-trigger:hover:before,
+.zoralab-hestia-debugger-console-trigger:hover:before {
+	opacity: 1 !important;
+}
+
+#zoralab-hestia-debugger-console {
+	--zoralab-hestia-debugger-margin-section: 2%;
+	--zoralab-hestia-debugger-margin-content: 5pt;
+	--zoralab-hestia-debugger-margin-image: 10pt;
+	--zoralab-hestia-debugger-padding-window: 10pt;
+	--zoralab-hestia-debugger-padding-content: 5pt;
+
+	--zoralab-hestia-debugger-font-family: sans-serif;
+	--zoralab-hestia-debugger-font-size-text: 12pt;
+	--zoralab-hestia-debugger-line-height-text: 15pt;
+
+	--zoralab-hestia-debugger-border: 2px solid var(--zoralab-hestia-debugger-color);
+	--zoralab-hestia-debugger-border-focus: 2px solid var(--zoralab-hestia-debugger-color-focus);
+
+	--zoralab-hestia-debugger-bg: transparent;
+	--zoralab-hestia-debugger-bg-inverted: rgba(255, 255, 255, .25);
+	--zoralab-hestia-debugger-color: #FFF;
+	--zoralab-hestia-debugger-color-focus: #FFFF00;
+	--zoralab-hestia-debugger-color-inverted: #5B42F3;
+	--zoralab-hestia-debugger-box-shadow: rgba(255, 255, 255, 0.16) 0px 3px 6px,
+						rgba(255, 255, 255, 0.23) 0px 3px 6px;
+
+	/* NOTE: DO NOT set display for dialog object - it is reserved by browser. */
+
+	margin: auto !important;
+	padding: 0 !important;
+
+	width: 90% !important;
+	height: 90% !important;
+
+	border: none !important;
+	border-radius: 10px !important;
+
+	color: #FFF !important;
+	background: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB) !important;
+}
+
+#zoralab-hestia-debugger-console > * {
+	display: grid !important;
+	grid:   "header" max-content
+		"selector" max-content
+		"content" auto
+		/
+		100% !important;
+	justify-items: stretch !important;
+	align-items: stretch !important;
+	gap: 0 !important;
+	overflow-y: auto !important;
+
+	width: 100% !important;
+	height: 100% !important;
+
+	margin: 0 !important;
+	padding: var(--zoralab-hestia-debugger-padding-window) !important;
+
+	border: none !important;
+	border-radius: 0 !important;
+
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-header {
+	grid-area: header !important;
+
+	display: grid;
+	grid: "title close" 100%
+		/
+		auto 30pt !important;
+	justify-items: stretch !important;
+	align-items: stretch !important;
+	gap: 0 !important;
+	overflow: auto !important;
+
+	width: 100% !important;
+
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-header p {
+	grid-area: title !important;
+
+	display: flex !important;
+	justify-content: flex-start !important;
+	align-items: flex-start !important;
+	overflow: revert !important;
+
+	border: none !important;
+	border-radius: 0 !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+
+	font-family: var(--zoralab-hestia-debugger-font-family) !important;
+	font-size: 18pt !important;
+	text-align: left !important;
+
+	color: var(--zoralab-hestia-debugger-color) !important;
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-header form {
+	grid-area: close !important;
+
+	display: flex !important;
+	justify-content: center !important;
+	align-items: flex-start !important;
+	overflow: auto !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+
+	border: none !important;
+	border-radius: 0 !important;
+
+	min-width: 100% !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	min-height: 100% !important;
+	height: 100% !important;
+	max-height: 100% !important;
+
+	color: var(--zoralab-hestia-debugger-color) !important;
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-header form button {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	overflow: revert !important;
+
+	min-width: 25pt !important;
+	width: 25pt !important;
+	min-height: 25pt !important;
+	height: 25pt !important;
+
+	margin: auto !important;
+	padding: 0 !important;
+
+	border: 0 !important;
+	border-radius: 8px !important;
+
+	font-family: var(--zoralab-hestia-debugger-font-family) !important;
+	font-size: 20pt !important;
+	line-height: 20pt !important;
+	text-decoration: none !important;
+	white-space: nowrap !important;
+	cursor: pointer !important;
+
+	color: var(--zoralab-hestia-debugger-color-inverted) !important;
+	background: var(--zoralab-hestia-debugger-color) !important;
+	box-shadow: none !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-header form button:hover,
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-header form button:focus {
+	border: var(--zoralab-hestia-debugger-border-focus) !important;
+
+	color: var(--zoralab-hestia-debugger-color-focus) !important;
+	background: transparent !important;
+	box-shadow: var(--zoralab-hestia-debugger-box-shadow) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-selector {
+	grid-area: selector !important;
+
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	flex-direction: row !important;
+
+	font-family: var(--zoralab-hestia-debugger-font-family) !important;
+	font-size: 20pt !important;
+	line-height: 20pt !important;
+	text-decoration: none !important;
+	white-space: nowrap !important;
+	cursor: pointer !important;
+
+	color: var(--zoralab-hestia-debugger-color) !important;
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-selector > * {
+	display: block !important;
+
+	margin: var(--zoralab-hestia-debugger-margin-content) !important;
+	padding: var(--zoralab-hestia-debugger-padding-content) !important;
+
+	border: var(--zoralab-hestia-debugger-border) !important;
+	border-radius: 10px !important;
+
+	cursor: pointer !important;
+
+	color: var(--zoralab-hestia-debugger-color) !important;
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-selector > *:hover,
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-selector > *:focus {
+	border: var(--zoralab-hestia-debugger-border-focus) !important;
+
+	color: var(--zoralab-hestia-debugger-color-focus) !important;
+	box-shadow: var(--zoralab-hestia-debugger-box-shadow) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content {
+	grid-area: content !important;
+	position: relative !important;
+
+	min-width: 100% !important;
+	width: 100% !important;
+
+	margin: var(--zoralab-hestia-debugger-margin-section) 0 !important;
+	overflow: hidden auto !important;
+
+	color: var(--zoralab-hestia-debugger-color) !important;
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content > * {
+	position: absolute !important;
+	top: 0 !important;
+	left: 0 !important;
+
+	min-width: 100% !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content
+	.zoralab-hestia-console-content-container {
+	display: none !important;
+	justify-content: center !important;
+	align-items: center !important;
+	flex-direction: row !important;
+	flex-wrap: wrap !important;
+
+	margin: 0 !important;
+	padding: 5pt !important;
+
+	border: var(--zoralab-hestia-debugger-border) !important;
+	background: var(--zoralab-hestia-debugger-bg-inverted) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content > input {
+	visibility: hidden !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content >
+	input:checked + *.zoralab-hestia-console-content-container {
+	display: flex !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content
+	.zoralab-hestia-debugger-console-content-image {
+	min-width: 100px !important;
+	width: auto !important;
+	max-width: 100% !important;
+	min-height: 100px !important;
+	height: auto !important;
+	max-height: 200px !important;
+
+	margin: var(--zoralab-hestia-debugger-margin-content) !important;
+	padding: 0 !important;
+
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content
+	.zoralab-hestia-debugger-console-content-data {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	flex-direction: column !important;
+
+	margin: var(--zoralab-hestia-debugger-margin-content) !important;
+	padding: var(--zoralab-hestia-debugger-padding-content) !important;
+
+	font-family: var(--zoralab-hestia-debugger-font-family) !important;
+	font-size: var(--zoralab-hestia-debugger-font-size-text) !important;
+	line-height: var(--zoralab-hestia-debugger-line-height-text) !important;
+	overflow-wrap: break-word !important;
+	text-decoration: none !important;
+
+	border: var(--zoralab-hestia-debugger-border) !important;
+	color: var(--zoralab-hestia-debugger-color) !important;
+	background: var(--zoralab-hestia-debugger-bg) !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content
+	.zoralab-hestia-debugger-console-content-data code,
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content
+	.zoralab-hestia-debugger-console-content-data pre {
+	margin: var(--zoralab-hestia-debugger-margin-content) !important;
+	padding: var(--zoralab-hestia-debugger-padding-content) !important;
+
+	font-family: var(--zoralab-hestia-debugger-font-family) !important;
+	font-size: var(--zoralab-hestia-debugger-font-size-text) !important;
+	line-height: var(--zoralab-hestia-debugger-line-height-text) !important;
+	overflow-wrap: break-word !important;
+	text-decoration: none !important;
+
+	border: none !important;
+	color: var(--zoralab-hestia-debugger-color) !important;
+	background: none !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content
+	.zoralab-hestia-debugger-console-content-data-key {
+	margin: var(--zoralab-hestia-debugger-margin-content) !important;
+
+	font-weight: bold !important;
+	user-select: all !important;
+}
+
+#zoralab-hestia-debugger-console
+	.zoralab-hestia-debugger-console-content
+	.zoralab-hestia-debugger-console-content-data-value {
+	user-select: all !important;
+}
+
+
+
+
+@media print {
+	.zoralab-hestia-debugger-console-trigger,
+	#zoralab-hestia-debugger-console {
+		display: none !important;
+	}
+}

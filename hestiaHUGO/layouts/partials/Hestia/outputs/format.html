@@ -75,7 +75,6 @@ specific language governing permissions and limitations under the License.
 </head>
 <body>
 	{{ safeHTML (index .Content "HTML") }}
-	{{- partial "Hestia/functions/render/html/debug/Init" . }}
 	{{- /* Prevent new line clean up */}}
 </body>
 </html>

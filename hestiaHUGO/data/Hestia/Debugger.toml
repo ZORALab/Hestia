@@ -1,0 +1,12 @@
+# HESTIA IN-PAGE DEBUGGER
+# =======================
+# All Hestia's in-page data debugger's configurations. Debugger is only being
+# added by UI component data processor **in server mode only**. It is forseeable
+# that folks may upstream and made different types of debugger in the future so
+# a config panel is required.
+#
+# 1) Default.Type           - Select the default debugger type. It must be a
+#                             component in Hestia. Leaving it blank disables the
+#                             debugger entirely.
+[Default]
+Type = 'zoralab_debugger'

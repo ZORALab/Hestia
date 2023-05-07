@@ -26,5 +26,17 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* check debugger type */ -}}
+{{- if and .Site.Data.Hestia.Debugger.Default.Type .Site.IsServer -}}
+	{{- $dataList = append (dict
+		"Name" .Site.Data.Hestia.Debugger.Default.Type
+		"Include" true
+		"Variables" dict
+	) $dataList -}}
+{{- end -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return dict "Components" $dataList -}}

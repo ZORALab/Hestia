@@ -49,7 +49,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source config data */ -}}
-{{- $dataList = slice -}}
+{{- $dataList = $Page.Components -}}
 {{- range $i, $v := $Local -}}
 	{{- $data = dict -}}
 

@@ -1,0 +1,268 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Hestia data structure (dict) */ -}}
+
+
+
+
+{{- define "renderDebugValue" -}}
+	{{- /* CONSTANTS */ -}}
+	{{- $KEY_ID := "DebugKey" -}}
+	{{- $VALUE_ID := "DebugValue" -}}
+
+
+
+
+	{{- /* prepare variables */ -}}
+	{{- $Page := . -}}
+	{{- $key := false -}}
+	{{- $type := false -}}
+	{{- $ret := false -}}
+
+
+
+
+	{{- /* render debug data */ -}}
+	{{- range $k, $v := $Page.DebugValue -}}
+		{{- /* process necessary key for query */ -}}
+		{{- if $Page.DebugKey -}}
+			{{- $key = printf "%s.%v" $Page.DebugKey $k -}}
+		{{- else -}}
+			{{- $key = printf ".%s" $k -}}
+		{{- end -}}
+
+
+		{{- /* process list by data type */ -}}
+		{{- $type = printf "%T" $v -}}
+		{{- if hasPrefix $type "map" -}}
+			{{- $ret = dict $KEY_ID $key $VALUE_ID $v -}}
+			{{- template "renderDebugValue" $ret -}}
+		{{- else if hasPrefix $type "[]" -}}
+			{{- $ret = dict $KEY_ID $key $VALUE_ID $v -}}
+			{{- template "renderDebugValue" $ret -}}
+		{{- else -}}
+<div class='zoralab-hestia-debugger-console-content-data'>
+	<p class='zoralab-hestia-debugger-console-content-data-key'>
+		{{- $key -}}
+	</p>
+	<p class='zoralab-hestia-debugger-console-content-data-value'>
+		{{- printf "%v" $v -}}
+	</p>
+</div>
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<button onclick='document.getElementById("zoralab-hestia-debugger-console").showModal()'
+	class='zoralab-hestia-debugger-console-trigger'>
+	⚒
+</button>
+
+<dialog id='zoralab-hestia-debugger-console'><div>
+	<div class='zoralab-hestia-debugger-console-header'>
+		<p>⚒ ZORALab's Hestia Debugger</p>
+		<form method='dialog'><button>✕</button></form>
+	</div>
+
+	<div class='zoralab-hestia-debugger-console-selector'>
+		<label for='zoralab-hestia-debugger-console-content-metadata'>
+			⌨
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-formats'>
+			⚛
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-languages'>
+			🝳
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-thumbnails'>
+			⛰
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-contributors'>
+			☻
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-nav'>
+			⎈
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-wasm'>
+			Ŵ
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-ldjson'>
+			ŁĐ
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-datastore'>
+			⛃
+		</label>
+	</div>
+
+	<div class='zoralab-hestia-debugger-console-content'>
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-metadata'
+			checked
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".Titles" "DebugValue" .Titles -}}
+			{{- template "renderDebugValue" $ret -}}
+
+			{{- $ret = dict "DebugKey" ".Descriptions" "DebugValue" .Descriptions -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-formats'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".Formats" "DebugValue" .Formats -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-languages'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".Languages" "DebugValue" .Languages -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-thumbnails'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- range $i, $v := .Thumbnails }}
+			<div class='zoralab-hestia-debugger-console-content-data'>
+					{{- range $j, $w := $v.Sources }}
+						<img alt='{{- $w.URL -}}'
+							class='zoralab-hestia-debugger-console-content-image'
+							src='{{- $w.URL -}}'
+							width='{{- $v.Width -}}'
+							height='{{- $v.Height -}}'
+							loading='lazy' />
+					{{- end }}
+				{{- $ret = printf ".Thumbnails.%v" (string $i) -}}
+				{{- $ret = dict "DebugKey" $ret "DebugValue" $v -}}
+				{{- template "renderDebugValue" $ret -}}
+			</div>
+			{{- end }}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-contributors'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- range $i, $v := .Contributors.Page }}
+			<div class='zoralab-hestia-debugger-console-content-data'>
+				{{- range $j, $w := $v.Image.Sources }}
+					<img alt='{{- $w.URL -}}'
+						class='zoralab-hestia-debugger-console-content-image'
+						src='{{- $w.URL -}}'
+						width='{{- $v.Image.Width -}}'
+						height='{{- $v.Image.Height -}}'
+						loading='lazy' />
+				{{- end }}
+				{{- $ret = printf ".Contributors.Page.%v" (string $i) -}}
+				{{- $ret = dict "DebugKey" $ret "DebugValue" $v -}}
+				{{- template "renderDebugValue" $ret -}}
+			</div>
+			{{- end }}
+
+
+			{{- range $i, $v := .Contributors.Site }}
+			<div class='zoralab-hestia-debugger-console-content-data'>
+				{{- range $j, $w := $v.Image.Sources }}
+					<img alt='{{- $w.URL -}}'
+						class='zoralab-hestia-debugger-console-content-image'
+						src='{{- $w.URL -}}'
+						width='{{- $v.Image.Width -}}'
+						height='{{- $v.Image.Height -}}'
+						loading='lazy' />
+				{{- end }}
+				{{- $ret = printf ".Contributors.Site.%v" (string $i) -}}
+				{{- $ret = dict "DebugKey" $ret "DebugValue" $v -}}
+				{{- template "renderDebugValue" $ret -}}
+			</div>
+			{{- end }}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-ldjson'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			<div class='zoralab-hestia-debugger-console-content-data'>
+				<p class='zoralab-hestia-debugger-console-content-data-key'>
+					LD+JSON
+				</p>
+				<p class='zoralab-hestia-debugger-console-content-data-value'>
+					<code>{{- jsonify .LDJSON -}}</code>
+				</p>
+			</div>
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-nav'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".Nav" "DebugValue" .Nav -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-wasm'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".WASM" "DebugValue" .WASM -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-datastore'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".Data" "DebugValue" .Data -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+	</div>
+</div></dialog>
