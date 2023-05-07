@@ -29,5 +29,14 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* clean up unwanted fields */ -}}
+{{- $dataList = merge $dataList (dict "Contributors" (dict "Site" false)) -}}
+{{- $dataList = merge $dataList (dict "Contributors" (dict "Site" dict)) -}}
+{{- $dataList = merge $dataList (dict "Memory" false) -}}
+{{- $dataList = merge $dataList (dict "Memory" dict) -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return $dataList -}}

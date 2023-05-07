@@ -601,12 +601,6 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "Contributors" (dict "Page" $dataList)) -}}
 
 
-{{- if $Page.IsMetadata -}}
-	{{- $Page = merge $Page (dict "Contributors" (dict "Site" false)) -}}
-	{{- $Page = merge $Page (dict "Contributors" (dict "Site" dict)) -}}
-{{- end -}}
-
-
 
 
 {{- /* process .Robots.List */ -}}
