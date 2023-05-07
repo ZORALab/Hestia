@@ -34,7 +34,7 @@ specific language governing permissions and limitations under the License.
 {{- /* process variables */ -}}
 {{- range $k, $v := .Input.Variables -}}
 	{{- $key = merge $Page (dict "Input" (dict "Data" $k)) -}}
-	{{- $key = partial "Hestia/functions/data/string/Init" $key -}}
+	{{- $key = partial "Hestia/functions/data/string/Sanitize" $key -}}
 	{{- if $key.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf
@@ -50,7 +50,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- $value = merge $Page (dict "Input" (dict "Data" $v)) -}}
-	{{- $value = partial "Hestia/functions/data/string/Init" $value -}}
+	{{- $value = partial "Hestia/functions/data/string/Sanitize" $value -}}
 	{{- if $value.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf

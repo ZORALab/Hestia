@@ -29,7 +29,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* standardize string data */ -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" . -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" . -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf "string: %s" $dataList.Console.Message -}}
 	{{- $console = dict "Message" $console -}}

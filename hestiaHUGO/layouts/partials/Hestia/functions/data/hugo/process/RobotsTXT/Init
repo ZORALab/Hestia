@@ -87,7 +87,7 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Allow */ -}}
 	{{- range $j, $w := $v.Allow -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $w)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $ret = printf "robots.txt: %v.Allow: %v" $w $ret.Console.Message -}}
 			{{- $ret = merge $Page (dict "Console" (dict "Message" $ret)) -}}
@@ -102,7 +102,7 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Disallow */ -}}
 	{{- range $j, $w := $v.Disallow -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $w)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $ret = printf "robots.txt: %v.Disallow: %v" $w $ret.Console.Message -}}
 			{{- $ret = merge $Page (dict "Console" (dict "Message" $ret)) -}}

@@ -48,7 +48,7 @@ specific language governing permissions and limitations under the License.
 {{- /* initialize .Time string data */ -}}
 {{- if $dataList -}}
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-	{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+	{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 	{{- if and ($dataList.Console) (not $console) -}}
 		{{- $console = printf "time: %s" $dataList.Console.Message -}}
 		{{- $console = dict "Message" $console -}}

@@ -69,7 +69,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Media */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Media)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Include.%v.Media: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -81,7 +81,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .URL */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.OnLoad)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Include.%v.OnLoad: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -149,7 +149,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -191,7 +191,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process page control inline CSS file */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .CSS.Main)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -222,7 +222,7 @@ specific language governing permissions and limitations under the License.
 
 {{- if $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}

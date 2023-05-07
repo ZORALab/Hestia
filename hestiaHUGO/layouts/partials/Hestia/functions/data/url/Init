@@ -58,7 +58,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if and $ret.Console (not $console) -}}
 	{{- $console = printf "URL: .Input.URL: %v" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
@@ -79,7 +79,7 @@ specific language governing permissions and limitations under the License.
 {{- if and $ret (not $console) -}}
 	{{- $ret = string $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- $Args = merge $Args (dict "Input" (dict "Lang" $ret.Output)) -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "URL: .Input.Lang: %v" $ret.Console.Message -}}
@@ -119,7 +119,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = string $ret -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
 		{{- $console = printf "URL: .Input.Format.Protocol: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
@@ -140,7 +140,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = string $ret -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
 		{{- $console = printf "URL: .Input.Format.Filename: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
@@ -161,7 +161,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = string $ret -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
 		{{- $console = printf "URL: .Input.Format.Extension: %v"
 			$ret.Console.Message -}}

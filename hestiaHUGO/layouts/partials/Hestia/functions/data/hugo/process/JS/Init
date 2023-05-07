@@ -45,7 +45,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process all .IncludeTiming */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .JS.Settings.Inline.Timing)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "JS.Settings.Inline.Timing: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -98,7 +98,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Timing */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Timing)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Include.%v.Timing: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -150,7 +150,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -189,7 +189,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process page control inline JS file */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .JS.Main)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -220,7 +220,7 @@ specific language governing permissions and limitations under the License.
 
 {{- if $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}

@@ -40,7 +40,7 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 {{- $ret = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "Minify: data: %s" $ret.Console.Message -}}
 	{{- $console = dict "Message" $console -}}
@@ -58,7 +58,7 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 {{- $ret = merge $Page (dict "Input" (dict "Data" $filename)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- if not $console -}}
 		{{- $console = printf "Minify: type: %s" $ret.Console.Message -}}

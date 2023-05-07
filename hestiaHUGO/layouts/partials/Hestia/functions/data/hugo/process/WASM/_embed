@@ -30,7 +30,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Embed */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" .WASM.Embed)) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf "WASM.Embed: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}

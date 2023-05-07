@@ -67,7 +67,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .track.Lang */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $k)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Tracks: bad language '%v'.\n" $k -}}
@@ -117,7 +117,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Tracks.%v.Kind: %v" $k $ret.Console.Message -}}
@@ -159,7 +159,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Tracks.%v.Label: %v" $k $ret.Console.Message -}}

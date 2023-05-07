@@ -30,7 +30,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Pitch */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Pitch)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Pitch" $ret) -}}
 
@@ -39,7 +39,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Summary */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Summary)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 {{- $dataList = merge $dataList (dict "Summary" $ret) -}}
 

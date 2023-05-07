@@ -38,7 +38,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $dataList = "lazy" -}}
 {{- else -}}

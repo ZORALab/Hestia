@@ -102,7 +102,7 @@ specific language governing permissions and limitations under the License.
 		{{- $ret = printf ".%s" $ret -}}
 	{{- end -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Extension: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -116,7 +116,7 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Filename */ -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $v.Filename -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Filename: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -131,7 +131,7 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Protocol */ -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $v.Protocol -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Protocol: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -146,7 +146,7 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Relationship */ -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $v.Relationship -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Relationship: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -214,7 +214,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Name */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Languages.List.%v.Name: %v"
 			$data.ID $ret.Console.Message -}}
@@ -227,7 +227,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Directory */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Directory)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Languages.List.%v.Directory: %v"
 			$data.ID $ret.Console.Message -}}
@@ -240,7 +240,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Direction */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Direction)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Languages.List.%v.Direction: %v"
 			$data.ID $ret.Console.Message -}}
@@ -320,7 +320,7 @@ specific language governing permissions and limitations under the License.
 	{{- range $j, $w := (slice "Full" "Short" "ID" "SKU") -}}
 		{{- $ret = index $v $w -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Titles.Site.%v.%v: %s"
 				(upper $k)
@@ -361,7 +361,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Titles.Page */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.Titles.Page)) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Titles.Page: %s" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
@@ -380,7 +380,7 @@ specific language governing permissions and limitations under the License.
 	{{- range $j, $w := (slice "Pitch" "Summary") -}}
 		{{- $ret = index $v $w -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Descriptions.Site.%v.%v: %v"
 						(upper $k) $w $dataList.Console.Message -}}
@@ -420,7 +420,7 @@ specific language governing permissions and limitations under the License.
 {{- range $i, $v := (slice "Pitch" "Summary") -}}
 	{{- $ret = index $Page.Descriptions.Page $v -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Descriptions.Page.%v: %v"
 			$v $dataList.Console.Message -}}
@@ -442,7 +442,7 @@ specific language governing permissions and limitations under the License.
 {{- $data = dict -}}
 {{- range $i, $v := .Keywords.List -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Keywords '%v': %v" $v $dataList.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
@@ -608,7 +608,7 @@ specific language governing permissions and limitations under the License.
 {{- range $i, $v := $Page.Robots.List -}}
 	{{- /* process .Name */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Robots.%v.Name: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -620,7 +620,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Content */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Content)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Robots.%v.Content: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -643,7 +643,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Vendors.GoHugo */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.Vendors.GoHugo.Version)) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Vendors.GoHugo.Version: %v" $dataList.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -660,7 +660,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $Page (dict "Input"
 	(dict "Data" $Page.Vendors.ZORALab.Hestia.Version)
 ) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Vendors.ZORALab.Hestia.Version: %v"
 		$dataList.Console.Message -}}
@@ -682,7 +682,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $Page (dict "Input"
 	(dict "Data" $Page.Vendors.Google.Analytics4.Tag)
 ) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Vendors.Google.Analytics4.Tag: %v"
 		$dataList.Console.Message -}}
@@ -702,7 +702,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Vendors.Twitter */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.Vendors.Twitter.Site.Handle)) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Vendors.Twitter.Site.Handle: %v"
 		$dataList.Console.Message -}}
@@ -725,7 +725,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = merge $Page (dict "Input" (dict "Data"
 	$Page.Vendors.Twitter.Creator.Handle
 )) -}}
-{{- $dataList = partial "Hestia/functions/data/string/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/string/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Vendors.Twitter.Creator.Handle: %v"
 		$dataList.Console.Message -}}
@@ -817,7 +817,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.ID)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf
 			".Vendors.Twitter.Stores.%v.ID: %v.\n"
@@ -831,7 +831,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf
 			".Vendors.Twitter.Stores.%v.ID: %v.\n"
@@ -845,7 +845,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf
 			".Vendors.Twitter.Stores.%v.ID: %v.\n"

@@ -57,7 +57,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Setup */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Setup)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "WASM.Setup: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
@@ -72,7 +72,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Import */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Import)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "WASM.Import: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
@@ -87,7 +87,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Init */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Init)) -}}
-{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "WASM.Init: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}

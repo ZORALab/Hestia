@@ -54,7 +54,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Name */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Name)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Contributors.Site.%v.Name: %v"
 			$k $ret.Console.Message -}}
@@ -66,7 +66,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Title */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Title)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Contributors.Site.%v.Title: %v"
 			$k $ret.Console.Message -}}
@@ -78,7 +78,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Brand */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Brand)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Contributors.Site.%v.Brand: %v"
 			$k $ret.Console.Message -}}
@@ -90,7 +90,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .CallSign */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.CallSign)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Contributors.Site.%v.CallSign: %v"
 			$k $ret.Console.Message -}}
@@ -102,7 +102,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Slogan */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Slogan)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Contributors.Site.%v.Slogan: %v"
 			$k $ret.Console.Message -}}
@@ -114,7 +114,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Description */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Description)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Contributors.Site.%v.Description: %v"
 			$k $ret.Console.Message -}}
@@ -134,7 +134,7 @@ specific language governing permissions and limitations under the License.
 		{{- /* process .Label */ -}}
 		{{- $ret = index $dataset $w -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Label)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Contributors.Site.%v.%v.Label: %v"
 				$k $w $ret.Console.Message -}}
@@ -147,7 +147,7 @@ specific language governing permissions and limitations under the License.
 		{{- if (eq $w "Web") -}}
 			{{- $ret = index $dataset $w -}}
 			{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Value)) -}}
-			{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+			{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 			{{- if $ret.Console -}}
 				{{- $console = printf ".Contributors.Site.%v.%v.Value: %v"
 					$k $w $ret.Console.Message -}}
@@ -159,7 +159,7 @@ specific language governing permissions and limitations under the License.
 		{{- else -}}
 			{{- $ret = index $dataset $w -}}
 			{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Value)) -}}
-			{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+			{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 			{{- if $ret.Console -}}
 				{{- $console = printf ".Contributors.Site.%v.%v.Value: %v"
 					$k $w $ret.Console.Message -}}
@@ -175,7 +175,7 @@ specific language governing permissions and limitations under the License.
 	{{- range $j, $w := $dataset.Social -}}
 		{{- /* process .Label */ -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Label)) -}}
-		{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Contributors.Site.%v.Social.%v.Label: %v"
 				$k $j $w $ret.Console.Message -}}
@@ -257,7 +257,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .ID */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.ID)) -}}
-	{{- $ret = partial "Hestia/functions/data/string/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Contributors.Site.%v.ID: %v" $k $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
