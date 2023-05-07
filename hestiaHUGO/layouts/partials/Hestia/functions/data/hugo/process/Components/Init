@@ -32,7 +32,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process all the components list */ -}}
-{{- $dataList = slice -}}
+{{- $dataList = dict -}}
 {{- range $i, $v := .Components -}}
 	{{- /* process component's name */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
@@ -70,7 +70,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = dict "Variables" $ret.Output -}}
-	{{- $dataList = append $v $dataList -}}
+	{{- $dataList = merge $dataList (dict (string $i) $v) -}}
 {{- end -}}
 
 

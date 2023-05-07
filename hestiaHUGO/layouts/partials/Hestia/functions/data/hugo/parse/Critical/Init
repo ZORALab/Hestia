@@ -211,7 +211,7 @@ specific language governing permissions and limitations under the License.
 {{- /* initiate page's .Contributors */ -}}
 {{- $ret = partial "Hestia/functions/data/caches/contributors/Load" $dataList -}}
 {{- if or .IsHome (not $ret) -}}
-	{{- $ret = partial "Hestia/functions/data/hugo/parse/Contributors/Init" . -}}
+	{{- $ret = partial "Hestia/functions/data/hugo/parse/_contributors" . -}}
 	{{- $ret = dict "Site" $ret "Page" dict -}}
 {{- else -}}
 	{{- /* upstream has a cached copy. avoid parsing */ -}}

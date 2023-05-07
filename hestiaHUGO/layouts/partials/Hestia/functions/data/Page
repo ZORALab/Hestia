@@ -23,19 +23,11 @@ specific language governing permissions and limitations under the License.
 {{- /* Prepare Hestia critical data structure. (!!!) POSITION MATTERS (!!!) */ -}}
 {{- $dataList := partial "Hestia/functions/data/hugo/parse/Critical/Init" . -}}
 {{- $dataList = merge $dataList (dict "IsMetadata" false) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Datastore" .) -}}
 
 
 {{- /* prepare Hestia data structures. */ -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Content" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Components" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/CSS" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/JS" .) -}}
+{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Page/Init" .) -}}
 {{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/PWA/Init" $dataList) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/WASM" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Nav/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/Sitemap/Init" .) -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/data/hugo/parse/LDJSON" .) -}}
 
 
 
