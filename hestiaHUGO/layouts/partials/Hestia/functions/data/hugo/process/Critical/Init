@@ -548,7 +548,7 @@ specific language governing permissions and limitations under the License.
 	{{- partial "Hestia/functions/data/caches/contributors/Save" $dataList -}}
 	{{- $dataList = $dataList.Input.Data -}}
 {{- end -}}
-{{- $Page = merge $Page (dict "Contributors" (dict "Site" false)) -}}
+{{- $Page = merge $Page (dict "Contributors" false) -}}
 {{- $Page = merge $Page (dict "Contributors" (dict "Site" $dataList)) -}}
 
 
@@ -556,7 +556,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Contributors.Page */ -}}
 {{- $dataList = dict -}}
-{{- range $k, $v := $Page.Contributors.Page -}}
+{{- range $k, $v := .Contributors.Page -}}
 	{{- $data = index $Page.Contributors.Site $k -}}
 	{{- if not $data -}}
 		{{- $console = printf ".Contributors.Page: unknown entity '%v'.\n" $k -}}
@@ -593,7 +593,9 @@ specific language governing permissions and limitations under the License.
 			{{- $data = merge $data (dict $w (dict "Current" $ret)) -}}
 		{{- end -}}
 	{{- end -}}
-	{{- $dataList = merge (index $Page.Contributors.Site $k) $data -}}
+
+
+	{{- $dataList = merge $dataList (dict $k $data) -}}
 {{- end -}}
 {{- $Page = merge $Page (dict "Contributors" (dict "Page" false)) -}}
 {{- $Page = merge $Page (dict "Contributors" (dict "Page" $dataList)) -}}
