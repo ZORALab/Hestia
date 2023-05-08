@@ -28,7 +28,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- if (partial "Hestia/functions/IsHestia" .) -}}
+{{- if (partial "Hestia/functions/data/vendors/hugo/IsHestia" .) -}}
 	{{- /* states the Page relative URL */ -}}
 	{{- $dataList = .URL.Current.Relative -}}
 	{{- if strings.Contains $dataList "__content" -}}
