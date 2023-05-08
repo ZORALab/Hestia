@@ -57,9 +57,9 @@ specific language governing permissions and limitations under the License.
 
 	{{- if not $dataList -}}
 		{{- $dataList = "anonymous" -}}
-	{{- else if partial "Hestia/functions/data/cors/IsAnonymous" $dataList -}}
+	{{- else if partial "Hestia/functions/data/net/cors/IsAnonymous" $dataList -}}
 		{{- /* PASS - do nothing */ -}}
-	{{- else if partial "Hestia/functions/data/cors/IsUseCredentials" $dataList -}}
+	{{- else if partial "Hestia/functions/data/net/cors/IsUseCredentials" $dataList -}}
 		{{- /* PASS - do nothing */ -}}
 	{{- else -}}
 		{{- $console = printf "CORS: unknown value '%v'.\n" $dataList -}}

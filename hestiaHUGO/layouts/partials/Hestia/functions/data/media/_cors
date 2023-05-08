@@ -39,7 +39,7 @@ specific language governing permissions and limitations under the License.
 
 {{- if $dataList -}}
 	{{- $dataList = merge $Page (dict "Input" (dict "CORS" $dataList)) -}}
-	{{- $dataList = partial "Hestia/functions/data/cors/Init" $dataList -}}
+	{{- $dataList = partial "Hestia/functions/data/net/cors/Sanitize" $dataList -}}
 	{{- if $dataList.Console -}}
 		{{- $console = dict "Message" $dataList.Console.Message -}}
 	{{- end -}}
