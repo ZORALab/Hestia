@@ -111,14 +111,26 @@ specific language governing permissions and limitations under the License.
 		<label for='zoralab-hestia-debugger-console-content-nav'>
 			⎈
 		</label>
-		<label for='zoralab-hestia-debugger-console-content-wasm'>
-			Ŵ
-		</label>
-		<label for='zoralab-hestia-debugger-console-content-ldjson'>
-			ŁĐ
-		</label>
 		<label for='zoralab-hestia-debugger-console-content-datastore'>
 			⛃
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-js'>
+			☄
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-css'>
+			⚘
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-pwa'>
+			⛫
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-ldjson'>
+			⛯
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-sitemap'>
+			⛢
+		</label>
+		<label for='zoralab-hestia-debugger-console-content-wasm'>
+			⛆
 		</label>
 	</div>
 
@@ -252,6 +264,46 @@ specific language governing permissions and limitations under the License.
 		/>
 		<div class='zoralab-hestia-console-content-container'>
 			{{- $ret = dict "DebugKey" ".WASM" "DebugValue" .WASM -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-pwa'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".PWA" "DebugValue" .PWA -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-sitemap'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".Sitemap" "DebugValue" .Sitemap -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-css'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".CSS" "DebugValue" .CSS -}}
+			{{- template "renderDebugValue" $ret -}}
+		</div>
+
+
+		<input type='radio'
+			name='zoralab-hestia-debugger-console-content'
+			id='zoralab-hestia-debugger-console-content-js'
+		/>
+		<div class='zoralab-hestia-console-content-container'>
+			{{- $ret = dict "DebugKey" ".JS" "DebugValue" .JS -}}
 			{{- template "renderDebugValue" $ret -}}
 		</div>
 
