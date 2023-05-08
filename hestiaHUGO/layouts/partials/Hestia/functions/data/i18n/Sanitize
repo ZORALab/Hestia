@@ -79,7 +79,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* validate $country for ISO3166 */ -}}
-{{- if not (partial "Hestia/functions/data/language/IsCountry" $country) -}}
+{{- if not (partial "Hestia/functions/data/i18n/IsCountry" $country) -}}
 	{{- if $country -}}
 		{{- /* possible split of ISO15924 */ -}}
 		{{- $script = printf "%s%s" $script $country -}}
@@ -92,7 +92,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* validate $script for ISO15924 */ -}}
-{{- if not (partial "Hestia/functions/data/language/IsScript" $script) -}}
+{{- if not (partial "Hestia/functions/data/i18n/IsScript" $script) -}}
 	{{- if $script -}}
 		{{- if not $console -}}
 			{{- $console = printf
@@ -110,7 +110,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* validate $code for ISO639 */ -}}
-{{- if not (partial "Hestia/functions/data/language/IsLang" $code) -}}
+{{- if not (partial "Hestia/functions/data/i18n/IsLang" $code) -}}
 	{{- if not $console -}}
 		{{- $console = printf "Language: unknown code '%v' from '%v'.\n"
 			$code

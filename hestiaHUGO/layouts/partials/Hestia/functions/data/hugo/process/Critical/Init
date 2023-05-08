@@ -201,7 +201,7 @@ specific language governing permissions and limitations under the License.
 {{- range $k, $v := $Page.Languages.List -}}
 	{{- /* process .Code and .ID */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Lang" $k)) -}}
-	{{- $ret = partial "Hestia/functions/data/language/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/i18n/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Languages.List: '%v' -> %v" $k $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
