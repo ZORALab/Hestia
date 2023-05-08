@@ -1,0 +1,6 @@
+[CSS.Variables]
+"--section-split-skew-height" = "100px"
+"--section-split-skew-angle" = "to left bottom"
+
+"--section-split-skew-upper-background" = "rgba(0,0,0,0)"
+"--section-split-skew-lower-background" = "#010329"
