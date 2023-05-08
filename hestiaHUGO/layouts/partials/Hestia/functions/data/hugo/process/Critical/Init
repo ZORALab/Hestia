@@ -35,7 +35,7 @@ specific language governing permissions and limitations under the License.
 {{- range $k, $v := $Page.Time -}}
 	{{- /* process time data */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/time/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/time/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Time.%v: %v" (title (lower $k)) $ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
