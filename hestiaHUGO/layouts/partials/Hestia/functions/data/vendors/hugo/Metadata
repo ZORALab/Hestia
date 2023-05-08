@@ -39,4 +39,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- return $dataList -}}
+{{- return partial "Hestia/functions/data/vendors/hugo/Clean" $dataList -}}
