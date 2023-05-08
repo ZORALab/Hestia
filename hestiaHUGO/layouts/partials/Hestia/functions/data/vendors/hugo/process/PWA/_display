@@ -1,0 +1,102 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $console := dict -}}
+{{- $list := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Main */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Display.Main)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $ret = lower $ret -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/process/PWA/__display-settings" $ret -}}
+{{- if $ret.Console -}}
+	{{- $console = printf "PWA: .Display.Main: %s" $ret.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Main" $ret.Output) -}}
+
+
+
+
+{{- /* process .Overrides */ -}}
+{{- $list = dict -}}
+{{- range $i, $v := .PWA.Display.Overrides -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+	{{- $ret = lower $ret -}}
+
+
+	{{- $ret = partial
+		"Hestia/functions/data/vendors/hugo/process/PWA/__display-settings" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "PWA: .Display.Overrides.%v: %s"
+			$i
+			$ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+
+
+	{{- if $ret -}}
+		{{- $list = merge $list (dict (upper (string $i)) $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Overrides" $list) -}}
+
+
+
+
+{{- /* process .Orientation */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Display.Orientation)) -}}
+{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
+{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
+{{- $ret = lower $ret -}}
+{{- $ret = partial
+	"Hestia/functions/data/vendors/hugo/process/PWA/__display-orientation"
+	$ret
+-}}
+{{- if $ret.Console -}}
+	{{- $console = printf "PWA: .Display.Orientation: %s"
+		$ret.Console.Message -}}
+	{{- $console = dict "Console" (dict "Message" $console) -}}
+	{{- $console = merge $Page $console -}}
+	{{- partial "Hestia/functions/console/Errorf" $console -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Orientation" $ret.Output) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Display" $dataList -}}

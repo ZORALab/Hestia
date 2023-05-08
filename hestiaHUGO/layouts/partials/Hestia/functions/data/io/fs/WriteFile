@@ -23,7 +23,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := . -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
 {{- $ret := false -}}
@@ -33,7 +33,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* safe querying .Input.Path */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Path")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 {{- if not $ret -}}
 	{{- $console = printf "FS.WriteFile: missing/bad .Input.Path.\n" -}}
 	{{- $console = dict "Message" $console -}}
@@ -66,7 +66,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* safe querying .Input.Content */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Content")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 {{- if partial "Hestia/functions/data/string/IsString" $ret -}}
 	{{- /* DO NOTHING */ -}}
 {{- else if not $ret -}}

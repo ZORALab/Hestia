@@ -1,0 +1,80 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $Page = merge $Page (dict "Components" false) -}}
+{{- $Page = merge $Page (dict "Components" dict) -}}
+{{- $dataList := slice -}}
+{{- $console := dict -}}
+{{- $component := false -}}
+{{- $ret := false -}}
+
+
+
+{{- /* process all the components list */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := .Components -}}
+	{{- /* process component's name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
+	{{- $ret = partial "Hestia/functions/data/string/Sanitize" $ret -}}
+	{{- if $ret.console -}}
+		{{- $console = printf "Components: Name: %v" $ret.console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $v = merge $v (dict "Name" $ret.Output) -}}
+
+
+	{{- /* process component's existence */ -}}
+	{{- $ret = printf "Hestia/functions/render/components/%s" $v.Name -}}
+	{{- if not (partial "Hestia/functions/data/vendors/hugo/process/Components/__exists" $ret) -}}
+		{{- $console = printf "Components: unknown component '%v'.\n" $v.Name -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $v = merge $v (dict "Path" $ret) -}}
+
+
+	{{- /* process component's variables */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Variables" $v.Variables)) -}}
+	{{- $ret = partial "Hestia/functions/data/vendors/hugo/process/Components/__variables" $ret -}}
+	{{- if $ret.Console -}}
+		{{- $console = printf "Components.%v: %v" $component $ret.Console.Message -}}
+		{{- $console = dict "Console" (dict "Message" $console) -}}
+		{{- $console = merge $Page $console -}}
+		{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- end -}}
+
+	{{- $ret = dict "Variables" $ret.Output -}}
+	{{- $dataList = merge $dataList (dict (string $i) $v) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return merge $Page (dict "Components" $dataList) -}}

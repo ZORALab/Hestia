@@ -28,7 +28,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := partial "Hestia/functions/data/vendors/hugo/Clean" . -}}
 {{- $Args := dict -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
@@ -40,7 +40,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Input.URL */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.URL")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 {{- if not $ret -}}
 	{{- $ret = "" -}}
 {{- end -}}
@@ -72,7 +72,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Input.Lang */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Lang")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 {{- if not $ret -}}
 	{{- $ret = "" -}}
 {{- end -}}
@@ -92,7 +92,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* scan for supported .Input.Format */ -}}
 {{- $list = merge . (dict "Input" (dict "Query" ".Input.Format")) -}}
-{{- $list = partial "Hestia/functions/data/Get" $ret -}}
+{{- $list = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 {{- if not $list -}}
 	{{- $list = dict -}}
 {{- end -}}
@@ -197,7 +197,7 @@ specific language governing permissions and limitations under the License.
 {{- if and .PWA.Caches.Automation (and (not $console) $ret) -}}
 	{{- $ret = dict $ret $Page.PWA.Caches.Policy -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/caches/offline/Save" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/vendors/hugo/caches/offline/Save" $ret -}}
 	{{- if and $ret.Console (not $console) -}}
 		{{- $console = printf "URL: automatic caching: %v" $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}

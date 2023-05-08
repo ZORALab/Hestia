@@ -24,7 +24,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := . -}}
 {{- $dataList := "" -}}
 {{- $ret := "" -}}
 {{- $console := dict -}}
@@ -43,7 +43,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Sizes overrides */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Sizes")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $dataList -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $dataList -}}
 {{- if not $ret -}}
 	{{- $ret = "" -}}
 {{- end -}}

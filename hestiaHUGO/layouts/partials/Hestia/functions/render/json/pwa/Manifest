@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare variables for function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := . -}}
 {{- $dataList := dict -}}
 {{- $source := dict -}}
 {{- $list := slice -}}

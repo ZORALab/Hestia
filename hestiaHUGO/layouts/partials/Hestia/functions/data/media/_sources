@@ -26,7 +26,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := . -}}
 {{- $ret := false -}}
 {{- $list := dict -}}
 {{- $entry := dict -}}
@@ -38,7 +38,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process sources data when given */ -}}
 {{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Sources")) -}}
-{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/vendors/hugo/Get" $dataList -}}
 {{- if not $dataList -}}
 	{{- $dataList = dict -}}
 {{- end -}}
@@ -64,7 +64,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .source.URL */ -}}
 	{{- $ret = merge $v (dict "Input" (dict "Query" ".URL")) -}}
-	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Source.%v.URL is missing.\n" $k -}}
@@ -89,7 +89,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .source.Type */ -}}
 	{{- $ret = merge $v (dict "Input" (dict "Query" ".Type")) -}}
-	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Source.%v.Type is missing.\n" $k -}}
@@ -114,7 +114,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .source.Media */ -}}
 	{{- $ret = merge $v (dict "Input" (dict "Query" ".Media")) -}}
-	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- $ret = "" -}}
 	{{- end -}}
@@ -134,7 +134,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .source.Descriptor */ -}}
 	{{- $ret = merge $v (dict "Input" (dict "Query" ".Descriptor")) -}}
-	{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 	{{- if not $ret -}}
 		{{- $ret = "" -}}
 	{{- end -}}

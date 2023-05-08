@@ -22,7 +22,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $page := partial "Hestia/functions/data/Clean" . -}}
+{{- $page := partial "Hestia/functions/data/vendors/hugo/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $console := dict -}}
 {{- $ret := false -}}

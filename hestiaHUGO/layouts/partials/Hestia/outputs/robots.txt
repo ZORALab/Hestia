@@ -21,7 +21,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* generate robots.txt */ -}}
-{{- $Page := partial "Hestia/functions/data/hugo/process/RobotsTXT/Init" . -}}
+{{- $Page := partial "Hestia/functions/data/vendors/hugo/process/RobotsTXT/Init" . -}}
 {{- $dataList := string (partial "Hestia/functions/render/text/RobotsTXT" $Page) -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Content" $dataList "Path" "robots.txt")) -}}
 {{- $dataList = partial "Hestia/functions/data/io/fs/WriteFile" $dataList -}}

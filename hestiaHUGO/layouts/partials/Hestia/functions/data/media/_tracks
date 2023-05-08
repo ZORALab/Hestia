@@ -26,7 +26,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := . -}}
 {{- $ret := false -}}
 {{- $list := dict -}}
 {{- $entry := dict -}}
@@ -39,7 +39,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process sources data when given */ -}}
 {{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Tracks")) -}}
-{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/vendors/hugo/Get" $dataList -}}
 {{- if not $dataList -}}
 	{{- $dataList = dict -}}
 {{- end -}}

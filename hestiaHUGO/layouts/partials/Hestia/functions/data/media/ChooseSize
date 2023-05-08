@@ -35,7 +35,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $Page := partial "Hestia/functions/data/Clean" . -}}
+{{- $Page := partial "Hestia/functions/data/vendors/hugo/Clean" . -}}
 {{- $dataList := dict -}}
 {{- $wanted := dict -}}
 {{- $current := dict -}}
@@ -54,7 +54,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Width */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Width")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 {{- if not $ret -}}
 	{{- $ret = 0.00 -}}
 {{- end -}}
@@ -75,7 +75,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Height */ -}}
 {{- $ret = merge . (dict "Input" (dict "Query" ".Input.Height")) -}}
-{{- $ret = partial "Hestia/functions/data/Get" $ret -}}
+{{- $ret = partial "Hestia/functions/data/vendors/hugo/Get" $ret -}}
 {{- if not $ret -}}
 	{{- $ret = 0.00 -}}
 {{- end -}}
@@ -98,7 +98,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Current */ -}}
 {{- $current = merge . (dict "Input" (dict "Query" ".Input.Current")) -}}
-{{- $current = partial "Hestia/functions/data/Get" $current -}}
+{{- $current = partial "Hestia/functions/data/vendors/hugo/Get" $current -}}
 {{- if not $current -}}
 	{{- $current = dict "Width" 0.0 "Height" 0.0 "Unavailable" true -}}
 {{- else -}}
@@ -112,7 +112,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Sample */ -}}
 {{- $sample = merge . (dict "Input" (dict "Query" ".Input.Sample")) -}}
-{{- $sample = partial "Hestia/functions/data/Get" $sample -}}
+{{- $sample = partial "Hestia/functions/data/vendors/hugo/Get" $sample -}}
 {{- if not $sample -}}
 	{{- $sample = dict -}}
 	{{- if not $console -}}

@@ -1,0 +1,104 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $CONFIG_FILENAME := "__components.toml" -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $Local := dict -}}
+{{- $dataList := slice -}}
+{{- $list := slice -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse local config file */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory $CONFIG_FILENAME -}}
+{{- $Local = path.Clean $Local -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
+{{- $Local = partial "Hestia/functions/data/io/fs/ParseDataFile" $Local -}}
+{{- if $Local.Console -}}
+	{{- $Local = slice -}}
+{{- else -}}
+	{{- $Local = index $Local.Output "List" -}}
+{{- end -}}
+
+
+
+
+{{- /* source config data */ -}}
+{{- $dataList = $Page.Components -}}
+{{- range $i, $v := $Local -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process component's name */ -}}
+	{{- $ret = index $v "Name" -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" $ret) -}}
+
+
+	{{- /* process page-level component's inclusion */ -}}
+	{{- if not (index $v "Include") -}}
+		{{- $list = slice -}}
+		{{- range $j, $w := $dataList -}}
+			{{- if and $ret (not (eq $data.Name $ret)) -}}
+				{{- $list = append $w $list -}}
+			{{- end -}}
+		{{- end -}}
+		{{- $dataList = $list -}}
+
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* process component's variables */ -}}
+	{{- $ret = dict -}}
+	{{- range $j, $w := $v.Variables -}}
+		{{- range $k, $x := $w -}}
+			{{- $ret = merge $ret (dict (string $k) (string $x)) -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Variables" $ret) -}}
+
+
+	{{- /* save to temporary list */ -}}
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+
+
+{{- if $dataList -}}
+	{{- $dataList = merge . (dict "Components" $dataList) -}}
+{{- else -}}
+	{{- $dataList = . -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
