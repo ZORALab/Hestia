@@ -48,4 +48,4 @@ specific language governing permissions and limitations under the License.
 
 {{- /* write file */ -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" $dataList "Path" "browserconfig.xml")) -}}
-{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/io/fs/WriteFile" $dataList -}}

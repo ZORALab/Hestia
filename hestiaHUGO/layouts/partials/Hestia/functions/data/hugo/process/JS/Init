@@ -165,7 +165,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- /* validate asset file is there */ -}}
-	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+	{{- if not (partial "Hestia/functions/data/io/fs/IsFileExists" $ret) -}}
 		{{- $console = printf "JS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- partial "Hestia/functions/console/Errorf" $console -}}
@@ -174,7 +174,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* parse file */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/io/fs/ParseFile" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -201,13 +201,13 @@ specific language governing permissions and limitations under the License.
 
 {{- if not $ret -}}
 	{{- /* DO NOTHING */ -}}
-{{- else if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+{{- else if not (partial "Hestia/functions/data/io/fs/IsFileExists" $ret) -}}
 	{{- $ret = "" -}}
 {{- end -}}
 
 {{- if $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/filesystem/ParseFile" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/io/fs/ParseFile" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}

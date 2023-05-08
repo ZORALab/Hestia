@@ -31,7 +31,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse file */ -}}
-{{- $dataList = partial "Hestia/functions/data/filesystem/ParseFile" . -}}
+{{- $dataList = partial "Hestia/functions/data/io/fs/ParseFile" . -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf "Data: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Message" $console -}}

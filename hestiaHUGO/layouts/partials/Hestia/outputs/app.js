@@ -42,4 +42,4 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = $dataList.Output -}}
 {{- end -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" (string $dataList) "Path" $path)) -}}
-{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/io/fs/WriteFile" $dataList -}}

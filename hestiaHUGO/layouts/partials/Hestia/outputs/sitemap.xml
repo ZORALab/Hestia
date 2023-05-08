@@ -31,4 +31,4 @@ specific language governing permissions and limitations under the License.
 {{- $path = lower (printf "%s%s" .URL.Current.Absolute.Path .Sitemap.Index) -}}
 {{- $dataList = string (partial "Hestia/functions/render/xml/sitemap/Index" .) -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" $dataList "Path" $path)) -}}
-{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/io/fs/WriteFile" $dataList -}}

@@ -41,7 +41,7 @@ specific language governing permissions and limitations under the License.
 {{- $Local = printf "%s/%s" .Filesystem.Directory $CONFIG_FILENAME -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- $Local = partial "Hestia/functions/data/io/fs/ParseDataFile" $Local -}}
 {{- if $Local.Console -}}
 	{{- $Local = dict -}}
 {{- else -}}
@@ -95,7 +95,7 @@ specific language governing permissions and limitations under the License.
 {{- /* source page-level main CSS file */ -}}
 {{- $ret = printf "%s/%s" .Filesystem.Directory $CSS_FILENAME -}}
 {{- $ret = path.Clean $ret -}}
-{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+{{- if not (partial "Hestia/functions/data/io/fs/IsFileExists" $ret) -}}
 	{{- $ret = "" -}}
 {{- end -}}
 {{- $data = merge $data (dict "Main" $ret) -}}
@@ -149,7 +149,7 @@ specific language governing permissions and limitations under the License.
 {{- /* source page-level main JS file */ -}}
 {{- $ret = printf "%s/%s" .Filesystem.Directory $JS_FILENAME -}}
 {{- $ret = path.Clean $ret -}}
-{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+{{- if not (partial "Hestia/functions/data/io/fs/IsFileExists" $ret) -}}
 	{{- $ret = "" -}}
 {{- end -}}
 {{- $data = merge $data (dict "Main" $ret) -}}

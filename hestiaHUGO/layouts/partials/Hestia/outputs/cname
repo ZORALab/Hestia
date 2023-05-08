@@ -23,4 +23,4 @@ specific language governing permissions and limitations under the License.
 {{- /* generate CNAME */ -}}
 {{- $dataList := string (strings.TrimRight ":0123456789" .URL.Base.Host) -}}
 {{- $dataList = merge . (dict "Input" (dict "Content" $dataList "Path" "CNAME")) -}}
-{{- $dataList = partial "Hestia/functions/data/filesystem/WriteFile" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/io/fs/WriteFile" $dataList -}}

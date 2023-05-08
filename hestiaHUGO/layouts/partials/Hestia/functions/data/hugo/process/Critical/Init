@@ -884,13 +884,13 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- if not (partial "Hestia/functions/data/filesystem/IsFileExists" $ret) -}}
+	{{- if not (partial "Hestia/functions/data/io/fs/IsFileExists" $ret) -}}
 		{{- continue -}}
 	{{- end -}}
 
 
 	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/filesystem/ParseDataFile" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/io/fs/ParseDataFile" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Data.Page: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}

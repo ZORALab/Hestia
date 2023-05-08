@@ -37,7 +37,7 @@ specific language governing permissions and limitations under the License.
 {{- $Local = printf "%s/%s" .Filesystem.Directory $CONFIG_FILENAME -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- $Local = partial "Hestia/functions/data/io/fs/ParseDataFile" $Local -}}
 {{- if $Local.Console -}}
 	{{- $Local = dict "Meta" slice -}}
 {{- else -}}

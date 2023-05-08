@@ -52,7 +52,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 	{{- $Local = path.Clean $Local -}}
 	{{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-	{{- $Local = partial "Hestia/functions/data/filesystem/ParseFile" $Local -}}
+	{{- $Local = partial "Hestia/functions/data/io/fs/ParseFile" $Local -}}
 	{{- if $Local.Console -}}
 		{{- $Local = "" -}}
 	{{- else -}}

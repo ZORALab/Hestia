@@ -64,7 +64,7 @@ specific language governing permissions and limitations under the License.
 {{- /* read file */ -}}
 {{- if not $dataList -}}
 	{{- $dataList = "" -}}
-{{- else if partial "Hestia/functions/data/filesystem/IsFileExists" $dataList -}}
+{{- else if partial "Hestia/functions/data/io/fs/IsFileExists" $dataList -}}
 	{{- $dataList = readFile $dataList -}}
 {{- else -}}
 	{{- if not $console -}}

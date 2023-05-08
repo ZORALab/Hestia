@@ -34,7 +34,7 @@ specific language governing permissions and limitations under the License.
 {{- $Local = printf "%s/%s" .Filesystem.Directory "__page.toml" -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- $Local = partial "Hestia/functions/data/io/fs/ParseDataFile" $Local -}}
 {{- if $Local.Console -}}
 	{{- $Local = dict
 		"Data" slice
@@ -181,7 +181,7 @@ specific language governing permissions and limitations under the License.
 {{- $Local = printf "%s/%s" .Filesystem.Directory $location.Thumbnails -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- $Local = partial "Hestia/functions/data/io/fs/ParseDataFile" $Local -}}
 {{- if $Local.Console -}}
 	{{- $Local = slice -}}
 {{- else -}}
@@ -207,7 +207,7 @@ specific language governing permissions and limitations under the License.
 {{- $Local = printf "%s/%s" .Filesystem.Directory $location.Languages -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- $Local = partial "Hestia/functions/data/io/fs/ParseDataFile" $Local -}}
 {{- if $Local.Console -}}
 	{{- $Local = dict -}}
 {{- else -}}
@@ -233,7 +233,7 @@ specific language governing permissions and limitations under the License.
 {{- $Local = printf "%s/%s" .Filesystem.Directory $location.Contributors -}}
 {{- $Local = path.Clean $Local -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" $Local)) -}}
-{{- $Local = partial "Hestia/functions/data/filesystem/ParseDataFile" $Local -}}
+{{- $Local = partial "Hestia/functions/data/io/fs/ParseDataFile" $Local -}}
 {{- if $Local.Console -}}
 	{{- $Local = dict -}}
 {{- else -}}
