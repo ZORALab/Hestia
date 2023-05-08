@@ -40,7 +40,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "PWA: missing .Colors.Theme.\n" -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = "#FFFFFF" -}}
 {{- end -}}
 
@@ -61,7 +61,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "PWA: missing .Colors.Background.\n" -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = "#000000" -}}
 {{- end -}}
 

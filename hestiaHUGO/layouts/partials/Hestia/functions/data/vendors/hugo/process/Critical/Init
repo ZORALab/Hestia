@@ -40,7 +40,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "Time.%v: %v" (title (lower $k)) $ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 
@@ -329,7 +329,7 @@ specific language governing permissions and limitations under the License.
 			-}}
 
 			{{- $console = dict "Console" (dict "Message" $console) -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- end -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 		{{- $data = merge $data (dict $w $ret) -}}
@@ -365,7 +365,7 @@ specific language governing permissions and limitations under the License.
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Titles.Page: %s" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 {{- $Page = merge $Page (dict "Titles" (dict "Page" false)) -}}
@@ -385,7 +385,7 @@ specific language governing permissions and limitations under the License.
 			{{- $console = printf ".Descriptions.Site.%v.%v: %v"
 						(upper $k) $w $dataList.Console.Message -}}
 			{{- $console = dict "Console" (dict "Message" $console) -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- end -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 		{{- $ret = replace $ret "\r\n" " " -}}
@@ -425,7 +425,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf ".Descriptions.Page.%v: %v"
 			$v $dataList.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 	{{- $ret = replace $ret "\r\n" " " -}}
@@ -446,7 +446,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Keywords '%v': %v" $v $dataList.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
 	{{- $ret = replace $ret "\r\n" " " -}}
@@ -473,7 +473,7 @@ specific language governing permissions and limitations under the License.
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Redirect.URL: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $Page = merge $Page (dict "Redirect" (dict "URL" false)) -}}
 {{- $Page = merge $Page (dict "Redirect" (dict "URL" $dataList)) -}}
@@ -487,7 +487,7 @@ specific language governing permissions and limitations under the License.
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Redirect.Delay: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $Page = merge $Page (dict "Redirect" (dict "Delay" false)) -}}
 {{- $Page = merge $Page (dict "Redirect" (dict "Delay" $dataList)) -}}
@@ -526,7 +526,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf ".Thumbnails.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 		{{- $console = merge $Page (dict "Console" $console) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -561,7 +561,7 @@ specific language governing permissions and limitations under the License.
 	{{- if not $data -}}
 		{{- $console = printf ".Contributors.Page: unknown entity '%v'.\n" $k -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -584,7 +584,7 @@ specific language governing permissions and limitations under the License.
 			{{- $console = printf ".Contributors.Page.%v.Contribution.%v: %v"
 				$k $w $ret.Console.Message -}}
 			{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 			{{- continue -}}
 		{{- end -}}
 		{{- $ret = $ret.Output -}}
@@ -613,7 +613,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "Robots.%v.Name: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $data = dict "Name" $ret.Output -}}
 
@@ -624,7 +624,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "Robots.%v.Content: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Content" $ret.Output) -}}
 
@@ -647,7 +647,7 @@ specific language governing permissions and limitations under the License.
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Vendors.GoHugo.Version: %v" $dataList.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 {{- $Page = merge $Page (dict "Vendors" (dict "GoHugo" (dict "Version" false))) -}}
@@ -665,7 +665,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf ".Vendors.ZORALab.Hestia.Version: %v"
 		$dataList.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 {{- $Page = merge $Page (dict "Vendors" (dict "ZORALab"
@@ -687,7 +687,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf ".Vendors.Google.Analytics4.Tag: %v"
 		$dataList.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 {{- $Page = merge $Page (dict "Vendors" (dict "Google"
@@ -707,7 +707,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf ".Vendors.Twitter.Site.Handle: %v"
 		$dataList.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 {{- $dataList = strings.TrimPrefix "@" $dataList -}}
@@ -730,7 +730,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf ".Vendors.Twitter.Creator.Handle: %v"
 		$dataList.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = partial "Hestia/functions/data/string/TrimWhitespace" $dataList.Output -}}
 {{- $dataList = strings.TrimPrefix "@" $dataList -}}
@@ -811,7 +811,7 @@ specific language governing permissions and limitations under the License.
 			$k
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -825,7 +825,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $data = dict "ID" $ret.Output -}}
 
@@ -839,7 +839,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Name" $ret.Output) -}}
 
@@ -853,7 +853,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "URL" $ret.Output) -}}
 
@@ -894,7 +894,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Data.Page: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 

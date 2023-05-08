@@ -39,7 +39,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "Content: %v" $ret.Console -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 	{{- $k = upper (string $k) -}}

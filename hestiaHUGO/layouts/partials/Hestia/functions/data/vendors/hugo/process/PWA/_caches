@@ -49,7 +49,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "PWA.Caches.List.%v: %v" $k $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- if not (string $ret.Output) -}}
@@ -64,7 +64,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "PWA.Caches.List.%v: %v" $k $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = lower $ret.Output -}}
@@ -82,7 +82,7 @@ specific language governing permissions and limitations under the License.
 	{{- else -}}
 		{{- $console = printf "PWA.Caches.List.%v: unknown policy '%v'.\n" $k $ret -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Cache" $ret) -}}

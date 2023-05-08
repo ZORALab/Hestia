@@ -22,4 +22,4 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- errorf (partial "Hestia/functions/console/_commonf" .) -}}
+{{- errorf (partial "Hestia/functions/data/vendors/hugo/_logf" .) -}}

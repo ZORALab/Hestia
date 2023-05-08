@@ -91,7 +91,7 @@ specific language governing permissions and limitations under the License.
 		{{- if $ret.Console -}}
 			{{- $ret = printf "robots.txt: %v.Allow: %v" $w $ret.Console.Message -}}
 			{{- $ret = merge $Page (dict "Console" (dict "Message" $ret)) -}}
-			{{- partial "Hestia/functions/console/Errorf" $ret -}}
+			{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $ret -}}
 			{{- continue -}}
 		{{- end -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -106,7 +106,7 @@ specific language governing permissions and limitations under the License.
 		{{- if $ret.Console -}}
 			{{- $ret = printf "robots.txt: %v.Disallow: %v" $w $ret.Console.Message -}}
 			{{- $ret = merge $Page (dict "Console" (dict "Message" $ret)) -}}
-			{{- partial "Hestia/functions/console/Errorf" $ret -}}
+			{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $ret -}}
 			{{- continue -}}
 		{{- end -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -137,7 +137,7 @@ specific language governing permissions and limitations under the License.
 		{{- $ret = printf "robots.txt: .Sitemaps: %v" $ret.Console.Message -}}
 		{{- $ret = dict "Console" (dict "Message" $ret) -}}
 		{{- $ret = merge $Page $ret -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $ret -}}
 		{{- continue -}}
 	{{- end -}}
 

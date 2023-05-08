@@ -44,7 +44,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Type: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
@@ -61,7 +61,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Extension: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
@@ -75,7 +75,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Filename: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- else -}}
 		{{- $ret = $ret.Output -}}
@@ -90,7 +90,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Protocol: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $ret = "http://" -}}
 	{{- else -}}
 		{{- $ret = $ret.Output -}}
@@ -105,7 +105,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Relationship: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $ret = "alternate" -}}
 	{{- else -}}
 		{{- $ret = $ret.Output -}}

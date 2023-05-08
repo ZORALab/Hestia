@@ -43,7 +43,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "PWA: .Shortcuts.%v.URL: %s" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "URL" $ret.Output) -}}
@@ -58,7 +58,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -67,7 +67,7 @@ specific language governing permissions and limitations under the License.
 	{{- if not $ret -}}
 		{{- $console = printf "PWA: .Shortcuts.%v.Name.Full is missing.\n" $i -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $ret -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Name" (dict "Full" $ret)) -}}
@@ -82,7 +82,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -90,7 +90,7 @@ specific language governing permissions and limitations under the License.
 	{{- if not $ret -}}
 		{{- $console = printf "PWA: .Shortcuts.%v.Name.Short is missing.\n" $i -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $ret -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Name" (dict "Short" $ret)) -}}
@@ -105,7 +105,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -114,7 +114,7 @@ specific language governing permissions and limitations under the License.
 	{{- if not $ret -}}
 		{{- $console = printf "PWA: .Shortcuts.%v.Description is missing.\n" $i -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $ret -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -134,7 +134,7 @@ specific language governing permissions and limitations under the License.
 			-}}
 			{{- $console = dict "Console" (dict "Message" $console) -}}
 			{{- $console = merge $Page $console -}}
-			{{- partial "Hestia/functions/console/Errorf" $console -}}
+			{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 			{{- continue -}}
 		{{- end -}}
 

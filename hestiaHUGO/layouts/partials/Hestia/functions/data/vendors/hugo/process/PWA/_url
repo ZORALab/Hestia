@@ -32,7 +32,7 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "URL" .PWA.URL.Base)) -}}
 {{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 {{- if $ret.Console -}}
-	{{- partial "Hestia/functions/console/Errorf" (merge $Page $ret) -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" (merge $Page $ret) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Base" $ret.Output) -}}
 
@@ -43,7 +43,7 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "URL" .PWA.URL.Scope)) -}}
 {{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 {{- if $ret.Console -}}
-	{{- partial "Hestia/functions/console/Errorf" (merge $Page $ret) -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" (merge $Page $ret) -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Scope" $ret.Output) -}}
 

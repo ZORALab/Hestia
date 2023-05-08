@@ -35,7 +35,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "WASM.Embed: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = $dataList.Output -}}
 
@@ -46,7 +46,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "WASM.Embed: given file is missing: '%v'.\n" $dataList -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $dataList = "" -}}
 	{{- end -}}
 {{- end -}}

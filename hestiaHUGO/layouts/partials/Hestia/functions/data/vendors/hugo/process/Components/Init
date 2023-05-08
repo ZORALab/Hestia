@@ -41,7 +41,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "Components: Name: %v" $ret.console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $v = merge $v (dict "Name" $ret.Output) -}}
@@ -53,7 +53,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "Components: unknown component '%v'.\n" $v.Name -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $v = merge $v (dict "Path" $ret) -}}
@@ -66,7 +66,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "Components.%v: %v" $component $ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 
 	{{- $ret = dict "Variables" $ret.Output -}}

@@ -47,7 +47,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "WASM.URL: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = dict "URL" $dataList.Output -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -62,7 +62,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "WASM.Setup: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = dict "Setup" $ret.Output -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -77,7 +77,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "WASM.Import: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = dict "Import" $dataList.Output -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -92,7 +92,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "WASM.Init: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = dict "Init" $ret.Output -}}
 {{- $dataList = merge $dataList $ret -}}
@@ -109,7 +109,7 @@ specific language governing permissions and limitations under the License.
 		{{- $console = printf "WASM.Dependencies.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 
 

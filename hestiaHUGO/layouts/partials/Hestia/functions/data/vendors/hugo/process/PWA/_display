@@ -40,7 +40,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "PWA: .Display.Main: %s" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Main" $ret.Output) -}}
 
@@ -64,7 +64,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}
 		{{- $console = merge $Page $console -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- end -}}
 
 
@@ -91,7 +91,7 @@ specific language governing permissions and limitations under the License.
 		$ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Orientation" $ret.Output) -}}
 

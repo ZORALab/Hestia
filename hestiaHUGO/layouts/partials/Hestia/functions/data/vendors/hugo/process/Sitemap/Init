@@ -37,7 +37,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf ".Sitemap.Filename: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 {{- $dataList = merge $dataList (dict "ChangeFreq" $ret) -}}
@@ -51,7 +51,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf ".Sitemap.Priority: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 
@@ -61,7 +61,7 @@ specific language governing permissions and limitations under the License.
 {{- else if gt $ret 1.0 -}}
 	{{- $console = printf ".Sitemap.Priority: Invalid priority value '%v'\n." $ret -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = -1 -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Priority" $ret) -}}
@@ -76,7 +76,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf ".Sitemap.Filename: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 
@@ -96,7 +96,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf ".Sitemap.Filename: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 

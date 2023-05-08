@@ -46,7 +46,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -69,7 +69,7 @@ specific language governing permissions and limitations under the License.
 			$ret
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -86,7 +86,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -103,7 +103,7 @@ specific language governing permissions and limitations under the License.
 			$ret.Console.Message
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -116,7 +116,7 @@ specific language governing permissions and limitations under the License.
 			$ret
 		-}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $ret -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $ret -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -137,7 +137,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf "PWA: .Relations.PreferInstall: %s" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "PreferInstall" $ret.Output) -}}
 

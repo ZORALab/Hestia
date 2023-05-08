@@ -49,7 +49,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf "JS.Settings.Inline.Timing: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = "defer" -}}
 {{- else -}}
 	{{- $ret = lower (partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output) -}}
@@ -65,7 +65,7 @@ specific language governing permissions and limitations under the License.
 {{- else -}}
 	{{- $console = printf "JS.Settings.Inline.Timing: unknown value '%v'.\n" $ret -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = "defer" -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "Settings" (dict "Inline" (dict "Timing" $ret))) -}}
@@ -90,7 +90,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Include.%v.URL: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "URL" $ret.Output) -}}
@@ -102,7 +102,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Include.%v.Timing: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -117,7 +117,7 @@ specific language governing permissions and limitations under the License.
 	{{- else -}}
 		{{- $console = printf "JS.Include.%v.Timing: unknown value '%v'.\n" $i $ret -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $ret = "defer" -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Timing" $ret) -}}
@@ -154,7 +154,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -168,7 +168,7 @@ specific language governing permissions and limitations under the License.
 	{{- if not (partial "Hestia/functions/data/io/fs/IsFileExists" $ret) -}}
 		{{- $console = printf "JS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -178,7 +178,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = string $ret.Output -}}
@@ -193,7 +193,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = "" -}}
 {{- else -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -211,7 +211,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $ret = "" -}}
 	{{- else -}}
 		{{- $ret = $ret.Output -}}
@@ -224,7 +224,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "JS.Inline.__content.hestiaJS: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $ret = "" -}}
 	{{- else -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}

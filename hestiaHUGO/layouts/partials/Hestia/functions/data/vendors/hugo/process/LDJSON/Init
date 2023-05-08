@@ -38,7 +38,7 @@ specific language governing permissions and limitations under the License.
 	{{- $console = printf "LDJSON: %s" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
 	{{- $console = merge $Page $console -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = "" -}}
 {{- else -}}
 	{{- $ret = $ret.Output -}}

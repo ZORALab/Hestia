@@ -61,7 +61,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Include.%v.URL: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "URL" $ret.Output) -}}
@@ -73,7 +73,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Include.%v.Media: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "Media" $ret.Output) -}}
@@ -85,7 +85,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Include.%v.OnLoad: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $data = merge $data (dict "OnLoad" $ret.Output) -}}
@@ -153,7 +153,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -169,7 +169,7 @@ specific language governing permissions and limitations under the License.
 	{{- if not (partial "Hestia/functions/data/io/fs/IsFileExists" $ret) -}}
 		{{- $console = printf "CSS.Inline.%v: missing asset file '%v'.\n" $i $ret -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 
@@ -180,7 +180,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Inline.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- continue -}}
 	{{- end -}}
 	{{- $ret = string $ret.Output -}}
@@ -195,7 +195,7 @@ specific language governing permissions and limitations under the License.
 {{- if $ret.Console -}}
 	{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-	{{- partial "Hestia/functions/console/Errorf" $console -}}
+	{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 	{{- $ret = "" -}}
 {{- else -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
@@ -213,7 +213,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $ret = "" -}}
 	{{- else -}}
 		{{- $ret = $ret.Output -}}
@@ -226,7 +226,7 @@ specific language governing permissions and limitations under the License.
 	{{- if $ret.Console -}}
 		{{- $console = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
-		{{- partial "Hestia/functions/console/Errorf" $console -}}
+		{{- partial "Hestia/functions/data/vendors/hugo/Errorf" $console -}}
 		{{- $ret = "" -}}
 	{{- else -}}
 		{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $ret.Output -}}
