@@ -521,7 +521,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = dict -}}
 {{- range $i, $v := $Page.Thumbnails -}}
 	{{- $ret = merge $Page (dict "Input" $v) -}}
-	{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/media/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Thumbnails.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = dict "Message" $console -}}

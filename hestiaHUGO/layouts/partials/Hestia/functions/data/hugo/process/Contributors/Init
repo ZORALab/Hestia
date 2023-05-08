@@ -270,7 +270,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = dict -}}
 	{{- if index $v "Image" -}}
 		{{- $ret = merge $Page (dict "Input" $v.Image) -}}
-		{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/media/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Contributors.Site.%v.Image: %v"
 				$k $ret.Console.Message -}}
@@ -288,7 +288,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = dict -}}
 	{{- if index $v "Background" -}}
 		{{- $ret = merge $Page (dict "Input" $v.Background) -}}
-		{{- $ret = partial "Hestia/functions/data/media/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/media/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Contributors.Site.%v.Background: %v"
 				$k $ret.Console.Message -}}
