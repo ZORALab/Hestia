@@ -132,7 +132,7 @@ specific language governing permissions and limitations under the License.
 {{- $dataList = 0 -}}
 {{- range $v, $i := $sitemaps -}}
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $ret = printf "robots.txt: .Sitemaps: %v" $ret.Console.Message -}}
 		{{- $ret = dict "Console" (dict "Message" $ret) -}}

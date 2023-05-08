@@ -42,7 +42,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .URL */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "URL" .WASM.URL)) -}}
-{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "WASM.URL: %v" $ret.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}
@@ -104,7 +104,7 @@ specific language governing permissions and limitations under the License.
 {{- $list = slice -}}
 {{- range $i, $v := .WASM.Dependencies -}}
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
-	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "WASM.Dependencies.%v: %v" $i $ret.Console.Message -}}
 		{{- $console = dict "Console" (dict "Message" $console) -}}

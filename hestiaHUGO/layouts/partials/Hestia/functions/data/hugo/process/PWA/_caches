@@ -45,7 +45,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .URL */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $k)) -}}
-	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "PWA.Caches.List.%v: %v" $k $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}

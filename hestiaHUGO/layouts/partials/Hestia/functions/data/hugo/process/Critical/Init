@@ -180,7 +180,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .URL.Base */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "URL" $Page.URL.Base)) -}}
-{{- $dataList = partial "Hestia/functions/data/url/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/url/Sanitize" $dataList -}}
 {{- $Page = merge $Page (dict "URL" (dict "Base" false)) -}}
 {{- $Page = merge $Page (dict "URL" (dict "Base" $dataList.Output)) -}}
 
@@ -189,7 +189,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .URL.Current.Absolute */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "URL" $Page.URL.Current.Absolute)) -}}
-{{- $dataList = partial "Hestia/functions/data/url/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/url/Sanitize" $dataList -}}
 {{- $Page = merge $Page (dict "URL" (dict "Current" (dict "Absolute" false))) -}}
 {{- $Page = merge $Page (dict "URL" (dict "Current" (dict "Absolute" $dataList.Output))) -}}
 
@@ -267,7 +267,7 @@ specific language governing permissions and limitations under the License.
 	{{- range $j, $w := (slice "PAGE" "ERROR_404" "HOME") -}}
 		{{- $ret = index $v.URL $w -}}
 		{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf "Languages.List.%v.URL.%v: %v"
 				$data.ID $w $ret.Console.Message -}}
@@ -469,7 +469,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Redirect.URL */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "URL" (default "" $Page.Redirect.URL))) -}}
-{{- $dataList = partial "Hestia/functions/data/url/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/url/Sanitize" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Redirect.URL: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}

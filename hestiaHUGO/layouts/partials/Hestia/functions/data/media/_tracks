@@ -92,7 +92,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "URL" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/url/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/url/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Tracks.%v.URL: %v" $k $ret.Console.Message -}}
