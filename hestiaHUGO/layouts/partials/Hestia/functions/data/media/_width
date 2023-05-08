@@ -38,10 +38,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-{{- $dataList = partial "Hestia/functions/data/number/Length" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/math/SanitizeNumberPositive" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- if not $console -}}
-		{{- $console = dict "Message" $dataList.Console.Message -}}
+		{{- $console = printf "width: %v" $dataList.Console.Message -}}
+		{{- $console = dict "Message" $console -}}
 	{{- end -}}
 {{- end -}}
 {{- $dataList = $dataList.Output -}}

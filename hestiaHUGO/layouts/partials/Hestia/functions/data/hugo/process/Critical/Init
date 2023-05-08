@@ -483,7 +483,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Redirect.Delay */ -}}
 {{- $dataList = merge $Page (dict "Input" (dict "Data" (default 0 $Page.Redirect.Delay))) -}}
-{{- $dataList = partial "Hestia/functions/data/number/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/math/SanitizeNumber" $dataList -}}
 {{- if $dataList.Console -}}
 	{{- $console = printf ".Redirect.Delay: %v" $dataList.Console.Message -}}
 	{{- $console = dict "Console" (dict "Message" $console) -}}

@@ -22,32 +22,34 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $Page := partial "Hestia/functions/data/Clean" . -}}
 {{- $dataList := 0 -}}
 {{- $console := dict -}}
-{{- $ret := false -}}
 
 
 
 
-{{- /* convert data into number */ -}}
-{{- $ret = partial "Hestia/functions/data/number/Init" . -}}
-{{- if $ret.Console -}}
-	{{- $console = printf "length: %s" $ret.Console.Message -}}
-	{{- $console = dict "Message" $console -}}
-{{- end -}}
-{{- $ret = $ret.Output -}}
-
-
-
-
-{{- /* process valid length value */ -}}
-{{- if not $console -}}
-	{{ if ge $ret 0 -}}
-		{{- $dataList = $ret -}}
-	{{- else  -}}
-		{{- $console = printf "length: invalid value '%v'.\n" $ret -}}
+{{- /* standardizes number data */ -}}
+{{- $dataList = merge . (dict "Input" (dict "Query" ".Input.Data")) -}}
+{{- $dataList = partial "Hestia/functions/data/Get" $dataList -}}
+{{- if not $dataList -}}
+	{{- $dataList = 0 -}}
+{{- else if partial "Hestia/functions/data/string/IsString" $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "Hestia/functions/data/math/_convertString" $dataList -}}
+	{{- if $dataList.Console -}}
+		{{- $console = printf "math: sanitize number: %s" $dataList.Console.Message -}}
 		{{- $console = dict "Message" $console -}}
 	{{- end -}}
+	{{- $dataList = $dataList.Output -}}
+{{- else if partial "Hestia/functions/data/math/IsInt" $dataList -}}
+	{{- $dataList = int $dataList -}}
+{{- else if partial "Hestia/functions/data/math/IsFloat" $dataList -}}
+	{{- $dataList = float $dataList -}}
+{{- else -}}
+	{{- $console = printf "number: bad .Input.Data '%v'.\n" .Input.Data -}}
+	{{- $console = dict "Message" $console -}}
+	{{- $dataList = 0 -}}
 {{- end -}}
 
 

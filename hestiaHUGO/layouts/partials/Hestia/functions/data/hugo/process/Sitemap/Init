@@ -47,7 +47,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .Priority */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .Sitemap.Priority)) -}}
-{{- $ret = partial "Hestia/functions/data/number/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/math/SanitizeNumber" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf ".Sitemap.Priority: %v" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
