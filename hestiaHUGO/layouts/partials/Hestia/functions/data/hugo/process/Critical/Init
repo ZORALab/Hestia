@@ -85,7 +85,7 @@ specific language governing permissions and limitations under the License.
 	{{- /* process .Type */ -}}
 	{{- $ret = partial "Hestia/functions/data/string/TrimWhitespace" $v.Type -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Type" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/mime/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/mime/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Type: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}

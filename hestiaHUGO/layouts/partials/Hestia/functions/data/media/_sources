@@ -100,7 +100,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 	{{- $ret = merge $Page (dict "Input" (dict "Type" $ret)) -}}
-	{{- $ret = partial "Hestia/functions/data/mime/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/mime/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- if not $console -}}
 			{{- $console = printf ".Source.%v.Type: %s" $k $ret.Console.Message -}}

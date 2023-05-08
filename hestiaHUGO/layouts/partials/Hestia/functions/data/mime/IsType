@@ -38,7 +38,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- $dataList = merge $Page (dict "Input" (dict "Type" $dataList)) -}}
-{{- $dataList = partial "Hestia/functions/data/mime/Init" $dataList -}}
+{{- $dataList = partial "Hestia/functions/data/mime/Sanitize" $dataList -}}
 {{- $dataList = $dataList.Output -}}
 
 
@@ -53,7 +53,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- $expect = merge $Page (dict "Input" (dict "Type" $expect)) -}}
-{{- $expect = partial "Hestia/functions/data/mime/Init" $expect -}}
+{{- $expect = partial "Hestia/functions/data/mime/Sanitize" $expect -}}
 {{- $expect = $expect.Output -}}
 
 
