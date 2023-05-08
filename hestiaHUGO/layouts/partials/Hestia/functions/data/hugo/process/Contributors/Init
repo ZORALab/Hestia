@@ -209,7 +209,7 @@ specific language governing permissions and limitations under the License.
 		{{- /* process .Past */ -}}
 		{{- $ret = index $v.Contribution $w -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Past)) -}}
-		{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/bool/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Contributors.Site.%v.Contribution.%v.: %v"
 				$k $w $ret.Console.Message -}}
@@ -222,7 +222,7 @@ specific language governing permissions and limitations under the License.
 		{{- /* process .Current */ -}}
 		{{- $ret = index $v.Contribution $w -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Current)) -}}
-		{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/bool/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Contributors.Site.%v.Contribution.%v: %v"
 				$k $w $ret.Console.Message -}}

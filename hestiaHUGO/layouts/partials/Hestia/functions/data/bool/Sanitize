@@ -37,7 +37,7 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 
 
-{{- if partial "Hestia/functions/data/boolean/IsBoolean" $dataList -}}
+{{- if partial "Hestia/functions/data/bool/IsBool" $dataList -}}
 	{{- /* DO NOTHING */ -}}
 {{- else if partial "Hestia/functions/data/string/IsString" $dataList -}}
 	{{- if eq (lower $dataList) "true" -}}

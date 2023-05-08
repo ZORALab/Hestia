@@ -133,7 +133,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* process .PreferInstall */ -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Relations.PreferInstall)) -}}
-{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+{{- $ret = partial "Hestia/functions/data/bool/Sanitize" $ret -}}
 {{- if $ret.Console -}}
 	{{- $console = printf "PWA: .Relations.PreferInstall: %s" $ret.Console.Message -}}
 	{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}

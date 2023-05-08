@@ -160,7 +160,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Marshallable */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Marshallable)) -}}
-	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/bool/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf ".Formats.%v.Marshallable: %s" $ret.Console.Message -}}
 		{{- $console = merge $Page (dict "Console" (dict "Message" $console)) -}}
@@ -253,7 +253,7 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* process .Default */ -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Default)) -}}
-	{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+	{{- $ret = partial "Hestia/functions/data/bool/Sanitize" $ret -}}
 	{{- if $ret.Console -}}
 		{{- $console = printf "Languages.List.%v.Default: %v"
 			$data.ID $ret.Console.Message -}}
@@ -579,7 +579,7 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-		{{- $ret = partial "Hestia/functions/data/boolean/Init" $ret -}}
+		{{- $ret = partial "Hestia/functions/data/bool/Sanitize" $ret -}}
 		{{- if $ret.Console -}}
 			{{- $console = printf ".Contributors.Page.%v.Contribution.%v: %v"
 				$k $w $ret.Console.Message -}}
