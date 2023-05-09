@@ -1,0 +1,72 @@
+[CSS.Variables]
+"--zoralab-tile-layout" = """
+	"thumbnail" minmax(0, var(--zoralab-tile-thumbnail-height))
+	"content" minmax(0, var(--zoralab-tile-content-height))
+	"actions" minmax(0, var(--zoralab-tile-actions-height))
+	/ minmax(var(--zoralab-tile-width), 100%)
+"""
+"--zoralab-tile-overflow" = "hidden"
+
+"--zoralab-tile-width" = "22rem"
+"--zoralab-tile-height" = "fit-content"
+
+"--zoralab-tile-margin" = "2rem auto"
+"--zoralab-tile-padding" = "0"
+
+"--zoralab-tile-border" = "none"
+"--zoralab-tile-border-radius" = "0"
+"--zoralab-tile-box-shadow" = "none"
+"--zoralab-tile-box-shadow-print" = "none"
+
+"--zoralab-tile-color" = "var(--body-color)"
+"--zoralab-tile-color-print" = "var(--body-color-print)"
+"--zoralab-tile-background" = "var(--body-background)"
+"--zoralab-tile-background-print" = "var(--body-background-print)"
+
+"--zoralab-tile-timing" = "var(--timing-normal)"
+
+
+
+
+"--zoralab-tile-thumbnail-overflow" = "hidden"
+"--zoralab-tile-thumbnail-object-fit" = "cover"
+
+"--zoralab-tile-thumbnail-min-width" = "100%"
+"--zoralab-tile-thumbnail-width" = "initial"
+"--zoralab-tile-thumbnail-max-width" = "100%"
+"--zoralab-tile-thumbnail-min-height" = "100%"
+"--zoralab-tile-thumbnail-height" = "max-content"
+"--zoralab-tile-thumbnail-max-height" = "100%"
+
+"--zoralab-tile-thumbnail-margin" = "0"
+"--zoralab-tile-thumbnail-padding" = "0"
+
+
+
+
+"--zoralab-tile-content-overflow" = "auto"
+
+"--zoralab-tile-content-min-width" = "initial"
+"--zoralab-tile-content-width" = "initial"
+"--zoralab-tile-content-max-width" = "initial"
+"--zoralab-tile-content-min-height" = "initial"
+"--zoralab-tile-content-height" = "auto"
+"--zoralab-tile-content-max-height" = "initial"
+
+"--zoralab-tile-content-margin" = "0"
+"--zoralab-tile-content-padding" = "0"
+
+
+
+
+"--zoralab-tile-actions-overflow" = "initial"
+
+"--zoralab-tile-actions-min-width" = "initial"
+"--zoralab-tile-actions-width" = "initial"
+"--zoralab-tile-actions-max-width" = "initial"
+"--zoralab-tile-actions-min-height" = "initial"
+"--zoralab-tile-actions-height" = "max-content"
+"--zoralab-tile-actions-max-height" = "initial"
+
+"--zoralab-tile-actions-margin" = "3.5rem 0 0"
+"--zoralab-tile-actions-padding" = "0"

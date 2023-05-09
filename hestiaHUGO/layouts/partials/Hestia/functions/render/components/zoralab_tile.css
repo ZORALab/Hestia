@@ -1,0 +1,88 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+.zoralab-tile {
+	display: inline-grid;
+	grid: var(--zoralab-tile-layout);
+	overflow: var(--zoralab-tile-overflow);
+
+	width: var(--zoralab-tile-width);
+	height: var(--zoralab-tile-height);
+
+	margin: var(--zoralab-tile-margin);
+	padding: var(--zoralab-tile-padding);
+
+	border: var(--zoralab-tile-border);
+	border-radius: var(--zoralab-tile-border-radius);
+	box-shadow: var(--zoralab-tile-box-shadow);
+
+	color: var(--zoralab-tile-color);
+	background: var(--zoralab-tile-background);
+
+	transition: var(--zoralab-tile-timing);
+}
+
+.zoralab-tile .thumbnail {
+	grid-area: thumbnail;
+	overflow: var(--zoralab-tile-thumbnail-overflow);
+	object-fit: var(--zoralab-tile-thumbnail-object-fit);
+
+	min-width: var(--zoralab-tile-thumbnail-min-width);
+	max-width: var(--zoralab-tile-thumbnail-max-width);
+	min-height: var(--zoralab-tile-thumbnail-min-height);
+	max-height: var(--zoralab-tile-thumbnail-max-height);
+
+	margin: var(--zoralab-tile-thumbnail-margin);
+	padding: var(--zoralab-tile-thumbnail-padding);
+}
+
+.zoralab-tile .content {
+	grid-area: content;
+	overflow: var(--zoralab-tile-content-overflow);
+
+	min-width: var(--zoralab-tile-content-min-width);
+	max-width: var(--zoralab-tile-content-max-width);
+	min-height: var(--zoralab-tile-content-min-height);
+	max-height: var(--zoralab-tile-content-max-height);
+
+	margin: var(--zoralab-tile-content-margin);
+	padding: var(--zoralab-tile-content-padding);
+}
+
+.zoralab-tile .actions {
+	grid-area: actions;
+	overflow: var(--zoralab-tile-actions-overflow);
+
+	min-width: var(--zoralab-tile-actions-min-width);
+	max-width: var(--zoralab-tile-actions-max-width);
+	min-height: var(--zoralab-tile-actions-min-height);
+	max-height: var(--zoralab-tile-actions-max-height);
+
+	margin: var(--zoralab-tile-actions-margin);
+	padding: var(--zoralab-tile-actions-padding);
+}
+
+@media print {
+	.zoralab-tile {
+		break-inside: avoid;
+
+		box-shadow: var(--zoralab-tile-box-shadow-print) !important;
+
+		color: var(--zoralab-tile-color-print) !important;
+		background: var(--zoralab-tile-background-print) !important;
+	}
+}
