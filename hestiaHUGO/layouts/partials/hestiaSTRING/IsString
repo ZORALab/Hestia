@@ -15,10 +15,24 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* . = data for checking (any) */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* prepare variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* check data type */ -}}
+{{- if hasPrefix (printf "%T" .) "str" -}}
+	{{- $dataList = true -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

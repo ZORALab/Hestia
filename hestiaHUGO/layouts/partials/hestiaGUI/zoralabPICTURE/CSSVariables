@@ -1,0 +1,15 @@
+[CSS.Variables]
+"--picture-display" = "block"
+
+"--picture-margin" = "2rem auto"
+"--picture-padding" = "0"
+
+"--picture-min-width" = "initial"
+"--picture-width" = "auto"
+"--picture-max-width" = "100%"
+"--picture-min-height" = "initial"
+"--picture-height" = "auto"
+"--picture-max-height" = "initial"
+
+"--picture-user-select" = "none"
+"--picture-user-drag" = "none"

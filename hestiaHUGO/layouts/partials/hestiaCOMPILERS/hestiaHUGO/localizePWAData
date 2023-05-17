@@ -1,0 +1,243 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Unprocessed Page data in Hestia Data Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataset := dict -}}
+{{- $data := dict -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse all default PWA data */ -}}
+{{- $ret = default "" .Data.Store.Hestia.PWA.Metadata.Name.ID -}}
+{{- $Page = merge $Page (dict "PWA" (dict
+	"Name" (dict
+		"ID" (default "" .Data.Store.Hestia.PWA.Metadata.Name.ID)
+		"Short" (default "" .Data.Store.Hestia.PWA.Metadata.Name.Short)
+		"Full" (default "" .Data.Store.Hestia.PWA.Metadata.Name.Full)
+	)
+	"URL" (dict
+		"Base" (default "" .Data.Store.Hestia.PWA.Metadata.URL.Base)
+		"Scope" (default "" .Data.Store.Hestia.PWA.Metadata.URL.Scope)
+	)
+	"Descriptions" (dict
+		"Pitch" (default "" .Data.Store.Hestia.PWA.Metadata.Descriptions.Pitch)
+		"Summary" (default "" .Data.Store.Hestia.PWA.Metadata.Descriptions.Summary)
+	)
+	"Display" (dict
+		"Main" (default "standalone" .Data.Store.Hestia.PWA.Display.Settings.Main)
+		"Orientation" (default "any" .Data.Store.Hestia.PWA.Display.Orientation.Main)
+	)
+	"Colors" (dict
+		"Theme" (default "#FFFFFF" .Data.Store.Hestia.PWA.Colors.Main.Theme)
+		"Background" (default "#000000" .Data.Store.Hestia.PWA.Colors.Main.Background)
+	)
+	"Caches" (dict "Default" (dict
+		"Policy" (default "network-first" .Data.Store.Hestia.PWA.Caches.Default.Policy)
+	))
+	"Relations" (dict
+		"PreferInstall" (default false .Data.Store.Hestia.PWA.Relations.Settings.Install.Prefer)
+	)
+	"Icons" (partial "hestiaCOMPILERS/hestiaHUGO/parseIcons" .)
+)) -}}
+
+
+
+{{- /* parse .PWA.Categories */ -}}
+{{- $ret = dict -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Metadata.Categories.List -}}
+	{{- if $v -}}
+		{{- $ret = merge $ret (dict (string $v) true) -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if not $ret -}}
+	{{- range $i, $v := .Data.Store.Hestia.Metadata -}}
+		{{- range $j, $w := $v.Categories.List -}}
+			{{- if $w -}}
+				{{- $ret = merge $ret (dict (string $w) true) -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+{{- $list = dict -}}
+{{- $dataset = 0 -}}
+{{- range $k, $v := $ret -}}
+	{{- $list = merge $list (dict (string $dataset) $k) -}}
+	{{- $dataset = add $dataset 1 -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Categories" $list)) -}}
+
+
+
+
+{{- /* parse .PWA.Display.Settings.Overrides */ -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Display.Settings.Overrides -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Display" (dict "Overrides"
+		(dict (upper (string $i)) $v)
+	))) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .PWA.Shortcuts */ -}}
+{{- $dataset = dict -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Shortcuts -}}
+	{{- range $j, $w := $Page.Languages.List -}}
+		{{- if and $w.Default (not $dataset) -}}
+			{{- $dataset = $v.Contents -}}
+		{{- end -}}
+
+		{{- if not (strings.HasPrefix $Page.URL.Current.Relative $w.URL.HOME) -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $dataset = $v.Contents -}}
+		{{- break -}}
+	{{- end -}}
+{{- end -}}
+
+{{- range $i, $v := $dataset -}}
+	{{- if not (index $v "URL") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not (index $v "Name") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not (index $v.Name "Full") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not (index $v.Name "Short") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $data = dict -}}
+	{{- range $j, $w := $v.Icons -}}
+		{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/_parseMedia" $w -}}
+		{{- $data = merge $data (dict (upper (string $j)) $ret) -}}
+	{{- end -}}
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Shortcuts"
+		(dict (upper (string $i)) (dict
+			"URL" $v.URL
+			"Name" (dict "Full" $v.Name.Full "Short" $v.Name.Short)
+			"Description" (default "" $v.Description)
+			"Icons" $data
+		))
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .PWA.Screenshots */ -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Screenshots.Contents -}}
+	{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/_parseMedia" $v -}}
+	{{- $Page = merge $Page (dict "PWA" (dict "Screenshots"
+		(dict (upper (string $i)) $ret)
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .PWA.Relations */ -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Relations.Contents -}}
+	{{- if not $v.Platform -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not $v.ID -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Relations" (dict "List"
+		(dict (upper (string $i)) (dict
+			"URL" $v.URL
+			"Platform" $v.Platform
+			"ID" $v.ID
+		))
+	))) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .PWA.Protocols */ -}}
+{{- range $i, $v := .Data.Store.Hestia.PWA.Protocols.Contents -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not $v.Protocol -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Protocols"
+		(dict (string $i) (dict "Protocol" $v.Protocol "URL" $v.URL))
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .PWA.Caches */ -}}
+{{- range $i, $v := .Data.Store.Hestia.Caches -}}
+	{{- range $j, $w := $v.Contents -}}
+		{{- if not $w.URL -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- if not $w.Cache -}}
+			{{- continue -}}
+		{{- end -}}
+
+
+		{{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "List"
+			(dict $w.URL $w.Cache)
+		))) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

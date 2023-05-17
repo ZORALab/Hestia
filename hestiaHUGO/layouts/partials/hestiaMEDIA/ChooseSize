@@ -1,0 +1,227 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data.Width = given required width (number,length) */ -}}
+{{- /* .Input.Data.Height = given required height (number,length) */ -}}
+{{- /* .Input.Data.Current = given current best option (media) */ -}}
+{{- /* .Input.Data.Current.Width = given current best option's width (number,length) */ -}}
+{{- /* .Input.Data.Current.Height = given current best option's height (number,length) */ -}}
+{{- /* .Input.Data.Sample = given new sample (media) */ -}}
+{{- /* .Input.Data.Sample.Width = given new sample's width (number,length) */ -}}
+{{- /* .Input.Data.Sample.Height = given new sample's height (number,length) */ -}}
+
+{{- /* CONSTANTS */ -}}
+{{- $VERDICT_SELECT_SAMPLE := 2 -}}
+{{- $VERDICT_MORE_CONSIDERATION := 1 -}}
+{{- $VERDICT_RETAIN_CURRENT := 0 -}}
+{{- $VERDICT_REJECT_SAMPLE := -1 -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $wanted := dict -}}
+{{- $current := dict -}}
+{{- $sample := dict -}}
+{{- $error := "" -}}
+{{- $ret := false -}}
+{{- $cdiff := 0.0 -}}
+{{- $gdiff := 0.0 -}}
+{{- $gdw := 0.0 -}}
+{{- $gdh := 0.0 -}}
+{{- $cdw := 0.0 -}}
+{{- $cdh := 0.0 -}}
+
+
+
+
+{{- /* process .Width */ -}}
+{{- $ret = default 0.0 .Input.Data.Width -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "hestiaMATH/SanitizeNumber" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".Media.ChooseSize: bad width: %v" $ret.Error -}}
+{{- end -}}
+{{- $wanted = merge $wanted (dict "Width" $ret.Output) -}}
+
+
+
+
+{{- /* process .Height */ -}}
+{{- $ret = default 0.0 .Input.Data.Height -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "hestiaMATH/SanitizeNumber" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf ".Media.ChooseSize: bad height: %v" $ret.Error -}}
+{{- end -}}
+{{- $wanted = merge $wanted (dict "Height" $ret.Output) -}}
+
+
+
+
+{{- /* process .Current */ -}}
+{{- $current = default
+	(dict "Width" 0.0 "Height" 0.0 "Unavailable" true)
+	.Input.Data.Current
+-}}
+{{- if not (and (index $current "Width") (index $current "Height")) -}}
+	{{- $current = dict "Width" 0.0 "Height" 0.0 "Unavailable" true -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Sample */ -}}
+{{- $sample = default dict .Input.Data.Sample -}}
+{{- if not $sample -}}
+	{{- if not $error -}}
+		{{- $error = printf ".Media.ChooseSize: missing .Input.Sample.\n" -}}
+	{{- end -}}
+{{- else -}}
+	{{- if not (and (index $sample "Width") (index $sample "Height")) -}}
+		{{- if not $error -}}
+			{{- $error = printf ".Media.ChooseSize: bad sample: '%v'\n."
+				$sample.Name
+			-}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* ASPECT RATIO CLOSENESS SELECTION ALGORITHM                         */ -}}
+{{- /*   (1) Math:                                                        */ -}}
+{{- /*   diff = |  1 - (wanted_ratio / subject_ratio)      |              */ -}}
+{{- /*                                                                    */ -}}
+{{- /*                                                                    */ -}}
+{{- /*          |         (wanted.Width / wanted.Height)   |              */ -}}
+{{- /*   diff = |  1 -   --------------------------------  |              */ -}}
+{{- /*          |        (subject.Width / subject.Height)  |              */ -}}
+{{- /*                                                                    */ -}}
+{{- /*                                                                    */ -}}
+{{- /*          |         (wanted.Width * subject.Height)  |              */ -}}
+{{- /*   diff = |  1 -   --------------------------------  |              */ -}}
+{{- /*          |         (wanted.Height * subject.Width)  |              */ -}}
+{{- /*                                                                    */ -}}
+{{- /*                                                                    */ -}}
+{{- /*   (2) Fuzzy Logic:                                                 */ -}}
+{{- /*   (2.1) If given_diff (gdiff) <= to current_diff (cdiff):          */ -}}
+{{- /*            --> select $sample                                      */ -}}
+{{- /*                                                                    */ -}}
+{{- /*                                                                    */ -}}
+{{- if not $error -}}
+	{{- /* setup decision verdict */ -}}
+	{{- $dataList = $VERDICT_RETAIN_CURRENT -}}
+
+
+	{{- /* determine by closest aspect ratio (width/height) factor */ -}}
+	{{- $cdiff = mul $wanted.Height $current.Width -}}
+	{{- if $cdiff -}}
+		{{- $cdiff = div (mul $wanted.Width $current.Height) $cdiff -}}
+		{{- $cdiff = sub 1 $cdiff -}}
+		{{- if lt $cdiff 0 -}}
+			{{- $cdiff = mul $cdiff -1 -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- $gdiff = mul $wanted.Height $sample.Width -}}
+	{{- if $gdiff -}}
+		{{- $gdiff = div (mul $wanted.Width $sample.Height) $gdiff -}}
+		{{- $gdiff = sub 1 $gdiff -}}
+		{{- if lt $gdiff 0 -}}
+			{{- $gdiff = mul $gdiff -1 -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- if and $current.Unavailable -}}
+		{{- /* no $current image available */ -}}
+		{{- $dataList = $VERDICT_SELECT_SAMPLE -}}
+	{{- else if and (eq $cdiff 0.0) (eq $gdiff 0.0) -}}
+		{{- /* $current and $sample are both perfectly matching the $wanted */ -}}
+		{{- $dataList = $VERDICT_REJECT_SAMPLE -}}
+	{{- else if eq $gdiff $cdiff -}}
+		{{- /* $sample and $current have the same aspect ratio */ -}}
+		{{- $dataList = $VERDICT_MORE_CONSIDERATION -}}
+	{{- else if lt $gdiff $cdiff -}}
+		{{- /* $sample has aspect ratio closer to the $wanted */ -}}
+		{{- $dataList = $VERDICT_MORE_CONSIDERATION -}}
+	{{- else -}}
+		{{- /* $current has aspect ratio closer to the $wanted */ -}}
+		{{- $dataList = $VERDICT_REJECT_SAMPLE -}}
+	{{- end -}}
+
+
+	{{- /* determined by resolution factor (0.75x, 1.35x, 2x, 3x, ...) */ -}}
+	{{- if eq $dataList $VERDICT_REJECT_SAMPLE -}}
+		{{- $dataList = $VERDICT_RETAIN_CURRENT -}}
+	{{- else if $current.Unavailable -}}
+		{{- $dataList = $VERDICT_SELECT_SAMPLE -}}
+	{{- else if and (eq $sample.Width $wanted.Width) (eq $sample.Height $wanted.Height) -}}
+		{{- /* $sample is having exact dimension to $wanted */ -}}
+		{{- $dataList = $VERDICT_SELECT_SAMPLE -}}
+	{{- else if and (gt $sample.Width $wanted.Width) (gt $sample.Height $wanted.Height) -}}
+		{{- /* $sample is N-times larger than $wanted */ -}}
+
+		{{- $gdw = sub $sample.Width $wanted.Width -}}
+		{{- $gdh = sub $sample.Height $wanted.Height -}}
+		{{- $cdw = sub $current.Width $wanted.Width -}}
+		{{- $cdh = sub $current.Height $wanted.Height -}}
+
+		{{- if and (eq $gdw $cdw) (eq $gdh $cdh) -}}
+			{{- /* $sample and $current are having the same dimension */ -}}
+			{{- $dataList = $VERDICT_SELECT_SAMPLE -}}
+		{{- else if and (le $gdw $cdw) (le $gdh $cdh) -}}
+			{{- /* $sample has closer dimension to $wanted than $current */ -}}
+			{{- $dataList = $VERDICT_SELECT_SAMPLE -}}
+		{{- else -}}
+			{{- /* $current has closer dimension to $wanted than $sample */ -}}
+			{{- $dataList = $VERDICT_RETAIN_CURRENT -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- /* select output based on verdict */ -}}
+	{{- if eq $dataList $VERDICT_SELECT_SAMPLE -}}
+		{{- $dataList = $sample -}}
+	{{- else if eq $dataList $VERDICT_RETAIN_CURRENT -}}
+		{{- $dataList = dict -}}
+		{{- if not (index $current "Unavailable") -}}
+			{{- $dataList = $current -}}
+		{{- end -}}
+	{{- else -}}
+		{{- $dataList = dict -}}
+		{{- if not (index $current "Unavailable") -}}
+			{{- $dataList = $current -}}
+		{{- end -}}
+
+		{{- if not $error -}}
+			{{- $error = printf
+				".Media.ChooseSize: given sample has mathematical error.\n"
+			-}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

@@ -1,0 +1,57 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = data in Hestia data structure */ -}}
+{{- /* .Input.Data = JS data structure for rendering (dict) */ -}}
+{{- /* .Input.Data.Inline = List of JS data fragments (slice) */ -}}
+{{- /* .Input.Data.Inline.N = JS data fragment (string) */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := "" -}}
+{{- $error := "" -}}
+{{- $list := dict -}}
+{{- $ret := dict -}}
+
+
+
+
+{{- /* render JS Inline values */ -}}
+{{- $list = default slice .Input.Data.Inline -}}
+{{- range $k, $v := $list -}}
+	{{- $dataList = printf "%s%s" $dataList $v -}}
+{{- end -}}
+
+
+
+
+{{- /* post-process output */ -}}
+{{- $ret = printf "deletable-inline-%s.js" (sha256 $dataList) -}}
+{{- $ret = resources.FromString $ret $dataList -}}
+{{- if not .IsServerMode -}}
+	{{- $ret = resources.Minify $ret -}}
+{{- end -}}
+{{- $dataList = string $ret.Content -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

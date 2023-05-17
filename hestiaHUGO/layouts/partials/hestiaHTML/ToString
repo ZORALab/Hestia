@@ -1,0 +1,549 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = data in Hestia data structure */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<!DOCTYPE html>
+<html lang="{{- .Languages.Current.Code -}}">
+<head>
+
+
+{{- /* render Google Analytics 4 meta */}}
+{{- if .Vendors.Google.Analytics4.Tag }}
+	{{- $ret = .Vendors.Google.Analytics4.Tag }}
+	<script async src="https://www.googletagmanager.com/gtag/js?id={{- $ret -}}"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', '{{- $ret -}}');
+	</script>
+{{- end }}
+
+
+{{- /* render critical viewport and charset meta */}}
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+{{- /* render .Redirect meta */}}
+{{- $ret = "locale" -}}
+{{- if .Is404 }}
+	<script>
+		window.addEventListener('load', function() {
+			let previous = localStorage.getItem('{{- $ret -}}');
+
+			switch (previous) {
+			{{- range $k, $v := .Languages.List -}}
+				{{- if $v.URL.ERROR_404 }}
+			case '{{- $v.Code -}}':
+				window.location.href = '{{- string $v.URL.ERROR_404 -}}';
+				break;
+				{{- end -}}
+			{{- end }}
+			default:
+				window.location.href = '{{- string
+							.Languages.Default.URL.ERROR_404 -}}';
+				break;
+			}
+		});
+	</script>
+	<meta http-equiv="refresh"
+		content="{{- .Redirect.Delay -}}; url={{- string
+							.Languages.Default.URL.ERROR_404 -}}" />
+{{- else if .Redirect.Enabled }}
+	<meta http-equiv="refresh"
+		content="{{- .Redirect.Delay -}}; url={{- string .Redirect.URL -}}" />
+{{- else if .Redirect.Language.Enabled }}
+	<script>
+		window.addEventListener('load', function() {
+			let previous = localStorage.getItem('{{- $ret -}}');
+
+			switch (previous) {
+			{{- range $k, $v := .Languages.Alternatives -}}
+				{{- if $v.URL.PAGE }}
+			case '{{- $v.Code -}}':
+				window.location.href = '{{- string $v.URL.PAGE -}}';
+				break;
+				{{- end -}}
+			{{- end }}
+			default:
+				window.location.href = '{{- string
+							.Languages.Default.URL.PAGE -}}';
+				break;
+			}
+		});
+	</script>
+	<meta http-equiv="refresh"
+		content="{{- .Redirect.Delay -}}; url={{- string
+							.Languages.Default.URL.PAGE -}}" />
+{{- else }}
+	<script>
+		window.addEventListener('load', function() {
+			localStorage.setItem('{{- safeJS $ret -}}', '{{- safeJS .Languages.Current.Code -}}');
+		});
+	</script>
+{{- end -}}
+
+
+{{- /* render title meta */}}
+	<title>{{- safeHTML .Titles.Page -}}</title>
+
+
+{{- /* render .Favicons meta */}}
+{{- range $k, $v := .PWA.Icons -}}
+	{{- if hasPrefix $v.Name "mstile-70x70" -}}
+	{{- else if hasPrefix $v.Name "mstile-150x150" -}}
+	{{- else if hasPrefix $v.Name "mstile-310x310" -}}
+	{{- else if not (hasPrefix $v.Name "favicon") -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = index $v.Sources "0" -}}
+
+{{- if and (hasPrefix $ret.Type "image/svg") (eq $v.Design "monochrome") }}
+	<link rel='mask-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		href='{{- safeHTML $ret.URL -}}'
+		color='{{- safeHTML $Page.PWA.Colors.Main -}}' />
+{{- else if hasPrefix $ret.Type "image/svg" }}
+	<link rel='icon'
+		type='{{- safeHTML $ret.Type -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else }}
+	<link rel='icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- end -}}
+
+{{- if eq $v.Sizes "57x57" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "60x60" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "72x72" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "76x76" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "114x114" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "120x120" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "144x144" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+	<meta name='msapplication-TileImage'
+		content='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "152x152" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- else if eq $v.Sizes "180x180" }}
+	<link rel='apple-touch-icon'
+		type='{{- safeHTML $ret.Type -}}'
+		sizes='{{- safeHTML $v.Sizes -}}'
+		href='{{- safeHTML $ret.URL -}}' />
+{{- end }}
+
+{{- end }}
+	<meta name="msapplication-TileColor"
+		content="{{- safeHTML $Page.PWA.Colors.Background -}}" />
+	<meta name="theme-color"
+		content="{{- safeHTML $Page.PWA.Colors.Main -}}" />
+
+
+{{- /* render .Languages meta */}}
+{{- range $i, $v := .Languages.List }}
+	{{- if eq $v.Code $Page.Languages.Current.Code -}}
+		{{- continue -}}
+	{{- end }}
+
+	{{- if not (string $v.URL.PAGE) -}}
+		{{- continue -}}
+	{{- end }}
+	<link rel="alternate"
+		hrefLang="{{- $v.Code -}}"
+		href="{{- (string $v.URL.PAGE) -}}" />
+{{- end }}
+
+
+{{- /* render all other critical meta */}}
+	<meta name="description"
+		content="{{- safeHTML .Descriptions.Page.Pitch -}}" />
+	<meta name="generator"
+		content="{{- safeHTML .Vendors.GoHugo.Version -}}" />
+	<meta name="engine"
+		content="{{- safeHTML .Vendors.ZORALab.Hestia.Version -}}" />
+
+
+{{- /* render .Robots meta */}}
+{{- range $i, $v := .Robots.List }}
+	<meta name="{{- safeHTML $v.Name -}}"
+		content="{{- safeHTML $v.Content -}}" />
+{{- end }}
+
+
+{{- /* render all .Keywords */}}
+{{- if .Keywords.List }}
+	<meta name="keywords"
+		content="{{- delimit .Keywords.List ", " -}}" />
+{{- end }}
+
+
+{{- /* render all .Formats meta */}}
+{{- range $i, $v := .Formats.List }}
+	<link rel="{{- $v.Relationship -}}"
+		type="{{- $v.Type -}}"
+		href="{{- $v.URL -}}" />
+{{- end }}
+
+
+{{- /* render .LDJSON metadata */}}
+{{- if .LDJSON }}
+	<script type="application/ld+json">
+		{{ safeJS (jsonify .LDJSON) }}
+	</script>
+{{- end }}
+
+
+{{- /* render browserconfig.xml meta */}}
+{{- if .BrowserConfig.URL }}
+	<meta name="msapplication-config"
+		content="{{- safeHTML .BrowserConfig.URL -}}" />
+{{- end }}
+
+
+{{- /* render .Vendors.OpenGraph meta */}}
+	<meta property="og:title"
+		content="{{- safeHTML .Titles.Page -}}" />
+	<meta property="og:site_name"
+		content="{{- safeHTML .Titles.Site.Current.Full -}}" />
+	<meta property="og:locale"
+		content="{{- safeHTML .Languages.Current.Code -}}" />
+	<meta property="og:description"
+		content="{{- safeHTML .Descriptions.Page.Pitch -}}" />
+	<meta property="og:url"
+		content="{{- safeHTML .URL.Current.Absolute -}}" />
+{{- range $k, $v := .Languages.Alternatives }}
+	<meta property="og:locale:alternate"
+		content="{{- safeHTML $v.Code -}}" />
+{{- end }}
+
+
+{{- /* render .Thumbnails meta */}}
+{{- range $k, $v := .Thumbnails }}
+	{{- $ret = index $v.Sources "0" -}}
+	{{- if hasPrefix $ret.Type "image" }}
+	<meta property="og:image"
+		content="{{- safeHTMLAttr $ret.URL -}}" />
+	<meta property="og:image:type"
+		content="{{- safeHTMLAttr $ret.Type -}}" />
+			{{- if $v.Width }}
+	<meta property="og:image:width"
+		content="{{- safeHTMLAttr $v.Width -}}" />
+			{{- end }}
+			{{- if $v.Height }}
+	<meta property="og:image:height"
+		content="{{- safeHTMLAttr $v.Height -}}" />
+			{{- end }}
+	<meta property="og:image:alt"
+		content="{{- safeHTMLAttr $v.Name -}}" />
+		{{- else if hasPrefix $ret.Type "video" }}
+	<meta property="og:video"
+		content="{{- safeHTMLAttr $ret.URL -}}" />
+	<meta property="og:video:type"
+		content="{{- safeHTMLAttr $ret.Type -}}" />
+			{{- if $v.Width }}
+	<meta property="og:video:width"
+		content="{{- safeHTMLAttr $v.Width -}}" />
+			{{- end -}}
+			{{- if $v.Height }}
+	<meta property="og:video:height"
+		content="{{- safeHTMLAttr $v.Height -}}" />
+			{{- end }}
+	<meta property="og:video:alt"
+		content="{{- safeHTMLAttr $v.Name -}}" />
+		{{- else if hasPrefix $ret.Type "audio" }}
+	<meta property="og:audio"
+		content="{{- safeHTMLAttr $ret.URL -}}" />
+	<meta property="og:audio:type"
+		content="{{- safeHTMLAttr $ret.Type -}}" />
+	{{- end }}
+{{- end }}
+
+
+{{- /* render .Vendors.Twitter meta */}}
+	<meta name="twitter:card"
+		content="{{- safeHTML .Vendors.Twitter.Card.Type -}}" />
+	<meta name="twitter:title"
+		content="{{- safeHTML .Titles.Page -}}" />
+	<meta name="twitter:description"
+		content="{{- safeHTML .Descriptions.Page.Pitch -}}" />
+
+{{- if .Vendors.Twitter.Site.Handle }}
+	<meta name="twitter:site"
+		content="{{- safeHTML .Vendors.Twitter.Site.Handle -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Creator.Handle }}
+	<meta name="twitter:creator"
+		content="{{- safeHTML .Vendors.Twitter.Creator.Handle -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Card.Image }}
+	{{- $ret = index .Vendors.Twitter.Card.Image.Sources "0" }}
+	<meta name="twitter:image"
+		content="{{- safeHTML $ret.URL -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Card.Image.Name }}
+	<meta name="twitter:image:alt"
+		content="{{- safeHTML .Vendors.Twitter.Card.Image.Name -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Card.Media }}
+	{{- $ret = index .Vendors.Twitter.Card.Media.Sources "0" }}
+	<meta name="twitter:player"
+		content="{{- safeHTML $ret.URL -}}" />
+	<meta name="twitter:player:width"
+		content="{{- safeHTML .Vendors.Twitter.Card.Media.Width -}}" />
+	<meta name="twitter:player:height"
+		content="{{- safeHTML .Vendors.Twitter.Card.Media.Height -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Stores.iphone.Name }}
+	<meta name="twitter:app:name:iphone"
+		content="{{- safeHTML .Vendors.Twitter.Stores.iphone.Name -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Stores.iphone.ID }}
+	<meta name="twitter:app:id:iphone"
+		content="{{- safeHTML .Vendors.Twitter.Stores.iphone.ID -}}" />
+{{- end }}
+
+{{- if string .Vendors.Twitter.Stores.iphone.URL }}
+	<meta name="twitter:app:url:iphone"
+		content="{{- safeHTML (string .Vendors.Twitter.Stores.iphone.URL) -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Stores.ipad.Name }}
+	<meta name="twitter:app:name:ipad"
+		content="{{- safeHTML .Vendors.Twitter.Stores.ipad.Name -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Stores.ipad.ID }}
+	<meta name="twitter:app:id:ipad"
+		content="{{- safeHTML .Vendors.Twitter.Stores.ipad.ID -}}" />
+{{- end }}
+
+{{- if string .Vendors.Twitter.Stores.ipad.URL }}
+	<meta name="twitter:app:url:ipad"
+		content="{{- safeHTML (string .Vendors.Twitter.Stores.ipad.URL) -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Stores.googleplay.Name }}
+	<meta name="twitter:app:name:googleplay"
+		content="{{- safeHTML .Vendors.Twitter.Stores.googleplay.Name -}}" />
+{{- end }}
+
+{{- if .Vendors.Twitter.Stores.googleplay.ID }}
+	<meta name="twitter:app:id:googleplay"
+		content="{{- safeHTML .Vendors.Twitter.Stores.googleplay.ID -}}" />
+{{- end }}
+
+{{- if string .Vendors.Twitter.Stores.googleplay.URL }}
+	<meta name="twitter:app:url:googleplay"
+		content="{{- safeHTML (string .Vendors.Twitter.Stores.googleplay.URL) -}}" />
+{{- end }}
+
+
+{{- /* render .CSS meta */}}
+{{- if and .CSS.Inline (not .CSS.Settings.IncludeFirst) }}
+	<style>
+{{ safeCSS .CSS.Inline }}
+	</style>
+{{- end }}
+
+{{- range $i, $v := .CSS.Include }}
+	<link rel='stylesheet' href='{{- safeHTML $v.URL -}}'
+		{{ if $v.Media -}}media='{{- safeHTML $v.Media -}}'{{- end -}}
+		{{ if $v.OnLoad -}}onload='{{- safeJS $v.OnLoad -}}'{{- end }} />
+{{- end }}
+
+{{- if and .CSS.Inline .CSS.Settings.IncludeFirst }}
+	<style>
+{{ safeCSS .CSS.Inline }}
+	</style>
+{{- end }}
+
+
+{{- /* render .PWA meta */}}
+	<link rel='manifest'
+		href='{{- .PWA.URL.Manifest -}}' />
+
+{{- if .PWA.URL.Worker }}
+	<script type="module">
+		if('serviceWorker' in navigator) {
+			navigator.serviceWorker
+			.register('{{- safeJS .PWA.URL.Worker -}}')
+			.then(registration => {
+				if (registration.active) {
+					console.log('[  PWA  ] SERVICE WORKER: active');
+					return
+				} else if (registration.installing) {
+					worker = registration.installing;
+				} else if (registration.waiting) {
+					worker = registration.waiting;
+				}
+
+				if (worker) {
+					worker.addEventListener("statechange", (e) => {
+						console.log('[  PWA  ] SERVICE WORKER: ' + e.target.state);
+					});
+				}
+			});
+		}
+	</script>
+{{- end }}
+
+
+{{- /* render .JS meta */}}
+{{- if and .JS.Inline (not .JS.Settings.IncludeFirst) }}
+	<script {{- if eq .JS.Settings.Inline.Timing "defer" }} type='module'{{- end -}}>
+{{ safeJS .JS.Inline }}
+	</script>
+{{- end }}
+
+{{- range $i, $v := .JS.Include }}
+	<script
+		{{- if eq $v.Timing "defer" }} defer
+		{{- else if eq $v.Timing "async" }} async
+		{{- end }} src="{{- safeHTML $v.URL -}}"></script>
+{{- end }}
+
+{{- if and .JS.Inline .JS.Settings.IncludeFirst }}
+	<script {{- if eq .JS.Settings.Inline.Timing "defer" }} type='module'{{- end -}}>
+{{ safeJS .JS.Inline }}
+	</script>
+{{- end }}
+
+
+{{- /* render .WASM */}}
+{{- if and (or .WASM.URL .WASM.Embed) .WASM.Init }}
+	{{- /* render dependencies */}}
+	{{- if .WASM.Embed -}}
+		{{- $dataList = slice -}}
+		{{- range $i, $v := .WASM.Dependencies -}}
+			{{- $ret = resources.Get (string $v) -}}
+			{{- $dataList = append $ret $dataList -}}
+		{{- end -}}
+
+		{{- $dataList = resources.Concat "wasm-dep.js" $dataList }}
+	<script type="module">{{ safeJS $dataList.Content }}</script>
+	{{- else -}}
+		{{- range $i, $v := .WASM.Dependencies }}
+	<script defer src="{{- safeHTML (string $v) -}}"></script>
+		{{- end -}}
+	{{- end }}
+
+	{{- /* render main content */}}
+	<script type="module">
+	{{- if .WASM.Embed }}
+		var source = new Response(
+		{{- $ret := merge . (dict "Input" (dict "Path" .WASM.Embed)) -}}
+		{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $ret = printf ".WASM.Embed: render: %v" $ret.Error -}}
+			{{- $console = merge . (dict "Error" $ret) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $ret -}}
+			{{- $ret = "" -}}
+		{{- else -}}
+			{{- $ret = $ret.Output -}}
+		{{- end }}
+		Uint8Array.from('{{- safeJS (printf "%X" (readFile $ret)) -}}'
+			.match(/.{1,2}/g)
+			.map((byte) => {
+					return parseInt(byte, 16);
+				})
+			),
+				{headers: { 'Content-Type': 'application/wasm'}}
+			);
+			{{- $ret = false -}}
+	{{- else }}
+		var source = fetch('{{- safeJS .WASM.URL -}}');
+	{{- end }}
+
+	{{- if .WASM.Setup }}
+		{{ safeJS .WASM.Setup -}}
+	{{- end }}
+
+	{{- /* render initializer */}}
+		// Initialize WASM
+		if (!WebAssembly.instantiateStreaming) { // polyfill
+			WebAssembly.instantiateStreaming = async (resp, importObject) => {
+				const source = await (await resp).arrayBuffer();
+				return await WebAssembly.instantiate(source, importObject);
+			};
+		}
+
+		WebAssembly
+		.instantiateStreaming(source
+			{{- if .WASM.Import -}}, {{ safeJS .WASM.Import -}}{{- end -}}
+		)
+		.then(result => {
+			{{ safeJS .WASM.Init }}
+		});
+	</script>
+{{- end }}
+</head>
+<body>
+	{{ safeHTML (index .Content "HTML") }}
+</body>
+</html>

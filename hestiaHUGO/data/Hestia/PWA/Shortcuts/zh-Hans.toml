@@ -21,7 +21,7 @@
 #                  3. 'monochrome' - 只能单颜环境使用。
 [Contents.0]
 Description = '最新仪表盘'
-URL = '{{- .Languages.ZH-HANS.URL.HOME -}}'
+URL = '{{- .Languages.Current.URL.HOME -}}'
 
 
 [Contents.0.Name]

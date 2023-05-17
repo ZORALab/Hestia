@@ -1,6 +1,6 @@
 {{- /*
-Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
-Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -15,10 +15,25 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* prepare variables for this function */ -}}
+{{- $dataList := dict -}}
+
+
+
+
+{{- /* get dataset */ -}}
+{{- $dataList = .Memory.Get .Constants.Offline.MemKey -}}
+{{- if not $dataList -}}
+	{{- $dataList = dict -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

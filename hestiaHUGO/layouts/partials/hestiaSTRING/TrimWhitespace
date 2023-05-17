@@ -15,10 +15,23 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* . = data for trimming (string) */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* prepare variables for this function */ -}}
+{{- $dataList := . -}}
+
+
+
+
+{{- /* trim both sides */ -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespaceLeft" $dataList -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespaceRight" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

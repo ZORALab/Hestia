@@ -1,0 +1,662 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $error := false -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+{{- $ret2 := false -}}
+
+
+
+
+{{- /* process .PWA.Name.ID */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Name.ID)) -}}
+{{- $ret = partial "hestiaSTRING/ToID" $ret -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Name" (dict "ID" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Name.Short */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Name.Short)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Name.Short: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Name" (dict "Short" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Name.Full */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Name.Full)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Name.Full: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Name" (dict "Full" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Descriptions.Pitch */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Pitch)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Descriptions.Pitch: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Descriptions" (dict "Pitch" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Descriptions.Summary */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Descriptions.Summary)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Descriptions.Summary: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Descriptions" (dict "Summary" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.URL.Base */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.URL.Base)) -}}
+{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.URL.Base: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "URL" (dict "Base" $ret.Output))) -}}
+
+
+
+
+{{- /* process .PWA.URL.Scope */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.URL.Scope)) -}}
+{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.URL.Scope: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "URL" (dict "Scope" $ret.Output))) -}}
+
+
+
+
+{{- /* process .PWA.Display.Main */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Display.Main)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Display.Main: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = lower (partial "hestiaSTRING/TrimWhitespace" $ret.Output) -}}
+{{- if not $ret -}}
+	{{- $ret = "standalone" -}}
+{{- else if eq $ret "fullscreen" -}}
+	{{- $ret = "fullscreen" -}}
+{{- else if eq $ret "standalone" -}}
+	{{- $ret = "standalone" -}}
+{{- else if eq $ret "minimal-ui" -}}
+	{{- $ret = "minimal-ui" -}}
+{{- else if eq $ret "browser" -}}
+	{{- $ret = "browser" -}}
+{{- else if eq $ret "window-controls-overlay" -}}
+	{{- $ret = "window-controls-overlay" -}}
+{{- else -}}
+	{{- $ret = "standalone" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Display" (dict "Main" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Display.Overrides */ -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Display" (dict "Overrides" false))) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Display" (dict "Overrides" dict))) -}}
+{{- range $i, $v := .PWA.Display.Overrides -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Display.Overrides.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = lower (partial "hestiaSTRING/TrimWhitespace" $ret.Output) -}}
+	{{- if not $ret -}}
+		{{- $ret = "standalone" -}}
+	{{- else if eq $ret "fullscreen" -}}
+		{{- $ret = "fullscreen" -}}
+	{{- else if eq $ret "standalone" -}}
+		{{- $ret = "standalone" -}}
+	{{- else if eq $ret "minimal-ui" -}}
+		{{- $ret = "minimal-ui" -}}
+	{{- else if eq $ret "browser" -}}
+		{{- $ret = "browser" -}}
+	{{- else if eq $ret "window-controls-overlay" -}}
+		{{- $ret = "window-controls-overlay" -}}
+	{{- else -}}
+		{{- $ret = "standalone" -}}
+	{{- end -}}
+
+
+	{{- if $ret -}}
+		{{- $Page = merge $Page (dict "PWA" (dict "Display" (dict "Overrides"
+			(dict (upper (string $i)) $ret)
+		))) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process .PWA.Display.Orientation */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Display.Orientation)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Display.Orientation: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = lower (partial "hestiaSTRING/TrimWhitespace" $ret.Output) -}}
+{{- if not $ret -}}
+	{{- $error = printf ".PWA.Display.Orientation: missing value! Default to 'any'.\n" -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = "any" -}}
+{{- else if eq $ret "any" -}}
+	{{- $ret = "any" -}}
+{{- else if eq $ret "natural" -}}
+	{{- $ret = "natural" -}}
+{{- else if eq $ret "landscape" -}}
+	{{- $ret = "landscape" -}}
+{{- else if eq $ret "landscape-primary" -}}
+	{{- $ret = "landscape-primary" -}}
+{{- else if eq $ret "landscape-secondary" -}}
+	{{- $ret = "landscape-secondary" -}}
+{{- else if eq $ret "portrait" -}}
+	{{- $ret = "portrait" -}}
+{{- else if eq $ret "portrait-primary" -}}
+	{{- $ret = "portrait-primary" -}}
+{{- else if eq $ret "portrait-secondary" -}}
+	{{- $ret = "portrait-secondary" -}}
+{{- else -}}
+	{{- $error = printf
+		".PWA.Display.Orientation: unknown value '%v'! Default to 'any'.\n"
+		$ret
+	-}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = "any" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Display" (dict "Orientation" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Categories */ -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Categories" false)) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Categories" dict)) -}}
+{{- range $i, $v := .PWA.Categories -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- if $ret -}}
+		{{- $Page = merge $Page (dict "PWA" (dict "Categories"
+			(dict (string $i) $ret)
+		)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process .PWA.Colors.Main */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Colors.Theme)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Colors.Main: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = upper (partial "hestiaSTRING/TrimWhitespace" $ret.Output) -}}
+{{- if not $ret -}}
+	{{- $ret = "#FFFFFF" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Colors" (dict "Main" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Colors.Background */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Colors.Background)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Colors.Background: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = upper (partial "hestiaSTRING/TrimWhitespace" $ret.Output) -}}
+{{- if not $ret -}}
+	{{- $ret = "#000000" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Colors" (dict "Background" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Relations.List */ -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Relations" (dict "List" false))) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Relations" (dict "List" dict))) -}}
+{{- range $i, $v := .PWA.Relations.List -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Platform)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Relations.%v.Platform: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = lower (partial "hestiaSTRING/TrimWhitespace" $ret.Output) -}}
+
+
+	{{- /* .PWA.Relations.List.N.Platform */ -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- else if eq $ret "chrome_web_store" -}}
+	{{- else if eq $ret "play" -}}
+	{{- else if eq $ret "itunes" -}}
+	{{- else if eq $ret "webapp" -}}
+	{{- else if eq $ret "windows" -}}
+	{{- else if eq $ret "f-droid" -}}
+	{{- else if eq $ret "amazon" -}}
+	{{- else -}}
+		{{- $error = printf
+			".PWA.Relations.%v.Platform: unknown value '%v'.\n"
+			$i
+			$ret
+		-}}
+	{{- end -}}
+	{{- $data = dict "Platform" $ret -}}
+
+
+	{{- /* .PWA.Relations.List.N.URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Relations.%v.URL: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- /* .PWA.Relations.List.N.ID */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.ID)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Relations.%v.ID: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- if not $ret -}}
+		{{- $error = printf ".PWA.Relations.%v.ID: bad value '%v'.\n" $i -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "ID" $ret) -}}
+
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Relations" (dict "List"
+		(dict (upper (string $i)) $data)
+	))) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .PWA.Relations.PreferInstall */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Relations.PreferInstall)) -}}
+{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Relations.%s.PreferInstall: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Relations" (dict "PreferInstall" $ret.Output))) -}}
+
+
+
+
+{{- /* process .PWA.Screenshots */ -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Screenshots" false)) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Screenshots" dict)) -}}
+{{- range $i, $v := .PWA.Screenshots -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "PWA.Screenshots.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Screenshots"
+		(dict (upper (string $i)) $ret.Output)
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .PWA.Shortcuts */ -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Shortcuts" false)) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Shortcuts" dict)) -}}
+{{- range $i, $v := .PWA.Shortcuts -}}
+	{{- /* process .URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Shortcuts.%v.URL: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = dict "URL" $ret.Output -}}
+
+
+	{{- /* process .Name.Full */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name.Full)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Shortcuts.%v.Name.Full: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+
+	{{- if not $ret -}}
+		{{- $error = printf ".PWA.Shortcuts.%v.Name.Full: missing data.\n" $i -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" (dict "Full" $ret)) -}}
+
+
+	{{- /* process .Name.Short */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name.Short)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Shortcuts.%v.Name.Short: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+
+	{{- if not $ret -}}
+		{{- $error = printf ".PWA.Shortcuts.%v.Name.Short: missing data.\n" $i -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" (dict "Short" $ret)) -}}
+
+
+	{{- /* process .Description */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Description)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Shortcuts.%v.Description: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+
+	{{- if not $ret -}}
+		{{- $error = printf ".PWA.Shortcuts.%v.Description: missing data.\n" $i -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Description" $ret) -}}
+
+
+	{{- /* process .Icons */ -}}
+	{{- range $j, $w := $v.Icons -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf ".PWA.Shortcuts.%v.Icons.%v: %v"
+				$i
+				$w
+				$ret.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $data = merge $data (dict "Icons"
+			(dict (upper (string $j)) $ret.Output)
+		) -}}
+	{{- end -}}
+
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Shortcuts"
+		(dict (upper (string $i)) $data)
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .PWA.Icons */ -}}
+{{- range $i, $v := .PWA.Icons -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Icons.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+
+	{{- /* merge back its original assets data */ -}}
+	{{- $ret = merge $ret (dict
+		"Assets" $v.Asset
+		"Filename" $v.Filename
+		"Resize" $v.Resize
+	) -}}
+
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Icons" (dict (upper (string $i)) $ret) )) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .PWA.Protocols */ -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Protocols" false)) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Protocols" dict)) -}}
+{{- range $i, $v := .PWA.Protocols -}}
+	{{- /* process .Protocol */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Protocol)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Protocols.%v.Protocol: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
+	{{- $ret = partial "hestiaSTRING/ToID" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Protocols.%v.Protocol: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = dict "Protocol" (lower (replace $ret.Output "-" "")) -}}
+
+
+	{{- /* process .URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Protocols.%v.URL: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- $Page = merge $Page (dict "PWA" (dict "Protocols"
+		(dict (upper (string $i)) $data)
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .PWA.URL.Worker */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" "/app.js")) -}}
+{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+{{- $Page = merge $Page (dict "PWA" (dict "URL" (dict "Worker" $ret.Output))) -}}
+
+
+
+
+{{- /* process .PWA.URL.Manifest */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" "/app.webmanifest")) -}}
+{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+{{- $Page = merge $Page (dict "PWA" (dict "URL" (dict "Manifest" $ret.Output))) -}}
+
+
+
+
+{{- /* process .PWA.Caches.ID */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .PWA.Name.Short)) -}}
+{{- $ret = partial "hestiaSTRING/ToID" $ret -}}
+{{- if $ret.Error -}}
+	{{- $ret = "pwa" -}}
+{{- else -}}
+	{{- $ret = $ret.Output -}}
+{{- end -}}
+{{- $ret = printf "%s-%s" $ret .Time.Current.ID -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "ID" $ret))) -}}
+
+
+
+
+{{- /* process .PWA.Caches.List */ -}}
+{{- $data = dict -}}
+{{- range $k, $v := .PWA.Caches.List -}}
+	{{- /* process .URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $k)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".PWA.Caches.List.%v: key: %v" $k $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = string $ret.Output -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* process policy value */ -}}
+	{{- $ret2 = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret2 = partial "hestiaSTRING/Sanitize" $ret2 -}}
+	{{- if $ret2.Error -}}
+		{{- $error = printf ".PWA.Caches.List.%v: %v" $k $ret2.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret2 = lower $ret2.Output -}}
+
+	{{- if eq $ret2 "cache-first" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $ret2 "network-first" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $ret2 "network-only" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $ret2 "cache-only" -}}
+		{{- /* PASS */ -}}
+	{{- else if not $ret2 -}}
+		{{- $ret2 = $Page.PWA.Caches.Default.Policy -}}
+	{{- end -}}
+
+
+	{{- $data = merge $data (dict $ret $ret2) -}}
+{{- end -}}
+
+{{- $ret = merge $Page (dict "Input" (dict "Data" $data)) -}}
+{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/SaveOfflineURL" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".PWA.Caches: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "List" false))) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "List"
+	(partial "hestiaCOMPILERS/hestiaHUGO/loadOfflineURL" $Page)
+))) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

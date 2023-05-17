@@ -1,0 +1,83 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Hestia data structure */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $error := "" -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .LDJSON */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .LDJSON)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".LDJSON: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+{{- if $ret -}}
+	{{- $ret = transform.Unmarshal $ret -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "LDJSON" false) -}}
+{{- $Page = merge $Page (dict "LDJSON" $ret) -}}
+
+
+
+
+{{- /* process .Content */ -}}
+{{- range $k, $v := .Content -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Content.%v: %v" $k $v -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+	{{- $k = upper (string $k) -}}
+
+
+	{{- /* parse data structure for data-type */ -}}
+	{{- if $ret -}}
+		{{- range $j, $w := $Page.Formats -}}
+			{{- if not (eq (upper $k) (upper $j)) -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- if $w.Mashallable -}}
+				{{- $ret = transform.Unmarshal $ret -}}
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- $Page = merge $Page (dict "Content" (dict $k false)) -}}
+	{{- $Page = merge $Page (dict "Content" (dict $k $ret)) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

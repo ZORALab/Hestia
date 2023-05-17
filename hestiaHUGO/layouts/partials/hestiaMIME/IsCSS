@@ -15,10 +15,16 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* . = MIME data to validate (string) */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* prepare variables for this function */ -}}
+{{- $dataList := dict "Input" (dict "Data" . "Expect" "text/css") -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return partial "hestiaMIME/IsType" $dataList -}}

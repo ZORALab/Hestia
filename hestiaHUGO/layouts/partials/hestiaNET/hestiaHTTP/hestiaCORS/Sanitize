@@ -1,0 +1,75 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = given CORS data (string) */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $error := "" -}}
+
+
+
+
+{{- /* sanitize .Input.Data */ -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string (default "" .Input.Data)) -}}
+
+
+
+
+{{- /* initialize CORS data type when available */ -}}
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+	{{- if $dataList.Error -}}
+		{{- $error = printf "CORS: %s" $dataList.Error -}}
+	{{- end -}}
+	{{- $dataList = $dataList.Output -}}
+
+
+	{{- if not $dataList -}}
+		{{- $dataList = "anonymous" -}}
+	{{- else if partial "hestiaNET/hestiaHTTP/hestiaCORS/IsAnonymous" $dataList -}}
+		{{- /* PASS */ -}}
+	{{- else if partial "hestiaNET/hestiaHTTP/hestiaCORS/IsUseCredentials" $dataList -}}
+		{{- /* PASS */ -}}
+	{{- else -}}
+		{{- if not $error -}}
+			{{- $error = printf "CORS: unknown value '%v'.\n" $dataList -}}
+		{{- end -}}
+	{{- end -}}
+{{- else -}}
+	{{- $error = printf "CORS: missing or empty .Input.Data data.\n" -}}
+{{- end -}}
+
+
+
+
+{{- /* ensures the empty result is default to anonymous */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = "anonymous" -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

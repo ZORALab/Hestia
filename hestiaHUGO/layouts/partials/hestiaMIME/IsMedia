@@ -15,10 +15,38 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* . = MIME data to validate (string) */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* prepare variables for this function */ -}}
+{{- $dataList := false -}}
+
+
+
+
+{{- /* STAGE 1 - CHECK FOR IMAGE TYPE */ -}}
+{{- $dataList = partial "hestiaMIME/IsImage" . -}}
+
+
+
+
+{{- /* STAGE 2 - CHECK FOR VIDEO TYPE */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = partial "hestiaMIME/IsVideo" . -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 3 - CHECK FOR AUDIO TYPE */ -}}
+{{- if not $dataList -}}
+	{{- $dataList = partial "hestiaMIME/IsAudio" . -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

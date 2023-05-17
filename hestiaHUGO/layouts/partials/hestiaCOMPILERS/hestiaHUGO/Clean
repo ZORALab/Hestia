@@ -15,10 +15,27 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+
+
+
+
+{{- /* clean up .Page data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- if (index $Page "IsHestia") -}}
+		{{- $Page = merge $Page (dict "Input" false "Output" false "Error" false) -}}
+		{{- $Page = merge $Page (dict "Input" dict "Output" dict "Error" dict) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

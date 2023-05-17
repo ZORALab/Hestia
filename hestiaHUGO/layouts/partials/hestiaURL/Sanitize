@@ -1,0 +1,156 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .URL.Current = Current Page URL. */ -}}
+{{- /* .URL.Base = Current Page's Base URL. */ -}}
+{{- /* .Formats.Current = Current Page's Format File Type. */ -}}
+{{- /* .Languages.Current = Current Page's Language. */ -}}
+{{- /* .Input.Data = given URL in any form for synthesis. (string) */ -}}
+{{- /* .Input.Format = desired output format. (optional,string) */ -}}
+{{- /* .Input.Lang = desired language. (optional,string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $Args := dict -}}
+{{- $dataList := dict -}}
+{{- $error := "" -}}
+{{- $ret := false -}}
+{{- $list := false -}}
+
+
+
+
+{{- /* process .Input.Data */ -}}
+{{- $ret = default "" .Input.Data -}}
+{{- if partial "hestiaSTRING/IsString" $ret -}}
+	{{- /* PASS - we want string format for processing */ -}}
+{{- else if partial "hestiaURL/IsURL" $ret -}}
+	{{- $ret = string $ret -}}
+{{- else -}}
+	{{- $error = printf "URL: unknown .Input.Data '%v'.\n" .Input.Data -}}
+	{{- $ret = "" -}}
+{{- end -}}
+
+
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "URL: .Input.URL: %v" $ret.Error -}}
+{{- end -}}
+{{- $ret = dict "Input" (dict "URL" $ret.Output) -}}
+{{- $Args = merge $Page $ret -}}
+
+
+
+
+{{- /* process .Input.Lang */ -}}
+{{- $ret = default "" .Input.Lang -}}
+{{- if and $ret (not $error) -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret))) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- $Args = merge $Args (dict "Input" (dict "Lang" $ret.Output)) -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "URL: .Input.Lang: %v" $ret.Error -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* scan for supported .Input.Format */ -}}
+{{- $list = default dict .Input.Format -}}
+{{- range $k, $v := .Formats.List -}}
+	{{- if eq $list.Name $v.Format.Name -}}
+		{{- $list = $v -}}
+		{{- break -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Input.Format */ -}}
+{{- if and $list (not $error) -}}
+	{{- /* process .Input.Format.Protocol */ -}}
+	{{- $ret = default "" $list.Protocol -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret))) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if and $ret.Error (not $error) -}}
+		{{- $error = printf "URL: .Input.Format.Protocol: %v" $ret.Error -}}
+	{{- end -}}
+	{{- $ret = dict "Input" (dict "Format" (dict "Protocol" $ret.Output)) -}}
+	{{- $Args = merge $Args $ret -}}
+
+
+	{{- /* process .Input.Format.Filename */ -}}
+	{{- $ret = default "" $list.Filename -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret))) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if and $ret.Error (not $error) -}}
+		{{- $error = printf "URL: .Input.Format.Filename: %v" $ret.Error -}}
+	{{- end -}}
+	{{- $ret = dict "Input" (dict "Format" (dict "Filename" $ret.Output)) -}}
+	{{- $Args = merge $Args $ret -}}
+
+
+	{{- /* process .Input.Format.Extension */ -}}
+	{{- $ret = default "" $list.Extension -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret))) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if and $ret.Error (not $error) -}}
+		{{- $error = printf "URL: .Input.Format.Extension: %v" $ret.Error -}}
+	{{- end -}}
+	{{- $ret = dict "Input" (dict "Format" (dict "Extension" $ret.Output)) -}}
+	{{- $Args = merge $Args $ret -}}
+{{- end -}}
+
+
+
+
+{{- /* allow to process the URL */ -}}
+{{- if not $error -}}
+	{{- $dataList = partial "hestiaURL/process" $Args -}}
+{{- else -}}
+	{{- $dataList = urls.Parse "" -}}
+{{- end -}}
+
+
+
+
+{{- /* automatic save to caches */ -}}
+{{- $ret = "" -}}
+{{- if and $dataList.Scheme (and $dataList.Host $dataList.Path) -}}
+	{{- $ret = printf "%s://%s%s" $dataList.Scheme $dataList.Host $dataList.Path -}}
+{{- end -}}
+{{- if and .PWA.Caches.Automation (and (not $error) $ret) -}}
+	{{- $ret = dict $ret $Page.PWA.Caches.Default.Policy -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/SaveOfflineURL" $ret -}}
+	{{- if and $ret.Error (not $error) -}}
+		{{- $error = printf "URL: automatic caching: %v" $ret.Error -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

@@ -1,0 +1,751 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $cssVariables := dict -}}
+{{- $css := dict -}}
+{{- $js := dict -}}
+{{- $path := "" -}}
+{{- $list := slice -}}
+{{- $data := dict -}}
+{{- $variables := dict -}}
+{{- $error := false -}}
+{{- $ret := false -}}
+{{- $ret2 := false -}}
+
+
+
+
+{{- /* process all the components */ -}}
+{{- $cssVariables = dict -}}
+{{- $css = "" -}}
+{{- $js = "" -}}
+{{- range $i, $v := .Components -}}
+	{{- /* process .Name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Components: bad name: %v" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $v = merge $v (dict "Name" $ret.Output) -}}
+
+
+	{{- /* check component's proper existence */ -}}
+	{{- $path = printf "layouts/partials/hestiaGUI/%s" $v.Name -}}
+	{{- $ret = (fileExists (printf "%s/CSS" $path))
+			| and (fileExists (printf "%s/CSSVariables" $path))
+			| and (fileExists (printf "%s/JS" $path))
+			| and (fileExists (printf "%s/HTML" $path))
+	-}}
+	{{- if not $ret -}}
+		{{- $error = printf ".Components: '%v' component does not exist!\n" $v.Name -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* parse component's CSS variables data */ -}}
+	{{- $list = printf "%s/CSSVariables" $path -}}
+	{{- $list = merge $Page (dict "Input" (dict "Path" $list)) -}}
+	{{- $list = partial "hestiaIO/hestiaFS/ParseDataFile" $list -}}
+	{{- $list = default dict $list.Output.CSS -}}
+	{{- if $list -}}
+		{{- $list = default dict $list.Variables -}}
+	{{- end -}}
+	{{- if not (partial "hestiaLIST/IsMap" $list) -}}
+		{{- $list = dict -}}
+	{{- end -}}
+
+
+	{{- range $j, $w := $list -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $j)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf
+				".Components.%v.Variables: key '%v': %v"
+				$v.Name
+				$ret.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = $ret.Output -}}
+
+		{{- $cssVariables = merge $cssVariables (dict $ret $w) -}}
+	{{- end -}}
+
+
+	{{- /* parse component's CSS overriding variables data */ -}}
+	{{- range $j, $w := $v.Variables -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $j)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf
+				".Components.%v.Variables: key '%v': %v"
+				$v.Name
+				$j
+				$ret.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = $ret.Output -}}
+
+		{{- $cssVariables = merge $cssVariables (dict $ret $w) -}}
+	{{- end -}}
+
+
+	{{- /* process component's .CSS.Inline */ -}}
+	{{- $ret = printf "%s/CSS" $path -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Components.%v.CSS: %v" $v.Name $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $css = printf "%s%s" $css $ret.Output -}}
+
+
+	{{- /* process component's .JS.Inline */ -}}
+	{{- $ret = printf "%s/JS" $path -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Components.%v.JS: %v" $v.Name $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $js = printf "%s%s" $js $ret.Output -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Components" false) -}}
+{{- $Page = merge $Page (dict
+	"Components" (dict
+		"Variables" $cssVariables
+		"CSS" $css
+		"JS" $js
+	)
+	"CSS" (dict
+		"Variables" $cssVariables
+	)
+) -}}
+
+
+
+
+{{- /* process .CSS.IncludeFirst */ -}}
+{{- $Page = merge $Page (dict "CSS" (dict "IncludeFirst"
+	(default true .CSS.Settings.IncludeFirst)
+)) -}}
+
+
+
+
+{{- /* process .CSS.Include */ -}}
+{{- range $i, $v := .CSS.Include -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* process .URL */ -}}
+	{{- $data = dict -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (dict "" $v.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".CSS.Include.%v.URL: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- if not $ret.Output -}}
+		{{- $error = printf ".CSS.Include.%v.URL: empty value.\n" $i -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- /* process .Media */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Media)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".CSS.Include.%v.Media: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Media" $ret.Output) -}}
+
+
+	{{- /* process .OnLoad */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.OnLoad)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".CSS.Include.%v.OnLoad: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "OnLoad" $ret.Output) -}}
+
+
+	{{- $Page = merge $Page (dict "CSS" (dict "Include" (dict (string $i) $data))) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .CSS.Inline */ -}}
+{{- $list := slice $Page.Components.CSS -}}
+{{- range $i, $v := $Page.CSS.Inline -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".CSS.Inline.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+
+	{{- /* process relative pathing */ -}}
+	{{- if not (hasPrefix $ret "assets") -}}
+		{{- $ret = path.Join $Page.Filesystem.Directory $ret -}}
+	{{- end -}}
+
+	{{- /* validate asset file is there */ -}}
+	{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" $ret) -}}
+		{{- $error = printf "CSS.Inline.%v: missing file '%v'.\n" $i $ret -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- /* parse file */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $v)) -}}
+	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "CSS.Inline.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = string $ret.Output -}}
+
+	{{- $list = append $ret $list -}}
+{{- end -}}
+
+
+
+
+{{- /* process page control inline CSS file */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .CSS.Main)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Error.Message -}}
+	{{- $error = merge $Page (dict "Error" (dict "Message" $error)) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = "" -}}
+{{- else -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+{{- end -}}
+
+{{- if partial "hestiaIO/hestiaFS/IsFileExists" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+
+	{{- if $ret -}}
+		{{- $list = append $ret $list -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "CSS" (dict "Inline" $list)) -}}
+
+
+{{- /* render .CSS.Inline */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $Page.CSS)) -}}
+{{- $ret = partial "hestiaCSS/ToString" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf "CSS.Inline: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "CSS" (dict "Inline" $ret.Output)) -}}
+
+
+
+
+{{- /* process .JS.IncludeFirst */ -}}
+{{- $ret = true -}}
+{{- if not .JS.Settings.IncludeFirst -}}
+	{{- $ret = false -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" false) -}}
+{{- $Page = merge $Page (dict "JS" (dict "IncludeFirst" $ret)) -}}
+
+
+
+
+{{- /* process .JS.IncludeTiming */ -}}
+{{- $ret = default "" .JS.Settings.Inline.Timing -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".JS.Settings.Inline.Timing: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = "defer" -}}
+{{- else -}}
+	{{- $ret = lower (partial "hestiaSTRING/TrimWhitespace" $ret.Output) -}}
+{{- end -}}
+
+{{- if eq $ret "defer" -}}
+	{{- /* PASS */ -}}
+{{- else if eq $ret "sync" -}}
+	{{- /* PASS */ -}}
+{{- else if eq $ret "async" -}}
+	{{- /* PASS */ -}}
+{{- else -}}
+	{{- $error = printf ".JS.Settings.Inline.Timing: unknown value '%v'.\n" $ret -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = "defer" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" (dict "InlineTiming" $ret)) -}}
+
+
+
+
+{{- /* process .JS.Include */ -}}
+{{- $Page = merge $Page (dict "JS" (dict "Include" false)) -}}
+{{- $Page = merge $Page (dict "JS" (dict "Include" dict)) -}}
+{{- range $i, $v := .JS.Include -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* process .URL */ -}}
+	{{- $data = dict -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (dict "" $v.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".JS.Include.%v.URL: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- if not $ret.Output -}}
+		{{- $error = printf ".JS.Include.%v.URL: empty value.\n" $i -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- /* process .Timing */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Timing)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".JS.Include.%v.Timing: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if eq $ret "defer" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $ret "async" -}}
+		{{- /* PASS */ -}}
+	{{- else if eq $ret "sync" -}}
+		{{- /* PASS */ -}}
+	{{- else -}}
+		{{- $error = printf
+			".JS.Include.%v.Timing: unknown value '%v'.\n"
+			$i
+			$ret.Error
+		-}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- $ret = "defer" -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Timing" $ret.Output) -}}
+
+
+	{{- $Page = merge $Page (dict "JS" (dict "Include" (dict (string $i) $data))) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .JS.Inline */ -}}
+{{- $list := slice $Page.Components.JS -}}
+{{- range $i, $v := $Page.JS.Inline -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".JS.Inline.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+
+
+	{{- /* process relative pathing */ -}}
+	{{- if not (hasPrefix $ret "assets") -}}
+		{{- $ret = path.Join $Page.Filesystem.Directory $ret -}}
+	{{- end -}}
+
+
+	{{- /* validate asset file is there */ -}}
+	{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" $ret) -}}
+		{{- $error = printf ".JS.Inline.%v: missing file '%v'.\n" $i $ret -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* parse file */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $v)) -}}
+	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".JS.Inline.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = string $ret.Output -}}
+
+
+	{{- $list = append $ret $list -}}
+{{- end -}}
+
+
+{{- /* process page control inline JS file */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .JS.Main)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".JS.Inline.__content.hestiaJS: %v" $ret.Error.Message -}}
+	{{- $error = merge $Page (dict "Error" (dict "Message" $error)) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = "" -}}
+{{- else -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+{{- end -}}
+
+{{- if not $ret -}}
+{{- else if partial "hestiaIO/hestiaFS/IsFileExists" $ret -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".JS.Inline.__content.hestiaJS: %v" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".JS.Inline.__content.hestiaJS: %v" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+
+
+	{{- if $ret -}}
+		{{- $list = append $ret $list -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" (dict "Inline" $list)) -}}
+
+
+{{- /* render .JS.Inline */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $Page.JS)) -}}
+{{- $ret = partial "hestiaJS/ToString" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".JS.Inline: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" (dict "Inline" $ret.Output)) -}}
+
+
+
+
+{{- /* process .WASM.Embed */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Embed)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".WASM.Embed: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+
+{{- if $ret -}}
+	{{- $ret = path.Join .Filesystem.Directory $ret -}}
+	{{- if not (fileExists $ret) -}}
+		{{- $error = printf ".WASM.Embed: given file is missing: '%v'.\n" $error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "WASM" (dict "Embed" false)) -}}
+{{- $Page = merge $Page (dict "WASM" (dict "Embed" $ret)) -}}
+
+
+
+
+{{- /* process .WASM.URL */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.URL)) -}}
+{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".WASM.URL: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "WASM" (dict "URL" $ret.Output)) -}}
+
+
+
+
+{{- /* process .WASM.Setup */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Setup)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".WASM.Setup: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "WASM" (dict "Setup" $ret.Output)) -}}
+
+
+
+
+{{- /* process .WASM.Import */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Import)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".WASM.Import: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "WASM" (dict "Import" $ret.Output)) -}}
+
+
+
+
+{{- /* process .WASM.Init */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .WASM.Init)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".WASM.Init: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "WASM" (dict "Init" $ret.Output)) -}}
+
+
+
+
+{{- /* process WASM.Dependencies */ -}}
+{{- range $i, $v := .WASM.Dependencies -}}
+	{{- $ret = merge $Page (dict "Input" (dict "URL" $v)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".WASM.Dependencies.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+
+
+	{{- $Page = merge $Page (dict "WASM" (dict "Dependencies"
+		(dict (string $i) $ret.Output)
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Nav.Children */ -}}
+{{- $Page = merge $Page (dict "Nav" (dict "Children" false)) -}}
+{{- $Page = merge $Page (dict "Nav" (dict "Children" dict)) -}}
+{{- range $i, $v := .Nav.Children -}}
+	{{- $Page = merge $Page (dict "Nav" (dict "Children"
+		(dict (string $i) (partial "hestiaCOMPILERS/hestiaHUGO/Metadata" $v))
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Nav.Parents */ -}}
+{{- $Page = merge $Page (dict "Nav" (dict "Parents" false)) -}}
+{{- $Page = merge $Page (dict "Nav" (dict "Parents" dict)) -}}
+{{- range $i, $v := .Nav.Parents -}}
+	{{- $Page = merge $Page (dict "Nav" (dict "Parents"
+		(dict (string $i) (partial "hestiaCOMPILERS/hestiaHUGO/Metadata" $v))
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Nav.All */ -}}
+{{- $Page = merge $Page (dict "Nav" (dict "All" false)) -}}
+{{- $Page = merge $Page (dict "Nav" (dict "All" dict)) -}}
+{{- range $i, $v := .Nav.All -}}
+	{{- $Page = merge $Page (dict "Nav" (dict "All"
+		(dict (string $i) (partial "hestiaCOMPILERS/hestiaHUGO/Metadata" $v))
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Sitemap.ChangeFreq */ -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" .Sitemap.ChangeFreq -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".Sitemap.ChangeFreq: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+{{- $dataList = merge $dataList (dict "Sitemap" false) -}}
+{{- $dataList = merge $dataList (dict "Sitemap" (dict "ChangeFreq" $ret)) -}}
+
+
+
+
+{{- /* process .Sitemap.Priority */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" .Sitemap.Priority)) -}}
+{{- $ret = partial "hestiaMATH/SanitizeNumber" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".Sitemap.Priority: %v" $ret.Error -}}
+	{{- $console = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+
+{{- if not $ret -}}
+	{{- $ret = -1 -}}
+{{- else if gt $ret 1.0 -}}
+	{{- $error = printf ".Sitemap.Priority: Invalid priority value '%v'\n." $ret -}}
+	{{- $console = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = -1 -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Sitemap" (dict "Priority" $ret)) -}}
+
+
+
+
+{{- /* process .Sitemap.Filename */ -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" .Sitemap.Filename -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".Sitemap.Filename: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+
+{{- if not $ret -}}
+	{{- $ret = "sitemap-page.xml" -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Sitemap" (dict "Filename" $ret)) -}}
+
+
+
+
+{{- /* process .Sitemap.Index */ -}}
+{{- $ret = partial "hestiaSTRING/TrimWhitespace" .Sitemap.Index -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf ".Sitemap.Filename: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+
+{{- if not $ret -}}
+	{{- $ret = "sitemap.xml" -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Sitemap" (dict "Index" $ret)) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

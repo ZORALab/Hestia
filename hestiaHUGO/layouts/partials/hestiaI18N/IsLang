@@ -1,0 +1,982 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = input for checking (string) */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $dataList := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* check given data is ISO639-1, ISO639-2, and ISO639-3 */ -}}
+{{- $ret = lower (strings.TrimLeft "-_" (string .)) -}}
+{{- if not $ret -}}
+
+{{- else if (eq $ret "ab")
+	| or (eq $ret "abk") -}}
+	{{- /* Abkhazian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "aa")
+	| or (eq $ret "aar") -}}
+	{{- /* Afar */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "af")
+	| or (eq $ret "afr") -}}
+	{{- /* Afrikaans */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ak")
+	| or (eq $ret "aka") -}}
+	{{- /* Akan */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sq")
+	| or (eq $ret "sqi")
+	| or (eq $ret "alb") -}}
+	{{- /* Albanian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "am")
+	| or (eq $ret "amh") -}}
+	{{- /* Amharic */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ar")
+	| or (eq $ret "ara") -}}
+	{{- /* Arabic */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "an")
+	| or (eq $ret "arg") -}}
+	{{- /* Aragonese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "hy")
+	| or (eq $ret "hye")
+	| or (eq $ret "arm") -}}
+	{{- /* Armenian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "as")
+	| or (eq $ret "asm") -}}
+	{{- /* Assamese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "av")
+	| or (eq $ret "ava") -}}
+	{{- /* Avaric */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ae")
+	| or (eq $ret "ave") -}}
+	{{- /* Avestan */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ay")
+	| or (eq $ret "aym") -}}
+	{{- /* Aymara */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "az")
+	| or (eq $ret "aze") -}}
+	{{- /* Azerbaijani */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "bm")
+	| or (eq $ret "bam") -}}
+	{{- /* Bambara */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ba")
+	| or (eq $ret "bak") -}}
+	{{- /* Bashkir */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "eu")
+	| or (eq $ret "eus")
+	| or (eq $ret "baq") -}}
+	{{- /* Basque */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "be")
+	| or (eq $ret "bel") -}}
+	{{- /* Belarusian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "bn")
+	| or (eq $ret "ben") -}}
+	{{- /* Bengali */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "bi")
+	| or (eq $ret "bis") -}}
+	{{- /* Bislama */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "bs")
+	| or (eq $ret "bos") -}}
+	{{- /* Bosnian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "br")
+	| or (eq $ret "bre") -}}
+	{{- /* Breton */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "bg")
+	| or (eq $ret "bul") -}}
+	{{- /* Bulgarian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "my")
+	| or (eq $ret "mya")
+	| or (eq $ret "bur") -}}
+	{{- /* Burmese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ca")
+	| or (eq $ret "cat")
+	| or (eq $ret "cat") -}}
+	{{- /* Catalan, Valencian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ch")
+	| or (eq $ret "cha")
+	| or (eq $ret "cha") -}}
+	{{- /* Chamorro */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ce")
+	| or (eq $ret "che")
+	| or (eq $ret "che") -}}
+	{{- /* Chechen */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ny")
+	| or (eq $ret "nya") -}}
+	{{- /* Chichewa, Chewa, Nyanja */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "zh")
+	| or (eq $ret "zho")
+	| or (eq $ret "chi") -}}
+	{{- /* Chinese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "cu")
+	| or (eq $ret "chu") -}}
+	{{- /* Church Slavic, Old Slavonic, Church Slavonic, Old Bulgarian,
+		Old Church Slavonic */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "cv")
+	| or (eq $ret "chv") -}}
+	{{- /* Chuvash */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kw")
+	| or (eq $ret "cor") -}}
+	{{- /* Cornish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "co")
+	| or (eq $ret "cos") -}}
+	{{- /* Corsican */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "cr")
+	| or (eq $ret "cre") -}}
+	{{- /* Cree */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "hr")
+	| or (eq $ret "hrv") -}}
+	{{- /* Croatian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "cs")
+	| or (eq $ret "ces")
+	| or (eq $ret "cze") -}}
+	{{- /* Czech */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "da")
+	| or (eq $ret "dan")
+	| or (eq $ret "dan") -}}
+	{{- /* Danish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "dv")
+	| or (eq $ret "div") -}}
+	{{- /* Divehi, Dhivehi, Maldivian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "nl")
+	| or (eq $ret "nld")
+	| or (eq $ret "dut") -}}
+	{{- /* Dutch, Flemish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "dz")
+	| or (eq $ret "dzo") -}}
+	{{- /* Dzongkha */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "en")
+	| or (eq $ret "eng") -}}
+	{{- /* English */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "eo")
+	| or (eq $ret "epo") -}}
+	{{- /* Esperanto */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "et")
+	| or (eq $ret "est") -}}
+	{{- /* Estonian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ee")
+	| or (eq $ret "ewe") -}}
+	{{- /* Ewe */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "fo")
+	| or (eq $ret "fao") -}}
+	{{- /* Faroese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "fj")
+	| or (eq $ret "fij") -}}
+	{{- /* Fijian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "fi")
+	| or (eq $ret "fin") -}}
+	{{- /* Finnish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "fr")
+	| or (eq $ret "fra")
+	| or (eq $ret "fre") -}}
+	{{- /* French */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "fy")
+	| or (eq $ret "fry") -}}
+	{{- /* Western Frisian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ff")
+	| or (eq $ret "ful") -}}
+	{{- /* Fulah */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "gd")
+	| or (eq $ret "gla") -}}
+	{{- /* Gaelic, Scottish Gaelic */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "gl")
+	| or (eq $ret "glg") -}}
+	{{- /* Galician */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "lg")
+	| or (eq $ret "lug") -}}
+	{{- /* Ganda */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ka")
+	| or (eq $ret "kat")
+	| or (eq $ret "geo") -}}
+	{{- /* Georgian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "de")
+	| or (eq $ret "deu")
+	| or (eq $ret "ger") -}}
+	{{- /* German */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "el")
+	| or (eq $ret "ell")
+	| or (eq $ret "gre") -}}
+	{{- /* Greek, Modern (1453–) */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kl")
+	| or (eq $ret "kal") -}}
+	{{- /* Kalaallisut, Greenlandic */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "gn")
+	| or (eq $ret "grn") -}}
+	{{- /* Guarani */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "gu")
+	| or (eq $ret "guj") -}}
+	{{- /* Gujarati */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ht")
+	| or (eq $ret "hat") -}}
+	{{- /* Haitian, Haitian Creole */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ha")
+	| or (eq $ret "hau") -}}
+	{{- /* Hausa */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "he")
+	| or (eq $ret "heb") -}}
+	{{- /* Hebrew */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "hz")
+	| or (eq $ret "her") -}}
+	{{- /* Herero */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "hi")
+	| or (eq $ret "hin") -}}
+	{{- /* Hindi */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ho")
+	| or (eq $ret "hmo") -}}
+	{{- /* Hiri Motu */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "hu")
+	| or (eq $ret "hun") -}}
+	{{- /* Hungarian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "is")
+	| or (eq $ret "isl")
+	| or (eq $ret "ice") -}}
+	{{- /* Icelandic */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "io")
+	| or (eq $ret "ido") -}}
+	{{- /* Ido */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ig")
+	| or (eq $ret "ibo") -}}
+	{{- /* Igbo */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "id")
+	| or (eq $ret "ind") -}}
+	{{- /* Indonesian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ia")
+	| or (eq $ret "ina") -}}
+	{{- /* Interlingua (International Auxiliary Language Association) */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ie")
+	| or (eq $ret "ile") -}}
+	{{- /* Interlingue, Occidental */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "iu")
+	| or (eq $ret "iku") -}}
+	{{- /* Inuktitut */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ik")
+	| or (eq $ret "ipk") -}}
+	{{- /* Inupiaq */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ga")
+	| or (eq $ret "gle") -}}
+	{{- /* Irish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "it")
+	| or (eq $ret "ita") -}}
+	{{- /* Italian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ja")
+	| or (eq $ret "jpn") -}}
+	{{- /* Japanese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "jv")
+	| or (eq $ret "jav") -}}
+	{{- /* Javanese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kn")
+	| or (eq $ret "kan") -}}
+	{{- /* Kannada */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kr")
+	| or (eq $ret "kau") -}}
+	{{- /* Kanuri */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ks")
+	| or (eq $ret "kas") -}}
+	{{- /* Kashmiri */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kk")
+	| or (eq $ret "kaz") -}}
+	{{- /* Kazakh */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "km")
+	| or (eq $ret "khm") -}}
+	{{- /* Central Khmer */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ki")
+	| or (eq $ret "kik") -}}
+	{{- /* Kikuyu, Gikuyu */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "rw")
+	| or (eq $ret "kin") -}}
+	{{- /* Kinyarwanda */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ky")
+	| or (eq $ret "kir") -}}
+	{{- /* Kirghiz, Kyrgyz */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kv")
+	| or (eq $ret "kom") -}}
+	{{- /* Komi */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kg")
+	| or (eq $ret "kon") -}}
+	{{- /* Kongo */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ko")
+	| or (eq $ret "kor") -}}
+	{{- /* Korean */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "kj")
+	| or (eq $ret "kua") -}}
+	{{- /* Kuanyama, Kwanyama */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ku")
+	| or (eq $ret "kur") -}}
+	{{- /* Kurdish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "lo")
+	| or (eq $ret "lao") -}}
+	{{- /* Lao */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "la")
+	| or (eq $ret "lat") -}}
+	{{- /* Latin */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "lv")
+	| or (eq $ret "lav") -}}
+	{{- /* Latvian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "li")
+	| or (eq $ret "lim") -}}
+	{{- /* Limburgan, Limburger, Limburgish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ln")
+	| or (eq $ret "lin") -}}
+	{{- /* Lingala */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "lt")
+	| or (eq $ret "lit") -}}
+	{{- /* Lithuanian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "lu")
+	| or (eq $ret "lub") -}}
+	{{- /* Luba-Katanga */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "lb")
+	| or (eq $ret "ltz") -}}
+	{{- /* Luxembourgish, Letzeburgesch */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "mk")
+	| or (eq $ret "mkd")
+	| or (eq $ret "mac") -}}
+	{{- /* Macedonian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "mg")
+	| or (eq $ret "mlg") -}}
+	{{- /* Malagasy */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ms")
+	| or (eq $ret "msa")
+	| or (eq $ret "may") -}}
+	{{- /* Malay */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ml")
+	| or (eq $ret "mal") -}}
+	{{- /* Malayalam */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "mt")
+	| or (eq $ret "mlt") -}}
+	{{- /* Maltese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "gv")
+	| or (eq $ret "glv") -}}
+	{{- /* Manx */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "mi")
+	| or (eq $ret "mri")
+	| or (eq $ret "mao") -}}
+	{{- /* Maori */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "mr")
+	| or (eq $ret "mar") -}}
+	{{- /* Marathi */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "mh")
+	| or (eq $ret "mah") -}}
+	{{- /* Marshallese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "mn")
+	| or (eq $ret "mon") -}}
+	{{- /* Mongolian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "na")
+	| or (eq $ret "nau") -}}
+	{{- /* Nauru */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "nv")
+	| or (eq $ret "nav") -}}
+	{{- /* Navajo, Navaho */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "nd")
+	| or (eq $ret "nde") -}}
+	{{- /* North Ndebele */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "nr")
+	| or (eq $ret "nbl") -}}
+	{{- /* South Ndebele */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ng")
+	| or (eq $ret "ndo") -}}
+	{{- /* Ndonga */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ne")
+	| or (eq $ret "nep") -}}
+	{{- /* Nepali */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "no")
+	| or (eq $ret "nor") -}}
+	{{- /* Norwegian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "nb")
+	| or (eq $ret "nob") -}}
+	{{- /* Norwegian Bokmål */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "nn")
+	| or (eq $ret "nno") -}}
+	{{- /* Norwegian Nynorsk */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ii")
+	| or (eq $ret "iii") -}}
+	{{- /* Sichuan Yi, Nuosu */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "oc")
+	| or (eq $ret "oci") -}}
+	{{- /* Occitan */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "oj")
+	| or (eq $ret "oji") -}}
+	{{- /* Ojibwa */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "or")
+	| or (eq $ret "ori") -}}
+	{{- /* Oriya */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "om")
+	| or (eq $ret "orm") -}}
+	{{- /* Oromo */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "os")
+	| or (eq $ret "oss") -}}
+	{{- /* Ossetian, Ossetic */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "pi")
+	| or (eq $ret "pli") -}}
+	{{- /* Pali */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ps")
+	| or (eq $ret "pus") -}}
+	{{- /* Pashto, Pushto */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "fa")
+	| or (eq $ret "fas")
+	| or (eq $ret "per") -}}
+	{{- /* Persian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "pl")
+	| or (eq $ret "pol") -}}
+	{{- /* Polish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "pt")
+	| or (eq $ret "por") -}}
+	{{- /* Portuguese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "pa")
+	| or (eq $ret "pan") -}}
+	{{- /* Punjabi, Panjabi */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "qu")
+	| or (eq $ret "que") -}}
+	{{- /* Quechua */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ro")
+	| or (eq $ret "ron")
+	| or (eq $ret "rum") -}}
+	{{- /* Romanian, Moldavian, Moldovan */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "rm")
+	| or (eq $ret "roh") -}}
+	{{- /* Romansh */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "rn")
+	| or (eq $ret "run") -}}
+	{{- /* Rundi */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ru")
+	| or (eq $ret "rus") -}}
+	{{- /* Russian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "se")
+	| or (eq $ret "sme") -}}
+	{{- /* Northern Sami */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sm")
+	| or (eq $ret "smo") -}}
+	{{- /* Samoan */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sg")
+	| or (eq $ret "sag") -}}
+	{{- /* Sango */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sa")
+	| or (eq $ret "san") -}}
+	{{- /* Sanskrit */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sc")
+	| or (eq $ret "srd") -}}
+	{{- /* Sardinian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sr")
+	| or (eq $ret "srp") -}}
+	{{- /* Serbian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sn")
+	| or (eq $ret "sna") -}}
+	{{- /* Shona */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sd")
+	| or (eq $ret "snd") -}}
+	{{- /* Sindhi */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "si")
+	| or (eq $ret "sin") -}}
+	{{- /* Sinhala, Sinhalese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sk")
+	| or (eq $ret "slk")
+	| or (eq $ret "slo") -}}
+	{{- /* Slovak */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sl")
+	| or (eq $ret "slv") -}}
+	{{- /* Slovenian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "so")
+	| or (eq $ret "som") -}}
+	{{- /* Somali */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "st")
+	| or (eq $ret "sot") -}}
+	{{- /* Southern Sotho */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "es")
+	| or (eq $ret "spa") -}}
+	{{- /* Spanish, Castilian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "su")
+	| or (eq $ret "sun") -}}
+	{{- /* Sundanese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sw")
+	| or (eq $ret "swa") -}}
+	{{- /* Swahili */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ss")
+	| or (eq $ret "ssw") -}}
+	{{- /* Swati */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "sv")
+	| or (eq $ret "swe") -}}
+	{{- /* Swedish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "tl")
+	| or (eq $ret "tgl") -}}
+	{{- /* Tagalog */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ty")
+	| or (eq $ret "tah") -}}
+	{{- /* Tahitian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "tg")
+	| or (eq $ret "tgk") -}}
+	{{- /* Tajik */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ta")
+	| or (eq $ret "tam") -}}
+	{{- /* Tamil */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "tt")
+	| or (eq $ret "tat") -}}
+	{{- /* Tatar */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "te")
+	| or (eq $ret "tel") -}}
+	{{- /* Telugu */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "th")
+	| or (eq $ret "tha") -}}
+	{{- /* Thai */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "bo")
+	| or (eq $ret "bod")
+	| or (eq $ret "tib") -}}
+	{{- /* Tibetan */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ti")
+	| or (eq $ret "tir") -}}
+	{{- /* Tigrinya */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "to")
+	| or (eq $ret "ton") -}}
+	{{- /* Tonga (Tonga Islands) */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ts")
+	| or (eq $ret "tso") -}}
+	{{- /* Tsonga */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "tn")
+	| or (eq $ret "tsn") -}}
+	{{- /* Tswana */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "tr")
+	| or (eq $ret "tur") -}}
+	{{- /* Turkish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "tk")
+	| or (eq $ret "tuk") -}}
+	{{- /* Turkmen */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "tw")
+	| or (eq $ret "twi") -}}
+	{{- /* Twi */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ug")
+	| or (eq $ret "uig") -}}
+	{{- /* Uighur, Uyghur */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "uk")
+	| or (eq $ret "ukr") -}}
+	{{- /* Ukrainian */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ur")
+	| or (eq $ret "urd") -}}
+	{{- /* Urdu */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "uz")
+	| or (eq $ret "uzb") -}}
+	{{- /* Uzbek */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "ve")
+	| or (eq $ret "ven") -}}
+	{{- /* Venda */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "vi")
+	| or (eq $ret "vie") -}}
+	{{- /* Vietnamese */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "vo")
+	| or (eq $ret "vol") -}}
+	{{- /* Volapük */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "wa")
+	| or (eq $ret "wln") -}}
+	{{- /* Walloon */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "cy")
+	| or (eq $ret "cym")
+	| or (eq $ret "wel") -}}
+	{{- /* Welsh */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "wo")
+	| or (eq $ret "wol")
+	| or (eq $ret "wol") -}}
+	{{- /* Wolof */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "xh")
+	| or (eq $ret "xho")
+	| or (eq $ret "xho") -}}
+	{{- /* Xhosa */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "yi")
+	| or (eq $ret "yid") -}}
+	{{- /* Yiddish */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "yo")
+	| or (eq $ret "yor") -}}
+	{{- /* Yoruba */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "za")
+	| or (eq $ret "zha") -}}
+	{{- /* Zhuang, Chuang */ -}}
+	{{- $dataList = true -}}
+
+{{- else if (eq $ret "zu")
+	| or (eq $ret "zul") -}}
+	{{- /* Zulu */ -}}
+	{{- $dataList = true -}}
+
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

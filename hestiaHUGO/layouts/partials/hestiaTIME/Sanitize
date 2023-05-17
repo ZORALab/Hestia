@@ -1,0 +1,114 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = data in 'Mon 02 Jan 2006 15:04:05 PM -07' format (string) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $error := "" -}}
+{{- $now := now -}}
+{{- $ret := false -}}
+{{- $data := false -}}
+
+
+
+
+{{- /* sanitize .Input.Data */ -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string (default "" .Input.Data)) -}}
+{{- if $dataList -}}
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+	{{- if $dataList.Error -}}
+		{{- $error = printf "time: %s" $dataList.Error -}}
+	{{- end -}}
+	{{- $dataList = $dataList.Output -}}
+{{- else -}}
+	{{- $error = printf "time: missing/bad .Input.Data.\n" -}}
+{{- end -}}
+
+
+
+
+{{- /* initialize .Time data type */ -}}
+{{- if $dataList -}}
+	{{- $ret = split $dataList " " -}}
+	{{- if eq (len $ret) 7 -}}
+		{{- $data = dict
+			"Day" (index $ret 1)
+			"Month" (index $ret 2)
+			"Year" (index $ret 3)
+			"Time" (index $ret 4)
+			"Zone" (index $ret 6)
+		-}}
+
+		{{- if eq (upper $data.Month) "JAN" -}}
+			{{- $data = merge $data (dict "Month" "01") -}}
+		{{- else if eq (upper $data.Month) "FEB" -}}
+			{{- $data = merge $data (dict "Month" "02") -}}
+		{{- else if eq (upper $data.Month) "MAR" -}}
+			{{- $data = merge $data (dict "Month" "03") -}}
+		{{- else if eq (upper $data.Month) "APR" -}}
+			{{- $data = merge $data (dict "Month" "04") -}}
+		{{- else if eq (upper $data.Month) "MAY" -}}
+			{{- $data = merge $data (dict "Month" "05") -}}
+		{{- else if eq (upper $data.Month) "JUN" -}}
+			{{- $data = merge $data (dict "Month" "06") -}}
+		{{- else if eq (upper $data.Month) "JUL" -}}
+			{{- $data = merge $data (dict "Month" "07") -}}
+		{{- else if eq (upper $data.Month) "AUG" -}}
+			{{- $data = merge $data (dict "Month" "08") -}}
+		{{- else if eq (upper $data.Month) "SEP" -}}
+			{{- $data = merge $data (dict "Month" "09") -}}
+		{{- else if eq (upper $data.Month) "OCT" -}}
+			{{- $data = merge $data (dict "Month" "10") -}}
+		{{- else if eq (upper $data.Month) "NOV" -}}
+			{{- $data = merge $data (dict "Month" "11") -}}
+		{{- else if eq (upper $data.Month) "DEC" -}}
+			{{- $data = merge $data (dict "Month" "12") -}}
+		{{- else -}}
+			{{- $data = merge $data (dict "Month" "01") -}}
+		{{- end -}}
+
+		{{- $ret = printf "%s-%s-%sT%s%s:00"
+			$data.Year
+			$data.Month
+			$data.Day
+			$data.Time
+			$data.Zone
+		-}}
+
+		{{- $dataList = time $ret -}}
+	{{- else -}}
+		{{- if not $error -}}
+			{{- $error = printf "time: incompatible format '%v'.\n" $dataList -}}
+			{{- $dataList = $now -}}
+		{{- end -}}
+	{{- end -}}
+{{- else -}}
+	{{- $dataList = $now -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

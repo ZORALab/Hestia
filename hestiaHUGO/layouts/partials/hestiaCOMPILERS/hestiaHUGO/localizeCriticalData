@@ -1,0 +1,250 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Unprocessed Page data in Hestia Data Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $Local := dict -}}
+{{- $location := dict -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse local page config file */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory "__page.toml" -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- $Local = $Local.Output -}}
+{{- if not $Local -}}
+	{{- $Local = dict
+		"Data" slice
+		"Description" dict
+		"Keywords" slice
+		"Redirect" dict
+		"Date" dict
+		"Sources" dict
+	-}}
+{{- end -}}
+
+
+
+
+{{- /* source .Sources */ -}}
+{{- $data = default dict $Local.Sources -}}
+
+
+{{- $ret = default "__content.hestiaHTML" $data.HTML -}}
+{{- $Page = merge $Page (dict
+	"Content" (dict
+		"HTML" (default "__content.hestiaHTML" $data.HTML)
+		"JSON" (default "__content.hestiaJSON" $data.JSON)
+	)
+	"LDJSON" (default "__content.hestiaLDJSON" $data.LDJSON)
+) -}}
+
+
+{{- $location = merge $location (dict
+	"Contributors" (default "__contributors.toml" $data.Contributors)
+	"Thumbnails" (default "__thumbnails.toml" $data.Thumbnails)
+	"Languages" (default "__languages.toml" $data.Languages)
+) -}}
+
+
+
+
+{{- /* source .Time */ -}}
+{{- if $Local.Date -}}
+	{{- $ret = index $Local.Date "Created" -}}
+	{{- if $ret -}}
+		{{- $Page = merge $Page (dict "Time" (dict "Created" $ret)) -}}
+	{{- end -}}
+
+
+	{{- $ret = index $Local.Date "Published" -}}
+	{{- if $ret -}}
+		{{- $Page = merge $Page (dict "Time" (dict "Published" $ret)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Data */ -}}
+{{- range $i, $v := (default slice $Local.Data) -}}
+	{{- $ret = printf "%s/%s" $Page.Filesystem.Directory $v.Filename -}}
+	{{- $Page = merge $Page (dict "Data" (dict "Page" (dict (string $i) $ret))) -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Titles.Page */ -}}
+{{- if index $Local "Content" -}}
+	{{- $ret = index $Local.Content "Title" -}}
+	{{- if $ret -}}
+		{{- $Page = merge $Page (dict "Titles" (dict "Page" $ret)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Description */ -}}
+{{- $data = index $Local "Description" -}}
+{{- if $data -}}
+	{{- $ret = index $data "Pitch" -}}
+	{{- if $ret -}}
+		{{- $Page = merge $Page
+			(dict "Descriptions" (dict "Page" (dict "Pitch" $ret))) -}}
+	{{- end -}}
+
+
+	{{- $ret = index $data "Summary" -}}
+	{{- if $ret -}}
+		{{- $Page = merge $Page
+			(dict "Descriptions" (dict "Page" (dict "Summary" $ret))) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Redirect */ -}}
+{{- $data = index $Local "Redirect" -}}
+{{- if $data -}}
+	{{- $Page = merge $Page (dict "Redirect" (dict
+		"Delay" (default 0 $data.Delay)
+		"URL" (default "" $data.URL)
+		"Enabled" (default false $data.Enabled)
+	)) -}}
+
+
+	{{- $data = index $data "Language" -}}
+	{{- if $data -}}
+		{{- $Page = merge $Page (dict "Redirect" (dict
+			"Language" (dict "Enabled" (default false $data.Enabled))
+		)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Keywords */ -}}
+{{- $data = default dict (index $Local "Content") -}}
+{{- range $i, $v := (default slice $data.Keywords) -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $Page = merge $Page (dict "Keywords" (dict "List" (dict (string $i) $v))) -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Thumbnails */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory $location.Thumbnails -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- if $Local.Error -}}
+	{{- $Local = slice -}}
+{{- else -}}
+	{{- $Local = index $Local.Output "Contents" -}}
+	{{- if not $Local -}}
+		{{- $Local = slice -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- range $i, $v := $Local -}}
+	{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/_parseMedia" $v -}}
+	{{- if $ret -}}
+		{{- $Page = merge $Page (dict "Thumbnails" (dict (lower $i) false)) -}}
+		{{- $Page = merge $Page (dict "Thumbnails" (dict (lower $i) $ret)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Languages */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory $location.Languages -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- $Local = $Local.Output -}}
+
+
+{{- range $k, $v := $Local -}}
+	{{- $ret = index $v "URL" -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $Page = merge $Page (dict "Languages" (dict "List"
+		(dict (string $k) (dict "URL" (dict "PAGE" (urls.Parse $ret)))
+	))) -}}
+{{- end -}}
+
+
+
+
+{{- /* source .Contributors */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory $location.Contributors -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- if index $Local.Output "Contributors" -}}
+	{{- $Local = $Local.Output.Contributors -}}
+{{- else -}}
+	{{- $Local = dict -}}
+{{- end -}}
+
+
+{{- range $k, $v := $Local -}}
+	{{- if not (index $v "Key") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not (index $v "Contribution") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- /* extract creator data */ -}}
+	{{- range $j, $w := $Page.Constants.Contributors.Roles -}}
+		{{- $ret = false -}}
+		{{- if index $v.Contribution $w -}}
+			{{- $ret = true -}}
+		{{- end -}}
+		{{- $ret = dict $w $ret -}}
+
+		{{- $Page = merge $Page (dict "Contributors" (dict "Page"
+			(dict $v.Key (dict "Contribution" $ret))
+		)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

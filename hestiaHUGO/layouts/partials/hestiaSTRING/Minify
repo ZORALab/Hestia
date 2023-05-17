@@ -1,0 +1,94 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = data for compression (string) */ -}}
+{{- /* .Input.Type = compressor mime type (string - mime) */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $error := "" -}}
+{{- $filename := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* validate .Input.Data */ -}}
+{{- $dataList = default "" .Input.Data -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf "Minify: data: %s" $ret.Error -}}
+{{- end -}}
+{{- $dataList = $ret.Output -}}
+
+
+
+
+{{- /* validate .Input.Type */ -}}
+{{- $filename = default "" .Input.Type -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" $filename)) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- if not $error -}}
+		{{- $error = printf "Minify: type: %s" $ret.Error -}}
+	{{- end -}}
+{{- end -}}
+{{- $filename = $ret.Output -}}
+
+
+
+
+{{- /* process filename by type */ -}}
+{{- if partial "hestiaMIME/IsJavascript" $filename -}}
+	{{- $filename = printf "deletable-content-%s.js" (sha256 now) -}}
+{{- else if partial "hestiaMIME/IsCSS" $filename -}}
+	{{- $filename = printf "deletable-content-%s.min.css" (sha256 now) -}}
+{{- else if partial "hestiaMIME/IsHTML" $filename -}}
+	{{- $filename = printf "deletable-content-%s.html" (sha256 now) -}}
+{{- else if partial "hestiaMIME/IsJSON" $filename -}}
+	{{- $filename = printf "deletable-content-%s.json" (sha256 now) -}}
+{{- else if partial "hestiaMIME/IsSVG" $filename -}}
+	{{- $filename = printf "deletable-content-%s.svg" (sha256 now) -}}
+{{- else if partial "hestiaMIME/IsXML" $filename -}}
+	{{- $filename = printf "deletable-content-%s.xml" (sha256 now) -}}
+{{- else -}}
+	{{- if not $error -}}
+		{{- $error = printf "Minify: unsupported type '%v'.\n" $filename -}}
+		{{- $filename = "" -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- if and (and $dataList $filename) (not $error) -}}
+	{{- $dataList = resources.FromString $filename $dataList -}}
+	{{- $dataList = resources.Minify $dataList -}}
+	{{- $dataList = $dataList.Content -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

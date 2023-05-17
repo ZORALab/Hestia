@@ -1,0 +1,242 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $source := dict -}}
+{{- $list := slice -}}
+{{- $imageList := slice -}}
+{{- $image := false -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* construct data structure */ -}}
+{{- $dataList = dict
+	"id" .PWA.Name.ID
+	"name" .PWA.Name.Full
+	"lang" .Languages.Current.Code
+	"background_color" .PWA.Colors.Background
+	"description" .PWA.Descriptions.Pitch
+	"start_url" (string .PWA.URL.Base)
+	"theme_color" .PWA.Colors.Main
+	"orientation" .PWA.Display.Orientation
+	"short_name" .PWA.Name.Short
+	"scope" (string .PWA.URL.Scope)
+-}}
+
+
+{{- if .PWA.Categories -}}
+	{{- $list = slice -}}
+
+	{{- range $i, $v := .PWA.Categories -}}
+		{{- $ret = string $v -}}
+		{{- $list = append $ret $list -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict "categories" $list) -}}
+{{- end -}}
+
+
+{{- if .PWA.Display -}}
+	{{- $ret = string .PWA.Display.Main -}}
+	{{- $dataList = merge $dataList (dict "display" $ret) -}}
+
+	{{- $list = slice -}}
+	{{- range $i, $v := .PWA.Display.Overrides -}}
+		{{- $ret = string $v -}}
+		{{- $list = append $ret $list -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict "display_override" $list) -}}
+{{- end -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := .PWA.Icons -}}
+	{{- if not (hasPrefix $v.Name "icon") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $source = index $v.Sources "0" -}}
+
+	{{- if eq $v.Sizes "192x192" -}}
+	{{- else if eq $v.Sizes "384x384" -}}
+	{{- else if eq $v.Sizes "512x512" -}}
+	{{- else if eq $v.Sizes "1024x1024" -}}
+	{{- else if hasPrefix $source.Type "image/svg" -}}
+	{{- else -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $data = dict -}}
+
+	{{- $ret = string $source.URL -}}
+	{{- $data = merge $data (dict "src" $ret) -}}
+
+	{{- $ret = string $source.Type -}}
+	{{- $data = merge $data (dict "type" $ret) -}}
+
+	{{- if eq $i "VECTOR" -}}
+		{{- $ret = "any" -}}
+	{{- else -}}
+		{{- $ret = string $v.Sizes -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "sizes" $ret) -}}
+
+	{{- $ret = string $v.Design -}}
+	{{- $data = merge $data (dict "purpose" $ret) -}}
+
+	{{- $list = append $data $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "icons" $list) -}}
+
+
+{{- if .PWA.Protocols -}}
+	{{- $list = slice -}}
+
+	{{- range $i, $v := .PWA.Protocols -}}
+		{{- $data = dict -}}
+
+		{{- $ret = string $v.Protocol -}}
+		{{- $data = merge $data (dict "protocol" $ret) -}}
+
+		{{- $ret = string $v.URL -}}
+		{{- $data = merge $data (dict "url" $ret) -}}
+
+		{{- $list = append $data $list -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict "protocol_handlers" $list) -}}
+{{- end -}}
+
+
+{{- if .PWA.Relations.List -}}
+	{{- $list = slice -}}
+
+	{{- range $i, $v := .PWA.Relations.List -}}
+		{{- $data = dict -}}
+
+		{{- $ret = string $v.Platform -}}
+		{{- $data = merge $data (dict "platform" $ret) -}}
+
+		{{- $ret = string $v.URL -}}
+		{{- $data = merge $data (dict "url" $ret) -}}
+
+		{{- $ret = string $v.ID -}}
+		{{- $data = merge $data (dict "id" $ret) -}}
+
+		{{- $list = append $data $list -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict
+		"related_applications" $list
+		"prefer_related_applications" .PWA.Relations.PreferInstall
+	) -}}
+{{- end -}}
+
+
+{{- if .PWA.Screenshots -}}
+	{{- $list = slice -}}
+
+	{{- range $i, $v := .PWA.Screenshots -}}
+		{{- $source = index $v.Sources "0" -}}
+		{{- $data = dict -}}
+
+		{{- $ret = string $source.URL -}}
+		{{- $data = merge $data (dict "src" $ret) -}}
+
+		{{- $ret = string $v.Sizes -}}
+		{{- $data = merge $data (dict "sizes" $ret) -}}
+
+		{{- $ret = string $source.Type -}}
+		{{- $data = merge $data (dict "type" $ret) -}}
+
+		{{- $ret = string $v.Relationship -}}
+		{{- $data = merge $data (dict "platform" $ret) -}}
+
+		{{- $ret = string $v.Name -}}
+		{{- $data = merge $data (dict "label" $ret) -}}
+
+		{{- $list = append $data $list -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict "screenshots" $list) -}}
+{{- end -}}
+
+
+{{- if .PWA.Shortcuts -}}
+	{{- $list = slice -}}
+
+	{{- range $i, $v := .PWA.Shortcuts -}}
+		{{- $data = dict -}}
+
+		{{- $ret = string $v.Name.Full -}}
+		{{- $data = merge $data (dict "name" $ret) -}}
+
+		{{- $ret = string $v.Name.Short -}}
+		{{- $data = merge $data (dict "short_name" $ret) -}}
+
+		{{- $ret = string $v.Description -}}
+		{{- $data = merge $data (dict "description" $ret) -}}
+
+		{{- $ret = string $v.URL -}}
+		{{- $data = merge $data (dict "url" $ret) -}}
+
+		{{- $imageList = slice -}}
+		{{- range $j, $w := $v.Icons -}}
+			{{- $source = index $w.Sources "0" -}}
+			{{- $image = dict -}}
+
+			{{- $ret = string $source.URL -}}
+			{{- $image = merge $image (dict "src" $ret) -}}
+
+			{{- $ret = string $w.Sizes -}}
+			{{- $image = merge $image (dict "sizes" $ret) -}}
+
+			{{- $ret = string $source.Type -}}
+			{{- $image = merge $image (dict "type" $ret) -}}
+
+			{{- $ret = string $w.Design -}}
+			{{- $image = merge $image (dict "purpose" $ret) -}}
+
+			{{- $imageList = append $image $imageList -}}
+		{{- end -}}
+
+		{{- if $imageList -}}
+			{{- $data = merge $data (dict "icons" $imageList) -}}
+		{{- end -}}
+
+		{{- $list = append $data $list -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict "shortcuts" $list) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}

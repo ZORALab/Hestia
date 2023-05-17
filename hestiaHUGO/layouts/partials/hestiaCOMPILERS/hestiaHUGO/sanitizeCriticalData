@@ -1,0 +1,926 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $error := "" -}}
+{{- $dataList := dict -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process .Time */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := $Page.Time -}}
+	{{- /* process time data */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaTIME/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Time.%v: %v" (title (lower $k)) $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+	{{- $data = dict "HUGO" $ret -}}
+	{{- $data = merge $data
+		(dict "UNIX" $ret.UnixNano) -}}
+	{{- $data = merge $data
+		(dict "ID" ($ret.Format "200601021504050700")) -}}
+	{{- $data = merge $data
+		(dict "RFC3339" ($ret.Format "2006-01-02T15:04:05Z07:00")) -}}
+	{{- $data = merge $data
+		(dict "RFC1123Z" ($ret.Format "Mon, 02 Jan 2006 15:04:05 -0700")) -}}
+	{{- $data = merge $data
+		(dict "ISO8601" ($ret.Format "2006-01-02T15:04:05-07:00")) -}}
+	{{- $data = merge $data
+		(dict "LONG" ($ret.Format "Monday, January 02, 2006 15:04:05 -07:00")) -}}
+	{{- $data = merge $data
+		(dict "Year" ($ret.Format "2006")) -}}
+	{{- $data = merge $data
+		(dict "Month" ($ret.Format "01")) -}}
+	{{- $data = merge $data
+		(dict "Day" ($ret.Format "02")) -}}
+	{{- $data = merge $data
+		(dict "HH::MM::SS" ($ret.Format "15:04:05")) -}}
+	{{- $data = merge $data
+		(dict "GMT" ($ret.Format "-07:00")) -}}
+
+	{{- $dataList = merge $dataList (dict (title (lower $k)) $data) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Time" false) -}}
+{{- $Page = merge $Page (dict "Time" $dataList) -}}
+
+
+
+
+{{- /* process .Format */ -}}
+{{- $dataList := dict -}}
+{{- range $k, $v := $Page.Formats -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process .Type */ -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $v.Type -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaMIME/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Formats.%v.Type: %s" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+	{{- $data = merge $data (dict "Type" $ret) -}}
+
+
+	{{- /* process .Extension */ -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $v.Extension -}}
+	{{- if not (hasPrefix $ret ".") -}}
+		{{- $ret = printf ".%s" $ret -}}
+	{{- end -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Formats.%v.Extension: %s" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+	{{- $data = merge $data (dict "Extension" $ret) -}}
+
+
+	{{- /* process .Filename */ -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $v.Filename -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Formats.%v.Filename: %s" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- else -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Filename" $ret) -}}
+
+
+	{{- /* process .Protocol */ -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $v.Protocol -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Formats.%v.Protocol: %s" $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- $ret = "http://" -}}
+	{{- else -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Protocol" (lower $ret)) -}}
+
+
+	{{- /* process .Relationship */ -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $v.Relationship -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Formats.%v.Relationship: %s" $ret.Error.Message -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- $ret = "alternate" -}}
+	{{- else -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Relationship" (lower $ret)) -}}
+
+
+	{{- /* process .Marshallable */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Marshallable)) -}}
+	{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Formats.%v.Marshallable: %s" $ret.Error.Message -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Marshallable" $ret.Output) -}}
+
+
+	{{- /* merge to $dataList */ -}}
+	{{- $dataList = merge $dataList (dict (upper (string $k)) $data) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Formats" false) -}}
+{{- $Page = merge $Page (dict "Formats" $dataList) -}}
+
+
+
+
+{{- /* process .URL.Base */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.URL.Base)) -}}
+{{- $dataList = partial "hestiaURL/Sanitize" $dataList -}}
+{{- $Page = merge $Page (dict "URL" (dict "Base" false)) -}}
+{{- $Page = merge $Page (dict "URL" (dict "Base" $dataList.Output)) -}}
+
+
+
+
+{{- /* process .URL.Current.Absolute */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.URL.Current.Absolute)) -}}
+{{- $dataList = partial "hestiaURL/Sanitize" $dataList -}}
+{{- $Page = merge $Page (dict "URL" (dict "Current" (dict "Absolute" false))) -}}
+{{- $Page = merge $Page (dict "URL" (dict "Current" (dict "Absolute" $dataList.Output))) -}}
+
+
+
+
+{{- /* process .Languages.List */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := $Page.Languages.List -}}
+	{{- /* process .Code and .ID */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $k)) -}}
+	{{- $ret = partial "hestiaI18N/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Languages.List: '%v' -> %v" $k $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+	{{- $data = dict "Code" $ret "ID" (partial "hestiaI18N/ToID" $ret) -}}
+
+
+	{{- /* process .Name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Languages.List.%v.Name: %v" $data.ID $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict "Name" $ret) -}}
+
+
+	{{- /* process .Directory */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Directory)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Languages.List.%v.Directory: %v" $data.ID $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict "Directory" $ret) -}}
+
+
+	{{- /* process .Direction */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Direction)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Languages.List.%v.Direction: %v" $data.ID $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict "Direction" $ret) -}}
+
+
+	{{- /* process .Default */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Default)) -}}
+	{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Languages.List.%v.Default: %v" $data.ID $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Default" $ret.Output) -}}
+
+
+	{{- /* process .URL  */ -}}
+	{{- range $j, $w := (slice "PAGE" "ERROR_404" "HOME") -}}
+		{{- $ret = index $v.URL $w -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf "Languages.List.%v.URL.%v: %v"
+				$data.ID
+				$w
+				$ret.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- end -}}
+		{{- $data = merge $data (dict "URL" (dict $w $ret.Output)) -}}
+	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict $data.ID $data) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Languages" (dict "List" false)) -}}
+{{- $Page = merge $Page (dict "Languages" (dict "List" $dataList)) -}}
+
+
+{{- $dataList = dict -}}
+{{- range $k, $v := $Page.Languages.List -}}
+	{{- if $v.Default -}}
+		{{- $dataList = merge $dataList (dict "Default" $v) -}}
+	{{- end -}}
+
+	{{- if hasPrefix $Page.Filesystem.Directory $v.Directory -}}
+		{{- $dataList = merge $dataList (dict "Current" $v) -}}
+	{{- else if and (not $dataList) $v.Default -}}
+		{{- $dataList = merge $dataList (dict "Current" $v) -}}
+		{{- $ret = $v -}}
+	{{- else -}}
+		{{- $dataList = merge $dataList (dict "Alternatives" (dict $k $v)) -}}
+	{{- end -}}
+{{- end -}}
+{{- if not $dataList.Current -}}
+	{{- $dataList = merge $dataList (dict "Current" $dataList.Default) -}}
+{{- end -}}
+
+{{- $Page = merge $Page (dict "Languages" (dict
+	"Current" false
+	"Default" false
+	"Alternatives" false
+)) -}}
+{{- $Page = merge $Page (dict "Languages" $dataList) -}}
+
+
+
+
+{{- /* process .Titles.Site */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := $Page.Titles.Site.List -}}
+	{{- $data = dict -}}
+	{{- range $j, $w := (slice "Full" "Short" "ID" "SKU") -}}
+		{{- $ret = index $v $w -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf ".Titles.Site.%v.%v: %s"
+				(upper $k)
+				$w
+				$ret.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- end -}}
+		{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+		{{- $data = merge $data (dict $w $ret) -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict (upper $k) $data) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Site" (dict "List" false))) -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Site" (dict "List" $dataList))) -}}
+
+
+
+
+{{- /* process .Titles.Current */ -}}
+{{- $dataList = index $Page.Titles.Site.List $Page.Languages.Current.ID -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Current" false)) -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Current" $dataList)) -}}
+
+
+
+
+{{- /* process .Titles.Default */ -}}
+{{- $dataList = index $Page.Titles.Site.List $Page.Languages.Default.ID -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Default" false)) -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Default" $dataList)) -}}
+
+
+
+
+{{- /* process .Titles.Page */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.Titles.Page)) -}}
+{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Titles.Page: %s" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Page" false)) -}}
+{{- $Page = merge $Page (dict "Titles" (dict "Page" $dataList)) -}}
+
+
+
+
+{{- /* process .Descriptions.Site */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := $Page.Descriptions.Site -}}
+	{{- range $j, $w := (slice "Pitch" "Summary") -}}
+		{{- $ret = index $v $w -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf ".Descriptions.Site.%v.%v: %v"
+				(upper $k)
+				$w
+				$dataList.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- end -}}
+		{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+		{{- $ret = replace $ret "\r\n" " " -}}
+		{{- $ret = replace $ret "\n" " " -}}
+		{{- $dataList = merge $dataList (dict (upper $k) (dict $w $ret)) -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Site" false)) -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Site" $dataList)) -}}
+
+
+
+
+{{- /* process .Descriptions.Current */ -}}
+{{- $dataList = index $Page.Descriptions.Site $Page.Languages.Current.ID -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Site" (dict "Current" false))) -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Site" (dict "Current" $dataList))) -}}
+
+
+
+
+{{- /* process .Descriptions.Default */ -}}
+{{- $dataList = index $Page.Descriptions.Site $Page.Languages.Default.ID -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Site" (dict "Default" false))) -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Site" (dict "Default" $dataList))) -}}
+
+
+
+
+{{- /* process .Descriptions.Page */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := (slice "Pitch" "Summary") -}}
+	{{- $ret = index $Page.Descriptions.Page $v -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Descriptions.Page.%v: %v" $v $dataList.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $ret = replace $ret "\r\n" " " -}}
+	{{- $ret = replace $ret "\n" " " -}}
+	{{- $dataList = merge $dataList (dict $v $ret) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Page" false)) -}}
+{{- $Page = merge $Page (dict "Descriptions" (dict "Page" $dataList)) -}}
+
+
+
+
+{{- /* process .Keywords */ -}}
+{{- $data = dict -}}
+{{- range $i, $v := .Keywords.List -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Keywords '%v': %v" $v $dataList.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $ret = replace $ret "\r\n" " " -}}
+	{{- $ret = replace $ret "\n" " " -}}
+	{{- $data = merge $data (dict $ret true) -}}
+{{- end -}}
+
+
+{{- $ret = 0 -}}
+{{- $dataList = dict -}}
+{{- range $v, $i := $data -}}
+	{{- $dataList = merge $dataList (dict (string $ret) $v) -}}
+	{{- $ret = add $ret 1 -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Keywords" (dict "List" false)) -}}
+{{- $Page = merge $Page (dict "Keywords" (dict "List" $dataList)) -}}
+
+
+
+
+{{- /* process .Redirect.URL */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" (default "" $Page.Redirect.URL))) -}}
+{{- $dataList = partial "hestiaURL/Sanitize" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Redirect.URL: %v" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "URL" false)) -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "URL" $dataList.Output)) -}}
+
+
+
+
+{{- /* process .Redirect.Delay */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" (default 0 $Page.Redirect.Delay))) -}}
+{{- $dataList = partial "hestiaMATH/SanitizeNumber" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Redirect.Delay: %v" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "Delay" false)) -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "Delay" $dataList.Output)) -}}
+
+
+
+
+{{- /* process .Redirect.Enabled */ -}}
+{{- $dataList = false -}}
+{{- if $Page.Redirect.Enabled -}}
+	{{- $dataList = true -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "Enabled" false)) -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "Enabled" $dataList)) -}}
+
+
+
+
+{{- /* process .Redirect.Language.Enabled */ -}}
+{{- $dataList = false -}}
+{{- if $Page.Redirect.Language.Enabled -}}
+	{{- $dataList = true -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "Language" (dict "Enabled" false))) -}}
+{{- $Page = merge $Page (dict "Redirect" (dict "Language" (dict "Enabled" $dataList))) -}}
+
+
+
+
+{{- /* process .Thumbnails */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := $Page.Thumbnails -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Thumbnails.%v: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict (string $i) $ret.Output) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Thumbnails" false) -}}
+{{- $Page = merge $Page (dict "Thumbnails" $dataList) -}}
+
+
+
+
+{{- /* process .Contributors.Site */ -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/loadContributors" $Page -}}
+{{- if or .IsRoot (not $dataList) -}}
+	{{- $dataList = dict -}}
+	{{- range $k, $v := $Page.Contributors.Site -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+		{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf ".Contributors.%v: %v" $k $ret.Error -}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $dataList = merge $dataList (dict $k $ret.Output) -}}
+	{{- end -}}
+
+	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+	{{- partial "hestiaCOMPILERS/hestiaHUGO/saveContributors" $dataList -}}
+	{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/loadContributors" $Page -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Contributors" false) -}}
+{{- $Page = merge $Page (dict "Contributors" (dict "Site" $dataList)) -}}
+
+
+
+
+{{- /* process .Contributors.Page */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := .Contributors.Page -}}
+	{{- $data = index $Page.Contributors.Site $k -}}
+	{{- if not $data -}}
+		{{- $error = printf ".Contributors.Page: unknown entity '%v'.\n" $k -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (index $v "Contribution") -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- /* process .Contribution */ -}}
+	{{- range $j, $w := $Page.Constants.Contributors.Roles -}}
+		{{- $ret = index $v.Contribution $w -}}
+		{{- if not $ret -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf ".Contributors.Page.%v.Contribution.%v: %v"
+				$k
+				$w
+				$ret.Error.Message
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = $ret.Output -}}
+
+		{{- if $ret -}}
+			{{- $data = merge $data (dict $w (dict "Current" $ret)) -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict $k $data) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Contributors" (dict "Page" false)) -}}
+{{- $Page = merge $Page (dict "Contributors" (dict "Page" $dataList)) -}}
+
+
+
+
+{{- /* process .Robots.List */ -}}
+{{- $dataList = dict -}}
+{{- range $i, $v := $Page.Robots.List -}}
+	{{- /* process .Name */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Robots.%v.Name: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $data = dict "Name" $ret.Output -}}
+
+
+	{{- /* process .Content */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Content)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "Robots.%v.Content: %v" $i $ret.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Content" $ret.Output) -}}
+
+
+	{{- /* append to list */ -}}
+	{{- if not (and $data.Name $data.Content) -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Robots" (dict "List" false)) -}}
+{{- $Page = merge $Page (dict "Robots" (dict "List" $dataList)) -}}
+
+
+
+
+{{- /* process .Vendors.GoHugo */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.Vendors.GoHugo.Version)) -}}
+{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Vendors.GoHugo.Version: %v" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "GoHugo" (dict "Version" false))) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "GoHugo" (dict "Version" $dataList))) -}}
+
+
+
+
+{{- /* process .Vendors.ZORALab */ -}}
+{{- $dataList = merge $Page (dict "Input"
+	(dict "Data" $Page.Vendors.ZORALab.Hestia.Version)
+) -}}
+{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Vendors.ZORALab.Hestia.Version: %v" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "ZORALab"
+	(dict "Hestia" (dict "Version" false))
+)) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "ZORALab"
+	(dict "Hestia" (dict "Version" $dataList))
+)) -}}
+
+
+
+
+{{- /* process .Vendors.Google */ -}}
+{{- $dataList = merge $Page (dict "Input"
+	(dict "Data" $Page.Vendors.Google.Analytics4.Tag)
+) -}}
+{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Vendors.Google.Analytics4.Tag: %v" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Google"
+	(dict "Analytics4" (dict "Tag" false))
+)) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Google"
+	(dict "Analytics4" (dict "Tag" $dataList))
+)) -}}
+
+
+
+
+{{- /* process .Vendors.Twitter */ -}}
+{{- $dataList = merge $Page (dict "Input" (dict "Data" $Page.Vendors.Twitter.Site.Handle)) -}}
+{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Vendors.Twitter.Site.Handle: %v" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+{{- $dataList = strings.TrimPrefix "@" $dataList -}}
+{{- if $dataList -}}
+	{{- $dataList = printf "@%s" $dataList -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Site" (dict "Handle" false))
+)) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Site" (dict "Handle" $dataList))
+)) -}}
+
+
+{{- $dataList = merge $Page (dict "Input" (dict "Data"
+	$Page.Vendors.Twitter.Creator.Handle
+)) -}}
+{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+{{- if $dataList.Error -}}
+	{{- $error = printf ".Vendors.Twitter.Creator.Handle: %v" $dataList.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
+	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+{{- end -}}
+{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+{{- $dataList = strings.TrimPrefix "@" $dataList -}}
+{{- if $dataList -}}
+	{{- $dataList = printf "@%s" $dataList -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Creator" (dict "Handle" false))
+)) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Creator" (dict "Handle" $dataList))
+)) -}}
+
+
+{{- $dataList = dict -}}
+{{- range $i, $v := $Page.Thumbnails -}}
+	{{ $ret = index $v.Sources "0" -}}
+	{{- if not (partial "hestiaMIME/IsImage" $ret.Type) -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (dict
+		"Width" 1200 "Height" 630
+		"Current" $dataList
+		"Sample" $v
+	))) -}}
+	{{- $ret = partial "hestiaMEDIA/ChooseSize" $ret -}}
+	{{- if not $error -}}
+		{{- $dataList = $ret.Output -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Card" (dict "Image" false))
+)) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Card" (dict "Image" $dataList))
+)) -}}
+
+
+{{- $dataList = dict -}}
+{{- range $i, $v := $Page.Thumbnails -}}
+	{{ $ret = index $v.Sources "0" -}}
+	{{- if (partial "hestiaMIME/IsImage" $ret.Type) -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (dict
+		"Width" 1200 "Height" 630
+		"Current" $data
+		"Sample" $v
+	))) -}}
+
+	{{- $ret = partial "hestiaMEDIA/ChooseSize" $ret -}}
+	{{- if not $error -}}
+		{{- $dataList = $ret.Output -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Card" (dict "Media" false))
+)) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Card" (dict "Media" $dataList))
+)) -}}
+
+
+{{- $dataList = "summary_large_image" -}}
+{{- if $Page.Vendors.Twitter.Card.Media -}}
+	{{- $dataList = "player" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Card" (dict "Type" false))
+)) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter"
+	(dict "Card" (dict "Type" $dataList))
+)) -}}
+
+
+{{- $dataList = dict -}}
+{{- range $k, $v := $Page.Vendors.Twitter.Stores -}}
+	{{- if eq $k "iphone" -}}
+		{{- /* PASS - Do nothing */ -}}
+	{{- else if eq $k "ipad" -}}
+		{{- /* PASS - Do nothing */ -}}
+	{{- else if eq $k "googleplay" -}}
+		{{- /* PASS - Do nothing */ -}}
+	{{- else -}}
+		{{- $error = printf
+			".Vendors.Twitter.Stores: unknown store name: '%v'.\n"
+			$k
+		-}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.ID)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf
+			".Vendors.Twitter.Stores.%v.ID: %v.\n"
+			$k
+			$ret.Error
+		-}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $data = dict "ID" $ret.Output -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Name)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf
+			".Vendors.Twitter.Stores.%v.ID: %v.\n"
+			$k
+			$ret.Error
+		-}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Name" $ret.Output) -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf
+			".Vendors.Twitter.Stores.%v.ID: %v.\n"
+			$k
+			$ret.Error
+		-}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+	{{- $dataList = merge $dataList (dict $k $data) -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter" (dict "Stores" false))) -}}
+{{- $Page = merge $Page (dict "Vendors" (dict "Twitter" (dict "Stores" $dataList))) -}}
+
+
+
+
+{{- /* process .Data.Page */ -}}
+{{- $dataList = dict -}}
+{{- range $k, $v := $Page.Data.Page -}}
+	{{- if not $v -}}
+		{{- continue -}}
+	{{- else if partial "hestiaLIST/IsMap" $v -}}
+		{{- $ret = index $v "Filename" -}}
+	{{- else if partial "hestiaSTRING/IsString" $v -}}
+		{{- $ret = $v -}}
+	{{- else -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" $ret) -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+	{{- $ret = partial "hestiaIO/hestiaFS/ParseDataFile" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Data.Page: %v" $ret.Error.Message -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+
+
+	{{- if $ret -}}
+		{{- $dataList = merge $dataList $ret -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Data" (dict "Page" false)) -}}
+{{- $Page = merge $Page (dict "Data" (dict "Page" $dataList)) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

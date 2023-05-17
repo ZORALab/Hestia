@@ -24,8 +24,8 @@ Full = '{{- .Titles.Default.Full -}}'
 # URL.Scope            - limits the navigation scope of your app. Any URL
 #                        outside the scope shall trigger an external browser
 #                        tab instead.
-[Base]
-URL = '{{- .URL.Base -}}'
+[URL]
+Base = '{{- .URL.Base -}}'
 Scope = '{{- .URL.Base -}}'
 
 

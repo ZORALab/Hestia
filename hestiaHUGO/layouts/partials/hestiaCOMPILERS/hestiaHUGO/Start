@@ -1,0 +1,167 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hugo Structure */ -}}
+
+
+
+
+{{- /* PREPARE VARIABLES FOR THIS FUNCTION */ -}}
+{{- $path := "" -}}
+{{- $data := "" -}}
+
+
+
+
+{{- /* OBTAIN HESTIA DATA STRUCTURE */ -}}
+{{- $Page := partial "hestiaCOMPILERS/hestiaHUGO/Page" . -}}
+
+
+
+
+{{- /* RENDER MAIN PAGE's HTML FORMAT */ -}}
+{{- partial "hestiaHTML/ToString" $Page -}}
+
+
+
+
+{{- /* RENDER MAIN PAGE's JSON FORMAT */ -}}
+{{- $path = printf "%s%s" $Page.Formats.JSON.Filename $Page.Formats.JSON.Extension -}}
+{{- $path = lower (printf "%s/%s" $Page.Filesystem.Directory $path) -}}
+{{- $data = default dict $Page.Content.JSON -}}
+{{- $data = string (jsonify $data) -}}
+{{- $data = merge $Page (dict "Input" (dict "Path" $path "Data" $data)) -}}
+{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+
+
+{{- /* RENDER MAIN PAGE's 'sitemap.xml' */ -}}
+{{- $path = lower (printf "%s/%s" $Page.Filesystem.Directory $Page.Sitemap.Index) -}}
+{{- $data = string (partial "hestiaNET/hestiaHTTP/hestiaSITEMAP/ToString_INDEX" $Page) -}}
+{{- $data = merge $Page (dict "Input" (dict "Path" $path "Data" $data)) -}}
+{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+
+
+{{- /* RENDER MAIN PAGE's 'sitemap-page.xml' */ -}}
+{{- $path = lower (printf "%s/%s" $Page.Filesystem.Directory $Page.Sitemap.Filename) -}}
+{{- $data = string (partial "hestiaNET/hestiaHTTP/hestiaSITEMAP/ToString_PAGE" $Page) -}}
+{{- $data = merge $Page (dict "Input" (dict "Path" $path "Data" $data)) -}}
+{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+
+
+{{- /* RENDER ROOT COMPONENTS */ -}}
+{{- if $Page.IsRoot -}}
+	{{- /* RENDER '/CNAME' FILE */ -}}
+	{{- $data = string (strings.TrimRight ":0123456789" $Page.URL.Base.Host) -}}
+	{{- $data = merge $Page (dict "Input"
+		(dict "Path" "CNAME" "Data" $data)
+	) -}}
+	{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+	{{- /* RENDER '/.nokeyll' FILE */ -}}
+	{{- $data = merge $Page (dict "Input"
+		(dict "Path" ".nojekyll" "Data" "No Jekyll")
+	) -}}
+	{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+	{{- /* RENDER '/404.html' FILE */ -}}
+	{{- $data = merge $Page (dict "Is404" true) -}}
+	{{- $data = merge $data (dict
+		"Titles" (dict "Page" "404")
+		"Descriptions" (dict "Page" (dict "Pitch" "404"))
+		"Descriptions" (dict "Page" (dict "Summary" "404"))
+	) -}}
+	{{- $data = string (partial "hestiaHTML/ToString" $data) -}}
+	{{- $data = merge $Page (dict "Input"
+		(dict "Path" "404.html" "Data" $data)
+	) -}}
+	{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+	{{- /* RENDER '/robots.txt' FILE */ -}}
+	{{- $data = partial "hestiaCOMPILERS/hestiaHUGO/RobotsTXT" $Page -}}
+	{{- $data = string (partial "hestiaNET/hestiaHTTP/hestiaROBOTS/ToString" $data) -}}
+	{{- $data = merge $Page (dict "Input"
+		(dict "Path" "robots.txt" "Data" $data)
+	) -}}
+	{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+	{{- /* RENDER '/browserconfig.xml' FILE */ -}}
+	{{- $data = partial "hestiaNET/hestiaHTTP/hestiaBROWSERCONFIG/ToString" $Page -}}
+	{{- $data = string $data -}}
+	{{- $data = merge $Page (dict "Input"
+		(dict "Path" "browserconfig.xml" "Data" $data)
+	) -}}
+	{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+	{{- /* RENDER '/app.webmanifest' FILE */ -}}
+	{{- $data = partial "hestiaNET/hestiaHTTP/hestiaPWA/ToString_MANIFEST" $Page -}}
+	{{- $data = string $data -}}
+	{{- if not $Page.IsServerMode -}}
+		{{- $data = dict "Type" "application/json" "Data" $data -}}
+		{{- $data = merge . (dict "Input" (dict "Data" $data)) -}}
+		{{- $data = partial "hestiaSTRING/Minify" $data -}}
+		{{- $data = $data.Output -}}
+	{{- end -}}
+	{{- $data = merge $Page (dict "Input"
+		(dict "Path" "app.webmanifest" "Data" $data)
+	) -}}
+	{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+	{{- /* RENDER '/app.js' FILE */ -}}
+	{{- $data = string (partial "hestiaNET/hestiaHTTP/hestiaPWA/ToString_APPJS" $Page) -}}
+	{{- $data = string $data -}}
+	{{- if not $Page.IsServerMode -}}
+		{{- $data = dict "Type" "application/javascript" "Data" $data -}}
+		{{- $data = merge $Page (dict "Input" (dict "Data" $data)) -}}
+		{{- $data = partial "hestiaSTRING/Minify" $data -}}
+		{{- $data = $data.Output -}}
+	{{- end -}}
+	{{- $data = merge $Page (dict "Input"
+		(dict "Path" "app.js" "Data" $data)
+	) -}}
+	{{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
+
+
+	{{- /* RENDER '/icons-*.*' or '/favicon-*.*' FILES */ -}}
+	{{- range $i, $v := $Page.PWA.Icons -}}
+		{{- /* load the image */ -}}
+		{{- $data = resources.GetMatch $v.Assets.URL -}}
+		{{- if not $data -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- /* resize */ -}}
+		{{- if $v.Resize -}}
+			{{- $data = $data.Resize (printf "%vx%v" $v.Width $v.Height) -}}
+		{{- end -}}
+
+		{{- /* render image */ -}}
+		{{- $data = resources.FromString $v.Filename $data.Content -}}
+		{{- $data = $data.Permalink -}}
+	{{- end -}}
+{{- end -}}

@@ -1,0 +1,419 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data.Name                         = alt-text or title (string) */ -}}
+{{- /* .Input.Data.Width                        = frame width (number/string) */ -}}
+{{- /* .Input.Data.Height                       = frame height (number/string) */ -}}
+{{- /* .Input.Data.Decorative                   = set the media is decorative (optional,bool) */ -}}
+{{- /* .Input.Data.Loading                      = media's loading state (optional,string) */ -}}
+{{- /* .Input.Data.Sources                      = media download source (slice) */ -}}
+{{- /* .Input.Data.Sources.[ARRAY_N].URL        = source URL (url) */ -}}
+{{- /* .Input.Data.Sources.[ARRAY_N].Type       = source MIME type (string) */ -}}
+{{- /* .Input.Data.Sources.[ARRAY_N].Media      = source media query (string) */ -}}
+{{- /* .Input.Data.Sources.[ARRAY_N].Descriptor = source descriptor (string) */ -}}
+{{- /* .Input.Data.Sizes                        = frame sizes (optional,string) */ -}}
+{{- /* .Input.Data.CORS                         = cross-origin data (optional,string) */ -}}
+{{- /* .Input.Data.Relationship                 = relationship data (optional,string) */ -}}
+{{- /* .Input.Data.Design                       = art design data (optional,string) */ -}}
+{{- /* .Input.Data.Preload                      = pre-load value (optional,string) */ -}}
+{{- /* .Input.Data.Control                      = control interface flag (optional,bool) */ -}}
+{{- /* .Input.Data.Autoplay                     = autoplay flag (optional,bool) */ -}}
+{{- /* .Input.Data.Loop                         = looping flag (optional,bool) */ -}}
+{{- /* .Input.Data.Mute                         = mute audio flag (optional,bool) */ -}}
+{{- /* .Input.Data.Inline                       = inline playing flag (optional,bool) */ -}}
+{{- /* .Input.Data.Tracks                       = track (e.g. VTT) list (optional,map) */ -}}
+{{- /* .Input.Data.Tracks.[LANG].URL            = track source file URL (url) */ -}}
+{{- /* .Input.Data.Tracks.[LANG].Kind           = track kind (string) */ -}}
+{{- /* .Input.Data.Tracks.[LANG].Label          = track label (string) */ -}}
+{{- /* .Input.Data.Tracks.[LANG].Default        = track default flag (optional,bool) */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $error := "" -}}
+{{- $dataset := dict -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+{{- $isDefaultSet := false -}}
+
+
+
+
+{{- /* process .Name */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" .Input.Data.Name))) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if $ret.Error -}}
+	{{- $error = printf "Media.Name: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Name" $ret.Output) -}}
+
+
+{{- /* process .Width */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default 0 .Input.Data.Width))) -}}
+{{- $ret = partial "hestiaMATH/SanitizeNumberPositive" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Width: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Width" $ret.Output) -}}
+
+
+{{- /* process .Height */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default 0 .Input.Data.Height))) -}}
+{{- $ret = partial "hestiaMATH/SanitizeNumberPositive" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Height: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Height" $ret.Output) -}}
+
+
+{{- /* process .Decorative */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default false .Input.Data.Decorative))) -}}
+{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Decorative: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Decorative" $ret.Output) -}}
+
+
+{{- /* process .Loading */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" .Input.Data.Loading))) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Loading: %v" $ret.Error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+{{- if eq $ret "eager" -}}
+	{{- /* PASS */ -}}
+{{- else if eq $ret "lazy" -}}
+	{{- /* PASS */ -}}
+{{- else -}}
+	{{- $ret = "lazy" -}}
+{{- end -}}
+
+{{- $dataList = merge $dataList (dict "Loading" $ret) -}}
+
+
+{{- /* process .Sources */ -}}
+{{- $dataset = default dict .Input.Data.Sources -}}
+{{- if not $dataset -}}
+	{{- if not $error -}}
+		{{- $error = printf "Media.Sources: media has no data source at all.!\n" -}}
+	{{- end -}}
+{{- end -}}
+
+{{- range $i, $v := $dataset -}}
+	{{- $data = dict -}}
+
+	{{- /* process .Source.N.URL */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" $v.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- if not $error -}}
+			{{- $error = printf "Media.Sources.%v.URL: %v" $i $ret.Error -}}
+			{{- continue -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+	{{- /* process .Source.N.Type */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" $v.Type))) -}}
+	{{- $ret = partial "hestiaMIME/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- if not $error -}}
+			{{- $error = printf "Media.Sources.%v.Type: %v" $i $ret.Error -}}
+			{{- continue -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Type" $ret.Output) -}}
+
+	{{- /* process .Source.N.Media */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" $v.Media))) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- if not $error -}}
+			{{- $error = printf "Media.Sources.%v.Media: %v" $i $ret.Error -}}
+			{{- continue -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Media" (default "all" $ret.Output)) -}}
+
+	{{- /* process .Source.N.Descriptior */ -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" $v.Descriptor))) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- if not $error -}}
+			{{- $error = printf "Media.Sources.%v.Descriptor: %v" $i $ret.Error -}}
+			{{- continue -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $data = merge $data (dict "Media" (default "1x" $ret.Output)) -}}
+
+	{{- /* merge to datalist */ -}}
+	{{- $dataList = merge $dataList (dict "Sources" (dict (string $i) $data)) -}}
+{{- end -}}
+
+
+{{- /* process .CORS */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" .Input.Data.CORS))) -}}
+{{- $ret = partial "hestiaNET/hestiaHTTP/hestiaCORS/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.CORS: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "CORS" $ret.Output) -}}
+
+
+{{- /* process .Relationship */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" .Input.Data.Relationship))) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Relationship: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Relationship" $ret.Output) -}}
+
+
+{{- /* process .Design */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" .Input.Data.Design))) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Design: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Design" $ret.Output) -}}
+
+
+{{- /* process .Preload */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" .Input.Data.Preload))) -}}
+{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Preload: %v" $ret.Error -}}
+{{- end -}}
+{{- $ret = $ret.Output -}}
+
+{{- if not $ret -}}
+	{{- /* PASS - optional value */ -}}
+{{- else if eq $ret "none" -}}
+	{{- /* PASS - retain value */ -}}
+{{- else if eq $ret "metadata" -}}
+	{{- /* PASS - retain value */ -}}
+{{- else if eq $ret "auto" -}}
+	{{- /* PASS - retain value */ -}}
+{{- else -}}
+	{{- if not $error -}}
+		{{- $error = printf "Media.Preload: unknown value '%v'.\n" $ret -}}
+	{{- end -}}
+{{- end -}}
+
+{{- $dataList = merge $dataList (dict "Preload" $ret) -}}
+
+
+{{- /* process .Control */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default false .Input.Data.Control))) -}}
+{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Control: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Control" $ret.Output) -}}
+
+
+{{- /* process .Autoplay */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default false .Input.Data.Autoplay))) -}}
+{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Autoplay: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Autoplay" $ret.Output) -}}
+
+
+{{- /* process .Loop */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default false .Input.Data.Loop))) -}}
+{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Loop: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Loop" $ret.Output) -}}
+
+
+{{- /* process .Mute */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default false .Input.Data.Mute))) -}}
+{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Mute: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Mute" $ret.Output) -}}
+
+
+{{- /* process .Inline */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data" (default false .Input.Data.Inline))) -}}
+{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "Media.Inline: %v" $ret.Error -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Inline" $ret.Output) -}}
+
+
+{{- /* process .Tracks */ -}}
+{{- $dataList = merge $dataList (dict "Tracks" dict) -}}
+{{- $dataset = default dict .Input.Data.Tracks -}}
+{{- if $dataset -}}
+	{{- $isDefaultSet = false -}}
+	{{- range $i, $v := $dataset -}}
+		{{- $data = dict -}}
+
+		{{- /* process .Tracks.Lang */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" (string $i))) -}}
+		{{- $ret = partial "hestiaI18N/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					".Media.Tracks: bad language ID '%v'.\n"
+					$i
+				-}}
+			{{- end -}}
+
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = partial "hestiaI18N/ToID" $ret.Output -}}
+		{{- $data = merge $data (dict "Lang" $ret) -}}
+
+
+		{{- /* process .Tracks.URL */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" $v.URL))) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					".Media.Tracks.%v.URL: %v"
+					$data.Lang
+					$ret.Error
+				-}}
+			{{- end -}}
+
+			{{- continue -}}
+		{{- end -}}
+		{{- $data = merge $data (dict "URL" $ret.Output) -}}
+
+
+		{{- /* process .Tracks.Kind */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" $v.Kind))) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					".Media.Tracks.%v.Kind: %v"
+					$data.Lang
+					$ret.Error
+				-}}
+			{{- end -}}
+
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = lower $ret.Output -}}
+
+		{{- if eq $ret "subtitles" -}}
+			{{- /* PASS */ -}}
+		{{- else if eq $ret "captions" -}}
+			{{- /* PASS */ -}}
+		{{- else if eq $ret "descriptions" -}}
+			{{- /* PASS */ -}}
+		{{- else if eq $ret "chapters" -}}
+			{{- /* PASS */ -}}
+		{{- else if eq $ret "metadata" -}}
+			{{- /* PASS */ -}}
+		{{- else -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					".Media.Tracks.%v.Kind: unknown value '%v'.\n"
+					$data.Lang
+				-}}
+			{{- end -}}
+		{{- end -}}
+		{{- $data = merge $data (dict "Kind" $ret) -}}
+
+
+		{{- /* process .Tracks.Label */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" (default "" $v.Label))) -}}
+		{{- if $ret.Error -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					".Tracks.%v.Label: %v"
+					$data.Lang
+					$ret.Error
+				-}}
+			{{- end -}}
+
+			{{- continue -}}
+		{{- end -}}
+		{{- $data = merge $data (dict "Label" $ret.Output) -}}
+
+
+		{{- /* process .Tracks.Default */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" (default false $v.Default))) -}}
+		{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					".Tracks.%v.Default: %v" $data.Lang $ret.Error -}}
+			{{- end -}}
+		{{- end -}}
+
+		{{- if and $ret.Output (not $isDefaultSet) -}}
+			{{- $data = merge $data (dict "Default" $ret.Output) -}}
+			{{- $isDefaultSet = true -}}
+		{{- else if and $ret.Output $isDefaultSet -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					".Tracks.%v.Default: it was set already!\n"
+					$data.Lang
+				-}}
+			{{- end -}}
+		{{- end -}}
+
+
+		{{- $dataList = merge $dataList (dict "Tracks" (dict $data.Lang $data)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* STAGE 2: POST-PROCESS */ -}}
+{{- /* process .Sizes */ -}}
+{{- $ret = "" -}}
+{{- if index .Input.Data "Sizes" -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "HestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $console = printf ".Media.Sizes: %v" $ret.Error -}}
+	{{- end -}}
+	{{- $ret = $ret.Output -}}
+{{- end -}}
+
+{{- if and (not $ret) (and (gt $dataList.Width 0) (gt $dataList.Height 0)) -}}
+	{{- $ret = printf "%vx%v" .Input.Data.Width .Input.Data.Height -}}
+{{- end -}}
+
+{{- $dataList = merge $dataList (dict "Sizes" $ret) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

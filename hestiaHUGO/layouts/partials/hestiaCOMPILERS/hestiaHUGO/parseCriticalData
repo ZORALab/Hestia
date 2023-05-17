@@ -1,0 +1,342 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Hugo data structure */ -}}
+
+
+
+
+{{- /* prepare variables for function */ -}}
+{{- $dataList := dict -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* initiate constants */ -}}
+{{- $dataList = dict "Constants" (dict
+	"Time" (dict "Format" "Mon 02 Jan 2006 15:04:05 PM -07")
+	"Offline" (dict "MemKey" "Caches")
+	"Contributors" (dict
+		"RolesMemKey" "Contributors"
+		"Roles" (partial "hestiaENTITY/Roles")
+	)
+) -}}
+
+
+
+
+{{- /* initiate memory store */ -}}
+{{- $dataList = merge $dataList (dict "Memory" .Store) -}}
+
+
+
+
+{{- /* initiate page's .URL.Base */ -}}
+{{- $data = urls.Parse .Site.BaseURL -}}
+{{- $ret = printf "%s://%s" (default "http" $data.Scheme) (default "localhost" $data.Host) -}}
+{{- if $data.Path -}}
+	{{- $ret = printf "%s/%s"
+		(strings.TrimSuffix "/" $ret)
+		(strings.TrimPrefix "/" $data.Path) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Base" $ret)) -}}
+
+
+
+
+{{- /* initiate page's .URL.Current.Absolute */ -}}
+{{- $data = urls.Parse .Page.Permalink -}}
+{{- $ret = printf "%s/%s"
+	(strings.TrimSuffix "/" $dataList.URL.Base)
+	(strings.TrimPrefix "/" $data.Path) -}}
+
+{{- if $data.RawQuery -}}
+	{{- $ret = printf "%s?%s" $ret $data.RawQuery -}}
+{{- end -}}
+
+
+{{- if $data.Fragment -}}
+	{{- $ret = printf "%s#%s" $ret $data.Fragment -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Current" (dict "Absolute" $ret))) -}}
+
+
+
+
+{{- /* initiate page's .URL.Current.Relative */ -}}
+{{- $ret = strings.TrimPrefix $dataList.URL.Base $dataList.URL.Current.Absolute -}}
+{{- $ret = urls.Parse (printf "/%s" $ret) -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Current" (dict "Relative" $ret))) -}}
+
+
+{{- $ret = urls.Parse $dataList.URL.Current.Absolute -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Current" (dict "Absolute" $ret))) -}}
+
+
+{{- $ret = urls.Parse $dataList.URL.Base -}}
+{{- $dataList = merge $dataList (dict "URL" (dict "Base" $ret)) -}}
+
+
+
+
+{{- /* initiate page's .Time */ -}}
+{{- $ret = now.Format $dataList.Constants.Time.Format -}}
+{{- $dataList = merge $dataList (dict "Time" (dict
+	"Current" $ret
+	"Created" $ret
+	"Published" $ret
+	"Updated" $ret
+)) -}}
+
+
+{{- if .Page.Lastmod -}}
+	{{- $ret = .Page.Lastmod.Format $dataList.Constants.Time.Format -}}
+	{{- $dataList = merge $dataList (dict "Time" (dict "Updated" $ret)) -}}
+{{- end -}}
+
+
+
+
+{{- /* initiate page's .Formats */ -}}
+{{- range $k, $v := .Site.Data.Hestia.Formats.List -}}
+	{{- $ret = dict
+		"Type" (default "" $v.Type)
+		"Filename" (default "" $v.Filename)
+		"Extension" (default "" $v.Extension)
+		"Protocol" (default "" $v.Protocol)
+		"Relationship" (default "alternate" $v.Relationship)
+		"Marshallable" (default false $v.Marshallable)
+	-}}
+
+	{{- $dataList = merge $dataList (dict "Formats" (dict $k $ret)) -}}
+{{- end -}}
+
+
+
+
+{{- /* initiate page's .Filesystem */ -}}
+{{- if .Page.File -}}
+	{{- $ret = path.Dir .Page.File.Path -}}
+	{{- $dataList = merge $dataList (dict "Filesystem" (dict "Directory" $ret)) -}}
+
+
+	{{- if eq $ret "." -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+	{{- $ret = printf "/%s" $ret -}}
+	{{- $dataList = merge $dataList (dict "Filesystem" (dict "Path" $ret)) -}}
+{{- end -}}
+
+
+
+
+{{- /* initiate page's .Languages */ -}}
+{{- range $k, $v := .Site.Data.Hestia.Languages -}}
+	{{- $ret = dict
+		"Name" (default "" $v.Name)
+		"Directory" (default "" $v.Directory)
+		"Direction" (default "" $v.Direction)
+		"Default" $v.Default
+		"URL" (dict
+			"ERROR_404" (default "" $v.URL.ERROR_404)
+			"HOME" (printf "/%s" $v.Directory)
+		)
+	-}}
+	{{- $ret = dict "List" (dict (string $k) $ret) -}}
+
+	{{- $dataList = merge $dataList (dict "Languages" $ret) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Languages" (dict "Alternatives" dict)) -}}
+
+
+
+
+{{- /* initiate page's .Redirect */ -}}
+{{- $dataList = merge $dataList (dict "Redirect" (dict "Delay" 0 "URL" "" "Enabled" false)) -}}
+
+
+
+
+{{- /* initiate page's .Titles */ -}}
+{{- range $k, $v := .Site.Data.Hestia.Metadata -}}
+	{{- $ret = dict
+		"Full" (default "" $v.Name.Full)
+		"Short" (default "" $v.Name.Short)
+		"SKU" (default "" $v.Name.SKU)
+		"ID" (default "" $v.Name.ID)
+	-}}
+	{{- $ret = dict (string $k) $ret -}}
+
+	{{- $dataList = merge $dataList (dict "Titles" (dict "Site" (dict "List" $ret))) -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Titles" (dict "Page" "")) -}}
+
+
+
+
+{{- /* initiate page's .Descriptions.Site */ -}}
+{{- range $k, $v := .Site.Data.Hestia.Metadata -}}
+	{{- $ret = dict
+		"Pitch" $v.Descriptions.Pitch
+		"Summary" $v.Descriptions.Summary
+	-}}
+	{{- $ret = dict (string $k) $ret -}}
+
+	{{- $dataList = merge $dataList (dict "Descriptions" (dict "Site" $ret)) -}}
+{{- end -}}
+
+
+
+
+{{- /* initiate page's .Keywords */ -}}
+{{- $dataList = merge $dataList (dict "Keywords" (dict "List" dict)) -}}
+
+
+
+
+{{- /* initiate page's .Data.Page */ -}}
+{{- $dataList = merge $dataList (dict "Data" (dict "Page" dict)) -}}
+
+
+
+
+{{- /* initiate page's .Thumbnails */ -}}
+{{- range $k, $v := .Site.Data.Hestia.Thumbnails.Contents -}}
+	{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/_parseMedia" $v -}}
+	{{- if $ret -}}
+		{{- $dataList = merge $dataList (dict "Thumbnails" (dict (string $k) $ret)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* initiate page's .Contributors */ -}}
+{{- if or .IsHome (not (partial "hestiaCOMPILERS/hestiaHUGO/loadContributors" $dataList)) -}}
+	{{- $ret = dict
+		"Site" (partial "hestiaCOMPILERS/hestiaHUGO/_parseContributors" .)
+		"Page" dict
+	-}}
+{{- else -}}
+	{{- /* upstream has a cached copy. avoid parsing */ -}}
+	{{- $ret = dict "Site" dict "Page" dict -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "Contributors" $ret) -}}
+
+
+
+
+{{- /* initiate page's .Vendors */ -}}
+{{- $dataList = merge $dataList (dict "Vendors" (dict
+	"GoHugo" (
+		(dict "Version" (printf "Hugo %v" hugo.Version))
+	)
+
+	"ZORALab" (
+		(dict "Hestia" (dict "Version"
+				.Site.Data.Hestia.Vendors.ZORALab.Hestia.Metadata.Version))
+	)
+
+	"Google" (
+		(dict "Analytics4" (dict "Tag"
+				.Site.Data.Hestia.Vendors.Google.Analytics4.Stream.Tag))
+	)
+
+	"Twitter" (dict
+		"Site" (dict "Handle"
+				.Site.Data.Hestia.Vendors.Twitter.Credentials.Site.Handle)
+		"Creator" (dict "Handle"
+				.Site.Data.Hestia.Vendors.Twitter.Credentials.Site.Handle)
+		"Stores" (dict
+				"iphone" (dict "ID" "" "Name" "" "URL" "")
+				"ipad" (dict "ID" "" "Name" "" "URL" "")
+				"googleplay" (dict "ID" "" "Name" "" "URL" "")
+		)
+	)
+)) -}}
+
+
+
+
+{{- /* initiate page's .Robots */ -}}
+{{- $dataList = merge $dataList (dict "Robots" (dict "List" slice)) -}}
+
+
+
+
+{{- /* parse automation .PWA.Caches.Automation flag for URL processor - too critical */ -}}
+{{- $ret = false -}}
+{{- if .Site.Data.Hestia.PWA.Caches.Automation.Enabled -}}
+	{{- $ret = true -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "PWA" (dict "Caches" (dict "Automation" $ret))) -}}
+
+
+
+
+{{- /* parse default PWA.Caches.Default.Policy flag */ -}}
+{{- $ret = "network-first" -}}
+{{- if eq (lower .Site.Data.Hestia.PWA.Caches.Default.Policy) "cache-first" -}}
+	{{- $ret = "cache-first" -}}
+{{- else if eq (lower .Site.Data.Hestia.PWA.Caches.Default.Policy) "network-only" -}}
+	{{- $ret = "network-only" -}}
+{{- else if eq (lower .Site.Data.Hestia.PWA.Caches.Default.Policy) "cache-only" -}}
+	{{- $ret = "cache-only" -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict "PWA" (dict "Caches"
+	(dict "Default" (dict "Policy" $ret))
+)) -}}
+
+
+
+
+{{- /* initiate page's .IsRoot */ -}}
+{{- if .IsHome -}}
+	{{- $dataList = merge $dataList (dict "IsRoot" true) -}}
+{{- else -}}
+	{{- $dataList = merge $dataList (dict "IsRoot" false) -}}
+{{- end -}}
+
+
+
+
+{{- /* initiate page's .Is404 */ -}}
+{{- $dataList = merge $dataList (dict "Is404" false) -}}
+
+
+
+
+{{- /* initiate page's .IsServer */ -}}
+{{- if .Site.IsServer -}}
+	{{- $dataList = merge $dataList (dict "IsServerMode" true) -}}
+{{- else -}}
+	{{- $dataList = merge $dataList (dict "IsServerMode" false) -}}
+{{- end -}}
+
+
+
+
+{{- /* initiate page's .IsHestia */ -}}
+{{- $dataList = merge $dataList (dict "IsHestia" true) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

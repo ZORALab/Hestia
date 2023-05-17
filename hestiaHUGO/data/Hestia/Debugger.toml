@@ -9,4 +9,4 @@
 #                             component in Hestia. Leaving it blank disables the
 #                             debugger entirely.
 [Default]
-Type = 'zoralab_debugger'
+Type = 'zoralabDEBUGGER'

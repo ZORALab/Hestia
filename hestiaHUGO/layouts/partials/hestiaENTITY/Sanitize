@@ -1,0 +1,369 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Input.Data = Entity data (dict) */ -}}
+{{- /* .Input.Data.Languages = Entity data in all queriable languages (dict) */ -}}
+{{- /* .Input.Data.Languages.LANG.Description = Entity's description (string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Slogan = Entity's slogan (string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Name = Entity's official display name (string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Title = Entity's official title (string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Brand = Entity's official brand (string) */ -}}
+{{- /* .Input.Data.Languages.LANG.CallSign = Entity's call-sign (string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Contacts = Entity's contactable channels (dict) */ -}}
+{{- /* .Input.Data.Languages.LANG.Contacts.$CONTACT.Label = Entity's channel name (optional,string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Contacts.$CONTACT.Value = Entity's channel value (optional,string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Social = Entity's social network list (dict) */ -}}
+{{- /* .Input.Data.Languages.LANG.Social.N.Label = Entity's social network name (optional,string) */ -}}
+{{- /* .Input.Data.Languages.LANG.Social.N.Value = Entity's social network value (optional,string) */ -}}
+{{- /* .Input.Data.Contribution = Entity data contribution table (dict) */ -}}
+{{- /* .Input.Data.Contribution.$ROLE.Past = rolecontribution in the past (bool) */ -}}
+{{- /* .Input.Data.Contribution.$ROLE.Current = role contribution in the present (bool) */ -}}
+{{- /* .Input.Data.ID = Entity's ID value (string) */ -}}
+{{- /* .Input.Data.Type = Entity's type (string) */ -}}
+{{- /* .Input.Data.Image = Entity data image like portrait or logo (optional,media) */ -}}
+{{- /* .Input.Data.Background = Entity data background image (optional,media) */ -}}
+
+
+
+
+{{- /* constants */ -}}
+{{- $ROLES := partialCached "hestiaENTITY/Roles" . -}}
+{{- $CONTACTS := slice
+	"Phone"
+	"Email"
+	"Location"
+	"Web"
+-}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $Lang := .Languages.Current.ID -}}
+{{- $error := "" -}}
+{{- $dataList := dict -}}
+{{- $dataset := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* obtain language specific data */ -}}
+{{- $Lang = default dict (index .Input.Data.Languages $Lang) -}}
+{{- if not $Lang -}}
+	{{- $error = printf ".Contributor.Languages: missing data in language '%v'.\n"
+		.Languages.Current.ID
+	-}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Name */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- $ret = default "" $Lang.Name -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Contributor.Name: %v" $ret.Error -}}
+	{{- end -}}
+	{{- if $ret.Output -}}
+		{{- $dataList = merge $dataList (dict "Name" $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Title */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- $ret = default "" $Lang.Title -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Contributor.Title: %v" $ret.Error -}}
+	{{- end -}}
+	{{- if $ret.Output -}}
+		{{- $dataList = merge $dataList (dict "Title" $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Brand */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- $ret = default "" $Lang.Brand -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Contributor.Brand: %v" $ret.Error -}}
+	{{- end -}}
+	{{- if $ret.Output -}}
+		{{- $dataList = merge $dataList (dict "Brand" $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .CallSign */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- $ret = default "" $Lang.CallSign -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Contributor.CallSign: %v" $ret.Error -}}
+	{{- end -}}
+	{{- if $ret.Output -}}
+		{{- $dataList = merge $dataList (dict "CallSign" $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Slogan */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- $ret = default "" $Lang.Slogan -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Contributor.Slogan: %v" $ret.Error -}}
+	{{- end -}}
+	{{- if $ret.Output -}}
+		{{- $dataList = merge $dataList (dict "Slogan" $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Description */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- $ret = default "" $Lang.Title -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf ".Contributor.Description: %v" $ret.Error -}}
+	{{- end -}}
+	{{- if $ret.Output -}}
+		{{- $dataList = merge $dataList (dict "Description" $ret.Output) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Contacts */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- range $i, $v := $CONTACTS -}}
+		{{- if not (index $Lang $v) -}}
+			{{- $dataList = merge $dataList (dict
+				$v (dict "Label" "" "Value" "")
+			) -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $dataset = index $Lang $v -}}
+
+
+		{{- /* process .Label */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Label)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if and $ret.Error (not $error) -}}
+			{{- $error = printf ".Contributor.%v.Label: %v" $v $ret.Error -}}
+		{{- end -}}
+		{{- $dataList = merge $dataList (dict $v (dict "Label" $ret.Output)) -}}
+
+
+		{{- /* process .Value */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Value)) -}}
+		{{- if (eq $v "Web") -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- else -}}
+			{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- end -}}
+		{{- if and $ret.Error (not $error) -}}
+			{{- $error = printf ".Contributor.%v.Value: %v" $v $ret.Error -}}
+		{{- end -}}
+		{{- $dataList = merge $dataList (dict $v (dict "Value" $ret.Output)) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Social */ -}}
+{{- if and $Lang (not $error) -}}
+	{{- range $i, $v := $Lang.Social -}}
+		{{- /* process .Label */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Label)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if and $ret.Error (not $error) -}}
+			{{- $error = printf ".Contributor.Social.%v.Label: %v" $i $ret.Error -}}
+		{{- end -}}
+		{{- $dataList = merge $dataList (dict "Social"
+			(dict (string $i) (dict "Label" $ret.Output))
+		) -}}
+
+
+		{{- /* process .Value */ -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Value)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- if and $ret.Error (not $error) -}}
+			{{- $error = printf ".Contributor.Social.%v.Value: %v" $i $ret.Error -}}
+		{{- end -}}
+		{{- $dataList = merge $dataList (dict "Social"
+			(dict (string $i) (dict "Value" $ret.Output))
+		) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Contribution */ -}}
+{{- if not $error -}}
+	{{- if .Input.Data.Contribution -}}
+		{{- range $i, $v := $ROLES -}}
+			{{- $dataset = index $Page.Input.Data.Contribution $v -}}
+			{{- if not $dataset -}}
+				{{- $dataList = merge $dataList (dict "Contribution"
+					(dict $v (dict "Past" false "Current" false))
+				) -}}
+				{{- continue -}}
+			{{- end -}}
+
+
+			{{- /* process .Past */ -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Past)) -}}
+			{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+			{{- if and $ret.Error (not $error) -}}
+				{{- $error = printf
+					".Contributor.Contribution.%v.Past: %v"
+					$v
+					$ret.Error
+				-}}
+			{{- end -}}
+			{{- $dataList = merge $dataList (dict "Contribution"
+				(dict $v (dict "Past" $ret.Output))
+			) -}}
+
+
+			{{- /* process .Current */ -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Past)) -}}
+			{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
+			{{- if and $ret.Error (not $error) -}}
+				{{- $error = printf
+					".Contributor.Contribution.%v.Past: %v"
+					$v
+					$ret.Error
+				-}}
+			{{- end -}}
+			{{- $dataList = merge $dataList (dict "Contribution"
+				(dict $v (dict "Current" $ret.Output))
+			) -}}
+		{{- end -}}
+	{{- else -}}
+		{{- if not $error -}}
+			{{- $error = printf ".Contributor: missing .Contribution data.\n" -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Type */ -}}
+{{- if not $error -}}
+	{{- $ret = default "" (lower .Input.Data.Type) -}}
+	{{- if eq $ret "person" -}}
+		{{- $ret = "person" -}}
+	{{- else if eq $ret "organization" -}}
+		{{- $ret = "organization" -}}
+	{{- else -}}
+		{{- if not $error -}}
+			{{- $error = printf ".Contributor.Type: bad value '%v'.\n" $ret -}}
+		{{- end -}}
+		{{- $ret = "organization" -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict "Type" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .ID */ -}}
+{{- if not $error -}}
+	{{- $ret = default "" .Input.Data.ID -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- if and $ret.Error (not $error) -}}
+		{{- $error = printf ".Contributor.ID: %v" $ret.Error -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict "ID" $ret.Output) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Image */ -}}
+{{- if not $error -}}
+	{{- $ret = default dict .Input.Data.Image -}}
+	{{- if $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- if and $ret.Error (not $error) -}}
+			{{- $error = printf ".Contributor.Image: %v" $ret.Error -}}
+		{{- end -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict "Image" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Background */ -}}
+{{- if not $error -}}
+	{{- $ret = default dict .Input.Data.Background -}}
+	{{- if $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- if and $ret.Error (not $error) -}}
+			{{- $error = printf ".Contributor.Background: %v" $ret.Error -}}
+		{{- end -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+	{{- $dataList = merge $dataList (dict "Background" $ret) -}}
+{{- end -}}
+
+
+
+
+{{- /* disable output if error is found */ -}}
+{{- if $error -}}
+	{{- $dataList = dict -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

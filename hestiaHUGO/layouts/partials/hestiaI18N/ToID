@@ -1,6 +1,6 @@
 {{- /*
-Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
-Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
 
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -15,10 +15,10 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* . = Language code to be converted to ID type (string) */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* render output */ -}}
+{{- return (upper .) -}}

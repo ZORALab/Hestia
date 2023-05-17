@@ -1,0 +1,307 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Unprocessed Page data in Hestia Structure */ -}}
+
+
+
+
+{{- /* prepare working variables for this function */ -}}
+{{- $Page := . -}}
+{{- $Local := dict -}}
+{{- $dataset := dict -}}
+{{- $dataList := dict -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* parse local config file */ -}}
+{{- range $k, $v := .Content -}}
+	{{- /* NOTE:
+		Hugo has a stubborn way of processing .html file. We don't have
+		any choice but to use a special extension .hestiaHTML implicitly
+		if we want a pure Go HTML implementations.
+	*/ -}}
+	{{- $Local = false -}}
+	{{- range $j, $w := (slice "layouts/" "assets/" "static/") -}}
+		{{ if strings.HasPrefix $v $w -}}
+			{{- $Local = true -}}
+		{{- end -}}
+	{{- end -}}
+
+	{{- if $Local -}}
+		{{- $Local = $v -}}
+	{{- else -}}
+		{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $v -}}
+	{{- end -}}
+
+
+	{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+	{{- $Local = partial "hestiaIO/hestiaFS/ParseFile" $Local -}}
+	{{- $Local = string $Local.Output -}}
+
+
+	{{- $Page = merge $Page (dict "Content" (dict $k $Local)) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse local LDJSON */ -}}
+{{- $Local = false -}}
+{{- range $i, $v := (slice "layouts/" "assets/" "static/") -}}
+	{{ if strings.HasPrefix $Page.LDJSON $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $Local -}}
+	{{- $Local = $Page.LDJSON -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $Page.LDJSON -}}
+{{- end -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseFile" $Local -}}
+{{- $Local = string $Local.Output -}}
+{{- $Page = merge $Page (dict "LDJSON" $Local) -}}
+
+
+
+
+{{- /* source .CSS and .JS */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory "__assets.toml" -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- $Local = $Local.Output -}}
+
+
+{{- /* source .CSS */ -}}
+{{- $dataset = default (dict "Inline" slice "Include" slice) $Local.CSS -}}
+
+{{- /* source .CSS.Inline */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := $dataset.Inline -}}
+	{{- $ret = index $v "Path" -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $dataList = append $ret $dataList -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "CSS" (dict "Inline" $dataList)) -}}
+
+{{- /* source .CSS.Include */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := $dataset.Include -}}
+	{{- if not (index $v "URL") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = dict
+		"URL" (default "" $v.URL)
+		"Media" (default $v.Media)
+		"OnLoad" (default $v.OnLoad)
+	-}}
+
+	{{- $dataList = append $ret $dataList -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "CSS" (dict "Include" $dataList)) -}}
+
+{{- /* source page-level main CSS file */ -}}
+{{- $dataList = printf "%s/%s" .Filesystem.Directory "__content.hestiaCSS" -}}
+{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $dataList)) -}}
+	{{- $dataList = "" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "CSS" (dict "Main" $dataList)) -}}
+
+
+{{- /* source .JS */ -}}
+{{- $dataset = default (dict "Inline" slice "Include" slice) $Local.JS -}}
+
+{{- /* source .JS.Inline */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := $dataset.Inline -}}
+	{{- $ret = index $v "Path" -}}
+	{{- if not $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $dataList = append $ret $dataList -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" (dict "Inline" $dataList)) -}}
+
+{{- /* source .JS.Include */ -}}
+{{- $dataList = slice -}}
+{{- range $i, $v := $dataset.Include -}}
+	{{- if not $v.URL -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = dict
+		"URL" (default "" $v.URL)
+		"Timing" (default "" $v.Timing)
+	-}}
+
+	{{- $dataList = append $ret $dataList -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" (dict "Include" $dataList)) -}}
+
+{{- /* source page-level main JS file */ -}}
+{{- $ret = printf "%s/%s" .Filesystem.Directory "__content.hestiaJS" -}}
+{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $ret)) -}}
+	{{- $ret = "" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" (dict "Main" $dataList)) -}}
+
+
+
+
+{{- /* parse .Components */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory "__components.toml" -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- $Local = $Local.Output -}}
+{{- $Local = default slice $Local.List -}}
+
+
+{{- $list = len $Page.Components -}}
+{{- range $i, $v := $Local -}}
+	{{- if not (index $v "Name") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- if not (index $v "Include") -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $Page = merge $Page (dict "Components"
+		(dict (string $list) (dict "Name" $v.Name))
+	) -}}
+
+	{{- $Page = merge $Page (dict "Components"
+		(dict (string $list) (dict "Include" true))
+	) -}}
+
+	{{- /* process component's variables */ -}}
+	{{- $ret = dict -}}
+	{{- range $j, $w := $v.Variables -}}
+		{{- range $k, $x := $w -}}
+			{{- $ret = merge $ret (dict (string $k) (string $x)) -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $Page = merge $Page (dict "Components"
+		(dict (string $list) (dict "Variables" $ret))
+	) -}}
+
+	{{- $list = add $list 1 -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Robots */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory "__robots.toml" -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- $Local = $Local.Output -}}
+
+
+{{- $dataset = index $Local "Meta" -}}
+{{- $Page = merge $Page (dict "Robots" (dict "List" dict)) -}}
+{{- range $i, $v := $dataset -}}
+	{{- if and (not (index $v "Name")) (not (index $v "Content")) -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $Page = merge $Page (dict "Robots" (dict "List" (
+		(dict "Name" $v.Name "Content" $v.Content)
+	))) -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .Vendors.Twitter */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory "__twitter.toml" -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- $Local = $Local.Output -}}
+
+
+{{- if index $Local "Creator" -}}
+	{{- $ret = $Local.Creator -}}
+	{{- if index $ret "Handle" -}}
+		{{- $ret = $ret.Handle -}}
+	{{- else -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+
+	{{- $Page = merge $Page (dict "Vendors"
+		(dict "Twitter" (dict "Creator" (dict "Handle" $ret)))
+	) -}}
+{{- end -}}
+
+
+{{- if index $Local "Stores" -}}
+	{{- range $k, $v := $Local.Stores -}}
+		{{- $Page = merge $Page (dict "Vendors"
+			(dict "Twitter" (dict "Stores"
+				(dict (string $k) (dict
+						"ID" (default "" $v.ID)
+						"Name" (default "" $v.Name)
+						"URL" (default $v.URL)
+					)
+				)
+			))
+		) -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* parse .WASM */ -}}
+{{- $Local = printf "%s/%s" .Filesystem.Directory "__wasm.toml" -}}
+{{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+{{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+{{- $Local = $Local.Output -}}
+{{- $Local = default dict $Local.Settings -}}
+
+
+{{- $Page = merge $Page (dict "WASM" (dict
+	"URL" (default "" $Local.URL)
+	"Setup" (default "" $Local.Setup)
+	"Import" (default "" $Local.Import)
+	"Init" (default "" $Local.Init)
+	"Embed" (default "" $Local.Embed)
+)) -}}
+
+
+{{- range $i, $v := index $Local "Dependencies" -}}
+	{{- $Page = merge $Page (dict "WASM" (dict "Dependencies"
+		(dict (string $i) $v)
+	)) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

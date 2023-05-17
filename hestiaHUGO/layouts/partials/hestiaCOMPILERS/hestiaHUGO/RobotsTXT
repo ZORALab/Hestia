@@ -1,0 +1,150 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia data structure */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $sitemaps := dict -}}
+{{- $data := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* process all robots */ -}}
+{{- $dataList = slice -}}
+{{- range $k, $v := .Data.Store.Hestia.Robots -}}
+	{{- /* process .Name */ -}}
+	{{- $data = dict "Name" (string $k) -}}
+
+
+	{{- /* process rules and orders */ -}}
+	{{- range $j, $w := $v -}}
+		{{- if eq (lower $j) "sitemap" -}}
+			{{- $ret = slice -}}
+			{{- range $x, $y := $w -}}
+				{{- $sitemaps = merge $sitemaps (dict $y true) -}}
+			{{- end -}}
+		{{- else if eq (lower $j) "allow" -}}
+			{{- $ret = slice -}}
+			{{- range $x, $y := $w -}}
+				{{- $ret = append $y $ret -}}
+			{{- end -}}
+
+			{{- $data = merge $data (dict "Allow" $ret) -}}
+		{{- else if eq (lower $j) "disallow" -}}
+			{{- $ret = slice -}}
+			{{- range $x, $y := $w -}}
+				{- $ret = append $y $ret -}}
+			{{- end -}}
+
+			{{- $data = merge $data (dict "Disallow" $ret) -}}
+		{{- else if eq (lower $j) "crawl-delay" -}}
+			{{- $data = merge $data (dict "CrawlDelay" $w) -}}
+		{{- end -}}
+	{{- end -}}
+
+
+	{{- $dataList = append $data $dataList -}}
+{{- end -}}
+
+
+{{- range $i, $v := $dataList -}}
+	{{- $data = dict -}}
+
+
+	{{- /* process .Name */ -}}
+	{{- $ret = replace $v.Name "All" "*" -}}
+	{{- $ret = replace $ret "all" "*" -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret -}}
+	{{- $data = merge $data (dict "Name" $ret) -}}
+
+
+	{{- /* process .Allow */ -}}
+	{{- range $j, $w := $v.Allow -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $ret = printf "robots.txt: %v.Allow: %v" $w $ret.Error -}}
+			{{- $ret = merge $Page (dict "Error" $ret) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $ret -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+		{{- $data = merge $data (dict "Allow" (dict (string $j) $ret)) -}}
+	{{- end -}}
+
+
+	{{- /* process .Disallow */ -}}
+	{{- range $j, $w := $v.Disallow -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $ret = printf "robots.txt: %v.Disallow: %v" $w $ret.Error -}}
+			{{- $ret = merge $Page (dict "Error" $ret) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $ret -}}
+			{{- continue -}}
+		{{- end -}}
+		{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+		{{- $data = merge $data (dict "Disallow" (dict (string $j) $ret)) -}}
+	{{- end -}}
+
+
+	{{- /* process .CrawlDelay */ -}}
+	{{- $ret = index $v "CrawlDelay" -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret -}}
+	{{- $data = merge $data (dict "CrawlDelay" $ret) -}}
+
+
+	{{- $Page = merge $Page (dict "RobotsTXT" (dict "List" (dict (string $i) $data))) -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Sitemaps */ -}}
+{{- $dataList = 0 -}}
+{{- range $v, $i := $sitemaps -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $ret = printf "robots.txt: .Sitemaps: %v" $ret.Error -}}
+		{{- $ret = merge $Page (dict "Error" $ret) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $ret -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $Page = merge $Page (dict "RobotsTXT" (dict "Sitemaps"
+		(dict (string $dataList) $ret)
+	)) -}}
+
+
+	{{- $dataList = add $dataList 1 -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $Page -}}

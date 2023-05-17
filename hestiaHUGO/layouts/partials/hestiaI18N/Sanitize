@@ -1,0 +1,140 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = Page data in Hestia structure */ -}}
+{{- /* .Input.Data = Language code for parsing (string) */ -}}
+
+
+
+
+{{- /* prepare variables for this function */ -}}
+{{- $Page := . -}}
+{{- $dataList := false -}}
+{{- $error := "" -}}
+{{- $ret := false -}}
+{{- $code := false -}}
+{{- $script := false -}}
+{{- $country := false -}}
+
+
+
+
+{{- /* sanitize .Input.Data */ -}}
+{{- $dataList = default "" .Input.Data -}}
+{{- if not $dataList -}}
+	{{- $error = printf "Language: missing/bad .Input.Lang.\n" -}}
+{{- else -}}
+	{{- $dataList = merge . (dict "Input" (dict "Data" (string $dataList))) -}}
+	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+	{{- if $dataList.Error -}}
+		{{- $error = printf "Language: %v" $dataList.Error.Message -}}
+	{{- end -}}
+	{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+{{- end -}}
+
+
+
+
+{{- /* attempt to split language and country */ -}}
+{{- $ret = split $dataList "-" -}}
+{{- if eq (len $ret) 3 -}}
+	{{- $code = index $ret 0 -}}
+	{{- $script = index $ret 1 -}}
+	{{- $country = index $ret 2 -}}
+{{- else if eq (len $ret) 2 -}}
+	{{- $code = index $ret 0 -}}
+	{{- $script = "" -}}
+	{{- $country = index $ret 1 -}}
+{{- else -}}
+	{{- $code = $dataList -}}
+	{{- $script = "" -}}
+	{{- $country = "" -}}
+{{- end -}}
+{{- $code = lower $code -}}
+{{- $script = title (lower $script) -}}
+{{- $country = upper $country -}}
+
+
+
+
+{{- /* validate $country for ISO3166 */ -}}
+{{- if not (partial "hestiaI18N/IsCountry" $country) -}}
+	{{- if $country -}}
+		{{- /* possible split of ISO15924 */ -}}
+		{{- $script = printf "%s%s" $script $country -}}
+		{{- $script = title (lower $script) -}}
+		{{- $country = "" -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* validate $script for ISO15924 */ -}}
+{{- if not (partial "hestiaI18N/IsScript" $script) -}}
+	{{- if $script -}}
+		{{- if not $error -}}
+			{{- $error = printf "Language: unknown script '%v' from '%v'.\n"
+				$script
+				$dataList
+			-}}
+		{{- end -}}
+
+		{{- $script = "" -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* validate $code for ISO639 */ -}}
+{{- if not (partial "hestiaI18N/IsLang" $code) -}}
+	{{- if not $error -}}
+		{{- $error = printf "Language: unknown code '%v' from '%v'.\n"
+			$code
+			$dataList
+		-}}
+
+		{{- $code = "" -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* re-construct language code */ -}}
+{{- if and (not $error) $code -}}
+	{{- $dataList = lower $code -}}
+
+
+	{{- if $script -}}
+		{{- $dataList = printf "%s-%s" $dataList $script -}}
+	{{- end -}}
+
+
+	{{- if $country -}}
+		{{- $dataList = printf "%s-%s" $dataList $country -}}
+	{{- end -}}
+{{- else -}}
+	{{- $dataList = "" -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return dict "Output" $dataList "Error" $error -}}

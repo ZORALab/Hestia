@@ -15,10 +15,11 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* .  = Page data in Hestia Structure  */ -}}
+{{- /* .Error = the output messages in string */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* render output */ -}}
+{{- errorf (partial "hestiaCOMPILERS/hestiaHUGO/FormatConsole" .) -}}

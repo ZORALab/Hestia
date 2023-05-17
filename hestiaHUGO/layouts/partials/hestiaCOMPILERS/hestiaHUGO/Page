@@ -1,0 +1,55 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* INPUT PARAMETERS */ -}}
+{{- /* . = hugo data structure */ -}}
+
+
+
+
+{{- /* Prepare Hestia critical data structure. (!!!) POSITION MATTERS (!!!) */ -}}
+{{- $dataList := partial "hestiaCOMPILERS/hestiaHUGO/parseCriticalData" . -}}
+{{- $dataList = merge $dataList (dict "IsMetadata" false) -}}
+{{- $dataList = merge $dataList (partial "hestiaCOMPILERS/hestiaHUGO/parsePageData" .) -}}
+
+
+
+
+{{- /* BEGIN LOCALIZING - Hugo interfaces ended beyond this line */ -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/localizePWAData" $dataList -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/localizeCriticalData" $dataList -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/localizePageData" $dataList -}}
+
+
+
+
+{{- /* BEGIN PROCESSING - Processing the $dataList to match Hestia's data structure */ -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/sanitizeCriticalData" $dataList -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/sanitizePageData" $dataList -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/sanitizePWAData" $dataList -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/sanitizeContentData" $dataList -}}
+
+
+
+
+{{- /* clean up unwanted fields */ -}}
+{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/Clean" $dataList -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}

@@ -15,10 +15,39 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = hugo data structure */ -}}
+{{- /* .Input.Data = MIME data to validate (string) */ -}}
+{{- /* .Input.Expect = expected MIME data (string) */ -}}
 
 
 
 
-{{- /* render outputs */ -}}
-{{- partial "hestiaCOMPILERS/hestiaHUGO/Start" . -}}
+{{- /* prepare working variables for this function */ -}}
+{{- $dataList := false -}}
+{{- $expect := "" -}}
+
+
+
+
+{{- /* sanitize .Input */ -}}
+{{- $dataList = default "" .Input.Data -}}
+{{- $expect = default "" .Input.Expect -}}
+
+
+
+
+{{- /* validate the given type against the expected type */ -}}
+{{- if and $dataList $expect -}}
+	{{- if hasPrefix $dataList $expect -}}
+		{{- $dataList = true -}}
+	{{- else -}}
+		{{- $dataList = false -}}
+	{{- end -}}
+{{- else -}}
+	{{- $dataList = false -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- return $dataList -}}
