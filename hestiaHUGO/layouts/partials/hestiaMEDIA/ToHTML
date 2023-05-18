@@ -1,0 +1,140 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* .Name                         = alt-text or title (string) */ -}}
+{{- /* .Width                        = frame width (number/string) */ -}}
+{{- /* .Height                       = frame height (number/string) */ -}}
+{{- /* .Decorative                   = set the media is decorative (optional,bool) */ -}}
+{{- /* .Loading                      = media's loading state (optional,string) */ -}}
+{{- /* .Sources                      = media download source (slice) */ -}}
+{{- /* .Sources.[ARRAY_N].URL        = source URL (url) */ -}}
+{{- /* .Sources.[ARRAY_N].Type       = source MIME type (string) */ -}}
+{{- /* .Sources.[ARRAY_N].Media      = source media query (string) */ -}}
+{{- /* .Sources.[ARRAY_N].Descriptor = source descriptor (string) */ -}}
+{{- /* .Sizes                        = frame sizes (optional,string) */ -}}
+{{- /* .CORS                         = cross-origin data (optional,string) */ -}}
+{{- /* .Relationship                 = relationship data (optional,string) */ -}}
+{{- /* .Design                       = art design data (optional,string) */ -}}
+{{- /* .Preload                      = pre-load value (optional,string) */ -}}
+{{- /* .Control                      = control interface flag (optional,bool) */ -}}
+{{- /* .Autoplay                     = autoplay flag (optional,bool) */ -}}
+{{- /* .Loop                         = looping flag (optional,bool) */ -}}
+{{- /* .Mute                         = mute audio flag (optional,bool) */ -}}
+{{- /* .Inline                       = inline playing flag (optional,bool) */ -}}
+{{- /* .Tracks                       = track (e.g. VTT) list (optional,map) */ -}}
+{{- /* .Tracks.[LANG].URL            = track source file URL (url) */ -}}
+{{- /* .Tracks.[LANG].Kind           = track kind (string) */ -}}
+{{- /* .Tracks.[LANG].Label          = track label (string) */ -}}
+{{- /* .Tracks.[LANG].Default        = track default flag (optional,bool) */ -}}
+
+
+
+
+{{- /* determine type of media */ -}}
+{{- $media := . -}}
+{{- $isImage := false -}}
+{{- $isVideo := false -}}
+{{- $isAudio := false -}}
+{{- range $i, $v := $media.Sources -}}
+	{{- $isImage = partial "hestiaMIME/IsImage" $v.Type -}}
+	{{- $isVideo = partial "hestiaMIME/IsVideo" $v.Type -}}
+	{{- $isAudio = partial "hestiaMIME/IsAudio" $v.Type -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- if $isVideo -}}
+<video {{- if $media.ID }} id='{{- $media.ID -}}' {{- end }}
+	{{ if $media.Class -}} class='{{- $media.Class -}}' {{- end }}
+	{{ if $media.Style -}} style='{{- $media.Style -}}' {{- end }}
+	{{ if $media.Decorative -}} aria-hidden="true" {{- end }}
+	{{ if $media.Autoplay -}} autoplay {{- end }}
+	{{ if $media.Control -}} controls {{- end }}
+	{{ if $media.CORS -}} crossorigin='{{- $media.CORS -}}' {{- end }}
+	{{ if $media.Loop -}} loop {{- end }}
+	{{ if $media.Mute -}} muted {{- end }}
+	{{ if $media.Preload -}} preload='{{- $media.Preload -}}' {{- end }}
+	width='{{- $media.Width -}}'
+	height='{{- $media.Height -}}'
+/>
+	{{- range $i, $v := .Sources }}
+	<source src='{{- $v.URL -}}' type='{{- $v.Type -}}' />
+	{{- end }}
+
+	{{- range $i, $v := .Tracks }}
+	<track {{- if $v.Default }} default {{- end }}
+		kind='{{- $v.Kind -}}'
+		label='{{- $v.Label -}}'
+		srclang='{{- $i -}}'
+		url='{{- string $v.URL -}}'
+	/>
+	{{- end }}
+</video>
+
+
+{{- else if $isImage -}}
+<picture {{- if $media.ID }} id='{{- $media.ID -}}' {{- end }}
+	{{ if $media.Class -}} class='{{- $media.Class -}}' {{- end }}
+	{{ if $media.Style -}} style='{{- $media.Style -}}' {{- end }}
+	{{ if $media.Decorative -}} aria-hidden="true" {{- end }} />
+
+
+	{{- $last := default dict $media.Sources -}}
+	{{- $last = sub (len $last) 1 -}}
+	{{- if lt $last 0 -}}{{- $last = 0 -}}{{- end -}}
+	{{- $last = printf "%d" $last -}}
+	{{- range $i, $v := $media.Sources }}
+	<source srcset='{{- $v.URL -}} {{- if $v.Descriptor }} {{ $v.Descriptior -}}{{- end -}}'
+		type='{{- $v.Type -}}'
+		width='{{- $media.Width -}}'
+		height='{{- $media.Height -}}'
+		{{ if $media.Loading -}} loading='{{- $media.Loading -}}'
+		{{ else -}} loading='lazy'
+		{{- end }}
+		media='{{- $v.Media -}}'
+	/>
+		{{- if eq $i $last }}
+	<img {{- if $media.Decorative }} alt='' aria-hidden="true"
+		{{- else }} alt='{{- $media.Name -}}'
+		{{- end }}
+		src='{{- $v.URL -}}'
+		loading='{{- $media.Loading -}}'
+		width='{{- $media.Width -}}'
+		height='{{- $media.Height -}}' />
+		{{- end }}
+	{{- end }}
+</picture>
+
+
+{{- else if $isAudio -}}
+<audio {{- if $media.ID }} id='{{- $media.ID -}}' {{- end }}
+	{{ if $media.Class -}} class='{{- $media.Class -}}' {{- end }}
+	{{ if $media.Style -}} style='{{- $media.Style -}}' {{- end }}
+	{{ if $media.Decorative -}} aria-hidden="true" {{- end }}
+	{{ if $media.Autoplay -}} autoplay {{- end }}
+	{{ if $media.Control -}} controls {{- end }}
+	{{ if $media.CORS -}} crossorigin='{{- $media.CORS -}}' {{- end }}
+	{{ if $media.Loop -}} loop {{- end }}
+	{{ if $media.Mute -}} muted {{- end }}
+	{{ if $media.Preload -}} preload='{{- $media.Preload -}}' {{- end }}
+/>
+	{{- range $i, $v := .Sources }}
+	<source src='{{- $v.URL -}}' type='{{- $v.Type -}}' />
+	{{- end }}
+</audio>
+{{- end -}}
