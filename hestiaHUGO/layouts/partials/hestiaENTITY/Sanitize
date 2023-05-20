@@ -64,12 +64,23 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* check .Input.Data state */ -}}
+{{- $ret = default dict .Input.Data -}}
+{{- if not $ret -}}
+	{{- $error = printf ".Contributor: missing .Input.Data data!\n" -}}
+{{- end -}}
+
+
+
+
 {{- /* obtain language specific data */ -}}
-{{- $Lang = default dict (index .Input.Data.Languages $Lang) -}}
-{{- if not $Lang -}}
-	{{- $error = printf ".Contributor.Languages: missing data in language '%v'.\n"
-		.Languages.Current.ID
-	-}}
+{{- if not $error -}}
+	{{- $Lang = default dict (index .Input.Data.Languages $Lang) -}}
+	{{- if not $Lang -}}
+		{{- $error = printf ".Contributor.Languages: missing data in language '%v'.\n"
+			.Languages.Current.ID
+		-}}
+	{{- end -}}
 {{- end -}}
 
 
@@ -213,7 +224,7 @@ specific language governing permissions and limitations under the License.
 {{- if and $Lang (not $error) -}}
 	{{- range $i, $v := $Lang.Social -}}
 		{{- /* process .Label */ -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Label)) -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Label)) -}}
 		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
 			{{- $error = printf ".Contributor.Social.%v.Label: %v" $i $ret.Error -}}
@@ -224,7 +235,7 @@ specific language governing permissions and limitations under the License.
 
 
 		{{- /* process .Value */ -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Value)) -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Value)) -}}
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
 			{{- $error = printf ".Contributor.Social.%v.Value: %v" $i $ret.Error -}}
