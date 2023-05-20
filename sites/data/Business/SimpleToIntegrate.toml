@@ -8,7 +8,7 @@ URL = ''
 Label = ''
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'With simple .zip archive fromat'
+Pitch = 'With simple and all familiar .zip archive fromat'
 Summary = 'works on Windows, Linux, and MacOS.'
 
 [[Metadata.Languages.EN.Descriptions]]
@@ -26,7 +26,7 @@ URL = ''
 Label = ''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '运用最简单的.zip压缩包装格式'
+Pitch = '运用最简单和非常见识的.zip压缩包装格式'
 Summary = '可以在Windows，Linux，和MacOS通用。'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]

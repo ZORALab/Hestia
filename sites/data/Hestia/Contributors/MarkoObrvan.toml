@@ -31,9 +31,6 @@ Value = 'Europe'
 Label = 'Pexels'
 Value = 'https://www.pexels.com/@markiwan/'
 
-[[Metadata.Languages.EN.Social]]
-Label = ''
-Value = ''
 
 
 
@@ -64,10 +61,6 @@ Value = 'Europe'
 [Metadata.Languages.ZH-HANS.Web]
 Label = 'Pexels'
 Value = 'https://www.pexels.com/@markiwan/'
-
-[[Metadata.Languages.ZH-HANS.Social]]
-Label = ''
-Value = ''
 
 
 
@@ -133,7 +126,7 @@ Decorative = false
 Loading = 'lazy'
 Width = "1200"
 Height = "1200"
-CORS = ""
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""

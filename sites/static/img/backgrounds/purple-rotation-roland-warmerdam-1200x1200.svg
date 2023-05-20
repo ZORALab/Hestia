@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Copyright 2023 (Holloway) Chew, Kean Ho <hollowaykeanho@gmail.com>
+Copyright 2023 Roland Warmerdam (https://codepen.io/Rowno/pen/EVEgJb)
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<svg
+   viewBox="0 0 1200 1200"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="gopher-hugo-bg-1200x1200.svg"
+   xml:space="preserve"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"><defs
+     id="defs8" /><sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.55625734"
+     inkscape:cx="442.24135"
+     inkscape:cy="273.25482"
+     inkscape:window-width="1920"
+     inkscape:window-height="1005"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" /><style
+     id="style2">
+		:root {
+			--timing-rotation: 21s;
+			--timing-bg: 90s;
+			--timing-delay: -30s;
+			--color1: #c9177e;
+			--color2: #c9176f;
+			--color3: #c917ab;
+			--color4: #9b1261;
+			-webkit-animation: theme var(--timing-rotation) linear infinite;
+			animation: theme var(--timing-rotation) linear infinite;
+		}
+		.background:after,
+		.background:before {
+			content: &quot;&quot;;
+			display: block;
+			position: fixed;
+			z-index: -1;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.05);
+			-webkit-animation: background var(--timing-bg) linear infinite;
+			animation: background var(--timing-bg) linear infinite;
+		}
+		.background:after {
+			left: 15%;
+		}
+		.background:before {
+			right: 20%;
+			-webkit-animation-delay: var(--timing-delay);
+			animation-delay: var(--timing-delay);
+			animation-direction: reverse;
+		}
+
+		@-webkit-keyframes theme {
+			0% {
+				background: var(--color1);
+			}
+			16% {
+				background: var(--color2);
+			}
+			33% {
+				background: var(--color3);
+			}
+			50% {
+				background: var(--color4);
+			}
+			66% {
+				background: var(--color3);
+			}
+			83% {
+				background: var(--color2);
+			}
+			100% {
+				background: var(--color1);
+			}
+		}
+
+		@keyframes theme {
+			0% {
+				background: var(--color1);
+			}
+			16% {
+				background: var(--color2);
+			}
+			33% {
+				background: var(--color3);
+			}
+			50% {
+				background: var(--color4);
+			}
+			66% {
+				background: var(--color3);
+			}
+			83% {
+				background: var(--color2);
+			}
+			100% {
+				background: var(--color1);
+			}
+		}
+		@-webkit-keyframes background {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+		@keyframes background {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	</style><foreignObject
+     x="0"
+     y="0"
+     width="1200"
+     height="1200"><xhtml:div><xhtml:div
+         class="background" /></xhtml:div></foreignObject></svg>

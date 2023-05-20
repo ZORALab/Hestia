@@ -1,0 +1,30 @@
+[[Languages.EN]]
+Title = 'Home'
+
+[[Languages.EN.Items]]
+Title = "Visit"
+URL = '/en/'
+
+[[Languages.EN.Items]]
+Title = "Why ZORALab's Hestia"
+URL = '/en/#why-zoralab-hestia'
+
+[[Languages.EN.Items]]
+Title = "Supporting Hugo"
+URL = '/en/#supporting-hugo'
+
+[[Languages.EN.Items]]
+Title = "Supporting Go & TinyGo"
+URL = '/en/#supporting-go-and-tinygo'
+
+[[Languages.EN.Items]]
+Title = "Supporting Nim"
+URL = '/en/#supporting-go-and-tinygo'
+
+[[Languages.EN.Items]]
+Title = "Licenses"
+URL = '/en/#apache-2-open-source-licensed'
+
+[[Languages.EN.Items]]
+Title = "Our Contributors"
+URL = '/en/#our-contributors'

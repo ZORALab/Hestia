@@ -13,7 +13,7 @@ mathematical or logical algorithms development.
 
 
 {{- /* execute function */ -}}
-{{- $dataList = merge $dataList (partial "Hestia/functions/render/ldjson/WebSite" .) -}}
+{{- $dataList = merge $dataList (partial "hestiaJSON/schemaorgLDJSON/WebSite" .) -}}
 
 
 

@@ -1,0 +1,367 @@
+[Metadata]
+ID = 'nim'
+Brand = 'Nim'
+
+
+
+
+[Metadata.Languages.EN]
+ID = 'supporting-nim'
+Title = 'Supporting Nim'
+Brand = 'Nim'
+Label = 'Under Development'
+URL = ''
+
+
+
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = 'Builds No-GC WASM Binary + Runtime Libraries'
+Summary = 'transforming web development with Go over Javascript.'
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = 'Builds No-GC Backend Program Fast & Steady'
+Summary = "meet business requirements fast and safe first."
+
+[[Metadata.Languages.EN.Strengths]]
+Pitch = 'Builds No-GC Microcontroller Image Confidently'
+Summary = 'expanding from computer to chip and signal controls.'
+
+
+
+
+[[Metadata.Languages.EN.Features]]
+Pitch = 'WASM Compile Capable'
+Summary = 'Compile WASM binary and JS libraries seamlessly.'
+
+[Metadata.Languages.EN.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/logos/wasm-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.EN.Features]]
+Pitch = 'Adapt to No-GC Requirement'
+Summary = 'Works well even in the extreme and restrictive environment.'
+
+[Metadata.Languages.EN.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.EN.Features]]
+Pitch = 'Make Things Easier'
+Summary = "Focus on business requirements; not debugging the tools."
+
+[Metadata.Languages.EN.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.EN.Features]]
+Pitch = 'Beyond Microprocessor'
+Summary = 'Into microcontrollers confidently with tested and reusable codes.'
+
+[Metadata.Languages.EN.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.EN.Features]]
+Pitch = 'Interoperable Across Languages'
+Summary = 'Same context for Hugo, Go+TinyGo, and Nim.'
+
+[Metadata.Languages.EN.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.EN.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+
+
+[Metadata.Languages.ZH-HANS]
+Title = 'Go与TinyGo'
+Label = '正在研制'
+URL = ''
+
+[[Metadata.Languages.ZH-HANS.Strengths]]
+Pitch = '处理原型制造和寻路需求'
+Summary = '适合一直改变的工作环境。'
+
+[[Metadata.Languages.ZH-HANS.Strengths]]
+Pitch = '最适合早期研制和实验使用'
+Summary = "尤其是实现计划的黄金时间。"
+
+[[Metadata.Languages.ZH-HANS.Strengths]]
+Pitch = "和ZORALab's Hestia Rust和TinyGo互通兼容"
+Summary = "可以回用现有的数据和同用代码。"
+
+
+
+
+[Logo]
+Name = "Nim Logo"
+Decorative = true
+Loading = 'lazy'
+Width = "200"
+Height = "200"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Logo.Sources]]
+URL = "/img/logos/nim-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Logo.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+
+
+[Background]
+Name = "Nim Background"
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Background.Sources]]
+URL = "/img/backgrounds/light-rays-alvaro-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Background.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

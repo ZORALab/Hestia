@@ -1,0 +1,31 @@
+[Languages.EN]
+Logo = '/img/logos/zoralab-hestia-logo-1200x1200.svg'
+Disclaimer = '''
+ZORALab's Hestia is an open-source software project currently under the
+ZORALab Enterprise (201603356108)'s stewardship.
+'''
+Copyright = '''
+© All Rights Reserved — All ZORALab Hestia's Contributors worldwide.
+'''
+Inquiry = '''
+For any inquiries, please contact us at our
+'''
+URL = 'https://github.com/zoralab/hestia'
+CTA = 'GitHub Portal'
+
+
+
+
+[Languages.ZH-HANS]
+Logo = '/img/logos/zoralab-hestia-logo-1200x1200.svg'
+Disclaimer = '''
+ZORALab赫斯提亚是一个由ZORALab企业（201603356108）管理的开源软件项目。
+'''
+Copyright = '''
+© 版权拥有 — 所有ZORALab赫斯提亚贡献者们。
+'''
+Inquiry = '''
+一切询问，请在我们一下的直线联系我们：
+'''
+URL = 'https://github.com/zoralab/hestia'
+CTA = 'GitHub互联网'

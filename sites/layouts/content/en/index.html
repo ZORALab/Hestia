@@ -1,0 +1,618 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<main style='padding:0;'>
+	{{- $ret = merge $Page (dict "Input" (dict "Data"
+		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
+	)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	<section id='{{- $i18n.Introduction.ID -}}' class='inverted' style='
+		min-height: 100vh;
+		max-height: 100vh;
+		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-top: var(--main-padding-top);
+	'>
+		<h1>{{- $Page.Titles.Page -}}</h1>
+		<p>{{- $Page.Descriptions.Page.Pitch -}}</p>
+
+		{{- range $i, $v := $Page.Data.Store.Business }}
+			{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID }}
+			<p style='margin-top: 2rem; font-size:1.8rem;'>
+				<b>{{- $lang.Name -}}</b>
+			</p>
+		{{- end }}
+
+		<a href='#{{- $i18n.WhyItMatters.ID -}}'
+			style='
+				display: block;
+
+				position: relative;
+
+				border: 2px solid var(--color-typography-50);
+				border-radius: 50%;
+
+				margin: var(--paragraph-padding);
+				margin-top: 2rem;
+
+				width: 60px;
+				height: 60px;
+				--downarrow-joshuaMcD-size: 20px;
+				--downarrow-joshuaMcD-margin-vertical: -11px;
+				--downarrow-joshuaMcD-margin-horizontal: -11px;
+				--downarrow-joshuaMcD-animation-translate-factor: 1.2;
+				color: var(--color-typography-50);
+				background: transparent;
+		'><div class='downarrow-joshuaMcD'></div></a>
+	</section>
+
+
+	<section>
+		<h2 id='{{- $i18n.WhyItMatters.ID -}}'>{{- $i18n.WhyItMatters.Title -}}</h2>
+		{{- if $i18n.WhyItMatters.Description }}
+		<p>{{- $i18n.WhyItMatters.Description -}}</p>
+		{{- end }}
+
+		<div class='row' style='--grid-gap: 1rem; --h3-margin: 0;'>
+			{{- range $i, $v := $Page.Data.Store.Business -}}
+				{{- $lang = index
+					$v.Metadata.Languages
+					$Page.Languages.Current.ID }}
+				<div class='column'><div class='zoralab-tile' style='
+					--zoralab-tile-width: 35rem;
+				'>
+					<div class='thumbnail'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Thumbnail)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+					</div>
+					<div class='content'>
+						<h3>{{- $lang.Name -}}</h3>
+						{{- range $j, $w := $lang.Descriptions }}
+						<p {{- if $j }}
+							style='margin-top: 2rem;'{{- end -}}>
+							<b>{{- $w.Pitch -}}</b>
+						</p>
+						{{- end }}
+					</div>
+				</div></div>
+			{{- end -}}
+		</div>
+	</section>
+
+
+	{{- $ret = index $Page.Data.Store.Programming.Hugo.Background.Sources 0 -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	{{- if $ret -}}
+		{{- $ret = printf "url(%s)" $ret -}}
+	{{- else -}}
+		{{- $ret = "linear-gradient(-45deg, #ee7752, #e73c7e)" -}}
+	{{- end }}
+	<section class='inverted' style='
+		margin-top: 5rem;
+		background: {{ $ret -}};
+		background-size: cover;
+		position: relative;
+		padding: var(--section-split-skew-height)
+				var(--main-padding-left)
+				calc(var(--section-split-skew-height)*2)
+				var(--main-padding-right);
+	'>
+		<div class ='section-split-skew' style='
+			--section-split-skew-angle: to right bottom;
+			--section-split-skew-upper-background: var(--body-background);
+			--section-split-skew-lower-background: transparent;
+			position: absolute;
+			top: 0;
+			left: 0;
+		'></div>
+
+		{{- $ret = $Page.Data.Store.Programming.Hugo.Logo -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- $ret = $ret.Output }}
+		{{ partial "hestiaMEDIA/ToHTML" $ret }}
+
+		{{- $lang = index
+			$Page.Data.Store.Programming.Hugo.Metadata.Languages
+			$Page.Languages.Current.ID
+		-}}
+		<h2 id='{{- $lang.ID -}}' style='margin-top: 0;'>{{- $lang.Title -}}</h2>
+		<p>{{- $lang.Description -}}</p>
+
+		<div class='row'>
+		{{- range $i, $v := $lang.Strengths -}}
+			<div class='column'>
+				<p style='margin: 2rem 0;'>
+					<b>{{- $v.Pitch -}}</b>
+				</p>
+			</div>
+		{{- end }}
+		</div>
+
+		<div class='row'>
+		{{- range $i, $v := $lang.Features -}}
+			<div class= 'column'><div class='zoralab-tile' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--zoralab-tile-border-radius: .5rem;
+			'>
+				{{- if $v.Image -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Image)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+				<div class='thumbnail'>
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+				</div>
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $v.Pitch -}}</h3>
+					<p>{{- $v.Summary -}}</p>
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+
+		<div class ='section-split-skew' style='
+			--section-split-skew-angle: to left bottom;
+			--section-split-skew-upper-background: transparent;
+			--section-split-skew-lower-background: var(--body-background);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		'></div>
+	</section>
+
+
+	{{- $ret = index $Page.Data.Store.Programming.Go.Background.Sources 0 -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	{{- if $ret -}}
+		{{- $ret = printf "url(%s)," $ret -}}
+	{{- end }}
+	{{- $ret = printf "%slinear-gradient(-45deg, #02ccfe, #d9f7ff)" $ret -}}
+	<section style='
+		margin-top: 5rem;
+		background: {{ $ret -}};
+		background-size: cover;
+		position: relative;
+		padding: var(--section-split-skew-height)
+				var(--main-padding-left)
+				calc(var(--section-split-skew-height)*2)
+				var(--main-padding-right);
+	'>
+		<div class ='section-split-skew' style='
+			--section-split-skew-angle: to left bottom;
+			--section-split-skew-upper-background: var(--body-background);
+			--section-split-skew-lower-background: transparent;
+			position: absolute;
+			top: 0;
+			left: 0;
+		'></div>
+
+
+		<div class='row'>
+			<div class='column'>
+				{{- $ret = $Page.Data.Store.Programming.Go.Logo -}}
+				{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+				{{- $ret = $ret.Output }}
+				{{ partial "hestiaMEDIA/ToHTML" $ret }}
+			</div>
+
+			<div class='column'>
+				{{- $ret = $Page.Data.Store.Programming.Go.Logo2 -}}
+				{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+				{{- $ret = $ret.Output }}
+				{{ partial "hestiaMEDIA/ToHTML" $ret }}
+			</div>
+		</div>
+
+		{{- $lang = index
+			$Page.Data.Store.Programming.Go.Metadata.Languages
+			$Page.Languages.Current.ID
+		-}}
+		<h2 id='{{- $lang.ID -}}' style='margin-top: 0;'>{{- $lang.Title -}}</h2>
+		<p>{{- $lang.Description -}}</p>
+
+		<div class='row' style='--grid-align-items: center;'>
+		{{- range $i, $v := $lang.Strengths -}}
+			<div class='column'>
+				<p style='margin: 2rem 0;'><b>{{- $v.Pitch -}}</b></p>
+			</div>
+		{{- end }}
+		</div>
+
+		<div class='row'>
+		{{- range $i, $v := $lang.Features -}}
+			<div class= 'column'><div class='zoralab-tile' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--zoralab-tile-border-radius: .5rem;
+			'>
+				{{- if $v.Image -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Image)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+				<div class='thumbnail'>
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+				</div>
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $v.Pitch -}}</h3>
+					<p>{{- $v.Summary -}}</p>
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+
+		<div class='row'>
+			<div class='column'>
+				<div class="note warning">
+					<input id="note-under-dev-go" type="checkbox" checked>
+					<label for="note-under-dev-go">
+						{{- $i18n.UnderConstruction.Title -}}
+					</label>
+					<p class="content">
+						{{- $i18n.UnderConstruction.Description -}}
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class ='section-split-skew' style='
+			--section-split-skew-angle: to right bottom;
+			--section-split-skew-upper-background: transparent;
+			--section-split-skew-lower-background: var(--body-background);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		'></div>
+	</section>
+
+
+	{{- $ret = index $Page.Data.Store.Programming.Nim.Background.Sources 0 -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	{{- if $ret -}}
+		{{- $ret = printf "url(%s)," $ret -}}
+	{{- end }}
+	{{- $ret = printf "%slinear-gradient(-45deg, #fff08d, #fff3a1)" $ret -}}
+	<section style='
+		margin-top: 5rem;
+		background: {{ $ret -}};
+		background-size: cover;
+		position: relative;
+		padding: var(--section-split-skew-height)
+				var(--main-padding-left)
+				calc(var(--section-split-skew-height)*2)
+				var(--main-padding-right);
+	'>
+		<div class ='section-split-skew' style='
+			--section-split-skew-angle: to right bottom;
+			--section-split-skew-upper-background: var(--body-background);
+			--section-split-skew-lower-background: transparent;
+			position: absolute;
+			top: 0;
+			left: 0;
+		'></div>
+
+		{{- $ret = $Page.Data.Store.Programming.Nim.Logo -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- $ret = $ret.Output }}
+		{{ partial "hestiaMEDIA/ToHTML" $ret }}
+		{{- $lang = index
+			$Page.Data.Store.Programming.Nim.Metadata.Languages
+			$Page.Languages.Current.ID
+		-}}
+		<h2 id='{{- $lang.ID -}}' style='margin-top: 0;'>{{- $lang.Title -}}</h2>
+		<p>{{- $lang.Description -}}</p>
+
+		<div class='row'>
+		{{- range $i, $v := $lang.Strengths -}}
+			<div class='column'>
+				<p style='margin: 2rem 0;'>
+					<b>{{- $v.Pitch -}}</b>
+				</p>
+			</div>
+		{{- end }}
+		</div>
+
+		<div class='row'>
+		{{- range $i, $v := $lang.Features -}}
+			<div class= 'column'><div class='zoralab-tile' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--zoralab-tile-border-radius: .5rem;
+			'>
+				{{- if $v.Image -}}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Image)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+				<div class='thumbnail'>
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+				</div>
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $v.Pitch -}}</h3>
+					<p>{{- $v.Summary -}}</p>
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+
+		<div class='row'>
+			<div class='column'>
+				<div class="note warning">
+					<input id="note-under-dev-go" type="checkbox" checked>
+					<label for="note-under-dev-go">
+						{{- $i18n.UnderConstruction.Title -}}
+					</label>
+					<p class="content">
+						{{- $i18n.UnderConstruction.Description -}}
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	{{- $ret = index .Data.Store.Licenses.Apache2.Background.Sources 1 -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	{{- if $ret -}}
+		{{- $ret = printf "url(%s)" $ret -}}
+	{{- end }}
+	{{- $ret = printf "linear-gradient(0deg, rgba(255,255,255,.5), rgba(255,255,255,1)),%s"
+		$ret -}}
+	<section style='
+		background: {{ $ret -}};
+		background-size: cover;
+		position: relative;
+		padding: var(--section-split-skew-height)
+				var(--main-padding-left)
+				calc(var(--section-split-skew-height)*2)
+				var(--main-padding-right);
+	'>
+		{{- $lang = index
+			$Page.Data.Store.Licenses.Apache2.Metadata.Languages
+			$Page.Languages.Current.ID
+		-}}
+		<h2 id='{{- $lang.ID -}}' class='clean' style='border: none; text-align: left;'>
+			{{- $lang.Title -}}
+		</h2>
+		{{- range $i, $v := $lang.Descriptions }}
+			<p style='margin-top: 2rem; font-size:1.8rem;'>
+				<b>{{- $v.Pitch -}}</b>
+			</p>
+		{{- end }}
+	</section>
+
+
+	{{- $sponsors := dict -}}
+	{{- $developers := dict -}}
+	{{- $artists := dict -}}
+	{{- $knowledge := dict -}}
+	{{- range $i, $v := .Contributors.Site -}}
+		{{- if or $v.Contribution.Sponsor.Past $v.Contribution.Sponsor.Current -}}
+			{{- $sponsors = merge $sponsors (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Funder.Past $v.Contribution.Funder.Current -}}
+			{{- $sponsors = merge $sponsors (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Artwork.Past $v.Contribution.Artwork.Current -}}
+			{{- $artists = merge $artists (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Knowledge.Past $v.Contribution.Knowledge.Current -}}
+			{{- $knowledge = merge $knowledge (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Developer.Past $v.Contribution.Developer.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Maintainer.Past $v.Contribution.Maintainer.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Editor.Past $v.Contribution.Editor.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Creator.Past $v.Contribution.Creator.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+	{{- end -}}
+	<section>
+		<h2 id='{{- $i18n.Contributors.ID -}}'>{{- $i18n.Contributors.Title -}}</h2>
+
+		<h3>{{- $i18n.Sponsors.Title -}}</h3>
+		<p>{{- $i18n.Sponsors.Description -}}</p>
+		<div class='row'>
+		{{- range $i, $v := $sponsors -}}
+			<div class= 'column'><div class='card' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--card-border-radius: .5rem;
+			'>
+				{{- if $v.Image -}}
+				<div class='thumbnail'>
+					{{ partial "hestiaMEDIA/ToHTML" $v.Image }}
+				</div>
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $v.Name -}}</h3>
+					<p>{{- $v.Slogan -}}</p>
+				</div>
+				<div class='actions'>
+					<a class='button' href='{{- $v.Web.Value -}}'>
+						{{- $v.Web.Label -}}
+					</a>
+				{{- if $v.Email.Value }}
+					<a class='button' href='{{- $v.Email.Value -}}'>
+						{{- $v.Email.Label -}}
+					</a>
+				{{- end }}
+				{{- if $v.Phone.Value }}
+					<a class='button' href='{{- $v.Phone.Value -}}'>
+						{{- $v.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $v.Social -}}
+					<a class='button' href='{{- $w.Value -}}'>
+						{{- $w.Label -}}
+					</a>
+				{{- end }}
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+
+		<h3>{{- $i18n.Developers.Title -}}</h3>
+		<p>{{- $i18n.Developers.Description -}}</p>
+		<div class='row'>
+		{{- range $i, $v := $developers -}}
+			<div class= 'column'><div class='card' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--card-border-radius: .5rem;
+			'>
+				{{- if $v.Image -}}
+				<div class='thumbnail'>
+					{{ partial "hestiaMEDIA/ToHTML" $v.Image }}
+				</div>
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $v.Name -}}</h3>
+					<p>{{- $v.Slogan -}}</p>
+				</div>
+				<div class='actions'>
+					<a class='button' href='{{- $v.Web.Value -}}'>
+						{{- $v.Web.Label -}}
+					</a>
+				{{- if $v.Email.Value }}
+					<a class='button' href='{{- $v.Email.Value -}}'>
+						{{- $v.Email.Label -}}
+					</a>
+				{{- end }}
+				{{- if $v.Phone.Value }}
+					<a class='button' href='{{- $v.Phone.Value -}}'>
+						{{- $v.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $v.Social -}}
+					<a class='button' href='{{- $w.Value -}}'>
+						{{- $w.Label -}}
+					</a>
+				{{- end }}
+				</div>
+			</div></div>
+		{{- end }}
+
+		<h3>{{- $i18n.Artists.Title -}}</h3>
+		<p>{{- $i18n.Artists.Description -}}</p>
+		<div class='row'>
+		{{- range $i, $v := $artists -}}
+			<div class= 'column'><div class='card' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--card-border-radius: .5rem;
+			'>
+				{{- if $v.Image -}}
+				<div class='thumbnail'>
+					{{ partial "hestiaMEDIA/ToHTML" $v.Image }}
+				</div>
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $v.Name -}}</h3>
+					<p>{{- $v.Slogan -}}</p>
+				</div>
+				<div class='actions'>
+					<a class='button' href='{{- $v.Web.Value -}}'>
+						{{- $v.Web.Label -}}
+					</a>
+				{{- if $v.Email.Value }}
+					<a class='button' href='{{- $v.Email.Value -}}'>
+						{{- $v.Email.Label -}}
+					</a>
+				{{- end }}
+				{{- if $v.Phone.Value }}
+					<a class='button' href='{{- $v.Phone.Value -}}'>
+						{{- $v.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $v.Social -}}
+					<a class='button' href='{{- $w.Value -}}'>
+						{{- $w.Label -}}
+					</a>
+				{{- end }}
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+	</section>
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data"
+		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
+	)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	<section id='{{- $i18n.Introduction.ID -}}' class='inverted' style='
+		min-height: 20vh;
+		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2 id='{{- $i18n.Epilogue.ID -}}'>{{- $i18n.Epilogue.Title -}}</h2>
+		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<br/>
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output -}}
+		<a href='{{- $ret -}}' class='button'>{{- $i18n.Epilogue.CTA -}}</a>
+	</section>
+</main>
+{{ partial "common/footer.html" $Page }}
+{{ partial "common/nav-prime.html" $Page }}
+
+{{- partial "hestiaGUI/zoralabDEBUGGER/HTML" . -}}

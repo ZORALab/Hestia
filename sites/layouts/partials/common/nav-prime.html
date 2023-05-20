@@ -1,0 +1,39 @@
+{{- $Page := . -}}
+{{- $lang := index .Data.Store.Nav.Languages .Languages.Current.ID -}}
+{{- $ret := false -}}
+
+
+
+
+<nav class='left-drawer'>
+	<input id='nav-left-drawer' type='checkbox' />
+	<label class='trigger' for='nav-left-drawer'>
+		<span class='open'>☰</span>
+		<span class='close'>𝖷</span>
+	</label>
+	<label class='overlay' for='nav-left-drawer'></label>
+
+
+
+
+	<div class='content'><div class='row' style='
+		--zoralab-tile-width: 20rem;
+		--zoralab-tile-margin: .5rem;
+		--zoralab-tile-border-radius: .8rem;
+	'>{{- range $i, $v := $lang -}}
+		<div class='column'><div class='zoralab-tile'>
+			<div class='content'>
+				<h3 style='margin-top: 0;'>{{- $v.Title -}}</h3>
+			</div>
+
+			<div class='actions'>{{- range $j, $w := $v.Items }}
+				{{- $ret = merge $Page (dict "Input" (dict "Data" $w.URL)) -}}
+				{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+				{{- $ret = string $ret.Output -}}
+				<a class='button' href='{{- $ret -}}'>
+					{{- $w.Title -}}
+				</a>
+			{{- end -}}</div>
+		</div></div>
+	{{- end -}}</div></div>
+</nav>

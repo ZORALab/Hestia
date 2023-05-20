@@ -31,7 +31,7 @@
 #
 # EXAMPLE:
 #        [[List]]
-#        Name = "core_hestiaUI"
+#        Name = "zoralabCORE"
 #        Include = true
 #        Variables = [
 #                  { "--test-variable-1" = "1rem" },
@@ -39,8 +39,72 @@
 #        ]
 #
 #        [[List]]
-#        Name = "font-NotoSans_hestiaUI"
+#        Name = "zoralabFONT_NOTOSANS"
 #        Include = true
 #        Variables = []
 #
 #        ...
+[[List]]
+Name = "zoralabCORE"
+Include = true
+Variables = [
+	{ "--body-scroll-behavior" = "smooth" },
+]
+
+[[List]]
+Name = "zoralabFONT_NOTOSANS"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabDRAWER"
+Include = true
+Variables = [
+	{ "--left-drawer-width-opened" = "80vw" },
+	{ "--left-drawer-trigger-position-top" = "0" },
+]
+
+[[List]]
+Name = "zoralabANCHOR"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabBUTTON"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabPICTURE"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabTILE"
+Include = true
+Variables = []
+
+[[List]]
+Name = "joshuamacdonaldDOWNARROW"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabSECTION_SPLIT_SKEW"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabNOTE"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabNOTE_WARNING"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabCARD"
+Include = true
+Variables = []

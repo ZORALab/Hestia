@@ -1,0 +1,219 @@
+[Metadata]
+Type = 'Person'
+ID = ''
+
+
+[Metadata.Languages.EN]
+Name = 'Mathias Reding'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+Fujifilm X Photographer contact@matreding.com
+'''
+Description = '''
+Fujifilm X Photographer contact@matreding.com
+'''
+
+[Metadata.Languages.EN.Phone]
+Label = 'Phone'
+Value = ''
+
+[Metadata.Languages.EN.Email]
+Label = 'Email'
+Value = 'contact@matreding.com'
+
+[Metadata.Languages.EN.Location]
+Label = 'Location'
+Value = 'Paris, France'
+
+[Metadata.Languages.EN.Web]
+Label = 'Pexels'
+Value = 'https://www.pexels.com/@matreding/'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Instagram'
+Value = 'https://instagram.com/matreding'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Website'
+Value = 'http://matreding.com/'
+
+[[Metadata.Languages.EN.Social]]
+Label = 'Twitter'
+Value = 'https://twitter.com/matreding'
+
+
+[Metadata.Languages.ZH-HANS]
+Name = 'Mathias Reding'
+Title = ''
+Brand = ''
+CallSign = ''
+Slogan = '''
+Fujifilm X 摄影师 contact@matreding.com
+'''
+Description = '''
+Fujifilm X 摄影师 contact@matreding.com
+'''
+
+[Metadata.Languages.ZH-HANS.Phone]
+Label = '电话'
+Value = ''
+
+[Metadata.Languages.ZH-HANS.Email]
+Label = '电邮'
+Value = 'contact@matreding.com'
+
+[Metadata.Languages.ZH-HANS.Location]
+Label = '地点'
+Value = 'Paris, France'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = 'Instagram'
+Value = 'https://instagram.com/matreding'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = '官方网站'
+Value = 'http://matreding.com/'
+
+[[Metadata.Languages.ZH-HANS.Social]]
+Label = '推特'
+Value = 'https://twitter.com/matreding'
+
+
+
+
+[Contribution.Creator]
+Past = false
+Current = false
+
+[Contribution.Contact]
+Past = false
+Current = false
+
+[Contribution.Artwork]
+Past = true
+Current = false
+
+[Contribution.Knowledge]
+Past = false
+Current = false
+
+[Contribution.Editor]
+Past = false
+Current = false
+
+[Contribution.Developer]
+Past = false
+Current = false
+
+[Contribution.Maintainer]
+Past = false
+Current = false
+
+[Contribution.Owner]
+Past = false
+Current = false
+
+[Contribution.Producer]
+Past = false
+Current = false
+
+[Contribution.Provider]
+Past = false
+Current = false
+
+[Contribution.Publisher]
+Past = false
+Current = false
+
+[Contribution.Reviewer]
+Past = false
+Current = false
+
+[Contribution.Funder]
+Past = false
+Current = false
+
+[Contribution.Sponsor]
+Past = false
+Current = false
+
+
+
+
+[Image]
+Name = "Mathias Reding's Portrait"
+Decorative = false
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-1200x1200.avif"
+Type = "image/avif"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-1200x1200.webp"
+Type = "image/webp"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-1200x1200.jpg"
+Type = "image/jpeg"
+Media = "min-width: 600px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-480x480.avif"
+Type = "image/avif"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-480x480.webp"
+Type = "image/webp"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-480x480.jpg"
+Type = "image/jpeg"
+Media = "min-width: 400px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-220x220.avif"
+Type = "image/avif"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-220x220.webp"
+Type = "image/webp"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/portraits/mathias-reding-220x220.jpg"
+Type = "image/jpeg"
+Media = "max-width: 250px"
+Descriptor = '1x'
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

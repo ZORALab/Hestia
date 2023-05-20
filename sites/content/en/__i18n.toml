@@ -5,6 +5,95 @@ Description = 'Description'
 
 
 
+[i18n.Labels]
+Thumbnail = 'Thumbnail'
+Reason = 'Reason'
+Value = 'Value'
+Contributors = 'Contributors'
+Language = 'Language'
+Strengths = 'Strengths'
+Features = 'Features'
+Programming = 'Programming Languages'
+Name = 'Name'
+Coverage = 'Coverage'
+ID = 'ID'
+Files = 'Files'
+Licenses = 'Licenses'
+
+
+
+
 [i18n.Introduction]
 ID = 'introduction'
 Title = 'Introduction'
+
+
+
+
+[i18n.WhyItMatters]
+ID = "why-zoralab-hestia"
+Title = "Why ZORALab's Hestia"
+Description = '''
+'''
+
+
+
+
+[i18n.UnderConstruction]
+Title = 'Heads Up'
+Description = '''
+This supporting feature is currently under development.
+'''
+
+
+
+
+[i18n.Contributors]
+ID = 'our-contributors'
+Title = 'Our Contributors'
+Description = '''
+Codes, sponsorship, artworks, and media. Thank you for making this Project possible.
+'''
+
+
+
+
+[i18n.Sponsors]
+ID = 'financial-sponsorship'
+Title = 'Financial Sponsorship'
+Description = '''
+Thanks to the funding from our sponsors to keep the project going:
+'''
+
+
+
+
+[i18n.Developers]
+ID = 'technical-development'
+Title = 'Technical Development'
+Description = '''
+Thanks to the technical contributions from our developers, testers, and editors:
+'''
+
+
+
+
+[i18n.Artists]
+ID = 'artistic-media-designers'
+Title = 'Artistic Media Designers'
+Description = '''
+Thanks to the artistic media contributions from a varieties of designers:
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = 'lets-get-started'
+Title = "Let's Get Started!"
+Description = '''
+Convinced? We have a getting started guides ready just for you! Hop in to start
+your journey with us:
+'''
+URL = '/en/getting-started'
+CTA = 'Getting Started'

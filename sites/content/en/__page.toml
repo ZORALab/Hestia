@@ -68,11 +68,29 @@ less worries about supply chain problems.
 #      or fallback to default language.
 [Redirect]
 Delay = 0 # second
-URL = ''
+URL = '/home'
 Enabled = false
 
 [Redirect.Language]
 Enabled = false
+
+
+
+
+# Content Files' Sourcing Location
+# NOTE:
+#   1. To denote where are the content sources.
+#   2. If you're sourcing from assets directory, prefix 'assets/'.
+#   3. If you're sourcing from layouts directory, prefix 'layouts/'.
+#   2. If you're sourcing from static directory, prefix 'static/'.
+#   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
+[Sources]
+HTML = 'layouts/content/en/index.html'
+JSON = 'layouts/content/en/index.json'
+LDJSON = '__content.hestiaLDJSON'
+Contributors = '__contributors.toml'
+Thumbnails = '__thumbnails.toml'
+Languages = '__languages.toml'
 
 
 
@@ -95,8 +113,5 @@ Enabled = false
 #
 #                             [[data]]
 #                             Filename = 'file2.toml'
-[[Data]]
-Filename = '__data.toml'
-
 [[Data]]
 Filename = '__i18n.toml'

@@ -32,7 +32,7 @@ Label = 'Pexels'
 Value = 'https://www.pexels.com/@terrence-bowen-6926582/'
 
 [[Metadata.Languages.EN.Social]]
-Label = 'Offical Website'
+Label = 'Website'
 Value = 'https://www.photosbyterbo.com/'
 
 [[Metadata.Languages.EN.Social]]
@@ -152,7 +152,7 @@ Decorative = false
 Loading = 'lazy'
 Width = "1200"
 Height = "1200"
-CORS = ""
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""

@@ -1,0 +1,29 @@
+{{- $lang := index .Data.Store.Footer.Languages .Languages.Current.ID -}}
+
+<footer>
+	<div class='row'>
+		<div class='column'>
+			{{- $ret := merge . (dict "Input" (dict "Data" $lang.Logo)) -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+			{{- $ret = string $ret.Output -}}
+			<img src='{{- $ret -}}' alt=''
+				width='100' height='100' style='
+					max-height: 150px;
+					margin-top: 0;
+				'
+				loading='lazy' />
+		</div>
+
+
+		<div class='column'>
+			<p>
+				{{ $lang.Disclaimer }}
+				<br/><br/>
+				{{ $lang.Copyright }}
+				<br/></br>
+				{{ $lang.Inquiry }}
+				<a href='{{- $lang.URL -}}'>{{- $lang.CTA -}}</a>
+			</p>
+		</div>
+	</div>
+</footer>

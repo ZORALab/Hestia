@@ -8,16 +8,16 @@ URL = 'https://doi.org/10.5281/zenodo.6815013'
 Label = 'Paper'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'NO MORE'
-Summary = 'geo-political nuisance.'
+Pitch = 'NO MORE geo-political nuisance'
+Summary = 'focus on the job instead.'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'NO MORE'
-Summary = 'dirty and after-the-fact shenanigans.'
+Pitch = 'NO MORE dirty and after-the-fact shenanigans'
+Summary = 'focus on the development instead.'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'NO MORE'
-Summary = 'cut-throat charges.'
+Pitch = 'NO MORE cut-throat charges'
+Summary = 'focus on the business instead.'
 
 
 [Metadata.Languages.ZH-HANS]
@@ -26,16 +26,16 @@ URL = 'https://doi.org/10.5281/zenodo.6815013'
 Label = '白皮书'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '不再担忧'
-Summary = '地缘政治带来无畏无聊的麻烦。'
+Pitch = '不再担忧地缘政治带来无畏无聊的麻烦'
+Summary = '就专心在于工作吧。'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '不再担忧'
-Summary = '事后的肮脏诡计。'
+Pitch = '不再担忧事后的肮脏诡计'
+Summary = '就专心在于研制进展吧。'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '不再担忧'
-Summary = '残酷无情不择手段的价钱更改。'
+Pitch = '不再担忧残酷无情不择手段的价钱更改'
+Summary = '就专心在于生意吧。'
 
 
 

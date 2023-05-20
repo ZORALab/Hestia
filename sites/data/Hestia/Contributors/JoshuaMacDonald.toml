@@ -64,7 +64,7 @@ Value = ''
 Label = 'CodePen'
 Value = 'https://codepen.io/JoshMac'
 
-[[Metadata.Languages.EN.Social]]
+[[Metadata.Languages.ZH-HANS.Social]]
 Label = '官方网站'
 Value = 'http://joshmacdonald.co/'
 
@@ -140,7 +140,7 @@ Decorative = false
 Loading = 'lazy'
 Width = "1200"
 Height = "1200"
-CORS = ""
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""
