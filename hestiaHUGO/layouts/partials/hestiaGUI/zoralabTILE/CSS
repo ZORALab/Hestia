@@ -15,74 +15,80 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-.zoralab-tile {
+.tile {
 	display: inline-grid;
-	grid: var(--zoralab-tile-layout);
-	overflow: var(--zoralab-tile-overflow);
+	grid: var(--tile-layout);
+	overflow: var(--tile-overflow);
 
-	width: var(--zoralab-tile-width);
-	height: var(--zoralab-tile-height);
+	width: var(--tile-width);
+	height: var(--tile-height);
 
-	margin: var(--zoralab-tile-margin);
-	padding: var(--zoralab-tile-padding);
+	margin: var(--tile-margin);
+	padding: var(--tile-padding);
 
-	border: var(--zoralab-tile-border);
-	border-radius: var(--zoralab-tile-border-radius);
-	box-shadow: var(--zoralab-tile-box-shadow);
+	border: var(--tile-border);
+	border-radius: var(--tile-border-radius);
+	box-shadow: var(--tile-box-shadow);
 
-	color: var(--zoralab-tile-color);
-	background: var(--zoralab-tile-background);
+	color: var(--tile-color);
+	background: var(--tile-background);
 
-	transition: var(--zoralab-tile-timing);
+	transition: var(--tile-timing);
 }
 
-.zoralab-tile .thumbnail {
+.tile .thumbnail {
 	grid-area: thumbnail;
-	overflow: var(--zoralab-tile-thumbnail-overflow);
-	object-fit: var(--zoralab-tile-thumbnail-object-fit);
+	overflow: var(--tile-thumbnail-overflow);
+	object-fit: var(--tile-thumbnail-object-fit);
 
-	min-width: var(--zoralab-tile-thumbnail-min-width);
-	max-width: var(--zoralab-tile-thumbnail-max-width);
-	min-height: var(--zoralab-tile-thumbnail-min-height);
-	max-height: var(--zoralab-tile-thumbnail-max-height);
+	min-width: var(--tile-thumbnail-min-width);
+	width: var(--tile-width);
+	max-width: var(--tile-thumbnail-max-width);
+	min-height: var(--tile-thumbnail-min-height);
+	height: var(--tile-thumbnail-height);
+	max-height: var(--tile-thumbnail-max-height);
 
-	margin: var(--zoralab-tile-thumbnail-margin);
-	padding: var(--zoralab-tile-thumbnail-padding);
+	margin: var(--tile-thumbnail-margin);
+	padding: var(--tile-thumbnail-padding);
 }
 
-.zoralab-tile .content {
+.tile .content {
 	grid-area: content;
-	overflow: var(--zoralab-tile-content-overflow);
+	overflow: var(--tile-content-overflow);
 
-	min-width: var(--zoralab-tile-content-min-width);
-	max-width: var(--zoralab-tile-content-max-width);
-	min-height: var(--zoralab-tile-content-min-height);
-	max-height: var(--zoralab-tile-content-max-height);
+	min-width: var(--tile-content-min-width);
+	width: var(--tile-width);
+	max-width: var(--tile-content-max-width);
+	min-height: var(--tile-content-min-height);
+	height: var(--tile-content-height);
+	max-height: var(--tile-content-max-height);
 
-	margin: var(--zoralab-tile-content-margin);
-	padding: var(--zoralab-tile-content-padding);
+	margin: var(--tile-content-margin);
+	padding: var(--tile-content-padding);
 }
 
-.zoralab-tile .actions {
+.tile .actions {
 	grid-area: actions;
-	overflow: var(--zoralab-tile-actions-overflow);
+	overflow: var(--tile-actions-overflow);
 
-	min-width: var(--zoralab-tile-actions-min-width);
-	max-width: var(--zoralab-tile-actions-max-width);
-	min-height: var(--zoralab-tile-actions-min-height);
-	max-height: var(--zoralab-tile-actions-max-height);
+	min-width: var(--tile-actions-min-width);
+	width: var(--tile-width);
+	max-width: var(--tile-actions-max-width);
+	min-height: var(--tile-actions-min-height);
+	height: var(--tile-actions-height);
+	max-height: var(--tile-actions-max-height);
 
-	margin: var(--zoralab-tile-actions-margin);
-	padding: var(--zoralab-tile-actions-padding);
+	margin: var(--tile-actions-margin);
+	padding: var(--tile-actions-padding);
 }
 
 @media print {
-	.zoralab-tile {
+	.tile {
 		break-inside: avoid;
 
-		box-shadow: var(--zoralab-tile-box-shadow-print) !important;
+		box-shadow: var(--tile-box-shadow-print) !important;
 
-		color: var(--zoralab-tile-color-print) !important;
-		background: var(--zoralab-tile-background-print) !important;
+		color: var(--tile-color-print) !important;
+		background: var(--tile-background-print) !important;
 	}
 }

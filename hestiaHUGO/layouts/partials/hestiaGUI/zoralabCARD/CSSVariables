@@ -35,7 +35,6 @@
 "--card-thumbnail-object-fit" = "cover"
 
 "--card-thumbnail-min-width" = "100%"
-"--card-thumbnail-width" = "initial"
 "--card-thumbnail-max-width" = "100%"
 "--card-thumbnail-min-height" = "100%"
 "--card-thumbnail-height" = "max-content"
@@ -50,8 +49,7 @@
 "--card-content-overflow" = "auto"
 
 "--card-content-min-width" = "initial"
-"--card-content-width" = "initial"
-"--card-content-max-width" = "initial"
+"--card-content-max-width" = "100%"
 "--card-content-min-height" = "initial"
 "--card-content-height" = "auto"
 "--card-content-max-height" = "initial"
@@ -65,8 +63,7 @@
 "--card-actions-overflow" = "initial"
 
 "--card-actions-min-width" = "initial"
-"--card-actions-width" = "initial"
-"--card-actions-max-width" = "initial"
+"--card-actions-max-width" = "100%"
 "--card-actions-min-height" = "initial"
 "--card-actions-height" = "max-content"
 "--card-actions-max-height" = "initial"

@@ -50,8 +50,10 @@ specific language governing permissions and limitations under the License.
 	object-fit: var(--card-thumbnail-object-fit);
 
 	min-width: var(--card-thumbnail-min-width);
+	width: var(--card-width);
 	max-width: var(--card-thumbnail-max-width);
 	min-height: var(--card-thumbnail-min-height);
+	height: var(--card-thumbnail-height);
 	max-height: var(--card-thumbnail-max-height);
 
 	margin: var(--card-thumbnail-margin);
@@ -63,8 +65,10 @@ specific language governing permissions and limitations under the License.
 	overflow: var(--card-content-overflow);
 
 	min-width: var(--card-content-min-width);
+	width: var(--card-width);
 	max-width: var(--card-content-max-width);
 	min-height: var(--card-content-min-height);
+	height: var(--card-content-height);
 	max-height: var(--card-content-max-height);
 
 	margin: var(--card-content-margin);
@@ -76,8 +80,10 @@ specific language governing permissions and limitations under the License.
 	overflow: var(--card-actions-overflow);
 
 	min-width: var(--card-actions-min-width);
+	width: var(--card-width);
 	max-width: var(--card-actions-max-width);
 	min-height: var(--card-actions-min-height);
+	height: var(--card-actions-height);
 	max-height: var(--card-actions-max-height);
 
 	margin: var(--card-actions-margin);

@@ -69,8 +69,8 @@
 				{{- $lang = index
 					$v.Metadata.Languages
 					$Page.Languages.Current.ID }}
-				<div class='column'><div class='zoralab-tile' style='
-					--zoralab-tile-width: 35rem;
+				<div class='column'><div class='tile' style='
+					--tile-width: 35rem;
 				'>
 					<div class='thumbnail'>
 					{{- $ret = merge $Page (dict "Input"
@@ -148,11 +148,11 @@
 
 		<div class='row'>
 		{{- range $i, $v := $lang.Features -}}
-			<div class= 'column'><div class='zoralab-tile' style='
+			<div class= 'column'><div class='tile' style='
 				--h3-margin: 0;
 				--picture-margin: 0;
 				--picture-padding: 0;
-				--zoralab-tile-border-radius: .5rem;
+				--tile-border-radius: .5rem;
 			'>
 				{{- if $v.Image -}}
 					{{- $ret = merge $Page (dict "Input"
@@ -246,11 +246,11 @@
 
 		<div class='row'>
 		{{- range $i, $v := $lang.Features -}}
-			<div class= 'column'><div class='zoralab-tile' style='
+			<div class= 'column'><div class='tile' style='
 				--h3-margin: 0;
 				--picture-margin: 0;
 				--picture-padding: 0;
-				--zoralab-tile-border-radius: .5rem;
+				--tile-border-radius: .5rem;
 			'>
 				{{- if $v.Image -}}
 					{{- $ret = merge $Page (dict "Input"
@@ -346,11 +346,11 @@
 
 		<div class='row'>
 		{{- range $i, $v := $lang.Features -}}
-			<div class= 'column'><div class='zoralab-tile' style='
+			<div class= 'column'><div class='tile' style='
 				--h3-margin: 0;
 				--picture-margin: 0;
 				--picture-padding: 0;
-				--zoralab-tile-border-radius: .5rem;
+				--tile-border-radius: .5rem;
 			'>
 				{{- if $v.Image -}}
 					{{- $ret = merge $Page (dict "Input"
