@@ -43,7 +43,6 @@ specific language governing permissions and limitations under the License.
 {{- $path = printf "%s%s" $Page.Formats.JSON.Filename $Page.Formats.JSON.Extension -}}
 {{- $path = lower (printf "%s/%s" $Page.Filesystem.Directory $path) -}}
 {{- $data = default dict $Page.Content.JSON -}}
-{{- $data = string (jsonify $data) -}}
 {{- $data = merge $Page (dict "Input" (dict "Path" $path "Data" $data)) -}}
 {{- $data = partial "hestiaIO/hestiaFS/WriteFile" $data -}}
 
