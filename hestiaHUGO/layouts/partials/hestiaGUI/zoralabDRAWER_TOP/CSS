@@ -1,0 +1,194 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+.top-drawer {
+	display: flex;
+	justify-content: center;
+	align-content: flex-start;
+	align-items: stretch;
+	flex-wrap: wrap;
+	flex-direction: row;
+
+	grid-area: var(--topnav-grid-area);
+
+	width: 100%;
+	height: fit-content;
+
+	position: fixed;
+	top: 0;
+	left: 50%;
+	z-index: var(--top-drawer-z-index-opened);
+
+	transition: var(--top-drawer-transition);
+	transform: translateX(-50%);
+}
+
+.top-drawer > input[type='checkbox'] {
+	display: none;
+}
+
+.top-drawer > .content {
+	display: flex;
+	justify-content: center;
+	align-content: flex-start;
+	align-items: stretch;
+	flex-wrap: wrap;
+	flex-direction: row;
+
+	overflow: var(--top-drawer-overflow);
+
+	width: var(--top-drawer-width);
+	height: var(--top-drawer-height);
+
+	border-left: var(--top-drawer-border);
+	border-bottom: var(--top-drawer-border);
+	border-right: var(--top-drawer-border);
+	border-radius: var(--top-drawer-border-radius);
+
+	color: var(--top-drawer-color);
+	background: var(--top-drawer-background);
+
+	transition: var(--top-drawer-transition);
+}
+
+.top-drawer > *:not(label) {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.top-drawer > *:not(label) > * {
+	z-index: var(--top-drawer-z-index);
+
+	transition: var(--top-drawer-transition);
+}
+
+.top-drawer > input[type='checkbox']:checked ~ *:not(label) {
+	z-index: var(--top-drawer-z-index-opened);
+
+	visibility: visible;
+	opacity: 1;
+}
+
+.top-drawer > input[type='checkbox']:checked ~ *:not(label) > * {
+	z-index: var(--top-drawer-z-index-opened);
+}
+
+.top-drawer > input[type='checkbox']:checked ~ .content {
+	box-shadow: var(--top-drawer-box-shadow);
+}
+
+.top-drawer > input[type='checkbox']:checked ~ *:not(label) {
+	width: var(--top-drawer-width-opened);
+	height: var(--top-drawer-height-opened);
+}
+
+.top-drawer > label.trigger {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+
+	position: fixed;
+	top: var(--top-drawer-trigger-position-top);
+	left: var(--top-drawer-trigger-position-left);
+	bottom: var(--top-drawer-trigger-position-bottom);
+	right: var(--top-drawer-trigger-position-right);
+	z-index: var(--top-drawer-trigger-z-index);
+
+	width: var(--top-drawer-trigger-width);
+	height: var(--top-drawer-trigger-height);
+
+	font-size: var(--drawer-trigger-font-size);
+	font-style: var(--drawer-trigger-font-style);
+
+	border: var(--top-drawer-trigger-border);
+	border-radius: var(--top-drawer-trigger-border-radius);
+
+	color: var(--top-drawer-trigger-color);
+	background: var(--top-drawer-trigger-background);
+	box-shadow: var(--top-drawer-trigger-box-shadow);
+
+	opacity: 1;
+	transition: var(--top-drawer-transition);
+	transform: var(--top-drawer-trigger-transform);
+}
+
+.top-drawer:hover > label.trigger,
+.top-drawer:focus > label.trigger {
+	transform: var(--top-drawer-trigger-transform-focus);
+}
+
+.top-drawer > input[type='checkbox']:checked ~ label.trigger {
+	z-index: var(--top-drawer-overlay-z-index);
+
+	top: var(--top-drawer-height-opened);
+}
+
+.top-drawer > label.trigger > .open,
+.top-drawer > label.trigger > .close {
+	margin: auto;
+	padding: 0;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	color: inherit;
+	background: transparent;
+}
+
+.top-drawer > label.trigger > .open,
+.top-drawer > input[type='checkbox']:checked ~ label.trigger > .close {
+	opacity: 1;
+	visibility: visible;
+}
+
+.top-drawer > input[type='checkbox']:checked ~ label.trigger > .open,
+.top-drawer > label.trigger > .close {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.top-drawer .overlay {
+	content: '';
+	display: block;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: var(--top-drawer-overlay-z-index);
+
+	width: 100%;
+	height: 0;
+
+	color: var(--top-drawer-overlay-color);
+	background: var(--top-drawer-overlay-background);
+
+	opacity: 1;
+	transition: var(--top-drawer-overlay-transition);
+}
+
+.top-drawer > input[type='checkbox']:checked ~ label.overlay {
+	height: 200%;
+}
+
+@media print {
+	.top-drawer {
+		display: none;
+	}
+}

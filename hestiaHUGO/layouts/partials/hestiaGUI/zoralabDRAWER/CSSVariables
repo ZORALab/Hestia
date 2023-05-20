@@ -4,32 +4,20 @@
 "--drawer-z-index-opened" = "calc(var(--z-index-max) - var(--z-index-nav))"
 "--drawer-overlay-z-index" = "calc(var(--z-index-max) - var(--z-index-nav-overlay))"
 
-"--left-drawer-width" = "0"
-"--left-drawer-width-opened" = "90vw"
-"--top-drawer-width" = "100%"
-"--top-drawer-width-opened" = "100%"
-"--right-drawer-width" = "0"
-"--right-drawer-width-opened" = "90vw"
-"--left-drawer-height" = "100%"
-"--left-drawer-height-opened" = "100%"
-"--top-drawer-height" = "0"
-"--top-drawer-height-opened" = "70vh"
-"--right-drawer-height" = "100%"
-"--right-drawer-height-opened" = "100%"
 
-"--drawer-border" = "1rem solid transparent"
-"--drawer-border-opened" = "1rem solid var(--drawer-color-primary)"
+"--drawer-border" = ".2rem solid var(--drawer-color-trigger)"
 "--drawer-border-radius" = ".5rem"
-"--left-drawer-border-radius" = "0 var(--drawer-border-radius) var(--drawer-border-radius) 0"
-"--top-drawer-border-radius" = "0 0 var(--drawer-border-radius) var(--drawer-border-radius)"
-"--right-drawer-border-radius" = "var(--drawer-border-radius) 0 0 var(--drawer-border-radius)"
+"--drawer-box-shadow" = "0 0 4rem var(--drawer-color-trigger)"
+
 
 "--drawer-color" = "var(--body-color-inverted)"
 "--drawer-color-inverted" = "var(--body-color)"
 "--drawer-color-primary" = "var(--color-primary-600)"
+"--drawer-color-trigger" = "var(--color-contrast-100)"
 "--drawer-background" = "var(--color-primary-800)"
 "--drawer-overlay-color" = "transparent"
 "--drawer-overlay-background" = "rgba(0,0,0,.75)"
+
 
 "--drawer-transition" = "var(--timing-normal)"
 "--drawer-overlay-transition" = "var(--timing-fast)"
@@ -37,50 +25,17 @@
 
 
 
-"--drawer-trigger-width" = "4.5rem"
-"--drawer-trigger-height" = "4.5rem"
+"--drawer-trigger-width" = "5rem"
+"--drawer-trigger-height" = "5rem"
+
 
 "--drawer-trigger-border" = "unset"
-"--left-drawer-trigger-border" = "unset"
-"--top-drawer-trigger-border" = "unset"
-"--right-drawer-trigger-border" = "unset"
 "--drawer-trigger-border-radius" = "50%"
-"--left-drawer-trigger-border-radius" = """
-0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius) 0
-"""
-"--top-drawer-trigger-border-radius" = """
-0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)
-"""
-"--right-drawer-trigger-border-radius" = """
-var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
-"""
+
 
 "--drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-overlay-background)"
 "--drawer-trigger-box-shadow-focus" = "0 0 4rem var(--drawer-overlay-background)"
 
-"--drawer-trigger-font-size" = "2rem"
+
+"--drawer-trigger-font-size" = "3rem"
 "--drawer-trigger-font-style" = "normal"
-
-"--drawer-trigger-transform-focus" = "scale(1.1) translateX(-50%)"
-
-
-"--left-drawer-trigger-position-top" = "50%"
-"--left-drawer-trigger-position-left" = "0"
-"--left-drawer-trigger-position-bottom" = "unset"
-"--left-drawer-trigger-position-right" = "unset"
-"--left-drawer-trigger-transform" = "translateY(-50%)"
-
-"--top-drawer-trigger-position-top" = "0"
-"--top-drawer-trigger-position-left" = "50%"
-"--top-drawer-trigger-position-bottom" = "unset"
-"--top-drawer-trigger-position-right" = "unset"
-"--top-drawer-trigger-transform" = "translateX(-50%)"
-
-"--right-drawer-trigger-position-top" = "50%"
-"--right-drawer-trigger-position-left" = "unset"
-"--right-drawer-trigger-position-bottom" = "unset"
-"--right-drawer-trigger-position-right" = "0"
-"--right-drawer-trigger-transform" = "translateY(-50%)"
-
-"--drawer-trigger-color" = "var(--drawer-color-inverted)"
-"--drawer-trigger-background" = "var(--drawer-color-primary)"

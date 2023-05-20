@@ -1,0 +1,49 @@
+[CSS.Variables]
+"--top-drawer-z-index" = "var(--drawer-z-index)"
+"--top-drawer-z-index-opened" = "var(--drawer-z-index-opened)"
+
+"--top-drawer-width" = "100vw"
+"--top-drawer-width-opened" = "var(--top-drawer-width)"
+"--top-drawer-height" = "0"
+"--top-drawer-height-opened" = "70vh"
+"--top-drawer-overflow" = "auto hidden"
+
+"--top-drawer-border" = "var(--drawer-border)"
+"--top-drawer-border-radius" = "0 0 var(--drawer-border-radius) var(--drawer-border-radius)"
+
+"--top-drawer-color" = "var(--drawer-color)"
+"--top-drawer-background" = "var(--drawer-background)"
+"--top-drawer-box-shadow" = "var(--drawer-box-shadow)"
+
+"--top-drawer-transition" = "var(--drawer-transition)"
+
+
+
+
+"--top-drawer-trigger-width" = "var(--drawer-trigger-width)"
+"--top-drawer-trigger-height" = "var(--drawer-trigger-height)"
+"--top-drawer-trigger-position-top" = "0"
+"--top-drawer-trigger-position-left" = "50%"
+"--top-drawer-trigger-position-bottom" = "unset"
+"--top-drawer-trigger-position-right" = "unset"
+"--top-drawer-trigger-z-index" = "var(--drawer-trigger-z-index)"
+
+"--top-drawer-trigger-border" = "unset"
+"--top-drawer-trigger-border-radius" = """
+0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)
+"""
+"--top-drawer-trigger-color" = "var(--drawer-color-trigger)"
+"--top-drawer-trigger-background" = "var(--drawer-background)"
+"--top-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-color-trigger)"
+"--top-drawer-trigger-transform" = "translateX(-50%)"
+"--top-drawer-trigger-transform-focus" = "scale(1.1) translateX(-50%)"
+
+
+
+
+"--top-drawer-overlay-z-index" = "var(--drawer-overlay-z-index)"
+
+"--top-drawer-overlay-color" = "var(--drawer-overlay-color)"
+"--top-drawer-overlay-background" = "var(--drawer-overlay-background)"
+
+"--top-drawer-overlay-transition" = "var(--drawer-overlay-transition)"

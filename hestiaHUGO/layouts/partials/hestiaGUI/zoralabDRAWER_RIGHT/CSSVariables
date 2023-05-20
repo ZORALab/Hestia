@@ -1,0 +1,54 @@
+[CSS.Variables]
+"--right-drawer-z-index" = "var(--drawer-z-index)"
+"--right-drawer-z-index-opened" = "var(--drawer-z-index-opened)"
+
+"--right-drawer-width" = "0"
+"--right-drawer-width-opened" = "90vw"
+"--right-drawer-height" = "100vh"
+"--right-drawer-height-opened" = "var(--right-drawer-height)"
+"--right-drawer-overflow" = "hidden auto"
+"--right-drawer-border" = "var(--drawer-border)"
+"--right-drawer-border-radius" = "var(--drawer-border-radius) 0 0 var(--drawer-border-radius)"
+"--right-drawer-box-shadow" = "var(--drawer-box-shadow)"
+
+"--right-drawer-color" = "var(--drawer-color)"
+"--right-drawer-background" = "var(--drawer-background)"
+
+"--right-drawer-transition" = "var(--drawer-transition)"
+
+
+
+
+"--right-drawer-trigger-width" = "var(--drawer-trigger-width)"
+"--right-drawer-trigger-height" = "var(--drawer-trigger-height)"
+
+"--right-drawer-trigger-position-top" = "50%"
+"--right-drawer-trigger-position-left" = "unset"
+"--right-drawer-trigger-position-bottom" = "unset"
+"--right-drawer-trigger-position-right" = "0"
+"--right-drawer-trigger-z-index" = "var(--drawer-trigger-z-index)"
+
+"--right-drawer-trigger-border" = "unset"
+"--right-drawer-trigger-border-radius" = """
+var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
+"""
+
+"--right-drawer-trigger-font-size" = "var(--drawer-trigger-font-size)"
+"--right-drawer-trigger-font-style" = "var(--drawer-trigger-font-style)"
+
+"--right-drawer-trigger-color" = "var(--drawer-color-trigger)"
+"--right-drawer-trigger-background" = "var(--drawer-background)"
+"--right-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-color-trigger)"
+
+"--right-drawer-trigger-transform" = ""
+"--right-drawer-trigger-transform-focus" = "scale(1.1)"
+
+
+
+
+"--right-drawer-overlay-z-index" = "var(--drawer-overlay-z-index)"
+
+"--right-drawer-overlay-color" = "var(--drawer-overlay-color)"
+"--right-drawer-overlay-background" = "var(--drawer-overlay-background)"
+
+"--right-drawer-overlay-transition" = "var(--drawer-overlay-transition)"
