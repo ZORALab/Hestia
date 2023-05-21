@@ -27,11 +27,14 @@
 # NOTE:
 #     1) The position of the component listing influences the variables
 #        overriding sequence. Please construct your list properly.
+#     2) Check out Hestia's hestiaGUI catalog list for supported UI components
+#        at:
+#                 https://hestia.zoralab.com/en/specs/hestiaGUI/
 #
 #
 # EXAMPLE:
 #        [[List]]
-#        Name = "zoralab_core"
+#        Name = "zoralabCORE"
 #        Include = true
 #        Variables = [
 #                  { "--test-variable-1" = "1rem" },
@@ -39,7 +42,7 @@
 #        ]
 #
 #        [[List]]
-#        Name = "zoralab_font_notosans"
+#        Name = "zoralabFONT_NOTOSANS"
 #        Include = true
 #        Variables = []
 #
