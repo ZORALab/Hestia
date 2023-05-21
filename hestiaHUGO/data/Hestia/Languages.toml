@@ -79,7 +79,7 @@
 #
 # When in doubt, keep the international English for longer live URL.
 [en]
-Name = "English (International)"
+Name = "English (Global)"
 Directory = "en"
 Direction = "left-to-right"
 Default = true
