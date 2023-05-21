@@ -35,7 +35,9 @@ specific language governing permissions and limitations under the License.
 {{- if not $dataList -}}
 	{{- /* PASSTHROUGH */ -}}
 {{- else if partial "hestiaSTRING/IsString" $dataList -}}
-	{{- $filename = printf "deletable-%v-%v"
+	{{- $filename = printf "deletable-%v-%v-%v-%v"
+				(mod (add (mul 13 now.Unix) 97) 400000)
+				(sha256 (string $Page.URL.Current.Absolute))
 				(now.Format "200601021504050700")
 				(crypto.FNV32a $dataList)
 	-}}
