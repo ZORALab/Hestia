@@ -288,15 +288,14 @@ specific language governing permissions and limitations under the License.
 		{{- $dataList = merge $dataList (dict "Default" $v) -}}
 	{{- end -}}
 
-	{{- if hasPrefix $Page.Filesystem.Directory $v.Directory -}}
+	{{- if hasPrefix $Page.URL.Current.Absolute $v.URL.HOME -}}
 		{{- $dataList = merge $dataList (dict "Current" $v) -}}
-	{{- else if and (not $dataList) $v.Default -}}
-		{{- $dataList = merge $dataList (dict "Current" $v) -}}
-		{{- $ret = $v -}}
-	{{- else -}}
-		{{- $dataList = merge $dataList (dict "Alternatives" (dict $k $v)) -}}
+		{{- continue -}}
 	{{- end -}}
+
+	{{- $dataList = merge $dataList (dict "Alternatives" (dict $k $v)) -}}
 {{- end -}}
+
 {{- if not $dataList.Current -}}
 	{{- $dataList = merge $dataList (dict "Current" $dataList.Default) -}}
 {{- end -}}
