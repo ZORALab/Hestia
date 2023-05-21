@@ -5,6 +5,94 @@ Description = '大纲'
 
 
 
+[i18n.Labels]
+Thumbnail = '缩略图'
+Reason = '原因'
+Value = '据值'
+Contributors = '贡献者'
+Language = '语言'
+Strengths = '强点'
+Features = '功能'
+Programming = '编程语言'
+Name = '名字'
+Coverage = '覆盖范围'
+ID = 'ID'
+Files = '文件'
+Licenses = '许可证'
+
+
+
+
 [i18n.Introduction]
 ID = '自介'
 Title = '自介'
+
+
+
+
+[i18n.WhyItMatters]
+ID = "为何选择zoralab赫斯提亚"
+Title = "为何选择zoralab赫斯提亚"
+Description = '''
+'''
+
+
+
+
+[i18n.UnderConstruction]
+Title = '注意'
+Description = '''
+这个支持功能现任还在研制中。
+'''
+
+
+
+
+[i18n.Contributors]
+ID = '我们的贡献者'
+Title = '我们的贡献者'
+Description = '''
+代码，现金赞助，艺术品和媒体产品 — 谢谢让这个工程可以成功实现！
+'''
+
+
+
+
+[i18n.Sponsors]
+ID = '金钱赞助'
+Title = '金钱赞助'
+Description = '''
+谢谢我们的金钱赞助者好让这个工程继续更新和研制：
+'''
+
+
+
+
+[i18n.Developers]
+ID = '科技研制'
+Title = '科技研制'
+Description = '''
+谢谢我们的科技研制者、测验者、和编辑者好让这个工程跟上一层楼：
+'''
+
+
+
+
+[i18n.Artists]
+ID = '艺术和媒体产品设计师'
+Title = '艺术和媒体产品设计师'
+Description = '''
+感谢我们的艺术和媒体产品设计师们美化这个工程：
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = '让我们开始吧'
+Title = '让我们开始吧！'
+Description = '''
+信得过吧？我们有为您准备好的开始指南！欢迎进来和我们开始您的网络设计吧：
+'''
+URL = '/zh-hans/getting-started'
+CTA = '开始指南'

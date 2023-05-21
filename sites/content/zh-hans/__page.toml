@@ -21,7 +21,7 @@ Published = 'Tue 20 Dec 2022 12:49:49 PM +08'
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Full = "ZORALab：赫斯提亚"
+Title = "ZORALab赫斯提亚"
 Keywords = [
         '网站',
         '科技',
@@ -31,9 +31,9 @@ Keywords = [
         'Hugo',
         'Go',
         'TinyGo',
-        'Rust',
+        'Nim',
         'ZORALab',
-        "ZORALab's赫斯提亚",
+        "ZORALab赫斯提亚",
 ]
 
 
@@ -47,10 +47,10 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = '从研制者制作给另一个研制者的一个可建好前端+后端的代码库。'
-Summary = '''
+Summary = """\
 这工程统一话所有的常用代码库获取可重用的数据结构，把学习过程简单化，和对齐一切的
 工具。以后不需要再烦恼供应链的威胁和问题下放松地去研制和学习吧。
-'''
+"""
 
 
 
@@ -75,6 +75,24 @@ Enabled = false
 
 
 
+# Content Files' Sourcing Location
+# NOTE:
+#   1. To denote where are the content sources.
+#   2. If you're sourcing from assets directory, prefix 'assets/'.
+#   3. If you're sourcing from layouts directory, prefix 'layouts/'.
+#   2. If you're sourcing from static directory, prefix 'static/'.
+#   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
+[Sources]
+HTML = 'layouts/content/index.html'
+JSON = 'layouts/content/index.json'
+LDJSON = '__content.hestiaLDJSON'
+Contributors = '__contributors.toml'
+Thumbnails = '__thumbnails.toml'
+Languages = '__languages.toml'
+
+
+
+
 # Data fields.
 # NOTE:
 #   1. List only the page-level data files. It can be in any of the following
@@ -93,8 +111,5 @@ Enabled = false
 #
 #                             [[data]]
 #                             Filename = 'file2.toml'
-[[Data]]
-Filename = '__data.toml'
-
 [[Data]]
 Filename = '__i18n.toml'

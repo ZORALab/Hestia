@@ -58,8 +58,8 @@
 	</section>
 
 
-	<section>
-		<h2 id='{{- $i18n.WhyItMatters.ID -}}'>{{- $i18n.WhyItMatters.Title -}}</h2>
+	<section id='{{- $i18n.WhyItMatters.ID -}}'>
+		<h2>{{- $i18n.WhyItMatters.Title -}}</h2>
 		{{- if $i18n.WhyItMatters.Description }}
 		<p>{{- $i18n.WhyItMatters.Description -}}</p>
 		{{- end }}
@@ -104,7 +104,11 @@
 	{{- else -}}
 		{{- $ret = "linear-gradient(-45deg, #ee7752, #e73c7e)" -}}
 	{{- end }}
-	<section class='inverted' style='
+	{{- $lang = index
+		$Page.Data.Store.Programming.Hugo.Metadata.Languages
+		$Page.Languages.Current.ID
+	}}
+	<section id='{{- $lang.ID -}}' class='inverted' style='
 		margin-top: 5rem;
 		background: {{ $ret -}};
 		background-size: cover;
@@ -129,11 +133,7 @@
 		{{- $ret = $ret.Output }}
 		{{ partial "hestiaMEDIA/ToHTML" $ret }}
 
-		{{- $lang = index
-			$Page.Data.Store.Programming.Hugo.Metadata.Languages
-			$Page.Languages.Current.ID
-		-}}
-		<h2 id='{{- $lang.ID -}}' style='margin-top: 0;'>{{- $lang.Title -}}</h2>
+		<h2 style='margin-top: 0;'>{{- $lang.Title -}}</h2>
 		<p>{{- $lang.Description -}}</p>
 
 		<div class='row'>
@@ -191,7 +191,11 @@
 		{{- $ret = printf "url(%s)," $ret -}}
 	{{- end }}
 	{{- $ret = printf "%slinear-gradient(-45deg, #02ccfe, #d9f7ff)" $ret -}}
-	<section style='
+	{{- $lang = index
+		$Page.Data.Store.Programming.Go.Metadata.Languages
+		$Page.Languages.Current.ID
+	-}}
+	<section id='{{- $lang.ID -}}' style='
 		margin-top: 5rem;
 		background: {{ $ret -}};
 		background-size: cover;
@@ -229,11 +233,7 @@
 			</div>
 		</div>
 
-		{{- $lang = index
-			$Page.Data.Store.Programming.Go.Metadata.Languages
-			$Page.Languages.Current.ID
-		-}}
-		<h2 id='{{- $lang.ID -}}' style='margin-top: 0;'>{{- $lang.Title -}}</h2>
+		<h2 style='margin-top: 0;'>{{- $lang.Title -}}</h2>
 		<p>{{- $lang.Description -}}</p>
 
 		<div class='row' style='--grid-align-items: center;'>
@@ -303,7 +303,11 @@
 		{{- $ret = printf "url(%s)," $ret -}}
 	{{- end }}
 	{{- $ret = printf "%slinear-gradient(-45deg, #fff08d, #fff3a1)" $ret -}}
-	<section style='
+	{{- $lang = index
+		$Page.Data.Store.Programming.Nim.Metadata.Languages
+		$Page.Languages.Current.ID
+	}}
+	<section id='{{- $lang.ID -}}' style='
 		margin-top: 5rem;
 		background: {{ $ret -}};
 		background-size: cover;
@@ -327,11 +331,7 @@
 		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
 		{{- $ret = $ret.Output }}
 		{{ partial "hestiaMEDIA/ToHTML" $ret }}
-		{{- $lang = index
-			$Page.Data.Store.Programming.Nim.Metadata.Languages
-			$Page.Languages.Current.ID
-		-}}
-		<h2 id='{{- $lang.ID -}}' style='margin-top: 0;'>{{- $lang.Title -}}</h2>
+		<h2 style='margin-top: 0;'>{{- $lang.Title -}}</h2>
 		<p>{{- $lang.Description -}}</p>
 
 		<div class='row'>
@@ -395,7 +395,11 @@
 	{{- end }}
 	{{- $ret = printf "linear-gradient(0deg, rgba(255,255,255,.5), rgba(255,255,255,1)),%s"
 		$ret -}}
-	<section style='
+	{{- $lang = index
+		$Page.Data.Store.Licenses.Apache2.Metadata.Languages
+		$Page.Languages.Current.ID
+	}}
+	<section id='{{- $lang.ID -}}' style='
 		background: {{ $ret -}};
 		background-size: cover;
 		position: relative;
@@ -404,11 +408,7 @@
 				calc(var(--section-split-skew-height)*2)
 				var(--main-padding-right);
 	'>
-		{{- $lang = index
-			$Page.Data.Store.Licenses.Apache2.Metadata.Languages
-			$Page.Languages.Current.ID
-		-}}
-		<h2 id='{{- $lang.ID -}}' class='clean' style='border: none; text-align: left;'>
+		<h2 class='clean' style='border: none; text-align: left;'>
 			{{- $lang.Title -}}
 		</h2>
 		{{- range $i, $v := $lang.Descriptions }}
@@ -456,8 +456,8 @@
 			{{- $developers = merge $developers (dict $i $v) -}}
 		{{- end -}}
 	{{- end -}}
-	<section>
-		<h2 id='{{- $i18n.Contributors.ID -}}'>{{- $i18n.Contributors.Title -}}</h2>
+	<section id='{{- $i18n.Contributors.ID -}}'>
+		<h2>{{- $i18n.Contributors.Title -}}</h2>
 
 		<h3>{{- $i18n.Sponsors.Title -}}</h3>
 		<p>{{- $i18n.Sponsors.Description -}}</p>
@@ -594,7 +594,7 @@
 	)) -}}
 	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 	{{- $ret = string $ret.Output -}}
-	<section id='{{- $i18n.Introduction.ID -}}' class='inverted' style='
+	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
 		min-height: 20vh;
 		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
 				no-repeat
@@ -603,7 +603,7 @@
 		background-size: cover;
 		padding-bottom: var(--main-padding-top);
 	'>
-		<h2 id='{{- $i18n.Epilogue.ID -}}'>{{- $i18n.Epilogue.Title -}}</h2>
+		<h2>{{- $i18n.Epilogue.Title -}}</h2>
 		<p>{{- $i18n.Epilogue.Description -}}</p>
 		<br/>
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
@@ -614,5 +614,3 @@
 </main>
 {{ partial "common/footer.html" $Page }}
 {{ partial "common/nav-prime.html" $Page }}
-
-{{- partial "hestiaGUI/zoralabDEBUGGER/HTML" . -}}

@@ -1,6 +1,7 @@
 [Metadata]
 Type = 'Core'
 
+
 [Metadata.Languages.EN]
 Name = 'Deploy Everywhere'
 URL = ''
@@ -25,8 +26,8 @@ URL = ''
 Label = ''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '在各地通用测试过的高重用性一样代码库'
-Summary = '确保运用的代码是高转移性和无忧的。'
+Pitch = '提高重用性和测试过的一样代码库'
+Summary = '确保运用的代码是高转移性和无需担忧的。'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
 Pitch = '在网络和微处理器轻易地运行'

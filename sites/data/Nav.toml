@@ -19,7 +19,7 @@ URL = '/en/#supporting-go-and-tinygo'
 
 [[Languages.EN.Items]]
 Title = "Supporting Nim"
-URL = '/en/#supporting-go-and-tinygo'
+URL = '/en/#supporting-nim'
 
 [[Languages.EN.Items]]
 Title = "Licenses"
@@ -28,3 +28,37 @@ URL = '/en/#apache-2-open-source-licensed'
 [[Languages.EN.Items]]
 Title = "Our Contributors"
 URL = '/en/#our-contributors'
+
+
+
+
+[[Languages.ZH-HANS]]
+Title = '主页'
+
+[[Languages.ZH-HANS.Items]]
+Title = "询问"
+URL = '/zh-hans/'
+
+[[Languages.ZH-HANS.Items]]
+Title = "为什么ZORALab赫斯提亚"
+URL = '/zh-hans/#为何选择zoralab赫斯提亚'
+
+[[Languages.ZH-HANS.Items]]
+Title = "支持Hugo"
+URL = '/zh-hans/#支持hugo'
+
+[[Languages.ZH-HANS.Items]]
+Title = "支持Go & TinyGo"
+URL = '/zh-hans/#支持go和tinygo'
+
+[[Languages.ZH-HANS.Items]]
+Title = "支持Nim"
+URL = '/zh-hans/#支持nim'
+
+[[Languages.ZH-HANS.Items]]
+Title = "许可证"
+URL = '/zh-hans/#apache-2开源许可'
+
+[[Languages.ZH-HANS.Items]]
+Title = "我们的贡献者"
+URL = '/zh-hans/#我们的贡献者'

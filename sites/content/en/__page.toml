@@ -31,7 +31,7 @@ Keywords = [
         'Hugo',
         'Go',
         'TinyGo',
-        'Rust',
+        'Nim',
         'ZORALab',
         "ZORALab's Hestia",
 ]
@@ -68,7 +68,7 @@ less worries about supply chain problems.
 #      or fallback to default language.
 [Redirect]
 Delay = 0 # second
-URL = '/home'
+URL = ''
 Enabled = false
 
 [Redirect.Language]
@@ -85,8 +85,8 @@ Enabled = false
 #   2. If you're sourcing from static directory, prefix 'static/'.
 #   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
 [Sources]
-HTML = 'layouts/content/en/index.html'
-JSON = 'layouts/content/en/index.json'
+HTML = 'layouts/content/index.html'
+JSON = 'layouts/content/index.json'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'

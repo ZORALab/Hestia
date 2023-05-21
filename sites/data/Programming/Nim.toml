@@ -13,21 +13,17 @@ Label = 'Under Development'
 URL = ''
 
 
-
-
 [[Metadata.Languages.EN.Strengths]]
 Pitch = 'Builds No-GC WASM Binary + Runtime Libraries'
-Summary = 'transforming web development with Go over Javascript.'
+Summary = 'transforming web development with Nim over Javascript.'
 
 [[Metadata.Languages.EN.Strengths]]
 Pitch = 'Builds No-GC Backend Program Fast & Steady'
-Summary = "meet business requirements fast and safe first."
+Summary = "fulfilling business requirements steadily."
 
 [[Metadata.Languages.EN.Strengths]]
 Pitch = 'Builds No-GC Microcontroller Image Confidently'
 Summary = 'expanding from computer to chip and signal controls.'
-
-
 
 
 [[Metadata.Languages.EN.Features]]
@@ -288,21 +284,279 @@ Descriptor = '1x'
 
 
 [Metadata.Languages.ZH-HANS]
-Title = 'Go与TinyGo'
-Label = '正在研制'
+ID = '支持nim'
+Title = '支持Nim'
+Brand = 'Nim'
+Label = '正在建设'
 URL = ''
 
-[[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = '处理原型制造和寻路需求'
-Summary = '适合一直改变的工作环境。'
 
 [[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = '最适合早期研制和实验使用'
-Summary = "尤其是实现计划的黄金时间。"
+Pitch = '在无内存垃圾收回器环境里编译WASM二元进制+运行代码库'
+Summary = '使用Nim代替Javascript转换网络开发。'
 
 [[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = "和ZORALab's Hestia Rust和TinyGo互通兼容"
-Summary = "可以回用现有的数据和同用代码。"
+Pitch = '在无内存垃圾收回器环境里快速和稳重地建出后端程序。'
+Summary = "稳重地更新软件需求。"
+
+[[Metadata.Languages.ZH-HANS.Strengths]]
+Pitch = '在无内存垃圾收回器环境里有信心地建出微控制器的二进元制。'
+Summary = '从电脑系统扩展到微型控制器和信号控制。'
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '拥有WASM编译能力'
+Summary = '无缝地编译WASM二元进制和JS代码库。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/logos/wasm-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '可以在没有内存垃圾收回器环境使用'
+Summary = '就算是极端和限制性的要求它都可以操作。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/no-garbage-collection-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '把事情简单化'
+Summary = "专心在于生意科技条件而不是忙着如何操作这些用具。"
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/go-big-fearlessly-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '超越微处理器'
+Summary = '通过同用和测试过的代码入微型控制器世界。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/microcontroller-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '可跨多种语言互相操作'
+Summary = 'Hugo, Go+TinyGo和Nim上下同文。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-600x600.jpg"
+Type = "image/jpeg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/work-harmoniously-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
 
 
 

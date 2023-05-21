@@ -32,6 +32,8 @@ Pitch = "It's that simple"
 
 
 [Metadata.Languages.ZH-HANS]
+ID = 'apache-2开源许可'
+Title = 'Apache-2.0开源许可'
 Name = 'Apache 2.0许可证'
 Coverage = '所有文本源代码'
 URL = ''
@@ -39,15 +41,12 @@ Label = ''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
 Pitch = '所有代码可以在传统Apache 2.0许可证运用'
-Summary = '对商业和个人使用都友善。'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
 Pitch = '金钱和运用自由'
-Summary = '就专心于建设您的构想。'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
 Pitch = '无附加条件'
-Summary = '就这么简单。'
 
 
 

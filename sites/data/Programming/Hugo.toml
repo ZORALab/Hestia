@@ -12,33 +12,25 @@ Label = 'Explore More'
 URL = ''
 
 
-
-
 [[Metadata.Languages.EN.Strengths]]
 Pitch = 'Hosting Web Contents Statically'
 Summary = 'for easily express your idea and statements globally anywhere.'
-
 
 [[Metadata.Languages.EN.Strengths]]
 Pitch = 'Hosting Open Data Statically'
 Summary = 'for steadily and rapdily handles large volume data.'
 
-
 [[Metadata.Languages.EN.Strengths]]
 Pitch = 'JAM Stack e-Payment Portal'
 Summary = 'running your business transactions easier than before.'
-
 
 [[Metadata.Languages.EN.Strengths]]
 Pitch = 'WASM and Client-side App Distribution'
 Summary = "for distributed and decentralized software services."
 
-
 [[Metadata.Languages.EN.Strengths]]
-Pitch = 'Web UI Development'
-Summary = "with basic tools and iteratively improvable."
-
-
+Pitch = 'Web UI Design'
+Summary = "with basic and interatively improvable tools."
 
 
 [[Metadata.Languages.EN.Features]]
@@ -628,32 +620,45 @@ Descriptor = '1x'
 
 
 [Metadata.Languages.ZH-HANS]
-Title = 'Hugo'
+ID = '支持hugo'
+Title = '支持Hugo'
+Brand = 'Hugo'
 Label = '探索奥秘'
 URL = '/zh-hans/hugo/'
 
-[[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = '处理网站前端艺术和内容编译需求'
-Summary = '很稳重地处理大量网站数据。'
 
 [[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = '最适合展示静态网页和WASM应用程序'
+Pitch = '处理网站前端静态内容编译需求'
+Summary = '好让您容易全球化表达您的想法和陈述。'
+
+[[Metadata.Languages.ZH-HANS.Strengths]]
+Pitch = '处理网站前端静态开源网站数据'
+Summary = '很稳重和快速地处理大量网站数据。'
+
+[[Metadata.Languages.ZH-HANS.Strengths]]
+Pitch = 'JAM架构电子支付网站'
+Summary = '让您的业务交易容易进行多了。'
+
+[[Metadata.Languages.ZH-HANS.Strengths]]
+Pitch = '静态网页和WASM应用程序分发'
 Summary = "容易实行分布式和去中心化软件服务。"
 
 [[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = "为顾客方面容易接触"
-Summary = "原型支持PWA。"
+Pitch = '网页用户界面设计'
+Summary = '运用简单和迭代改进的用具。'
 
-[[Metadata.Languages.ZH-HANS.Usage]]
-Pitch = '静态托管网站内容'
 
-[Metadata.Languages.ZH-HANS.Usage.Image]
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '清洁化错误文字'
+Summary = '尽量对设计师友善。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
 Name = ""
 Decorative = true
 Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
+Width = "600"
+Height = "600"
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""
@@ -663,28 +668,60 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Metadata.Languages.ZH-HANS.Usage.Image.Sources]]
-URL = "/img/thumbnails/www-1200x1200.svg"
-Type = "image/svg+xml"
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-cleaner-error-message-220x220.avif"
+Type = "image/avif"
 Media = "all"
 Descriptor = '1x'
 
-[Metadata.Languages.ZH-HANS.Usage.Image.Tracks.en]
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-cleaner-error-message-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-cleaner-error-message-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"
 Default = false
 
-[[Metadata.Languages.ZH-HANS.Usage]]
-Pitch = '静态托管地开放数据'
 
-[Metadata.Languages.ZH-HANS.Usage.Image]
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = 'PWA原始开动'
+Summary = '拥有离线能力和高可用性能。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
 Name = ""
 Decorative = true
 Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
+Width = "600"
+Height = "600"
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""
@@ -694,28 +731,60 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Metadata.Languages.ZH-HANS.Usage.Image.Sources]]
-URL = "/img/thumbnails/json-1200x1200.svg"
-Type = "image/svg+xml"
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-pwa-ready-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-pwa-ready-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-pwa-ready-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-pwa-ready-220x220.avif"
+Type = "image/avif"
 Media = "all"
 Descriptor = '1x'
 
-[Metadata.Languages.ZH-HANS.Usage.Image.Tracks.en]
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-pwa-ready-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-pwa-ready-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"
 Default = false
 
-[[Metadata.Languages.ZH-HANS.Usage]]
-Pitch = 'JAM堆栈电子支付站'
 
-[Metadata.Languages.ZH-HANS.Usage.Image]
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '灵活性的LD+JSON'
+Summary = 'SEO配合容易搜索。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
 Name = ""
 Decorative = true
 Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
+Width = "600"
+Height = "600"
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""
@@ -725,28 +794,30 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Metadata.Languages.ZH-HANS.Usage.Image.Sources]]
-URL = "/img/thumbnails/epayment-1200x1200.svg"
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/logos/schema-org-1200x1200.svg"
 Type = "image/svg+xml"
 Media = "all"
 Descriptor = '1x'
 
-[Metadata.Languages.ZH-HANS.Usage.Image.Tracks.en]
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"
 Default = false
 
-[[Metadata.Languages.ZH-HANS.Usage]]
-Pitch = '网络用户界面研制'
 
-[Metadata.Languages.ZH-HANS.Usage.Image]
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '重用性代码'
+Summary = '停止再怪物化Markdown了啦。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
 Name = ""
 Decorative = true
 Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
+Width = "600"
+Height = "600"
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""
@@ -756,28 +827,60 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Metadata.Languages.ZH-HANS.Usage.Image.Sources]]
-URL = "/img/thumbnails/design-1200x1200.svg"
-Type = "image/svg+xml"
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-reusable-codes-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-reusable-codes-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-reusable-codes-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-reusable-codes-220x220.avif"
+Type = "image/avif"
 Media = "all"
 Descriptor = '1x'
 
-[Metadata.Languages.ZH-HANS.Usage.Image.Tracks.en]
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-reusable-codes-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-reusable-codes-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"
 Default = false
 
-[[Metadata.Languages.ZH-HANS.Usage]]
-Pitch = 'WASM应用程序和客户端APP分发点'
 
-[Metadata.Languages.ZH-HANS.Usage.Image]
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '组件化用户界面'
+Summary = '随时能够应付UI时尚变化。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
 Name = ""
 Decorative = true
 Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
+Width = "600"
+Height = "600"
+CORS = "anonymous"
 Relationship = ""
 Design = ""
 Preload = ""
@@ -787,17 +890,347 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Metadata.Languages.ZH-HANS.Usage.Image.Sources]]
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compoentized-ui-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compoentized-ui-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compoentized-ui-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compoentized-ui-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compoentized-ui-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compoentized-ui-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '移动优先'
+Summary = '始终优先考虑最终用户顾客。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-mobile-first-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-mobile-first-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-mobile-first-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-mobile-first-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-mobile-first-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-mobile-first-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '兼容各种发布者'
+Summary = "GitHub, GitLab, Cloudflare — 直接配合。"
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compatible-publishers-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compatible-publishers-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compatible-publishers-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compatible-publishers-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compatible-publishers-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-compatible-publishers-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '可靠的i18n翻译系统'
+Summary = '专心在于翻译啦而不是烦恼如何运用系统。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-i18n-translations-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-i18n-translations-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-i18n-translations-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-i18n-translations-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-i18n-translations-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-i18n-translations-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+[Metadata.Languages.ZH-HANS.Features.Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '托管WASM能力'
+Summary = '直接托管WASM类型的APP。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/logos/wasm-1200x1200.svg"
 Type = "image/svg+xml"
 Media = "all"
 Descriptor = '1x'
 
-[Metadata.Languages.ZH-HANS.Usage.Image.Tracks.en]
-URL = ""
-Kind = "subtitles"
-Label = "English"
-Default = false
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '内置Favicons夹图标渲染功能'
+Summary = '直接和无需多工地编译兼容的图标。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-built-in-favicon-renderer-600x600.svg"
+Type = "image/svg+xml"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+
+[[Metadata.Languages.ZH-HANS.Features]]
+Pitch = '社交网络友善'
+Summary = '有信心地在您的社交网络分享吧。'
+
+[Metadata.Languages.ZH-HANS.Features.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-social-network-friendly-600x600.avif"
+Type = "image/avif"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-social-network-friendly-600x600.webp"
+Type = "image/webp"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-social-network-friendly-600x600.jpg"
+Type = "image/jpg"
+Media = "min-width: 300px"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-social-network-friendly-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-social-network-friendly-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
+URL = "/img/thumbnails/hugo-social-network-friendly-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
 
 
 

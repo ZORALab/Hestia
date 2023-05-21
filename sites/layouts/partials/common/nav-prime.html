@@ -20,7 +20,20 @@
 		--tile-width: 20rem;
 		--tile-margin: .5rem;
 		--tile-border-radius: .8rem;
-	'>{{- range $i, $v := $lang -}}
+	'>
+		<div class='column'><div class='tile'>
+			<div class='content'>
+				<h3 style='margin-top: 0;'>I18N</h3>
+			</div>
+
+			<div class='actions'>{{- range $j, $w := $Page.Languages.Alternatives }}
+				<a class='button' href='{{- $w.URL.PAGE -}}'>
+					{{- $w.Name -}}
+				</a>
+			{{- end -}}</div>
+		</div>
+
+	{{- range $i, $v := $lang }}
 		<div class='column'><div class='tile'>
 			<div class='content'>
 				<h3 style='margin-top: 0;'>{{- $v.Title -}}</h3>
@@ -30,10 +43,15 @@
 				{{- $ret = merge $Page (dict "Input" (dict "Data" $w.URL)) -}}
 				{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 				{{- $ret = string $ret.Output -}}
-				<a class='button' href='{{- $ret -}}'>
+				<a class='button' href='{{- $ret -}}'
+					onclick='document.getElementById("nav-primary-drawer")
+							.checked = false;
+					'
+				>
 					{{- $w.Title -}}
 				</a>
 			{{- end -}}</div>
 		</div></div>
-	{{- end -}}</div></div>
+	{{- end }}
+	</div></div>
 </nav>
