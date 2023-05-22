@@ -1,0 +1,11 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+
+
+
+
+[i18n.Introduction]
+ID = '自介'
+Title = "你失踪了！ - 404"
+CTA = '快点回去'
