@@ -1,0 +1,48 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $ret = merge $Page (dict "Input" (dict "Data"
+	"/img/backgrounds/matrix-404-yusuke-nakaya-1200x1200.svg"
+)) -}}
+{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+{{- $ret = string $ret.Output -}}
+<main style='padding: 0;'>
+	<section id='{{- $i18n.Introduction.ID -}}' class='inverted' style='
+		min-height: 100vh;
+		max-height: 100vh;
+		background: url({{- $ret -}}),linear-gradient(to top,#010115,#000000)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+
+		display: flex;
+		align-items: center;
+		justify-items: center;
+		align-content: center;
+		gap: 0;
+	'>
+		<div style='margin: auto;'>
+			<h1 style='text-align: center;'>
+				{{- $i18n.Introduction.Title -}}
+			</h1>
+			<p style='text-align: center;'>
+				{{- $i18n.Introduction.Description -}}
+			</p>
+			<a class="button" href='{{- .URL.Base -}}'
+				style='--button-color: green;
+			'>
+				{{- $i18n.Introduction.CTA -}}
+			</a>
+		</div>
+	</section>
+</main>
+{{ partial "common/footer.html" $Page }}
+{{ partial "common/nav-prime.html" $Page }}

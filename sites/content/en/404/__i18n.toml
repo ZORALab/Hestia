@@ -1,0 +1,11 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+
+
+
+
+[i18n.Introduction]
+ID = 'introduction'
+Title = "You're LOST! - 404"
+CTA = 'HEAD BACK'
