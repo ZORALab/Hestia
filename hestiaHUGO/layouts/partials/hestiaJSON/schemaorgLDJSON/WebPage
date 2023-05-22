@@ -62,7 +62,7 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $ret = partial "hestiaJSON/schemaorgLDJSON//Entity" $v -}}
+	{{- $ret = partial "hestiaJSON/schemaorgLDJSON/Entity" $v -}}
 	{{- $reviewers = append $ret $reviewers -}}
 {{- end -}}
 
@@ -70,7 +70,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* inherit CreativeWork and append/overrides fields */ -}}
-{{- $dataList = partial "hestiaJSON/schemaorgLDJSON//CreativeWork" . -}}
+{{- $dataList = partial "hestiaJSON/schemaorgLDJSON/CreativeWork" . -}}
 {{- $dataList = merge $dataList (dict
 	"@type" "WebPage"
 ) -}}
