@@ -122,7 +122,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Sitemaps */ -}}
-{{- $dataList = 0 -}}
+{{- $dataList = dict -}}
 {{- range $v, $i := $sitemaps -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
 	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
@@ -134,13 +134,29 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" (string $ret.Output) -}}
+	{{- $dataList = merge $dataList (dict $ret true) -}}
+{{- end -}}
+
+
+{{- range $i, $v := $Page.Nav.All -}}
+	{{- if or $v.Redirect.Enabled $v.Redirect.Language.Enabled -}}
+		{{- continue -}}
+	{{- end -}}
+
+	{{- $ret = strings.TrimSuffix "/" (string $v.URL.Current.Absolute) -}}
+	{{- $ret = printf "%s/sitemap.xml" $ret -}}
+	{{- $dataList = merge $dataList (dict $ret true) -}}
+{{- end -}}
+
+
+{{- $ret = 0 -}}
+{{- range $v, $i := $dataList -}}
 	{{- $Page = merge $Page (dict "RobotsTXT" (dict "Sitemaps"
-		(dict (string $dataList) $ret)
+		(dict (string $ret) $v)
 	)) -}}
 
-
-	{{- $dataList = add $dataList 1 -}}
+	{{- $ret = add $ret 1 -}}
 {{- end -}}
 
 

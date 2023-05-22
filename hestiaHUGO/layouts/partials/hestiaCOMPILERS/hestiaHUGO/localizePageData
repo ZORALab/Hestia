@@ -180,7 +180,10 @@ specific language governing permissions and limitations under the License.
 {{- $Local = default slice $Local.List -}}
 
 
-{{- $list = len $Page.Components -}}
+{{- $list = 0 -}}
+{{- if $Page.Components -}}
+	{{- $list = len $Page.Components -}}
+{{- end -}}
 {{- range $i, $v := $Local -}}
 	{{- if not (index $v "Name") -}}
 		{{- continue -}}

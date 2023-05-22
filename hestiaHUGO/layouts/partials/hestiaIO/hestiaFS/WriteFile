@@ -26,7 +26,7 @@ specific language governing permissions and limitations under the License.
 {{- $Page := . -}}
 {{- $data := dict -}}
 {{- $path := false -}}
-{{- $error := dict -}}
+{{- $error := "" -}}
 
 
 
@@ -40,12 +40,14 @@ specific language governing permissions and limitations under the License.
 
 
 {{- $path = "" -}}
-{{- $data = "" -}}
 {{- if and (not $error) (partial "hestiaLIST/IsMap" $data) -}}
 	{{- $path = default "" $data.Path -}}
 	{{- $data = default "" $data.Data -}}
 {{- end -}}
 
+{{- if not $data -}}
+	{{- $data = "" -}}
+{{- end -}}
 
 
 

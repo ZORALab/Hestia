@@ -57,7 +57,6 @@ specific language governing permissions and limitations under the License.
 
 
 
-
 {{- /* RENDER MAIN PAGE's 'sitemap-page.xml' */ -}}
 {{- $path = lower (printf "%s/%s" $Page.Filesystem.Directory $Page.Sitemap.Filename) -}}
 {{- $data = string (partial "hestiaNET/hestiaHTTP/hestiaSITEMAP/ToString_PAGE" $Page) -}}
@@ -121,7 +120,7 @@ specific language governing permissions and limitations under the License.
 	{{- $data = string $data -}}
 	{{- if not $Page.IsServerMode -}}
 		{{- $data = dict "Type" "application/json" "Data" $data -}}
-		{{- $data = merge . (dict "Input" (dict "Data" $data)) -}}
+		{{- $data = merge $Page (dict "Input" (dict "Data" $data)) -}}
 		{{- $data = partial "hestiaSTRING/Minify" $data -}}
 		{{- $data = $data.Output -}}
 	{{- end -}}
