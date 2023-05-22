@@ -28,7 +28,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare Hestia .Page.context */ -}}
 {{- if partial "hestiaLIST/IsMap" . -}}
-	{{- if index . "IsHestia" -}}
+	{{- if .IsHestia -}}
 		{{- $dataList = true -}}
 	{{- end -}}
 {{- end -}}

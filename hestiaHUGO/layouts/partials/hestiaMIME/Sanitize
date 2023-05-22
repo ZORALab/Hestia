@@ -29,21 +29,45 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* sanitize .Input.Data */ -}}
-{{- $dataList = default "" .Input.Data -}}
-{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string $dataList) -}}
-{{- if $dataList -}}
-	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
-	{{- if and ($dataList.Error) (not $error) -}}
-		{{- $error = printf "MIME Type: %s" $dataList.Error -}}
-	{{- end -}}
-	{{- $dataList = $dataList.Output -}}
+{{- /* safe query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
 {{- else -}}
-	{{- $error = printf "MIME: bad value or missing .Input.Data type: [%T:%v].\n"
-		.Input.Data
-		.Input.Data
-	-}}
+	{{- $error = printf "hestiaMIME.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default "" $dataList.Data -}}
+{{- end -}}
+
+
+
+
+{{- /* sanitize mime data -}}
+{{- if not $error -}}
+	{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string $dataList) -}}
+	{{- if $dataList -}}
+		{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+		{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
+		{{- if and ($dataList.Error) (not $error) -}}
+			{{- $error = printf "hestiaMIME.Sanitize: %s" $dataList.Error -}}
+		{{- end -}}
+
+
+		{{- $dataList = $dataList.Output -}}
+	{{- else -}}
+		{{- $error = printf "hestiaMIME.Sanitize: bad .Input.Data value: '%v'.\n"
+			.Input.Data
+		-}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* reset value if error occured */ -}}
+{{- if $error -}}
+	{{- $dataList = "" -}}
 {{- end -}}
 
 

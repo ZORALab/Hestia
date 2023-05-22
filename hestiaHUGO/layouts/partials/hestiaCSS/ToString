@@ -31,38 +31,66 @@ specific language governing permissions and limitations under the License.
 {{- $error := "" -}}
 {{- $list := dict -}}
 {{- $ret := dict -}}
+{{- $input := dict -}}
+
+
+
+
+{{- /* get valid input data before proceeding */ -}}
+{{- $input = default dict .Input -}}
+{{- if $input -}}
+	{{- $input = default dict $input.Data -}}
+{{- end -}}
+{{- if not $input -}}
+	{{- $error = printf "hestiaCSS.ToString: missing .Input.Data!\n" -}}
+	{{- $input = dict -}}
+{{- end -}}
 
 
 
 
 {{- /* render CSS variables */ -}}
-{{- $list = default dict .Input.Data.Variables -}}
-{{- range $k, $v := $list -}}
-	{{- $dataList = printf "%s\t\t%s: %v;\n" $dataList $k $v -}}
-{{- end -}}
-{{- if $dataList -}}
-	{{- $dataList = printf ":root{\n%s\n}\n\n" $dataList -}}
+{{- if and $input (not $error) -}}
+	{{- $list = default dict $input.Variables -}}
+	{{- range $k, $v := $list -}}
+		{{- $dataList = printf "%s\t\t%s: %v;\n" $dataList $k $v -}}
+	{{- end -}}
+	{{- if $dataList -}}
+		{{- $dataList = printf ":root{\n%s\n}\n\n" $dataList -}}
+	{{- end -}}
 {{- end -}}
 
 
 
 
 {{- /* render CSS Inline values */ -}}
-{{- $list = default slice .Input.Data.Inline -}}
-{{- range $k, $v := $list -}}
-	{{- $dataList = printf "%s%s" $dataList $v -}}
+{{- if and $input (not $error) -}}
+	{{- $list = default slice $input.Inline -}}
+	{{- range $k, $v := $list -}}
+		{{- $dataList = printf "%s%s" $dataList $v -}}
+	{{- end -}}
 {{- end -}}
 
 
 
 
 {{- /* post-process output */ -}}
-{{- $ret = printf "deletable-inline-%s.css" (sha256 $dataList) -}}
-{{- $ret = resources.FromString $ret $dataList -}}
-{{- if not .IsServerMode -}}
-	{{- $ret = resources.Minify $ret -}}
+{{- if and $dataList (not $error) -}}
+	{{- $ret = printf "deletable-inline-%s.css" (sha256 $dataList) -}}
+	{{- $ret = resources.FromString $ret $dataList -}}
+	{{- if not .IsServerMode -}}
+		{{- $ret = resources.Minify $ret -}}
+	{{- end -}}
+	{{- $dataList = string $ret.Content -}}
 {{- end -}}
-{{- $dataList = string $ret.Content -}}
+
+
+
+
+{{- /* reset value if error is found */ -}}
+{{- if $error -}}
+	{{- $dataList = "" -}}
+{{- end -}}
 
 
 

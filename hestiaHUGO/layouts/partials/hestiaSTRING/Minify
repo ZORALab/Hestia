@@ -32,12 +32,26 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* safe query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaSTRING.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $filename = default "" $dataList.Type -}}
+	{{- $dataList = default "" $dataList.Data -}}
+{{- end -}}
+
+
+
+
 {{- /* validate .Input.Data */ -}}
-{{- $dataList = default "" .Input.Data -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 {{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
-{{- if $ret.Error -}}
-	{{- $error = printf "Minify: data: %s" $ret.Error -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "hestiaSTRING.Minify: .Input.Data: %s" $ret.Error -}}
 {{- end -}}
 {{- $dataList = $ret.Output -}}
 
@@ -45,13 +59,10 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* validate .Input.Type */ -}}
-{{- $filename = default "" .Input.Type -}}
 {{- $ret = merge $Page (dict "Input" (dict "Data" $filename)) -}}
 {{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
-{{- if $ret.Error -}}
-	{{- if not $error -}}
-		{{- $error = printf "Minify: type: %s" $ret.Error -}}
-	{{- end -}}
+{{- if and $ret.Error (not $error) -}}
+	{{- $error = printf "hestiaSTRING.Minify: .Input.Type: %s" $ret.Error -}}
 {{- end -}}
 {{- $filename = $ret.Output -}}
 
@@ -59,21 +70,25 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process filename by type */ -}}
-{{- if partial "hestiaMIME/IsJavascript" $filename -}}
-	{{- $filename = printf "deletable-content-%s.js" (sha256 now) -}}
-{{- else if partial "hestiaMIME/IsCSS" $filename -}}
-	{{- $filename = printf "deletable-content-%s.min.css" (sha256 now) -}}
-{{- else if partial "hestiaMIME/IsHTML" $filename -}}
-	{{- $filename = printf "deletable-content-%s.html" (sha256 now) -}}
-{{- else if partial "hestiaMIME/IsJSON" $filename -}}
-	{{- $filename = printf "deletable-content-%s.json" (sha256 now) -}}
-{{- else if partial "hestiaMIME/IsSVG" $filename -}}
-	{{- $filename = printf "deletable-content-%s.svg" (sha256 now) -}}
-{{- else if partial "hestiaMIME/IsXML" $filename -}}
-	{{- $filename = printf "deletable-content-%s.xml" (sha256 now) -}}
-{{- else -}}
-	{{- if not $error -}}
-		{{- $error = printf "Minify: unsupported type '%v'.\n" $filename -}}
+{{- if and (not $error) (and $dataList $filename) -}}
+	{{- if partial "hestiaMIME/IsJavascript" $filename -}}
+		{{- $filename = printf "deletable-content-%s.js" (sha256 now) -}}
+	{{- else if partial "hestiaMIME/IsCSS" $filename -}}
+		{{- $filename = printf "deletable-content-%s.min.css" (sha256 now) -}}
+	{{- else if partial "hestiaMIME/IsHTML" $filename -}}
+		{{- $filename = printf "deletable-content-%s.html" (sha256 now) -}}
+	{{- else if partial "hestiaMIME/IsJSON" $filename -}}
+		{{- $filename = printf "deletable-content-%s.json" (sha256 now) -}}
+	{{- else if partial "hestiaMIME/IsSVG" $filename -}}
+		{{- $filename = printf "deletable-content-%s.svg" (sha256 now) -}}
+	{{- else if partial "hestiaMIME/IsXML" $filename -}}
+		{{- $filename = printf "deletable-content-%s.xml" (sha256 now) -}}
+	{{- else -}}
+		{{- $error = printf
+			"hestiaSTRING.Minify: unsupported type '%v'.\n"
+			$filename
+		-}}
+
 		{{- $filename = "" -}}
 	{{- end -}}
 {{- end -}}
@@ -81,7 +96,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- if and (and $dataList $filename) (not $error) -}}
+{{- if and (not $error) (and $dataList $filename) -}}
 	{{- $dataList = resources.FromString $filename $dataList -}}
 	{{- $dataList = resources.Minify $dataList -}}
 	{{- $dataList = $dataList.Content -}}

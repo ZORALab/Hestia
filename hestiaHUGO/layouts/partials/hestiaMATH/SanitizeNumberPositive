@@ -32,7 +32,7 @@ specific language governing permissions and limitations under the License.
 {{- /* convert data into number */ -}}
 {{- $ret = partial "hestiaMATH/SanitizeNumber" . -}}
 {{- if $ret.Error -}}
-	{{- $error = printf "sanitize positive number: %s" $ret.Error -}}
+	{{- $error = printf "hestiaMATH.SanitizeNumberPositive: %s" $ret.Error -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
 
@@ -46,11 +46,19 @@ specific language governing permissions and limitations under the License.
 	{{- else  -}}
 		{{- if not $error -}}
 			{{- $error = printf
-				"sanitize positive number: invalid value '%v'.\n"
+				"hestiaMATH.SanitizeNumberPositive: invalid value '%v'.\n"
 				$ret
 			-}}
 		{{- end -}}
 	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* reset value if error occured */ -}}
+{{- if $error -}}
+	{{- $dataList = 0 -}}
 {{- end -}}
 
 

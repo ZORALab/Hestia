@@ -30,32 +30,53 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* safe querying .Input.Path */ -}}
-{{- $dataList = default "" .Input.Path -}}
-{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string $dataList) -}}
-{{- if $dataList -}}
+{{- /* safely query .Input.Path */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaFS.ParseFile: bad input parameters!\n" -}}
+{{- end -}}
+
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default "" $dataList.Path -}}
+{{- end -}}
+
+
+{{- if and (not $error) $dataList -}}
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
-	{{- if $dataList.Error -}}
-		{{- if not $error -}}
-			{{- $error = printf "Parse File: %v" $dataList.Error -}}
-		{{- end -}}
+	{{- if and $dataList.Error (not $error) -}}
+		{{- $error = printf "hestiaFS.ParseFile: .Input.Path: %v" $dataList.Error -}}
 	{{- end -}}
+
 	{{- $dataList = $dataList.Output -}}
 {{- end -}}
 
 
 
 
-{{- /* read file */ -}}
+{{- /* attempting to read file */ -}}
 {{- if not $dataList -}}
-	{{- $dataList = "" -}}
+	{{- if not $error -}}
+		{{- $error = printf "hestiaFS.ParseFile: missing path '%v'.\n" $dataList -}}
+	{{- end -}}
 {{- else if partial "hestiaIO/hestiaFS/IsFileExists" $dataList -}}
 	{{- $dataList = readFile $dataList -}}
 {{- else -}}
 	{{- if not $error -}}
-		{{- $error = printf "Parse File: missing file '%v'.\n" $dataList -}}
+		{{- $error = printf "hestiaFS.ParseFile: missing file '%v'.\n" $dataList -}}
 	{{- end -}}
+
+
+	{{- $dataList = "" -}}
+{{- end -}}
+
+
+
+
+{{- /* reset data if error occured */ -}}
+{{- if $error -}}
 	{{- $dataList = "" -}}
 {{- end -}}
 

@@ -33,46 +33,64 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* sanitize .Input.Data */ -}}
-{{- $dataList = default "" .Input.Data -}}
-{{- if not $dataList -}}
-	{{- $error = printf "Language: missing/bad .Input.Lang.\n" -}}
+{{- /* safely query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
 {{- else -}}
+	{{- $error = printf "hestiaI18N.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default "" $dataList.Data -}}
+{{- end -}}
+
+
+
+
+{{- /* sanitize .Input.Data */ -}}
+{{- if not $error -}}
 	{{- $dataList = merge . (dict "Input" (dict "Data" (string $dataList))) -}}
 	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
 	{{- if $dataList.Error -}}
-		{{- $error = printf "Language: %v" $dataList.Error.Message -}}
+		{{- $error = printf "hestiaI18N.Sanitize: %v" $dataList.Error -}}
 	{{- end -}}
 	{{- $dataList = partial "hestiaSTRING/TrimWhitespace" $dataList.Output -}}
+
+
+	{{- if not $dataList -}}
+		{{- $error = printf "hestiaI18N.Sanitize: missing .Input.Data.\n" -}}
+	{{- end -}}
 {{- end -}}
 
 
 
 
 {{- /* attempt to split language and country */ -}}
-{{- $ret = split $dataList "-" -}}
-{{- if eq (len $ret) 3 -}}
-	{{- $code = index $ret 0 -}}
-	{{- $script = index $ret 1 -}}
-	{{- $country = index $ret 2 -}}
-{{- else if eq (len $ret) 2 -}}
-	{{- $code = index $ret 0 -}}
-	{{- $script = "" -}}
-	{{- $country = index $ret 1 -}}
-{{- else -}}
-	{{- $code = $dataList -}}
-	{{- $script = "" -}}
-	{{- $country = "" -}}
+{{- if and (not $error) $dataList -}}
+	{{- $ret = split $dataList "-" -}}
+	{{- if eq (len $ret) 3 -}}
+		{{- $code = index $ret 0 -}}
+		{{- $script = index $ret 1 -}}
+		{{- $country = index $ret 2 -}}
+	{{- else if eq (len $ret) 2 -}}
+		{{- $code = index $ret 0 -}}
+		{{- $script = "" -}}
+		{{- $country = index $ret 1 -}}
+	{{- else -}}
+		{{- $code = $dataList -}}
+		{{- $script = "" -}}
+		{{- $country = "" -}}
+	{{- end -}}
+	{{- $code = lower $code -}}
+	{{- $script = title (lower $script) -}}
+	{{- $country = upper $country -}}
 {{- end -}}
-{{- $code = lower $code -}}
-{{- $script = title (lower $script) -}}
-{{- $country = upper $country -}}
 
 
 
 
 {{- /* validate $country for ISO3166 */ -}}
-{{- if not (partial "hestiaI18N/IsCountry" $country) -}}
+{{- if and (not $error) (not (partial "hestiaI18N/IsCountry" $country)) -}}
 	{{- if $country -}}
 		{{- /* possible split of ISO15924 */ -}}
 		{{- $script = printf "%s%s" $script $country -}}
@@ -85,10 +103,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* validate $script for ISO15924 */ -}}
-{{- if not (partial "hestiaI18N/IsScript" $script) -}}
+{{- if and (not $error) (not (partial "hestiaI18N/IsScript" $script)) -}}
 	{{- if $script -}}
 		{{- if not $error -}}
-			{{- $error = printf "Language: unknown script '%v' from '%v'.\n"
+			{{- $error = printf
+				"hestiaI18N.Sanitize: unknown i18n script '%v' from '%v'.\n"
 				$script
 				$dataList
 			-}}
@@ -102,9 +121,9 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* validate $code for ISO639 */ -}}
-{{- if not (partial "hestiaI18N/IsLang" $code) -}}
+{{- if and (not $error) (not (partial "hestiaI18N/IsLang" $code)) -}}
 	{{- if not $error -}}
-		{{- $error = printf "Language: unknown code '%v' from '%v'.\n"
+		{{- $error = printf "hestiaI18N.Sanitize: unknown i18n code '%v' from '%v'.\n"
 			$code
 			$dataList
 		-}}
@@ -129,7 +148,13 @@ specific language governing permissions and limitations under the License.
 	{{- if $country -}}
 		{{- $dataList = printf "%s-%s" $dataList $country -}}
 	{{- end -}}
-{{- else -}}
+{{- end -}}
+
+
+
+
+{{- /* reset output if error is found */ -}}
+{{- if $error -}}
 	{{- $dataList = "" -}}
 {{- end -}}
 

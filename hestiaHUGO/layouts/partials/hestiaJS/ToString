@@ -25,6 +25,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare variables for this function */ -}}
 {{- $Page := . -}}
+{{- $input := dict -}}
 {{- $dataList := "" -}}
 {{- $error := "" -}}
 {{- $list := dict -}}
@@ -33,22 +34,47 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* get valid input data before proceeding */ -}}
+{{- $input = default dict .Input -}}
+{{- if $input -}}
+	{{- $input = default dict $input.Data -}}
+{{- end -}}
+{{- if not $input -}}
+	{{- $error = printf "hestiaJS.ToString: missing .Input.Data!\n" -}}
+	{{- $input = dict -}}
+{{- end -}}
+
+
+
+
 {{- /* render JS Inline values */ -}}
-{{- $list = default slice .Input.Data.Inline -}}
-{{- range $k, $v := $list -}}
-	{{- $dataList = printf "%s%s" $dataList $v -}}
+{{- if and $input (not $error) -}}
+	{{- $list = default slice $input.Inline -}}
+	{{- range $k, $v := $list -}}
+		{{- $dataList = printf "%s%s" $dataList $v -}}
+	{{- end -}}
 {{- end -}}
 
 
 
 
 {{- /* post-process output */ -}}
-{{- $ret = printf "deletable-inline-%s.js" (sha256 $dataList) -}}
-{{- $ret = resources.FromString $ret $dataList -}}
-{{- if not .IsServerMode -}}
-	{{- $ret = resources.Minify $ret -}}
+{{- if and $dataList (not $error) -}}
+	{{- $ret = printf "deletable-inline-%s.js" (sha256 $dataList) -}}
+	{{- $ret = resources.FromString $ret $dataList -}}
+	{{- if not .IsServerMode -}}
+		{{- $ret = resources.Minify $ret -}}
+	{{- end -}}
+	{{- $dataList = string $ret.Content -}}
 {{- end -}}
-{{- $dataList = string $ret.Content -}}
+
+
+
+
+{{- /* reset value if error is found */ -}}
+{{- if $error -}}
+	{{- $dataList = "" -}}
+{{- end -}}
 
 
 

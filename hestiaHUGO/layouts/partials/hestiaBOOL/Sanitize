@@ -22,36 +22,60 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare variables for this function */ -}}
-{{- $Page := . -}}
 {{- $dataList := false -}}
 {{- $error := "" -}}
 
 
 
 
-{{- /* standardize bool data */ -}}
-{{- $dataList = default false .Input.Data -}}
+{{- /* safely query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaBOOL.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default dict $dataList.Data -}}
+{{- end -}}
 
 
-{{- if partial "hestiaBOOL/IsBool" $dataList -}}
-	{{- /* DO NOTHING */ -}}
-{{- else if partial "hestiaHUGO/IsString" $dataList -}}
+
+
+{{- /* sanitize .Input.Data */ -}}
+{{- if and (not $error) (partial "hestiaBOOL/IsBool" $dataList) -}}
+	{{- /* PASSTHROUGH */ -}}
+{{- else if and (not $error) (partial "hestiaSTRING/IsString" $dataList) -}}
 	{{- if eq (lower $dataList) "true" -}}
 		{{- $dataList = true -}}
 	{{- else if eq (lower $dataList) "false" -}}
 		{{- $dataList = false -}}
 	{{- else -}}
-		{{- $error = printf "bool: given data is not a bool: '%v'\n" $dataList -}}
-		{{- $dataList = false -}}
+		{{- $error = printf
+			"hestiaBOOL.Sanitize: given data is unknown nature: '%v'\n"
+			$dataList
+		-}}
 	{{- end -}}
-{{- else if partial "hestiaNUMBER/IsNumber" $dataList -}}
+{{- else if and (not $error) (partial "hestiaMATH/IsNumber" $dataList) -}}
 	{{- if gt $dataList 0 -}}
 		{{- $dataList = true -}}
 	{{- else -}}
 		{{- $dataList = false -}}
 	{{- end -}}
 {{- else -}}
-	{{- $error = printf "bool: given data is not a bool: '%v'\n" $dataList -}}
+	{{- if not $error -}}
+		{{- $error = printf
+			"hestiaBOOL.Sanitize: incompatible type '%T'\n"
+			$dataList
+		-}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* reset value if error */ -}}
+{{- if $error -}}
 	{{- $dataList = false -}}
 {{- end -}}
 

@@ -30,21 +30,44 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* standardize list data */ -}}
-{{- $ret = default false .Input.Data -}}
-{{- if partial "hestiaLIST/IsSlice" $ret -}}
+{{- /* safely query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $ret = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaList.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $ret) -}}
+	{{- $ret = default "" $ret.Data -}}
+{{- end -}}
+
+
+
+
+{{- /* process input data */ -}}
+{{- if and (not $error) (partial "hestiaLIST/IsSlice" $ret) -}}
 	{{- $dataList = dict -}}
+
 	{{- range $i, $v := $ret -}}
 		{{- $dataList = merge $dataList (dict (string $i) $v) -}}
 	{{- end -}}
-{{- else if partial "hestiaLIST/IsMap" $ret -}}
+{{- else if and (not $error) (partial "hestiaLIST/IsMap" $ret) -}}
 	{{- $dataList = $ret -}}
 {{- else -}}
+	{{- if not $error -}}
+		{{- $error = printf
+			"hestiaLIST.Sanitize: bad type or missing .Input.Data: '%v'.\n"
+			.Input.Data
+		-}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* reset value if error is found */ -}}
+{{- if $error -}}
 	{{- $dataList = dict -}}
-	{{- $error = printf "list: bad type or missing .Input.Data: '[%T] %v'.\n"
-		.Input.Data
-		.Input.Data
-	-}}
 {{- end -}}
 
 

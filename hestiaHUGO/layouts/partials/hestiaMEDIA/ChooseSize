@@ -37,6 +37,7 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare working variables for this function */ -}}
 {{- $Page := . -}}
 {{- $dataList := dict -}}
+{{- $input := dict -}}
 {{- $wanted := dict -}}
 {{- $current := dict -}}
 {{- $sample := dict -}}
@@ -52,54 +53,86 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Width */ -}}
-{{- $ret = default 0.0 .Input.Data.Width -}}
-{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-{{- $ret = partial "hestiaMATH/SanitizeNumber" $ret -}}
-{{- if $ret.Error -}}
-	{{- $error = printf ".Media.ChooseSize: bad width: %v" $ret.Error -}}
+{{- /* safe querying .Input.Data */ -}}
+{{- $input = default dict .Input -}}
+{{- if not $input -}}
+	{{- $error = printf "hestiaMEDIA.ChooseSize: missing .Input dataset!\n" -}}
 {{- end -}}
-{{- $wanted = merge $wanted (dict "Width" $ret.Output) -}}
+
+
+{{- if and (not $error) $input -}}
+	{{- $input = default dict $input.Data -}}
+{{- end -}}
+
+
+{{- if and (not $error) (not $input) -}}
+	{{- $error = printf "hestiaMEDIA.ChooseSize: missing .Input.Data!\n" -}}
+{{- end -}}
+
+
+
+
+{{- /* process .Width */ -}}
+{{- if not $error -}}
+	{{- $ret = default 0.0 $input.Width -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaMATH/SanitizeNumber" $ret -}}
+	{{- if $ret.Error -}}
+		{{- $error = printf "hestiaMEDIA.ChooseSize: bad width: %v" $ret.Error -}}
+	{{- end -}}
+	{{- $wanted = merge $wanted (dict "Width" $ret.Output) -}}
+{{- end -}}
 
 
 
 
 {{- /* process .Height */ -}}
-{{- $ret = default 0.0 .Input.Data.Height -}}
-{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
-{{- $ret = partial "hestiaMATH/SanitizeNumber" $ret -}}
-{{- if and $ret.Error (not $error) -}}
-	{{- $error = printf ".Media.ChooseSize: bad height: %v" $ret.Error -}}
+{{- if not $error -}}
+	{{- $ret = default 0.0 $input.Height -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+	{{- $ret = partial "hestiaMATH/SanitizeNumber" $ret -}}
+	{{- if and $ret.Error (not $error) -}}
+		{{- $error = printf "hestiaMEDIA.ChooseSize: bad height: %v" $ret.Error -}}
+	{{- end -}}
+	{{- $wanted = merge $wanted (dict "Height" $ret.Output) -}}
 {{- end -}}
-{{- $wanted = merge $wanted (dict "Height" $ret.Output) -}}
 
 
 
 
 {{- /* process .Current */ -}}
-{{- $current = default
-	(dict "Width" 0.0 "Height" 0.0 "Unavailable" true)
-	.Input.Data.Current
--}}
-{{- if not (and (index $current "Width") (index $current "Height")) -}}
-	{{- $current = dict "Width" 0.0 "Height" 0.0 "Unavailable" true -}}
+{{- if not $error -}}
+	{{- $current = default
+		(dict "Width" 0.0 "Height" 0.0 "Unavailable" true)
+		$input.Current
+	-}}
+
+
+	{{- if not (and (index $current "Width") (index $current "Height")) -}}
+		{{- $current = dict "Width" 0.0 "Height" 0.0 "Unavailable" true -}}
+	{{- end -}}
 {{- end -}}
 
 
 
 
 {{- /* process .Sample */ -}}
-{{- $sample = default dict .Input.Data.Sample -}}
-{{- if not $sample -}}
-	{{- if not $error -}}
-		{{- $error = printf ".Media.ChooseSize: missing .Input.Sample.\n" -}}
-	{{- end -}}
-{{- else -}}
-	{{- if not (and (index $sample "Width") (index $sample "Height")) -}}
+{{- if not $error -}}
+	{{- $sample = default dict $input.Sample -}}
+	{{- if not $sample -}}
 		{{- if not $error -}}
-			{{- $error = printf ".Media.ChooseSize: bad sample: '%v'\n."
-				$sample.Name
+			{{- $error = printf
+				"hestiaMEDIA.ChooseSize: missing .Input.Sample.\n"
 			-}}
+		{{- end -}}
+	{{- else -}}
+		{{- if not (and (index $sample "Width") (index $sample "Height")) -}}
+			{{- if not $error -}}
+				{{- $error = printf
+					"hestiaMEDIA.ChooseSize: bad sample: '%v'.\n"
+					$sample.Name
+				-}}
+			{{- end -}}
 		{{- end -}}
 	{{- end -}}
 {{- end -}}
@@ -214,10 +247,18 @@ specific language governing permissions and limitations under the License.
 
 		{{- if not $error -}}
 			{{- $error = printf
-				".Media.ChooseSize: given sample has mathematical error.\n"
+				"hestiaMEDIA.ChooseSize: given sample has mathematical error.\n"
 			-}}
 		{{- end -}}
 	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* reset value if error occured */ -}}
+{{- if $error -}}
+	{{- $dataList = dict -}}
 {{- end -}}
 
 

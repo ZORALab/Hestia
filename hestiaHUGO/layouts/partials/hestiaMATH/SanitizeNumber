@@ -29,15 +29,30 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* safely query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaMATH.SanitizeNumber: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default "" $dataList.Data -}}
+{{- end -}}
+
+
+
+
 {{- /* standardizes number data */ -}}
-{{- $dataList = default false .Input.Data -}}
-{{- if not $dataList -}}
-	{{- $dataList = 0 -}}
-{{- else if partial "hestiaSTRING/IsString" $dataList -}}
-	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
+{{- if partial "hestiaSTRING/IsString" $dataList -}}
 	{{- $dataList = partial "hestiaSTRING/FormatNumber" $dataList -}}
 	{{- if $dataList.Error -}}
-		{{- $error = printf "math: sanitize number: %s" $dataList.Error -}}
+		{{- if not $error -}}
+			{{- $error = printf
+				"hestiaMATH.SanitizeNumber: %s"
+				$dataList.Error
+			-}}
+		{{- end -}}
 	{{- end -}}
 	{{- $dataList = $dataList.Output -}}
 {{- else if partial "hestiaMATH/IsInt" $dataList -}}
@@ -45,7 +60,17 @@ specific language governing permissions and limitations under the License.
 {{- else if partial "hestiaMATH/IsFloat" $dataList -}}
 	{{- $dataList = float $dataList -}}
 {{- else -}}
-	{{- $error = printf "number: bad .Input.Data type '%T'.\n" .Input.Data -}}
+	{{- $error = printf
+		"hestiaMATH.SanitizeNumber: bad .Input.Data type '%T'.\n"
+		$dataList
+	-}}
+{{- end -}}
+
+
+
+
+{{- /* reset value if error occured */ -}}
+{{- if $error -}}
 	{{- $dataList = 0 -}}
 {{- end -}}
 

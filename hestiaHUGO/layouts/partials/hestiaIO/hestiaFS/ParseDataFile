@@ -22,10 +22,8 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare variables for this function */ -}}
-{{- $page := . -}}
 {{- $dataList := dict -}}
 {{- $error := "" -}}
-{{- $ret := false -}}
 
 
 
@@ -33,11 +31,9 @@ specific language governing permissions and limitations under the License.
 {{- /* parse file */ -}}
 {{- $dataList = partial "hestiaIO/hestiaFS/ParseFile" . -}}
 {{- if $dataList.Error -}}
-	{{- $error = printf "Parse Data File: %v" $dataList.Error -}}
-	{{- $dataList = dict -}}
-{{- else -}}
-	{{- $dataList = $dataList.Output -}}
+	{{- $error = printf "hestiaFS.ParseDataFile: %v" $dataList.Error -}}
 {{- end -}}
+{{- $dataList = $dataList.Output -}}
 
 
 

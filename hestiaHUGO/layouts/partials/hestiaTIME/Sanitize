@@ -32,24 +32,40 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* safe query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaTIME.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default "" $dataList.Data -}}
+	{{- if not $dataList -}}
+		{{- $error = printf "hestiaTIME.Sanitize: missing .Input.Data!\n" -}}
+	{{- end -}}
+{{- end -}}
+
+
+
+
 {{- /* sanitize .Input.Data */ -}}
-{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string (default "" .Input.Data)) -}}
-{{- if $dataList -}}
+{{- if and (not $error) $dataList -}}
+	{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string $dataList) -}}
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
 	{{- if $dataList.Error -}}
-		{{- $error = printf "time: %s" $dataList.Error -}}
+		{{- $error = printf "hestiaTIME.Sanitize: %s" $dataList.Error -}}
 	{{- end -}}
+
 	{{- $dataList = $dataList.Output -}}
-{{- else -}}
-	{{- $error = printf "time: missing/bad .Input.Data.\n" -}}
 {{- end -}}
 
 
 
 
 {{- /* initialize .Time data type */ -}}
-{{- if $dataList -}}
+{{- if and (not $error) $dataList -}}
 	{{- $ret = split $dataList " " -}}
 	{{- if eq (len $ret) 7 -}}
 		{{- $data = dict
@@ -99,11 +115,19 @@ specific language governing permissions and limitations under the License.
 		{{- $dataList = time $ret -}}
 	{{- else -}}
 		{{- if not $error -}}
-			{{- $error = printf "time: incompatible format '%v'.\n" $dataList -}}
-			{{- $dataList = $now -}}
+			{{- $error = printf
+				"hestiaTIME.Sanitize: incompatible format '%v'.\n"
+				$dataList
+			-}}
 		{{- end -}}
 	{{- end -}}
-{{- else -}}
+{{- end -}}
+
+
+
+
+{{- /* reset value if error occured */ -}}
+{{- if $error -}}
 	{{- $dataList = $now -}}
 {{- end -}}
 

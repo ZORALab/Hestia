@@ -31,24 +31,53 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* sanitize .Input.Path */ -}}
-{{- $path = default "" .Input.Path -}}
-{{- if (partial "hestiaSTRING/IsString" $path) -}}
-	{{- /* PASS */ -}}
+{{- /* safely query .Input.Data and .Input.Path */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $data = default dict .Input -}}
 {{- else -}}
-	{{- $error = printf "FS.WriteFile: missing or invalid path '%v'.\n" $path -}}
+	{{- $error = printf "hestiaFS.WriteFile: bad input parameters!\n" -}}
+{{- end -}}
+
+
+{{- $path = "" -}}
+{{- $data = "" -}}
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $data) -}}
+	{{- $path = default "" $data.Path -}}
+	{{- $data = default "" $data.Data -}}
+{{- end -}}
+
+
+
+
+{{- /* sanitize .Input.Path */ -}}
+{{- if not $error -}}
+	{{- if (partial "hestiaSTRING/IsString" $path) -}}
+		{{- /* PASS */ -}}
+	{{- else -}}
+		{{- if not $error -}}
+			{{- $error = printf
+				"hestiaFS.WriteFile: invalid .Input.Path '%v'.\n"
+				$path
+			-}}
+		{{- end -}}
+	{{- end -}}
 {{- end -}}
 
 
 
 
 {{- /* sanitize .Input.Data */ -}}
-{{- $data = default "" .Input.Data -}}
-{{- if (partial "hestiaSTRING/IsString" $data) -}}
-	{{- /* PASS */ -}}
-{{- else -}}
-	{{- if not $error -}}
-		{{- $error = printf "FS.WriteFile: invalid data '%v'.\n" $data -}}
+{{- if not $error -}}
+	{{- if (partial "hestiaSTRING/IsString" $data) -}}
+		{{- /* PASS */ -}}
+	{{- else -}}
+		{{- if not $error -}}
+			{{- $error = printf
+				"hestiaFS.WriteFile: invalid data '%v'.\n"
+				$data
+			-}}
+		{{- end -}}
+		{{- $data = "" -}}
 	{{- end -}}
 {{- end -}}
 
@@ -56,7 +85,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* write file */ -}}
-{{- if and $path (not $error) -}}
+{{- if and (not $error) $path -}}
 	{{- $path = resources.FromString $path $data -}}
 	{{- $path = urls.Parse $path.Permalink -}}
 {{- end -}}

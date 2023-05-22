@@ -147,8 +147,8 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Formats.%v.Relationship: %s" $ret.Error.Message -}}
-		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- $error = printf ".Formats.%v.Relationship: %s" $ret.Error -}}
+		{{- $error = merge $Page $error -}}
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 		{{- $ret = "alternate" -}}
 	{{- else -}}
@@ -161,7 +161,7 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Marshallable)) -}}
 	{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Formats.%v.Marshallable: %s" $ret.Error.Message -}}
+		{{- $error = printf ".Formats.%v.Marshallable: %v" $ret.Error -}}
 		{{- $error = merge $Page (dict "Error" $error) -}}
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 	{{- end -}}
@@ -591,7 +591,7 @@ specific language governing permissions and limitations under the License.
 			{{- $error = printf ".Contributors.Page.%v.Contribution.%v: %v"
 				$k
 				$w
-				$ret.Error.Message
+				$ret.Error
 			-}}
 			{{- $error = merge $Page (dict "Error" $error) -}}
 			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
@@ -904,8 +904,8 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
 	{{- $ret = partial "hestiaIO/hestiaFS/ParseDataFile" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Data.Page: %v" $ret.Error.Message -}}
-		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- $error = printf ".Data.Page: %v" $ret.Error -}}
+		{{- $error = merge $Page $error -}}
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 	{{- end -}}
 	{{- $ret = $ret.Output -}}

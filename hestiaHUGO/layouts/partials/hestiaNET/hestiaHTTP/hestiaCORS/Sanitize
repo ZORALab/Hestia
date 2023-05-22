@@ -29,18 +29,27 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* sanitize .Input.Data */ -}}
-{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string (default "" .Input.Data)) -}}
+{{- /* safe query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaCORS.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default "" $dataList.Data -}}
+{{- end -}}
 
 
 
 
 {{- /* initialize CORS data type when available */ -}}
-{{- if $dataList -}}
+{{- if and (not $error) $dataList -}}
+	{{- $dataList = partial "hestiaSTRING/TrimWhitespace" (string $dataList) -}}
 	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
 	{{- $dataList = partial "hestiaSTRING/Sanitize" $dataList -}}
 	{{- if $dataList.Error -}}
-		{{- $error = printf "CORS: %s" $dataList.Error -}}
+		{{- $error = printf "hestiaCORS.Sanitize: %s" $dataList.Error -}}
 	{{- end -}}
 	{{- $dataList = $dataList.Output -}}
 
@@ -53,18 +62,19 @@ specific language governing permissions and limitations under the License.
 		{{- /* PASS */ -}}
 	{{- else -}}
 		{{- if not $error -}}
-			{{- $error = printf "CORS: unknown value '%v'.\n" $dataList -}}
+			{{- $error = printf
+				"hestiaCORS.Sanitize: unknown value '%v'.\n"
+				$dataList
+			-}}
 		{{- end -}}
 	{{- end -}}
-{{- else -}}
-	{{- $error = printf "CORS: missing or empty .Input.Data data.\n" -}}
 {{- end -}}
 
 
 
 
 {{- /* ensures the empty result is default to anonymous */ -}}
-{{- if not $dataList -}}
+{{- if or $error (not $dataList) -}}
 	{{- $dataList = "anonymous" -}}
 {{- end -}}
 

@@ -15,8 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
-{{- /* . = Page data in Hestia Structure */ -}}
-{{- /* .Input.Data = number data for processing (string) */ -}}
+{{- /* . = number data for processing (string) */ -}}
 
 {{- /* CONSTANTS */ -}}
 {{- $CONST_NUMBER_FORMAT := `^((0?b[01]+$)|(0x[0-9a-fA-F]+$)|(0o[0-7]+$)|([0-9]+$)|(\d+\.?\d+((?:e|E)?-?\d+)?$))` -}}
@@ -35,32 +34,41 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* pre-process string */ -}}
-{{- $ret = partial "hestiaSTRING/TrimWhitespace" . -}}
-{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
-{{- if $ret.Error -}}
-	{{- $error = printf "bad string: '%v'\n" .Input.Data -}}
+{{- if not (partial "hestiaSTRING/IsString" .) -}}
+	{{- $error = printf "hestiaSTRING.FormatNumber: input is not a string!\n" . -}}
 {{- end -}}
-{{- $ret = $ret.Output -}}
 
 
 
 
 {{- /* process number */ -}}
-{{- if $ret -}}
-	{{- /* scan for convertable number */ -}}
-	{{- $ret = findRE $CONST_NUMBER_FORMAT $ret -}}
+{{- if not $error -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" . -}}
+	{{- if $ret -}}
+		{{- /* scan for convertable number */ -}}
+		{{- $ret = findRE $CONST_NUMBER_FORMAT $ret -}}
 
 
-	{{- /* attempt to convert into number */ -}}
-	{{- if findRE $CONST_INT_FORMAT (index $ret 0) -}}
-		{{- $dataList = int (index $ret 0) -}}
-	{{- else if findRE $CONST_FLOAT_FORMAT (index $ret 0) -}}
-		{{- $dataList = float (index $ret 0) -}}
-	{{- else -}}
-		{{- if not $error -}}
-			{{- $error = printf "invalid string: '%v'.\n" .Input.Data -}}
+		{{- /* attempt to convert into number */ -}}
+		{{- if findRE $CONST_INT_FORMAT (index $ret 0) -}}
+			{{- $dataList = int (index $ret 0) -}}
+		{{- else if findRE $CONST_FLOAT_FORMAT (index $ret 0) -}}
+			{{- $dataList = float (index $ret 0) -}}
+		{{- else -}}
+			{{- $error = printf
+				"hestiaSTRING.FormatNumber: unknown pattern '%v'.\n"
+				$ret
+			 -}}
 		{{- end -}}
 	{{- end -}}
+{{- end -}}
+
+
+
+
+{{- /* reset output if error occured */ -}}
+{{- if $error -}}
+	{{- $dataList = 0 -}}
 {{- end -}}
 
 

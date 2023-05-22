@@ -279,8 +279,8 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "Data" .CSS.Main)) -}}
 {{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 {{- if $ret.Error -}}
-	{{- $error = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Error.Message -}}
-	{{- $error = merge $Page (dict "Error" (dict "Message" $error)) -}}
+	{{- $error = printf "CSS.Inline.__content.hestiaCSS: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
 	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 	{{- $ret = "" -}}
 {{- else -}}
@@ -484,8 +484,8 @@ specific language governing permissions and limitations under the License.
 {{- $ret = merge $Page (dict "Input" (dict "Data" .JS.Main)) -}}
 {{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 {{- if $ret.Error -}}
-	{{- $error = printf ".JS.Inline.__content.hestiaJS: %v" $ret.Error.Message -}}
-	{{- $error = merge $Page (dict "Error" (dict "Message" $error)) -}}
+	{{- $error = printf ".JS.Inline.__content.hestiaJS: %v" $ret.Error -}}
+	{{- $error = merge $Page (dict "Error" $error) -}}
 	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 	{{- $ret = "" -}}
 {{- else -}}

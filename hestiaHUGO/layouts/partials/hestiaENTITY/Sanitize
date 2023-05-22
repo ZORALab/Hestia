@@ -16,6 +16,7 @@ specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* INPUT PARAMETERS */ -}}
 {{- /* . = Page data in Hestia Structure */ -}}
+{{- /* .Languages.Current.ID = required language ID for current page (string) */ -}}
 {{- /* .Input.Data = Entity data (dict) */ -}}
 {{- /* .Input.Data.Languages = Entity data in all queriable languages (dict) */ -}}
 {{- /* .Input.Data.Languages.LANG.Description = Entity's description (string) */ -}}
@@ -55,8 +56,9 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare variables for this function */ -}}
 {{- $Page := . -}}
-{{- $Lang := .Languages.Current.ID -}}
+{{- $Lang := "" -}}
 {{- $error := "" -}}
+{{- $input := dict -}}
 {{- $dataList := dict -}}
 {{- $dataset := dict -}}
 {{- $ret := false -}}
@@ -64,10 +66,24 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* check .Input.Data state */ -}}
-{{- $ret = default dict .Input.Data -}}
-{{- if not $ret -}}
-	{{- $error = printf ".Contributor: missing .Input.Data data!\n" -}}
+{{- /* safely query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $input = default dict .Input -}}
+	{{- $Lang = default "" .Languages.Current.ID -}}
+{{- else -}}
+	{{- $error = printf "hestiaENTITY.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $input = default dict $input.Data -}}
+{{- end -}}
+
+{{- if and (not $input) (not $error) -}}
+	{{- $error = printf "hestiaENTITY.Sanitize: missing .Input.Data data!\n" -}}
+{{- end -}}
+
+{{- if not $Lang -}}
+	{{- $error = printf "hestiaENTITY.Sanitize: missing .Languages.Current.ID data!\n" -}}
 {{- end -}}
 
 
@@ -75,10 +91,11 @@ specific language governing permissions and limitations under the License.
 
 {{- /* obtain language specific data */ -}}
 {{- if not $error -}}
-	{{- $Lang = default dict (index .Input.Data.Languages $Lang) -}}
+	{{- $Lang = default dict (index $input.Languages $Lang) -}}
 	{{- if not $Lang -}}
-		{{- $error = printf ".Contributor.Languages: missing data in language '%v'.\n"
-			.Languages.Current.ID
+		{{- $error = printf
+			"hestiaENTITY.Sanitize: .Languages: missing data for language '%v'.\n"
+			$Lang
 		-}}
 	{{- end -}}
 {{- end -}}
@@ -92,8 +109,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Contributor.Name: %v" $ret.Error -}}
+		{{- $error = printf "hestiaENTITY.Sanitize: .Name: %v" $ret.Error -}}
 	{{- end -}}
+
+
 	{{- if $ret.Output -}}
 		{{- $dataList = merge $dataList (dict "Name" $ret.Output) -}}
 	{{- end -}}
@@ -108,8 +127,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Contributor.Title: %v" $ret.Error -}}
+		{{- $error = printf "hestiaENTITY.Sanitize: .Title: %v" $ret.Error -}}
 	{{- end -}}
+
+
 	{{- if $ret.Output -}}
 		{{- $dataList = merge $dataList (dict "Title" $ret.Output) -}}
 	{{- end -}}
@@ -124,8 +145,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Contributor.Brand: %v" $ret.Error -}}
+		{{- $error = printf "hestiaENTITY.Sanitize: .Brand: %v" $ret.Error -}}
 	{{- end -}}
+
+
 	{{- if $ret.Output -}}
 		{{- $dataList = merge $dataList (dict "Brand" $ret.Output) -}}
 	{{- end -}}
@@ -140,8 +163,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Contributor.CallSign: %v" $ret.Error -}}
+		{{- $error = printf "hestiaENTITY.Sanitize: .CallSign: %v" $ret.Error -}}
 	{{- end -}}
+
+
 	{{- if $ret.Output -}}
 		{{- $dataList = merge $dataList (dict "CallSign" $ret.Output) -}}
 	{{- end -}}
@@ -156,8 +181,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Contributor.Slogan: %v" $ret.Error -}}
+		{{- $error = printf "hestiaENTITY.Sanitize: .Slogan: %v" $ret.Error -}}
 	{{- end -}}
+
+
 	{{- if $ret.Output -}}
 		{{- $dataList = merge $dataList (dict "Slogan" $ret.Output) -}}
 	{{- end -}}
@@ -172,8 +199,10 @@ specific language governing permissions and limitations under the License.
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if $ret.Error -}}
-		{{- $error = printf ".Contributor.Description: %v" $ret.Error -}}
+		{{- $error = printf "hestiaENTITY.Sanitize: .Description: %v" $ret.Error -}}
 	{{- end -}}
+
+
 	{{- if $ret.Output -}}
 		{{- $dataList = merge $dataList (dict "Description" $ret.Output) -}}
 	{{- end -}}
@@ -198,7 +227,11 @@ specific language governing permissions and limitations under the License.
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $dataset.Label)) -}}
 		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
-			{{- $error = printf ".Contributor.%v.Label: %v" $v $ret.Error -}}
+			{{- $error = printf
+				"hestiaENTITY.Sanitize: .%v.Label: %v"
+				$v
+				$ret.Error
+			-}}
 		{{- end -}}
 		{{- $dataList = merge $dataList (dict $v (dict "Label" $ret.Output)) -}}
 
@@ -211,7 +244,11 @@ specific language governing permissions and limitations under the License.
 			{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 		{{- end -}}
 		{{- if and $ret.Error (not $error) -}}
-			{{- $error = printf ".Contributor.%v.Value: %v" $v $ret.Error -}}
+			{{- $error = printf
+				"hestiaENTITY.Sanitize: .%v.Value: %v"
+				$v
+				$ret.Error
+			-}}
 		{{- end -}}
 		{{- $dataList = merge $dataList (dict $v (dict "Value" $ret.Output)) -}}
 	{{- end -}}
@@ -227,7 +264,11 @@ specific language governing permissions and limitations under the License.
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Label)) -}}
 		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
-			{{- $error = printf ".Contributor.Social.%v.Label: %v" $i $ret.Error -}}
+			{{- $error = printf
+				"hestiaENTITY.Sanitize: .Social.%v.Label: %v"
+				$i
+				$ret.Error
+			-}}
 		{{- end -}}
 		{{- $dataList = merge $dataList (dict "Social"
 			(dict (string $i) (dict "Label" $ret.Output))
@@ -238,7 +279,11 @@ specific language governing permissions and limitations under the License.
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Value)) -}}
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
-			{{- $error = printf ".Contributor.Social.%v.Value: %v" $i $ret.Error -}}
+			{{- $error = printf
+				"hestiaENTITY.Sanitize: .Social.%v.Value: %v"
+				$i
+				$ret.Error
+			-}}
 		{{- end -}}
 		{{- $dataList = merge $dataList (dict "Social"
 			(dict (string $i) (dict "Value" $ret.Output))
@@ -251,9 +296,9 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .Contribution */ -}}
 {{- if not $error -}}
-	{{- if .Input.Data.Contribution -}}
+	{{- if $input.Contribution -}}
 		{{- range $i, $v := $ROLES -}}
-			{{- $dataset = index $Page.Input.Data.Contribution $v -}}
+			{{- $dataset = index $input.Contribution $v -}}
 			{{- if not $dataset -}}
 				{{- $dataList = merge $dataList (dict "Contribution"
 					(dict $v (dict "Past" false "Current" false))
@@ -267,7 +312,7 @@ specific language governing permissions and limitations under the License.
 			{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
 			{{- if and $ret.Error (not $error) -}}
 				{{- $error = printf
-					".Contributor.Contribution.%v.Past: %v"
+					"hestiaENTITY.Sanitize: .Contribution.%v.Past: %v"
 					$v
 					$ret.Error
 				-}}
@@ -282,7 +327,7 @@ specific language governing permissions and limitations under the License.
 			{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
 			{{- if and $ret.Error (not $error) -}}
 				{{- $error = printf
-					".Contributor.Contribution.%v.Past: %v"
+					"hestiaENTITY.Sanitize: .Contribution.%v.Past: %v"
 					$v
 					$ret.Error
 				-}}
@@ -293,7 +338,9 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 	{{- else -}}
 		{{- if not $error -}}
-			{{- $error = printf ".Contributor: missing .Contribution data.\n" -}}
+			{{- $error = printf
+				"hestiaENTITY.Sanitize: missing .Contribution data.\n"
+			-}}
 		{{- end -}}
 	{{- end -}}
 {{- end -}}
@@ -303,14 +350,17 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .Type */ -}}
 {{- if not $error -}}
-	{{- $ret = default "" (lower .Input.Data.Type) -}}
+	{{- $ret = default "" (lower $input.Type) -}}
 	{{- if eq $ret "person" -}}
 		{{- $ret = "person" -}}
 	{{- else if eq $ret "organization" -}}
 		{{- $ret = "organization" -}}
 	{{- else -}}
 		{{- if not $error -}}
-			{{- $error = printf ".Contributor.Type: bad value '%v'.\n" $ret -}}
+			{{- $error = printf
+				"hestiaENTITY.Sanitize: .Type bad value '%v'.\n"
+				$ret
+			-}}
 		{{- end -}}
 		{{- $ret = "organization" -}}
 	{{- end -}}
@@ -322,11 +372,11 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .ID */ -}}
 {{- if not $error -}}
-	{{- $ret = default "" .Input.Data.ID -}}
+	{{- $ret = default "" $input.ID -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if and $ret.Error (not $error) -}}
-		{{- $error = printf ".Contributor.ID: %v" $ret.Error -}}
+		{{- $error = printf "hestiaENTITY.Sanitize: .ID: %v" $ret.Error -}}
 	{{- end -}}
 	{{- $dataList = merge $dataList (dict "ID" $ret.Output) -}}
 {{- end -}}
@@ -336,12 +386,12 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .Image */ -}}
 {{- if not $error -}}
-	{{- $ret = default dict .Input.Data.Image -}}
+	{{- $ret = default dict $input.Image -}}
 	{{- if $ret -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
-			{{- $error = printf ".Contributor.Image: %v" $ret.Error -}}
+			{{- $error = printf "hestiaENITITY.Sanitize: .Image: %v" $ret.Error -}}
 		{{- end -}}
 		{{- $ret = $ret.Output -}}
 	{{- end -}}
@@ -353,12 +403,15 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .Background */ -}}
 {{- if not $error -}}
-	{{- $ret = default dict .Input.Data.Background -}}
+	{{- $ret = default dict $input.Background -}}
 	{{- if $ret -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
-			{{- $error = printf ".Contributor.Background: %v" $ret.Error -}}
+			{{- $error = printf
+				"hestiaENTITY.Sanitize: .Background: %v"
+				$ret.Error
+			-}}
 		{{- end -}}
 		{{- $ret = $ret.Output -}}
 	{{- end -}}

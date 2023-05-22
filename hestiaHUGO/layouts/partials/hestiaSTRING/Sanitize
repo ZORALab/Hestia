@@ -30,9 +30,22 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* standardize string data */ -}}
-{{- $dataList = default "" .Input.Data -}}
-{{- if not $dataList -}}
+{{- /* safe query .Input.Data */ -}}
+{{- if partial "hestiaLIST/IsMap" . -}}
+	{{- $dataList = default dict .Input -}}
+{{- else -}}
+	{{- $error = printf "hestiaSTRING.Sanitize: bad input parameters!\n" -}}
+{{- end -}}
+
+{{- if and (not $error) (partial "hestiaLIST/IsMap" $dataList) -}}
+	{{- $dataList = default "" $dataList.Data -}}
+{{- end -}}
+
+
+
+
+{{- /* sanitize .Input.Data */ -}}
+{{- if $error -}}
 	{{- /* PASSTHROUGH */ -}}
 {{- else if partial "hestiaSTRING/IsString" $dataList -}}
 	{{- $filename = printf "deletable-%v-%v-%v-%v"
@@ -45,10 +58,14 @@ specific language governing permissions and limitations under the License.
 	{{- $dataList = resources.ExecuteAsTemplate $filename $Page $dataList -}}
 	{{- $dataList = string $dataList.Content -}}
 {{- else -}}
-	{{- $error = printf "string: invalid data type '%v'.\n" .Input.Data -}}
+	{{- $error = printf "hestiaSTRING.Sanitize: invalid data '%T'.\n" $dataList -}}
 {{- end -}}
 
-{{- if not $dataList -}}
+
+
+
+{{- /* reset output if error occured */ -}}
+{{- if or $error (not $dataList) -}}
 	{{- $dataList = "" -}}
 {{- end -}}
 
