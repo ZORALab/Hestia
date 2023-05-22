@@ -30,6 +30,26 @@ Title = "Our Contributors"
 URL = '/en/#our-contributors'
 
 
+[[Languages.EN]]
+Title = 'Licenses'
+
+[[Languages.EN.Items]]
+Title = "Visit"
+URL = '/en/licenses'
+
+[[Languages.EN.Items]]
+Title = "Documents"
+URL = '/en/licenses/#documentations'
+
+[[Languages.EN.Items]]
+Title = "Guidelines"
+URL = '/en/licenses/#guidelines'
+
+[[Languages.EN.Items]]
+Title = "Code of Conduct"
+URL = '/en/licenses/#code-of-conduct'
+
+
 
 
 [[Languages.ZH-HANS]]
@@ -62,3 +82,23 @@ URL = '/zh-hans/#apache-2开源许可'
 [[Languages.ZH-HANS.Items]]
 Title = "我们的贡献者"
 URL = '/zh-hans/#我们的贡献者'
+
+
+[[Languages.ZH-HANS]]
+Title = '许可证'
+
+[[Languages.ZH-HANS.Items]]
+Title = "询问"
+URL = '/zh-hans/licenses'
+
+[[Languages.ZH-HANS.Items]]
+Title = "文件"
+URL = '/zh-hans/licenses/#documentations'
+
+[[Languages.ZH-HANS.Items]]
+Title = "指引"
+URL = '/zh-hans/licenses/#guidelines'
+
+[[Languages.ZH-HANS.Items]]
+Title = "行为准则"
+URL = '/zh-hans/licenses/#code-of-conduct'

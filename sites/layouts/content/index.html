@@ -609,7 +609,9 @@
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 		{{- $ret = string $ret.Output -}}
-		<a href='{{- $ret -}}' class='button'>{{- $i18n.Epilogue.CTA -}}</a>
+		<a href='{{- $ret -}}' class='button' style='
+			--button-color: green;
+		'>{{- $i18n.Epilogue.CTA -}}</a>
 	</section>
 </main>
 {{ partial "common/footer.html" $Page }}

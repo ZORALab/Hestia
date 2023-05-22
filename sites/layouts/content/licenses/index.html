@@ -1,0 +1,133 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<main style='padding-bottom: 0;'>
+	<section id='{{- $i18n.Introduction.ID -}}'>
+		<h1>{{- $i18n.Introduction.Title -}}</h1>
+		<p>{{- $i18n.Introduction.Description -}}</p>
+	</section>
+
+
+	<section id='{{- $i18n.Documentations.ID -}}'>
+		<h2>{{- $i18n.Documentations.Title -}}</h2>
+		<p>{{- $i18n.Documentations.Description -}}</p>
+
+		<div style='display:flex;justify-content:center;'><table>
+			<thead>
+				<th>{{- $i18n.Documentations.Labels.Type -}}</th>
+				<th>{{- $i18n.Documentations.Labels.PDF -}}</th>
+				<th>{{- $i18n.Documentations.Labels.Signature -}}</th>
+				<th>{{- $i18n.Documentations.Labels.Key -}}</th>
+				<th>{{- $i18n.Documentations.Labels.Coverage -}}</th>
+				<th>{{- $i18n.Documentations.Labels.Examples -}}</th>
+			</thead>
+			<tbody>
+				{{- range $i, $v := $Page.Data.Store.Licenses }}
+					{{- $lang = index
+						$v.Metadata.Languages
+						$Page.Languages.Current.ID
+					}}
+				<tr>
+					<td>
+						{{- $lang.Name -}}
+					</td>
+					{{- range $j, $w := slice "PDF" "GPG" "KEY" }}
+					<td>
+						{{- $ret = index $v.Documents $w -}}
+						{{- $ret = merge $Page (dict "Input"
+							(dict "Data" $ret.URL)
+						) -}}
+						{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+						{{- $ret = string $ret.Output -}}
+
+						<a class='button' href='{{- $ret -}}'
+						download>{{- $lang.Label -}}</a>
+					</td>
+					{{- end }}
+					<td>
+						{{- $lang.Coverage -}}
+					</td>
+					<td>
+						<code>{{- $v.Metadata.Files -}}</code>
+					</td>
+				</tr>
+				{{- end }}
+			</tbody>
+		</table></div>
+	</section>
+
+
+	<section id='{{- $i18n.Guidelines.ID -}}'>
+		<h2>{{- $i18n.Guidelines.Title -}}</h2>
+		<p>{{- $i18n.Guidelines.Description -}}</p>
+
+		<div>
+			<h3>{{- $i18n.Guidelines.Labels.Do -}}</h3>
+			<ul style='
+				--ulist-li-before-content: "✓";
+				--ulist-li-before-background: var(--body-color-indicator-green-inverted);
+			'>
+				{{- range $i, $v := $i18n.Guidelines.DO }}
+				<li><p>
+					{{- $v.Value -}}
+				</p></i>
+				{{- end }}
+			</ul>
+		</div>
+
+		<div>
+			<h3>{{- $i18n.Guidelines.Labels.Dont -}}</h3>
+			<ul style='
+				--ulist-li-before-content: "𝖷";
+				--ulist-li-before-background: var(--body-background-indicator-red-inverted);
+			'>
+				{{- range $i, $v := $i18n.Guidelines.DONT }}
+				<li><p>
+					{{- $v.Value -}}
+				</p></i>
+				{{- end }}
+			</ul>
+		</div>
+	</section>
+
+
+	<section id='{{- $i18n.COC.ID -}}'>
+		<h2>{{- $i18n.COC.Title -}}</h2>
+		<p>{{- $i18n.COC.Description -}}</p>
+	</section>
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data"
+		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
+	)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
+		margin-top: 10rem;
+		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2>{{- $i18n.Epilogue.Title -}}</h2>
+		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<br/>
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output -}}
+		<a href='{{- $ret -}}' class='button' style='
+			--button-color: green;
+		'>{{- $i18n.Epilogue.CTA -}}</a>
+	</section>
+</main>
+{{ partial "common/footer.html" $Page }}
+{{ partial "common/nav-prime.html" $Page }}

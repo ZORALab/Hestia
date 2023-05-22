@@ -1,28 +1,28 @@
 [Metadata]
-SPDX = 'Apache-2.0'
-Files = '*.go, *.nim, *.rs, *.svg, *.txt, *.md, *.html, ...'
+SPDX = 'zoralab-hestia-media'
+Files = '*.jpg, *.webp, *.avif, *.mkv, *.mp3, *.mp4, *.ogg, ...'
 
 
 
 
 [Metadata.Languages.EN]
-ID = 'apache-2-open-source-licensed'
-Title = 'Apache-2.0 Open-Source Licensed'
-Name = 'Apache 2.0 License'
-Coverage = 'All Text-Based Source Codes'
+ID = 'zoralab-hestia-media'
+Title = "ZORALab's Hestia Media Licensed"
+Name = "ZORALab's Hestia Media License"
+Coverage = 'All Non-Text-Based Assets and Artifacts'
 Label = 'Download'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'Plain old APACHE 2.0 License for code products'
+Pitch = 'Applicable to all non-text-based source codes assets and artifacts'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'Free as in both monetary and expression'
+Pitch = 'Preserving origin of distribution'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'No strings attached'
+Pitch = "Respecting original creators' copyrights"
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'Friendly for commerical and personal use'
+Pitch = "We have them attributed - go source from them directly"
 
 [[Metadata.Languages.EN.Descriptions]]
 Pitch = "It's that simple"
@@ -31,36 +31,36 @@ Pitch = "It's that simple"
 
 
 [Metadata.Languages.ZH-HANS]
-ID = 'apache-2开源许可'
-Title = 'Apache-2.0开源许可'
-Name = 'Apache 2.0许可证'
-Coverage = '所有文本源代码'
+ID = 'zoralab赫斯提亚多源媒体许可'
+Title = 'zoralab赫斯提亚多源媒体许可'
+Name = 'zoralab赫斯提亚多源媒体许可证'
+Coverage = '所有不是文本源代码的资产和工件'
 Label = '下载'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '所有代码可以在传统Apache 2.0许可证运用'
+Pitch = '所有不是文本源代码的资产和工件'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '金钱和运用自由'
+Pitch = '维护上源的创造者的分发系统'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '无附加条件'
+Pitch = '尊敬上源的创造者的版权'
+
+[[Metadata.Languages.EN.Descriptions]]
+Pitch = "我们有例出他们的归属 - 就直接和他们购获吧"
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '友善于商用或私人运用'
-
-[[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = "就那么简单"
+Pitch = '就那么简单'
 
 
 
 
 [Documents.PDF]
-URL = '/docs/licenses/hestia-software-license.pdf'
+URL = '/docs/licenses/hestia-media-license.pdf'
 
 
 [Documents.GPG]
-URL = '/docs/licenses/hestia-software-license.pdf.asc'
+URL = '/docs/licenses/hestia-media-license.pdf.asc'
 
 
 [Documents.KEY]

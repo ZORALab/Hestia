@@ -1,0 +1,61 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := dict -}}
+{{- $data := dict -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Title .Titles.Page
+	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Store.Licenses -}}
+	{{- $data = dict -}}
+	{{- range $j, $w := slice "PDF" "GPG" "KEY" -}}
+		{{- $ret = index $v.Documents $w -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output -}}
+
+		{{- $data = merge $data (dict $w $ret) -}}
+	{{- end -}}
+
+	{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID -}}
+
+	{{- $list = append (dict
+		$i18n.Documentations.Labels.Type $lang.Name
+		$i18n.Documentations.Labels.Sources $data
+		$i18n.Documentations.Labels.Coverage $lang.Coverage
+		$i18n.Documentations.Labels.Examples $v.Metadata.Files
+	) $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Documentations.Title $list
+	$i18n.Guidelines.Title (dict
+		$i18n.Guidelines.Labels.Do $i18n.Guidelines.DO
+		$i18n.Guidelines.Labels.Dont $i18n.Guidelines.DONT
+	)
+	$i18n.COC.Title $i18n.COC.Description
+) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}
