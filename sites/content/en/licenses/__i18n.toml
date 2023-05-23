@@ -76,7 +76,6 @@ sources; (4) then based on the algorithm document and write a fresh new set of
 codes. NEVER copy and paste directly.
 '''
 
-
 [[i18n.Guidelines.DO]]
 Value = '''
 When contributing back to upstream: please make sure your contributions are
@@ -196,7 +195,7 @@ Description = '''
 This is a software library repository for software developers; not a baby
 daycare, not a kindergarden, not a school, not a forum, not a political body,
 and not your enforcement entity. Please BEHAVE & RESPECT. DO NOT FORCE US to
-write a long restrictive human psychological mind-control manual here so
+write a long restrictive human psychological mind-control manual here ⇒
 PLEASE BRING YOUR OPINIONS AND POLITICS ELSEWHERE.
 '''
 

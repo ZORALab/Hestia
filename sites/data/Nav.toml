@@ -93,12 +93,12 @@ URL = '/zh-hans/licenses'
 
 [[Languages.ZH-HANS.Items]]
 Title = "文件"
-URL = '/zh-hans/licenses/#documentations'
+URL = '/zh-hans/licenses/#官方文件'
 
 [[Languages.ZH-HANS.Items]]
 Title = "指引"
-URL = '/zh-hans/licenses/#guidelines'
+URL = '/zh-hans/licenses/#指引'
 
 [[Languages.ZH-HANS.Items]]
 Title = "行为准则"
-URL = '/zh-hans/licenses/#code-of-conduct'
+URL = '/zh-hans/licenses/#行为准则'

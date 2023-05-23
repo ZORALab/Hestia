@@ -76,7 +76,7 @@
 			'>
 				{{- range $i, $v := $i18n.Guidelines.DO }}
 				<li><p>
-					{{- $v.Value -}}
+					{{- replace $v.Value "\n" " " -}}
 				</p></i>
 				{{- end }}
 			</ul>
@@ -90,7 +90,7 @@
 			'>
 				{{- range $i, $v := $i18n.Guidelines.DONT }}
 				<li><p>
-					{{- $v.Value -}}
+					{{- replace $v.Value "\n" " " -}}
 				</p></i>
 				{{- end }}
 			</ul>
