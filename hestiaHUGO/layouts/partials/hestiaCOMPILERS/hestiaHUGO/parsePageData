@@ -151,11 +151,16 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .Components */ -}}
 {{- if and .Site.Data.Hestia.Debugger.Default.Type .Site.IsServer -}}
-	{{- $dataList = merge $dataList (dict "Components" (dict "0" (dict
-		"Name" .Site.Data.Hestia.Debugger.Default.Type
-		"Include" true
-		"Variables" dict
-	))) -}}
+	{{- $dataList = merge $dataList (dict
+		"Components" (dict "0" (dict
+			"Name" .Site.Data.Hestia.Debugger.Default.Type
+			"Include" true
+			"Variables" dict
+		))
+		"Debugger" (dict
+			"Name" .Site.Data.Hestia.Debugger.Default.Type
+		)
+	) -}}
 {{- end -}}
 
 

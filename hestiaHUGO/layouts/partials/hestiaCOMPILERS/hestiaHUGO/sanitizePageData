@@ -747,5 +747,20 @@ specific language governing permissions and limitations under the License.
 
 
 
+{{- /* process .Debugger */ -}}
+{{- $ret = "" -}}
+{{- if .Debugger.Name -}}
+	{{- $ret = printf "layouts/partials/hestiaGUI/%s/HTML" .Debugger.Name -}}
+	{{- if partial "hestiaIO/hestiaFS/IsFileExists" $ret -}}
+		{{- $ret = printf "hestiaGUI/%s/HTML" .Debugger.Name -}}
+	{{- else -}}
+		{{- $ret = "" -}}
+	{{- end -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "Debugger" (dict "Name" $ret)) -}}
+
+
+
+
 {{- /* render output */ -}}
 {{- return $Page -}}
