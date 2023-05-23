@@ -1,0 +1,103 @@
+# HESTIA PAGE-LEVEL WEB UI COMPONENTS LIST
+# ========================================
+# All Hestia internal web UI components for this page.
+#
+# The components' low-level codes are auto-generated from hestiaGO code
+# libraries for rendering consistency between non-WASM users and WASM users.
+#
+# If you're using WASM from Hestia code libraries and they are directly
+# controlling the page UI (either as single-page rendering or reactive
+# rendering), you **SHOULD NOT** include anything below as they're duplicates
+# and can cause confusing complications. Please stick to ONE(1) rendering
+# method.
+#
+# You SHOULD ONLY include components that are used in this page. To configure:
+#     [[List]]
+#     Name = "COMPONENT"
+#     Include = true
+#     Variables = [
+#            { "--variable-1" = "1rem" },
+#            { "--variable-2" = "2rem" },
+#     ]
+#
+#     List.{POSITION}.Name      = name of the component (string)
+#     List.{POSITION}.Include   = inclusion decision (bool true/false)
+#     List.{POSITION}.Variables = list of overriding variables to the component.
+#
+# NOTE:
+#     1) The position of the component listing influences the variables
+#        overriding sequence. Please construct your list properly.
+#     2) Check out Hestia's hestiaGUI catalog list for supported UI components
+#        at:
+#                 https://hestia.zoralab.com/en/specs/hestiaGUI/
+#
+#
+# EXAMPLE:
+#        [[List]]
+#        Name = "zoralabCORE"
+#        Include = true
+#        Variables = [
+#                  { "--test-variable-1" = "1rem" },
+#                  { "--test-variable-2" = "2rem" },
+#        ]
+#
+#        [[List]]
+#        Name = "zoralabFONT_NOTOSANS"
+#        Include = true
+#        Variables = []
+#
+#        ...
+[[List]]
+Name = "zoralabCORE"
+Include = true
+Variables = [
+	{ "--body-scroll-behavior" = "smooth" },
+]
+
+[[List]]
+Name = "zoralabFONT_NOTOSANS"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabDRAWER"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabDRAWER_LEFT"
+Include = true
+Variables = [
+	{ "--left-drawer-width-opened" = "80vw" },
+	{ "--left-drawer-trigger-position-top" = "0" },
+]
+
+[[List]]
+Name = "zoralabANCHOR"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabBUTTON"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabTILE"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabTABLE"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabCODE"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabULIST"
+Include = true
+Variables = []
