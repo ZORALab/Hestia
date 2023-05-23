@@ -677,8 +677,8 @@ specific language governing permissions and limitations under the License.
 	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 {{- end -}}
 {{- $ret = $ret.Output -}}
-{{- $dataList = merge $dataList (dict "Sitemap" false) -}}
-{{- $dataList = merge $dataList (dict "Sitemap" (dict "ChangeFreq" $ret)) -}}
+{{- $Page = merge $Page (dict "Sitemap" false) -}}
+{{- $Page = merge $Page (dict "Sitemap" (dict "ChangeFreq" $ret)) -}}
 
 
 
@@ -702,7 +702,7 @@ specific language governing permissions and limitations under the License.
 	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 	{{- $ret = -1 -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Sitemap" (dict "Priority" $ret)) -}}
+{{- $Page = merge $Page (dict "Sitemap" (dict "Priority" $ret)) -}}
 
 
 
@@ -722,7 +722,7 @@ specific language governing permissions and limitations under the License.
 {{- if not $ret -}}
 	{{- $ret = "sitemap-page.xml" -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Sitemap" (dict "Filename" $ret)) -}}
+{{- $Page = merge $Page (dict "Sitemap" (dict "Filename" $ret)) -}}
 
 
 
@@ -742,7 +742,7 @@ specific language governing permissions and limitations under the License.
 {{- if not $ret -}}
 	{{- $ret = "sitemap.xml" -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict "Sitemap" (dict "Index" $ret)) -}}
+{{- $Page = merge $Page (dict "Sitemap" (dict "Index" $ret)) -}}
 
 
 
