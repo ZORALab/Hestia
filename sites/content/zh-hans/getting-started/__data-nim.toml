@@ -1,16 +1,16 @@
-[[Go]]
-ID = 'setup-go'
-Title = 'Setup Go'
+[[Nim]]
+ID = '设置nim'
+Title = '设置Nim'
 Description = '''
-The very beginning of the journey where you setup and configure the Go Git
-repository with hestiaGO, ZORALab's Hestia Go module from scratch.
+这是整个行程最早的步骤：您需要在Git存储库里从新设置和配置hestiaNIM（ZORALab赫斯
+提亚的Nim模块）。
 '''
-URL = 'setup-go'
-Label = 'Begin'
+URL = 'setup-nim'
+Label = '开始'
 Include = false
 
 
-[Go.Image]
+[Nim.Image]
 Name = ""
 Decorative = true
 Loading = 'lazy'
@@ -26,8 +26,8 @@ Loop = false
 Mute = false
 Inline = false
 
-[[Go.Image.Sources]]
-URL = "/img/logos/google-go-gopher-t2-200x200.svg"
+[[Nim.Image.Sources]]
+URL = "/img/logos/nim-200x200.svg"
 Type = "image/svg+xml"
 Media = "all"
 Descriptor = '1x'

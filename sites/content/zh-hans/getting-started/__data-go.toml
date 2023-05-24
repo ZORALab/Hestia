@@ -1,12 +1,12 @@
 [[Go]]
-ID = 'setup-go'
-Title = 'Setup Go'
+ID = '设置go'
+Title = '设置Go'
 Description = '''
-The very beginning of the journey where you setup and configure the Go Git
-repository with hestiaGO, ZORALab's Hestia Go module from scratch.
+这是整个行程最早的步骤：您需要在Git存储库里从新设置和配置hestiaGo（ZORALab赫斯
+提亚的Go模块）。
 '''
 URL = 'setup-go'
-Label = 'Begin'
+Label = '开始'
 Include = false
 
 

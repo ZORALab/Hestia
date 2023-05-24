@@ -296,11 +296,11 @@ Pitch = '在无内存垃圾收回器环境里编译WASM二元进制+运行代码
 Summary = '使用Nim代替Javascript转换网络开发。'
 
 [[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = '在无内存垃圾收回器环境里快速和稳重地建出后端程序。'
+Pitch = '在无内存垃圾收回器环境里快速和稳重地建出后端程序'
 Summary = "稳重地更新软件需求。"
 
 [[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = '在无内存垃圾收回器环境里有信心地建出微控制器的二进元制。'
+Pitch = '在无内存垃圾收回器环境里有信心地建出微控制器的二进元制'
 Summary = '从电脑系统扩展到微型控制器和信号控制。'
 
 

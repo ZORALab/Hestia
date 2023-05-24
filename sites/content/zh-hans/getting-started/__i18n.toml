@@ -1,0 +1,73 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+URL = 'URL'
+
+
+
+
+[i18n.UnderConstruction]
+Title = '注意'
+Description = '''
+这个支持功能现任还在研制中。
+'''
+
+
+
+
+[i18n.Introduction]
+ID = '开始指南菜单'
+Title = '开始指南菜单'
+Description = '''
+这里的内容是为了好让新手容易使用而以非技术性的语气和演示所写。如有询问技术文件，
+请参阅文档部分。
+'''
+
+
+
+
+[i18n.Hugo]
+ID = 'hugo'
+Title = 'Hugo'
+Description = '''
+运用它来建设网站前端静态内容和数据编译需求、静态网页和WASM应用程序分发、或设计网
+页用户界面。这个菜单是按照内容学习范围和步骤考虑好让新手如何从零度开始吸收、如何
+探索资料以及如何成长。
+'''
+
+
+
+
+[i18n.Go]
+ID = 'go'
+Title = 'Go'
+Description = '''
+运用它来快速地编译WASM二元进制+运行代码库、快速和稳重地建出后端程序和有信心地建
+出微控制器的二进元制。这个菜单是按照内容学习范围和步骤考虑好让新手如何从零度开始
+吸收、如何探索资料以及如何成长。
+'''
+
+
+
+
+[i18n.Nim]
+ID = 'nim'
+Title = 'Nim'
+Description = '''
+在无内存垃圾收回器环境里运用它来编译WASM二元进制+运行代码库、快速和稳重地建出后
+端程序和有信心地建出微控制器的二进元制。这个菜单是按照内容学习范围和步骤考虑好让
+新手如何从零度开始吸收、如何探索资料以及如何成长。
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+我们已经抵达这个ZORALab赫斯提亚开始指南菜单的终结了。如果您有任何询问，请在一下
+的管道随时联系吧：
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub讨论论坛'

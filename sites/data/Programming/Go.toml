@@ -295,7 +295,7 @@ Pitch = '编译WASM二元进制+运行代码库'
 Summary = '使用Go代替Javascript转换网络开发。'
 
 [[Metadata.Languages.ZH-HANS.Strengths]]
-Pitch = '快速和稳重地建出后端程序。'
+Pitch = '快速和稳重地建出后端程序'
 Summary = '先快速和安全地满足软件需求。'
 
 [[Metadata.Languages.ZH-HANS.Strengths]]

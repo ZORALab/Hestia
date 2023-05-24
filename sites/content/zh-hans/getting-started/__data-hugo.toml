@@ -1,12 +1,12 @@
 [[Hugo]]
-ID = 'setup-hugo'
-Title = 'Setup Hugo'
+ID = '设置hugo'
+Title = '设置Hugo'
 Description = '''
-The very beginning of the journey where you setup and configure the Hugo Git
-repository with hestiaHUGO, ZORALab's Hestia Hugo module from scratch.
+这是整个行程最早的步骤：您需要在Hugo的Git存储库里从新设置和配置hestiaHUGO
+（ZORALab赫斯提亚的Hugo模块）。
 '''
 URL = 'setup-hugo'
-Label = 'Begin'
+Label = '开始'
 Include = true
 
 [Hugo.Image]
@@ -35,14 +35,13 @@ Descriptor = '1x'
 
 
 [[Hugo]]
-ID = 'create-basic-and-placeholder-hugo-pages'
-Title = 'Create Basic and Placeholder Hugo Pages'
+ID = '建设简单和占位符性的网页'
+Title = '建设简单和占位符性的网页'
 Description = '''
-The first step where you will understand how hestiaHUGO operates by creating 1
-set of placeholder pages and 1 set of basic 404 pages.
+第一步是要通过建设简单和占位符性的网页来了解hestiaHUGO的操作程序。
 '''
 URL = 'create-basic-and-placeholder-hugo-pages'
-Label = 'Begin'
+Label = '开始'
 Include = true
 
 [Hugo.Image]

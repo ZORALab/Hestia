@@ -41,7 +41,7 @@ scratch, how to explore, and how to grow.
 
 
 [i18n.Go]
-ID = 'Go'
+ID = 'go'
 Title = 'Go'
 Description = '''
 Using it to quickly build a WASM client-side application, a backend program
@@ -54,7 +54,7 @@ starting from scratch, how to explore, and how to grow.
 
 
 [i18n.Nim]
-ID = 'Nim'
+ID = 'nim'
 Title = 'Nim'
 Description = '''
 Using it to quickly build a non-GC (without garbage collection) requirement's
