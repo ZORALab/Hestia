@@ -1,0 +1,204 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<main style='padding-bottom: 0;'>
+	<section id='{{- $i18n.Introduction.ID -}}'>
+		<div>
+			<h1>{{- $i18n.Introduction.Title -}}</h1>
+			<p>{{- $i18n.Introduction.Description -}}</p>
+		</div>
+	</section>
+
+
+	<section id='{{- $i18n.Hugo.ID -}}'>
+		<h2>{{- $i18n.Hugo.Title -}}</h2>
+		<p>{{- $i18n.Hugo.Description -}}</p>
+
+		<div class='row'>
+		{{- range $i, $v := $Page.Data.Page.Hugo }}
+			{{- if not $v.Include -}}
+				{{- continue -}}
+			{{- end }}
+			<div class='column'><div class='card' style='
+				--h3-margin: 0;
+				--tile-border-radius: .5rem;
+			'>
+				<div class='thumbnail'>
+					{{- if $v.Image -}}
+						{{- $ret = merge $Page (dict "Input"
+							(dict "Data" $v.Image)
+						) -}}
+					{{- else -}}
+						{{- $ret = merge $Page (dict "Input"
+							(dict "Data" $Page.Data.Store.Programming.Hugo.Logo)
+						) -}}
+					{{- end }}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+				</div>
+				<div class='content'>
+					<h3>{{- $v.Title -}}</h3>
+					<p>{{- $v.Description -}}</p>
+				</div>
+				<div class='actions'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.URL)
+					) -}}
+					{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+					<a href='{{- string $ret.Output -}}' class='button'>
+						{{- $v.Label -}}
+					</a>
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+	</section>
+
+
+	<section id='{{- $i18n.Go.ID -}}'>
+		<h2>{{- $i18n.Go.Title -}}</h2>
+		<p>{{- $i18n.Go.Description -}}</p>
+
+		<div class='row'>
+		{{- range $i, $v := $Page.Data.Page.Go }}
+			{{- if not $v.Include -}}
+				{{- continue -}}
+			{{- end }}
+			<div class='column'><div class='card' style='
+				--h3-margin: 0;
+				--tile-border-radius: .5rem;
+			'>
+				<div class='thumbnail'>
+					{{- if $v.Image -}}
+						{{- $ret = merge $Page (dict "Input"
+							(dict "Data" $v.Image)
+						) -}}
+					{{- else -}}
+						{{- $ret = merge $Page (dict "Input"
+							(dict "Data" $Page.Data.Store.Programming.Go.Logo)
+						) -}}
+					{{- end }}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+				</div>
+				<div class='content'>
+					<h3>{{- $v.Title -}}</h3>
+					<p>{{- $v.Description -}}</p>
+				</div>
+				<div class='actions'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.URL)
+					) -}}
+					{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+					<a href='{{- string $ret.Output -}}' class='button'>
+						{{- $v.Label -}}
+					</a>
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+
+		<div class="note warning">
+			<input id="note-under-dev-go" type="checkbox" checked>
+			<label for="note-under-dev-go">
+				{{- $i18n.UnderConstruction.Title -}}
+			</label>
+			<p class="content">
+				{{- $i18n.UnderConstruction.Description -}}
+			</p>
+		</div>
+	</section>
+
+
+	<section id='{{- $i18n.Nim.ID -}}'>
+		<h2>{{- $i18n.Nim.Title -}}</h2>
+		<p>{{- $i18n.Nim.Description -}}</p>
+
+		<div class='row'>
+		{{- range $i, $v := $Page.Data.Page.Nim }}
+			{{- if not $v.Include -}}
+				{{- continue -}}
+			{{- end }}
+			<div class='column'><div class='card' style='
+				--h3-margin: 0;
+				--tile-border-radius: .5rem;
+			'>
+				<div class='thumbnail'>
+					{{- if $v.Image -}}
+						{{- $ret = merge $Page (dict "Input"
+							(dict "Data" $v.Image)
+						) -}}
+					{{- else -}}
+						{{- $ret = merge $Page (dict "Input"
+							(dict "Data" $Page.Data.Store.Programming.Nim.Logo)
+						) -}}
+					{{- end }}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+				</div>
+				<div class='content'>
+					<h3>{{- $v.Title -}}</h3>
+					<p>{{- $v.Description -}}</p>
+				</div>
+				<div class='actions'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.URL)
+					) -}}
+					{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+					<a href='{{- string $ret.Output -}}' class='button'>
+						{{- $v.Label -}}
+					</a>
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+
+		<div class="note warning">
+			<input id="note-under-dev-nim" type="checkbox" checked>
+			<label for="note-under-dev-nim">
+				{{- $i18n.UnderConstruction.Title -}}
+			</label>
+			<p class="content">
+				{{- $i18n.UnderConstruction.Description -}}
+			</p>
+		</div>
+	</section>
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data"
+		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
+	)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
+		margin-top: 10rem;
+		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2>{{- $i18n.Epilogue.Title -}}</h2>
+		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<br/>
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output -}}
+		<a href='{{- $ret -}}' class='button' style='
+			--button-color: green;
+		'>{{- $i18n.Epilogue.CTA -}}</a>
+	</section>
+</main>
+{{ partial "common/footer.html" $Page }}
+{{ partial "common/nav-prime.html" $Page }}

@@ -1,0 +1,70 @@
+[[Go]]
+ID = 'setup-go'
+Title = 'Setup Go'
+Description = '''
+The very beginning of the journey where you setup and configure the Go Git
+repository with hestiaGO, ZORALab's Hestia Go module from scratch.
+'''
+URL = 'setup-go'
+Label = 'Begin'
+Include = false
+
+
+[Go.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Go.Image.Sources]]
+URL = "/img/logos/google-go-gopher-t2-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+
+
+
+[[Go]]
+ID = 'understanding-zoralab-hestia-mission-with-go'
+Title = "Understanding ZORALab's Hestia Mission with Go"
+Description = '''
+Before we start using hestiaGO straight away, there are some facts you need to
+understand to avoid confusion and collosal pitfalls like its design mission.
+'''
+URL = 'understanding-zoralab-hestia-mission-with-go'
+Label = 'Begin'
+Include = false
+
+
+[Go.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Go.Image.Sources]]
+URL = "/img/logos/google-go-gopher-t2-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'

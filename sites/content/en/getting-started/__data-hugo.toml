@@ -1,0 +1,68 @@
+[[Hugo]]
+ID = 'setup-hugo'
+Title = 'Setup Hugo'
+Description = '''
+The very beginning of the journey where you setup and configure the Hugo Git
+repository with hestiaHUGO, ZORALab's Hestia Hugo module from scratch.
+'''
+URL = 'setup-hugo'
+Label = 'Begin'
+Include = true
+
+[Hugo.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Hugo.Image.Sources]]
+URL = "/img/logos/gohugo-gohper-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+
+
+
+[[Hugo]]
+ID = 'create-basic-and-placeholder-hugo-pages'
+Title = 'Create Basic and Placeholder Hugo Pages'
+Description = '''
+The first step where you will understand how hestiaHUGO operates and create 1
+set placeholder page and 1 set of basic 404 pages.
+'''
+URL = 'create-basic-and-placeholder-hugo-pages'
+Label = 'Begin'
+Include = true
+
+[Hugo.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Hugo.Image.Sources]]
+URL = "/img/logos/gohugo-gohper-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'

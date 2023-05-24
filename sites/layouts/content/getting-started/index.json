@@ -1,0 +1,98 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := dict -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Title .Titles.Page
+	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+) -}}
+
+
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Page.Hugo -}}
+	{{- if not $v.Include -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+
+
+	{{- $list = append (dict
+		$i18n.Title $v.Title
+		$i18n.Description (replace $v.Description "\n" " ")
+		$i18n.URL $ret
+	) $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Hugo.Title $list) -}}
+
+
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Page.Go -}}
+	{{- if not $v.Include -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+
+
+	{{- $list = append (dict
+		$i18n.Title $v.Title
+		$i18n.Description (replace $v.Description "\n" " ")
+		$i18n.URL $ret
+	) $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Go.Title $list) -}}
+
+
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Page.Nim -}}
+	{{- if not $v.Include -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+
+
+	{{- $list = append (dict
+		$i18n.Title $v.Title
+		$i18n.Description (replace $v.Description "\n" " ")
+		$i18n.URL $ret
+	) $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Nim.Title $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}

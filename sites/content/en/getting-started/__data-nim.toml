@@ -1,0 +1,70 @@
+[[Nim]]
+ID = 'setup-nim'
+Title = 'Setup Nim'
+Description = '''
+The very beginning of the journey where you setup and configure the Nim Git
+repository with hestiaNIM, ZORALab's Hestia Nim package from scratch.
+'''
+URL = 'setup-nim'
+Label = 'Begin'
+Include = false
+
+
+[Nim.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Nim.Image.Sources]]
+URL = "/img/logos/nim-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+
+
+
+[[Nim]]
+ID = 'understanding-zoralab-hestia-mission-with-nim'
+Title = "Understanding ZORALab's Hestia Mission with Nim"
+Description = '''
+Before we start using hestiaNIM straight away, there are some facts you need to
+understand to avoid confusion and collosal pitfalls like its design mission.
+'''
+URL = 'understanding-zoralab-hestia-mission-with-nim'
+Label = 'Begin'
+Include = false
+
+
+[Nim.Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Nim.Image.Sources]]
+URL = "/img/logos/nim-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'

@@ -1,0 +1,79 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+URL = 'URL'
+
+
+
+
+[i18n.UnderConstruction]
+Title = 'Heads Up'
+Description = '''
+This supporting feature is currently under development.
+'''
+
+
+
+
+[i18n.Introduction]
+ID = 'getting-started-catalog'
+Title = 'Getting Started Catalog'
+Description = '''
+The content here are written in a non-technical tone and presentations making
+them friendly for new comer attempting technologies for their first time. For
+technical specification, please refer to documentation section.
+'''
+
+
+
+
+[i18n.Hugo]
+ID = 'hugo'
+Title = 'Hugo'
+Description = '''
+Using it to build static content and data publications including hosting WASM
+artifacts or as an UI component design and test tool. The catalog is arranged
+in a very chronological manner prioritizing knowledge absorption starting from
+scratch, how to explore, and how to grow.
+'''
+
+
+
+
+[i18n.Go]
+ID = 'Go'
+Title = 'Go'
+Description = '''
+Using it to quickly build a WASM client-side application, a backend program
+with rich features, and even microcontroller's image via TinyGo. The catalog is
+arranged in a very chronological manner prioritizing knowledge absorption
+starting from scratch, how to explore, and how to grow.
+'''
+
+
+
+
+[i18n.Nim]
+ID = 'Nim'
+Title = 'Nim'
+Description = '''
+Using it to quickly build a non-GC (without garbage collection) requirement's
+WASM client-side application, a backend program with rich features, and
+microcontroller's image via C transpilation. The catalog is
+arranged in a very chronological manner prioritizing knowledge absorption
+starting from scratch, how to explore, and how to grow.
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+We have reach the end of the catalog for getting started with using
+ZORALab's Hestia Project. If you have any query, please feel free to contact us
+at our following portal:
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub Discussion Portal'
