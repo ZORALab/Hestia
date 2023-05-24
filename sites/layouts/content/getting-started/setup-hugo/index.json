@@ -1,0 +1,78 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $list := slice -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Title .Titles.Page
+	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+) -}}
+
+
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $i18n.Objectives.Outcomes -}}
+	{{- $list = append $v.Value $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Objectives.Title $list) -}}
+
+
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $i18n.Steps -}}
+	{{- $ret = "" -}}
+	{{- if $v.Code -}}
+		{{- $ret = $v.Code -}}
+	{{- end -}}
+
+
+	{{- $data = dict
+		$i18n.Title $v.Title
+		$i18n.Description $v.Description
+		$i18n.Labels.Code $ret
+	-}}
+
+
+	{{- $ret = "" -}}
+	{{- if $v.URL -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output -}}
+	{{- end -}}
+	{{- $data = merge $data (dict $i18n.Labels.URL $ret) -}}
+
+
+	{{- $ret = dict -}}
+	{{- if $v.Image -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+	{{- $data = merge $data (dict $i18n.Labels.Image $ret) -}}
+
+
+	{{- $list = append $data $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Labels.Guides $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}

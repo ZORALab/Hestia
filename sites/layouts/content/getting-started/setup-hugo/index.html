@@ -1,0 +1,80 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<main style='padding-bottom: 0;'>
+	<section id='{{- $i18n.Introduction.ID -}}'>
+		<h1>{{- $i18n.Introduction.Title -}}</h1>
+		<p>{{- $i18n.Introduction.Description -}}</p>
+	</section>
+
+
+	<section id='{{- $i18n.Objectives.ID -}}'>
+		<h2>{{- $i18n.Objectives.Title -}}</h2>
+		<p>{{- $i18n.Objectives.Description -}}</p>
+		<ol>
+			{{- range $i, $v := $i18n.Objectives.Outcomes }}
+			<li><p>{{- $v.Value -}}</p></li>
+			{{- end }}
+		</ol>
+	</section>
+
+
+	{{- range $i, $v := $i18n.Steps }}
+	<section id='{{- $v.ID -}}'>
+		<h2>{{- $v.Title -}}</h2>
+		<p>{{- $v.Description -}}</p>
+
+		{{- if $v.Code }}
+		<pre>{{- $v.Code -}}</pre>
+		{{- end }}
+
+		{{- if $v.URL }}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+		<a href='{{- string $ret.Output -}}' class='button'>{{- $v.Label -}}</a>
+		{{- end }}
+
+		{{- if $v.Image }}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
+			{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+			{{- $ret = $ret.Output }}
+		{{ partial "hestiaMEDIA/ToHTML" $ret }}
+		{{- end }}
+	</section>
+	{{- end }}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data"
+		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
+	)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
+		margin-top: 10rem;
+		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2>{{- $i18n.Epilogue.Title -}}</h2>
+		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<br/>
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output -}}
+		<a href='{{- $ret -}}' class='button' style='
+			--button-color: green;
+		'>{{- $i18n.Epilogue.CTA -}}</a>
+	</section>
+</main>
+{{ partial "common/footer.html" $Page }}
+{{ partial "common/nav-prime.html" $Page }}

@@ -1,0 +1,405 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+
+
+
+
+[i18n.Labels]
+Code = 'Code'
+URL = 'URL'
+Image = 'Image'
+Guides = 'Guides'
+
+
+
+
+[i18n.Introduction]
+ID = 'setup-hugo'
+Title = "Setup Hugo with hestiaHUGO — a ZORALab's Hestia Module"
+Description = '''
+A step-by-step tutorial on how to setup your hugo git repository with hestiaHUGO
+from scratch.
+'''
+
+
+
+
+[i18n.Objectives]
+ID = 'learning-objectives'
+Title = 'Learning Objectives'
+Description = '''
+At the end of this tutorial, you will learn:
+'''
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How to setup Hugo compatible Git Repository'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How to download and setup hestiaHUGO'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How to start a hugo server for development'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How to compose your hugo contents'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How to use git along the way'
+
+
+
+
+[[i18n.Steps]]
+ID = 'download-latest-package'
+Title = 'Download the Latest Package'
+Description = '''
+Let's start by downloading the latest package from the ZORALab's Hestia releases
+portal in its offical website via the link below. Keep in mind that you're
+looking for:
+'''
+Code = 'hestiaHUGO'
+URL = '/en/releases'
+Label = 'Releases Portal'
+
+
+[[i18n.Steps]]
+ID = 'check-package-integrity'
+Title = 'Check the Package Integrity'
+Description = '''
+To make sure you had downloaded a proper and correct package, we recommend you
+to check the package integrity before use. The are 2 ways to do this: GPG or
+SHASUM. In this tutorial, we will be using SHASUM as shown in the following code
+snippet. This should generate a HASHED_VALUE mathematically. Your job is to make
+sure the HASHED_VALUE is 100% exactly the same as displayed at the releases
+portal.
+'''
+Code = '''
+# IN UNIX OS (LINUX / MACOS)
+# --------------------------
+$ sha512sum hestiaHUGO-vNNNN.zip
+...
+[HASHED_VALUE]
+
+
+
+
+# IN WINDOWS OS
+# -------------
+$ certutil -hashfile hestiaHUGO-vNNNN.zip sha512
+...
+SHA512 hash of hestiaHUGO-vNNNN.zip:
+[HASHED_VALUE]
+'''
+URL = ''
+Label = ''
+
+[i18n.Steps.Image]
+Name = "Screenshot of Comparing SHASUM Values"
+Decorative = false
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.avif"
+Type = "image/avif"
+Media = "(max-width: 299px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.webp"
+Type = "image/webp"
+Media = "(max-width: 299px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.jpg"
+Type = "image/jpeg"
+Media = "(max-width: 299px)"
+Descriptor = '1x'
+
+
+[[i18n.Steps]]
+ID = 'setup-git-repository'
+Title = 'Setup Git Repository'
+Description = '''
+Now that you the package ready, it's time to setup your git repository. Firstly,
+create and initialize your Git repo directory (for this entire tutorial, we're
+going to call it 'DemoHestia'). In it, you can create your hugo directory (by
+default, we recommend 'sites'). Then, proceed to create a 'themes' directory
+inside it. Once done, unzip the hestiaHUGO package into the 'themes' directory.
+The results should be something as such:
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    └── themes/
+        └── hestiaHUGO/
+            ├── config/
+            ├── server.cmd
+            ├── ...
+            └── ... all other content ...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'setup-hugo-config-directory'
+Title = 'Setup Hugo Config Directory'
+Description = '''
+Due to the engine design complexities, hestiaHUGO ships its config/ directory by
+default inside the 'hestiaHUGO' directory as part of the package. You will have
+to move it out to hugo directory (sites/) in order to use it. Depending on
+package version, if the 'server.cmd' is shipped together, you have move it out
+to the Hugo directory. The result should be something as such:
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    ├── server.cmd  (NOTE: if shipped together)
+    │
+    ├── config/
+    │   ├── _default/
+    │   │   ├── caches.toml
+    │   │   └── config.toml
+    │   ├── development/
+    │   │   └── config.toml
+    │   └── production/
+    │       └── config.toml
+    │
+    └── themes/
+        └── hestiaHUGO/
+            └── ... all theme content ...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'configure-hugo'
+Title = 'Configure Hugo'
+Description = '''
+With Hugo's critical files in-place, it's time to configure Hugo. Generally
+speaking, you only need to edit the 1st section of the
+'__sites/config/_default/config.toml' file. The rest are as it is as noted by
+the comments. You would want to setup 'baseURL' to the output base URL you're
+planning to publish and that's it. You may refer to Hugo's config manual in the
+link below to learn more about each fields.
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    ├── ...
+    │
+    ├── config/
+    │   ├── _default/
+    │   │   ├── ...
+    │   │   └── config.toml
+    │   │
+    │   └── ...
+    │
+    └── ...
+
+           ⤋
+
+# CONFIGURE THESE DATA
+# ====================
+baseURL = "https://hestia.zoralab.com"
+theme = [
+        "hestiaHUGO",
+]
+timeout = '10m'
+
+archetypeDir = "archetypes"
+contentDir = "content"
+assetDir = "assets"
+dataDir = "data"
+staticDir = [
+        "static",
+]
+layoutDir = "layouts"
+themesDir = ".."
+publishDir = "public"
+i18nDir = "i18n"
+
+
+# ╔══════════╗
+# ║!!  STOP  !!║
+# ╚══════════╝
+!!! That's it. Don't go beyond here. You might break hestiaHUGO. !!!
+...
+'''
+URL = 'https://gohugo.io/getting-started/configuration/'
+Label = 'Hugo Config Manual'
+
+
+
+
+[[i18n.Steps]]
+ID = 'start-hugo-server'
+Title = 'Start Hugo Server'
+Description = '''
+Now that everything is configured and ready, we can now try to bring up the
+server. We recommend start the server with the following command. Note that if
+you haven't install hugo yet, you can refer the the URL for its installation
+instruction. You want to observe the URL address for previewing your site.
+If the 'server.cmd' is available, you can run it instead as it wraps the
+commands for ease of use.
+'''
+Code = '''
+$ hugo server \
+	--buildDrafts \
+	--noBuildLock \
+	--disableFastRender \
+	--bind "localhost" \
+	--baseURL "http://localhost" \
+	--port 8080 \
+	--cleanDestinationDir \
+	--gc
+
+
+Start building sites …
+...
+Web Server is available at http://localhost:8080/ (bind address 127.0.0.1)
+...
+'''
+URL = 'https://gohugo.io/installation/'
+Label = 'Hugo Installation Guide'
+
+
+[[i18n.Steps]]
+ID = 'visit-preview-url'
+Title = 'Visit the Preview URL Site'
+Description = '''
+With the server running properly, you can visit the website using your browser
+in the computer. Since we have not build anything, you should expect a blank
+page or a page that keeps on redirecting to the language-specific 404 pages.
+At this stage, you got a working Hugo repo with hestiaHUGO set nicely.
+'''
+Code = ''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'git-commit'
+Title = 'Git Commit'
+Description = '''
+Before starting to create any content, we advise you to git commit at this point
+in case of future revert needs. Now let's be clear: commit the hestiaHUGO theme
+together as opposed to many folks said. This is a rendering UI engine which is
+more than just supplying UI codes. It's not safe to detach it from your Hugo.
+'''
+Code = '''
+$ git add .
+$ git commit -s
+
+----
+root: initialized hugo for site creation.
+
+There is a need to initialize a hugo repository for building
+the static website. Hence, we have to start the efforts before
+building any web content. Let's do this.
+
+This patch is created to initialize hugo in the repository.
+
+
+Signed-off-by: Smith, John ❬john.smith@email.com❭
+----
+
+$ git push
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'about-updating-hestiaHUGO'
+Title = 'About Updating hestiaHUGO'
+Description = '''
+In the future, in case you need to update the hestiaHUGO, you just need to
+replace your 'themes/hestiaHUGO' directory with the updated package. Hugo
+reconfiguration is not required unless the release note specify it. Remember
+that updating the engine may break your edge-cases inline customization so while
+we try not to break backward compatibilty, you should allocate some times
+to audit all your content pages' UI are updated with the latest API calls.
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    │
+    ├── ...
+    │
+    └── themes/
+        └── hestiaHUGO/     🡨 just replace this directory
+            └── ...
+'''
+URL = ''
+Label = ''
+
+
+
+
+[i18n.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+Congrats! We have reach the end of this tutorial. At this point, you now have a
+fully functional hestiaHUGO equipped Hugo repository for your frontend website
+or web application construction. Please feel free to take notes before
+proceeding to the next tutorial:
+'''
+URL = 'create-basic-and-placeholder-hugo-pages'
+CTA = 'Create Basic and Placeholder Hugo Pages'
