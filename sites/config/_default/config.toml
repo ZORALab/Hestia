@@ -12,7 +12,7 @@ assetDir = "assets"
 dataDir = "data"
 staticDir = [
 	"static",
-	"../hestiaHUGO/fonts/hestiaUI_font-NotoSans",
+	"../hestiaHUGO/fonts/zoralabFONT_NOTOSANS",
 ]
 layoutDir = "layouts"
 themesDir = ".."
