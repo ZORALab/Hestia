@@ -99,13 +99,12 @@ specific language governing permissions and limitations under the License.
 	{{- if lt $last 0 -}}{{- $last = 0 -}}{{- end -}}
 	{{- $last = printf "%d" $last -}}
 	{{- range $i, $v := $media.Sources }}
-	<source srcset='{{- $v.URL -}} {{- if $v.Descriptor }} {{ $v.Descriptior -}}{{- end -}}'
+	<source srcset='{{- $v.URL -}} {{- if $v.Descriptor }} {{ $v.Descriptor -}}{{- end -}}'
 		type='{{- $v.Type -}}'
 		width='{{- $media.Width -}}'
 		height='{{- $media.Height -}}'
 		{{ if $media.Loading -}} loading='{{- $media.Loading -}}'
-		{{ else -}} loading='lazy'
-		{{- end }}
+		{{ else -}} loading='lazy'{{- end }}
 		media='{{- $v.Media -}}'
 	/>
 		{{- if eq $i $last }}

@@ -238,7 +238,7 @@ specific language governing permissions and limitations under the License.
 				{{- continue -}}
 			{{- end -}}
 		{{- end -}}
-		{{- $data = merge $data (dict "Media" (default "1x" $ret.Output)) -}}
+		{{- $data = merge $data (dict "Descriptor" (default "1x" $ret.Output)) -}}
 
 		{{- /* merge to datalist */ -}}
 		{{- $dataList = merge $dataList (dict "Sources" (dict (string $i) $data)) -}}
