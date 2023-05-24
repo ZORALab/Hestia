@@ -35,8 +35,8 @@ Descriptor = '1x'
 
 
 [[Hugo]]
-ID = '建设简单和占位符性的网页'
-Title = '建设简单和占位符性的网页'
+ID = '建设简单和占位符性的Hugo网页'
+Title = '建设简单和占位符性的Hugo网页'
 Description = '''
 第一步是要通过建设简单和占位符性的网页来了解hestiaHUGO的操作程序。
 '''

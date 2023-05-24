@@ -46,10 +46,6 @@ Value = 'How to start a hugo server for development'
 
 
 [[i18n.Objectives.Outcomes]]
-Value = 'How to compose your hugo contents'
-
-
-[[i18n.Objectives.Outcomes]]
 Value = 'How to use git along the way'
 
 

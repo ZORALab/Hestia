@@ -31,14 +31,14 @@
 		<h2>{{- $v.Title -}}</h2>
 		<p>{{- $v.Description -}}</p>
 
-		{{- if $v.Code }}
-		<pre>{{- $v.Code -}}</pre>
-		{{- end }}
-
 		{{- if $v.URL }}
 			{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
 			{{- $ret = partial "hestiaURL/Sanitize" $ret }}
 		<a href='{{- string $ret.Output -}}' class='button'>{{- $v.Label -}}</a>
+		{{- end }}
+
+		{{- if $v.Code }}
+		<pre>{{- $v.Code -}}</pre>
 		{{- end }}
 
 		{{- if $v.Image }}

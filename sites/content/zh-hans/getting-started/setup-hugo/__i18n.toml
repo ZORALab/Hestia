@@ -1,0 +1,385 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+
+
+
+
+[i18n.Labels]
+Code = '代码'
+URL = 'URL'
+Image = '图面'
+Guides = '指南'
+
+
+
+
+[i18n.Introduction]
+ID = '设置hugo'
+Title = "设置拥有hestiaHUGO的Hugo"
+Description = '''
+一个一步一步编好的从新设置拥有ZORALab赫斯提亚的Hugo Git代码库指南。
+'''
+
+
+
+
+[i18n.Objectives]
+ID = '学习目标'
+Title = '学习目标'
+Description = '''
+在成功完毕这个指南领导后，您会学到:
+'''
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '如何设置Hugo的Git代码库'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '如何下载和设置hestiaHUGO'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '如何开动Hugo的服务器来编制网页内容'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '如何在行程中运用Git'
+
+
+
+
+[[i18n.Steps]]
+ID = '下载最新的包装'
+Title = '下载最新的包装'
+Description = '''
+我们先在ZORALab赫斯提亚下载购物中心里下载最新的hesitaHUGO包装。切记：记得只需要
+寻找：
+'''
+Code = 'hestiaHUGO'
+URL = '/zh-hans/releases'
+Label = '下载购物中心'
+
+
+[[i18n.Steps]]
+ID = '检查包装完整性'
+Title = '检查包装完整性'
+Description = '''
+在还没有开始前，为了安全，我们建议您检查包装完整性。这里有2个方式：GPG或SHASUM。
+在这个指南里，我们在以下的片段运用SHASUM来检查包装。当完整执行SHASUM命令后您将会
+得到一份HASHED_VALUE的数据。您的唯一任务就是要确定这份HASHED_VALUE是和下载购物中
+心所展现SHASUM的数据是100%相同的。
+'''
+Code = '''
+# 在 UNIX 系统 (LINUX / MACOS)
+# ----------------------------
+$ sha512sum hestiaHUGO-vNNNN.zip
+...
+[HASHED_VALUE]
+
+
+
+
+# 在 WINDOWS 系统
+# ---------------
+$ certutil -hashfile hestiaHUGO-vNNNN.zip sha512
+...
+SHA512 hash of hestiaHUGO-vNNNN.zip:
+[HASHED_VALUE]
+'''
+URL = ''
+Label = ''
+
+[i18n.Steps.Image]
+Name = "SHASUM数据比较的屏幕截图"
+Decorative = false
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.avif"
+Type = "image/avif"
+Media = "(max-width: 299px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.webp"
+Type = "image/webp"
+Media = "(max-width: 299px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.jpg"
+Type = "image/jpeg"
+Media = "(max-width: 299px)"
+Descriptor = '1x'
+
+
+[[i18n.Steps]]
+ID = '设置git代码库'
+Title = '设置Git代码库'
+Description = '''
+当您有了一份检查成功的包装在手时，现在就是时候设置Git代码库。第一步：制造和开始您
+的Git代码库的文件夹（在这整个指南里，我们称它为“DemoHestia”）。在这文件夹里，你再
+制造新的文件夹（我们推荐名为“sites”）。然后在这最里面的文件夹里制造新的文件夹叫
+“themes”。最后呢，您就在这个themes的文件夹里打开hestiaHUGO的包装。您的成功文件夹
+有如以下：
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    └── themes/
+        └── hestiaHUGO/
+            ├── config/
+            ├── server.cmd
+            ├── ...
+            └── ... 其他内容 ...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '设置hugo系统文件夹'
+Title = '设置hugo系统文件夹'
+Description = '''
+由于hestiaHUGO的引擎的复杂性，hestiaHUGO有运出在自己的文件夹里同时运出config/文
+件夹。您需要把它移出来放入sites/文件夹里。要凭包装的版本，如果有一份‘server.cmd’
+的文件，您也需要同时移出来。最后成果有如：
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    ├── server.cmd  (注意: 如果有一起包装)
+    │
+    ├── config/
+    │   ├── _default/
+    │   │   ├── caches.toml
+    │   │   └── config.toml
+    │   ├── development/
+    │   │   └── config.toml
+    │   └── production/
+    │       └── config.toml
+    │
+    └── themes/
+        └── hestiaHUGO/
+            └── ... 所有内容文件 ...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '配置hugo'
+Title = '配置Hugo'
+Description = '''
+如今所有重要的文件已经归处，现在是时候配置Hugo了。大致上，您只需要配置
+'__sites/config/_default/config.toml'文件的第一部分就行了。其他的部分就跟着附加
+的注意文字行使就行了。没错的话，您只需要配置'baseURL'为您想要的域名URL地址就够了
+。有空的话，您可以参考Hugo配置指南手册来了解每个数码值的意义。
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    ├── ...
+    │
+    ├── config/
+    │   ├── _default/
+    │   │   ├── ...
+    │   │   └── config.toml
+    │   │
+    │   └── ...
+    │
+    └── ...
+
+           ⤋
+
+# CONFIGURE THESE DATA
+# ====================
+baseURL = "https://hestia.zoralab.com"
+theme = [
+        "hestiaHUGO",
+]
+timeout = '10m'
+
+archetypeDir = "archetypes"
+contentDir = "content"
+assetDir = "assets"
+dataDir = "data"
+staticDir = [
+        "static",
+]
+layoutDir = "layouts"
+themesDir = ".."
+publishDir = "public"
+i18nDir = "i18n"
+
+
+# ╔══════════╗
+# ║!!  STOP  !!║
+# ╚══════════╝
+!!! 那就够了。别改任何以下的数据。您可能会搞炸hestiaHUGO的。 !!!
+...
+'''
+URL = 'https://gohugo.io/getting-started/configuration/'
+Label = 'Hugo配置指南手册'
+
+
+
+
+[[i18n.Steps]]
+ID = '开动Hugo服务器'
+Title = '开动Hugo服务器'
+Description = '''
+如今一却已经设置和配置好了，我们可以开始开动服务器引擎来测试用户。我们建议运用以
+下的命令。切记：如果您还未设置Hugo的话，您可以参考一下的URL链接网站来设置。如果
+'server.cmd'这份文件有同一起准备的话，您可以直接跑动它就行了（它其实是个简单化
+我们的建议命令文件好让您容易开动引擎。当引擎启动时，您要为下一步注意那网站的URL
+链接地址。
+'''
+Code = '''
+$ hugo server \
+	--buildDrafts \
+	--noBuildLock \
+	--disableFastRender \
+	--bind "localhost" \
+	--baseURL "http://localhost" \
+	--port 8080 \
+	--cleanDestinationDir \
+	--gc
+
+
+Start building sites …
+...
+Web Server is available at http://localhost:8080/ (bind address 127.0.0.1)
+...
+'''
+URL = 'https://gohugo.io/installation/'
+Label = 'Hugo设置手册'
+
+
+[[i18n.Steps]]
+ID = '观光服务器的URL链接地址'
+Title = '观光服务器的URL链接地址'
+Description = '''
+当服务器安全无损的运行时，您可以观光展览出的URL链接地址。如今我们还未建设任何网
+页内容，您也只能看到一面白页或一直被送去语言性的404网页。在这阶段呢，您已经有一
+个含有hestiaHUGO可用的Hugo代码库了！
+'''
+Code = ''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'git-commit'
+Title = 'Git Commit'
+Description = '''
+在还没开始编制任何网页内容前，我们建议您Git Commit掉这个代码库以防未来需要的时间
+穿越会点。有一件事必须搞清楚：把hestiaHUGO一起Git Commit。如今的hestiaHUGO不只是
+供应UI用具了。它其实还是个数据引擎来稳重化您的Hugo。所以呢，把它分开是会不安全
+的。
+'''
+Code = '''
+$ git add .
+$ git commit -s
+
+----
+根点: 为网站设计需求设置和配置hugo。
+
+这里有网站设计需求的Hugo需求。如此，我们也必须开始它的设置和配置
+工作。那就开始吧。
+
+这个代码补丁是为网站设计需求设置和配置hugo。
+
+
+Signed-off-by: 周健豪 ❬hollowaykeanho@gmail.com❭
+----
+
+$ git push
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '有关更新hestiaHUGO'
+Title = '有关更新hestiaHUGO'
+Description = '''
+在以后如果有需要更新hestiaHUGO，您只需更换那'themes/hestiaHUGO'文件夹就可以了。
+Hugo的从新配置如果下载中心手册没有列出是不需要的。切记：更新引擎有时会不小心破坏
+您所建设的边缘案例内容设计的。所以呢，您还是预备好时间检查所有的内容完整性。在这
+儿，我们也尽量会后向兼容。
+'''
+Code = '''
+DemoHestia/
+└── sites/
+    │
+    ├── ...
+    │
+    └── themes/
+        └── hestiaHUGO/     🡨 只需更新这个文件夹就行了
+            └── ...
+'''
+URL = ''
+Label = ''
+
+
+
+
+[i18n.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+恭喜！我们也到了这个指南的终结了。在这点，您已经有一份拥有hestiaHUGO的Hugo代码库
+了。请随时点记。当您准备好时，我们就进入下一个指南吧：
+'''
+URL = 'create-basic-and-placeholder-hugo-pages'
+CTA = '建设简单和占位符性的Hugo网页'
