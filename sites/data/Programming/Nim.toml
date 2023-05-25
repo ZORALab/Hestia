@@ -76,19 +76,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/no-garbage-collection-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/no-garbage-collection-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/no-garbage-collection-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -133,19 +133,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/go-big-fearlessly-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/go-big-fearlessly-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/go-big-fearlessly-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -190,19 +190,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/microcontroller-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/microcontroller-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/microcontroller-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -247,19 +247,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/work-harmoniously-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/work-harmoniously-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/work-harmoniously-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -354,19 +354,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/no-garbage-collection-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/no-garbage-collection-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/no-garbage-collection-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -411,19 +411,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/go-big-fearlessly-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/go-big-fearlessly-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/go-big-fearlessly-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -468,19 +468,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/microcontroller-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/microcontroller-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/microcontroller-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -525,19 +525,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/work-harmoniously-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/work-harmoniously-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/work-harmoniously-600x600.jpg"
 Type = "image/jpeg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
