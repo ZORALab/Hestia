@@ -12,7 +12,7 @@
 #                          prefix are cached regardless of its actual use in
 #                          any of the display contents.
 [Automation]
-Enabled = true
+Enabled = false
 
 
 
