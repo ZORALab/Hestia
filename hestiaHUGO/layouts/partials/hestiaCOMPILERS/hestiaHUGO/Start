@@ -120,7 +120,7 @@ specific language governing permissions and limitations under the License.
 	{{- $data = string $data -}}
 	{{- if not $Page.IsServerMode -}}
 		{{- $data = dict "Type" "application/json" "Data" $data -}}
-		{{- $data = merge $Page (dict "Input" (dict "Data" $data)) -}}
+		{{- $data = merge $Page (dict "Input" $data) -}}
 		{{- $data = partial "hestiaSTRING/Minify" $data -}}
 		{{- $data = $data.Output -}}
 	{{- end -}}
@@ -135,7 +135,7 @@ specific language governing permissions and limitations under the License.
 	{{- $data = string $data -}}
 	{{- if not $Page.IsServerMode -}}
 		{{- $data = dict "Type" "application/javascript" "Data" $data -}}
-		{{- $data = merge $Page (dict "Input" (dict "Data" $data)) -}}
+		{{- $data = merge $Page (dict "Input" $data) -}}
 		{{- $data = partial "hestiaSTRING/Minify" $data -}}
 		{{- $data = $data.Output -}}
 	{{- end -}}
