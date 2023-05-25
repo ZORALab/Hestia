@@ -56,19 +56,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -119,19 +119,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-pwa-ready-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-pwa-ready-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-pwa-ready-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -215,19 +215,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-reusable-codes-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-reusable-codes-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-reusable-codes-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -278,19 +278,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compoentized-ui-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compoentized-ui-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compoentized-ui-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -341,19 +341,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-mobile-first-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-mobile-first-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-mobile-first-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -404,19 +404,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compatible-publishers-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compatible-publishers-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compatible-publishers-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -467,19 +467,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-i18n-translations-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-i18n-translations-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-i18n-translations-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -556,7 +556,7 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-built-in-favicon-renderer-600x600.svg"
 Type = "image/svg+xml"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 
@@ -583,19 +583,19 @@ Inline = false
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-social-network-friendly-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-social-network-friendly-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-social-network-friendly-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.EN.Features.Image.Sources]]
@@ -671,19 +671,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-cleaner-error-message-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -734,19 +734,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-pwa-ready-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-pwa-ready-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-pwa-ready-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -830,19 +830,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-reusable-codes-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-reusable-codes-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-reusable-codes-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -893,19 +893,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compoentized-ui-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compoentized-ui-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compoentized-ui-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -956,19 +956,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-mobile-first-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-mobile-first-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-mobile-first-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -1019,19 +1019,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compatible-publishers-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compatible-publishers-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-compatible-publishers-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -1082,19 +1082,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-i18n-translations-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-i18n-translations-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-i18n-translations-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
@@ -1172,7 +1172,7 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-built-in-favicon-renderer-600x600.svg"
 Type = "image/svg+xml"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 
@@ -1199,19 +1199,19 @@ Inline = false
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-social-network-friendly-600x600.avif"
 Type = "image/avif"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-social-network-friendly-600x600.webp"
 Type = "image/webp"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
 URL = "/img/thumbnails/hugo-social-network-friendly-600x600.jpg"
 Type = "image/jpg"
-Media = "min-width: 300px"
+Media = "(min-width: 300px)"
 Descriptor = '1x'
 
 [[Metadata.Languages.ZH-HANS.Features.Image.Sources]]
