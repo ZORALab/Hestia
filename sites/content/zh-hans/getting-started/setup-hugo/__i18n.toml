@@ -51,6 +51,43 @@ Value = '如何在行程中运用Git'
 
 
 [[i18n.Steps]]
+ID = 'hestiaHUGO方式'
+Title = 'hestiaHUGO方式'
+Description = '''
+有如其他的Hugo模型，hestiaHUGO是有通过它的独特方式来供应界面设计。但是呢，不如其
+他的Hugo模型，hestiaHUGO是有它自己的数据处理器而很少运用Hugo本生供应的用具（我们
+只用它的partial功能和图画处理器功能而已）。我们这么做主要原因是Hugo在它的历史里
+有太多的不一致现象。经历过它带来的痛苦，身为ZORALab的我们绝对不会在重复我们的错
+误。加上我们一路的网络开发的经历，我们也在别的领域深深的学上很多不同的哲学。如此
+以来，在还没决定要用hestiaHUGO前，您一定要接受以下不折不扣的分别：
+'''
+Code = '''
+1. 您是不可能运用Markdown或者如Hugo建议通过他们的Shortcode来把Markdown怪物化。
+
+2. 为了确保与Go的容易配合，hestiaHUGO设计是编写（拥有Hugo的partial功能）Go
+   Template符合的HTML代码。
+
+3. HTML、CSS和JS统统被统一为一体：**WEB**。我们绝不会如其他CSS和JS的构架把他们
+   分开。
+
+4. 我们还是无条件地遵守非常不一致的最终用户的浏览器渲染规则：
+   (HTML而已 ➔ HTML+CSS而已（如：JS阻止器）➔ HTML+CSS+JS)。
+
+5. 所有的网页布局供应是UI界面元件层的。 每个元件都会有它自己的Web格式（HTML,
+   CSS, CSS Variables, JS）。
+
+6. 我们**编译**网页而不是呈现而已。每面网页是自行包含的。
+
+7. 在网页布局层，我们给HTML+CSS渲染规则优先特别是运用那非常奥妙的CSS变化值。
+
+8. 我们是为了支持各种语言和运用干净数据而非常数据优先的。我们做到自己供应自己的
+   数据干净话的功能给您统一运用的境界了。
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
 ID = '下载最新的包装'
 Title = '下载最新的包装'
 Description = '''

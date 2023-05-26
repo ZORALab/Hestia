@@ -52,6 +52,48 @@ Value = 'How to use git along the way'
 
 
 [[i18n.Steps]]
+ID = 'the-hestiahugo-way'
+Title = 'The hestiaHUGO Way'
+Description = '''
+Like any Hugo theme, hestiaHUGO supplies UI in its very unique way. However,
+unlike any other themes, hestiaHUGO comes with its own data processor system and
+rarely use most of Hugo features except its partial functions and image
+processing functions. The main reason is because Hugo has a lot of output
+inconsistences throughout its history. ZORALab been there the hard way and will
+never make the same mistake twice. Along the web development journey, we picked
+a lot of different lessons and values along the way. So, before you decide to
+move forward, let's be clear about some notable non-compromising differences:
+'''
+Code = '''
+1. You won't be using Markdown; or even frankenstiening it with Hugo's
+   shortcode like Hugo recommended.
+
+2. Design strongly for writing HTML and Go template functions (equipped with
+   Hugo partial functions) for maximum portabilities.
+
+3. HTML, CSS, and JS are treated as 1 single format: **WEB**. we do not split
+   them like most CSS and JS frameworks did.
+
+4. We are still complying to the browser's end-user rendering degredation rule
+   (HTML-only ➔ HTML+CSS only (e.g. JS blocker) ➔ HTML+CSS+JS), carrying no
+   assumption of visitors' browsing nature.
+
+5. All page layouts are supplied at UI component level, each with its own web
+   formats (HTML, CSS, CSS Variables, JS).
+
+6. We **COMPILE** pages; not just rendering. Each page is contained on its own.
+
+7. At page layout level, we prioritizes HTML+CSS approach, especially when the
+   very powerful CSS variables is made available.
+
+8. We are extremely data-driven due to multiple languages support and even
+   supply our own data type+value sanitization functions.
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
 ID = 'download-latest-package'
 Title = 'Download the Latest Package'
 Description = '''
