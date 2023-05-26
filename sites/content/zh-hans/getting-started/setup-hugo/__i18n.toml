@@ -418,5 +418,5 @@ Description = '''
 恭喜！我们也到了这个指南的终结了。在这点，您已经有一份拥有hestiaHUGO的Hugo代码库
 了。请随时点记。当您准备好时，我们就进入下一个指南吧：
 '''
-URL = 'create-basic-and-placeholder-hugo-pages'
+URL = '/zh-hans/getting-started/create-basic-and-placeholder-hugo-pages'
 CTA = '建设简单和占位符性的Hugo网页'

@@ -439,5 +439,5 @@ fully functional hestiaHUGO equipped Hugo repository for your frontend website
 or web application construction. Please feel free to take notes before
 proceeding to the next tutorial:
 '''
-URL = 'create-basic-and-placeholder-hugo-pages'
+URL = '/en/getting-started/create-basic-and-placeholder-hugo-pages'
 CTA = 'Create Basic and Placeholder Hugo Pages'
