@@ -1,0 +1,1053 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+
+
+
+
+[i18n.Labels]
+Code = 'Code'
+URL = 'URL'
+Image = 'Image'
+Guides = 'Guides'
+
+
+
+
+[i18n.Introduction]
+ID = 'setup-hugo'
+Title = "Setup Hugo with hestiaHUGO — a ZORALab's Hestia Module"
+Description = '''
+A step-by-step tutorial on how to setup your hugo git repository with hestiaHUGO
+from scratch.
+'''
+
+
+
+
+[i18n.Objectives]
+ID = 'learning-objectives'
+Title = 'Learning Objectives'
+Description = '''
+At the end of this tutorial, you will learn:
+'''
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How hestiaHUGO works with Hugo'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How hestiaHUGO governs filesystem pathing and URL'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = "How hestiaHUGO manage all designers' creating freedom via UI components"
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How hestiaHUGO design to counter the ever-changing W3C changes'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How hestiaHUGO design its multiple outputs (HTML & JSON)'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = 'How hestiaHUGO handles internationalization by default'
+
+
+
+
+[[i18n.Steps]]
+ID = 'prerequisite'
+Title = 'Prerequisite'
+Description = '''
+This tutorial assumes you have a fresh hestiaHUGO equipped Hugo repository ready
+for deployment especially being created from the previous setup tutorial page.
+Otherwise, please complete that lesson and then revert back to this piece:
+'''
+Code = ''
+URL = '/en/getting-started/setup-hugo/'
+Label = 'Setup Hugo Tutorial'
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiahugo-manage-url-with-filesystem'
+Title = 'Understand How hestiaHUGO Manage URL with Filesystem'
+Description = '''
+hestiaHUGO natively supports its own multi-languages (a.k.a. 'i18n') feature by
+default. IT USES DIRECTORY NAME AS URL PATH and the 1st level is
+**ISO639-1, ISO639-2, ISO639-3, ISO15924, and ISO3166 LANGUAGE CODE** or
+language independent pages (e.g. usually redirecting shortcuts). The rest are
+the same as Hugo. We advise you to name your directory according to the URL
+pattern (no space, small characters, and no funny symbols) and use it eventhough
+the content is a single language to avoid building broken URL site in the
+future.
+'''
+Code = '''
+PATTERN
+File path:          content/[i18n]/url-compatible-pathing/file.extension
+URL      : [http://baseURL]/[i18n]/url-compatible-pathing/file.extension?query=value#tags
+
+EXAMPLES
+content/ (https://hestia.zoralab.com/)
+	redirects ➔ content/en (https://hestia.zoralab.com/en)
+	redirects ➔ content/zh-hans (https://hestia.zoralab.com/zh-hans/)
+
+content/releases (https://hestia.zoralab.com/releases)
+	redirects ➔ content/en/releases/ (https://hestia.zoralab.com/en/releases/)
+	redirects ➔ content/zh-hans/releases/ (https://hestia.zoralab.com/zh-hans/releases/)
+content/en/releases/v1-0-0/ (https://hestia.zoralab.com/en/releases/v1-0-0/)
+content/en/releases/v1-1-0/ (https://hestia.zoralab.com/en/releases/v1-1-0/)
+content/en/releases/v1-2-0/ (https://hestia.zoralab.com/en/releases/v1-2-0/)
+content/en/releases/v1-2-0/index.html (https://hestia.zoralab.com/en/releases/v1-2-0/)
+content/en/releases/v1-2-0/index.json (https://hestia.zoralab.com/en/releases/v1-2-0/index.json)
+content/en/releases/v1-2-0/my-file.zip (https://hestia.zoralab.com/en/releases/v1-2-0/my-file.zip)
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'create-hugo-content-directory'
+Title = "Create Hugo's Content Directory"
+Description = '''
+We can now start by creating the Hugo's content directory. It is named inside
+your 'config/_default/config.toml' under the field 'contentDir' (usually called
+'content'). You may alter it as per your need. For this tutorial, we will just
+stick to the default 'content'. After creating the directory, you will need to
+restart your hugo server (hint: `hugo server ...` command). A complete list of
+commands would be:
+'''
+Code = '''
+# LINUX / MACOS
+	[ Kill the server with CTRL+C ]
+	$ cd sites/        # your hugo repository if you're not inside it
+	$ mkdir -p content
+	$ hugo server .... # refer pervious tutorial if you had forgotten
+
+
+# WINDOWS
+	[ Kill the server with CTRL+C ]
+	> cd sites/        # your hugo repository if you're not inside it
+	> mkdir content
+	> hugo server .... # refer pervious tutorial if you had forgotten
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'create-placeholder-page'
+Title = 'Create Placeholder Page'
+Description = '''
+We will begin by creating a single language placeholder landing page. We won't
+be building this page now but we need it for the page we want to build: the 404
+page. hestiaHUGO is designed in the way to be natively compatible with Hugo.
+Since this is an English language tutorial, we can proceed to create
+'content/en' page with hugo command. Remember this important step because we
+won't repeat it again and you will be using it a lot. The command is as shown
+below:
+'''
+Code = '''
+PATTERN
+$ hugo new --kind hestia [filesystem path]
+
+
+COMMAND
+$ hugo new --kind hestia content/en
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiaHUGO-manages-page-configurations'
+Title = 'Understand How hestiaHUGO Manages Page Configurations'
+Description = '''
+Before we continue, let's understand how hestiaHUGO manage page compilations.
+If you take a look at the `content/en` page, there are a lot of double
+underscore TOML files. Due to the complexities of web connectivities across the
+Internet, we do not have a choice but to split them into various pieces of
+config data. One constant to remember: never touch the Hugo's original
+**_index.html** file. It is now ONLY USE for hugo to discover and map the site
+directories. The way hestiaHUGO is designed will rarely have any conflict with
+other Hugo themes. You're still allowed to place any page associated files
+(e.g. images only this page uses, docs, .csv, etc) in the same directory. Each
+known files' roles and responsibilities are listed below:
+'''
+Code = '''
+__assets.toml            ➤ manage all CSS and JS files' inclusion or compilation
+__components.toml        ➤ list out all hestiaHUGO UI components for compilation
+__content.hestiaCSS      ➤ the page's final CSS asset for inlining into HTML
+__content.hestiaHTML     ➤ the page's HTML output
+__content.hestiaJS       ➤ the page's final JS asset for inlining into HTML
+__content.hestiaJSON     ➤ the page's JSON output
+__content.hestiaLDJSON   ➤ the page's LD+JSON output for inlining into HTML
+__contributors.toml      ➤ designate list of contributors to this page
+__data.toml              ➤ a page-level data file listed in __page.toml
+__i18n.toml              ➤ a page-level data file listed in __page.toml
+_index.html              ➤ hugo discovery file (**DO NOT TOUCH THIS AT ALL**)
+__languages.toml         ➤ the page's alternate languages URL (translated pages)
+__page.toml              ➤ the page's primary configurations
+__robots.toml            ➤ the page's robots instructions for inlining into HTML
+__thumbnails.toml        ➤ the page's thumbnails used in social media sharing
+__twitter.toml           ➤ the page's Twitter configuration for sharing
+__wasm.toml              ➤ the page's WASM configurations
+'''
+URL = ''
+Label = ''
+
+
+
+
+[[i18n.Steps]]
+ID = 'update-page-toml'
+Title = 'Update the __page.toml'
+Description = '''
+Don't worry, for placeholding page, you only need to deal __page.toml file.
+This is to setup the page's critical metadata. A few critical fields you have
+to update are shown below:
+'''
+Code = """
+...
+
+[Date]
+Created   = 'Sat 05 Mar 2023 11:22:21 AM +08'  # update to today's time obviously
+Published = 'Sat 05 Mar 2023 11:22:21 AM +08'  # update to today's time obviously
+
+...
+
+[Content]
+Title = 'My App Page'
+Keywords = [
+        'My App Page',
+]
+
+...
+
+[Description]
+Pitch = '''
+TBD.
+'''
+Summary = '''
+Will be back later.
+'''
+
+...
+"""
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'git-commit-placeholder-page'
+Title = 'Git Commit Placeholder Page'
+Description = '''
+Now that everything is in place, you can proceed to git commit the page and we
+will proceed to deal with the real basic one: /en/404 page. If you need
+assistance with Git, you can check out their offical book in the followin URL.
+Basically, the command is as follows:
+'''
+Code = '''
+$ git add .
+$ git commit -s
+
+--- EDIT IN YOUR EDITOR ---
+sites: added /en/ page as placeholder
+
+Since we need to build /en/404/ page, we have to create the /en/ page as
+placeholder for now. Hence, let's do this.
+
+This patch adds /en/ page as placeholder in sites/ directory.
+
+
+Signed-off-by: Name <EMAIL>
+--- EDIT IN YOUR EDITOR ---
+
+$ git push
+'''
+URL = 'https://git-scm.com/book/en/v2'
+Label = 'Git Manual'
+
+
+[[i18n.Steps]]
+ID = 'repeat-for-404-page'
+Title = 'Repeat Page Creation for 404 Page'
+Description = '''
+Now that you get the hang of how to create a hestiaHUGO page and updating the
+critical file, as a re-cap, please create /en/404 page (hint: 'content/en/404'
+path). For this page, please DO NOT commit as we will begin this page creation
+in the next step.
+'''
+Code = '''
+HINT
+(1) $ hugo new --kind hestia [filesystem path]
+(2) $ update __page.toml with the appropriate values for 404 page
+(3) $ git add .
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'update-page-level-twitter-settings'
+Title = 'Update Page-level Twitter Settings'
+Description = '''
+Unlike placeholder page, this time, if you have Twitter account, you can update
+the 'content/en/404/__twitter.toml' config file. Since 404 page is just a system
+notice page (and no one insane enough to visit it on purpose), you only need to
+update the following:
+'''
+Code = '''
+...
+
+[Creator]
+Handle = 'yourTwitterHandle'    # with or without @ is ok
+
+...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'update-page-level-robots-settings'
+Title = 'Update Page-level Robots Settings'
+Description = '''
+Due to this page being a 404 page, we do not want any search engine robots to
+index it. Hence, let's update the 'content/en/404/__robots.toml' config file.
+These robot values will be compiled as the page's HTML output's meta tags. An
+example would be as follows:
+'''
+Code = '''
+...
+
+[[Meta]]
+Name = 'googleBot'
+Content = 'noindex, nofollow'
+
+[[Meta]]
+Name = 'robots'
+Content = 'noindex, nofollow'
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'update-page-level-language-settings'
+Title = 'Update Page-level Languages Settings'
+Description = '''
+As a good practice and to prevent massive copy-paste error in the future, it is
+better we update the page-specific language settings in the
+'content/en/404/__languages.toml' config file. You're strongly advised to use
+RFC3986 compliant relative URL. We will explain further in the next step.
+Here's the data to be updated:
+'''
+Code = '''
+...
+
+[en]
+URL = '/en/404'
+
+...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiahugo-process-url'
+Title = 'Understand How hestiaHUGO Process URL'
+Description = '''
+hestiaHUGO deploys its own URL data processor (called 'hestiaURL/Sanitize'
+partial function). We strongly encourage using relative URL for pre-compilations
+(e.g. your page templates and etc) while letting hestiaHUGO to compile it to
+absolute URL as output. Visitor should always get the absolute URL in no matter
+what condition. The function is RFC3986 compliant so be careful with your
+relative URL construction. Here are the explanation examples:
+'''
+Code = '''
+EXAMPLE 1 - UNRELATED ABSOLUTE URL AS INPUT
+BASE URL : https://hestia.zoralab.com/default-path
+IN PAGE  : https://hestia.zoralab.com/default-path/this-page/
+INPUT    : https://www.example.com/
+OUTPUT   : https://www.example.com/
+
+
+EXAMPLE 2 - RELATIVE TO SITE AS INPUT
+BASE URL : https://hestia.zoralab.com/default-path/
+IN PAGE  : https://hestia.zoralab.com/default-path/this-page/
+INPUT    : /my-page
+OUTPUT   : https://hestia.zoralab.com/default-path/my-page
+
+
+EXAMPLE 3 - RELATIVE TO PAGE (NOTE: NO LEADING FORWARD SLASH '/')
+BASE URL : https://hestia.zoralab.com/default-path/
+IN PAGE  : https://hestia.zoralab.com/default-path/this-page/
+INPUT    : my-page
+OUTPUT   : https://hestia.zoralab.com/default-path/this-page/my-page
+'''
+URL = 'https://www.rfc-editor.org/rfc/rfc3986'
+Label = 'RFC3986 URL Specification'
+
+
+[[i18n.Steps]]
+ID = 'create-page-html-content'
+Title = 'Create Page HTML Content'
+Description = '''
+For hestiaHUGO, the corresponding file is specified in the __page.toml control
+file's 'Sources.HTML' field. The default is the relative file
+'__content.hestiaHTML' in the same directory. Since we're beginner, we should
+use the default '__content.hestiaHTML' file. Let's open it and take a look. If
+you're a seasoned Hugo developer, you will immediately notice that the Go
+template (and Hugo's partial) functions are used instead of Hugo specific
+Markdown and shortcodes. When using any ZORALab's Hestia product, we strive to
+be as portable and nimble as possible across them with minimal learning cost. If
+you're already familiar with Go template from Go Programming Language, then
+every piece of your rendering knowledge is automatically and fully transferred
+here. For this tutorial, let's update it with the following contents. Once done,
+try visit the URL + /en/404/ web page presented by the Hugo server. You can
+verify the HTML-only rendering of the page.
+'''
+Code = '''
+...
+
+{{- /* render outputs */ -}}
+&lt;main&gt;
+	&lt;section id='introduction' class='banner'&gt;
+		&lt;h1&gt;&#123;&#123;- .Titles.Page -&#125;&#125;&lt;/h1&gt;
+		&lt;p&gt;&#123;&#123;- .Descriptions.Page.Pitch &#125;&#125; &#123;&#123; .Descriptions.Page.Summary -&#125;&#125;&lt;/p&gt;
+
+
+		&#123;&#123;- $ret := merge . (dict "Input" (dict "Data" "/en/")) -&#125;&#125;
+		&#123;&#123;- $ret = partial "hestiaURL/Sanitize" $ret -&#125;&#125;
+		&lt;a class='button' href='&#123;&#123;- $ret -&#125;&#125;'&gt;Back HOME&lt;/a&gt;
+	&lt;/section&gt;
+&lt;/main&gt;
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiahugo-renders-page-data'
+Title = 'Understand How hestiaHUGO Renders Page Data'
+Description = '''
+Unlike Hugo requiring designer to guess a data field, hestiaHUGO employs its own
+page data structure for designers to utilize. In fact, we have our some
+design-adaptive debugger that shows the entire page data structure for debugging
+or rendering purposes when Hugo is operating in server mode. Have you notice a
+color button at the bottom right of the page? Try click on it and you can browse
+your current page's entire usable datasets. Example, the rendering part of
+'{{- .Titles.Page -}}' was rendered as the value of '.Titles.Page' when viewed
+in the debugger console.
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+[i18n.Steps.Image]
+Name = "The Screenshot of the Debugger Console"
+Decorative = false
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-600x600.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-600x600.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-600x600.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-400x400.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-400x400.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-400x400.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[i18n.Steps]]
+ID = 'understand-hestiahugo-data-path'
+Title = 'Understand hestiaHUGO Data Path'
+Description = '''
+hestiaHUGO finalized its design by having 'content' directory supplying the
+site URL and having each of its directory delivers the page data. Remember the
+'__i18n.toml' and '__data.toml' in the page directories? Those data files are
+listed in __page.toml's "[[Data]]" array list. hestiaHUGO maintains absolute
+freedom for page designer to construct the Page level data structure. After
+parsing and merging all the data files, all the data can be accessed via
+hestiaHUGO.Page data field. Other config files are obviously provide various
+different values for different data fields. Feel free to explore around and
+check them via the on-screen debugger console. This is how you source your data
+key:value when designing your page. The link below is the technical
+specification of the hestiaHUGO.Page data structure (browse when you're free, we
+will move forward for now).
+'''
+Code = '''
+__data.toml + __i18n.toml + ...   (NOTE: follows __page.toml data files list)
+             ⤋
+         .Field.[...]
+             ⤋
+     {{- .Field.[...] -}}
+'''
+URL = '/en/specs/hestiaCOMPILERS/hestiaHUGO/'
+Label = 'Data Structure & Specs'
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiahugo-empowers-hugo'
+Title = 'Understand How hestiaHUGO Empowers Hugo'
+Description = '''
+hestiaHUGO supplies its own standard libraries just like other ZORALab's Hestia
+components. Notice the use of 'hestiaURL.Sanitize' partial function above? It
+converts a given ambigious URL into a proper full absolute URL consistently in
+accoradance to hestiaHUGO URL management explained in the 1st step. The sole
+purpose of preparing our own standard libraries is to make sure we have
+absolute consistency as we grow ZORALab's Hestia and not Hugo's output
+inconsitencies AND maintaining inter-operability with other components. All
+ZORALab's Hestia libraries are documented in the same context across all
+components in our specifications section. You should explore all available
+hestiaHUGO API to advance your development at your own time. For this tutorial,
+we will proceed further.
+'''
+Code = '''
+'''
+URL = '/en/spec'
+Label = 'Specification'
+
+
+[[i18n.Steps]]
+ID = 'create-page-ui-components-styling-list'
+Title = 'Create Page UI Components Styling List'
+Description = '''
+Now that we verified the data shown in HTML-only page is correct, we can now
+style it. hestiaHUGO uses the UI components approach to compile all necessary
+proceed to edit '/en/404/__components.toml' and add the following components
+after the commented guide. Give the server a few moment and refresh the web
+page. You can see it's being compiled with styling (especially the
+call-to-action anchor link). Check out the CSS codes in the CSS.Inline section
+of the debugger console. It's filled with the compiled CSS codes.
+'''
+Code = '''
+...
+[[List]]
+Name = "zoralabCORE"
+Include = true
+Variables = [
+        { "--body-scroll-behavior" = "smooth" },
+]
+
+[[List]]
+Name = "zoralabFONT_NOTOSANS"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabANCHOR"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabBUTTON"
+Include = true
+Variables = []
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiaHUGO-manage-page-styling'
+Title = 'Understand How hestiaHUGO Manage Page Styling'
+Description = '''
+hestiaHUGO employs the UI component approach like Backbone, Angular, or React
+frameworks but done differently: by treating all HTML, CSS, and JS as one
+instead of splitting them causing management nightmare. Then, through Hugo,
+hestiaHUGO compiles the CSS, CSS variables, and JS codes into the necessary
+assets codes and embedded them into the HTML. Ultimately, the HTML file itself
+is self-rendered with only the necessary styling assets, not an entire framework
+remotely, achieving minimal delivery code as AMP project originally envisioned.
+
+
+Also, by using this apporach, it facilitaties offline page viewing by default
+which is totally usable for PWA offline feature (more on that in the
+future tutorial). Moreover, this also allows the UI designers to pinpoint focus
+on updating only the UI component's codes when new non-backward compatible
+updates are rolled out by W3C and other Internet giant across the web industry.
+'''
+Code = '''
+'''
+URL = '/en/specs/hestiaGUI'
+Label = 'UI Components Catalog'
+
+
+[[i18n.Steps]]
+ID = 'understand-why-hestiaHUGO-containerized-page-styling'
+Title = 'Understand Why hestiaHUGO Containerized Page Styling'
+Description = '''
+This is mainly for preventing a site-wide UI update from breaking pages like
+a whack-a-mole problems nightmare from happening again for large site. We tested
+it and find this compilation approach is the most optimized way. So, to scale
+the same UI across other pages, just copy-paste the '__components.toml' config
+file. For page designer regardless of experiences, please feel safe and free to
+express your creativities and make a safer mistake to gain experience with a
+site development.
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiaHUGO-ui-component-works'
+Title = 'Understand How hestiaHUGO UI Component Works'
+Description = '''
+As stated earlier, each component has at least 3 elements to operate: the CSS
+codes for defining the styling, the CSS variables for UI customziation, the
+JS codes for behavior, and the HTML code for denoting the UI rendering data
+structure. When you add an UI component into the list, you're inlining
+everything together. However, hestiaHUGO permits you to override the default
+CSS variables' value so that you don't need to generate multiple variables list
+in the same page just for customization. The 'Include' switch is facilitated for
+debugging purposes (as in, you're an UI component designer) so instead of
+adding/removing large chunk of codes, simply switch it with 'true/false' for
+inclusion/exclusion easily.
+'''
+Code = '''
+...
+
+[[List]]
+Name = "zoralabCORE"
+Include = true
+Variables = [
+        { "--body-scroll-behavior" = "smooth" },   # this overrides the default value 'none'
+]
+
+...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-why-zoralab-hestia-only-prioritize-html-and-css'
+Title = "Understand Why ZORALab's Hestia Only Prioritize HTML & CSS"
+Description = '''
+For 2 primary reasons: (1) supporting privacy-first content rendering
+(JS disabled). In year 2022 during the Covid19 pandemic, everyone was concerned
+about privacy and data leak so having a complete Javascript disabled use case is
+totally unsurprising. In that situation, your famous JS Frameworks and our WASM
+won't work at all but the site is still expected to present the content nicely.
+(2) ZORALab's Hestia intend to replace Javascript entirely with WASM compiled
+using proper programming languages like Go or Nim in the future. It is a lot
+easier and seamless to integrate HTML and CSS UI into the WASM replacement
+counterpart (as in not conflicting with JS for controlling UI behavior). That's
+why we prioritize HTML-only and HTML+CSS approaches. That being said, you can
+still use Javascript (as shown in later steps). In ZORALab's Hestia, we don't do
+idiotic and autocratic goverance like some technology's governors did that
+restrict anyone freedom of use and artistic expression.
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-zoralab-and-javascript-relationship'
+Title = 'Understand ZORALab and Javascript Relationship'
+Description = '''
+Let's face it: Javascript is the only language for web UI behavior with weird
+and inconsistent structure programmable language. It's quite broken to the point
+of birthing various of its own frameworks like Angular and Typescript trying to
+solve the same fundamental problem: the overwhelmingly weird and unpredictable
+nature of being a programming language. However, these frameworks are still
+based on Javascript itself and working around the actual problem with problems
+of their own. Thanks to the birth of WASM, ZORALab wants to solve the problem
+heads on: replacing it entirely with proper language and not deriving another
+Javascript solution to solve the Javascript fundamental problem. We don't hate
+it; we just find it very risky for the future especially in a commerical
+use case when complexities grow. A lot of outdated JS frameworks in the past
+trying to replace one another had already proven the point.
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-hestiahugo-future'
+Title = 'Understand hestiaHUGO Future'
+Description = '''
+In order to realize our ultimate goal for web technologies, there are 3 specific
+use cases: (1) Discovery page like SEO & SMO; (2) Single App - 1 WASM implements
+the entire site; and (3) Reactive Rendering (each page has its own WASM
+renderer). hestiaHUGO fulfills primarily on use case (1) while facilitating WASM
+hosting for use cases (2) and (3). That's why we are still facilitating Hugo and
+so far it is still the best frontend static site generator (and now, a
+compiler).
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'customizing-page-styling-with-css'
+Title = 'Customize Page Styling with CSS'
+Description = '''
+Now that the page is styled (that looks common across all users), you can
+customize on top the currently compiled CSS codes. Simply edit the file
+'__content.hestiaCSS' and place your page-level CSS codes in it. For this
+tutorial, we will be using the following CSS customization codes. hestiaHUGO
+will recompile your CSS file as the last inline-type asset. Once done, refresh
+the page and you'll observe your 404 page is disco-ing with colors.
+'''
+Code = '''
+main {
+	height: 100vh;
+	width: 100vw;
+
+	 isplay: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: linear-gradient(245deg,
+					#192fe3,
+					#19e33b,
+					#bbe319,
+					#e35019,
+					#e31919,
+					#e319c1);
+	background-size: 1200% 1200%;
+
+	animation: BgDiscoFlasher 4s ease infinite;
+}
+
+@keyframes BgDiscoFlasher {
+	0%{background-position:0% 86%}
+	50%{background-position:100% 15%}
+	100%{background-position:0% 86%}
+}
+
+.banner {
+	width: 50%;
+	max-height: fit-content;
+
+	padding: 5rem;
+	border-radius: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background: rgba(255, 255, 255, .75);
+}
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'customizing-page-with-javascript'
+Title = 'Customize Page with Javascript'
+Description = '''
+Likewise, you can also customize the page with Javascript. The responsible file
+is '__content.hestiaJS'. While the page is no longer needing further styling,
+for this education purpose, let's temporarily add the following code block in
+and check out the browser' inspect console (F12 button). You should observe a
+cat meowing. Same case: this Javascript is the last inline Javascript to be
+included in the page. Have fun with JS. Once you're done, please remove
+everything here and we will move on to the next step.
+'''
+Code = '''
+window.onload = function() {
+	console.log("\nMeow~~~~ ₍⌯ᴖⱅᴖ⌯ ^₎◞ ̑̑ෆ⃛ \n\n");
+};
+'''
+URL = ''
+Label = ''
+
+[i18n.Steps.Image]
+Name = "The Screenshot of a Cat Meowing at the Browser Console"
+Decorative = false
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-600x600.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-600x600.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-600x600.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-400x400.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-400x400.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-400x400.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[i18n.Steps]]
+ID = 'update-ldjson-data-for-seo'
+Title = 'Update LD+JSON Data for SEO'
+Description = '''
+hestiaHUGO has a built-in support for Schema.org complex data structuring of
+your page. The responsible file is '__content.hestiaLDJSON'. Since this is a 404
+page, we will add the following code block will do. Once done, the HTML output
+of the page is generally completed. To further upgrade the LD+JSON, you have to
+refer to Schema.org recognized data structure and use the partial functions to
+further construct the dataset (by default, it should be the '$dataList' variable
+that get jsonified). You can check the output from our in-page debugger console
+and verify it at Schema.org validator over there.
+'''
+Code = '''
+...
+{{- /* prepare variables for function */ -}}
+...
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (partial "hestiaJSON/schemaorgLDJSON/WebPage" .) -}}
+
+
+
+
+{{- /* render output */ -}}
+...
+'''
+URL = 'https://validator.schema.org/'
+Label = 'LD+JSON Validator'
+
+
+[[i18n.Steps]]
+ID = 'understand-how-hestiahugo-handles-ldjson'
+Title = 'Understand How hestiaHUGO Handles LD+JSON'
+Description = '''
+2 things to remember: (1) hestiaHUGO can only quickly help you process the base
+level dataset of known common data types (e.g. authors, page type, etc); and
+(2) you need to add in the page context-specific dataset (e.g. recipe steps,
+etc). To balance between freedom and consistency rigidity, we will only work on
+providing known rigid and commonly used data types.
+'''
+Code = '''
+'''
+URL = 'https://schema.org/docs/full.html'
+Label = 'Schema.org Data Structures'
+
+
+[[i18n.Steps]]
+ID = 'stage-the-current-state'
+Title = 'Stage the Current State'
+Description = '''
+Now the HTML output is done deal, we should git stage it. However, we are not
+quite done yet. Proceed to next step:
+'''
+Code = '''
+HINT
+$ git add .
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'create-json-output'
+Title = 'Create JSON Output'
+Description = '''
+hestiaHUGO supports JSON output type as secondary output format by default. This
+feature is its own kind, not the Hugo feature version at all. Like LD+JSON, you
+can construct the entire dataset using the Go template function. Unlike LD+JSON,
+this is a pure JSON output (viewable by appending 'index.json' at the end of the
+page URL in the browser) for those who wants to build an open API. The
+responsible file is '__content.hestiaJSON'. Since this is 404 page, we can leave
+it as it is. You can study the default codes on how it adds the page title and
+description into the dataset while supporting i18n translation.
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'understand-why-hestiahugo-natively-supports-json-output'
+Title = 'Understand Why hestiaHUGO Natively Supports JSON Output'
+Description = '''
+5 main reasons: (1) Allows one to use hestiaHUGO as a CDN-driven open data API
+server; (2) A backup reason for using Hugo after search engine giants nearly
+destroyed SEO in the past solely for SMO ad revenues; (3) Provides
+alternatives and freedom compared to LD+JSON implementations; (4) making
+sure hestiaHUGO can support multiple output feature natively in a very
+consistent manner; (5) Facilitate a way to feed AI training data. The default
+processor is configured in a way as an option for those who do not want to use
+it so if you're not using it, don't bother touching '__content.hestiaJSON' file
+at all.
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'commit-and-push'
+Title = 'Commit and Push'
+Description = '''
+At this point, we had completed designing a basic and simple 404 page. You can
+proceed to Git commit and push out.
+'''
+Code = '''
+HINT
+$ git add .
+$ git commit -s
+----
+... write a good git message as shown in previous tutorial ...
+----
+$ git push
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'remember-the-strength-of-hestiaHUGO'
+Title = 'Remember the Strength of hestiaHUGO'
+Description = '''
+If you haven't realize, hestiaHUGO only takes 1 set of input dataset and
+generated to various compliant output types like HTML, LD+JSON, and JSON
+simultenously. In fact, it generates more like page-level sitemap.xml and
+sitemap-page.xml as well. This is one of the problem we're trying to solve when
+using Hugo: 1 consistent input dataset to multiple consistent outputs. These are
+just a scratch of the surface. We will explore more as you go through the
+tutorials walkthrough.
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+
+
+[i18n.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+Congrats! We have reach the end of this tutorial. At this point, you now have a
+fully functional /en/404 page for your frontend website with multiple outputs.
+Please feel free to update your notes before proceeding to the next tutorial:
+'''
+URL = 'url-redirection-in-hugo'
+CTA = 'URL Redirection in Hugo'

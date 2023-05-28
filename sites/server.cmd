@@ -9,6 +9,7 @@ echo >/dev/null # >nul & GOTO WINDOWS & rem ^
 hugo server --noBuildLock \
         --disableFastRender \
         --port 8080 \
+        --renderToDisk \
         --gc
 exit $?
 ################################################################################
