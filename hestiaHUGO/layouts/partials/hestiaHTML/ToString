@@ -542,11 +542,23 @@ specific language governing permissions and limitations under the License.
 		});
 	</script>
 {{- end }}
+
+
+{{- /* render .Debugger */}}
+{{- if .Debugger.Name }}
+	{{- if .Debugger.CSS }}
+	<style>{{- safeCSS .Debugger.CSS -}}</style>
+	{{- end }}
+
+	{{- if .Debugger.JS }}
+	<script defer type='module'>{{- safeJS .Debugger.JS -}}</script>
+	{{- end }}
+{{- end }}
 </head>
 <body>
 	{{ safeHTML (index .Content "HTML") }}
 	{{- if .Debugger.Name }}
-	{{ partial .Debugger.Name . -}}
+	{{ partial .Debugger.HTML . -}}
 	{{- end }}
 </body>
 </html>

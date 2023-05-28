@@ -750,14 +750,66 @@ specific language governing permissions and limitations under the License.
 {{- /* process .Debugger */ -}}
 {{- $ret = "" -}}
 {{- if .Debugger.Name -}}
-	{{- $ret = printf "layouts/partials/hestiaGUI/%s/HTML" .Debugger.Name -}}
-	{{- if partial "hestiaIO/hestiaFS/IsFileExists" $ret -}}
-		{{- $ret = printf "hestiaGUI/%s/HTML" .Debugger.Name -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" .Debugger.Name)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- $ret = $ret.Output -}}
+	{{- $Page = merge $Page (dict "Debugger" (dict "Name" $ret)) -}}
+{{- end -}}
+
+
+{{- if $Page.Debugger.Name -}}
+	{{- /* check component's proper existence */ -}}
+	{{- $path = printf "layouts/partials/hestiaGUI/%s" $Page.Debugger.Name -}}
+	{{- $ret = (fileExists (printf "%s/CSS" $path))
+			| and (fileExists (printf "%s/CSSVariables" $path))
+			| and (fileExists (printf "%s/JS" $path))
+			| and (fileExists (printf "%s/HTML" $path))
+	-}}
+
+	{{- if not $ret -}}
+		{{- $error = printf
+			".Debugger: '%v' component does not exist!\n"
+			$Page.Debugger.Name
+		-}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 	{{- else -}}
-		{{- $ret = "" -}}
+		{{- $ret = printf "hestiaGUI/%s/HTML" $Page.Debugger.Name -}}
+		{{- $Page = merge $Page (dict "Debugger" (dict "HTML" $ret)) -}}
+
+		{{- $ret = printf "%s/CSS" $path -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+		{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf
+				".Debugger.%v.CSS: %v"
+				$Page.Debugger.Name
+				$ret.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- end -}}
+		{{- $Page = merge $Page (dict "Debugger" (dict "CSS" $ret.Output)) -}}
+
+		{{- $ret = printf "%s/JS" $path -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
+		{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
+		{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+		{{- if $ret.Error -}}
+			{{- $error = printf
+				".Debugger.%v.JS: %v"
+				$Page.Debugger.Name
+				$ret.Error
+			-}}
+			{{- $error = merge $Page (dict "Error" $error) -}}
+			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- end -}}
+		{{- $Page = merge $Page (dict "Debugger" (dict "JS" $ret.Output)) -}}
 	{{- end -}}
 {{- end -}}
-{{- $Page = merge $Page (dict "Debugger" (dict "Name" $ret)) -}}
 
 
 
