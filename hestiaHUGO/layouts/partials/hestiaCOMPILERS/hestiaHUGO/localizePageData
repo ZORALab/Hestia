@@ -163,9 +163,9 @@ specific language governing permissions and limitations under the License.
 {{- $Page = merge $Page (dict "JS" (dict "Include" $dataList)) -}}
 
 {{- /* source page-level main JS file */ -}}
-{{- $ret = printf "%s/%s" .Filesystem.Directory "__content.hestiaJS" -}}
-{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $ret)) -}}
-	{{- $ret = "" -}}
+{{- $dataList = printf "%s/%s" .Filesystem.Directory "__content.hestiaJS" -}}
+{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $dataList)) -}}
+	{{- $dataList = "" -}}
 {{- end -}}
 {{- $Page = merge $Page (dict "JS" (dict "Main" $dataList)) -}}
 
