@@ -90,8 +90,9 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- if $ret -}}
-		{{- $ret = dict $ret $Page.PWA.Caches.Default.Policy -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data"
+			$ret $Page.PWA.Caches.Default.Policy
+		)) -}}
 		{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/SaveOfflineURL" $ret -}}
 		{{- if and $ret.Error (not $error) -}}
 			{{- $error = printf

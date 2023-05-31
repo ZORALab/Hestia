@@ -66,6 +66,7 @@ specific language governing permissions and limitations under the License.
 		{{- $dataList = merge $dataList (dict $k $v) -}}
 	{{- end -}}
 
+	{{- $Page.Memory.Delete $Page.Constants.Offline.MemKey -}}
 	{{- $Page.Memory.Set $Page.Constants.Offline.MemKey $dataList -}}
 {{- end -}}
 
