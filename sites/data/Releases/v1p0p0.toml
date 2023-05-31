@@ -1,0 +1,559 @@
+[[Assets]]
+Label = 'hestiaHUGO-v1.0.0.zip'
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.0.0/hestiaHUGO-v1.0.0.zip'
+
+[[Assets.SHASUM]]
+Value = '58f396564c5107170c37873560bdd92b053fcece4fb0c4b7f075cc5694fb3ab155887f17efcaa1987fb0d71d1e8f254b1327a7651bb38868d10b9e8550156302'
+Label = 'SHA512'
+
+[[Assets.GPG]]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.0.0/hestiaHUGO-v1.0.0.zip.asc'
+Label = 'GPG'
+
+
+
+
+[Metadata]
+ID = 'v1.0.0'
+URL = 'v1p0p0'
+
+
+
+[Metadata.Languages.EN]
+Title = 'Version 1.0.0'
+Summary = '''
+First launch with Hugo theme supports. Its main focus is to enable static web
+hosting with WASM and to enable conventional rendering.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>core_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped core_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>font-notosans_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped font-notosans_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>anchor_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped anchor_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>code_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped code_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>pre_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped pre_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>catalog_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped catalog_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>drawer_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped drawer_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>toc_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped toc_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>note_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped note_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>note-error_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped note-error_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>note-warning_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped note-warning_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>note-success_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped note-success_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>deflist_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped deflist_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>olist_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped olist_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>ulist_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped ulist_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>divider_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped divider_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>divider-cut_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped divider-cut_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>divider-dashed_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped divider-dashed_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>badge-shields_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped badge-shields_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>button_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped button_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>card_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped card_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>blockquote_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped blockquote_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>dialog_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped dialog_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>picture_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped picture_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>table_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped table_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>form_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped form_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>iframe_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped iframe_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Shipped <code>carousel_hestiaUI</code> UI component.
+'''
+Plain = '''
+Shipped carousel_hestiaUI UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Supported Progressive Web Application (PWA) feature.
+'''
+Plain = '''
+Supported Progressive Web Application (PWA) feature.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Supported seamless PWA Offline feature.
+'''
+Plain = '''
+Supported seamless PWA Offline feature.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Natively supported PWA icons and favicons file generations feature.
+'''
+Plain = '''
+Natively supported PWA icons and favicons file generations feature.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Supported GitHub Pages, and Cloudflare Pages feature.
+'''
+Plain = '''
+Supported GitHub Pages, and Cloudflare Pages feature.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Supported i18n redirection feature.
+'''
+Plain = '''
+Supported i18n redirection feature.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Supported i18n redirection for 404.html file generation.
+'''
+Plain = '''
+Supported i18n redirection for 404.html file generation.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.EN.Go.Highlights]]
+HTML = '''
+Established standard library foundation via ZORALab's Cerigo Project assimilation.
+'''
+Plain = '''
+Established standard library foundation via ZORALab's Cerigo Project assimilation.
+'''
+
+[[Metadata.Languages.EN.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.EN.TinyGo.Highlights]]
+HTML = '''
+Established standard library foundation via ZORALab's Cerigo Project assimilation.
+'''
+Plain = '''
+Established standard library foundation via ZORALab's Cerigo Project assimilation.
+'''
+
+[[Metadata.Languages.EN.TinyGo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.EN.Rust.Highlights]]
+HTML = '''
+Established standard library foundation via ZORALab's Cerigo Project assimilation.
+'''
+Plain = '''
+Established standard library foundation via ZORALab's Cerigo Project assimilation.
+'''
+
+[[Metadata.Languages.EN.Rust.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.jpg"
+Type = "image/jpg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.jpg"
+Type = "image/jpg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

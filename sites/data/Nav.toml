@@ -51,6 +51,18 @@ URL = '/en/getting-started/#nim'
 
 
 [[Languages.EN]]
+Title = 'Releases'
+
+[[Languages.EN.Items]]
+Title = "Visit"
+URL = '/en/releases'
+
+[[Languages.EN.Items]]
+Title = "Catalog"
+URL = '/en/releases/#catalog'
+
+
+[[Languages.EN]]
 Title = 'Licenses'
 
 [[Languages.EN.Items]]

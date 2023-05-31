@@ -1,0 +1,49 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := dict -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Title .Titles.Page
+	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+) -}}
+
+
+
+
+{{- $list = slice -}}
+{{- range $i, $v := .Data.Store.Releases -}}
+	{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Metadata.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+
+	{{- $list = append (dict
+		$i18n.Title $lang.Title
+		$i18n.Description $lang.Summary
+		$i18n.Labels.ID $v.Metadata.ID
+		$i18n.Labels.ReleaseNote $ret
+	) $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Labels.List $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}

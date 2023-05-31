@@ -1,0 +1,85 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<main style='padding-bottom: 0;'>
+	<section id='{{- $i18n.Introduction.ID -}}'>
+		<div>
+			<h1>{{- $i18n.Introduction.Title -}}</h1>
+			<p>{{- $i18n.Introduction.Description -}}</p>
+		</div>
+	</section>
+
+
+	<section id='{{- $i18n.Catalog.ID -}}'>
+		<div>
+			<h2>{{- $i18n.Catalog.Title -}}</h2>
+			<p>{{- $i18n.Catalog.Description -}}</p>
+		</div>
+
+		<div class='row' style='--h3-margin: 0;--picture-margin: auto;'>
+			{{- range $i, $v := (sort .Data.Store.Releases "" "desc") }}
+				{{- $lang = index
+					$v.Metadata.Languages
+					$Page.Languages.Current.ID
+				}}
+			<div class='column'><div id='{{- $v.Metadata.ID -}}' class='card'>
+				<div class='thumbnail'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Image)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- partial "hestiaMEDIA/ToHTML" $ret.Output }}
+				</div>
+				<div class='content'>
+					<h3>{{- $lang.Title -}}</h3>
+					<p>{{- $lang.Summary -}}</p>
+				</div>
+				<div class='actions'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Metadata.URL)
+					) -}}
+					{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+					{{- $ret = string $ret.Output -}}
+					<a href='{{- $ret -}}'
+						class='button'>{{- $i18n.Catalog.Label -}}</a>
+				</div>
+			</div></div>
+			{{- end }}
+		</div>
+	</section>
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data"
+		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
+	)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
+		margin-top: 10rem;
+		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2>{{- $i18n.Epilogue.Title -}}</h2>
+		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<br/>
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output -}}
+		<a href='{{- $ret -}}' class='button' style='
+			--button-color: green;
+		'>{{- $i18n.Epilogue.CTA -}}</a>
+	</section>
+</main>
+{{ partial "common/footer.html" $Page }}
+{{ partial "common/nav-prime.html" $Page }}

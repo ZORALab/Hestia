@@ -1,0 +1,197 @@
+[[Assets]]
+Label = 'hestiaHUGO-v1.1.0.zip'
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip'
+
+[[Assets.SHASUM]]
+Value = '565b8ac7188f983d8c0f53d72ca2dde57a5a7eadff7ff0365438c00af77b1b67b615c6fa396eb839f6557dbb085c3d53d673dc755b990c7a9ca8afc87f5b6468'
+Label = 'SHA512'
+
+[[Assets.GPG]]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip.asc'
+Label = 'GPG'
+
+
+
+
+[Metadata]
+ID = 'v1.1.0'
+URL = 'v1p1p0'
+
+
+
+[Metadata.Languages.EN]
+Title = 'Version 1.1.0'
+Summary = '''
+Minor patches against version 1.0.0. Its main focus are to perform several
+citical bug fixes discovered from the development of its predecessor.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added localized <code>__content.js</code> for page-level overall styling purposes.
+'''
+Plain = '''
+Added localized __content.js for page-level overall styling purposes.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added localized <code>__content.css</code> for page-level overall styling purposes.
+'''
+Plain = '''
+Added localized __content.css for page-level overall styling purposes.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed a time processor's ugly log output.
+'''
+Plain = '''
+Fixed a time processor's ugly log output.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>__content.json</code> improper rendering bug where the entire data
+structure is rendered as a large string.
+'''
+Plain = '''
+Fixed __content.json improper rendering bug where the entire data structure
+is rendered as a large string.
+'''
+
+
+[[Metadata.Languages.EN.Go.Highlights]]
+HTML = '''
+Added CI packages and releases jobs and automation support.
+'''
+Plain = '''
+Added CI packages and releases jobs and automation support.
+'''
+
+[[Metadata.Languages.EN.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.EN.TinyGo.Highlights]]
+HTML = '''
+Added CI packages and releases jobs and automation support.
+'''
+Plain = '''
+Added CI packages and releases jobs and automation support.
+'''
+
+[[Metadata.Languages.EN.TinyGo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.EN.Rust.Highlights]]
+HTML = '''
+Added CI packages and releases jobs and automation support.
+'''
+Plain = '''
+Added CI packages and releases jobs and automation support.
+'''
+
+[[Metadata.Languages.EN.Rust.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.jpg"
+Type = "image/jpg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.jpg"
+Type = "image/jpg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

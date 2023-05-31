@@ -1,0 +1,46 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+
+
+
+
+[i18n.Labels]
+ID = 'ID'
+ReleaseNote = 'ReleaseNote'
+List = 'List'
+
+
+
+
+[i18n.Introduction]
+ID = 'releases'
+Title = 'Releases'
+Description = '''
+All out historical product releases by version, from latest to the earliest.
+'''
+
+
+
+
+[i18n.Catalog]
+ID = 'catalog'
+Title = 'Available Packages'
+Description = '''
+From the latest to the earliest.
+'''
+Label = 'Read More'
+
+
+
+
+[i18n.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+We have reach the end of the catalog for ZORALab's Hestia Project package
+releases. If you have any query, please feel free to contact us at our following
+portal:
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub Discussion Portal'
