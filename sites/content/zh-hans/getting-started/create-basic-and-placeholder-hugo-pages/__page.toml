@@ -21,9 +21,9 @@ Published = 'Sat 05 Mar 2023 11:22:21 AM +08'
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = 'Create Basic and Placeholder Hugo Pages'
+Title = '建设简单和占位符性的Hugo网页'
 Keywords = [
-	'Create Basic and Placeholder Hugo Pages',
+	'建设简单和占位符性的Hugo网页',
 	'Web',
 	'Tech',
 	'PWA',
@@ -49,7 +49,7 @@ Pitch = '''
 Through creating simple pages, we learn how hestiaHUGO operates.
 '''
 Summary = '''
-A step-by-step guide for hestiaHUGO — ZORALab's Hestia Hugo module.
+A step-by-step guide for hestiaHUGO — ZORALab's Hestia Hugo module from scratch.
 '''
 
 

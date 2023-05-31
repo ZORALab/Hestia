@@ -15,11 +15,11 @@ Guides = 'Guides'
 
 
 [i18n.Introduction]
-ID = 'setup-hugo'
-Title = "Setup Hugo with hestiaHUGO — a ZORALab's Hestia Module"
+ID = 'create-basic-and-placeholder-hugo-pages'
+Title = "Create Basic and Placeholder Hugo Pages"
 Description = '''
-A step-by-step tutorial on how to setup your hugo git repository with hestiaHUGO
-from scratch.
+Through creating simple pages, we learn how hestiaHUGO operates. A step-by-step
+guide for hestiaHUGO — ZORALab's Hestia Hugo module
 '''
 
 
@@ -98,6 +98,7 @@ content/ (https://hestia.zoralab.com/)
 content/releases (https://hestia.zoralab.com/releases)
 	redirects ➔ content/en/releases/ (https://hestia.zoralab.com/en/releases/)
 	redirects ➔ content/zh-hans/releases/ (https://hestia.zoralab.com/zh-hans/releases/)
+
 content/en/releases/v1-0-0/ (https://hestia.zoralab.com/en/releases/v1-0-0/)
 content/en/releases/v1-1-0/ (https://hestia.zoralab.com/en/releases/v1-1-0/)
 content/en/releases/v1-2-0/ (https://hestia.zoralab.com/en/releases/v1-2-0/)
@@ -615,20 +616,17 @@ Label = ''
 ID = 'understand-how-hestiaHUGO-manage-page-styling'
 Title = 'Understand How hestiaHUGO Manage Page Styling'
 Description = '''
-hestiaHUGO employs the UI component approach like Backbone, Angular, or React
-frameworks but done differently: by treating all HTML, CSS, and JS as one
-instead of splitting them causing management nightmare. Then, through Hugo,
-hestiaHUGO compiles the CSS, CSS variables, and JS codes into the necessary
-assets codes and embedded them into the HTML. Ultimately, the HTML file itself
-is self-rendered with only the necessary styling assets, not an entire framework
-remotely, achieving minimal delivery code as AMP project originally envisioned.
-
-
-Also, by using this apporach, it facilitaties offline page viewing by default
-which is totally usable for PWA offline feature (more on that in the
-future tutorial). Moreover, this also allows the UI designers to pinpoint focus
-on updating only the UI component's codes when new non-backward compatible
-updates are rolled out by W3C and other Internet giant across the web industry.
+Like Backbone, Angular, and React frameworks, hestiaHUGO componentized each UI
+but unlike them, hestiaHUGO only integrate each component's HTML, CSS, and JS
+codes as 1 set rather than split them and overloadingly manage everything via
+JavaScript. That way, via Hugo, hestiaHUGO can compile only the required CSS,
+CSS variables, and JavaScript codes into the assets and then embedded them into
+the HTML output file. This output HTML file is self-contained and not requiring
+external remote framework, fulfilling the vision where AMP project originally
+wants. It also seamlessly support PWA's offline feature as well and simplify the
+UI component designer maintenance workflow by only focusing on applying
+non-backward compatible updates introduced by W3C. 3 birds, 1 stone ⥤ definitely
+worth the effort.
 '''
 Code = '''
 '''
@@ -641,12 +639,12 @@ ID = 'understand-why-hestiaHUGO-containerized-page-styling'
 Title = 'Understand Why hestiaHUGO Containerized Page Styling'
 Description = '''
 This is mainly for preventing a site-wide UI update from breaking pages like
-a whack-a-mole problems nightmare from happening again for large site. We tested
-it and find this compilation approach is the most optimized way. So, to scale
-the same UI across other pages, just copy-paste the '__components.toml' config
-file. For page designer regardless of experiences, please feel safe and free to
-express your creativities and make a safer mistake to gain experience with a
-site development.
+a whack-a-mole nightmare from happening again especially large content website.
+We tested it and find this compilation approach is the most optimized way. So,
+to scale the same UI across other pages, you just have to copy-paste the
+'__components.toml' config file. For page designer regardless of experiences,
+please feel safe and free to express your creativities and make a safer mistake
+to gain experience with a site development.
 '''
 Code = '''
 '''
@@ -658,16 +656,12 @@ Label = ''
 ID = 'understand-how-hestiaHUGO-ui-component-works'
 Title = 'Understand How hestiaHUGO UI Component Works'
 Description = '''
-As stated earlier, each component has at least 3 elements to operate: the CSS
-codes for defining the styling, the CSS variables for UI customziation, the
-JS codes for behavior, and the HTML code for denoting the UI rendering data
-structure. When you add an UI component into the list, you're inlining
-everything together. However, hestiaHUGO permits you to override the default
-CSS variables' value so that you don't need to generate multiple variables list
-in the same page just for customization. The 'Include' switch is facilitated for
-debugging purposes (as in, you're an UI component designer) so instead of
-adding/removing large chunk of codes, simply switch it with 'true/false' for
-inclusion/exclusion easily.
+As stated earlier, the CSS codes are for defining the styling, the CSS variables
+are for UI customziation, and the JS codes are for behavior control. When you
+add an UI component, you are provided with an 'Include' switch for design
+debugging purpose (better then delete large chunk of codes). At the same time,
+you're allowed to overwrite existing CSS variables, making hestiaHUGO to only
+generate 1 list of CSS variables for your HTML output will do.
 '''
 Code = '''
 ...
@@ -691,15 +685,14 @@ Title = "Understand Why ZORALab's Hestia Only Prioritize HTML & CSS"
 Description = '''
 For 2 primary reasons: (1) supporting privacy-first content rendering
 (JS disabled). In year 2022 during the Covid19 pandemic, everyone was concerned
-about privacy and data leak so having a complete Javascript disabled use case is
+about privacy and data leak so having a complete JavaScript disabled use case is
 totally unsurprising. In that situation, your famous JS Frameworks and our WASM
-won't work at all but the site is still expected to present the content nicely.
-(2) ZORALab's Hestia intend to replace Javascript entirely with WASM compiled
+are completely unsable but the site is still expected present correctly. (2)
+ZORALab's Hestia intend to replace JavaScript entirely with WASM compiled
 using proper programming languages like Go or Nim in the future. It is a lot
-easier and seamless to integrate HTML and CSS UI into the WASM replacement
-counterpart (as in not conflicting with JS for controlling UI behavior). That's
-why we prioritize HTML-only and HTML+CSS approaches. That being said, you can
-still use Javascript (as shown in later steps). In ZORALab's Hestia, we don't do
+easier and seamless to port the HTML+CSS only UI component into the WASM
+counterpart (as in no JavaScript interference). That being said, you can
+still use JavaScript (as shown in later steps). In ZORALab's Hestia, we don't do
 idiotic and autocratic goverance like some technology's governors did that
 restrict anyone freedom of use and artistic expression.
 '''
@@ -711,20 +704,15 @@ Label = ''
 
 [[i18n.Steps]]
 ID = 'understand-zoralab-and-javascript-relationship'
-Title = 'Understand ZORALab and Javascript Relationship'
+Title = 'Understand ZORALab and JavaScript Relationship'
 Description = '''
-Let's face it: Javascript is the only language for web UI behavior with weird
-and inconsistent structure programmable language. It's quite broken to the point
-of birthing various of its own frameworks like Angular and Typescript trying to
-solve the same fundamental problem: the overwhelmingly weird and unpredictable
-nature of being a programming language. However, these frameworks are still
-based on Javascript itself and working around the actual problem with problems
-of their own. Thanks to the birth of WASM, ZORALab wants to solve the problem
-heads on: replacing it entirely with proper language and not deriving another
-Javascript solution to solve the Javascript fundamental problem. We don't hate
-it; we just find it very risky for the future especially in a commerical
-use case when complexities grow. A lot of outdated JS frameworks in the past
-trying to replace one another had already proven the point.
+Let's face it: JavaScript is the only programming language for web UI behavior
+packed with weird and inconsistencies. It's problematic weaknesses gave birth to
+various frameworks like Angular and Typescript of itself trying to workaround
+them but introduced their own. With the birth of WASM, ZORALab wants to solve
+the problem heads-on. We do not hate the language but finding development with
+it comes is very risky. A lot of outdated JS frameworks in the past trying to
+replace one another had already proven the point.
 '''
 Code = '''
 '''
@@ -809,15 +797,14 @@ Label = ''
 
 [[i18n.Steps]]
 ID = 'customizing-page-with-javascript'
-Title = 'Customize Page with Javascript'
+Title = 'Customize Page with JavaScript'
 Description = '''
-Likewise, you can also customize the page with Javascript. The responsible file
+Likewise, you can also customize the page with JavaScript. The responsible file
 is '__content.hestiaJS'. While the page is no longer needing further styling,
 for this education purpose, let's temporarily add the following code block in
 and check out the browser' inspect console (F12 button). You should observe a
-cat meowing. Same case: this Javascript is the last inline Javascript to be
-included in the page. Have fun with JS. Once you're done, please remove
-everything here and we will move on to the next step.
+cat meowing. Same case: this JavaScript is the last inline JavaScript to be
+included in the page.
 '''
 Code = '''
 window.onload = function() {
@@ -904,12 +891,9 @@ Title = 'Update LD+JSON Data for SEO'
 Description = '''
 hestiaHUGO has a built-in support for Schema.org complex data structuring of
 your page. The responsible file is '__content.hestiaLDJSON'. Since this is a 404
-page, we will add the following code block will do. Once done, the HTML output
-of the page is generally completed. To further upgrade the LD+JSON, you have to
-refer to Schema.org recognized data structure and use the partial functions to
-further construct the dataset (by default, it should be the '$dataList' variable
-that get jsonified). You can check the output from our in-page debugger console
-and verify it at Schema.org validator over there.
+page, we will add the following code block will do. Once the Hugo server is fully
+updated, you can proceed to obtain the output from our on-screen debugger
+console and validate at Schema.org validator site.
 '''
 Code = '''
 ...
@@ -935,11 +919,11 @@ Label = 'LD+JSON Validator'
 ID = 'understand-how-hestiahugo-handles-ldjson'
 Title = 'Understand How hestiaHUGO Handles LD+JSON'
 Description = '''
-2 things to remember: (1) hestiaHUGO can only quickly help you process the base
-level dataset of known common data types (e.g. authors, page type, etc); and
-(2) you need to add in the page context-specific dataset (e.g. recipe steps,
-etc). To balance between freedom and consistency rigidity, we will only work on
-providing known rigid and commonly used data types.
+To maintain balance between freedom of expression and rigidity for consistent
+output, there are 2 things to remember: (1) hestiaHUGO can only quickly help you
+process the base level dataset of known common data types (e.g. authors,
+page type, etc); and (2) you need to add in the page context-specific dataset
+(e.g. recipe steps, etc).
 '''
 Code = '''
 '''
@@ -966,14 +950,14 @@ Label = ''
 ID = 'create-json-output'
 Title = 'Create JSON Output'
 Description = '''
-hestiaHUGO supports JSON output type as secondary output format by default. This
-feature is its own kind, not the Hugo feature version at all. Like LD+JSON, you
-can construct the entire dataset using the Go template function. Unlike LD+JSON,
-this is a pure JSON output (viewable by appending 'index.json' at the end of the
-page URL in the browser) for those who wants to build an open API. The
-responsible file is '__content.hestiaJSON'. Since this is 404 page, we can leave
-it as it is. You can study the default codes on how it adds the page title and
-description into the dataset while supporting i18n translation.
+By default, hestiaHUGO supports JSON output type as secondary output format.
+This is using the hestiaHUGO internal feature; not the Hugo one. Like LD+JSON,
+you can construct a customer usable dataset using the Go template function.
+Unlike LD+JSON, this is a pure JSON output (viewable by appending 'index.json'
+at the end of the page URL) unrestricted by Schema.org schematic. The
+responsible file defined by '__page.toml's '.Source.JSON' value (default is the
+relative '__content.hestiaJSON'). Since this is 404 page, we can leave it as it
+is. You can study the default codes for educational purposes.
 '''
 Code = '''
 '''
@@ -1026,11 +1010,11 @@ ID = 'remember-the-strength-of-hestiaHUGO'
 Title = 'Remember the Strength of hestiaHUGO'
 Description = '''
 If you haven't realize, hestiaHUGO only takes 1 set of input dataset and
-generated to various compliant output types like HTML, LD+JSON, and JSON
-simultenously. In fact, it generates more like page-level sitemap.xml and
-sitemap-page.xml as well. This is one of the problem we're trying to solve when
-using Hugo: 1 consistent input dataset to multiple consistent outputs. These are
-just a scratch of the surface. We will explore more as you go through the
+generated to various outputs type while supporting multiple languages at the
+same time. In fact, it generates more like page-level 'sitemap.xml' and
+'sitemap-page.xml' as well. This is one of the problem we're trying to solve when
+using Hugo: 1 consistent input dataset to multiple outputs consistently. These
+are just a scratch of the surface. We will explore more as you go through the
 tutorials walkthrough.
 '''
 Code = '''
@@ -1046,7 +1030,7 @@ ID = 'epilogue'
 Title = 'Epilogue'
 Description = '''
 Congrats! We have reach the end of this tutorial. At this point, you now have a
-fully functional /en/404 page for your frontend website with multiple outputs.
+fully functional '/en/404' page for your frontend website with multiple outputs.
 Please feel free to update your notes before proceeding to the next tutorial:
 '''
 URL = 'url-redirection-in-hugo'

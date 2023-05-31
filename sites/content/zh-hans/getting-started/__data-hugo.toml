@@ -38,7 +38,7 @@ Descriptor = '1x'
 ID = '建设简单和占位符性的Hugo网页'
 Title = '建设简单和占位符性的Hugo网页'
 Description = '''
-第一步是要通过建设简单和占位符性的网页来了解hestiaHUGO的操作程序。
+通过建设简单网页来学习hesitaHUGO操作。
 '''
 URL = 'create-basic-and-placeholder-hugo-pages'
 Label = '开始'

@@ -1,0 +1,962 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+
+
+
+
+[i18n.Labels]
+Code = '代码'
+URL = 'URL'
+Image = '图面'
+Guides = '指南'
+
+
+
+
+[i18n.Introduction]
+ID = '建设简单和占位符性的Hugo网页'
+Title = "建设简单和占位符性的Hugo网页"
+Description = '''
+通过建设简单网页来学习hesitaHUGO操作。一个一步一步为hestiaHUGO编好的指南 —
+ZORALab赫斯提亚的Hugo模块。
+'''
+
+
+
+
+[i18n.Objectives]
+ID = '学习目标'
+Title = '学习目标'
+Description = '''
+在成功完毕这个指南领导后，您会学到:
+'''
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '了解hestiaHUGO如何和Hugo一起运作'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '了解hestiaHUGO如何管理文件和URL链接系统'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '了解hestiaHUGO如何处理界面元件设计自由'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '了解hestiaHUGO的设计是如何面对W3C的永久更新'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '了解hestiaHUGO的设计如何面对多元化的输出成果(HTML & JSON)'
+
+
+[[i18n.Objectives.Outcomes]]
+Value = '了解hestiaHUGO在默认情况下如何处理世界多语言'
+
+
+
+
+[[i18n.Steps]]
+ID = '先决条件'
+Title = '先决条件'
+Description = '''
+这个指南是先决您已经有一份尤其是通过之前的指南设立随时可以运用拥有hestiaHUGO的
+Hugo代码库。不然的话，那就请先完整之前的指南才会来这点：
+'''
+Code = ''
+URL = '/zh-hans/getting-started/setup-hugo/'
+Label = '设置拥有hestiaHUGO的Hugo'
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo如何处理URL地址和文件系统'
+Title = '了解hestiahugo如何处理URL地址和文件系统'
+Description = '''
+hestiaHUGO原生是有支持它自己的多语言(‘i18n’）功能：××它是运用第一层的文件夹为
+**ISO639-1, ISO639-2, ISO639-3, ISO15924, and ISO3166 语言代码××或无语言关系的
+网页（如：URL地址重向网页）。其余的是和Hugo一样。我们非常建议您为那文件夹设名时
+一定要遵守URL地址的模式和规则（如：没有空格、一切是小字母和没有古怪的符号等等）。
+即使您是建设语言单一的网站都好，您也为了未来不想垄断网页的链接点得遵守这个名字模
+式。
+'''
+Code = '''
+**模式**
+文件路线 :          content/[i18n]/url-compatible-pathing/file.extension
+URL地址 : [http://baseURL]/[i18n]/url-compatible-pathing/file.extension?query=value#tags
+
+**例子**
+content/ (https://hestia.zoralab.com/)
+	重定向去 ➔ content/en (https://hestia.zoralab.com/en)
+	重定向去 ➔ content/zh-hans (https://hestia.zoralab.com/zh-hans/)
+
+content/releases (https://hestia.zoralab.com/releases)
+	重定向去 ➔ content/en/releases/ (https://hestia.zoralab.com/en/releases/)
+	重定向去 ➔ content/zh-hans/releases/ (https://hestia.zoralab.com/zh-hans/releases/)
+
+content/zh-hans/releases/v1-0-0/ (https://hestia.zoralab.com/zh-hans/releases/v1-0-0/)
+content/zh-hans/releases/v1-1-0/ (https://hestia.zoralab.com/zh-hans/releases/v1-1-0/)
+content/zh-hans/releases/v1-2-0/ (https://hestia.zoralab.com/zh-hans/releases/v1-2-0/)
+content/zh-hans/releases/v1-2-0/index.html (https://hestia.zoralab.com/zh-hans/releases/v1-2-0/)
+content/zh-hans/releases/v1-2-0/index.json (https://hestia.zoralab.com/zh-hans/releases/v1-2-0/index.json)
+content/zh-hans/releases/v1-2-0/my-file.zip (https://hestia.zoralab.com/zh-hans/releases/v1-2-0/my-file.zip)
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '制造hugo的content文件夹'
+Title = '制造Hugo的Content文件夹'
+Description = '''
+我们先开始制造Hugo需要的Content文件夹吧。它的名字其实在您的
+‘config/_default/config.toml’文件里的‘contentDir’数码价值(常名为‘content’）。
+您可以改成别的名字。在这个指南里，我们还是运用常名‘content’来制造。过后呢，您需
+要重新启动您的Hugo Server(提示：`hugo server...`命令）。全部命令菜单如下：
+'''
+Code = '''
+# LINUX / MACOS
+	[ CTRL+C 停止Hugo Server ]
+	$ cd sites/        # 如果您不在您的Hugo文件夹里
+	$ mkdir -p content
+	$ hugo server .... # 如果忘记，请复习之前的指南
+
+
+# WINDOWS
+	[ CTRL+C 停止Hugo Server ]
+	> cd sites/        # 如果您不在您的Hugo文件夹里
+	> mkdir content
+	> hugo server .... # 如果忘记，请复习之前的指南
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '建设占位符性的网页'
+Title = '建设占位符性的网页'
+Description = '''
+现在系统需要的文件夹已经有了，我们可以开始为’/zh-hans‘登陆网页建设成占位符性
+网页。我们暂时是不会建设这一页。不过呢，’/zh-hans/404‘网页是需要它的出现才能开始
+建设。hestiaHUGO原生是和Hugo系统综合的。既然这个指南的语言是国际华语，那我们就通
+过Hugo命令来建出’content/zh-hans‘的网页吧。切记：这个命令是又重要和又常用的。您最
+好把它给记得起来。命令模式如下：
+'''
+Code = '''
+**模式**
+$ hugo new --kind hestia [filesystem path]
+
+
+**例子**
+$ hugo new --kind hestia content/zh-hans
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo如何处理网页的设置'
+Title = '了解hestiahugo如何处理网页的设置'
+Description = '''
+在还未继续建设时，我们先了解hestiahugo如何处理网页的设置。如果您现在观光那
+’content/zh-hans/‘文件夹里，您会找到很多TOML设置文件。由于现代的互联网的构造已经
+变得非常复杂，我们也无可奈何只能把那么多的设置分成因该的设置文件。有一个固定的思
+维一定要记住：千万不可碰Hugo原本的**_index.html**文件。它现在只是让Hugo寻找您的
+网页地图而已。我们的hestiaHUGO设计是很少会和其他Hugo界面的模块有冲突的而且您还是
+可以继续在同一个文件夹里放入网页有关而已的文件（如：有关图画只有这个网页运用、
+.docx文件、.csv文件，.pdf文集等等）。每个设置TOML文件如：
+'''
+Code = '''
+__assets.toml            ➤ 处理所有要在编制中加入CSS和JS代码库文件
+__components.toml        ➤ 例出所有在编制这页运里需要的hestiaHUGO界面模块
+__content.hestiaCSS      ➤ 这网页有关和将会被内嵌进HTML输出成果的最后一份CSS文件
+__content.hestiaHTML     ➤ 这网页输出的HTML内容模型
+__content.hestiaJS       ➤ 这网页有关和将会被内嵌进HTML输出成果的最后一份JS文件
+__content.hestiaJSON     ➤ 这网页输出的JSON内容模型
+__content.hestiaLDJSON   ➤ 这网页有关和将会被内嵌进HTML输出成果的LD+JSON文件
+__contributors.toml      ➤ 例出所有在这网页有关的贡献者
+__data.toml              ➤ 一份网页层的数据文件
+__i18n.toml              ➤ 一份网页层的数据文件
+_index.html              ➤ hugo网页察觉文件 (**绝对不可碰**)
+__languages.toml         ➤ 这网页的其他语言(翻译）网页链接菜单
+__page.toml              ➤ 这网页的主要第一设置文件
+__robots.toml            ➤ 这网页有关和将会被内嵌进HTML输出成果的擦寻机械器指南
+__thumbnails.toml        ➤ 这网页的是在社交网络运用的展览缩略图
+__twitter.toml           ➤ 这网页的推特设置
+__wasm.toml              ➤ 这网页的WASM设置
+'''
+URL = ''
+Label = ''
+
+
+
+
+[[i18n.Steps]]
+ID = '更新page-toml'
+Title = '更新__page.toml'
+Description = '''
+别担心，要处理占位符性的网页只需更新__page.toml设置文件就行了。这份文件是网页的
+最重要的设置数据。一些您需要更新的数据有如：
+'''
+Code = """
+...
+
+[Date]
+Created   = 'Sat 05 Mar 2023 11:22:21 AM +08'  # 记得更新到今天时间
+Published = 'Sat 05 Mar 2023 11:22:21 AM +08'  # 记得更新到今天时间
+
+...
+
+[Content]
+Title = '我的APP'
+Keywords = [
+        '我的APP',
+]
+
+...
+
+[Description]
+Pitch = '''
+待确认中。
+'''
+Summary = '''
+待会儿在回来。
+'''
+
+...
+"""
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = 'git-commit占位符性的网页'
+Title = 'Git Commit占位符性的网页'
+Description = '''
+现在全部东西已经设好了，您可以为这占位符性的网页的网页Git Commit掉然后往我们想要
+的/zh-hans/404网页建设。如果您需要Git的帮助，您可以通过以下的URL链接了解他们的官
+方书。大致上的命令菜单是：
+'''
+Code = '''
+$ git add .
+$ git commit -s
+
+--- 在您的文本编辑器里更改 ---
+sites: 加入/zh-hans/占位符性的网页
+
+为了我们想建设的/zh-hans/404网页，我们还是先建设需要的/zh-hans/占位符性
+的网页。如此，我们就开工吧。
+
+这个补丁是在sites/文件夹里加入/zh-hans/占位符性的网页。
+
+
+Signed-off-by: Name <EMAIL>
+--- 在您的文本编辑器里更改 ---
+
+$ git push
+'''
+URL = 'https://git-scm.com/book/zh/v2'
+Label = 'Git手册书'
+
+
+[[i18n.Steps]]
+ID = '为404网页建设重复所学的技巧'
+Title = '为404网页建设重复所学的技巧'
+Description = '''
+现在轮到您表演啦。我们要建设简单的/zh-hans/404网页
+（提示：'content/zh-hans/404'）。请运用您之前所学的技巧先假设需要的网页设置但是
+不需要Git Commit就行了。我们要接下来开发它。
+'''
+Code = '''
+提示：
+(1) $ hugo new --kind hestia [filesystem path]
+(2) $ 为404网页的__page.toml更新它需要和合适的数据。
+(3) $ git add .
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '更新网页推特的设置'
+Title = '更新网页推特的设置'
+Description = '''
+和之前占位符性的网页不同的是这一轮我们要彻底建设网页了。首先，如果您有推特的用户
+您可先更新'content/zh-hans/404/__twitter.toml'的这篇网页有关的设置。由于这是个
+404网页（因该没有人特地去询问吧），您只需要更新以下的数据就行了：
+'''
+Code = '''
+...
+
+[Creator]
+Handle = 'yourTwitterHandle'    # 有没有@都可以
+
+...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '更新擦寻机械器指南设置'
+Title = '更新擦寻机械器指南设置'
+Description = '''
+由于这页是个404网页，我们是不要网络擦寻机械器给放入大众的擦寻菜单里。如此以来，
+我们需要更新那'content/zh-hans/404/__robots.toml'设置文件了。这些网络擦寻机械器
+的指南数据将会被内嵌进HTML的meta标签里。例子有如：
+'''
+Code = '''
+...
+
+[[Meta]]
+Name = 'googleBot'
+Content = 'noindex, nofollow'
+
+[[Meta]]
+Name = 'robots'
+Content = 'noindex, nofollow'
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '更新网页的语言设置'
+Title = '更新网页的语言设置'
+Description = '''
+为了避免在以后制造太多复制粘贴的错误，我们还是最好更新
+'content/zh-hans/404/__languages.toml'语言设置。我们非常建议您运用RFC3986符合的
+URL链接相对型网址。我们会在下一步好好解释让您了解更多。以下是需要的更新工作：
+'''
+Code = '''
+...
+
+[zh-hans]
+URL = '/zh-hans/404'
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo如何处理URL'
+Title = '了解hestiahugo如何处理URL'
+Description = '''
+hestiaHUGO运用它自己的URL数据处理器（名为'hestiaURL/Sanitize'功能）。我们非常建
+议您在编译之前的范围运用相对型网址（如：您的网页模板等等）然后让hestiaHUGO把它
+编译成绝对型网址。您的网络游客不管任何原因永远都一定要得到绝对型网址。这个功能
+是RFC3986符合的。所以呢，您在建设相对型网址要小心啦。以下的例子可以详细描述它们
+的不同点：
+'''
+Code = '''
+例子1 - 输入无关的绝对型网址
+基地地址 : https://hestia.zoralab.com/default-path
+现任网页 : https://hestia.zoralab.com/default-path/this-page/
+输入     : https://www.example.com/
+输出     : https://www.example.com/
+
+
+例子2 - 输入与基地地址有关的相对型网址
+基地地址 : https://hestia.zoralab.com/default-path/
+现任网页 : https://hestia.zoralab.com/default-path/this-page/
+输入     : /my-page
+输出     : https://hestia.zoralab.com/default-path/my-page
+
+
+例子3 - 输入与现任网页的对型网址（注意：地址没有带头的斜线'/'）
+基地地址 : https://hestia.zoralab.com/default-path/
+现任网页 : https://hestia.zoralab.com/default-path/this-page/
+输入     : my-page
+输出     : https://hestia.zoralab.com/default-path/this-page/my-page
+'''
+URL = 'https://www.rfc-editor.org/rfc/rfc3986'
+Label = 'RFC3986 URL规范'
+
+
+[[i18n.Steps]]
+ID = '开发网页的HTML内容模型'
+Title = '开发网页的HTML内容模型'
+Description = '''
+给予hestiaHUGO,那份HTML内容模型文件其实是在__page.toml设置文件里的'Sources.HTML'
+所设的数据。原型数据其实是在同一个文件夹的'__content.hestiaHTML'文件。在这个指南
+里，如今我们是初学者，那我们就用那原型'__content.hestiaHTML'文件吧。咱们就打开来
+研究一下。如果您是已经上轨的Hugo模型开发者，您会马上发现到我们是运用Go的模型呈现
+功能（包括Hugo的partial功能）而不再是Markdown格式和Hugo的shortcode系统。在运用任
+何ZORALab赫斯提亚的产品时，我们是会要把它们开发成统一和越通用越好的。如果您已经
+是Go的开发者，您的Go Template智慧和经验自动和完整无亏损地在这个重用。在这个指南
+里，我们把文件给更新成一下的代码吧。当您完成任务后，让那Hugo服务器处理之后，您可
+以询问那服务器给的地址+/zh-hans/404/网页检验内容的准确。
+'''
+Code = '''
+...
+
+{{- /* render outputs */ -}}
+&lt;main&gt;
+	&lt;section id='自介' class='banner'&gt;
+		&lt;h1&gt;&#123;&#123;- .Titles.Page -&#125;&#125;&lt;/h1&gt;
+		&lt;p&gt;&#123;&#123;- .Descriptions.Page.Pitch &#125;&#125; &#123;&#123; .Descriptions.Page.Summary -&#125;&#125;&lt;/p&gt;
+
+
+		&#123;&#123;- $ret := merge . (dict "Input" (dict "Data" "/en/")) -&#125;&#125;
+		&#123;&#123;- $ret = partial "hestiaURL/Sanitize" $ret -&#125;&#125;
+		&lt;a class='button' href='&#123;&#123;- $ret -&#125;&#125;'&gt;回去主页&lt;/a&gt;
+	&lt;/section&gt;
+&lt;/main&gt;
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo如何处理网页数据'
+Title = '了解hestiahugo如何处理网页数据'
+Description = '''
+不像Hugo需要让网页设计师去猜测数据价值，hestiaHUGO处理和运用自己的网页数据结构好
+让设计师容易运用。更好的是，我们还有网页内可设计自适应的调试器控制台让您检验任何
+有关可用的数据。有注意到荧幕右边底下有个非常彩色的按钮吗？按按看就可以看到调试器
+控制台了。例如呢，您有注意到'{{- .Titles.Page -}}'被呈现成它的数据'.Titles.Page'
+价值了？
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+[i18n.Steps.Image]
+Name = "调试器控制台的屏幕截图"
+Decorative = false
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-600x600.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-600x600.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-600x600.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-400x400.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-400x400.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-400x400.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/hestiahugo-debugger-console-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo的数据路径'
+Title = '了解hestiahugo的数据路径'
+Description = '''
+hestiaHUGO终于完成设计它对content文件夹的控制和设计好让每一个文件夹输入有关网
+页需要的数码资料。还记得__i18n.toml和__data.toml文件吗？这些数码文件有在
+__page.toml的[[Data]]数组菜单里。hestiaHUGO维持足够的自由来建设网页的数据架
+构。当它完成解析所有的数据文件后，您的数据可以通过hestiaHUGO.Page数据架构来建设
+您的网页。其他的设置文件当然也是会供应不同的数据。请随心通过调试器控制台玩玩研究
+吧。以下的链接是hestiaHUGO.Page数据架构的规范（的空时才阅读吧，我们先向前走）。
+'''
+Code = '''
+__data.toml + __i18n.toml + ...   (切记: 跟着__page.toml的[[Data]]数组菜单)
+             ⤋
+         .Field.[...]
+             ⤋
+     {{- .Field.[...] -}}
+'''
+URL = '/zh-hans/specs/hestiaCOMPILERS/hestiaHUGO/'
+Label = 'hestiaHUGO.Page数据架构规范'
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo如何授权hugo'
+Title = '了解hestiaHUGO如何授权Hugo'
+Description = '''
+hestiaHUGO如其他ZORALab赫斯提亚模块供应自己的标准代码库。刚才有注意到您运用
+hestiaURL.Sanitize吗？那是hestiaHUGO的URL数据检验功能。它把URL链接从相像型去
+稳定的绝对型。能供应自己的标准代码库主要是我们可以继续专心发展ZORALab赫斯提亚尤
+其是所有模块通用而不是整天只是忙着寻擦Hugo不稳定的输出成果根源。所有
+ZORALab赫斯提亚元件都是经过同样的上下文写出的。以下的链接是ZORALab赫斯提亚全部的
+API规范官方文件。为了这份指南，我们会向前走。待会阅读吧。
+'''
+Code = '''
+'''
+URL = '/zh-hans/spec'
+Label = '规范'
+
+
+[[i18n.Steps]]
+ID = '开发网页的界面造型元件菜单'
+Title = '开发网页的界面造型元件菜单'
+Description = '''
+现在我们已经肯定了呈现HTML而已的网页数据，我们可以开始开发它的造型了。hestiaHUGO
+运用界面元件方式去把网页稳重地造型出来。请更新/zh-hans/404/__components.toml的设
+置数据如以下显示的资料。但您做好了后，就让Hugo服务器内部更新一下才再次刷新观看那
+404网页。您会注意到那网页已经美化好（尤其是那按钮）。您可以通过调试器控制台寻找
+.CSS.Inline的编这页制出的CSS代码。
+'''
+Code = '''
+...
+[[List]]
+Name = "zoralabCORE"
+Include = true
+Variables = [
+        { "--body-scroll-behavior" = "smooth" },
+]
+
+[[List]]
+Name = "zoralabFONT_NOTOSANS"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabANCHOR"
+Include = true
+Variables = []
+
+[[List]]
+Name = "zoralabBUTTON"
+Include = true
+Variables = []
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解hestiaHUGO如何处理网页造型'
+Title = '了解hestiaHUGO如何处理网页造型'
+Description = '''
+hestiaHUGO是像Backbone、Angular和React结构把页造型元件化但与它们不同的是
+hestiaHUGO把每个元件的HTML、CSS、和JS综合起来而不是分开偏向JS单一处理。如此一来，
+通过Hugo，hestiaHUGO可以编制网页只需要的CSS、CSS变化值和JS的代码然后内嵌进它的
+HTML代码里。那编制出的HTML文件是AMP最初设想自给自足而不再需要而外远程架构的网页
+啦。另外呢，这个编制出的HTML文件可以很容易地支持PWA离线情况下继续运用而且还让造
+型元件设计师专住和容易化元件更新W3C的不向后兼容的进展工作。3件事1次性搞定⥤价廉
+物美啊。
+'''
+Code = '''
+'''
+URL = '/zh-hans/specs/hestiaGUI'
+Label = '界面造型元件规范菜单'
+
+
+[[i18n.Steps]]
+ID = '了解hestiaHUGO为何集装每个网页的造型'
+Title = '了解hestiaHUGO为何集装每个网页的造型'
+Description = '''
+主要是要避免在更新UI时在全站里搞出打鼹鼠游戏类似的网页造型破裂。我们已经实验过很
+多种方式了。如今，这个方式是最优化了。若要好像以前一样地在全站里规模化，您只需
+复制那__components.toml就行了。这样做也可以让初学设计师可以安全地地去制作网站同时
+放心地搞错误来学习和进展。
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解hestiaHUGO如何操作界面元件'
+Title = '了解hestiaHUGO如何操作界面元件'
+Description = '''
+如同之前所说的：CSS代码是用来造型界面、CSS变化值是用来随环境更改界面定制和JS代码
+用来造型动画和反映设计等等用途。当您加入一份界面元件时，您会有一个Include的开关
+在设计中用来容易寻找问题根点（好过把一大堆的代码给删掉）。您也同时可以同时改写
+界面元件CSS变化值现有的价值，好让hestiaHUGO只需编制一份CSS变化值菜单就足够了。
+'''
+Code = '''
+...
+
+[[List]]
+Name = "zoralabCORE"
+Include = true
+Variables = [
+        { "--body-scroll-behavior" = "smooth" },   # 这个改写原本的none价值
+]
+
+...
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解ZORALab赫斯提亚为何只专注HTML和CSS造型而已'
+Title = "了解ZORALab赫斯提亚为何只专注HTML和CSS造型而已"
+Description = '''
+为了2个重要的原因：(1)支持隐私优先的呈现（如：完全禁用JS）➤ 在2022新冠疫情时期，
+每个人对隐私数据泄漏非常敏感所以完全禁用JS的用法是迟早的。在这种情况里，您的出名
+JS构架和我们的WASM是完全没用但是游客还是要网站可以依然使用。(2)ZORALab赫斯提亚有
+目的把JS给一些正常点的代码语言如Go或Nim通过WASM完全代替。如果只是HTML和CSS而已，
+那界面元件WASM进化工作会非常容易「不需要烦JS的控制骚扰」。无论如何，您还是可以运
+用Javascript（我们会迟点教您）。在ZORALab赫斯提亚行政里，我们绝不像某些科技那么
+狠心霸道来控制任何人的艺术自由发挥和表现。
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解zoralab和javascript关系'
+Title = '了解zoralab和JavaScript关系'
+Description = '''
+咱们面对现实吧：JavaScript虽然在历史至今还是不稳定和唯一可以在网络运用的代码语
+言。它的不定弱点搞出一些架构如Angular和Typescript等等来变通地“解决”问题。由于它
+们本身也是来自Javascript出生，就这样制造了它们本身的问题。如今WASM的诞生，
+ZORALab坚决地要迎面地解决这JavaScript的问题啦。我们不是讨厌JavaScript而是发现它
+还蛮高风险的。很久以前的JavaScript架构出生和淘汰就足够证明一切了。
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo的未来'
+Title = '了解hestiaHUGO的未来'
+Description = '''
+如今想要达到我们的网络科技梦想，那就有3个使用案例必须实现：（1）可被SEO和SMO发现
+的网页、（2）单一APP - 1个WASM操作整个网站和（3）反应式渲染网页 - 每个网页都有
+自己的WASM渲染网页内容。hestiaHUGO将会满足使用案例（1）和供应WASM给使用案例（2）
+和使用案例（3）。这也就是为何我们还在支持Hugo（还把它改成内容编译器）。
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '通过css再更改进化网页造型'
+Title = '通过CSS再更改进化网页造型'
+Description = '''
+现在那404网站已经规模化地美化了，您可以通过CSS再更改进化那网页到它独特的造型。您
+只需要在__content.hestiaCSS加入您的CSS代码就行了。hestiaHUGO会把它编译为最后一份
+内嵌的CSS文件。当Hugo服务器做好了，您可以回去那网页看看。它因该是在以颜色跳舞吧。
+'''
+Code = '''
+main {
+	height: 100vh;
+	width: 100vw;
+
+	 isplay: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: linear-gradient(245deg,
+					#192fe3,
+					#19e33b,
+					#bbe319,
+					#e35019,
+					#e31919,
+					#e319c1);
+	background-size: 1200% 1200%;
+
+	animation: BgDiscoFlasher 4s ease infinite;
+}
+
+@keyframes BgDiscoFlasher {
+	0%{background-position:0% 86%}
+	50%{background-position:100% 15%}
+	100%{background-position:0% 86%}
+}
+
+.banner {
+	width: 50%;
+	max-height: fit-content;
+
+	padding: 5rem;
+	border-radius: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background: rgba(255, 255, 255, .75);
+}
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '通过javascript更新进化网页'
+Title = '通过JavaScript更新进化网页'
+Description = '''
+同时，您也可以通过JavaScript更新进化网页造型。那文件是__content.hestiaJS。虽然那
+404网页已经不需要在进化造型了，为了完整化这份指南，我们就加入以下的JS代码经历一
+下吧。当Hugo处理器搞定好了，您可以再次观赏那404网页然后打开浏览器的检查器控制台
+（F12键盘键)。您应该会看到一只喵喵的猫咪。就如CSS一样：这份JS也是编译为最后一份
+内嵌的JS文件。
+'''
+Code = '''
+window.onload = function() {
+	console.log("\nMeow~~~~ ₍⌯ᴖⱅᴖ⌯ ^₎◞ ̑̑ෆ⃛ \n\n");
+};
+'''
+URL = ''
+Label = ''
+
+[i18n.Steps.Image]
+Name = "猫喵喵在浏览器的检查器控制台里叫的截图"
+Decorative = false
+Loading = 'lazy'
+Width = "600"
+Height = "600"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-600x600.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-600x600.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-600x600.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-400x400.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-400x400.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-400x400.jpg"
+Type = "image/jpeg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[i18n.Steps.Image.Sources]]
+URL = "/img/getting-started/js-output-220x220.jpg"
+Type = "image/jpeg"
+Media = "all"
+Descriptor = '1x'
+
+
+[[i18n.Steps]]
+ID = '为seo更新ldjson数据'
+Title = '为SEO更新LD+JSON数据'
+Description = '''
+hestiHUGO有内置支持Schema.org的网页数码构架。那有关文件是__content.hestiaLDJSON。
+如今是404网页，我们只需要加入以下的代码程序就行了。当Hugo服务器完成它的更新程序之
+后，您可以在网页内通过我们的调试器控制台索取输出的成果然后送去Schema.org的验证室
+检验一下。
+'''
+Code = '''
+...
+{{- /* prepare variables for function */ -}}
+...
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (partial "hestiaJSON/schemaorgLDJSON/WebPage" .) -}}
+
+
+
+
+{{- /* render output */ -}}
+...
+'''
+URL = 'https://validator.schema.org/'
+Label = 'LD+JSON验证室'
+
+
+[[i18n.Steps]]
+ID = '了解hestiahugo如何处理ldjson'
+Title = '了解hestiaHUGO如何处理LD+JSON'
+Description = '''
+为了在自由发挥和稳重输出内保持平衡，两件要记得的是：（1）hesitaHUGO只能帮您快速
+地建设先知常用的数据构架（如作者、页类、等等）。（2）您需要自己另加网页有关的仔
+细数据（如：煮法步骤等等类型）。
+'''
+Code = '''
+'''
+URL = 'https://schema.org/docs/full.html'
+Label = 'Schema.org Data Structures'
+
+
+[[i18n.Steps]]
+ID = '暂存当前的状态'
+Title = '暂存当前的状态'
+Description = '''
+现在HTML的输出成果已经做好了，我们就应该Git暂存目前的状态。我们的目前工作还未做
+完。请继续下一步吧。
+'''
+Code = '''
+提示：
+$ git add .
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '制造json的输出内容'
+Title = '制造JSON的输出内容'
+Description = '''
+hestiaHUGO在默认情况下支持JSON为同时第二输出内容。这是hestiaHUGO的功能，而不是运
+用Hugo的。有如之前的LD+JSON相似，您可以在这儿建设网页的数据架构。但是和LD+JSON不
+同的是，您是不会被Schema.org的数据架构规范给横行锁住。这是纯真JSON（可以在URL地
+址加上index.json就可以看到）。那文件是在__page.toml里被.Sources.JSON规定的（常用
+的是__content.hestiaJSON）。既然我们现在是建设404网页，我们可以放着就好。您可以
+去看看那文件来了解更多。
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '了解hestiaHUGO为何默认情况支持JSON输出内容'
+Title = '了解hestiaHUGO为何默认情况支持JSON输出内容'
+Description = '''
+5个原因：（1）可以运用hestiaHUGO制作CDN推动的开源数据API的服务网站、（2）一个在
+网络搜寻服务工商接近为了广告收入破坏SEO的情况下备份原因来运用Hugo、（3）供应一个
+没有被LD+JSON锁控的数据输出、（4）确定和测试hestiaHUGO可以输出多个一种内容和（5）
+准备一个方法为AI输入数据。在默认情况下的设置是为没有需求而定。如果您不需要运用
+JSON输出内容，您可以完全不碰那__content.hestiaJSON文件。
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '提交和推送'
+Title = '提交和推送'
+Description = '''
+在这检查站，我们已经完整地把一个简单和基本的404网页做好了。您可以Git提交和推送
+了。
+'''
+Code = '''
+提示：
+$ git add .
+$ git commit -s
+----
+... 如之前所教的写出一个好Git论文 ...
+----
+$ git push
+'''
+URL = ''
+Label = ''
+
+
+[[i18n.Steps]]
+ID = '记得hestiaHUGO的强点'
+Title = '记得hestiaHUGO的强点'
+Description = '''
+如果您还未发现，hestiaHUGO只需要输入1分网页数据来输出多种内容格式和可以稳重地同
+时支持多种语言。其实，它还私低下为每份网页输出sitemap.xml和sitemap-page.xml的文
+件。这也就是我们一路想解决的Hugo问题：1个稳重的输入数据安稳地输出多种内容格式。
+我们目前所学的只是一小部分而已。在以后的指南里，我们会继续研究更多hestiaHUGO的功
+能。
+'''
+Code = '''
+'''
+URL = ''
+Label = ''
+
+
+
+
+[i18n.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+恭喜！我们也到了这个指南的终结了。在这点，您已经为您的前端网站建设了一份可以运用
+的’/zh-hans/404‘网页了。请随时点记。当您准备好时，我们就进入下一个指南吧：
+'''
+URL = 'url-redirection-in-hugo'
+CTA = '在Hugo里重定向链接URL地址'

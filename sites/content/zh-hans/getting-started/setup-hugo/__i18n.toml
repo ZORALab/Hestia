@@ -18,7 +18,7 @@ Guides = '指南'
 ID = '设置hugo'
 Title = "设置拥有hestiaHUGO的Hugo"
 Description = '''
-一个一步一步编好的从新设置拥有ZORALab赫斯提亚的Hugo Git代码库指南。
+一个一步一步为hestiaHUGO编好的指南 — ZORALab赫斯提亚的Hugo模块。
 '''
 
 
