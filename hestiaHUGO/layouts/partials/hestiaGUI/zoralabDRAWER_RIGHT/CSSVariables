@@ -4,7 +4,7 @@
 
 "--right-drawer-width" = "0"
 "--right-drawer-width-opened" = "90vw"
-"--right-drawer-height" = "100vh"
+"--right-drawer-height" = "100%"
 "--right-drawer-height-opened" = "var(--right-drawer-height)"
 "--right-drawer-overflow" = "hidden auto"
 "--right-drawer-border" = "var(--drawer-border)"
