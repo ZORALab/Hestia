@@ -480,6 +480,466 @@ Label = ''
 
 
 
+[Metadata.Languages.ZH-HANS]
+Title = '1.0.0版'
+Summary = '''
+首次发布支持Hugo。它的重要工程是要支持静态WASM推动的网页呈现和传统网页呈现。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>core_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出core_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>font-notosans_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出font-notosans_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>anchor_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出anchor_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>code_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出code_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>pre_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出pre_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>catalog_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出catalog_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>drawer_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出drawer_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>toc_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出toc_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>note_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出note_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>note-error_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出note-error_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>note-warning_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出note-warning_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>note-success_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出note-success_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>deflist_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出deflist_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>olist_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出olist_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>ulist_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出ulist_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>divider_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出divider_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>divider-cut_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出divider-cut_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>divider-dashed_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出divider-dashed_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>badge-shields_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出badge-shields_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>button_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出button_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>card_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出card_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>blockquote_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出blockquote_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>dialog_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出dialog_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>picture_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出picture_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>table_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出table_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>form_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出form_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>iframe_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出iframe_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出<code>carousel_hestiaUI</code>界面元件。
+'''
+Plain = '''
+运出carousel_hestiaUI界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出Progressive Web Application (PWA)功能。
+'''
+Plain = '''
+运出Progressive Web Application (PWA)功能。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出无缝的PWA离线功能。
+'''
+Plain = '''
+运出无缝的PWA离线功能。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+内部支持PWA网站图标生成功能。
+'''
+Plain = '''
+内部支持PWA网站图标生成功能。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出GitHub Pages和Cloudflare Pages功能。
+'''
+Plain = '''
+运出GitHub Pages和Cloudflare Pages功能。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出i18n领导重向功能。
+'''
+Plain = '''
+运出i18n领导重向功能。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+运出i18n领导重向的404.html文件制作。
+'''
+Plain = '''
+运出i18n领导重向的404.html文件制作。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights]]
+HTML = '''
+通过ZORALab's Cerigo工程既定标准库同化。
+'''
+Plain = '''
+通过ZORALab's Cerigo工程既定标准库同化。
+'''
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.TinyGo.Highlights]]
+HTML = '''
+通过ZORALab's Cerigo工程既定标准库同化。
+'''
+Plain = '''
+通过ZORALab's Cerigo工程既定标准库同化。
+'''
+
+[[Metadata.Languages.ZH-HANS.TinyGo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Rust.Highlights]]
+HTML = '''
+通过ZORALab's Cerigo工程既定标准库同化。
+'''
+Plain = '''
+通过ZORALab's Cerigo工程既定标准库同化。
+'''
+
+[[Metadata.Languages.ZH-HANS.Rust.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
 
 [Image]
 Name = ""

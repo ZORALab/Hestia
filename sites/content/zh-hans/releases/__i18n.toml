@@ -1,0 +1,45 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+
+
+
+
+[i18n.Labels]
+ID = 'ID'
+ReleaseNote = '发行说明'
+List = '菜单'
+
+
+
+
+[i18n.Introduction]
+ID = '发行'
+Title = '发行'
+Description = '''
+我们历史中根据版本从最新到古前所发布的产品。
+'''
+
+
+
+
+[i18n.Catalog]
+ID = '菜单'
+Title = '所有的软件包'
+Description = '''
+从最新到古前。
+'''
+Label = '了解更多'
+
+
+
+
+[i18n.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+我们已经抵达这个ZORALab赫斯提亚所发布的软件包菜单的终结段了。如有询问，您是可以
+通过以下管道来联系我们吧：
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub讨论论坛'

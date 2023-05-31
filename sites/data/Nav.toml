@@ -137,6 +137,18 @@ URL = '/zh-hans/getting-started/#nim'
 
 
 [[Languages.ZH-HANS]]
+Title = '发布软件包'
+
+[[Languages.ZH-HANS.Items]]
+Title = "询问"
+URL = '/zh-hans/releases/'
+
+[[Languages.ZH-HANS.Items]]
+Title = "菜单"
+URL = '/zh-hans/releases/#catalog'
+
+
+[[Languages.ZH-HANS]]
 Title = '许可证'
 
 [[Languages.ZH-HANS.Items]]

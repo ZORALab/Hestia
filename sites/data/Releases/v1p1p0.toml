@@ -118,6 +118,102 @@ Label = ''
 
 
 
+[Metadata.Languages.ZH-HANS]
+Title = '1.1.0版'
+Summary = '''
+针对1.0.0版小型补丁。它的主要工程是解决一些在开发时发现的痛手的严重错误。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+为每个网页的造型功能加入本地<code>__content.js</code>。
+'''
+Plain = '''
+为每个网页的造型功能加入本地__content.js。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+为每个网页的造型功能加入本地<code>__content.css</code>。
+'''
+Plain = '''
+为每个网页的造型功能加入本地__content.css。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决时间数据处理功能所输出的难看日志输出。
+'''
+Plain = '''
+解决时间数据处理功能所输出的难看日志输出。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决当<code>__content.json</code>是个大型数据构架渲染成一条字符串不完善的错误。
+'''
+Plain = '''
+解决当<code>__content.json</code>是个大型数据构架渲染成一条字符串不完善的错误。
+'''
+
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights]]
+HTML = '''
+加入包装和分发CI自动化功能的工作单。
+'''
+Plain = '''
+加入包装和分发CI自动化功能的工作单。
+'''
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.TinyGo.Highlights]]
+HTML = '''
+加入包装和分发CI自动化功能的工作单。
+'''
+Plain = '''
+加入包装和分发CI自动化功能的工作单。
+'''
+
+[[Metadata.Languages.ZH-HANS.TinyGo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Rust.Highlights]]
+HTML = '''
+加入包装和分发CI自动化功能的工作单。
+'''
+Plain = '''
+加入包装和分发CI自动化功能的工作单。
+'''
+
+[[Metadata.Languages.ZH-HANS.Rust.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
 
 [Image]
 Name = ""
