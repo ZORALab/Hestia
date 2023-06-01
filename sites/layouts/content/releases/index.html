@@ -10,10 +10,8 @@
 {{- /* render output */ -}}
 <main style='padding-bottom: 0;'>
 	<section id='{{- $i18n.Introduction.ID -}}'>
-		<div>
-			<h1>{{- $i18n.Introduction.Title -}}</h1>
-			<p>{{- $i18n.Introduction.Description -}}</p>
-		</div>
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
 	</section>
 
 

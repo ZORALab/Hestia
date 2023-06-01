@@ -14,11 +14,7 @@ List = '菜单'
 
 
 [i18n.Introduction]
-ID = '发行'
-Title = '发行'
-Description = '''
-我们历史中根据版本从最新到古前所发布的产品。
-'''
+ID = '自介'
 
 
 

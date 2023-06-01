@@ -14,11 +14,7 @@ List = 'List'
 
 
 [i18n.Introduction]
-ID = 'releases'
-Title = 'Releases'
-Description = '''
-All out historical product releases by version, from latest to the earliest.
-'''
+ID = 'introduction'
 
 
 
