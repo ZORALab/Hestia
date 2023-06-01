@@ -1,0 +1,60 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+
+
+
+
+[i18n.Labels]
+Assets = '资产'
+Statement = '陈述'
+References = '引用'
+Notes = '笔记'
+
+
+
+
+[i18n.Introduction]
+ID = '自介'
+Title = 'v1.0.0版发行说明'
+Description = '''
+ZORALab赫斯提亚v1.0.0版的科技规范和有关的科技。
+'''
+
+
+
+
+[i18n.Downloads]
+ID = '下载'
+Title = '所有的下载软件包'
+Description = '''
+所有可下载的ZORALab赫斯提亚v1.0.0版软件包：
+'''
+Package = '软件包'
+Certificate = '检验文凭'
+GPGKey = 'GPG钥匙'
+SHA512 = 'SHA512'
+Download = '下载'
+
+
+
+
+[i18n.Highlights]
+ID = '亮点'
+Title = '值得注意的亮点'
+Description = '''
+这些是这个工程版本值得注意的亮点。它们是为科技种类而被整理成的菜单。
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+我们已经抵达这个ZORALab赫斯提亚版本的发行说明的终结段了。如有询问，您是可以通过
+以下管道来联系我们吧：
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub讨论论坛'

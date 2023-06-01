@@ -55,9 +55,9 @@ are organized based on technological grouping in a non-chornological manner.
 ID = 'epilogue'
 Title = 'Epilogue'
 Description = '''
-We have reach the end of the catalog for ZORALab's Hestia Project package
-release note. If you have any query, please feel free to contact us at our
-following portal:
+We have reach the end of the release note for this version of
+ZORALab's Hestia Project. If you have any query, please feel free to contact us
+at our following portal:
 '''
 URL = 'https://github.com/ZORALab/Hestia/discussions'
 CTA = 'GitHub Discussion Portal'
