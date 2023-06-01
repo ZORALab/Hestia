@@ -1,0 +1,63 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+
+
+
+
+[i18n.Labels]
+Assets = 'Assets'
+Statement = 'Statement'
+References = 'References'
+Notes = 'Notes'
+
+
+
+
+[i18n.Introduction]
+ID = 'introduction'
+Title = 'v1.0.0 Release Note'
+Description = '''
+The technical summary about ZORALab's Hestia version v1.0.0 release covering
+its related technologies.
+'''
+
+
+
+
+[i18n.Downloads]
+ID = 'downloads'
+Title = 'All Available Downloads'
+Description = '''
+All available downloads for using ZORALab's Hestia with this version:
+'''
+Package = 'Package'
+Certificate = 'Certificate'
+GPGKey = 'GPG Key'
+SHA512 = 'SHA512'
+Download = 'Download'
+
+
+
+
+[i18n.Highlights]
+ID = 'highlights'
+Title = 'Notable Highlights'
+Description = '''
+Some notable changes you should know before deploying into your project. They
+are organized based on technological grouping in a non-chornological manner.
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+We have reach the end of the catalog for ZORALab's Hestia Project package
+release note. If you have any query, please feel free to contact us at our
+following portal:
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub Discussion Portal'

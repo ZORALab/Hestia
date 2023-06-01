@@ -1,0 +1,105 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $dataset := .Data.Store.Releases.v1p0p0 -}}
+{{- $lang := index $dataset.Metadata.Languages .Languages.Current.ID -}}
+{{- $list := slice -}}
+{{- $list2 := slice -}}
+{{- $ret := false -}}
+{{- $data := dict -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Title .Titles.Page
+	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+) -}}
+
+
+
+
+{{- $list =slice -}}
+{{- range $i, $v := $dataset.Assets -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $data = dict $i18n.Downloads.Package (string $ret.Output) -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.GPG.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $data = merge $data (dict $i18n.Downloads.Certificate (string $ret.Output)) -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $Page.Data.Store.GPG.Key.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $data = merge $data (dict $i18n.Downloads.GPGKey (string $ret.Output)) -}}
+
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.SHA512.Value)) -}}
+	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
+	{{- $ret = partial "hestiaSTRING/TrimWhitespace" $ret.Output -}}
+	{{- $data = merge $data (dict $i18n.Downloads.SHA512 $ret) -}}
+
+
+	{{- $list = append $data $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Labels.Assets $list) -}}
+
+
+
+
+{{- range $count, $tech := slice "Hugo" "Go" "Nim" "Rust" -}}
+	{{- $data = index $lang $tech -}}
+	{{- if not $data -}}
+		{{- $dataList = merge $dataList (dict $i18n.Labels.Notes (dict $tech slice)) -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- if not (len $data.Highlights) -}}
+		{{- $dataList = merge $dataList (dict $i18n.Labels.Notes (dict $tech slice)) -}}
+		{{- continue -}}
+	{{- end -}}
+
+
+	{{- $list = slice -}}
+	{{- range $i, $v := $data.Highlights -}}
+		{{- $list2 = slice -}}
+		{{- range $j, $w := $v.URL -}}
+			{{- if or (not $w.Value) (not $w.Label) -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+			{{- $ret = string $ret.Output -}}
+			{{- $list2 = append $ret $list2 -}}
+		{{- end -}}
+
+		{{- $ret = partial "hestiaSTRING/TrimWhitespace" $v.Plain -}}
+
+		{{- $list = append (dict
+			$i18n.Labels.Statement $ret
+			$i18n.Labels.References $list2
+		) $list -}}
+	{{- end -}}
+
+
+	{{- $dataList = merge $dataList (dict $i18n.Labels.Notes (dict $tech $list)) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}
