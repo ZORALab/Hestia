@@ -115,7 +115,7 @@
 						) -}}
 						{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 						{{- $ret = string $ret.Output -}}
-					<a href='{{- $ret -}}'>[$w.Label]</a>
+					[<a href='{{- $ret -}}'>{{- $w.Label -}}</a>]
 					{{- end }}
 				</li>
 			{{- end }}

@@ -1,20 +1,20 @@
 [[Assets]]
-URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip'
-Label = 'hestiaHUGO-v1.1.0.zip'
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.0/hestiaHUGO-v1.2.0.zip'
+Label = 'hestiaHUGO-v1.2.0.zip'
 
 [Assets.SHA512]
-Value = '565b8ac7188f983d8c0f53d72ca2dde57a5a7eadff7ff0365438c00af77b1b67b615c6fa396eb839f6557dbb085c3d53d673dc755b990c7a9ca8afc87f5b6468'
+Value = 'TBD'
 Label = 'SHA512'
 
 [Assets.GPG]
-URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip.asc'
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.0/hestiaHUGO-v1.2.0.zip.asc'
 
 
 
 
 [Metadata]
 ID = 'v1.2.0'
-URL = 'v1p1p0'
+URL = 'v1p2p0'
 BackwardCompatible = false
 Development = true
 Latest = true
@@ -50,8 +50,8 @@ Label = ''
 
 [[Metadata.Languages.EN.Hugo.Highlights]]
 HTML = '''
+<span style='color: red;'><b>(NON-BACKWARD COMPATIBLE)</b></span>
 Fixed hestiaHUGO sluggish performance when the repository is over 80 pages.
-<b>[ NON-BACKWARD COMPATIBLE ]</b>
 '''
 Plain = '''
 Fixed hestiaHUGO sluggish performance when the repository is over 80 pages.
@@ -65,7 +65,8 @@ Label = 'GitHub Issue#59'
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
-解决hestiaHUGO在多个80页的缓慢问题<b>[ 不向后兼容 ]</b>。
+<span style='color: red;'><b>(不向后兼容)</b></span>
+解决hestiaHUGO在多个80页的缓慢问题。
 '''
 Plain = '''
 解决hestiaHUGO在多个80页的缓慢问题（ 不向后兼容 ）。
@@ -460,8 +461,9 @@ Label = 'GitHub问题#97'
 
 [[Metadata.Languages.EN.Hugo.Highlights]]
 HTML = '''
+<span style='color: red;'><b>(NON-BACKWARD COMPATIBLE)</b></span>
 Renamed all hestiaUI to zoralab prefix due to someone attempting to steal
-design copyright <b>[ NON-BACKWARD COMPATIBLE ]</b>.
+design copyright.
 '''
 Plain = '''
 Renamed all hestiaUI to zoralab prefix due to someone attempting to steal
@@ -475,8 +477,8 @@ Label = 'GitHub Issue#99'
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
-把所有的hestiaUI元件改名为zoralab领导名称来防止有人偷袭设计版权
-<b>[不向后兼容]</b>。
+<span style='color: red;'><b>(不向后兼容)</b></span>
+把所有的hestiaUI元件改名为zoralab领导名称来防止有人偷袭设计版权。
 '''
 Plain = '''
 把所有的hestiaUI元件改名为zoralab领导名称来防止有人偷袭设计版权
@@ -633,7 +635,8 @@ Label = ''
 
 [[Metadata.Languages.EN.Rust.Highlights]]
 HTML = '''
-Removed from being supported - added to archive <b>[ NON-BACKWARD COMPATIBLE ]</b>.
+<span style='color: red;'><b>(NON-BACKWARD COMPATIBLE)</b></span>
+Removed from being supported - added to archive.
 '''
 Plain = '''
 Removed from being supported - added to archive (non-backward compatible).
@@ -646,7 +649,8 @@ Label = ''
 
 [[Metadata.Languages.ZH-HANS.Rust.Highlights]]
 HTML = '''
-不再支持了 - 所以现任的代码将会被冷冻 <b>[不向后兼容]</b>。
+<span style='color: red;'><b>(不向后兼容)</b></span>
+不再支持了 - 所以现任的代码将会被冷冻。
 '''
 Plain = '''
 不再支持了 - 所以现任的代码将会被冷冻 (不向后兼容）。
