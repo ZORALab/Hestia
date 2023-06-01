@@ -61,6 +61,18 @@ URL = '/en/releases'
 Title = "Catalog"
 URL = '/en/releases/#catalog'
 
+[[Languages.EN.Items]]
+Title = "v1.2.0"
+URL = '/en/releases/v1p2p0'
+
+[[Languages.EN.Items]]
+Title = "v1.1.0"
+URL = '/en/releases/v1p1p0'
+
+[[Languages.EN.Items]]
+Title = "v1.0.0"
+URL = '/en/releases/v1p0p0'
+
 
 [[Languages.EN]]
 Title = 'Licenses'
@@ -146,6 +158,18 @@ URL = '/zh-hans/releases/'
 [[Languages.ZH-HANS.Items]]
 Title = "菜单"
 URL = '/zh-hans/releases/#catalog'
+
+[[Languages.ZH-HANS.Items]]
+Title = "v1.2.0"
+URL = '/zh-hans/releases/v1p2p0'
+
+[[Languages.ZH-HANS.Items]]
+Title = "v1.1.0"
+URL = '/zh-hans/releases/v1p1p0'
+
+[[Languages.ZH-HANS.Items]]
+Title = "v1.0.0"
+URL = '/zh-hans/releases/v1p0p0'
 
 
 [[Languages.ZH-HANS]]
