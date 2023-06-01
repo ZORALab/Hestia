@@ -1,0 +1,737 @@
+[[Assets]]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip'
+Label = 'hestiaHUGO-v1.1.0.zip'
+
+[Assets.SHA512]
+Value = '565b8ac7188f983d8c0f53d72ca2dde57a5a7eadff7ff0365438c00af77b1b67b615c6fa396eb839f6557dbb085c3d53d673dc755b990c7a9ca8afc87f5b6468'
+Label = 'SHA512'
+
+[Assets.GPG]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip.asc'
+
+
+
+
+[Metadata]
+ID = 'v1.2.0'
+URL = 'v1p1p0'
+BackwardCompatible = false
+Development = true
+Latest = true
+Retired = false
+
+
+
+
+[Metadata.Languages.EN]
+Title = 'Version 1.2.0'
+Summary = '''
+Minor patches against version 1.1.0. Its main focus are to perform several
+citical bug fixes discovered from the development of its predecessor.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+
+
+[Metadata.Languages.ZH-HANS]
+Title = '1.2.0版'
+Summary = '''
+针对1.1.0版小型补丁。它的主要工程是解决一些在开发时发现的痛手的严重错误。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed hestiaHUGO sluggish performance when the repository is over 80 pages.
+<b>[ NON-BACKWARD COMPATIBLE ]</b>
+'''
+Plain = '''
+Fixed hestiaHUGO sluggish performance when the repository is over 80 pages.
+(NON-BACKWARD COMPATIBLE).
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/59'
+Label = 'GitHub Issue#59'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决hestiaHUGO在多个80页的缓慢问题<b>[ 不向后兼容 ]</b>。
+'''
+Plain = '''
+解决hestiaHUGO在多个80页的缓慢问题（ 不向后兼容 ）。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/59'
+Label = 'GitHub问题#59'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added standard implementation of on-screen data debugger console.
+'''
+Plain = '''
+Added standard implementation of on-screen data debugger console.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/77'
+Label = 'GitHub Issue#77'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入标准数据试器控制台。
+'''
+Plain = '''
+加入标准数据试器控制台。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/77'
+Label = 'GitHub问题#77'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added <code>zoralabDEBUGGER</code> UI component.
+'''
+Plain = '''
+Added zoralabDEBUGGER UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入<code>zoralabDEBUGGER</code>界面元件。
+'''
+Plain = '''
+加入zoralabDEBUGGER界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Changed all content filenames to <code>__content.hestia[FORMAT]</code> naming convention.
+'''
+Plain = '''
+Changed all content filenames to __content.hestia[FORMAT] naming convention.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/80'
+Label = 'GitHub Issue#80'
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/86'
+Label = 'GitHub Issue#86'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+改换所有的__content文件名字一律配合<code>__content.hestia[FORMAT]</code>的名字模式。
+'''
+Plain = '''
+改换所有的__content文件名字一律配合__content.hestia[FORMAT]的名字模式。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/80'
+Label = 'GitHub问题#80'
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/86'
+Label = 'GitHub问题#86'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>hestiaLIST.Sanitize</code> fatal improper key sanitization for slice data type.
+'''
+Plain = '''
+Fixed hestiaLIST.Sanitize fatal improper key sanitization for slice data type.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/82'
+Label = 'GitHub Issue#82'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决掉<code>hestiaLIST.Sanitize</code>危险的slice数据类型的钥匙清理导致的问题。
+'''
+Plain = '''
+解决掉hestiaLIST.Sanitize危险的slice数据类型的钥匙清理导致的问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/82'
+Label = 'Github问题#82'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>zoralabDRAWER</code>'s UI animation and trigger bug.
+'''
+Plain = '''
+Fixed zoralabDRAWER's UI animation and trigger bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/83'
+Label = 'GitHub Issue#83'
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/84'
+Label = 'GitHub Issue#84'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决掉<code>zoralabDRAWER</code>界面的动画和推动器的问题。
+'''
+Plain = '''
+解决掉zoralabDRAWER界面的动画和推动器的问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/83'
+Label = 'GitHub问题#83'
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/84'
+Label = 'GitHub问题#84'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added <code>zoralabDRAWER_TOP</code>'s UI component.
+'''
+Plain = '''
+Added zoralabDRAWER_TOP's UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入<code>zoralabDRAWER_TOP</code>界面元件。
+'''
+Plain = '''
+加入zoralabDRAWER_TOP界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added <code>zoralabDRAWER_LEFT</code>'s UI component.
+'''
+Plain = '''
+Added zoralabDRAWER_LEFT's UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入<code>zoralabDRAWER_LEFT</code>界面元件。
+'''
+Plain = '''
+加入zoralabDRAWER_LEFT界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added <code>zoralabDRAWER_RIGHT</code>'s UI component.
+'''
+Plain = '''
+Added zoralabDRAWER_RIGHT's UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入<code>zoralabDRAWER_RIGHT</code>界面元件。
+'''
+Plain = '''
+加入zoralabDRAWER_RIGHT界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>zoralabPICTURE</code>'s UI unresponsive resizing bug.
+'''
+Plain = '''
+Fixed zoralabPICTURE's UI unresponsive resizing bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/85'
+Label = 'GitHub Issue#85'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决<code>zoralabPICTURE</code>没有环境适应的问题。
+'''
+Plain = '''
+解决zoralabPICTURE没有环境适应的问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/85'
+Label = 'GitHub问题#85'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added LD+JSON foundation data generator feature.
+'''
+Plain = '''
+Added LD+JSON foundation data generator feature.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/88'
+Label = 'GitHub Issue#88'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入LD+JSON基础数据制作功能。
+'''
+Plain = '''
+加入LD+JSON基础数据制作功能。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/88'
+Label = 'GitHub问题#88'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Set PWA.Categories to automatically source from <code>.Site.Metadata.Categories</code>.
+'''
+Plain = '''
+Set PWA.Categories to automatically source from .Site.Metadata.Categories.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/90'
+Label = 'GitHub Issue#90'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+设置PWA.Categories去自动向<code>.Site.Metadata.Categories</code>索取所需要的资料。
+'''
+Plain = '''
+设置PWA.Categories去自动向.Site.Metadata.Categories索取所需要的资料。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/90'
+Label = 'GitHub问题#90'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed PWA Worker attempting to cache browser's extension bug.
+'''
+Plain = '''
+Fixed PWA Worker attempting to cache browser's extension bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/96'
+Label = 'GitHub Issue#96'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决PWA机器会尝试离线收藏浏览器的外延链的问题。
+'''
+Plain = '''
+解决PWA机器会尝试离线收藏浏览器的外延链的问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/96'
+Label = 'GitHub问题#96'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed PWA invalid Protocol bug.
+'''
+Plain = '''
+Fixed PWA invalid Protocol bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/97'
+Label = 'GitHub Issue#97'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决PWA的Protocol错误。
+'''
+Plain = '''
+解决PWA的Protocol错误。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/97'
+Label = 'GitHub问题#97'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Renamed all hestiaUI to zoralab prefix due to someone attempting to steal
+design copyright <b>[ NON-BACKWARD COMPATIBLE ]</b>.
+'''
+Plain = '''
+Renamed all hestiaUI to zoralab prefix due to someone attempting to steal
+design copyright (NON-BACKWARD COMPATIBLE).
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/99'
+Label = 'GitHub Issue#99'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+把所有的hestiaUI元件改名为zoralab领导名称来防止有人偷袭设计版权
+<b>[不向后兼容]</b>。
+'''
+Plain = '''
+把所有的hestiaUI元件改名为zoralab领导名称来防止有人偷袭设计版权
+（不向后兼容）。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/99'
+Label = 'GitHub问题#99'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added <code>joshuamacdonaldDOWNARROW</code> UI component.
+'''
+Plain = '''
+Added joshuamacdonaldDOWNARROW UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/98'
+Label = 'GitHub Issue #98'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入<code>joshuamacdonaldDOWNARROW</code>界面元件。
+'''
+Plain = '''
+加入joshuamacdonaldDOWNARROW界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/98'
+Label = 'GitHub问题#98'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added <code>zoralabTILE</code> UI component.
+'''
+Plain = '''
+Added zoralabTILE UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/103'
+Label = 'GitHub Issue #103'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入<code>zoralabTILE</code>界面元件。
+'''
+Plain = '''
+加入zoralabTILE界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/103'
+Label = 'GitHub问题#103'
+
+
+
+
+
+[[Metadata.Languages.EN.Go.Highlights]]
+HTML = '''
+Added planned API mapping from hestiaHUGO's implementations.
+'''
+Plain = '''
+Added planned API mapping from hestiaHUGO's implementations.
+'''
+
+[[Metadata.Languages.EN.Go.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/79'
+Label = 'GitHub Issue#79'
+
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights]]
+HTML = '''
+加入从hestiaHUGO炼成的API命名地图。
+'''
+Plain = '''
+加入从hestiaHUGO炼成的API命名地图。
+'''
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/79'
+Label = 'GitHub问题#79'
+
+
+
+
+[[Metadata.Languages.EN.TinyGo.Highlights]]
+HTML = '''
+Added planned API mapping from hestiaHUGO's implementations.
+'''
+Plain = '''
+Added planned API mapping from hestiaHUGO's implementations.
+'''
+
+[[Metadata.Languages.EN.TinyGo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/79'
+Label = 'GitHub Issue#79'
+
+
+[[Metadata.Languages.ZH-HANS.TinyGo.Highlights]]
+HTML = '''
+加入从hestiaHUGO炼成的API命名地图。
+'''
+Plain = '''
+加入从hestiaHUGO炼成的API命名地图。
+'''
+
+[[Metadata.Languages.ZH-HANS.TinyGo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/79'
+Label = 'GitHub问题#79'
+
+
+
+
+[[Metadata.Languages.EN.Nim.Highlights]]
+HTML = '''
+Accepted and considered as 4th language.
+'''
+Plain = '''
+Accepted and considered as 4th language.
+'''
+
+[[Metadata.Languages.EN.Nim.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Nim.Highlights]]
+HTML = '''
+被接受成为第4个代码语言。
+'''
+Plain = '''
+被接受成为第4个代码语言。
+'''
+
+[[Metadata.Languages.ZH-HANS.Nim.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Rust.Highlights]]
+HTML = '''
+Removed from being supported - added to archive <b>[ NON-BACKWARD COMPATIBLE ]</b>.
+'''
+Plain = '''
+Removed from being supported - added to archive (non-backward compatible).
+'''
+
+[[Metadata.Languages.EN.Rust.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Rust.Highlights]]
+HTML = '''
+不再支持了 - 所以现任的代码将会被冷冻 <b>[不向后兼容]</b>。
+'''
+Plain = '''
+不再支持了 - 所以现任的代码将会被冷冻 (不向后兼容）。
+'''
+
+[[Metadata.Languages.ZH-HANS.Rust.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.jpg"
+Type = "image/jpg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.jpg"
+Type = "image/jpg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
