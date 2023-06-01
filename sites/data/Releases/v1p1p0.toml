@@ -1,14 +1,13 @@
 [[Assets]]
-Label = 'hestiaHUGO-v1.1.0.zip'
 URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip'
+Label = 'hestiaHUGO-v1.1.0.zip'
 
-[[Assets.SHASUM]]
+[Assets.SHA512]
 Value = '565b8ac7188f983d8c0f53d72ca2dde57a5a7eadff7ff0365438c00af77b1b67b615c6fa396eb839f6557dbb085c3d53d673dc755b990c7a9ca8afc87f5b6468'
 Label = 'SHA512'
 
-[[Assets.GPG]]
+[Assets.GPG]
 URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.1.0/hestiaHUGO-v1.1.0.zip.asc'
-Label = 'GPG'
 
 
 
@@ -16,6 +15,8 @@ Label = 'GPG'
 [Metadata]
 ID = 'v1.1.0'
 URL = 'v1p1p0'
+
+
 
 
 
@@ -31,6 +32,19 @@ Value = ''
 Label = ''
 
 
+[Metadata.Languages.ZH-HANS]
+Title = '1.1.0版'
+Summary = '''
+针对1.0.0版小型补丁。它的主要工程是解决一些在开发时发现的痛手的严重错误。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+
+
+
+
 [[Metadata.Languages.EN.Hugo.Highlights]]
 HTML = '''
 Added localized <code>__content.js</code> for page-level overall styling purposes.
@@ -40,91 +54,6 @@ Added localized __content.js for page-level overall styling purposes.
 '''
 
 [[Metadata.Languages.EN.Hugo.Highlights.URL]]
-Value = ''
-Label = ''
-
-[[Metadata.Languages.EN.Hugo.Highlights]]
-HTML = '''
-Added localized <code>__content.css</code> for page-level overall styling purposes.
-'''
-Plain = '''
-Added localized __content.css for page-level overall styling purposes.
-'''
-
-[[Metadata.Languages.EN.Hugo.Highlights.URL]]
-Value = ''
-Label = ''
-
-[[Metadata.Languages.EN.Hugo.Highlights]]
-HTML = '''
-Fixed a time processor's ugly log output.
-'''
-Plain = '''
-Fixed a time processor's ugly log output.
-'''
-
-[[Metadata.Languages.EN.Hugo.Highlights.URL]]
-Value = ''
-Label = ''
-
-[[Metadata.Languages.EN.Hugo.Highlights]]
-HTML = '''
-Fixed <code>__content.json</code> improper rendering bug where the entire data
-structure is rendered as a large string.
-'''
-Plain = '''
-Fixed __content.json improper rendering bug where the entire data structure
-is rendered as a large string.
-'''
-
-
-[[Metadata.Languages.EN.Go.Highlights]]
-HTML = '''
-Added CI packages and releases jobs and automation support.
-'''
-Plain = '''
-Added CI packages and releases jobs and automation support.
-'''
-
-[[Metadata.Languages.EN.Go.Highlights.URL]]
-Value = ''
-Label = ''
-
-
-[[Metadata.Languages.EN.TinyGo.Highlights]]
-HTML = '''
-Added CI packages and releases jobs and automation support.
-'''
-Plain = '''
-Added CI packages and releases jobs and automation support.
-'''
-
-[[Metadata.Languages.EN.TinyGo.Highlights.URL]]
-Value = ''
-Label = ''
-
-
-[[Metadata.Languages.EN.Rust.Highlights]]
-HTML = '''
-Added CI packages and releases jobs and automation support.
-'''
-Plain = '''
-Added CI packages and releases jobs and automation support.
-'''
-
-[[Metadata.Languages.EN.Rust.Highlights.URL]]
-Value = ''
-Label = ''
-
-
-
-[Metadata.Languages.ZH-HANS]
-Title = '1.1.0版'
-Summary = '''
-针对1.0.0版小型补丁。它的主要工程是解决一些在开发时发现的痛手的严重错误。
-'''
-
-[[Metadata.Languages.ZH-HANS.URL]]
 Value = ''
 Label = ''
 
@@ -141,6 +70,22 @@ Plain = '''
 Value = ''
 Label = ''
 
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added localized <code>__content.css</code> for page-level overall styling purposes.
+'''
+Plain = '''
+Added localized __content.css for page-level overall styling purposes.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
 为每个网页的造型功能加入本地<code>__content.css</code>。
@@ -153,6 +98,22 @@ Plain = '''
 Value = ''
 Label = ''
 
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed a time processor's ugly log output.
+'''
+Plain = '''
+Fixed a time processor's ugly log output.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
 解决时间数据处理功能所输出的难看日志输出。
@@ -165,6 +126,24 @@ Plain = '''
 Value = ''
 Label = ''
 
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>__content.json</code> improper rendering bug where the entire data
+structure is rendered as a large string.
+'''
+Plain = '''
+Fixed __content.json improper rendering bug where the entire data structure
+is rendered as a large string.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
 解决当<code>__content.json</code>是个大型数据构架渲染成一条字符串不完善的错误。
@@ -172,6 +151,25 @@ HTML = '''
 Plain = '''
 解决当<code>__content.json</code>是个大型数据构架渲染成一条字符串不完善的错误。
 '''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Go.Highlights]]
+HTML = '''
+Added CI packages and releases jobs and automation support.
+'''
+Plain = '''
+Added CI packages and releases jobs and automation support.
+'''
+
+[[Metadata.Languages.EN.Go.Highlights.URL]]
+Value = ''
+Label = ''
 
 
 [[Metadata.Languages.ZH-HANS.Go.Highlights]]
@@ -187,6 +185,21 @@ Value = ''
 Label = ''
 
 
+
+
+[[Metadata.Languages.EN.TinyGo.Highlights]]
+HTML = '''
+Added CI packages and releases jobs and automation support.
+'''
+Plain = '''
+Added CI packages and releases jobs and automation support.
+'''
+
+[[Metadata.Languages.EN.TinyGo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
 [[Metadata.Languages.ZH-HANS.TinyGo.Highlights]]
 HTML = '''
 加入包装和分发CI自动化功能的工作单。
@@ -196,6 +209,21 @@ Plain = '''
 '''
 
 [[Metadata.Languages.ZH-HANS.TinyGo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Rust.Highlights]]
+HTML = '''
+Added CI packages and releases jobs and automation support.
+'''
+Plain = '''
+Added CI packages and releases jobs and automation support.
+'''
+
+[[Metadata.Languages.EN.Rust.Highlights.URL]]
 Value = ''
 Label = ''
 

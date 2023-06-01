@@ -1,6 +1,7 @@
 [i18n]
 Title = '标题'
 Description = '大纲'
+Version = 'v1p0p0'
 
 
 
@@ -16,10 +17,6 @@ Notes = '笔记'
 
 [i18n.Introduction]
 ID = '自介'
-Title = 'v1.0.0版发行说明'
-Description = '''
-ZORALab赫斯提亚v1.0.0版的科技规范和有关的科技。
-'''
 
 
 

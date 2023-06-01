@@ -1,7 +1,7 @@
 {{- /* prepare variables for function */ -}}
 {{- $Page := . -}}
 {{- $i18n := .Data.Page.i18n -}}
-{{- $dataset := .Data.Store.Releases.v1p0p0 -}}
+{{- $dataset := index .Data.Store.Releases $i18n.Version -}}
 {{- $lang := index $dataset.Metadata.Languages .Languages.Current.ID -}}
 {{- $data := false -}}
 {{- $ret := false -}}
@@ -12,8 +12,8 @@
 {{- /* render output */ -}}
 <main style='padding-bottom: 0;'>
 	<section id='{{- $i18n.Introduction.ID -}}'>
-		<h1>{{- $i18n.Introduction.Title -}}</h1>
-		<p>{{- $i18n.Introduction.Description -}}</p>
+		<h1>{{- $Page.Titles.Page -}}</h1>
+		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
 	</section>
 
 

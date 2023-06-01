@@ -1,7 +1,7 @@
 [i18n]
 Title = 'Title'
 Description = 'Description'
-Version = 'v1p0p0'
+Version = 'v1p1p0'
 
 
 
@@ -17,11 +17,6 @@ Notes = 'Notes'
 
 [i18n.Introduction]
 ID = 'introduction'
-Title = 'v1.0.0 Release Note'
-Description = '''
-The technical summary about ZORALab's Hestia version v1.0.0 release covering
-its related technologies.
-'''
 
 
 
