@@ -1,0 +1,289 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+
+
+
+
+[i18n.Labels]
+Pattern = 'Pattern'
+Examples = 'Examples'
+
+
+
+
+[i18n.Introduction]
+ID = 'introduction'
+
+
+
+
+[i18n.DecentralizedDistribution]
+ID = 'decentralized-distribution'
+Label = 'DecentralizedDistribution'
+Title = 'Decentralized Distribution'
+Description = '''
+By design, ZORALab's Hestia carefully pick programming languages that do not
+soley depending on its specialized distribution system alone for countering
+geo-political and after-the-fact business changes nuisance threats (e.g.
+implement restrictive geo-fencing or sudden steep price hike overnight without
+any notices). At the most upstream source (us), all supported technologies MUST
+be distributable and re-distributable securely, online and offline with just a
+simple .zip archive format.
+'''
+
+
+
+
+[i18n.StreamVsMemory]
+ID = 'stream-vs-memory'
+Label = 'StreamVsMemory'
+Title = 'Stream Vs. Memory'
+Description = '''
+For ZORALab's Hestia, there are 2 orientations when it comes to designing
+algorithm: (1) stream-oriented [S] focuses on extremely low memory footprint
+but takes more time for processing; (2) memory-oriented [M] focuses on maximum
+memory usage for faster speed. The default everyone practice is usually
+memory-oriented where most people would care less about how much the memory is
+used in a 64-bit operating system. Microcontrollers and embedded folks however,
+tend to prefer stream-oriented due to the memory size limitations. Hence, all
+functions and methods **MUST** cater both stream-oriented and memory-oriented
+executions, whichever comes first.
+'''
+
+
+
+
+[i18n.MonomorphizeByCPUSize]
+ID = 'monomorphize-by-cpu-size'
+Label = 'MonomorphizeByCPUSize'
+Title = 'Monomorphize By CPU Size'
+Description = '''
+One problem ZORALab's Hestia set to solve is to facilitate all functions and
+methods by CPU Size (8-Bits, 16-bits, 24-bits, 32-bits, 64-bits, ...2048-bits).
+Most standard libraries are heavily geared towards 64-bits CPU, making it very
+difficult to port into other CPU types like 8-bits and 16-bits. Therefore, to
+combat scarcity, ZORALab's Hestia manually monomorphize all processing functions
+and methods giving the end users a choice rather than no-choice.
+'''
+
+
+
+
+[i18n.ImportDirection]
+ID = 'import-direction'
+Label = 'ImportDirection'
+Title = 'Import Direction'
+Description = '''
+For ZORALab's Hestia, ALWAYS LET USER TO ONLY IMPORT LEAF PACKAGES WHENEVER
+AVAILABLE. Build the leaf package to the point of self-sufficient manner. As for
+the parent packages, **they are there to facilitate common utilities among the
+children packages**. Below is the import pattern:
+'''
+Pattern = '''
+[Leaf]
+->
+[SuperCommon]/[Leaf]
+------------->
+[SuperCommon]/[Common]/[Leaf]
+---------------------->
+'''
+Example = '''
+From the pattern above, we can showcase some examples for comprehensions:
+'''
+Samples = '''
+hestiaSTRING
+   ⮱ hestiaSTRING.M64_Sanitize
+hestiaNET/hestiaHTTP
+   ⮱ hestiaHTTP.Server
+   ⮱ hestiaHTTP.Client
+hestiaNET/hestiaHTTP/hestiaPWA
+   ⮱ hestiaPWA.ToAppJS
+   ⮱ hestiaPWA.ToAppManifest
+'''
+
+
+
+
+[i18n.NamingConvention]
+ID = 'naming-convention'
+Label = 'NamingConvention'
+Title = 'Naming Convention'
+Description = '''
+To comply with the import direction above and to avoid conflicting with the
+standard libraries for facilitating a good experience of inter-operability,
+ZORALab's Hestia employs its own naming convention across all supported
+technologies. We are still using Go's Titlecase as export indicator
+while Nim will just append its required astrisk at the end. ZORALab's Hestia
+naming convention follow this pattern:
+'''
+Pattern = '''
+「·PATTERN·」
+PACKAGE   = (x_)[origin][OUTPUT](_[VARIANT](_[SKU]))
+CONSTANT  = (X/x_)(priv_)[PURPOSE]_[NAME](_[VARIANT](_[SKU]))
+FUNCTION  = (X/x_)[[S/s]/[M/m]][CPU_BITS/N]_[Verb](_[VARIANT](_[SKU]))
+METHOD    = (X/x_)[[S/s]/[M/m]][CPU_BITS/N]_[Verb](_[VARIANT](_[SKU]))
+
+
+「·LEGENDS·」
+()     = Optional
+[]     = Compulsory Variable Values
+/      = OR
+lower  = lowercase
+UPPER  = UPPERCASE
+X_, x_ = experimental
+'''
+Example = '''
+From the pattern above, we can showcase some examples for comprehensions:
+'''
+Samples = '''
+「·PACKAGE·」
+hestiaSTRING                   (hugo, go, nim)
+x_hestiaSTRING                 (hugo, go, nim)
+hestiaGUI/zoralabCORE          (hugo, go, nim)
+hestiaGUI/x_zoralabCORE        (hugo, go, nim)
+x_hestiaGUI/x_zoralabCORE      (hugo, go, nim)
+
+
+「·CONSTANT·」
+hestiaNET.TLS_1_3              (go-pub, nim-pub*)
+hestiaNET.X_TLS_1_3            (go-pub, nim-pub*)
+hestiaSYS.SYSTEM_NAME          (go-pub, nim-pub*)
+hestiaNET.priv_TLS_1_3         (go-priv, nim-priv)
+hestiaNET.priv_TLS_1_3         (go-priv, nim-priv)
+hestiaSYS.priv_SYSTEM_NAME     (go-priv, nim-priv)
+
+
+「·FUNCTION·」
+hestiaSTRING/Sanitize          (hugo-pub)
+hestiaSTRING.M64_Sanitize      (go-pub, nim-pub*)
+hestiaSTRING.S8_Sanitize       (go-pub, nim-pub*)
+hestiaSTRING.m64_Sanitize_V2   (go-priv, nim-priv)
+hestiaSTRING.s8_Sanitize_V2    (go-priv, nim-priv)
+hestiaSTRING.X_S8_Sanitize_V3  (go-pub, nim-pub*)
+hestiaSTRING.x_S8_Sanitize_V3  (go-priv, nim-priv)
+hestiaTESTING.SN_Format        (go-pub, nim-pub*)
+hestiaTESTING.MN_Format        (go-pub, nim-pub*)
+
+
+「·METHOD·」
+obj.M64_Sanitize               (go-pub, nim-pub*)
+obj.S8_Sanitize                (go-pub, nim-pub*)
+obj.m64_Sanitize_V2            (go-priv, nim-priv)
+obj.s8_Sanitize_V2             (go-priv, nim-priv)
+obj.X_S8_Sanitize_V3           (go-pub, nim-pub*)
+obj.x_S8_Sanitize_V3           (go-priv, nim-priv)
+'''
+
+
+
+
+[i18n.ErrorCodeNoPanic]
+ID = 'error-code-no-panic'
+Label = 'ErrorCodeNoPanic'
+Title = 'Error Code and No Panic'
+Description = '''
+Error string returning as practiced in Go is actually quite expensive when
+deployed in low memory footprint environment. Hence, we only use back the
+conventional  internal 'hestiaERROR' error codes (2 bytes) instead. Also,
+DO NOT PANIC. All functions and methods must be as deterministic as possible.
+The lesser the abstraction, the better.
+'''
+
+
+
+
+[i18n.UseMacroAvoidGenerics]
+ID = 'use-macro-and-avoid-generic'
+Label = 'UseMacroAvoidGenerics'
+Title = 'Use Macro and Avoid Generics'
+Description = '''
+Generics is only serving 1 specific type of meta-programming and
+monomorphization. The problem is that at each cpu size, the monomorphic
+algorithm can be very different and in most cases generics can't cater such
+capability. THEREFORE, DO NOT USE IT. If the language provides macro system,
+use that instead.
+'''
+
+
+
+
+[i18n.FunctionVsMethod]
+ID = 'function-vs-method'
+Label = 'FunctionVsMethod'
+Title = 'Function vs. Method'
+Description = '''
+Since the package is output oriented: package function by default and method
+whenever makes sense for duck-typing and associated processing
+(e.g. interfaces). The most important job is getting them documented. Among
+known common names (or verbs) are:
+'''
+Pattern = '''
+Add
+Append
+Begin
+Copy
+Delete
+Divide
+End
+Index(VARIANT)
+Insert(VARIANT)
+Join
+Length
+Minus
+Modulus
+Multiply
+Next
+Parse[OBJECT]
+Pop
+Prepend
+Previous
+Replace(VARIANT)
+Reserve
+Sanitize
+Scan
+Search
+Split(VARIANT)
+String
+To[OBJECT]
+Zero
+'''
+
+
+
+
+[i18n.WASMCapable]
+ID = 'wasm-capable'
+Label = 'WASMCapable'
+Title = 'WASM Capable'
+Description = '''
+All packages shall be usable in WASM. Do not let user to mess with Javascript
+when used including UI rendering (that's what the library for).
+'''
+
+
+
+
+[i18n.Catalog]
+ID = 'catalog'
+Label = 'Catalog'
+Title = 'Catalog'
+Description = '''
+Here's all of our libraries' specifications for you to browse through. They're
+starting from the root level.
+'''
+CTA = 'Read More'
+
+
+
+
+[i18n.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+We have reach the end of the specification overview for ZORALab's Hestia
+Project. If you have any query, please feel free to contact us at our following
+portal:
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub Discussion Portal'

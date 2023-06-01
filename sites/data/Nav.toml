@@ -94,6 +94,18 @@ Title = "Code of Conduct"
 URL = '/en/licenses/#code-of-conduct'
 
 
+[[Languages.EN]]
+Title = 'Specifications'
+
+[[Languages.EN.Items]]
+Title = "Visit"
+URL = '/en/specs'
+
+[[Languages.EN.Items]]
+Title = "Technical Properties"
+URL = '/en/specs'
+
+
 
 
 [[Languages.ZH-HANS]]
@@ -190,3 +202,15 @@ URL = '/zh-hans/licenses/#指引'
 [[Languages.ZH-HANS.Items]]
 Title = "行为准则"
 URL = '/zh-hans/licenses/#行为准则'
+
+
+[[Languages.ZH-HANS]]
+Title = '规范'
+
+[[Languages.ZH-HANS.Items]]
+Title = "询问"
+URL = '/zh-hans/specs'
+
+[[Languages.ZH-HANS.Items]]
+Title = "所有科技术性"
+URL = '/zh-hans/specs'

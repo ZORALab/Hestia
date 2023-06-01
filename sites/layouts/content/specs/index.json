@@ -1,0 +1,47 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := dict -}}
+{{- $list := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Title .Titles.Page
+	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+	$i18n.DecentralizedDistribution.Label $i18n.DecentralizedDistribution.Description
+	$i18n.StreamVsMemory.Label $i18n.StreamVsMemory.Description
+	$i18n.MonomorphizeByCPUSize.Label $i18n.MonomorphizeByCPUSize.Description
+	$i18n.ImportDirection.Label (dict
+		$i18n.Labels.Pattern $i18n.ImportDirection.Pattern
+		$i18n.Labels.Examples $i18n.ImportDirection.Examples
+	)
+	$i18n.NamingConvention.Label (dict
+		$i18n.Labels.Pattern $i18n.NamingConvention.Pattern
+		$i18n.Labels.Examples $i18n.NamingConvention.Samples
+	)
+	$i18n.ErrorCodeNoPanic.Label $i18n.ErrorCodeNoPanic.Description
+	$i18n.UseMacroAvoidGenerics.Label $i18n.UseMacroAvoidGenerics.Description
+	$i18n.FunctionVsMethod.Label (dict
+		$i18n.Description $i18n.FunctionVsMethod.Description
+		$i18n.Labels.Pattern $i18n.FunctionVsMethod.Pattern
+	)
+	$i18n.WASMCapable.Label $i18n.WASMCapable.Description
+) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}
