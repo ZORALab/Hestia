@@ -11,12 +11,40 @@ Assets = '资产'
 Statement = '陈述'
 References = '引用'
 Notes = '笔记'
+Status = '状况'
+BackwardCompatible = '向后兼容'
+Development = '开发'
+Retired = '退化'
+Latest = '最新'
 
 
 
 
 [i18n.Introduction]
 ID = '自介'
+
+
+
+
+[i18n.Notices.NonBackwardCompatible]
+Title = '提警: 不向后兼容'
+Text = '''
+这个发行有不向后兼容的实现开发。请小心运用。
+'''
+
+
+[i18n.Notices.Development]
+Title = '重要:还正在开发'
+Text = '''
+这个发行还正在开发着。一切内容还是会被更改的。
+'''
+
+
+[i18n.Notices.Retired]
+Title = '提警: 已经退化了'
+Text = '''
+这个发行已经退化了。我们是不再支持了。请用最新的版本吧。
+'''
 
 
 

@@ -37,6 +37,15 @@
 				</div>
 				<div class='content'>
 					<h3>{{- $lang.Title -}}</h3>
+					{{- if $v.Metadata.Latest }}
+					<p style='color: green; text-align: center;'>
+						<b>{{- upper $i18n.Labels.Latest -}}</b>
+					</p>
+					{{- else if $v.Metadata.Development }}
+					<p style='color: orange; text-align: center;'>
+						<b>{{- upper $i18n.Labels.Development -}}</b>
+					</p>
+					{{- end }}
 					<p>{{- $lang.Summary -}}</p>
 				</div>
 				<div class='actions'>

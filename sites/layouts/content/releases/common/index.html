@@ -14,6 +14,36 @@
 	<section id='{{- $i18n.Introduction.ID -}}'>
 		<h1>{{- $Page.Titles.Page -}}</h1>
 		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
+
+
+		{{- if not $dataset.Metadata.BackwardCompatible }}
+		<div class="note error">
+			<input id="notice-nbc-1" type="checkbox" checked>
+			<label for="notice-nbc-1">
+				{{- $i18n.Notices.NonBackwardCompatible.Title -}}
+			</label>
+			<p class="content">{{- $i18n.Notices.NonBackwardCompatible.Text -}}</p>
+		</div>
+		{{- end }}
+
+
+		{{- if $dataset.Metadata.Development }}
+		<div class="note warning">
+			<input id="notice-dev-1" type="checkbox" checked>
+			<label for="notice-dev-1">
+				{{- $i18n.Notices.Development.Title -}}
+			</label>
+			<p class="content">{{- $i18n.Notices.Development.Text -}}</p>
+		</div>
+		{{- else if $dataset.Metadata.Retired }}
+		<div class="note warning">
+			<input id="notice-dev-1" type="checkbox" checked>
+			<label for="notice-dev-1">
+				{{- $i18n.Notices.Retired.Title -}}
+			</label>
+			<p class="content">{{- $i18n.Notices.Retired.Text -}}</p>
+		</div>
+		{{- end }}
 	</section>
 
 

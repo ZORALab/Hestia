@@ -23,6 +23,12 @@ algorithms development.
 {{- $dataList = merge $dataList (dict
 	$i18n.Title .Titles.Page
 	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+	$i18n.Labels.Status (dict
+		$i18n.Labels.BackwardCompatible $dataset.Metadata.BackwardCompatible
+		$i18n.Labels.Development $dataset.Metadata.Development
+		$i18n.Labels.Retired $dataset.Metadata.Retired
+		$i18n.Labels.Latest $dataset.Metadata.Latest
+	)
 ) -}}
 
 

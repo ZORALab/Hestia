@@ -9,6 +9,8 @@ Description = 'Description'
 ID = 'ID'
 ReleaseNote = 'ReleaseNote'
 List = 'List'
+Development = 'Development'
+Latest = 'Latest'
 
 
 

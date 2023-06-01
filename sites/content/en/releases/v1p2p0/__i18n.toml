@@ -11,12 +11,41 @@ Assets = 'Assets'
 Statement = 'Statement'
 References = 'References'
 Notes = 'Notes'
+Status = 'Status'
+BackwardCompatible = 'Backward Compatible'
+Development = 'Development'
+Retired = 'Retired'
+Latest = 'Latest'
 
 
 
 
 [i18n.Introduction]
 ID = 'introduction'
+
+
+
+
+[i18n.Notices.NonBackwardCompatible]
+Title = 'WARNING: NOT BACKWARD COMPATIBLE'
+Text = '''
+This release contains non-backward compatible implementations. Use with extreme
+care.
+'''
+
+
+[i18n.Notices.Development]
+Title = 'IMPORTANT: UNDER DEVELOPMENT'
+Text = '''
+This release is still under development and is subjected to change.
+'''
+
+
+[i18n.Notices.Retired]
+Title = 'WARNING: Retired Package'
+Text = '''
+This release is retired and will no longer be supported. Please use the latest.
+'''
 
 
 
