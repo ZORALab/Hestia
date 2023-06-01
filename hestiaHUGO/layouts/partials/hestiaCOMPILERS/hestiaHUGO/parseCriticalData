@@ -33,7 +33,6 @@ specific language governing permissions and limitations under the License.
 	"Time" (dict "Format" "Mon 02 Jan 2006 15:04:05 PM -07")
 	"Offline" (dict "MemKey" "Caches")
 	"Contributors" (dict
-		"RolesMemKey" "Contributors"
 		"Roles" (partial "hestiaENTITY/Roles")
 	)
 ) -}}
@@ -41,8 +40,8 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* initiate memory store */ -}}
-{{- $dataList = merge $dataList (dict "Memory" .Store) -}}
+{{- /* process .Data.Store */ -}}
+{{- $dataList = merge $dataList (dict "Data" (dict "Store" .Site.Data)) -}}
 
 
 
@@ -228,16 +227,10 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* initiate page's .Contributors */ -}}
-{{- if or .IsHome (not (partial "hestiaCOMPILERS/hestiaHUGO/loadContributors" $dataList)) -}}
-	{{- $ret = dict
-		"Site" (partial "hestiaCOMPILERS/hestiaHUGO/_parseContributors" .)
-		"Page" dict
-	-}}
-{{- else -}}
-	{{- /* upstream has a cached copy. avoid parsing */ -}}
-	{{- $ret = dict "Site" dict "Page" dict -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "Contributors" $ret) -}}
+{{- $dataList = merge $dataList (dict "Contributors" (dict
+	"Site" .Site.Data.Hestia.Contributors
+	"Page" dict
+)) -}}
 
 
 

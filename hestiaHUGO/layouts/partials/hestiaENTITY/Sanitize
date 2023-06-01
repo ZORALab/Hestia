@@ -91,7 +91,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* obtain language specific data */ -}}
 {{- if not $error -}}
-	{{- $Lang = default dict (index $input.Languages $Lang) -}}
+	{{- $Lang = default dict (index $input.Metadata.Languages $Lang) -}}
 	{{- if not $Lang -}}
 		{{- $error = printf
 			"hestiaENTITY.Sanitize: .Languages: missing data for language '%v'.\n"
@@ -350,7 +350,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .Type */ -}}
 {{- if not $error -}}
-	{{- $ret = default "" (lower $input.Type) -}}
+	{{- $ret = default "" (lower $input.Metadata.Type) -}}
 	{{- if eq $ret "person" -}}
 		{{- $ret = "person" -}}
 	{{- else if eq $ret "organization" -}}
@@ -372,7 +372,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .ID */ -}}
 {{- if not $error -}}
-	{{- $ret = default "" $input.ID -}}
+	{{- $ret = default "" $input.Metadata.ID -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret)) -}}
 	{{- $ret = partial "hestiaSTRING/Sanitize" $ret -}}
 	{{- if and $ret.Error (not $error) -}}

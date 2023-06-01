@@ -32,13 +32,13 @@ specific language governing permissions and limitations under the License.
 {{- /* clean up unwanted fields */ -}}
 {{- $dataList = merge $dataList (dict
 	"Content" false
-	"Contributors" (dict "Site" false)
 	"Memory" false
+	"Data" (dict "Store" false)
 ) -}}
 {{- $dataList = merge $dataList (dict
 	"Content" dict
-	"Contributors" (dict "Site" dict)
 	"Memory" dict
+	"Data" (dict "Store" dict)
 ) -}}
 {{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/Clean" $dataList -}}
 

@@ -642,18 +642,8 @@ specific language governing permissions and limitations under the License.
 
 	{{- $data = merge $data (dict $ret $ret2) -}}
 {{- end -}}
-
-{{- $ret = merge $Page (dict "Input" (dict "Data" $data)) -}}
-{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/SaveOfflineURL" $ret -}}
-{{- if $ret.Error -}}
-	{{- $error = printf ".PWA.Caches: %v" $ret.Error -}}
-	{{- $error = merge $Page (dict "Error" $error) -}}
-	{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
-{{- end -}}
 {{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "List" false))) -}}
-{{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "List"
-	(partial "hestiaCOMPILERS/hestiaHUGO/loadOfflineURL" $Page)
-))) -}}
+{{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "List" $data))) -}}
 
 
 

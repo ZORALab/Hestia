@@ -197,7 +197,7 @@ specific language governing permissions and limitations under the License.
 			id='zoralab-hestia-debugger-console-content-contributors'
 		/>
 		<div class='zoralab-hestia-console-content-container'>
-			{{- range $i, $v := .Contributors.Page }}
+			{{- range $i, $v := .Contributors }}
 			<div class='zoralab-hestia-debugger-console-content-data'>
 				{{- range $j, $w := $v.Image.Sources }}
 					<img alt='{{- $w.URL -}}'
@@ -208,23 +208,6 @@ specific language governing permissions and limitations under the License.
 						loading='lazy' />
 				{{- end }}
 				{{- $ret = printf ".Contributors.Page.%v" (string $i) -}}
-				{{- $ret = dict "DebugKey" $ret "DebugValue" $v -}}
-				{{- template "renderDebugValue" $ret -}}
-			</div>
-			{{- end }}
-
-
-			{{- range $i, $v := .Contributors.Site }}
-			<div class='zoralab-hestia-debugger-console-content-data'>
-				{{- range $j, $w := $v.Image.Sources }}
-					<img alt='{{- $w.URL -}}'
-						class='zoralab-hestia-debugger-console-content-image'
-						src='{{- $w.URL -}}'
-						width='{{- $v.Image.Width -}}'
-						height='{{- $v.Image.Height -}}'
-						loading='lazy' />
-				{{- end }}
-				{{- $ret = printf ".Contributors.Site.%v" (string $i) -}}
 				{{- $ret = dict "DebugKey" $ret "DebugValue" $v -}}
 				{{- template "renderDebugValue" $ret -}}
 			</div>

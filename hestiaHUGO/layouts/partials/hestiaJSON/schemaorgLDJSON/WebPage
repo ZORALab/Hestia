@@ -57,7 +57,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* prepare reviewers as WebPage has such a field */ -}}
 {{- $reviewers = slice -}}
-{{- range $i, $v := $Page.Contributors.Site -}}
+{{- range $i, $v := $Page.Contributors -}}
 	{{- if not (or $v.Contribution.Reviewer.Current $v.Contribution.Reviewer.Past) -}}
 		{{- continue -}}
 	{{- end -}}

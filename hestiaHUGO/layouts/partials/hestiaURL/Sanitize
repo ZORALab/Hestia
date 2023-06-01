@@ -81,31 +81,6 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* automatic save to caches */ -}}
-{{- if and (not $error) .PWA.Caches.Automation -}}
-	{{- $ret = "" -}}
-	{{- if and $dataList.Scheme (and $dataList.Host $dataList.Path) -}}
-		{{- $ret = printf "%s://%s%s" $dataList.Scheme $dataList.Host $dataList.Path -}}
-	{{- end -}}
-
-
-	{{- if $ret -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data"
-			(dict $ret $Page.PWA.Caches.Default.Policy)
-		)) -}}
-		{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/SaveOfflineURL" $ret -}}
-		{{- if and $ret.Error (not $error) -}}
-			{{- $error = printf
-				"hestiaURL.Sanitize: automatic caching: %v"
-				$ret.Error
-			-}}
-		{{- end -}}
-	{{- end -}}
-{{- end -}}
-
-
-
-
 {{- /* reset output if error occured */ -}}
 {{- if or $error (not $dataList) -}}
 	{{- $dataList = urls.Parse "" -}}

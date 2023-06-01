@@ -423,7 +423,7 @@
 	{{- $developers := dict -}}
 	{{- $artists := dict -}}
 	{{- $knowledge := dict -}}
-	{{- range $i, $v := .Contributors.Site -}}
+	{{- range $i, $v := .Data.Store.Hestia.Contributors -}}
 		{{- if or $v.Contribution.Sponsor.Past $v.Contribution.Sponsor.Current -}}
 			{{- $sponsors = merge $sponsors (dict $i $v) -}}
 		{{- end -}}
@@ -463,36 +463,43 @@
 		<p>{{- $i18n.Sponsors.Description -}}</p>
 		<div class='row'>
 		{{- range $i, $v := $sponsors -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+			{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+
+			{{- if not $ret -}}
+				{{- continue -}}
+			{{- end }}
 			<div class= 'column'><div class='card' style='
 				--h3-margin: 0;
 				--picture-margin: 0;
 				--picture-padding: 0;
 				--card-border-radius: .5rem;
 			'>
-				{{- if $v.Image -}}
+				{{- if $ret.Image -}}
 				<div class='thumbnail'>
-					{{ partial "hestiaMEDIA/ToHTML" $v.Image }}
+					{{ partial "hestiaMEDIA/ToHTML" $ret.Image }}
 				</div>
 				{{- end }}
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
-					<p>{{- $v.Slogan -}}</p>
+					<h3>{{- $ret.Name -}}</h3>
+					<p>{{- $ret.Slogan -}}</p>
 				</div>
 				<div class='actions'>
-					<a class='button' href='{{- $v.Web.Value -}}'>
-						{{- $v.Web.Label -}}
+					<a class='button' href='{{- $ret.Web.Value -}}'>
+						{{- $ret.Web.Label -}}
 					</a>
-				{{- if $v.Email.Value }}
-					<a class='button' href='{{- $v.Email.Value -}}'>
-						{{- $v.Email.Label -}}
-					</a>
-				{{- end }}
-				{{- if $v.Phone.Value }}
-					<a class='button' href='{{- $v.Phone.Value -}}'>
-						{{- $v.Phone.Label -}}
+				{{- if $ret.Email.Value }}
+					<a class='button' href='{{- $ret.Email.Value -}}'>
+						{{- $ret.Email.Label -}}
 					</a>
 				{{- end }}
-				{{- range $j, $w := $v.Social -}}
+				{{- if $ret.Phone.Value }}
+					<a class='button' href='{{- $ret.Phone.Value -}}'>
+						{{- $ret.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $ret.Social -}}
 					<a class='button' href='{{- $w.Value -}}'>
 						{{- $w.Label -}}
 					</a>
@@ -506,36 +513,43 @@
 		<p>{{- $i18n.Developers.Description -}}</p>
 		<div class='row'>
 		{{- range $i, $v := $developers -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+			{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+
+			{{- if not $ret -}}
+				{{- continue -}}
+			{{- end }}
 			<div class= 'column'><div class='card' style='
 				--h3-margin: 0;
 				--picture-margin: 0;
 				--picture-padding: 0;
 				--card-border-radius: .5rem;
 			'>
-				{{- if $v.Image -}}
+				{{- if $ret.Image -}}
 				<div class='thumbnail'>
-					{{ partial "hestiaMEDIA/ToHTML" $v.Image }}
+					{{ partial "hestiaMEDIA/ToHTML" $ret.Image }}
 				</div>
 				{{- end }}
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
-					<p>{{- $v.Slogan -}}</p>
+					<h3>{{- $ret.Name -}}</h3>
+					<p>{{- $ret.Slogan -}}</p>
 				</div>
 				<div class='actions'>
-					<a class='button' href='{{- $v.Web.Value -}}'>
-						{{- $v.Web.Label -}}
+					<a class='button' href='{{- $ret.Web.Value -}}'>
+						{{- $ret.Web.Label -}}
 					</a>
-				{{- if $v.Email.Value }}
-					<a class='button' href='{{- $v.Email.Value -}}'>
-						{{- $v.Email.Label -}}
-					</a>
-				{{- end }}
-				{{- if $v.Phone.Value }}
-					<a class='button' href='{{- $v.Phone.Value -}}'>
-						{{- $v.Phone.Label -}}
+				{{- if $ret.Email.Value }}
+					<a class='button' href='{{- $ret.Email.Value -}}'>
+						{{- $ret.Email.Label -}}
 					</a>
 				{{- end }}
-				{{- range $j, $w := $v.Social -}}
+				{{- if $ret.Phone.Value }}
+					<a class='button' href='{{- $ret.Phone.Value -}}'>
+						{{- $ret.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $ret.Social -}}
 					<a class='button' href='{{- $w.Value -}}'>
 						{{- $w.Label -}}
 					</a>
@@ -548,36 +562,43 @@
 		<p>{{- $i18n.Artists.Description -}}</p>
 		<div class='row'>
 		{{- range $i, $v := $artists -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+			{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+
+			{{- if not $ret -}}
+				{{- continue -}}
+			{{- end }}
 			<div class= 'column'><div class='card' style='
 				--h3-margin: 0;
 				--picture-margin: 0;
 				--picture-padding: 0;
 				--card-border-radius: .5rem;
 			'>
-				{{- if $v.Image -}}
+				{{- if $ret.Image -}}
 				<div class='thumbnail'>
-					{{ partial "hestiaMEDIA/ToHTML" $v.Image }}
+					{{ partial "hestiaMEDIA/ToHTML" $ret.Image }}
 				</div>
 				{{- end }}
 				<div class='content'>
-					<h3>{{- $v.Name -}}</h3>
-					<p>{{- $v.Slogan -}}</p>
+					<h3>{{- $ret.Name -}}</h3>
+					<p>{{- $ret.Slogan -}}</p>
 				</div>
 				<div class='actions'>
-					<a class='button' href='{{- $v.Web.Value -}}'>
-						{{- $v.Web.Label -}}
+					<a class='button' href='{{- $ret.Web.Value -}}'>
+						{{- $ret.Web.Label -}}
 					</a>
-				{{- if $v.Email.Value }}
-					<a class='button' href='{{- $v.Email.Value -}}'>
-						{{- $v.Email.Label -}}
-					</a>
-				{{- end }}
-				{{- if $v.Phone.Value }}
-					<a class='button' href='{{- $v.Phone.Value -}}'>
-						{{- $v.Phone.Label -}}
+				{{- if $ret.Email.Value }}
+					<a class='button' href='{{- $ret.Email.Value -}}'>
+						{{- $ret.Email.Label -}}
 					</a>
 				{{- end }}
-				{{- range $j, $w := $v.Social -}}
+				{{- if $ret.Phone.Value }}
+					<a class='button' href='{{- $ret.Phone.Value -}}'>
+						{{- $ret.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $ret.Social -}}
 					<a class='button' href='{{- $w.Value -}}'>
 						{{- $w.Label -}}
 					</a>

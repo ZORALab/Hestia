@@ -61,7 +61,7 @@ specific language governing permissions and limitations under the License.
 {{- $providers = slice -}}
 {{- $publishers = slice -}}
 {{- $sponsors = slice -}}
-{{- range $i, $v := .Contributors.Site -}}
+{{- range $i, $v := .Contributors -}}
 	{{- $ret = partial "hestiaJSON/schemaorgLDJSON/Entity" $v -}}
 
 	{{- if or $v.Contribution.Creator.Past $v.Contribution.Creator.Current -}}

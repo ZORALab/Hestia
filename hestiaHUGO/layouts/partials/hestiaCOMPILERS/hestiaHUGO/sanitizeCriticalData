@@ -536,41 +536,26 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Contributors.Site */ -}}
-{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/loadContributors" $Page -}}
-{{- if or .IsRoot (not $dataList) -}}
-	{{- $dataList = dict -}}
-	{{- range $k, $v := $Page.Contributors.Site -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
-		{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
-		{{- if $ret.Error -}}
-			{{- $error = printf ".Contributors.%v: %v" $k $ret.Error -}}
-			{{- $error = merge $Page (dict "Error" $error) -}}
-			{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
-			{{- continue -}}
-		{{- end -}}
-		{{- $dataList = merge $dataList (dict $k $ret.Output) -}}
-	{{- end -}}
-
-	{{- $dataList = merge $Page (dict "Input" (dict "Data" $dataList)) -}}
-	{{- partial "hestiaCOMPILERS/hestiaHUGO/saveContributors" $dataList -}}
-	{{- $dataList = partial "hestiaCOMPILERS/hestiaHUGO/loadContributors" $Page -}}
-{{- end -}}
-{{- $Page = merge $Page (dict "Contributors" false) -}}
-{{- $Page = merge $Page (dict "Contributors" (dict "Site" $dataList)) -}}
-
-
-
-
-{{- /* process .Contributors.Page */ -}}
 {{- $dataList = dict -}}
 {{- range $k, $v := .Contributors.Page -}}
-	{{- $data = index $Page.Contributors.Site $k -}}
+	{{- $data = index $Page.Data.Store.Hestia.Contributors $k -}}
 	{{- if not $data -}}
 		{{- $error = printf ".Contributors.Page: unknown entity '%v'.\n" $k -}}
 		{{- $error = merge $Page (dict "Error" $error) -}}
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 		{{- continue -}}
 	{{- end -}}
+
+
+	{{- $data = merge $Page (dict "Input" (dict "Data" $data)) -}}
+	{{- $data = partial "hestiaENTITY/Sanitize" $data -}}
+	{{- if $data.Error -}}
+		{{- $error = printf ".Contributors.%v: %v" $k $data.Error -}}
+		{{- $error = merge $Page (dict "Error" $error) -}}
+		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+		{{- continue -}}
+	{{- end -}}
+	{{- $data = $data.Output -}}
 
 
 	{{- if not (index $v "Contribution") -}}
@@ -607,8 +592,8 @@ specific language governing permissions and limitations under the License.
 
 	{{- $dataList = merge $dataList (dict $k $data) -}}
 {{- end -}}
-{{- $Page = merge $Page (dict "Contributors" (dict "Page" false)) -}}
-{{- $Page = merge $Page (dict "Contributors" (dict "Page" $dataList)) -}}
+{{- $Page = merge $Page (dict "Contributors" false) -}}
+{{- $Page = merge $Page (dict "Contributors" $dataList) -}}
 
 
 

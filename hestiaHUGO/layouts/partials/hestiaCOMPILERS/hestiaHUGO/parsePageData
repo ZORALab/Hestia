@@ -32,12 +32,6 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Data.Store */ -}}
-{{- $dataList = merge $dataList (dict "Data" (dict "Store" .Site.Data)) -}}
-
-
-
-
-{{- /* process .Data.Store */ -}}
 {{- $dataList = merge $dataList (dict "Content" dict) -}}
 
 
