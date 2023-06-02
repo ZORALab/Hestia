@@ -243,10 +243,16 @@ Reserve
 Sanitize
 Scan
 Search
+Sort(VARIANT)
 Split(VARIANT)
 String
 To[OBJECT]
 Zero
+
+
+「·LEGENDS·」
+()     = Optional
+[]     = Compulsory Variable Values
 '''
 
 

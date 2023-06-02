@@ -1,0 +1,277 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+
+
+
+
+[i18n.Labels]
+Pattern = '模式'
+Examples = '例子'
+
+
+
+
+[i18n.Introduction]
+ID = '自介'
+
+
+
+
+[i18n.DecentralizedDistribution]
+ID = '无中心化分发'
+Label = '无中心化分发'
+Title = '无中心化分发'
+Description = '''
+根据ZORALab赫斯提亚设计，我们是为了防止地缘政治和事后的肮脏诡计带来的无畏无聊的
+麻烦而很小心地选出我们支持的代码语言。在选择中，我们是检验它们不单一靠自己的中心
+化型方式分发软件包。在最高的开源（我们），所以支持的科技都可以不管上线或离线地
+通过一个简单的.zip格式无中心化分发。
+'''
+
+
+
+
+[i18n.StreamVsMemory]
+ID = '流动-vs-记忆'
+Label = '流动式vs记忆式'
+Title = '流动式vs记忆式'
+Description = '''
+在ZORALab赫斯提亚设计算法，基本上有2种方式：（1）流动式[S]专注于运用非常少的记忆
+空间但可以用长一点的时间来完成任务。（2）记忆式[M]专注于运用多记忆空间来快速地把
+任务完成。通常大多数的开发者是建设记忆式的计算法（设计时是没有顾虑到运用多少记忆
+空间）。在微型控制器和嵌入式的世界里，由于记忆空间通常是实在太小了，多数人都会使
+用流动式。如此，ZORALab赫斯提亚所写的功能和运作方法··一定··要双双供应记忆式和流
+动式的方式以先到者为准。
+'''
+
+
+
+
+[i18n.MonomorphizeByCPUSize]
+ID = '通过中央处理器的位大小单态化'
+Label = '通过中央处理器的位大小单态化'
+Title = '通过中央处理器的位大小单态化'
+Description = '''
+有一个问题ZORALab赫斯提亚一定要解决的是能供应各种不同的中央处理器的位大小（如：
+8-Bits、16-Bits、24-Bits、32-Bits、64-Bits、...2048-Bits）功能。多数的代码库是为
+64-Bits的中央处理器而写出。这把功能移植工作给其他位大小中央处理器非常困难和复杂。
+为了对抗这稀缺性的问题，ZORALab赫斯提亚会手动地通过中央处理器的位大小把所有供应
+的功能单态化好让顾客有个选择总好过没有选择。
+'''
+
+
+
+
+[i18n.ImportDirection]
+ID = '导入方向'
+Label = '导入方向'
+Title = '导入方向'
+Description = '''
+在ZORALab赫斯提亚里，××永远让顾客导入最后端的代码包（统称‘叶子包’）××。开发者永
+远都要把叶子包给写得自给自足方式。至于前一层的代码包（统称‘树枝包’或‘父母包’），
+××它们的责任是为他们所有的叶子包供应共同数据和功能××。以下是导入方向的模式：
+'''
+Pattern = '''
+[叶子]
+->
+[超级共同]/[叶子]
+-------->
+[超级共同]/[共同]/[叶子]
+-------------->
+'''
+Example = '''
+根据以上的模式，以下是我们可以为了深入明白而写出的例子：
+'''
+Samples = '''
+hestiaSTRING
+   ⮱ hestiaSTRING.M64_Sanitize
+hestiaNET/hestiaHTTP
+   ⮱ hestiaHTTP.Server
+   ⮱ hestiaHTTP.Client
+hestiaNET/hestiaHTTP/hestiaPWA
+   ⮱ hestiaPWA.ToAppJS
+   ⮱ hestiaPWA.ToAppManifest
+'''
+
+
+
+
+[i18n.NamingConvention]
+ID = '命名模范'
+Label = '命名模范'
+Title = '命名模范'
+Description = '''
+为了促进以上的规则和为了供应良好的互操作性体验和避免与标准库冲突，
+ZORALab赫斯提亚为它所有支持的科技而雇用自己的命名模范。我们还是运用Go的标题案例
+为出口指示器和Nim在它的语言需要的尾段的星号。ZORALab赫斯提亚的命名模式如下：
+'''
+Pattern = '''
+「·模范·」
+软件包   = (x_)[origin][OUTPUT](_[VARIANT](_[SKU]))
+固定值   = (X/x_)(priv_)[PURPOSE]_[NAME](_[VARIANT](_[SKU]))
+功能     = (X/x_)[[S/s]/[M/m]][CPU_BITS/N]_[Verb](_[VARIANT](_[SKU]))
+格式     = (X/x_)[[S/s]/[M/m]][CPU_BITS/N]_[Verb](_[VARIANT](_[SKU]))
+
+
+「·图例指示器·」
+()     = 随和
+[]     = 必修的变化值
+/      = 或者
+lower  = 小型字母
+UPPER  = 大型字母
+X_, x_ = 实验类
+'''
+Example = '''
+根据以上的模式，以下是我们可以为了深入明白而写出的例子：
+'''
+Samples = '''
+「·软件包·」
+hestiaSTRING                   (hugo, go, nim)
+x_hestiaSTRING                 (hugo, go, nim)
+hestiaGUI/zoralabCORE          (hugo, go, nim)
+hestiaGUI/x_zoralabCORE        (hugo, go, nim)
+x_hestiaGUI/x_zoralabCORE      (hugo, go, nim)
+
+
+「·固定值·」
+hestiaNET.TLS_1_3              (go-pub, nim-pub*)
+hestiaNET.X_TLS_1_3            (go-pub, nim-pub*)
+hestiaSYS.SYSTEM_NAME          (go-pub, nim-pub*)
+hestiaNET.priv_TLS_1_3         (go-priv, nim-priv)
+hestiaNET.priv_TLS_1_3         (go-priv, nim-priv)
+hestiaSYS.priv_SYSTEM_NAME     (go-priv, nim-priv)
+
+
+「·功能·」
+hestiaSTRING/Sanitize          (hugo-pub)
+hestiaSTRING.M64_Sanitize      (go-pub, nim-pub*)
+hestiaSTRING.S8_Sanitize       (go-pub, nim-pub*)
+hestiaSTRING.m64_Sanitize_V2   (go-priv, nim-priv)
+hestiaSTRING.s8_Sanitize_V2    (go-priv, nim-priv)
+hestiaSTRING.X_S8_Sanitize_V3  (go-pub, nim-pub*)
+hestiaSTRING.x_S8_Sanitize_V3  (go-priv, nim-priv)
+hestiaTESTING.SN_Format        (go-pub, nim-pub*)
+hestiaTESTING.MN_Format        (go-pub, nim-pub*)
+
+
+「·格式·」
+obj.M64_Sanitize               (go-pub, nim-pub*)
+obj.S8_Sanitize                (go-pub, nim-pub*)
+obj.m64_Sanitize_V2            (go-priv, nim-priv)
+obj.s8_Sanitize_V2             (go-priv, nim-priv)
+obj.X_S8_Sanitize_V3           (go-pub, nim-pub*)
+obj.x_S8_Sanitize_V3           (go-priv, nim-priv)
+'''
+
+
+
+
+[i18n.ErrorCodeNoPanic]
+ID = '错误代码和不可恐慌'
+Label = '错误代码和不可恐慌'
+Title = '错误代码和不可恐慌'
+Description = '''
+通过窜字符串来表达错误在记忆空间稀少的环境里是蛮昂贵的。如此以来，我们就只能运用
+传统的错误（hestiaERROR代码包-2个字节位）代码来表啦。还有：千万不可恐慌。所有的
+功能和格式都必须越有确定性越好。基本上，越少抽象化越好。
+'''
+
+
+
+
+[i18n.UseMacroAvoidGenerics]
+ID = '使用Macro和避免使用Generics'
+Label = '使用Macro和避免使用Generics'
+Title = '使用Macro和避免使用Generics'
+Description = '''
+Generics只能在1中元编程的用法条件下可使用。头痛的问题是在不同的中央处理器的位大小
+单位算法里，各有不同的运行方式。Generics是不可能做到的。这种情况下，唯有Macro才能
+有这个能力。所以呢，如果支持的语言有Macro功能，那就运用吧。千万不可使用Generics。
+'''
+
+
+
+
+[i18n.FunctionVsMethod]
+ID = '功能-vs-格式'
+Label = '功能vs格式'
+Title = '功能vs格式'
+Description = '''
+既然代码包是用输出出产类型而被立名，那我们是先以功能方式为先，格式为有需要鸭子打
+字需求和相关处理需求而定。重点是要不管任何方式要把它们全部给好好记录啦。所有目前
+运用的动词如下:
+'''
+Pattern = '''
+Add
+Append
+Begin
+Copy
+Delete
+Divide
+End
+Index(类型)
+Insert(类型)
+Join
+Length
+Minus
+Modulus
+Multiply
+Next
+Parse[对象]
+Pop
+Prepend
+Previous
+Replace(类型)
+Reserve
+Sanitize
+Scan
+Search
+Sort(类型)
+Split(类型)
+String
+To[对象]
+Zero
+
+
+「·图例指示器·」
+()     = 随和
+[]     = 必修的变化值
+'''
+
+
+
+
+[i18n.WASMCapable]
+ID = 'wasm能力'
+Label = 'WASM能力'
+Title = 'WASM能力'
+Description = '''
+所有的代码包必须支持WASM和无条件之下可以运用。我们绝对不可让顾客在用JavaScript去
+做任何事包括界面渲染工作（这就是代码包的首先责任啊）。
+'''
+
+
+
+
+[i18n.Catalog]
+ID = '菜单'
+Label = '菜单'
+Title = '菜单'
+Description = '''
+以下是我们所有的代码包规范让您去询问。它们是从跟根级开始。
+'''
+CTA = '了解更多'
+
+
+
+
+[i18n.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+我们已经抵达这个ZORALab赫斯提亚的规范终结段了。如有询问，您是可以通过以下管道来
+联系我们吧：
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub讨论论坛'
