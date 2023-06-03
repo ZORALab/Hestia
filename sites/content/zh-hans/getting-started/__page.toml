@@ -87,10 +87,14 @@ Enabled = false
 [Sources]
 HTML = 'layouts/content/getting-started/index.html'
 JSON = 'layouts/content/getting-started/index.json'
+CSS = 'layouts/content/getting-started/index.css'
+JS = 'layouts/content/getting-started/index.js'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
+Assets = 'layouts/content/getting-started/assets.toml'
+Components = 'layouts/content/getting-started/components.toml'
 
 
 
