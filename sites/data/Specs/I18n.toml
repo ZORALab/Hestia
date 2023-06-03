@@ -1,0 +1,107 @@
+[EN]
+Title = 'Title'
+Description = 'Description'
+
+
+
+
+[EN.Labels]
+Code = 'Code'
+URL = 'URL'
+Image = 'Image'
+
+
+
+
+[EN.Introduction]
+ID = 'introduction'
+
+
+
+
+[EN.Purposes]
+ID = 'objectives-and-purposes'
+Label = 'ObjectiveAndPurposes'
+Title = 'Objectives and Purposes'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+[ZH-HANS.Purposes]
+ID = '主要目的'
+Title = '主要目的'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+
+
+[EN.Designs]
+ID = 'package-designs'
+Label = 'PackageDesigns'
+Title = 'Package Designs'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+[ZH-HANS.Designs]
+ID = '软件包的设计'
+Title = '软件包的设计'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+
+
+[EN.Catalog]
+ID = 'catalog'
+Label = 'Catalog'
+Title = 'Catalog'
+Description = '''
+Here's all of our libraries' specifications for you to browse through. They're
+starting from the root level.
+'''
+CTA = 'Read More'
+
+
+[ZH-HANS.Catalog]
+ID = '菜单'
+Label = '菜单'
+Title = '菜单'
+Description = '''
+以下是我们所有的代码包规范让您去询问。它们是从跟根级开始。
+'''
+CTA = '了解更多'
+
+
+
+
+[EN.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+We have reach the end of this package's specification for ZORALab's Hestia
+Project. If you have any query, please feel free to contact us at our following
+portal:
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub Discussion Portal'
+
+
+[ZH-HANS.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+我们已经抵达这个ZORALab赫斯提亚的规范终结段了。如有询问，您是可以通过以下管道来
+联系我们吧：
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub讨论论坛'

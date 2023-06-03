@@ -1,0 +1,219 @@
+[[EN.Purposes.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to facilitate all graphical user interface
+(<code>GUI</code>) components across different technologies like web,
+<code>Qt</code>, etc. Each leaf package offers their common data structure for
+rendering across different GUI outputs. Currently, we're supporting the
+following outputs:
+'''
+Plain = '''
+This package's primary purpose is to facilitate all graphical user interface
+(GUI) components across different technologies like web, Qt, etc. Each of the
+leaf package offers their common data structure for rendering across different
+GUI outputs. Currently, we're supporting the following outputs:
+'''
+Code = '''
+Web (HTML+CSS)
+'''
+
+[[EN.Purposes.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.Purposes.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(<code>GUI</code>)。
+输出的可以是网络<code>HTML+CSS</code>、<code>Qt</code>等等之类的科技。每个叶子包
+是会供应自己的数码架构和输出功能。目前，我们有支持一下的科技:
+'''
+Plain = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(GUI)。输出的可以是
+网络HTML+CSS、Qt等等之类的科技。每个叶子包是会供应自己的数码架构和输出功能。
+目前，我们有支持一下的科技:
+'''
+Code = '''
+网络 (HTML+CSS)
+'''
+
+[[ZH-HANS.Purposes.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.Purposes.List]]
+Title = 'As A Common Utilities Provider'
+HTML = '''
+Since this is a parent package to all GUI component, this package supplies all
+common utilities that are used across all leaf packages. In any cases, it's rare
+for you to import this package unless you're a leaf package GUI component
+designer.
+'''
+Plain = '''
+Since this is a parent package to all GUI component, this package supplies all
+common utilities that are used across all leaf packages. In any cases, it's rare
+for you to import this package unless you're a leaf package GUI component
+designer.
+'''
+Code = '''
+'''
+
+[[EN.Purposes.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.Purposes.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(<code>GUI</code>)。
+输出的可以是网络<code>HTML+CSS</code>、<code>Qt</code>等等之类的科技。每个叶子包
+是会供应自己的数码架构和输出功能。目前，我们有支持一下的科技:
+'''
+Plain = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(GUI)。输出的可以是
+网络HTML+CSS、Qt等等之类的科技。每个叶子包是会供应自己的数码架构和输出功能。
+目前，我们有支持一下的科技:
+'''
+Code = '''
+'''
+
+[[ZH-HANS.Purposes.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.Designs.List]]
+Title = 'Web HTML+CSS First'
+HTML = '''
+While there are various UI systems in the market, ZORALab's Hestia prioritizes
+Web HTML+CSS first mainly as the world from 2023 are moving towards portable
+computing devices like phone, tablet, watches, and even AR/VR headsets. To
+ensure a system is available across each different devices under 1 single
+design, network-based UI is very important than device-based version.
+'''
+Plain = '''
+While there are various UI systems in the market, ZORALab's Hestia prioritizes
+Web HTML+CSS first mainly as the world from 2023 are moving towards portable
+computing devices like phone, tablet, watches, and even AR/VR headsets. To
+ensure a system is available across each different devices under 1 single
+design, network-based UI is very important than device-based version.
+'''
+Code = '''
+'''
+
+[[EN.Designs.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.Designs.List]]
+Title = '网络HTML+CSS优先'
+HTML = '''
+虽然在市场有许多的UI系统，ZORALab赫斯提亚还是会因为从2023年开始以多数人已经重用
+各种不同的电子数据处理器如智能手机、平板电脑、智能手表、AR/VR智能平视显示器等等。
+如果要在一种系统输出来支持每一个电子显示产品，为有网络界面才能稳重地达到目标。
+'''
+Plain = '''
+虽然在市场有许多的UI系统，ZORALab赫斯提亚还是会因为从2023年开始以多数人已经重用
+各种不同的电子数据处理器如智能手机、平板电脑、智能手表、AR/VR智能平视显示器等等。
+如果要在一种系统输出来支持每一个电子显示产品，为有网络界面才能稳重地达到目标。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.Designs.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.Designs.List]]
+Title = 'GUI As An Option'
+HTML = '''
+The sole reason GUI is made available are mainly to design an product interface
+for those users who are not technically backed. Hence, a product MUST be able to
+perform data processing and exchange while having GUI as an optional interface
+for asthetics and easy to use purposes.
+'''
+Plain = '''
+The sole reason GUI is made available are mainly to design an product interface
+for those users who are not technically-backed for it. Hence, a product MUST be
+able to perform data processing and data exchange is sufficent to operate.
+GUI is only enabled for the user as an option.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.Designs.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.Designs.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.Designs.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.Designs.List]]
+Title = 'Capable of Rendering HTML, CSS, and CSS Variables List Outputs Independently'
+HTML = '''
+Aligning to ZORALab's Hestia main purpose, all GUI components MUST support Web
+UI and WASM rendering. Hence, each leaf package is capable of rendering HTML,
+CSS, and its associated CSS Variables list independently when given the same
+data structure.
+'''
+Plain = '''
+Aligning to ZORALab's Hestia main purpose, all GUI components MUST support Web
+UI and WASM rendering. Hence, each leaf package is capable of rendering HTML,
+CSS, and its associated CSS Variables list independently when given the same
+data structure.
+'''
+Code = '''
+'''
+
+[[EN.Designs.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.Designs.List]]
+Title = '能独立地呈现HTML、CSS、和CSS变化值菜单输出数据'
+HTML = '''
+为了服从ZORALab赫斯提亚的主要目的，所有的界面元件一定要可以渲染输网络界面和
+WASM界面为输出的成果。如此一来，所有的叶子包是可以通过它的数据架构独立地呈现
+HTML、CSS、和CSS变化值菜单各自的数据。
+'''
+Plain = '''
+为了服从ZORALab赫斯提亚的主要目的，所有的界面元件一定要可以渲染输网络界面和
+WASM界面为输出的成果。如此一来，所有的叶子包是可以通过它的数据架构独立地呈现
+HTML、CSS、和CSS变化值菜单各自的数据。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.Designs.List.URL]]
+Value = ''
+Label = ''
