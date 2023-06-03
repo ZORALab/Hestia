@@ -60,6 +60,14 @@ specific language governing permissions and limitations under the License.
 		"JSON" (default "__content.hestiaJSON" $data.JSON)
 	)
 	"LDJSON" (default "__content.hestiaLDJSON" $data.LDJSON)
+	"CSS" (dict
+		"Source" (default "__assets.toml" $data.Assets)
+		"Main" (default "__content.hestiaCSS" $data.CSS)
+	)
+	"JS" (dict
+		"Main" (default "__content.hestiaJS" $data.JS)
+	)
+	"Components" (default "__components.toml" $data.Components)
 ) -}}
 
 

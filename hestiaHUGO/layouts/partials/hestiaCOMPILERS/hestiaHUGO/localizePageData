@@ -21,11 +21,13 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
+{{- $FS_PREFIXES := slice "layouts/" "assets/" "static/" -}}
 {{- $Page := . -}}
 {{- $Local := dict -}}
 {{- $dataset := dict -}}
 {{- $dataList := dict -}}
 {{- $list := slice -}}
+{{- $data := dict -}}
 {{- $ret := false -}}
 
 
@@ -39,7 +41,7 @@ specific language governing permissions and limitations under the License.
 		if we want a pure Go HTML implementations.
 	*/ -}}
 	{{- $Local = false -}}
-	{{- range $j, $w := (slice "layouts/" "assets/" "static/") -}}
+	{{- range $j, $w := $FS_PREFIXES -}}
 		{{ if strings.HasPrefix $v $w -}}
 			{{- $Local = true -}}
 		{{- end -}}
@@ -65,7 +67,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse local LDJSON */ -}}
 {{- $Local = false -}}
-{{- range $i, $v := (slice "layouts/" "assets/" "static/") -}}
+{{- range $i, $v := $FS_PREFIXES -}}
 	{{ if strings.HasPrefix $Page.LDJSON $v -}}
 		{{- $Local = true -}}
 	{{- end -}}
@@ -85,7 +87,18 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source .CSS and .JS */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory "__assets.toml" -}}
+{{- $Local = false -}}
+{{- range $i, $v := $FS_PREFIXES -}}
+	{{ if strings.HasPrefix $Page.CSS.Source $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $Local -}}
+	{{- $Local = $Page.CSS.Source -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $Page.CSS.Source -}}
+{{- end -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
 {{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
 {{- $Local = $Local.Output -}}
@@ -123,13 +136,6 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 {{- $Page = merge $Page (dict "CSS" (dict "Include" $dataList)) -}}
 
-{{- /* source page-level main CSS file */ -}}
-{{- $dataList = printf "%s/%s" .Filesystem.Directory "__content.hestiaCSS" -}}
-{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $dataList)) -}}
-	{{- $dataList = "" -}}
-{{- end -}}
-{{- $Page = merge $Page (dict "CSS" (dict "Main" $dataList)) -}}
-
 
 {{- /* source .JS */ -}}
 {{- $dataset = default (dict "Inline" slice "Include" slice) $Local.JS -}}
@@ -162,28 +168,67 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 {{- $Page = merge $Page (dict "JS" (dict "Include" $dataList)) -}}
 
-{{- /* source page-level main JS file */ -}}
-{{- $dataList = printf "%s/%s" .Filesystem.Directory "__content.hestiaJS" -}}
-{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $dataList)) -}}
-	{{- $dataList = "" -}}
+
+{{- /* source page-level main CSS file */ -}}
+{{- $Local = false -}}
+{{- range $i, $v := $FS_PREFIXES -}}
+	{{ if strings.HasPrefix $Page.CSS.Main $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
 {{- end -}}
-{{- $Page = merge $Page (dict "JS" (dict "Main" $dataList)) -}}
+
+{{- if $Local -}}
+	{{- $Local = $Page.CSS.Main -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $Page.CSS.Main -}}
+{{- end -}}
+{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $Local)) -}}
+	{{- $Local = "" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "CSS" (dict "Main" $Local)) -}}
+
+
+{{- /* source page-level main JS file */ -}}
+{{- $Local = false -}}
+{{- range $i, $v := $FS_PREFIXES -}}
+	{{ if strings.HasPrefix $Page.JS.Main $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $Local -}}
+	{{- $Local = $Page.JS.Main -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $Page.JS.Main -}}
+{{- end -}}
+{{- if not (partial "hestiaIO/hestiaFS/IsFileExists" (path.Clean $Local)) -}}
+	{{- $Local = "" -}}
+{{- end -}}
+{{- $Page = merge $Page (dict "JS" (dict "Main" $Local)) -}}
 
 
 
 
 {{- /* parse .Components */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory "__components.toml" -}}
+{{- $Local = false -}}
+{{- range $i, $v := $FS_PREFIXES -}}
+	{{ if strings.HasPrefix $Page.Components $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $Local -}}
+	{{- $Local = $Page.Components -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $Page.Components -}}
+{{- end -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
 {{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
 {{- $Local = $Local.Output -}}
 {{- $Local = default slice $Local.List -}}
 
 
-{{- $list = 0 -}}
-{{- if $Page.Components -}}
-	{{- $list = len $Page.Components -}}
-{{- end -}}
+{{- $list = slice -}}
 {{- range $i, $v := $Local -}}
 	{{- if not (index $v "Name") -}}
 		{{- continue -}}
@@ -193,14 +238,6 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "Components"
-		(dict (string $list) (dict "Name" $v.Name))
-	) -}}
-
-	{{- $Page = merge $Page (dict "Components"
-		(dict (string $list) (dict "Include" true))
-	) -}}
-
 	{{- /* process component's variables */ -}}
 	{{- $ret = dict -}}
 	{{- range $j, $w := $v.Variables -}}
@@ -208,12 +245,10 @@ specific language governing permissions and limitations under the License.
 			{{- $ret = merge $ret (dict (string $k) (string $x)) -}}
 		{{- end -}}
 	{{- end -}}
-	{{- $Page = merge $Page (dict "Components"
-		(dict (string $list) (dict "Variables" $ret))
-	) -}}
 
-	{{- $list = add $list 1 -}}
+	{{- $list = append (dict "Name" $v.Name "Include" true "Variables" $ret) $list -}}
 {{- end -}}
+{{- $Page = merge $Page (dict "Components" $list) -}}
 
 
 

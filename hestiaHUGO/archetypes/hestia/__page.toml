@@ -78,9 +78,13 @@ Enabled = false
 HTML = '__content.hestiaHTML'
 JSON = '__content.hestiaJSON'
 LDJSON = '__content.hestiaLDJSON'
+CSS = '__content.hestiaCSS'
+JS = '__content.hestiaJS'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
+Assets = '__assets.toml'
+Components = '__components.toml'
 
 
 
