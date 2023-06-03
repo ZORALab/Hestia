@@ -23,17 +23,17 @@ Published = 'Tue 20 Dec 2022 12:49:49 PM +08'
 [Content]
 Title = "ZORALab's Hestia"
 Keywords = [
-        'Web',
-        'Tech',
-        'PWA',
-        'WASM',
-        'Software Libraries',
-        'Hugo',
-        'Go',
-        'TinyGo',
-        'Nim',
-        'ZORALab',
-        "ZORALab's Hestia",
+	'Web',
+	'Tech',
+	'PWA',
+	'WASM',
+	'Software Libraries',
+	'Hugo',
+	'Go',
+	'TinyGo',
+	'Nim',
+	'ZORALab',
+	"ZORALab's Hestia",
 ]
 
 
@@ -87,10 +87,14 @@ Enabled = false
 [Sources]
 HTML = 'layouts/content/index.html'
 JSON = 'layouts/content/index.json'
+CSS = 'layouts/content/index.css'
+JS = 'layouts/content/index.js'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
+Assets = 'layouts/content/assets.toml'
+Components = 'layouts/content/components.toml'
 
 
 
