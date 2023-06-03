@@ -79,10 +79,14 @@ Enabled = false
 [Sources]
 HTML = 'layouts/content/licenses/index.html'
 JSON = 'layouts/content/licenses/index.json'
+CSS = 'layouts/content/licenses/index.css'
+JS = 'layouts/content/licenses/index.js'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
+Assets = 'layouts/content/licenses/assets.toml'
+Components = 'layouts/content/licenses/components.toml'
 
 
 
