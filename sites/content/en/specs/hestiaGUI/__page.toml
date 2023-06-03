@@ -89,10 +89,14 @@ Enabled = false
 [Sources]
 HTML = 'layouts/content/specs/common/index.html'
 JSON = 'layouts/content/specs/common/index.json'
+CSS = 'layouts/content/specs/common/index.css'
+JS = 'layouts/content/specs/common/index.js'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
+Assets = 'layouts/content/specs/common/assets.toml'
+Components = 'layouts/content/specs/common/components.toml'
 
 
 
