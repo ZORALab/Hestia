@@ -21,4 +21,8 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* render output */ -}}
-{{- return fileExists . -}}
+{{- $ret := false -}}
+{{- if . -}}
+	{{- $ret = fileExists . -}}
+{{- end -}}
+{{- return $ret -}}
