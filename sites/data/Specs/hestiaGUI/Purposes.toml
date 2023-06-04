@@ -1,0 +1,87 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to facilitate all graphical user interface
+(<code>GUI</code>) components across different technologies like web,
+<code>Qt</code>, etc. Each leaf package offers their common data structure for
+rendering across different GUI outputs. Currently, we're supporting the
+following outputs:
+'''
+Plain = '''
+This package's primary purpose is to facilitate all graphical user interface
+(GUI) components across different technologies like web, Qt, etc. Each of the
+leaf package offers their common data structure for rendering across different
+GUI outputs. Currently, we're supporting the following outputs:
+'''
+Code = '''
+Web (HTML+CSS)
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(<code>GUI</code>)。
+输出的可以是网络<code>HTML+CSS</code>、<code>Qt</code>等等之类的科技。每个叶子包
+是会供应自己的数码架构和输出功能。目前，我们有支持一下的科技:
+'''
+Plain = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(GUI)。输出的可以是
+网络HTML+CSS、Qt等等之类的科技。每个叶子包是会供应自己的数码架构和输出功能。
+目前，我们有支持一下的科技:
+'''
+Code = '''
+网络 (HTML+CSS)
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'As A Common Utilities Provider'
+HTML = '''
+Since this is a parent package to all GUI component, this package supplies all
+common utilities that are used across all leaf packages. In any cases, it's rare
+for you to import this package unless you're a leaf package GUI component
+designer.
+'''
+Plain = '''
+Since this is a parent package to all GUI component, this package supplies all
+common utilities that are used across all leaf packages. In any cases, it's rare
+for you to import this package unless you're a leaf package GUI component
+designer.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(<code>GUI</code>)。
+输出的可以是网络<code>HTML+CSS</code>、<code>Qt</code>等等之类的科技。每个叶子包
+是会供应自己的数码架构和输出功能。目前，我们有支持一下的科技:
+'''
+Plain = '''
+这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(GUI)。输出的可以是
+网络HTML+CSS、Qt等等之类的科技。每个叶子包是会供应自己的数码架构和输出功能。
+目前，我们有支持一下的科技:
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

@@ -1,6 +1,8 @@
 {{- /* prepare variables for function */ -}}
+{{- $SECTIONS := slice "Purposes" "Designs" "Functions" -}}
 {{- $Page := . -}}
 {{- $i18n := index .Data.Store.Specs.I18n .Languages.Current.ID -}}
+{{- $datastore := false -}}
 {{- $dataset := false -}}
 {{- $lang := false -}}
 {{- $ret := false -}}
@@ -9,13 +11,12 @@
 
 
 {{- /* obtain dataset */ -}}
-{{- $dataset = $Page.Data.Store.Specs -}}
+{{- $datastore = $Page.Data.Store.Specs -}}
 {{- range $i, $v := (split $Page.Data.Page.Dataset.Path ".") -}}
-	{{- if $dataset -}}
-		{{- $dataset = index $dataset $v -}}
+	{{- if $datastore -}}
+		{{- $datastore = index $datastore $v -}}
 	{{- end -}}
 {{- end -}}
-{{- $dataset = index $dataset.Data $Page.Languages.Current.ID -}}
 
 
 
@@ -27,108 +28,17 @@
 		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
 	</section>
 
+	{{- range $unused, $type := $SECTIONS -}}
+		{{- $lang = index $i18n $type -}}
+		{{- $dataset = default dict (index $datastore $type) -}}
+		{{- $dataset = index $dataset $Page.Languages.Current.ID -}}
 
-	<section id='{{- $i18n.Purposes.ID -}}'>
-		<h2>{{- $i18n.Purposes.Title -}}</h2>
-		<p>{{- safeHTML $i18n.Purposes.HTML -}}</p>
+	<section id='{{- $lang.ID -}}'>
+		<h2>{{- $lang.Title -}}</h2>
+		<p>{{- safeHTML $lang.HTML -}}</p>
 
-		{{ range $i, $v := $dataset.Purposes.List }}<section>
-			<h3>{{- $v.Title -}}</h3>
-			<p>{{- safeHTML $v.HTML -}}</p>
-
-			{{- range $j , $w := $v.URL -}}
-				{{- if and (not $w.Value) (not $w.Label) -}}
-					{{- continue -}}
-				{{- end -}}
-
-				{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
-				{{- $ret = partial "hestiaURL/Sanitize" $ret }}
-			<a href='{{- string $ret.Output -}}' class='button'>{{- $w.Label -}}</a>
-			{{- end }}
-
-			{{- if $v.Code }}
-			<pre>{{- htmlEscape $v.Code -}}</pre>
-			{{- end }}
-
-			{{- if $v.Image }}
-				{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
-				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-				{{- $ret = $ret.Output }}
-			{{ partial "hestiaMEDIA/ToHTML" $ret }}
-			{{- end }}
-		</section>{{- end }}
-	</section>
-
-
-	<section id='{{- $i18n.Designs.ID -}}'>
-		<h2>{{- $i18n.Designs.Title -}}</h2>
-		<p>{{- safeHTML $i18n.Designs.HTML -}}</p>
-
-		{{ range $i, $v := $dataset.Designs.List }}<section>
-			<h3>{{- $v.Title -}}</h3>
-			<p>{{- safeHTML $v.HTML -}}</p>
-
-			{{- range $j , $w := $v.URL -}}
-				{{- if and (not $w.Value) (not $w.Label) -}}
-					{{- continue -}}
-				{{- end -}}
-
-				{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
-				{{- $ret = partial "hestiaURL/Sanitize" $ret }}
-			<a href='{{- string $ret.Output -}}' class='button'>{{- $w.Label -}}</a>
-			{{- end }}
-
-			{{- if $v.Code }}
-			<pre>{{- htmlEscape $v.Code -}}</pre>
-			{{- end }}
-
-			{{- if $v.Image }}
-				{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
-				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-				{{- $ret = $ret.Output }}
-			{{ partial "hestiaMEDIA/ToHTML" $ret }}
-			{{- end }}
-
-			{{ range $j, $w := $v.SubList }}<section>
-				<h4>{{- $w.Title -}}</h4>
-				<p>{{- safeHTML $w.HTML -}}</p>
-
-				{{- range $k , $x := $w.URL -}}
-					{{- if and (not $x.Value) (not $x.Label) -}}
-						{{- continue -}}
-					{{- end -}}
-
-					{{- $ret = merge $Page (dict "Input"
-						(dict "Data" $x.Value)
-					) -}}
-					{{- $ret = partial "hestiaURL/Sanitize" $ret }}
-				<a href='{{- string $ret.Output -}}'
-					class='button'>{{- $x.Label -}}</a>
-				{{- end }}
-
-				{{- if $w.Code }}
-				<pre>{{- htmlEscape $w.Code -}}</pre>
-				{{- end }}
-
-				{{- if $w.Image }}
-					{{- $ret = merge $Page (dict "Input"
-						(dict "Data" $w.Image)
-					) -}}
-					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-					{{- $ret = $ret.Output }}
-				{{ partial "hestiaMEDIA/ToHTML" $ret }}
-				{{- end }}
-			</section>{{- end }}
-		</section>{{- end }}
-	</section>
-
-
-	<section id='{{- $i18n.Functions.ID -}}'>
-		<h2>{{- $i18n.Functions.Title -}}</h2>
-		<p>{{- safeHTML $i18n.Functions.HTML -}}</p>
-
-		{{ if $dataset.Functions.List -}}
-		{{ range $i, $v := $dataset.Functions.List }}<section>
+		{{ if $dataset.List -}}
+		{{ range $i, $v := $dataset.List }}<section>
 			<h3>{{- $v.Title -}}</h3>
 			<p>{{- safeHTML $v.HTML -}}</p>
 
@@ -185,23 +95,24 @@
 			</section>{{- end }}
 		</section>{{- end }}
 		{{- else }}
-		<p>{{- $i18n.Functions.NoList -}}</p>
+		<p>{{- $lang.NoList -}}</p>
 		{{- end }}
 	</section>
+	{{- end }}
 
 
 	{{- if (len .Nav.Children) }}
 	<section id='{{- $i18n.Catalog.ID -}}'>
 		<h2>{{- $i18n.Catalog.Title -}}</h2>
 		<p>{{- $i18n.Catalog.Description -}}</p>
-		<div class='row'>{{- range $i, $v := .Nav.Children }}
+		<div class='row' style='--h3-margin: 0;'>{{- range $i, $v := .Nav.Children }}
 			{{- $dataset = $Page.Data.Store.Specs -}}
 			{{- range $j, $w := (split $v.Data.Page.Dataset.Path ".") -}}
 				{{- if $dataset -}}
 					{{- $dataset = index $dataset $w -}}
 				{{- end -}}
 			{{- end -}}
-			{{- $dataset = index $dataset.Data $Page.Languages.Current.ID }}
+			{{- $dataset = index $dataset.Metadata $Page.Languages.Current.ID }}
 			<div class='column'><div class='card'>
 				<div class='content'>
 					<h3>{{- $dataset.Brand.SKU -}}</h3>

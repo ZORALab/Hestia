@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabcode'
+SKU = 'zoralabCODE'
+Description = '''
+For styling a code syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabcode'
+SKU = 'zoralabCODE'
+Description = '''
+来渲染代码和数码语法。
+'''

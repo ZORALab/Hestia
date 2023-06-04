@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'hestiaGUI'
+SKU = 'hestiaGUI'
+Description = '''
+All GUI rendering UI component packages grouped here.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'hestiaGUI'
+SKU = 'hestiaGUI'
+Description = '''
+所有GUI界面元件代码包在这个集成。
+'''

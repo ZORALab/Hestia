@@ -1,117 +1,4 @@
-[EN.Brand]
-ID = 'zoralabcode'
-SKU = 'zoralabCODE'
-Description = '''
-For styling a code syntax.
-'''
-
-
-[ZH-HANS.Brand]
-ID = 'zoralabcode'
-SKU = 'zoralabCODE'
-Description = '''
-来渲染代码和数码语法。
-'''
-
-
-
-
-[[EN.Purposes.List]]
-Title = 'Main Purpose'
-HTML = '''
-This package's primary purpose is to provide user interface (UI) styling
-specifically for inline code based values. In web UI, it is shown as follows:
-<br/><br/>
-<span>
-'<i>This paragraph has code which looks like <code>this</code> and ends with a
-clean paragraph.</i>'
-</span>
-'''
-Plain = '''
-This package's primary purpose is to provide user interface (UI) styling
-specifically for inline code based values. In web UI, it is shown as follows:
-
-'This paragraph has code which looks like <code>this</code> and ends with a
-clean paragraph.'
-'''
-Code = '''
-'''
-
-[[EN.Purposes.List.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.Purposes.List]]
-Title = '主要目的'
-HTML = '''
-这个软件包的出生主要是支持渲染内嵌代码界面元件。在网络界面世界里，这元件的成果如
-下：
-<br/><br/>
-<span>
-'<i>这段文字有代码像<code>这个</code>然后以普通文字来终结啦。</i>'
-</span>
-<br/><br/>
-'''
-Plain = '''
-这个软件包的出生主要是支持渲染内嵌代码界面元件。在网络界面世界里，这元件的成果如
-下：
-
-'<i>这段文字有代码像<code>这个</code>然后以普通文字来终结啦。</i>'
-'''
-Code = '''
-'''
-
-[[ZH-HANS.Purposes.List.URL]]
-Value = ''
-Label = ''
-
-
-
-
-[[EN.Purposes.List]]
-Title = 'Legacy Recording'
-HTML = '''
-This package was known as <code>code_hestiaUI</code> before ZORALab's Hestia
-<code>v1.2.0</code>. The transformation was due to someone attempting to steal
-the copyrights and makes way for programming package's documentation
-restructuring.
-'''
-Plain = '''
-This package was known as 'code_hestiaUI' before ZORALab's Hestia 'v1.2.0'. The
-transformation was due to someone attempting to steal the design copyrights and
-makes way for programming package's documentation restructuring.
-'''
-Code = '''
-'''
-
-[[EN.Purposes.List.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.Purposes.List]]
-Title = '历史遗录'
-HTML = '''
-这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
-<code>code_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程文件
-编写能力而整理过。
-'''
-Plain = '''
-这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为code_hestiaUI。改名的目的是有
-人要横行强盗设计的版权和为了编程文件编写能力而整理过。
-'''
-Code = '''
-'''
-
-[[ZH-HANS.Purposes.List.URL]]
-Value = ''
-Label = ''
-
-
-
-
-[[EN.Designs.List]]
+[[EN.List]]
 Title = 'Designers'
 HTML = '''
 This component was designed by the following creators:
@@ -122,12 +9,12 @@ This component was designed by the following creators:
 Code = '''
 '''
 
-[[EN.Designs.List.URL]]
+[[EN.List.URL]]
 Value = 'https://www.hollowaykeanho.com/en/'
 Label = '(Holloway) Chew, Kean Ho'
 
 
-[[ZH-HANS.Designs.List]]
+[[ZH-HANS.List]]
 Title = '设计师'
 HTML = '''
 这个元件的设计是由以下的创造者所建设的：
@@ -138,14 +25,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.Designs.List.URL]]
+[[ZH-HANS.List.URL]]
 Value = 'https://www.hollowaykeanho.com/zh-hans/'
 Label = '(Holloway) 周健豪'
 
 
 
 
-[[EN.Designs.List]]
+[[EN.List]]
 Title = 'Dependencies'
 HTML = '''
 This component has the following dependencies (arranged in the order from
@@ -158,12 +45,12 @@ left-top to right-bottom):
 Code = '''
 '''
 
-[[EN.Designs.List.URL]]
+[[EN.List.URL]]
 Value = '/en/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
 
-[[ZH-HANS.Designs.List]]
+[[ZH-HANS.List]]
 Title = '依赖其他元件'
 HTML = '''
 这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
@@ -174,13 +61,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.Designs.List.URL]]
+[[ZH-HANS.List.URL]]
 Value = '/zh-hans/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
 
 
-[[EN.Designs.List]]
+
+[[EN.List]]
 Title = 'HTML'
 HTML = '''
 For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
@@ -195,12 +83,12 @@ structure for this component.
 Code = '''
 '''
 
-[[EN.Designs.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List]]
+[[ZH-HANS.List]]
 Title = 'HTML'
 HTML = '''
 至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
@@ -211,13 +99,13 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.Designs.List.URL]]
+[[ZH-HANS.List.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Minimum HTML'
 HTML = '''
 The minimum required HTML codes are shown below:
@@ -229,12 +117,12 @@ Code = '''
 ...<code>...</code>...
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'HTML'
 HTML = '''
 在最小的HTML代码运用方法如下：
@@ -246,14 +134,14 @@ Code = '''
 ...<code>...</code>...
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.Designs.List]]
+[[EN.List]]
 Title = 'CSS'
 HTML = '''
 ZORALab's Hestia heavily rely on CSS to style this component and offering its
@@ -269,11 +157,11 @@ Code = '''
 '''
 
 
-[[ZH-HANS.Designs.List.URL]]
+[[ZH-HANS.List.URL]]
 Value = ''
 Label = ''
 
-[[ZH-HANS.Designs.List]]
+[[ZH-HANS.List]]
 Title = 'GUI界面一定要自选性'
 HTML = '''
 GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
@@ -286,13 +174,13 @@ GUI界面元件主要是给那些没有科技文学的顾客可以方便使用�
 Code = '''
 '''
 
-[[ZH-HANS.Designs.List.URL]]
+[[ZH-HANS.List.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Margin'
 HTML = '''
 Affects the margin of the rendered component.
@@ -306,12 +194,12 @@ CSS PROPERTY : margin
 DEFAULT      : initial (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Margin'
 HTML = '''
 影响元件的外向边距空间。
@@ -325,13 +213,13 @@ CSS PROPERTY : margin
 DEFAULT      : initial (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Padding'
 HTML = '''
 Affects the padding of the rendered component.
@@ -345,12 +233,12 @@ CSS PROPERTY : padding
 DEFAULT      : 0 .2rem (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Padding'
 HTML = '''
 影响元件的内向边距空间。
@@ -364,13 +252,13 @@ CSS PROPERTY : padding
 DEFAULT      : 0 .2rem (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Border'
 HTML = '''
 Affects the border of the rendered component.
@@ -384,12 +272,12 @@ CSS PROPERTY : border
 DEFAULT      : initial (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Border'
 HTML = '''
 影响元件的边界线。
@@ -403,13 +291,13 @@ CSS PROPERTY : border
 DEFAULT      : initial (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Border Radius'
 HTML = '''
 Affects the border radius of the rendered component.
@@ -423,12 +311,12 @@ CSS PROPERTY : border-radius
 DEFAULT      : .4rem (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Border Radius'
 HTML = '''
 影响元件的边界线的角落圆形度。
@@ -442,13 +330,13 @@ CSS PROPERTY : border-radius
 DEFAULT      : .4rem (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Font Weight'
 HTML = '''
 Affects the font weight of the rendered component.
@@ -462,12 +350,12 @@ CSS PROPERTY : font-weight
 DEFAULT      : 700 (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Font Weight'
 HTML = '''
 影响元件的字形的厚度。
@@ -481,13 +369,13 @@ CSS PROPERTY : font-weight
 DEFAULT      : 700 (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Letter Spacing'
 HTML = '''
 Affects the letter spacing of the rendered component.
@@ -501,12 +389,12 @@ CSS PROPERTY : letter-spacing
 DEFAULT      : 0 (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Letter Spacing'
 HTML = '''
 影响元件的字形的厚度。
@@ -520,13 +408,13 @@ CSS PROPERTY : letter-spacing
 DEFAULT      : 0 (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Color'
 HTML = '''
 Affects the color of the rendered component.
@@ -540,12 +428,12 @@ CSS PROPERTY : color
 DEFAULT      : var(--color-primary-300) (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Color'
 HTML = '''
 影响元件的颜色。
@@ -559,13 +447,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--color-primary-300) (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Color in Print Mode'
 HTML = '''
 Affects the color of the rendered component during print mode.
@@ -579,12 +467,12 @@ CSS PROPERTY : color
 DEFAULT      : var(--body-color-print) (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = '在印刷中的Color'
 HTML = '''
 影响元件在印刷中的颜色。
@@ -598,13 +486,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--body-color-print) (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.Designs.List.SubList]]
+[[EN.List.SubList]]
 Title = 'Overflow Wrap'
 HTML = '''
 Affects the overflow wrapping behavior of the rendered component.
@@ -618,12 +506,12 @@ CSS PROPERTY : overflow-wrap
 DEFAULT      : break-word (>= v1.0.0)
 '''
 
-[[EN.Designs.List.SubList.URL]]
+[[EN.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List.SubList]]
+[[ZH-HANS.List.SubList]]
 Title = 'Overflow Wrap'
 HTML = '''
 影响元件的在溢出时的包装反应。
@@ -637,14 +525,14 @@ CSS PROPERTY : overflow-wrap
 DEFAULT      : break-word (>= v1.0.0)
 '''
 
-[[ZH-HANS.Designs.List.SubList.URL]]
+[[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.Designs.List]]
+[[EN.List]]
 Title = 'JavaScript'
 HTML = '''
 Fortunately, this component does not use any JavaScript. Relax.
@@ -655,12 +543,12 @@ Fortunately, this component does not use any JavaScript. Relax.
 Code = '''
 '''
 
-[[EN.Designs.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.Designs.List]]
+[[ZH-HANS.List]]
 Title = 'JavaScript'
 HTML = '''
 庆幸的是这个元件没有运用到任何JavaScript。放心吧！
@@ -671,148 +559,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.Designs.List.URL]]
-Value = ''
-Label = ''
-
-
-
-
-[[EN.Functions.List]]
-Title = 'ToCSS'
-HTML = '''
-Render the CSS output for this UI component.
-'''
-Plain = '''
-Render the CSS output for this UI component.
-'''
-Code = '''
-'''
-
-[[EN.Functions.List.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.Functions.List]]
-Title = 'ToCSS'
-HTML = '''
-渲染呈现CSS的输出数据。
-'''
-Plain = '''
-渲染呈现CSS的输出数据。
-'''
-Code = '''
-'''
-
-[[ZH-HANS.Functions.List.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.Functions.List.SubList]]
-Title = 'Hugo'
-HTML = '''
-Usage example:
-'''
-Plain = '''
-Usage example:
-'''
-Code = '''
-{{- $ret := partial "hestiaGUI/zoralabCODE/ToCSS" . -}}
-<pre>{{- printf "%#v\n" $ret -}}</pre>
-'''
-
-[[EN.Functions.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.Functions.List.SubList]]
-Title = 'Hugo'
-HTML = '''
-用法：
-'''
-Plain = '''
-用法：
-'''
-Code = '''
-{{- $ret := partial "hestiaGUI/zoralabCODE/ToCSS" . -}}
-<pre>{{- printf "%#v\n" $ret -}}</pre>
-'''
-
-[[ZH-HANS.Functions.List.URL]]
-Value = ''
-Label = ''
-
-
-
-
-[[EN.Functions.List]]
-Title = 'ToCSS_VARIABLES'
-HTML = '''
-Render the CSS variables output list for this UI component.
-'''
-Plain = '''
-Render the CSS variables output list for this UI component.
-'''
-Code = '''
-'''
-
-[[EN.Functions.List.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.Functions.List]]
-Title = 'ToCSS_VARIABLES'
-HTML = '''
-渲染呈现CSS变化值数据的输出菜单。
-'''
-Plain = '''
-渲染呈现CSS变化值数据的输出菜单。
-'''
-Code = '''
-'''
-
-[[ZH-HANS.Functions.List.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.Functions.List.SubList]]
-Title = 'Hugo'
-HTML = '''
-Usage example:
-'''
-Plain = '''
-Usage example:
-'''
-Code = '''
-{{- $ret := partial "hestiaGUI/zoralabCODE/ToCSS_VARIABLES" . -}}
-<pre>{{- printf "%#v\n" $ret -}}</pre>
-'''
-
-[[EN.Functions.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.Functions.List.SubList]]
-Title = 'Hugo'
-HTML = '''
-用法：
-'''
-Plain = '''
-用法：
-'''
-Code = '''
-{{- $ret := partial "hestiaGUI/zoralabCODE/ToCSS_VARIABLES" . -}}
-<pre>{{- printf "%#v\n" $ret -}}</pre>
-'''
-
-[[ZH-HANS.Functions.List.URL]]
+[[ZH-HANS.List.URL]]
 Value = ''
 Label = ''
