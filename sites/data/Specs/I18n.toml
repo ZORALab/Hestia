@@ -9,6 +9,7 @@ Description = 'Description'
 Code = 'Code'
 URL = 'URL'
 Image = 'Image'
+SubList = 'Subpoints'
 
 
 
@@ -42,7 +43,7 @@ Plain = '''
 
 [EN.Designs]
 ID = 'package-designs'
-Label = 'PackageDesigns'
+Label = 'Designs'
 Title = 'Package Designs'
 HTML = '''
 '''
@@ -52,7 +53,31 @@ Plain = '''
 
 [ZH-HANS.Designs]
 ID = '软件包的设计'
+Label = '设计'
 Title = '软件包的设计'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+
+
+[EN.Functions]
+ID = 'functions-list'
+Label = 'Functions'
+Title = 'Offered Functions'
+NoList = 'This package does not offer any function.'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+[ZH-HANS.Functions]
+ID = '功能菜单'
+Title = '提供的功能'
+NoList = '这个代码包没有提供任何功能。'
 HTML = '''
 '''
 Plain = '''

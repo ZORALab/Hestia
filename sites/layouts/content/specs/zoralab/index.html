@@ -1,9 +1,21 @@
 {{- /* prepare variables for function */ -}}
 {{- $Page := . -}}
 {{- $i18n := index .Data.Store.Specs.I18n .Languages.Current.ID -}}
-{{- $dataset := index .Data.Store.Specs.hestiaGUI.Data .Languages.Current.ID -}}
+{{- $dataset := false -}}
 {{- $lang := false -}}
 {{- $ret := false -}}
+
+
+
+
+{{- /* obtain dataset */ -}}
+{{- $dataset = $Page.Data.Store.Specs -}}
+{{- range $i, $v := (split $Page.Data.Page.Dataset.Path ".") -}}
+	{{- if $dataset -}}
+		{{- $dataset = index $dataset $v -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataset = index $dataset.Data $Page.Languages.Current.ID -}}
 
 
 
@@ -35,7 +47,7 @@
 			{{- end }}
 
 			{{- if $v.Code }}
-			<pre>{{- $v.Code -}}</pre>
+			<pre>{{- htmlEscape $v.Code -}}</pre>
 			{{- end }}
 
 			{{- if $v.Image }}
@@ -67,7 +79,7 @@
 			{{- end }}
 
 			{{- if $v.Code }}
-			<pre>{{- $v.Code -}}</pre>
+			<pre>{{- htmlEscape $v.Code -}}</pre>
 			{{- end }}
 
 			{{- if $v.Image }}
@@ -78,7 +90,7 @@
 			{{- end }}
 
 			{{ range $j, $w := $v.SubList }}<section>
-				<h3>{{- $w.Title -}}</h3>
+				<h4>{{- $w.Title -}}</h4>
 				<p>{{- safeHTML $w.HTML -}}</p>
 
 				{{- range $k , $x := $w.URL -}}
@@ -95,7 +107,7 @@
 				{{- end }}
 
 				{{- if $w.Code }}
-				<pre>{{- $w.Code -}}</pre>
+				<pre>{{- htmlEscape $w.Code -}}</pre>
 				{{- end }}
 
 				{{- if $w.Image }}
@@ -111,15 +123,89 @@
 	</section>
 
 
+	<section id='{{- $i18n.Functions.ID -}}'>
+		<h2>{{- $i18n.Functions.Title -}}</h2>
+		<p>{{- safeHTML $i18n.Functions.HTML -}}</p>
+
+		{{ if $dataset.Functions.List -}}
+		{{ range $i, $v := $dataset.Functions.List }}<section>
+			<h3>{{- $v.Title -}}</h3>
+			<p>{{- safeHTML $v.HTML -}}</p>
+
+			{{- range $j , $w := $v.URL -}}
+				{{- if and (not $w.Value) (not $w.Label) -}}
+					{{- continue -}}
+				{{- end -}}
+
+				{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+				{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+			<a href='{{- string $ret.Output -}}' class='button'>{{- $w.Label -}}</a>
+			{{- end }}
+
+			{{- if $v.Code }}
+			<pre>{{- htmlEscape $v.Code -}}</pre>
+			{{- end }}
+
+			{{- if $v.Image }}
+				{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
+				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+				{{- $ret = $ret.Output }}
+			{{ partial "hestiaMEDIA/ToHTML" $ret }}
+			{{- end }}
+
+			{{ range $j, $w := $v.SubList }}<section>
+				<h4>{{- $w.Title -}}</h4>
+				<p>{{- safeHTML $w.HTML -}}</p>
+
+				{{- range $k , $x := $w.URL -}}
+					{{- if and (not $x.Value) (not $x.Label) -}}
+						{{- continue -}}
+					{{- end -}}
+
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $x.Value)
+					) -}}
+					{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+				<a href='{{- string $ret.Output -}}'
+					class='button'>{{- $x.Label -}}</a>
+				{{- end }}
+
+				{{- if $w.Code }}
+				<pre>{{- htmlEscape $w.Code -}}</pre>
+				{{- end }}
+
+				{{- if $w.Image }}
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $w.Image)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = $ret.Output }}
+				{{ partial "hestiaMEDIA/ToHTML" $ret }}
+				{{- end }}
+			</section>{{- end }}
+		</section>{{- end }}
+		{{- else }}
+		<p>{{- $i18n.Functions.NoList -}}</p>
+		{{- end }}
+	</section>
+
+
 	{{- if (len .Nav.Children) }}
 	<section id='{{- $i18n.Catalog.ID -}}'>
 		<h2>{{- $i18n.Catalog.Title -}}</h2>
 		<p>{{- $i18n.Catalog.Description -}}</p>
 		<div class='row'>{{- range $i, $v := .Nav.Children }}
+			{{- $dataset = $Page.Data.Store.Specs -}}
+			{{- range $j, $w := (split $v.Data.Page.Dataset.Path ".") -}}
+				{{- if $dataset -}}
+					{{- $dataset = index $dataset $w -}}
+				{{- end -}}
+			{{- end -}}
+			{{- $dataset = index $dataset.Data $Page.Languages.Current.ID }}
 			<div class='column'><div class='card'>
 				<div class='content'>
-					<h3>{{- $v.Titles.Page -}}</h3>
-					<p>{{- $v.Descriptions.Pitch -}}</p>
+					<h3>{{- $dataset.Brand.SKU -}}</h3>
+					<p>{{- $dataset.Brand.Description -}}</p>
 				</div>
 				<div class='actions'>
 					<a href='{{- $v.URL.Current.Absolute -}}'

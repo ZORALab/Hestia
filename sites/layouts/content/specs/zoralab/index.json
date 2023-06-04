@@ -1,0 +1,269 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := index .Data.Store.Specs.I18n .Languages.Current.ID -}}
+{{- $dataset := false -}}
+{{- $lang := dict -}}
+{{- $list := slice -}}
+{{- $subList := slice -}}
+{{- $URLList := slice -}}
+{{- $data := dict -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* obtain dataset */ -}}
+{{- $dataset = $Page.Data.Store.Specs -}}
+{{- range $i, $v := (split $Page.Data.Page.Dataset.Path ".") -}}
+	{{- if $dataset -}}
+		{{- $dataset = index $dataset $v -}}
+	{{- end -}}
+{{- end -}}
+{{- $dataset = index $dataset.Data $Page.Languages.Current.ID -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Title .Titles.Page
+	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+) -}}
+
+
+
+
+{{- /* construct .Purposes dataset  */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := $dataset.Purposes.List -}}
+	{{- $ret = "" -}}
+	{{- if $v.Code -}}
+		{{- $ret = $v.Code -}}
+	{{- end -}}
+
+
+	{{- $URLList = slice -}}
+	{{- range $j , $w := $v.URL -}}
+		{{- if and (not $w.Value) (not $w.Label) -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+		{{- $URLList = append (dict $w.Label (string $ret.Output)) $URLList -}}
+	{{- end -}}
+
+
+	{{- $ret = dict -}}
+	{{- if $v.Image -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+
+
+	{{- $list = append (dict
+		$i18n.Title $v.Title
+		$i18n.Description $v.Plain
+		$i18n.Labels.Code $ret
+		$i18n.Labels.URL $URLList
+		$i18n.Labels.Image $ret
+	) $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Purposes.Label $list) -}}
+
+
+
+
+{{- /* construct .Designs dataset  */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := $dataset.Designs.List -}}
+	{{- $ret = "" -}}
+	{{- if $v.Code -}}
+		{{- $ret = $v.Code -}}
+	{{- end -}}
+
+
+	{{- $URLList = slice -}}
+	{{- range $j , $w := $v.URL -}}
+		{{- if and (not $w.Value) (not $w.Label) -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+		{{- $URLList = append (dict $w.Label (string $ret.Output)) $URLList -}}
+	{{- end -}}
+
+
+	{{- $ret = dict -}}
+	{{- if $v.Image -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+
+
+	{{- $data = dict
+		$i18n.Title $v.Title
+		$i18n.Description $v.Plain
+		$i18n.Labels.Code $v.Code
+		$i18n.Labels.URL $URLList
+		$i18n.Labels.Image $ret
+	-}}
+
+
+	{{- $subList = slice -}}
+	{{- range $j, $w := $v.SubList -}}
+		{{- $ret = "" -}}
+		{{- if $w.Code -}}
+			{{- $ret = $w.Code -}}
+		{{- end -}}
+
+
+		{{- $URLList = slice -}}
+		{{- range $k, $x := $w.URL -}}
+			{{- if and (not $x.Value) (not $x.Label) -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $x.Value)) -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+			{{- $URLList = append (dict $w.Label (string $ret.Output)) $URLList -}}
+		{{- end -}}
+
+
+		{{- $ret = dict -}}
+		{{- if $w.Image -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Image)) -}}
+			{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+		{{- end -}}
+
+
+		{{- $subList = append (dict
+			$i18n.Title $w.Title
+			$i18n.Description $w.Plain
+			$i18n.Labels.Code $w.Code
+			$i18n.Labels.URL $URLList
+			$i18n.Labels.Image $ret
+		) $subList -}}
+	{{- end -}}
+	{{- $data = merge $data (dict $i18n.Labels.SubList $subList) -}}
+
+
+	{{- $list = append $data $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Designs.Label $list) -}}
+
+
+
+
+{{- /* construct .Functions dataset  */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := $dataset.Functions.List -}}
+	{{- $ret = "" -}}
+	{{- if $v.Code -}}
+		{{- $ret = $v.Code -}}
+	{{- end -}}
+
+
+	{{- $URLList = slice -}}
+	{{- range $j , $w := $v.URL -}}
+		{{- if and (not $w.Value) (not $w.Label) -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+		{{- $URLList = append (dict $w.Label (string $ret.Output)) $URLList -}}
+	{{- end -}}
+
+
+	{{- $ret = dict -}}
+	{{- if $v.Image -}}
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
+		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+		{{- $ret = $ret.Output -}}
+	{{- end -}}
+
+
+	{{- $data = dict
+		$i18n.Title $v.Title
+		$i18n.Description $v.Plain
+		$i18n.Labels.Code $v.Code
+		$i18n.Labels.URL $URLList
+		$i18n.Labels.Image $ret
+	-}}
+
+
+	{{- $subList = slice -}}
+	{{- range $j, $w := $v.SubList -}}
+		{{- $ret = "" -}}
+		{{- if $w.Code -}}
+			{{- $ret = $w.Code -}}
+		{{- end -}}
+
+
+		{{- $URLList = slice -}}
+		{{- range $k, $x := $w.URL -}}
+			{{- if and (not $x.Value) (not $x.Label) -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $x.Value)) -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+			{{- $URLList = append (dict $w.Label (string $ret.Output)) $URLList -}}
+		{{- end -}}
+
+
+		{{- $ret = dict -}}
+		{{- if $w.Image -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Image)) -}}
+			{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+		{{- end -}}
+
+
+		{{- $subList = append (dict
+			$i18n.Title $w.Title
+			$i18n.Description $w.Plain
+			$i18n.Labels.Code $w.Code
+			$i18n.Labels.URL $URLList
+			$i18n.Labels.Image $ret
+		) $subList -}}
+	{{- end -}}
+	{{- $data = merge $data (dict $i18n.Labels.SubList $subList) -}}
+
+
+	{{- $list = append $data $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Functions.Label $list) -}}
+
+
+
+
+{{- /* construct .Catalog dataset  */ -}}
+{{- $list = slice -}}
+{{- range $i, $v := .Nav.Children -}}
+	{{- $list = append (dict
+		$i18n.Title $v.Titles.Page
+		$i18n.Description $v.Titles.Description
+		$i18n.Catalog.CTA $v.URL.Current.Absolute
+	) $list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Catalog.Label $list) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}
