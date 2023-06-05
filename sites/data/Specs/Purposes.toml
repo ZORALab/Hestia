@@ -1,0 +1,36 @@
+[[EN.List]]
+Title = 'Safe Use of Software Libraries'
+HTML = '''
+The goal is to offer the use of software libraries in a reliable and safe manner
+not just from programming languages themselves but also its ecosystem and
+external threats like geo-politics or supply chain.
+'''
+Plain = '''
+The goal is to offer the use of software libraries in a reliable and safe manner
+not just from programming languages themselves but also its ecosystem and
+external threats like geo-politics or supply chain.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '安全运用代码库'
+HTML = '''
+主要目的是要供应不只是代码语言运用危机而包括生态系统和防止外部威胁地安全运用代码
+库。
+'''
+Plain = '''
+主要目的是要供应不只是代码语言运用危机而包括生态系统和防止外部威胁地安全运用代码
+库。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

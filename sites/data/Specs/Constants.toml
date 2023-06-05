@@ -1,0 +1,65 @@
+[[EN.List]]
+Title = 'VERSION'
+HTML = '''
+Returns the current version of ZORALab's Hestia.
+'''
+Plain = '''
+Returns the current version of ZORALab's Hestia.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'VERSION'
+HTML = '''
+呈现这份的ZORALab赫斯提亚版本。
+'''
+Plain = '''
+呈现这份的ZORALab赫斯提亚版本。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Go'
+HTML = '''
+Usage example:
+'''
+Plain = '''
+Usage example:
+'''
+Code = '''
+fmt.printf("%#v\n", hestia.VERSION)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Go'
+HTML = '''
+用法：
+'''
+Plain = '''
+用法：
+'''
+Code = '''
+fmt.printf("%#v\n", hestia.VERSION)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''

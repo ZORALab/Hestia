@@ -86,16 +86,16 @@ Enabled = false
 #   2. If you're sourcing from static directory, prefix 'static/'.
 #   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
 [Sources]
-HTML = 'layouts/content/specs/index.html'
-JSON = 'layouts/content/specs/index.json'
-CSS = 'layouts/content/specs/index.css'
-JS = 'layouts/content/specs/index.js'
+HTML = 'layouts/content/specs/zoralab/index.html'
+JSON = 'layouts/content/specs/zoralab/index.json'
+CSS = 'layouts/content/specs/zoralab/index.css'
+JS = 'layouts/content/specs/zoralab/index.js'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
-Assets = 'layouts/content/specs/assets.toml'
-Components = 'layouts/content/specs/components.toml'
+Assets = 'layouts/content/specs/zoralab/assets.toml'
+Components = 'layouts/content/specs/zoralab/components.toml'
 
 
 
@@ -119,4 +119,4 @@ Components = 'layouts/content/specs/components.toml'
 #                             [[data]]
 #                             Filename = 'file2.toml'
 [[Data]]
-Filename = '__i18n.toml'
+Filename = '__data.toml'

@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'hestia'
+SKU = 'Hestia'
+Description = '''
+All ZORALab's Hestia packages' specifications.
+'''
+
+
+[ZH-HANS.Brand]
+ID = '赫斯提亚'
+SKU = '赫斯提亚'
+Description = '''
+所有ZORALab赫斯提亚软件包的规范。
+'''

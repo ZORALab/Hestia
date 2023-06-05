@@ -12,9 +12,11 @@
 
 {{- /* obtain dataset */ -}}
 {{- $datastore = $Page.Data.Store.Specs -}}
-{{- range $i, $v := (split $Page.Data.Page.Dataset.Path ".") -}}
-	{{- if $datastore -}}
-		{{- $datastore = index $datastore $v -}}
+{{- if $Page.Data.Page.Dataset.Path -}}
+	{{- range $i, $v := (split $Page.Data.Page.Dataset.Path ".") -}}
+		{{- if $datastore -}}
+			{{- $datastore = index $datastore $v -}}
+		{{- end -}}
 	{{- end -}}
 {{- end -}}
 
