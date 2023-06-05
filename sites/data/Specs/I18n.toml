@@ -84,6 +84,54 @@ Plain = '''
 
 
 
+[EN.Constants]
+ID = 'constants-list'
+Label = 'Constants'
+Title = 'Constants'
+NoList = 'This package does not offer any constant value.'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+[ZH-HANS.Constants]
+ID = '固定值菜单'
+Label = '固定值'
+Title = '固定值'
+NoList = '这个代码包没有提供任何固定值。'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+
+
+[EN.Variables]
+ID = 'variables-list'
+Label = 'Variables'
+Title = 'Variables'
+NoList = 'This package does not offer any variable.'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+[ZH-HANS.Variables]
+ID = '变化值菜单'
+Label = '变化值'
+Title = '变化值'
+NoList = '这个代码包没有提供任何变化值。'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+
+
 [EN.Functions]
 ID = 'functions-list'
 Label = 'Functions'
@@ -100,6 +148,30 @@ ID = '功能菜单'
 Label = '功能'
 Title = '提供的功能'
 NoList = '这个代码包没有提供任何功能。'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+
+
+[EN.Types]
+ID = 'types-list'
+Label = 'Types'
+Title = 'Data Types'
+NoList = 'This package does not offer any data type.'
+HTML = '''
+'''
+Plain = '''
+'''
+
+
+[ZH-HANS.Types]
+ID = '数码构架菜单'
+Label = '数码构架'
+Title = '数码构架'
+NoList = '这个代码包没有提供任何数码构架。'
 HTML = '''
 '''
 Plain = '''

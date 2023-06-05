@@ -6,7 +6,7 @@ processors are available at your disposal in case of mathematical or logical
 algorithms development.
 */ -}}
 {{- /* prepare variables for function */ -}}
-{{- $SECTIONS := slice "Purposes" "Designs" "Functions" -}}
+{{- $SECTIONS := slice "Purposes" "Designs" "Constants" "Variables" "Functions" "Types" -}}
 {{- $Page := . -}}
 {{- $dataList := dict -}}
 {{- $i18n := index .Data.Store.Specs.I18n .Languages.Current.ID -}}
