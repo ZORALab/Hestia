@@ -208,9 +208,9 @@ Plain = '''
 影响元件的外向边距空间。
 '''
 Code = '''
-VARIABLE     : --code-margin
-CSS PROPERTY : margin
-DEFAULT      : initial (>= v1.0.0)
+变化值     : --code-margin
+CSS属性    : margin
+默认数码   : initial (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -247,9 +247,9 @@ Plain = '''
 影响元件的内向边距空间。
 '''
 Code = '''
-VARIABLE     : --code-padding
-CSS PROPERTY : padding
-DEFAULT      : 0 .2rem (>= v1.0.0)
+变化值     : --code-padding
+CSS属性    : padding
+默认数码   : 0 .2rem (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -286,9 +286,9 @@ Plain = '''
 影响元件的边界线。
 '''
 Code = '''
-VARIABLE     : --code-border
-CSS PROPERTY : border
-DEFAULT      : initial (>= v1.0.0)
+变化值     : --code-border
+CSS属性    : border
+默认数码   : initial (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -325,9 +325,9 @@ Plain = '''
 影响元件的边界线的角落圆形度。
 '''
 Code = '''
-VARIABLE     : --code-border-radius
-CSS PROPERTY : border-radius
-DEFAULT      : .4rem (>= v1.0.0)
+变化值     : --code-border-radius
+CSS属性    : border-radius
+默认数码   : .4rem (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -364,9 +364,9 @@ Plain = '''
 影响元件的字形的厚度。
 '''
 Code = '''
-VARIABLE     : --code-font-weight
-CSS PROPERTY : font-weight
-DEFAULT      : 700 (>= v1.0.0)
+变化值     : --code-font-weight
+CSS属性    : font-weight
+默认数码   : 700 (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -403,9 +403,9 @@ Plain = '''
 影响元件的字形的厚度。
 '''
 Code = '''
-VARIABLE     : --code-letter-spacing
-CSS PROPERTY : letter-spacing
-DEFAULT      : 0 (>= v1.0.0)
+变化值     : --code-letter-spacing
+CSS属性    : letter-spacing
+默认数码   : 0 (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -442,9 +442,9 @@ Plain = '''
 影响元件的颜色。
 '''
 Code = '''
-VARIABLE     : --code-color
-CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+变化值     : --code-color
+CSS属性    : color
+默认数码   : var(--color-primary-300) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -481,9 +481,9 @@ Plain = '''
 影响元件在印刷中的颜色。
 '''
 Code = '''
-VARIABLE     : --code-color-print
-CSS PROPERTY : color
-DEFAULT      : var(--body-color-print) (>= v1.0.0)
+变化值     : --code-color-print
+CSS属性    : color
+默认数码   : var(--body-color-print) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -520,9 +520,9 @@ Plain = '''
 影响元件的在溢出包装时的反应。
 '''
 Code = '''
-VARIABLE     : --code-overflow-wrap
-CSS PROPERTY : overflow-wrap
-DEFAULT      : break-word (>= v1.0.0)
+变化值     : --code-overflow-wrap
+CSS属性    : overflow-wrap
+默认数码   : break-word (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
