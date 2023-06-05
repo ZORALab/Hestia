@@ -473,7 +473,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = '在印刷中的Color'
+Title = 'Color（印刷）'
 HTML = '''
 影响元件在印刷中的颜色。
 '''
@@ -514,10 +514,10 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Overflow Wrap'
 HTML = '''
-影响元件的在溢出时的包装反应。
+影响元件的在溢出包装时的反应。
 '''
 Plain = '''
-影响元件的在溢出时的包装反应。
+影响元件的在溢出包装时的反应。
 '''
 Code = '''
 VARIABLE     : --code-overflow-wrap
