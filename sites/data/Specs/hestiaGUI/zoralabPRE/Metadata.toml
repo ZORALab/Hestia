@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabpre'
+SKU = 'zoralabPRE'
+Description = '''
+For styling a preformatted syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabpre'
+SKU = 'zoralabPRE'
+Description = '''
+来渲染代码预格式化的码语法。
+'''

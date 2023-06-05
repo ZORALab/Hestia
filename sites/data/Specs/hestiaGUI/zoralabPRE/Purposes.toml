@@ -1,0 +1,84 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for preformatted values. In web UI, it is shown as follows:
+<br/><br/>
+<pre>This is a pre-formatted paragraph.</pre>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for preformatted values. In web UI, it is shown as follows:
+
+'<pre>This is a pre-formatted paragraph.</pre>'
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染代码预格式化的码语法的界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<pre>这是个预格式化的文字。</pre>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染代码预格式化的码语法的界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<pre>这是个预格式化的文字。</pre>
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>pre_hestiaUI</code> before ZORALab's Hestia
+<code>v1.2.0</code>. The transformation was due to someone attempting to steal
+the copyrights and makes way for programming package's documentation
+restructuring.
+'''
+Plain = '''
+This package was known as 'pre_hestiaUI' before ZORALab's Hestia 'v1.2.0'. The
+transformation was due to someone attempting to steal the design copyrights and
+makes way for programming package's documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>pre_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程文件
+编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为pre_hestiaUI。改名的目的是有
+人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
