@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabblockquote'
+SKU = 'zoralabBLOCKQUOTE'
+Description = '''
+For styling a blockquote syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabblockquote'
+SKU = 'zoralabBLOCKQUOTE'
+Description = '''
+来渲染引用方块。
+'''

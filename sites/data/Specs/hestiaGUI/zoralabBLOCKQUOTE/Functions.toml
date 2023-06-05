@@ -40,7 +40,7 @@ Plain = '''
 Usage example:
 '''
 Code = '''
-{{- $ret := partial "hestiaGUI/zoralabPRE/ToCSS" . -}}
+{{- $ret := partial "hestiaGUI/zoralabBLOCKQUOTE/ToCSS" . -}}
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
@@ -58,7 +58,7 @@ Plain = '''
 用法：
 '''
 Code = '''
-{{- $ret := partial "hestiaGUI/zoralabPRE/ToCSS" . -}}
+{{- $ret := partial "hestiaGUI/zoralabBLOCKQUOTE/ToCSS" . -}}
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
@@ -111,7 +111,7 @@ Plain = '''
 Usage example:
 '''
 Code = '''
-{{- $ret := partial "hestiaGUI/zoralabPRE/ToCSS_VARIABLES" . -}}
+{{- $ret := partial "hestiaGUI/zoralabBLOCKQUOTE/ToCSS_VARIABLES" . -}}
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
@@ -129,7 +129,7 @@ Plain = '''
 用法：
 '''
 Code = '''
-{{- $ret := partial "hestiaGUI/zoralabPRE/ToCSS_VARIABLES" . -}}
+{{- $ret := partial "hestiaGUI/zoralabBLOCKQUOTE/ToCSS_VARIABLES" . -}}
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
