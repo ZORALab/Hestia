@@ -21,22 +21,22 @@ Published = 'Fri 02 Jun 2023 10:18:34 AM +08'
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "hestiaGUI Technical Specification - ZORALab's Hestia"
+Title = "hestiaGUI科技规范 - ZORALab赫斯提亚"
 Keywords = [
 	'hestiaGUI',
-	'Technical Specifications',
-	'Specifications',
-	'Web',
-	'Tech',
+	'科技规范',
+	'规范',
+	'网站',
+	'科技',
 	'PWA',
 	'WASM',
-	'Software Libraries',
+	'代码库',
 	'Hugo',
 	'Go',
 	'TinyGo',
 	'Nim',
 	'ZORALab',
-	"ZORALab's Hestia",
+	'ZORALab赫斯提亚',
 ]
 
 
@@ -50,11 +50,10 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = '''
-The technical specifications to refer when using the package.
+当用着这份代码包时所需的科技规范。
 '''
 Summary = '''
-Easy-going, offline supported (via web PWA installation), and detailed oriented.
-Courtesy from ZORALab's Hestia.
+随和、支持离线（通过PWA安装）和非常注重细节的。
 '''
 
 

@@ -3,6 +3,11 @@ Title = 'Title'
 Description = 'Description'
 
 
+[ZH-HANS]
+Title = '标题'
+Description = '大纲'
+
+
 
 
 [EN.Labels]
@@ -12,10 +17,21 @@ Image = 'Image'
 SubList = 'Subpoints'
 
 
+[ZH-HANS.Labels]
+Code = '代码'
+URL = 'URL'
+Image = '图像'
+SubList = '子点'
+
+
 
 
 [EN.Introduction]
 ID = 'introduction'
+
+
+[ZH-HANS.Introduction]
+ID = '自介'
 
 
 
@@ -33,6 +49,7 @@ Plain = '''
 
 [ZH-HANS.Purposes]
 ID = '主要目的'
+Label = '目的'
 Title = '主要目的'
 NoList = '这个代码包没有写出它的目的规范。'
 HTML = '''
@@ -80,6 +97,7 @@ Plain = '''
 
 [ZH-HANS.Functions]
 ID = '功能菜单'
+Label = '功能'
 Title = '提供的功能'
 NoList = '这个代码包没有提供任何功能。'
 HTML = '''
