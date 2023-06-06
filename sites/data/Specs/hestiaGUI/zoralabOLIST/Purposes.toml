@@ -1,0 +1,141 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for unordered list values. In web UI, it is shown as follows:
+<br/><br/>
+<ol>
+	<li>
+		<p>Sun</p>
+	</li>
+	<li>
+		<p>Earth</p>
+		<ol>
+			<li><p>Human</p></li>
+			<li><p>Trees</p></li>
+		</ol>
+	</li>
+	<li>
+		<p>Mars</p>
+	</li>
+</ol>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for unordered values. In web UI, it is shown as follows:
+
+<ol>
+	<li>
+		<p>Sun</p>
+	</li>
+	<li>
+		<p>Earth</p>
+		<ol>
+			<li><p>Human</p></li>
+			<li><p>Trees</p></li>
+		</ol>
+	</li>
+	<li>
+		<p>Mars</p>
+	</li>
+</ol>
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染无序列表的界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<ol>
+	<li>
+		<p>太阳</p>
+	</li>
+	<li>
+		<p>地球</p>
+		<ol>
+			<li><p>人类</p></li>
+			<li><p>树木</p></li>
+		</ol>
+	</li>
+	<li>
+		<p>木星</p>
+	</li>
+</ol>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染无序列表的界面元件。在网络界面世界里，
+这元件的成果如下：
+
+<ol>
+	<li>
+		<p>太阳</p>
+	</li>
+	<li>
+		<p>地球</p>
+		<ol>
+			<li><p>人类</p></li>
+			<li><p>树木</p></li>
+		</ol>
+	</li>
+	<li>
+		<p>木星</p>
+	</li>
+</ol>
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>olist_hestiaUI</code> before
+ZORALab's Hestia <code>v1.2.0</code>. The transformation was due to someone
+attempting to steal the copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Plain = '''
+This package was known as 'olist_hestiaUI' before
+ZORALab's Hestia 'v1.2.0'. The transformation was due to someone attempting to
+steal the design copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>olist_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程
+文件编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为olist_hestiaUI。改名的
+目的是有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

@@ -1,9 +1,4 @@
 [CSS.Variables]
-"--olist-spacing" = "4rem"
-
-
-
-
 "--olist-display" = "block"
 
 "--olist-margin" = "0 auto"
@@ -14,7 +9,7 @@
 
 
 
-"--olist-li-margin" = "var(--olist-spacing) 0"
+"--olist-li-margin" = "4rem 0"
 "--olist-li-padding" = "0"
 
 
