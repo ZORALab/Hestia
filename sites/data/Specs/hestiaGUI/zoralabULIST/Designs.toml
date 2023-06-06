@@ -468,7 +468,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = '目符号内容'
+Title = '目符号Content'
 HTML = '''
 影响元件的列表项Before伪元素（目符号）的内容。
 '''
