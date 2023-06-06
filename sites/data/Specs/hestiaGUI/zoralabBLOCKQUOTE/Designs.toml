@@ -327,10 +327,10 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Padding'
 HTML = '''
-影响元件的大小控制态度。
+影响元件的内向边距空间。
 '''
 Plain = '''
-影响元件的大小控制态度。
+影响元件的内向边距空间。
 '''
 Code = '''
 变化值     : --blockquote-padding
@@ -405,10 +405,10 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Border Radius'
 HTML = '''
-影响元件的边界线的角落圆形度。
+影响元件边界线的角落圆形度。
 '''
 Plain = '''
-影响元件的边界线的角落圆形度。
+影响元件边界线的角落圆形度。
 '''
 Code = '''
 变化值     : --blockquote-border-radius

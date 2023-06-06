@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabulist'
+SKU = 'zoralabULIST'
+Description = '''
+For styling an unordered list syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabulist'
+SKU = 'zoralabULIST'
+Description = '''
+来渲染无序列表。
+'''
