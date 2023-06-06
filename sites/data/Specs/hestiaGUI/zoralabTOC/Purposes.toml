@@ -1,0 +1,104 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for table of content values. In web UI, it is shown as follows:
+<br/><br/>
+<nav class='toc'>
+	<p class='h3'>Synopsis</p>
+	<p>Item 1</p>
+	<p>Item 2</p>
+	<p>Item 3</p>
+</nav>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for table of content values. In web UI, it is shown as follows:
+
+<nav class='toc'>
+	<p class='h3'>Synopsis</p>
+	<p>Item 1</p>
+	<p>Item 2</p>
+	<p>Item 3</p>
+</nav>
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染目录列单的界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<nav class='toc'>
+	<p class='h3'>大纲</p>
+	<p>Item 1</p>
+	<p>Item 2</p>
+	<p>Item 3</p>
+</nav>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染无序列表的界面元件。在网络界面世界里，
+这元件的成果如下：
+
+<nav class='toc'>
+	<p>条文1</p>
+	<p>条文2</p>
+	<p>条文3</p>
+</nav>
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>toc_hestiaUI</code> before
+ZORALab's Hestia <code>v1.2.0</code>. The transformation was due to someone
+attempting to steal the copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Plain = '''
+This package was known as 'toc_hestiaUI' before
+ZORALab's Hestia 'v1.2.0'. The transformation was due to someone attempting to
+steal the design copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>toc_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程
+文件编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为toc_hestiaUI。改名的
+目的是有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

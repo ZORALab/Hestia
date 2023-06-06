@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabtoc'
+SKU = 'zoralabTOC'
+Description = '''
+For styling a table of content syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabtoc'
+SKU = 'zoralabTOC'
+Description = '''
+来渲染目录列表。
+'''

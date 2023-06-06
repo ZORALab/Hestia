@@ -15,9 +15,8 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-
 .toc {
-	display: block;
+	display: var(--toc-display);
 
 	margin: var(--toc-margin);
 	padding: var(--toc-padding);
@@ -36,54 +35,16 @@ specific language governing permissions and limitations under the License.
 	background: var(--toc-background);
 }
 
-.toc > * {
-	display: block;
-
-	margin: var(--toc-content-margin);
-
-	min-width: var(--toc-content-min-width);
-	width: var(--toc-content-width);
-	max-width: var(--toc-content-max-width);
-	min-height: var(--toc-content-min-height);
-	height: var(--toc-content-height);
-	max-height: var(--toc-content-max-height);
-}
-
-.toc:before {
-	content: var(--toc-title-content);
-	display: block;
-
-	margin: var(--toc-title-margin);
-	padding: var(--toc-title-padding);
-
-	font-size: var(--toc-title-font-size);
-	font-weight: var(--toc-title-font-weight);
-
-	color: var(--toc-title-color);
-	background: var(--toc-title-background);
-}
-
-footer .toc {
+footer .toc,
+.inverted .toc {
 	color: var(--toc-color-inverted);
-	border-color: var(--toc-color-inverted);
 	background: var(--toc-background-inverted);
 }
-
-footer .toc:before {
-	color: var(--toc-title-color-inverted);
-	background: var(--toc-title-background-inverted);
-}
-
 
 @media print {
 	.toc {
 		color: var(--toc-color-print) !important;
 		border-color: var(--toc-color-print) !important;
-		background: var(--toc-background-print) !important;
-	}
-
-	.toc:before {
-		color: var(--toc-color-print) !important;
 		background: var(--toc-background-print) !important;
 	}
 }
