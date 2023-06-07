@@ -1,0 +1,206 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for picture values. In web UI, it is shown as follows:
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for picture values. In web UI, it is shown as follows:
+
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+[EN.List.Image]
+Name = 'Rendered Image'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[EN.List.Image.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[EN.List.Image.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[EN.List.Image.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[EN.List.Image.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染画像的界面元件。在网络界面世界里，
+这元件的成果如下：
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染画像的界面元件。在网络界面世界里，
+这元件的成果如下：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[ZH-HANS.List.Image]
+Name = '渲染出的图像'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[ZH-HANS.List.Image.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[ZH-HANS.List.Image.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[ZH-HANS.List.Image.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[ZH-HANS.List.Image.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+
+
+
+[[EN.List]]
+Title = 'Compliant with hestiaMEDIA Data Structure'
+HTML = '''
+While this package offers picture UI styling, its data structure rendering
+(e.g. HTML) is compliant with <code>hestiaMEDIA</code> package where all 3 main
+media types: <code>picture</code>, <code>video</code>, and <code>audio</code>
+are actually sharing the same data structure as directed by W3C. When performing
+Web rendering, you are always encouraged to use <code>hestiaMEDIA</code> package
+instead.
+'''
+Plain = '''
+While this package offers picture UI styling, its data structure rendering
+(e.g. HTML) is compliant with 'hestiaMEDIA' package where all 3 main
+media types: 'picture', 'video', and 'audio' are actually sharing the same data
+structure as envisioned by W3C. When performing Web rendering, you are always
+encouraged to use <code>hestiaMEDIA</code> package instead.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiaMEDIA/'
+Label = 'hestiaMEDIA Package'
+
+
+[[ZH-HANS.List]]
+Title = '完全配合hestiaMEDIA数据构架'
+HTML = '''
+虽然这个软件包提供画像的渲染功能，它所需要的数据构架是完全配合
+<code>hestiaMEDIA</code>软件包的3合1数据构架。这个数码构架是W3C所欲望可以被渲染
+成画像、影像和声像的界面元件。当需要渲染网页元件时，您最好还是运用
+<code>hestiaMEDIA</code>功能。
+'''
+Plain = '''
+虽然这个软件包提供画像的渲染功能，它所需要的数据构架是完全配合hestiaMEDIA软件包
+的3合1数据构架。这个数码构架是W3C所欲望可以被渲染成画像、影像和声像的界面元件。
+当需要渲染网页元件时，您最好还是运用hestiaMEDIA功能。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiaMEDIA/'
+Label = 'hestiaMEDIA Package'
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>picture_hestiaUI</code> before
+ZORALab's Hestia <code>v1.2.0</code>. The transformation was due to someone
+attempting to steal the copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Plain = '''
+This package was known as 'picture_hestiaUI' before
+ZORALab's Hestia 'v1.2.0'. The transformation was due to someone attempting to
+steal the design copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>picture_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程
+文件编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为picture_hestiaUI。改名的
+目的是有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

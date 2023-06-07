@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabpicture'
+SKU = 'zoralabPICTURE'
+Description = '''
+For styling a picture syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabpicture'
+SKU = 'zoralabPICTURE'
+Description = '''
+来渲染画像。
+'''

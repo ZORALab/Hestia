@@ -1,0 +1,46 @@
+# Hestia PICTURE/VIDEO/AUDIO (media) data structure
+# -------------------------------------------------
+# Defined by the first (1ST) Source.Type MIME value.
+#    image/* --> picture
+#    video/* --> video
+#    audio/* --> audio
+# -------------------------------------------------
+[Image]
+Name = 'Sample Title'
+Decorative = false
+Loading = 'lazy'
+Width = '1200'
+Height = '1200'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[Image.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
