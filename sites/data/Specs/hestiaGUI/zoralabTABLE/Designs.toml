@@ -984,7 +984,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Thead表格单标题元格Color'
+Title = 'THead表格单标题元格Color'
 HTML = '''
 影响元件thead表格单标题元格的颜色。
 '''
@@ -1023,7 +1023,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Thead表格单标题元格Background'
+Title = 'THead表格单标题元格Background'
 HTML = '''
 影响元件thead表格单标题元格的背景。
 '''
@@ -1062,7 +1062,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Tbody表格单标题元格Color'
+Title = 'TBody表格单标题元格Color'
 HTML = '''
 影响元件tbody表格单标题元格的颜色。
 '''
@@ -1101,7 +1101,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Tbody表格单标题元格Background'
+Title = 'TBody表格单标题元格Background'
 HTML = '''
 影响元件tbody表格单标题元格的背景。
 '''
