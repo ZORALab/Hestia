@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabnote'
+SKU = 'zoralabNOTE'
+Description = '''
+For styling a notice.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabnote'
+SKU = 'zoralabNOTE'
+Description = '''
+来渲染通告。
+'''

@@ -1,0 +1,114 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for notice values. In web UI, it is shown as follows:
+<br/><br/>
+<div class="note">
+	<input id="note-example-uid1" type="checkbox" checked="">
+	<label for="note-example-uid1">A Moment Please</label>
+	<p class="content">
+		This is an important note for you to pay attention to. Just in
+		case, you can minimize this note if required. It is set to open
+		by default. Try clicking on the title.
+	</p>
+</div>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for notice values. In web UI, it is shown as follows:
+
+<div class="note">
+	<input id="note-example-uid1" type="checkbox" checked="">
+	<label for="note-example-uid1">A Moment Please</label>
+	<p class="content">
+		This is an important note for you to pay attention to. Just in
+		case, you can minimize this note if required. It is set to open
+		by default. Try clicking on the title.
+	</p>
+</div>
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染通告的界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<div class="note">
+	<input id="note-example-uid1" type="checkbox" checked="">
+	<label for="note-example-uid1">请稍等一下</label>
+	<p class="content">
+		这是个很重要的通告。如果您还没注意到，它是可以开关的。请试试往
+		那标题按一按。
+	</p>
+</div>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染通告的界面元件。在网络界面世界里，
+这元件的成果如下：
+
+<div class="note">
+	<input id="note-example-uid1" type="checkbox" checked="">
+	<label for="note-example-uid1">请稍等一下</label>
+	<p class="content">
+		这是个很重要的通告。如果您还没注意到，它是可以开关的。请试试往
+		那标题按一按。
+	</p>
+</div>
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>note_hestiaUI</code> before ZORALab's Hestia
+<code>v1.2.0</code>. The transformation was due to someone attempting to steal
+the copyrights and makes way for programming package's documentation
+restructuring.
+'''
+Plain = '''
+This package was known as 'note_hestiaUI' before ZORALab's Hestia 'v1.2.0'. The
+transformation was due to someone attempting to steal the design copyrights and
+makes way for programming package's documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>note_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程文件
+编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为note_hestiaUI。改名的目的是有
+人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

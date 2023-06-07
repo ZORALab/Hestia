@@ -114,7 +114,13 @@ Plain = '''
 The minimum required HTML codes are shown below:
 '''
 Code = '''
-<pre>...</pre>
+<div class="note">
+	<input id="...ID-A..." type="checkbox" checked>
+	<label for="...ID-A...">...</label>
+	<p class="content">
+		...
+	</p>
+</div>
 '''
 
 [[EN.List.SubList.URL]]
@@ -131,42 +137,13 @@ Plain = '''
 在最小的HTML代码运用方法如下：
 '''
 Code = '''
-<pre>...</pre>
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Recommended HTML'
-HTML = '''
-The recomemnded HTML codes are shown below:
-'''
-Plain = '''
-The recommended HTML codes are shown below:
-'''
-Code = '''
-<pre><code>...</code></pre>
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = '推荐的HTML'
-HTML = '''
-推荐的HTML代码运用方法如下：
-'''
-Plain = '''
-推荐的HTML代码运用方法如下：
-'''
-Code = '''
-<pre><code>...</code></pre>
+<div class="note">
+	<input id="...ID-A..." type="checkbox" checked>
+	<label for="...ID-A...">...</label>
+	<p class="content">
+		...
+	</p>
+</div>
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -216,45 +193,6 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Display'
-HTML = '''
-Affects the display mode of the rendered component.
-'''
-Plain = '''
-Affects the display mode of the rendered component.
-'''
-Code = '''
-VARIABLE     : --pre-display
-CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Display'
-HTML = '''
-影响元件的显示模式。
-'''
-Plain = '''
-影响元件的显示模式。
-'''
-Code = '''
-变化值     : --pre-display
-CSS属性    : display
-默认数码   : block (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
 Title = 'Box-Sizing'
 HTML = '''
 Affects the box-sizing behavior of the rendered component.
@@ -263,7 +201,7 @@ Plain = '''
 Affects the box-sizing behavior of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-box-sizing
+VARIABLE     : --note-box-sizing
 CSS PROPERTY : box-sizing
 DEFAULT      : border-box (>= v1.0.0)
 '''
@@ -282,7 +220,7 @@ Plain = '''
 影响元件的大小控制态度。
 '''
 Code = '''
-变化值     : --pre-box-sizing
+变化值     : --note-box-sizing
 CSS属性    : box-sizing
 默认数码   : border-box (>= v1.0.0)
 '''
@@ -302,9 +240,9 @@ Plain = '''
 Affects the margin of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-margin
+VARIABLE     : --note-margin
 CSS PROPERTY : margin
-DEFAULT      : 2rem auto (>= v1.0.0)
+DEFAULT      : 1.3rem auto (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -321,9 +259,9 @@ Plain = '''
 影响元件的外向边距空间。
 '''
 Code = '''
-变化值     : --pre-margin
+变化值     : --note-margin
 CSS属性    : margin
-默认数码   : 2rem auto (>= v1.0.0)
+默认数码   : 1.3rem auto (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -341,9 +279,9 @@ Plain = '''
 Affects the padding of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-padding
+VARIABLE     : --note-padding
 CSS PROPERTY : padding
-DEFAULT      : 2rem (>= v1.0.0)
+DEFAULT      : 0 (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -360,48 +298,9 @@ Plain = '''
 影响元件的内向边距空间。
 '''
 Code = '''
-变化值     : --pre-padding
+变化值     : --note-padding
 CSS属性    : padding
-默认数码   : 2rem (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Overflow'
-HTML = '''
-Affects the overflow behavior of the rendered component.
-'''
-Plain = '''
-Affects the overflow behavior of the rendered component.
-'''
-Code = '''
-VARIABLE     : --pre-overflow
-CSS PROPERTY : overflow
-DEFAULT      : auto auto (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Overflow'
-HTML = '''
-影响元件的在溢出包装时的反应条件。
-'''
-Plain = '''
-影响元件的在溢出包装时的反应条件。
-'''
-Code = '''
-变化值     : --pre-overflow
-CSS属性    : overflow
-默认数码   : auto auto (>= v1.0.0)
+默认数码   : 0 (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -419,9 +318,9 @@ Plain = '''
 Affects the border of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-border
+VARIABLE     : --note-border
 CSS PROPERTY : border
-DEFAULT      : .3rem solid var(--pre-color) (>= v1.0.0)
+DEFAULT      : 1px solid var(--color-primary-400) (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -438,9 +337,9 @@ Plain = '''
 影响元件的边界线。
 '''
 Code = '''
-变化值     : --pre-border
+变化值     : --note-border
 CSS属性    : border
-默认数码   : .3rem solid var(--pre-color) (>= v1.0.0)
+默认数码   : 1px solid var(--color-primary-400) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -458,7 +357,7 @@ Plain = '''
 Affects the border radius of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-border-radius
+VARIABLE     : --note-border-radius
 CSS PROPERTY : border-radius
 DEFAULT      : .5rem (>= v1.0.0)
 '''
@@ -477,7 +376,7 @@ Plain = '''
 影响元件边界线的角落圆形度。
 '''
 Code = '''
-变化值     : --pre-border-radius
+变化值     : --note-border-radius
 CSS属性    : border-radius
 默认数码   : .5rem (>= v1.0.0)
 '''
@@ -497,7 +396,7 @@ Plain = '''
 Affects the minimum width of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-min-width
+VARIABLE     : --note-min-width
 CSS PROPERTY : min-width
 DEFAULT      : initial (>= v1.0.0)
 '''
@@ -516,7 +415,7 @@ Plain = '''
 影响元件的最少宽度。
 '''
 Code = '''
-变化值     : --pre-min-width
+变化值     : --note-min-width
 CSS属性    : min-width
 默认数码   : initial (>= v1.0.0)
 '''
@@ -536,9 +435,9 @@ Plain = '''
 Affects the width of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-width
+VARIABLE     : --note-width
 CSS PROPERTY : width
-DEFAULT      : 100% (>= v1.2.0), 80% (<= v1.1.0)
+DEFAULT      : 100% (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -555,9 +454,9 @@ Plain = '''
 影响元件的宽度。
 '''
 Code = '''
-变化值     : --pre-width
+变化值     : --note-width
 CSS属性    : width
-默认数码   : 100% (>= v1.2.0), 80% (<= v1.1.0)
+默认数码   : 100% (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -575,9 +474,9 @@ Plain = '''
 Affects the maximum width of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-max-width
+VARIABLE     : --note-max-width
 CSS PROPERTY : max-width
-DEFAULT      : 100% (>= v1.2.0), 80% (<= v1.1.0)
+DEFAULT      : 100% (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -594,9 +493,9 @@ Plain = '''
 影响元件的宽度。
 '''
 Code = '''
-变化值     : --pre-max-width
+变化值     : --note-max-width
 CSS属性    : max-width
-默认数码   : 100% (>= v1.2.0), 80% (<= v1.1.0)
+默认数码   : 100% (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -614,7 +513,7 @@ Plain = '''
 Affects the minimum height of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-min-height
+VARIABLE     : --note-min-height
 CSS PROPERTY : min-height
 DEFAULT      : initial (>= v1.0.0)
 '''
@@ -633,7 +532,7 @@ Plain = '''
 影响元件的最少高度。
 '''
 Code = '''
-变化值     : --pre-min-height
+变化值     : --note-min-height
 CSS属性    : min-hieght
 默认数码   : initial (>= v1.0.0)
 '''
@@ -653,7 +552,7 @@ Plain = '''
 Affects the height of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-height
+VARIABLE     : --note-height
 CSS PROPERTY : height
 DEFAULT      : initial (>= v1.0.0)
 '''
@@ -672,7 +571,7 @@ Plain = '''
 影响元件的高度。
 '''
 Code = '''
-变化值     : --pre-height
+变化值     : --note-height
 CSS属性    : height
 默认数码   : initial (>= v1.0.0)
 '''
@@ -692,7 +591,7 @@ Plain = '''
 Affects the maximum height of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-max-height
+VARIABLE     : --note-max-height
 CSS PROPERTY : max-height
 DEFAULT      : initial (>= v1.0.0)
 '''
@@ -711,7 +610,7 @@ Plain = '''
 影响元件的最大高度。
 '''
 Code = '''
-变化值     : --pre-max-height
+变化值     : --note-max-height
 CSS属性    : max-height
 默认数码   : initial (>= v1.0.0)
 '''
@@ -723,17 +622,56 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Font Size'
+Title = 'Timing'
 HTML = '''
-Affects the font size of the rendered component.
+Affects the animation timing of the rendered component.
 '''
 Plain = '''
-Affects the font size of the rendered component.
+Affects the animation timing of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-font-size
+VARIABLE     : --note-timing
+CSS PROPERTY : transition
+DEFAULT      : var(--timing-normal) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Timing'
+HTML = '''
+影响元件的动画定时。
+'''
+Plain = '''
+影响元件的动画定时。
+'''
+Code = '''
+变化值     : --note-timing
+CSS属性    : transition
+默认数码   : var(--timing-normal) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Font Size'
+HTML = '''
+Affects the title's font size of the rendered component.
+'''
+Plain = '''
+Affects the title's font size of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-title-font-size
 CSS PROPERTY : font-size
-DEFAULT      : var(--body-font-size) (>= v1.0.0)
+DEFAULT      : 2.5rem (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -742,17 +680,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Font Size'
+Title = '标题Font Size'
 HTML = '''
-影响元件的字体大小。
+影响元件标题的字体大小。
 '''
 Plain = '''
-影响元件的字体大小。
+影响元件标题的字体大小。
 '''
 Code = '''
-变化值     : --pre-font-size
+变化值     : --note-title-font-size
 CSS属性    : font-size
-默认数码   : var(--body-font-size) (>= v1.0.0)
+默认数码   : 2.5rem (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -762,55 +700,16 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Font Family'
+Title = 'Title Font Style'
 HTML = '''
-Affects the font family of the rendered component.
+Affects the title's font style of the rendered component.
 '''
 Plain = '''
-Affects the font family of the rendered component.
+Affects the title's font style of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-font-family
-CSS PROPERTY : font-family
-DEFAULT      : monospace (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Font Family'
-HTML = '''
-影响元件的字体系列。
-'''
-Plain = '''
-影响元件的字体系列。
-'''
-Code = '''
-变化值     : --pre-font-family
-CSS属性    : font-family
-默认数码   : monospace (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Text Decoration'
-HTML = '''
-Affects the text decoration of the rendered component.
-'''
-Plain = '''
-Affects the text decoration of the rendered component.
-'''
-Code = '''
-VARIABLE     : --pre-text-decoration
-CSS PROPERTY : text-decoration
+VARIABLE     : --note-title-font-style
+CSS PROPERTY : font-style
 DEFAULT      : normal (>= v1.0.0)
 '''
 
@@ -820,16 +719,16 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Text Decoration'
+Title = '标题Font Style'
 HTML = '''
-影响元件的字体装饰。
+影响元件标题的字体风格。
 '''
 Plain = '''
-影响元件的字体装饰。
+影响元件标题的字体风格。
 '''
 Code = '''
-变化值     : --pre-text-decoration
-CSS属性    : text-decoration
+变化值     : --note-title-font-style
+CSS属性    : font-style
 默认数码   : normal (>= v1.0.0)
 '''
 
@@ -840,17 +739,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Word Break'
+Title = 'Title Font Weight'
 HTML = '''
-Affects the word breaking behavior of the rendered component.
+Affects the title's font weight of the rendered component.
 '''
 Plain = '''
-Affects the word breaking behavior of the rendered component.
+Affects the title's font weight of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-word-break
-CSS PROPERTY : word-break
-DEFAULT      : keep-all (>= v1.0.0)
+VARIABLE     : --note-title-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : 500 (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -859,17 +758,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Word Break'
+Title = '标题Font Weight'
 HTML = '''
-影响元件的字体分裂条件。
+影响元件标题的字体厚度。
 '''
 Plain = '''
-影响元件的字体分裂条件。
+影响元件标题的字体厚度。
 '''
 Code = '''
-变化值     : --pre-word-break
-CSS属性    : word-break
-默认数码   : keep-all (>= v1.0.0)
+变化值     : --note-title-font-weight
+CSS属性    : font-weight
+默认数码   : 500 (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -879,17 +778,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Letter Spacing'
+Title = 'Title Text Transform'
 HTML = '''
-Affects the letter spacing of the rendered component.
+Affects the title's text transformation of the rendered component.
 '''
 Plain = '''
-Affects the letter spacing of the rendered component.
+Affects the title's text transformation of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-letter-spacing
-CSS PROPERTY : letter-spacing
-DEFAULT      : 0 (>= v1.0.0)
+VARIABLE     : --note-title-text-transform
+CSS PROPERTY : text-transform
+DEFAULT      : titlecase (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -898,17 +797,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Letter Spacing'
+Title = '标题Text Transform'
 HTML = '''
-影响元件的每个字体的空间距离。
+影响元件标题的字体变换条件。
 '''
 Plain = '''
-影响元件的每个字体的空间距离。
+影响元件标题的字体变换条件。
 '''
 Code = '''
-变化值     : --pre-letter-spacing
-CSS属性    : letter-spacing
-默认数码   : 0 (>= v1.0.0)
+变化值     : --note-title-text-transform
+CSS属性    : text-transform
+默认数码   : titlecase (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -918,56 +817,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Line Height'
+Title = 'Title Text Align'
 HTML = '''
-Affects the line height of the rendered component.
+Affects the title's text alignment of the rendered component.
 '''
 Plain = '''
-Affects the line height of the rendered component.
+Affects the title's text alignment of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-line-height
-CSS PROPERTY : line-height
-DEFAULT      : var(--body-line-height) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Line Height'
-HTML = '''
-影响元件的字体的高度。
-'''
-Plain = '''
-影响元件的字体的高度。
-'''
-Code = '''
-变化值     : --pre-line-height
-CSS属性    : line-height
-默认数码   : initial (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Text Align'
-HTML = '''
-Affects the text alignment of the rendered component.
-'''
-Plain = '''
-Affects the text alignment of the rendered component.
-'''
-Code = '''
-VARIABLE     : --pre-text-align
+VARIABLE     : --note-title-text-align
 CSS PROPERTY : text-align
-DEFAULT      : justify (>= v1.0.0)
+DEFAULT      : left (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -976,17 +836,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Text Align'
+Title = '标题Text Align'
 HTML = '''
-影响元件的文字对齐方式。
+影响元件标题的字体对齐方式。
 '''
 Plain = '''
-影响元件的文字对齐方式。
+影响元件标题的字体对齐方式。
 '''
 Code = '''
-变化值     : --pre-text-align
+变化值     : --note-title-text-align
 CSS属性    : text-align
-默认数码   : justify (>= v1.0.0)
+默认数码   : left (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -996,56 +856,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'White-space'
+Title = 'Title Color'
 HTML = '''
-Affects the white-spacing behavior of the rendered component.
+Affects the title's color of the rendered component.
 '''
 Plain = '''
-Affects the white-spacing behavior of the rendered component.
+Affects the title's color of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-white-space
-CSS PROPERTY : white-space
-DEFAULT      : pre (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'White-space'
-HTML = '''
-影响元件的空白字体处理条件。
-'''
-Plain = '''
-影响元件的空白字体处理条件。
-'''
-Code = '''
-变化值     : --pre-white-space
-CSS属性    : white-space
-默认数码   : pre (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Color'
-HTML = '''
-Affects the color of the rendered component.
-'''
-Plain = '''
-Affects the color of the rendered component.
-'''
-Code = '''
-VARIABLE     : --pre-color
+VARIABLE     : --note-title-color
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--body-color-inverted) (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1054,17 +875,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color'
+Title = 'Title Color'
 HTML = '''
-影响元件的颜色。
+影响元件标题的颜色。
 '''
 Plain = '''
-影响元件的颜色。
+影响元件标题的颜色。
 '''
 Code = '''
-变化值     : --pre-color
+变化值     : --note-title-color
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--body-color-inverted) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1074,17 +895,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Color (Inverted Mode)'
+Title = 'Title Color (Print Mode)'
 HTML = '''
-Affects the color of the rendered component while in inverted mode.
+Affects the title's color of the rendered component when in print mode.
 '''
 Plain = '''
-Affects the color of the rendered component while in inverted mode.
+Affects the title's color of the rendered component when in print mode.
 '''
 Code = '''
-VARIABLE     : --pre-color-inverted
+VARIABLE     : --note-title-color-print
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--body-color-print) (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1093,17 +914,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color （反转环境）'
+Title = '标题Color （印刷）'
 HTML = '''
-影响元件在反转环境里的颜色。
+影响元件标题在印刷环境里的颜色。
 '''
 Plain = '''
-影响元件在反转环境里的颜色。
+影响元件标题在印刷环境里的颜色。
 '''
 Code = '''
-变化值     : --pre-color-inverted
+变化值     : --note-title-color-print
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--body-color-print) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1113,17 +934,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Color (Print Mode)'
+Title = 'Title Indicator Color'
 HTML = '''
-Affects the color of the rendered component when in print mode.
+Affects the title indicator's color of the rendered component.
 '''
 Plain = '''
-Affects the color of the rendered component when in print mode.
+Affects the title indicator's color of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-color-print
+VARIABLE     : --note-title-indicator-color
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--color-contrast-400) (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1132,17 +953,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color （印刷）'
+Title = '标题指示器Color'
 HTML = '''
-影响元件在印刷环境里的颜色。
+影响元件标题指示器的颜色。
 '''
 Plain = '''
-影响元件在印刷环境里的颜色。
+影响元件标题指示器的颜色。
 '''
 Code = '''
-变化值     : --pre-color-print
+变化值     : --note-title-indicator-color
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--color-contrast-400) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1152,17 +973,58 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Background'
+Title = 'Title Indicator Color (Print Mode)'
 HTML = '''
-Affects the background of the rendered component.
+Affects the title indicator's color of the rendered component when in print
+mode.
 '''
 Plain = '''
-Affects the background of the rendered component.
+Affects the title indicator 's color of the rendered component when in print
+mode.
 '''
 Code = '''
-VARIABLE     : --pre-background
+VARIABLE     : --note-title-indicator-color-print
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-print) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题指示器Color（印刷）'
+HTML = '''
+影响元件标题指示器在印刷环境里的颜色。
+'''
+Plain = '''
+影响元件标题指示器在印刷环境里的颜色。
+'''
+Code = '''
+变化值     : --note-title-indicator-color-print
+CSS属性    : color
+默认数码   : var(--body-color-print) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Background'
+HTML = '''
+Affects the title's background of the rendered component.
+'''
+Plain = '''
+Affects the title's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-title-background
 CSS PROPERTY : background
-DEFAULT      : var(--color-contrast-50) (>= v1.0.0)
+DEFAULT      : var(--color-primary-900) (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1171,17 +1033,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Background'
+Title = '标题Background'
 HTML = '''
-影响元件的背景。
+影响元件标题的背景。
 '''
 Plain = '''
-影响元件的背景。
+影响元件标题的背景。
 '''
 Code = '''
-变化值     : --pre-background
+变化值     : --note-title-background
 CSS属性    : background
-默认数码   : var(--color-contrast-50) (>= v1.0.0)
+默认数码   : var(--color-primary-900) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1191,46 +1053,7 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Background (Inverted Mode)'
-HTML = '''
-Affects the background of the rendered component while in inverted mode.
-'''
-Plain = '''
-Affects the background of the rendered component while in inverted mode.
-'''
-Code = '''
-VARIABLE     : --pre-background-inverted
-CSS PROPERTY : background
-DEFAULT      : var(--color-contrast-50) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Background （反转环境）'
-HTML = '''
-影响元件在反转环境里的背景。
-'''
-Plain = '''
-影响元件在反转环境里的背景。
-'''
-Code = '''
-变化值     : --pre-background-inverted
-CSS属性    : background
-默认数码   : var(--color-contrast-50) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Background (Print Mode)'
+Title = 'Title Background (Print Mode)'
 HTML = '''
 Affects the background of the rendered component when in print mode.
 '''
@@ -1238,7 +1061,7 @@ Plain = '''
 Affects the background of the rendered component when in print mode.
 '''
 Code = '''
-VARIABLE     : --pre-background-print
+VARIABLE     : --note-title-background-print
 CSS PROPERTY : background
 DEFAULT      : var(--body-background-print) (>= v1.0.0)
 '''
@@ -1249,7 +1072,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Background （印刷）'
+Title = 'Title Background （印刷）'
 HTML = '''
 影响元件在印刷环境里的背景。
 '''
@@ -1257,7 +1080,7 @@ Plain = '''
 影响元件在印刷环境里的背景。
 '''
 Code = '''
-变化值     : --pre-background-print
+变化值     : --note-title-background-print
 CSS属性    : background
 默认数码   : var(--body-background-print) (>= v1.0.0)
 '''
@@ -1269,17 +1092,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Transition'
+Title = 'Content Margin'
 HTML = '''
-Affects the animation timing of the rendered component.
+Affects the content's margin of the rendered component.
 '''
 Plain = '''
-Affects the animation timing of the rendered component.
+Affects the content's margin of the rendered component.
 '''
 Code = '''
-VARIABLE     : --pre-transition
-CSS PROPERTY : transition
-DEFAULT      : var(--timing-rapid) (>= v1.0.0)
+VARIABLE     : --note-content-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 (>= v1.0.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1288,17 +1111,212 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Transition'
+Title = '内容Margin'
 HTML = '''
-影响元件在印刷环境里的动画定时。
+影响元件内容的外向边距空间。
 '''
 Plain = '''
-影响元件在印刷环境里的动画定时。
+影响元件内容的外向边距空间。
 '''
 Code = '''
-变化值     : --pre-transition
-CSS属性    : transition
-默认数码   : var(--timing-rapid) (>= v1.0.0)
+变化值     : --note-content-margin
+CSS属性    : margin
+默认数码   : 0 (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Padding'
+HTML = '''
+Affects the content padding of the rendered component.
+'''
+Plain = '''
+Affects the content padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-content-padding
+CSS PROPERTY : padding
+DEFAULT      : 2rem (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容Padding'
+HTML = '''
+影响元件内容的内向边距空间。
+'''
+Plain = '''
+影响元件内容的内向边距空间。
+'''
+Code = '''
+变化值     : --note-content-padding
+CSS属性    : padding
+默认数码   : 2rem (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Color'
+HTML = '''
+Affects the content's color of the rendered component.
+'''
+Plain = '''
+Affects the content's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-content-color
+CSS PROPERTY : color
+DEFAULT      : var(--body-color) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容Color'
+HTML = '''
+影响元件内容的颜色。
+'''
+Plain = '''
+影响元件内容的颜色。
+'''
+Code = '''
+变化值     : --note-content-color
+CSS属性    : color
+默认数码   : var(--body-color) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Color (Print Mode)'
+HTML = '''
+Affects the content's color of the rendered component when in print mode.
+'''
+Plain = '''
+Affects the content's color of the rendered component when in print mode.
+'''
+Code = '''
+VARIABLE     : --note-content-color-print
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-print) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容Color（印刷）'
+HTML = '''
+影响元件内容在印刷环境里的颜色。
+'''
+Plain = '''
+影响元件内容在印刷环境里的颜色。
+'''
+Code = '''
+变化值     : --note-content-color-print
+CSS属性    : color
+默认数码   : var(--body-color-print) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Background'
+HTML = '''
+Affects the content's background of the rendered component.
+'''
+Plain = '''
+Affects the content's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-content-background
+CSS PROPERTY : background
+DEFAULT      : var(--color-primary-100) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容Background'
+HTML = '''
+影响元件内容的背景。
+'''
+Plain = '''
+影响元件内容的背景。
+'''
+Code = '''
+变化值     : --note-content-background
+CSS属性    : background
+默认数码   : var(--color-primary-100) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Background (Print Mode)'
+HTML = '''
+Affects the content's background of the rendered component when in print mode.
+'''
+Plain = '''
+Affects the content's background of the rendered component when in print mode.
+'''
+Code = '''
+VARIABLE     : --note-content-background-print
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-print) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容Background（印刷）'
+HTML = '''
+影响元件内容在印刷环境里的背景。
+'''
+Plain = '''
+影响元件内容在印刷环境里的背景。
+'''
+Code = '''
+变化值     : --note-content-background-print
+CSS属性    : background
+默认数码   : var(--body-background-print) (>= v1.0.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
