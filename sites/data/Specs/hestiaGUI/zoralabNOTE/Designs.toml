@@ -875,7 +875,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Title Color'
+Title = '标题Color'
 HTML = '''
 影响元件标题的颜色。
 '''
@@ -914,7 +914,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = '标题Color （印刷）'
+Title = '标题Color（印刷）'
 HTML = '''
 影响元件标题在印刷环境里的颜色。
 '''
@@ -1072,12 +1072,12 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Title Background （印刷）'
+Title = '标题Background（印刷）'
 HTML = '''
-影响元件在印刷环境里的背景。
+影响元件标题在印刷环境里的背景。
 '''
 Plain = '''
-影响元件在印刷环境里的背景。
+影响元件标题在印刷环境里的背景。
 '''
 Code = '''
 变化值     : --note-title-background-print
