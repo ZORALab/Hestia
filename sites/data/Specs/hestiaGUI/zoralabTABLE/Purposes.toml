@@ -1,0 +1,245 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for table values. In web UI, it is shown as follows:
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Alpha</th>
+			<th>Bravo</th>
+			<th>Charlie</th>
+			<th>Delta</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Projected</th>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+		<tr>
+			<th>Actual</th>
+			<td>2</td>
+			<td>5</td>
+			<td>8</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<th>Balance</th>
+			<td>10</td>
+			<td>7</td>
+			<td>4</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<th>Members</th>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+		</tr>
+	</tbody>
+</table></div>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for table values. In web UI, it is shown as follows:
+
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Alpha</th>
+			<th>Bravo</th>
+			<th>Charlie</th>
+			<th>Delta</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>Projected</th>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+		<tr>
+			<th>Actual</th>
+			<td>2</td>
+			<td>5</td>
+			<td>8</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<th>Balance</th>
+			<td>10</td>
+			<td>7</td>
+			<td>4</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<th>Members</th>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+		</tr>
+	</tbody>
+</table>
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染表格的界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Alpha</th>
+			<th>Bravo</th>
+			<th>Charlie</th>
+			<th>Delta</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>预测</th>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+		<tr>
+			<th>证实</th>
+			<td>2</td>
+			<td>5</td>
+			<td>8</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<th>平衡</th>
+			<td>10</td>
+			<td>7</td>
+			<td>4</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<th>队员</th>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+		</tr>
+	</tbody>
+</table></div>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染表格的界面元件。在网络界面世界里，
+这元件的成果如下：
+
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Alpha</th>
+			<th>Bravo</th>
+			<th>Charlie</th>
+			<th>Delta</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>预测</th>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+		<tr>
+			<th>证实</th>
+			<td>2</td>
+			<td>5</td>
+			<td>8</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<th>平衡</th>
+			<td>10</td>
+			<td>7</td>
+			<td>4</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<th>队员</th>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+			<td>2</td>
+		</tr>
+	</tbody>
+</table>
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>table_hestiaUI</code> before
+ZORALab's Hestia <code>v1.2.0</code>. The transformation was due to someone
+attempting to steal the copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Plain = '''
+This package was known as 'table_hestiaUI' before
+ZORALab's Hestia 'v1.2.0'. The transformation was due to someone attempting to
+steal the design copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>table_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程
+文件编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为table_hestiaUI。改名的
+目的是有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

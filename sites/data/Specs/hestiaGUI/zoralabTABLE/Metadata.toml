@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabtable'
+SKU = 'zoralabTABLE'
+Description = '''
+For styling a table syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabtable'
+SKU = 'zoralabTABLE'
+Description = '''
+来渲染表格。
+'''

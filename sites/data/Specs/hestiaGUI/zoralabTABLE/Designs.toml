@@ -1,0 +1,1276 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Plain = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Plain = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<table>
+	<thead>
+		<tr>
+			<th>H1</th>
+			<th>H2</th>
+			<th>H3</th>
+			...
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>...</td>
+			...
+		</tr>
+		<tr>
+			<td>...</td>
+			...
+		</tr>
+		...
+	</tbody>
+</table>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '最小的HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<table>
+	<thead>
+		<tr>
+			<th>H1</th>
+			<th>H2</th>
+			<th>H3</th>
+			...
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>...</td>
+			...
+		</tr>
+		<tr>
+			<td>...</td>
+			...
+		</tr>
+		...
+	</tbody>
+</table>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = '2-Axis Headers HTML'
+HTML = '''
+The required HTML codes are shown below:
+'''
+Plain = '''
+The required HTML codes are shown below:
+'''
+Code = '''
+<table>
+	<thead>
+		<tr>
+			<th>H1</th>
+			<th>H2</th>
+			<th>H3</th>
+			...
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>C1</th>
+			<td>...</td>
+			...
+		</tr>
+		<tr>
+			<th>C2</th>
+			<td>...</td>
+			<td>...</td>
+			...
+		</tr>
+		...
+	</tbody>
+</table>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '双轴页眉HTML'
+HTML = '''
+所需要的HTML代码运用方法如下：
+'''
+Plain = '''
+所需要的HTML代码运用方法如下：
+'''
+Code = '''
+<table>
+	<thead>
+		<tr>
+			<th>H1</th>
+			<th>H2</th>
+			<th>H3</th>
+			...
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>C1</th>
+			<td>...</td>
+			...
+		</tr>
+		<tr>
+			<th>C2</th>
+			<td>...</td>
+			<td>...</td>
+			...
+		</tr>
+		...
+	</tbody>
+</table>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Display'
+HTML = '''
+Affects the display mode of the rendered component.
+'''
+Plain = '''
+Affects the display mode of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-display
+CSS PROPERTY : display
+DEFAULT      : block (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Display'
+HTML = '''
+影响元件的显示模式。
+'''
+Plain = '''
+影响元件的显示模式。
+'''
+Code = '''
+变化值     : --table-display
+CSS属性    : display
+默认数码   : block (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Overflow'
+HTML = '''
+Affects the overflow behavior of the rendered component.
+'''
+Plain = '''
+Affects the overflow behavior of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-overflow
+CSS PROPERTY : overflow
+DEFAULT      : auto (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Overflow'
+HTML = '''
+影响元件的在溢出包装时的应付条件。
+'''
+Plain = '''
+影响元件的在溢出包装时的应付条件。
+'''
+Code = '''
+变化值     : --table-overflow
+CSS属性    : overflow
+默认数码   : auto (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin'
+HTML = '''
+Affects the margin of the rendered component.
+'''
+Plain = '''
+Affects the margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-margin
+CSS PROPERTY : margin
+DEFAULT      : 2rem auto (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin'
+HTML = '''
+影响元件的外向边距空间。
+'''
+Plain = '''
+影响元件的外向边距空间。
+'''
+Code = '''
+变化值     : --table-margin
+CSS属性    : margin
+默认数码   : 2rem auto (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding'
+HTML = '''
+Affects the padding of the rendered component.
+'''
+Plain = '''
+Affects the padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding'
+HTML = '''
+影响元件的内向边距空间。
+'''
+Plain = '''
+影响元件的内向边距空间。
+'''
+Code = '''
+变化值     : --table-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+Affects the minimum width of the rendered component.
+'''
+Plain = '''
+Affects the minimum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-min-width
+CSS PROPERTY : min-width
+DEFAULT      : initial (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+影响元件的最少宽度。
+'''
+Plain = '''
+影响元件的最少宽度。
+'''
+Code = '''
+变化值     : --table-min-width
+CSS属性    : min-width
+默认数码   : initial (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+Affects the maximum width of the rendered component.
+'''
+Plain = '''
+Affects the maximum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-max-width
+CSS PROPERTY : max-width
+DEFAULT      : 100% (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+影响元件的宽度。
+'''
+Plain = '''
+影响元件的宽度。
+'''
+Code = '''
+变化值     : --table-max-width
+CSS属性    : max-width
+默认数码   : 100% (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+Affects the minimum height of the rendered component.
+'''
+Plain = '''
+Affects the minimum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-min-height
+CSS PROPERTY : min-height
+DEFAULT      : initial (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+影响元件的最少高度。
+'''
+Plain = '''
+影响元件的最少高度。
+'''
+Code = '''
+变化值     : --table-min-height
+CSS属性    : min-hieght
+默认数码   : initial (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+Affects the maximum height of the rendered component.
+'''
+Plain = '''
+Affects the maximum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-max-height
+CSS PROPERTY : max-height
+DEFAULT      : initial (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+影响元件的最大高度。
+'''
+Plain = '''
+影响元件的最大高度。
+'''
+Code = '''
+变化值     : --table-max-height
+CSS属性    : max-height
+默认数码   : initial (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border'
+HTML = '''
+Affects the border of the rendered component.
+'''
+Plain = '''
+Affects the border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-border
+CSS PROPERTY : border
+DEFAULT      : 1px solid var(--color-primary-900) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border'
+HTML = '''
+影响元件的边界线。
+'''
+Plain = '''
+影响元件的边界线。
+'''
+Code = '''
+变化值     : --table-border
+CSS属性    : border
+默认数码   : 1px solid var(--color-primary-900) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color'
+HTML = '''
+Affects the color of the rendered component.
+'''
+Plain = '''
+Affects the color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-color
+CSS PROPERTY : color
+DEFAULT      : var(--body-color) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color'
+HTML = '''
+影响元件的颜色。
+'''
+Plain = '''
+影响元件的颜色。
+'''
+Code = '''
+变化值     : --table-color
+CSS属性    : color
+默认数码   : var(--body-color) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Inverted Mode)'
+HTML = '''
+Affects the color of the rendered component while in inverted mode.
+'''
+Plain = '''
+Affects the color of the rendered component while in inverted mode.
+'''
+Code = '''
+VARIABLE     : --table-color-inverted
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-200) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color （反转环境）'
+HTML = '''
+影响元件在反转环境里的颜色。
+'''
+Plain = '''
+影响元件在反转环境里的颜色。
+'''
+Code = '''
+变化值     : --table-color-inverted
+CSS属性    : color
+默认数码   : var(--color-primary-200) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Print Mode)'
+HTML = '''
+Affects the color of the rendered component when in print mode.
+'''
+Plain = '''
+Affects the color of the rendered component when in print mode.
+'''
+Code = '''
+VARIABLE     : --table-color-print
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-print) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color （印刷）'
+HTML = '''
+影响元件在印刷环境里的颜色。
+'''
+Plain = '''
+影响元件在印刷环境里的颜色。
+'''
+Code = '''
+变化值     : --table-color-print
+CSS属性    : color
+默认数码   : var(--body-color-print) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background'
+HTML = '''
+Affects the background of the rendered component.
+'''
+Plain = '''
+Affects the background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-background
+CSS PROPERTY : background
+DEFAULT      : var(--body-background) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background'
+HTML = '''
+影响元件的背景。
+'''
+Plain = '''
+影响元件的背景。
+'''
+Code = '''
+变化值     : --table-background
+CSS属性    : background
+默认数码   : var(--body-background) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Print Mode)'
+HTML = '''
+Affects the background of the rendered component when in print mode.
+'''
+Plain = '''
+Affects the background of the rendered component when in print mode.
+'''
+Code = '''
+VARIABLE     : --table-background-print
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-print) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background （印刷）'
+HTML = '''
+影响元件在印刷环境里的背景。
+'''
+Plain = '''
+影响元件在印刷环境里的背景。
+'''
+Code = '''
+变化值     : --table-background-print
+CSS属性    : background
+默认数码   : var(--body-background-print) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Cell Margin'
+HTML = '''
+Affects the table cell's margin of the rendered component.
+'''
+Plain = '''
+Affects the table cell's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-cell-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '元格Margin'
+HTML = '''
+影响元件表格单元格的外向边距空间。
+'''
+Plain = '''
+影响元件表格单元格的外向边距空间。
+'''
+Code = '''
+变化值     : --table-cell-margin
+CSS属性    : margin
+默认数码   : 0 (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Cell Padding'
+HTML = '''
+Affects the table cell's padding of the rendered component.
+'''
+Plain = '''
+Affects the table cell's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-cell-padding
+CSS PROPERTY : padding
+DEFAULT      : 1rem (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '元格Padding'
+HTML = '''
+影响元件表格单元格的内向边距空间。
+'''
+Plain = '''
+影响元件表格单元格的内向边距空间。
+'''
+Code = '''
+变化值     : --table-cell-padding
+CSS属性    : padding
+默认数码   : 1rem (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Cell Border'
+HTML = '''
+Affects the cell's border of the rendered component.
+'''
+Plain = '''
+Affects the cell's border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-cell-border
+CSS PROPERTY : border
+DEFAULT      : var(--table-border) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '元格Border'
+HTML = '''
+影响元件表格单元格的边界线。
+'''
+Plain = '''
+影响元件表格单元格的边界线。
+'''
+Code = '''
+变化值     : --table-cell-border
+CSS属性    : border
+默认数码   : var(--table-border) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'THead Header Cell Color'
+HTML = '''
+Affects the thead's header cell's color of the rendered component.
+'''
+Plain = '''
+Affects the thead's header cell's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-thead-th-color
+CSS PROPERTY : color
+DEFAULT      : var(--color-typography-100) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Thead表格单标题元格Color'
+HTML = '''
+影响元件thead表格单标题元格的颜色。
+'''
+Plain = '''
+影响元件thead表格单标题元格的颜色。
+'''
+Code = '''
+变化值     : --table-thead-th-color
+CSS属性    : color
+默认数码   : var(--color-typography-100) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'THead Header Cell Background'
+HTML = '''
+Affects the thead's header cell's background of the rendered component.
+'''
+Plain = '''
+Affects the thead's header cell's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-thead-th-background
+CSS PROPERTY : background
+DEFAULT      : var(--color-primary-900) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Thead表格单标题元格Background'
+HTML = '''
+影响元件thead表格单标题元格的背景。
+'''
+Plain = '''
+影响元件thead表格单标题元格的背景。
+'''
+Code = '''
+变化值     : --table-thead-th-background
+CSS属性    : background
+默认数码   : var(--color-primary-900) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'TBody Header Cell Color'
+HTML = '''
+Affects the tbody's header cell's color of the rendered component.
+'''
+Plain = '''
+Affects the tbody's header cell's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-tbody-th-color
+CSS PROPERTY : color
+DEFAULT      : var(--color-typography-100) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Tbody表格单标题元格Color'
+HTML = '''
+影响元件tbody表格单标题元格的颜色。
+'''
+Plain = '''
+影响元件tbody表格单标题元格的颜色。
+'''
+Code = '''
+变化值     : --table-tbody-th-color
+CSS属性    : color
+默认数码   : var(--color-typography-100) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'TBody Header Cell Background'
+HTML = '''
+Affects the tbody's header cell's background of the rendered component.
+'''
+Plain = '''
+Affects the tbody's header cell's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-tbody-th-background
+CSS PROPERTY : background
+DEFAULT      : var(--color-primary-700) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Tbody表格单标题元格Background'
+HTML = '''
+影响元件tbody表格单标题元格的背景。
+'''
+Plain = '''
+影响元件tbody表格单标题元格的背景。
+'''
+Code = '''
+变化值     : --table-tbody-th-background
+CSS属性    : background
+默认数码   : var(--color-primary-700) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'TBody Data Cell Background (Focused)'
+HTML = '''
+Affects the tbody's data cell's background of the rendered component while being
+focused.
+'''
+Plain = '''
+Affects the tbody's data cell's background of the rendered component while being
+focused.
+'''
+Code = '''
+VARIABLE     : --table-tbody-td-focus-background
+CSS PROPERTY : background
+DEFAULT      : var(--color-contrast-500) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'TBody表格单数码元格Background'
+HTML = '''
+在被关注的情况内影响元件tbody表格单数码元格的背景。
+'''
+Plain = '''
+在被关注的情况内影响元件tbody表格单数码元格的背景。
+'''
+Code = '''
+变化值     : --table-tbody-td-focus-background
+CSS属性    : background
+默认数码   : var(--color-contrast-500) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'TBody Data Cell Background (Odd Elements)'
+HTML = '''
+Affects the tbody's data cell's background of the rendered component while being
+arranged in odd number position.
+'''
+Plain = '''
+Affects the tbody's data cell's background of the rendered component while being
+arranged in odd number position.
+'''
+Code = '''
+VARIABLE     : --table-tbody-td-odd-background
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'TBody表格单数码元格Background (排序单数)'
+HTML = '''
+影响排序单数元件tbody表格单数码元格的背景。
+'''
+Plain = '''
+影响排序单数元件tbody表格单数码元格的背景。
+'''
+Code = '''
+变化值     : --table-tbody-td-odd-background
+CSS属性    : background
+默认数码   : transparent (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'TBody Data Cell Background (Even Elements)'
+HTML = '''
+Affects the tbody's data cell's background of the rendered component while being
+arranged in even number position.
+'''
+Plain = '''
+Affects the tbody's data cell's background of the rendered component while being
+arranged in even number position.
+'''
+Code = '''
+VARIABLE     : --table-tbody-td-even-background
+CSS PROPERTY : background
+DEFAULT      : var(--color-primary-50) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'TBody表格单数码元格Background (排序双数)'
+HTML = '''
+影响排序双数元件tbody表格单数码元格的背景。
+'''
+Plain = '''
+影响排序双数元件tbody表格单数码元格的背景。
+'''
+Code = '''
+变化值     : --table-tbody-td-even-background
+CSS属性    : background
+默认数码   : var(--color-primary-50) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
