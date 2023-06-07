@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabnote_warning'
+SKU = 'zoralabNOTE_WARNING'
+Description = '''
+For styling a yellow notice.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabnote_warning'
+SKU = 'zoralabNOTE_WARNING'
+Description = '''
+来渲染黄色通告。
+'''

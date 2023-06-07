@@ -136,3 +136,8 @@ Variables = []
 Name = "zoralabNOTE_ERROR"
 Include = true
 Variables = []
+
+[[List]]
+Name = "zoralabNOTE_WARNING"
+Include = true
+Variables = []
