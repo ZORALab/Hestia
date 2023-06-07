@@ -1,0 +1,459 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Plain = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabnote/'
+Label = 'zoralabNOTE'
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Plain = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabnote/'
+Label = 'zoralabNOTE'
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<div class="note error">
+	... same as zoralabNOTE ...
+</div>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '最小的HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<div class="note error">
+	... 与zoralabNOTE一样 ...
+</div>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Border Color'
+HTML = '''
+Affects the title's border color of the rendered component.
+'''
+Plain = '''
+Affects the title's border color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-title-error-border-color
+CSS PROPERTY : border-color
+DEFAULT      : var(--body-color-indicator-red) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题Border Color'
+HTML = '''
+影响元件标题边界线的颜色。
+'''
+Plain = '''
+影响元件标题边界线的颜色。
+'''
+Code = '''
+变化值     : --note-title-error-border-color
+CSS属性    : border-color
+默认数码   : var(--body-color-indicator-red) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Color'
+HTML = '''
+Affects the title's color of the rendered component.
+'''
+Plain = '''
+Affects the title's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-title-error-color
+CSS PROPERTY : color
+DEFAULT      : #FFF (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题Color'
+HTML = '''
+影响元件标题的颜色。
+'''
+Plain = '''
+影响元件标题的颜色。
+'''
+Code = '''
+变化值     : --note-title-error-color
+CSS属性    : color
+默认数码   : #FFF (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Indicator Color'
+HTML = '''
+Affects the title indicator's color of the rendered component.
+'''
+Plain = '''
+Affects the title indicator's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-title-error-indicator-color
+CSS PROPERTY : color
+DEFAULT      : #FFF (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题指示器Color'
+HTML = '''
+影响元件标题指示器的颜色。
+'''
+Plain = '''
+影响元件标题指示器的颜色。
+'''
+Code = '''
+变化值     : --note-title-error-indicator-color
+CSS属性    : color
+默认数码   : #FFF (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Background'
+HTML = '''
+Affects the title's background of the rendered component.
+'''
+Plain = '''
+Affects the title's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-title-error-background
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-indicator-red-inverted) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题Background'
+HTML = '''
+影响元件标题的背景。
+'''
+Plain = '''
+影响元件标题的背景。
+'''
+Code = '''
+变化值     : --note-title-error-background
+CSS属性    : background
+默认数码   : var(--body-background-indicator-red-inverted) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Color'
+HTML = '''
+Affects the content's color of the rendered component.
+'''
+Plain = '''
+Affects the content's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-content-error-color
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-indicator-red) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容Color'
+HTML = '''
+影响元件内容的颜色。
+'''
+Plain = '''
+影响元件内容的颜色。
+'''
+Code = '''
+变化值     : --note-content-error-color
+CSS属性    : color
+默认数码   : var(--body-color-indicator-red) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Background'
+HTML = '''
+Affects the content's background of the rendered component.
+'''
+Plain = '''
+Affects the content's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --note-content-error-background
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-indicator-red) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容Background'
+HTML = '''
+影响元件内容的背景。
+'''
+Plain = '''
+影响元件内容的背景。
+'''
+Code = '''
+变化值     : --note-content-error-background
+CSS属性    : background
+默认数码   : var(--body-background-indicator-red) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

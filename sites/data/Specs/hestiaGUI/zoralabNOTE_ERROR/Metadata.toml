@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabnote_error'
+SKU = 'zoralabNOTE_ERROR'
+Description = '''
+For styling a red notice.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabnote_error'
+SKU = 'zoralabNOTE_ERROR'
+Description = '''
+来渲染红色通告。
+'''
