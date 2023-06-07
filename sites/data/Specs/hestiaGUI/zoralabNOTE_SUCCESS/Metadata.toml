@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabnote_success'
+SKU = 'zoralabNOTE_SUCCESS'
+Description = '''
+For styling a green notice.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabnote_success'
+SKU = 'zoralabNOTE_SUCCESS'
+Description = '''
+来渲染青色通告。
+'''
