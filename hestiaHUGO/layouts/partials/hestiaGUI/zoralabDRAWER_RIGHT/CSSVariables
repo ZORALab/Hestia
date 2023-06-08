@@ -36,9 +36,9 @@ var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
 "--right-drawer-trigger-font-size" = "var(--drawer-trigger-font-size)"
 "--right-drawer-trigger-font-style" = "var(--drawer-trigger-font-style)"
 
-"--right-drawer-trigger-color" = "var(--drawer-color-trigger)"
+"--right-drawer-trigger-color" = "var(--drawer-trigger-color)"
 "--right-drawer-trigger-background" = "var(--drawer-background)"
-"--right-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-color-trigger)"
+"--right-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-trigger-color)"
 
 "--right-drawer-trigger-transform" = ""
 "--right-drawer-trigger-transform-focus" = "scale(1.1)"

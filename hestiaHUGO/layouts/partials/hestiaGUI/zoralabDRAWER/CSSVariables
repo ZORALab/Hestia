@@ -5,22 +5,18 @@
 "--drawer-overlay-z-index" = "calc(var(--z-index-max) - var(--z-index-nav-overlay))"
 
 
-"--drawer-border" = ".2rem solid var(--drawer-color-trigger)"
+"--drawer-border" = ".2rem solid var(--drawer-trigger-color)"
 "--drawer-border-radius" = ".5rem"
-"--drawer-box-shadow" = "0 0 4rem var(--drawer-color-trigger)"
+"--drawer-box-shadow" = "0 0 4rem var(--drawer-trigger-color)"
 
 
 "--drawer-color" = "var(--body-color-inverted)"
 "--drawer-color-inverted" = "var(--body-color)"
 "--drawer-color-primary" = "var(--color-primary-600)"
-"--drawer-color-trigger" = "var(--color-contrast-100)"
 "--drawer-background" = "var(--color-primary-800)"
-"--drawer-overlay-color" = "transparent"
-"--drawer-overlay-background" = "rgba(0,0,0,.75)"
 
 
 "--drawer-transition" = "var(--timing-normal)"
-"--drawer-overlay-transition" = "var(--timing-fast)"
 
 
 
@@ -39,3 +35,15 @@
 
 "--drawer-trigger-font-size" = "3rem"
 "--drawer-trigger-font-style" = "normal"
+
+
+"--drawer-trigger-color" = "var(--color-contrast-100)"
+
+
+
+
+"--drawer-overlay-color" = "transparent"
+"--drawer-overlay-background" = "rgba(0,0,0,.75)"
+
+
+"--drawer-overlay-transition" = "var(--timing-fast)"

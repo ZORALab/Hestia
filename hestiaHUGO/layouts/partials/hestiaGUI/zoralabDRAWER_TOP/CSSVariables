@@ -32,9 +32,9 @@
 "--top-drawer-trigger-border-radius" = """
 0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)
 """
-"--top-drawer-trigger-color" = "var(--drawer-color-trigger)"
+"--top-drawer-trigger-color" = "var(--drawer-trigger-color)"
 "--top-drawer-trigger-background" = "var(--drawer-background)"
-"--top-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-color-trigger)"
+"--top-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-trigger-color)"
 "--top-drawer-trigger-transform" = "translateX(-50%)"
 "--top-drawer-trigger-transform-focus" = "scale(1.1) translateX(-50%)"
 

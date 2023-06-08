@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdrawer'
+SKU = 'zoralabDRAWER'
+Description = '''
+For styling a navigation drawer.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdrawer'
+SKU = 'zoralabDRAWER'
+Description = '''
+来渲染导航抽屉。
+'''

@@ -36,9 +36,9 @@
 "--left-drawer-trigger-font-size" = "var(--drawer-trigger-font-size)"
 "--left-drawer-trigger-font-style" = "var(--drawer-trigger-font-style)"
 
-"--left-drawer-trigger-color" = "var(--drawer-color-trigger)"
+"--left-drawer-trigger-color" = "var(--drawer-trigger-color)"
 "--left-drawer-trigger-background" = "var(--drawer-background)"
-"--left-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-color-trigger)"
+"--left-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-trigger-color)"
 
 "--left-drawer-trigger-transform" = ""
 "--left-drawer-trigger-transform-focus" = "scale(1.1)"

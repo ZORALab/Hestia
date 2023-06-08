@@ -1,0 +1,76 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for drawer navigator values. This page is already deployed all
+usable drawer already.
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for drawer navigator values. This page is already deployed all
+usable drawer already.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染导航抽屉的界面元件。这网页已经在运用这个元件了。
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染导航抽屉的界面元件。这网页已经在运用这个元件了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>drawer_hestiaUI</code> before ZORALab's Hestia
+<code>v1.2.0</code>. The transformation was due to someone attempting to steal
+the copyrights and makes way for programming package's documentation
+restructuring.
+'''
+Plain = '''
+This package was known as 'drawer_hestiaUI' before ZORALab's Hestia 'v1.2.0'.
+The transformation was due to someone attempting to steal the design copyrights
+and makes way for programming package's documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>drawer_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程文件
+编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为drawer_hestiaUI。改名的目的是
+有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
