@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabiframe'
+SKU = 'zoralabIFRAME'
+Description = '''
+For styling an iframe.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabiframe'
+SKU = 'zoralabIFRAME'
+Description = '''
+来渲染内嵌框架。
+'''

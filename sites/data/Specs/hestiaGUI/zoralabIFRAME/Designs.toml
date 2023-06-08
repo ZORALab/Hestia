@@ -1,0 +1,736 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Plain = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Plain = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<iframe src="..."
+	sandbox="allow-scripts allow-same-origin"
+	width="..."
+	height="..."
+	title="..."
+	loading="lazy">
+	...
+</iframe>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '最小的HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<iframe src="..."
+	sandbox="allow-scripts allow-same-origin"
+	width="..."
+	height="..."
+	title="..."
+	loading="lazy">
+	...
+</iframe>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Hidden iFrame HTML'
+HTML = '''
+The hidden iframe HTML codes are shown below:
+'''
+Plain = '''
+The hidden iframe HTML codes are shown below:
+'''
+Code = '''
+<iframe ... same as minimum html ...
+	class="hidden">
+	...
+</iframe>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '推荐的HTML'
+HTML = '''
+推荐的HTML代码运用方法如下：
+'''
+Plain = '''
+推荐的HTML代码运用方法如下：
+'''
+Code = '''
+<iframe ... 和最小的HTML一样 ...
+	class="hidden">
+	...
+</iframe>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Display'
+HTML = '''
+Affects the display mode of the rendered component.
+'''
+Plain = '''
+Affects the display mode of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-display
+CSS PROPERTY : display
+DEFAULT      : block (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Display'
+HTML = '''
+影响元件的显示模式。
+'''
+Plain = '''
+影响元件的显示模式。
+'''
+Code = '''
+变化值     : --iframe-display
+CSS属性    : display
+默认数码   : block (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin'
+HTML = '''
+Affects the margin of the rendered component.
+'''
+Plain = '''
+Affects the margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 auto (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin'
+HTML = '''
+影响元件的外向边距空间。
+'''
+Plain = '''
+影响元件的外向边距空间。
+'''
+Code = '''
+变化值     : --iframe-margin
+CSS属性    : margin
+默认数码   : 0 auto (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border'
+HTML = '''
+Affects the border of the rendered component.
+'''
+Plain = '''
+Affects the border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-border
+CSS PROPERTY : border
+DEFAULT      : none (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border'
+HTML = '''
+影响元件的边界线。
+'''
+Plain = '''
+影响元件的边界线。
+'''
+Code = '''
+变化值     : --iframe-border
+CSS属性    : border
+默认数码   : none (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+Affects the minimum width of the rendered component.
+'''
+Plain = '''
+Affects the minimum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-min-width
+CSS PROPERTY : min-width
+DEFAULT      : initial (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+影响元件的最少宽度。
+'''
+Plain = '''
+影响元件的最少宽度。
+'''
+Code = '''
+变化值     : --iframe-min-width
+CSS属性    : min-width
+默认数码   : initial (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (hidden)'
+HTML = '''
+Affects the width of the rendered component while in hidden mode.
+'''
+Plain = '''
+Affects the width of the rendered component while in hidden mode.
+'''
+Code = '''
+VARIABLE     : --iframe-width-hidden
+CSS PROPERTY : width
+DEFAULT      : 1px (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width （隐形）'
+HTML = '''
+影响元件在隐形情况下的宽度。
+'''
+Plain = '''
+影响元件在隐形情况下的宽度。
+'''
+Code = '''
+变化值     : --iframe-width
+CSS属性    : width
+默认数码   : 1px (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+Affects the maximum width of the rendered component.
+'''
+Plain = '''
+Affects the maximum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-max-width
+CSS PROPERTY : max-width
+DEFAULT      : 100% (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+影响元件的宽度。
+'''
+Plain = '''
+影响元件的宽度。
+'''
+Code = '''
+变化值     : --iframe-max-width
+CSS属性    : max-width
+默认数码   : 100% (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+Affects the minimum height of the rendered component.
+'''
+Plain = '''
+Affects the minimum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-min-height
+CSS PROPERTY : min-height
+DEFAULT      : initial (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+影响元件的最少高度。
+'''
+Plain = '''
+影响元件的最少高度。
+'''
+Code = '''
+变化值     : --iframe-min-height
+CSS属性    : min-hieght
+默认数码   : initial (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height (Hidden)'
+HTML = '''
+Affects the height of the rendered component while in hidden mode.
+'''
+Plain = '''
+Affects the height of the rendered component while in hidden mode.
+'''
+Code = '''
+VARIABLE     : --iframe-height-hidden
+CSS PROPERTY : height
+DEFAULT      : 1px (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Height（隐形）'
+HTML = '''
+影响元件在隐形情况下的高度。
+'''
+Plain = '''
+影响元件在隐形情况下的高度。
+'''
+Code = '''
+变化值     : --iframe-height-hidden
+CSS属性    : height
+默认数码   : 1px (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+Affects the maximum height of the rendered component.
+'''
+Plain = '''
+Affects the maximum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-max-height
+CSS PROPERTY : max-height
+DEFAULT      : initial (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+影响元件的最大高度。
+'''
+Plain = '''
+影响元件的最大高度。
+'''
+Code = '''
+变化值     : --iframe-max-height
+CSS属性    : max-height
+默认数码   : initial (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background'
+HTML = '''
+Affects the background of the rendered component.
+'''
+Plain = '''
+Affects the background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-background
+CSS PROPERTY : background
+DEFAULT      : inherit (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background'
+HTML = '''
+影响元件的背景。
+'''
+Plain = '''
+影响元件的背景。
+'''
+Code = '''
+变化值     : --iframe-background
+CSS属性    : background
+默认数码   : inherit (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Visibility'
+HTML = '''
+Affects the visibility of the rendered component.
+'''
+Plain = '''
+Affects the visibility of the rendered component.
+'''
+Code = '''
+VARIABLE     : --iframe-visibility
+CSS PROPERTY : visibility
+DEFAULT      : visible (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Visibility'
+HTML = '''
+影响元件的能见度。
+'''
+Plain = '''
+影响元件的能见度。
+'''
+Code = '''
+变化值     : --iframe-visibility
+CSS属性    : visibility
+默认数码   : visible (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Visibility (Hidden)'
+HTML = '''
+Affects the visibility of the rendered component while in hidden mode.
+'''
+Plain = '''
+Affects the visibility of the rendered component while in hidden mode.
+'''
+Code = '''
+VARIABLE     : --iframe-visibility-hidden
+CSS PROPERTY : visibility
+DEFAULT      : hidden (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Visibility（隐形）'
+HTML = '''
+影响元件在隐形情况下的能见度。
+'''
+Plain = '''
+影响元件在隐形情况下的能见度。
+'''
+Code = '''
+变化值     : --iframe-visibility-hidden
+CSS属性    : visibility
+默认数码   : hidden (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
