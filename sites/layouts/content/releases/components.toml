@@ -42,7 +42,7 @@
 #        ]
 #
 #        [[List]]
-#        Name = "zoralabFONT_NOTOSANS"
+#        Name = "googleFONT_NOTOSANS"
 #        Include = true
 #        Variables = []
 #
@@ -55,7 +55,7 @@ Variables = [
 ]
 
 [[List]]
-Name = "zoralabFONT_NOTOSANS"
+Name = "googleFONT_NOTOSANS"
 Include = true
 Variables = []
 

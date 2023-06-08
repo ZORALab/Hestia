@@ -1,0 +1,147 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for facilitating Google's Noto Sans font.
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for facilitating Google's Noto Sans font.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染供应谷歌的NotoSans字体界面元件。
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染供应谷歌的NotoSans字体界面元件。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Hugo User - Action Required'
+HTML = '''
+When using this font, you need to add its actual font files into your
+<code>staticDir</code> directory list in your
+<code>config/_default/config.toml</code> file. Here is an example:
+'''
+Plain = '''
+When using this font, you need to add its actual font files into your
+'static' directory list via your 'config/_default/config.toml' file. Here is an
+example:
+'''
+Code = '''
+...
+archetypeDir = "archetypes"
+contentDir = "content"
+assetDir = "assets"
+dataDir = "data"
+
+staticDir = [
+        "static",
+        "themes/hestiaHUGO/fonts/googleFONT_NOTOSANS",   # ⇚ ADD THIS
+]
+
+layoutDir = "layouts"
+themesDir = "themes"
+publishDir = "public"
+i18nDir = "i18n"
+...
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'Hugo用户者 - 需做步骤'
+HTML = '''
+当您运用这个字体元件时，您需要在<code>config/_default/config.toml</code>的
+<code>staticDir</code>加入它所需要的字体文件。例子如下：
+'''
+Plain = '''
+当您运用这个字体元件时，您需要在'config/_default/config.toml'的'staticDir'加入它
+所需要的字体文件。例子如下：
+'''
+Code = '''
+...
+archetypeDir = "archetypes"
+contentDir = "content"
+assetDir = "assets"
+dataDir = "data"
+
+staticDir = [
+        "static",
+        "themes/hestiaHUGO/fonts/googleFONT_NOTOSANS",    # ⇚ 加入这个
+]
+
+layoutDir = "layouts"
+themesDir = "themes"
+publishDir = "public"
+i18nDir = "i18n"
+...
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>font-notosans_hestiaUI</code> before
+ZORALab's Hestia <code>v1.2.0</code>. The transformation was due to someone
+attempting to steal the copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Plain = '''
+This package was known as 'font-notosans_hestiaUI' before
+ZORALab's Hestia 'v1.2.0'. The transformation was due to someone attempting to
+steal the design copyrights and makes way for programming package's
+documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>font-notosans_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了
+编程文件编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为font-notosans_hestiaUI。改名
+的目的是有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

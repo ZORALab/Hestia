@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'googlefont_notosans'
+SKU = 'googleFONT_NOTOSANS'
+Description = '''
+For styling with Google's Noto Sans font.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'googlefont_notosans'
+SKU = 'googleFONT_NOTOSANS'
+Description = '''
+来渲染谷歌的Noto Sans字体。
+'''
