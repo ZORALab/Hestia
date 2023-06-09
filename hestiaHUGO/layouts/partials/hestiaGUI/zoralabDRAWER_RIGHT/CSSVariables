@@ -9,10 +9,10 @@
 "--right-drawer-overflow" = "hidden auto"
 "--right-drawer-border" = "var(--drawer-border)"
 "--right-drawer-border-radius" = "var(--drawer-border-radius) 0 0 var(--drawer-border-radius)"
-"--right-drawer-box-shadow" = "var(--drawer-box-shadow)"
 
 "--right-drawer-color" = "var(--drawer-color)"
 "--right-drawer-background" = "var(--drawer-background)"
+"--right-drawer-box-shadow" = "var(--drawer-box-shadow)"
 
 "--right-drawer-transition" = "var(--drawer-transition)"
 

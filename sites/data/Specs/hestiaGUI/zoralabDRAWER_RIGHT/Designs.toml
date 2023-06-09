@@ -472,7 +472,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --right-drawer-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : 0 var(--drawer-border-radius) var(--drawer-border-radius) 0 (>= v1.2.0)
+DEFAULT      : var(--drawer-border-radius) 0 0 var(--drawer-border-radius) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -491,7 +491,7 @@ Plain = '''
 Code = '''
 变化值     : --right-drawer-border-radius
 CSS属性    : border-radius
-默认数码   : 0 var(--drawer-border-radius) var(--drawer-border-radius) 0 (>= v1.2.0)
+默认数码   : var(--drawer-border-radius) 0 0 var(--drawer-border-radius) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
