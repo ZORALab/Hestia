@@ -28,10 +28,12 @@ SubList = '子点'
 
 [EN.Introduction]
 ID = 'introduction'
+Title = 'Introduction'
 
 
 [ZH-HANS.Introduction]
 ID = '自介'
+Title = '自介'
 
 
 

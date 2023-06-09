@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdrawer_top'
+SKU = 'zoralabDRAWER_TOP'
+Description = '''
+For styling a top-side navigation drawer.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdrawer_top'
+SKU = 'zoralabDRAWER_TOP'
+Description = '''
+来渲染顶边的导航抽屉。
+'''

@@ -5,7 +5,7 @@
 "--top-drawer-width" = "100vw"
 "--top-drawer-width-opened" = "var(--top-drawer-width)"
 "--top-drawer-height" = "0"
-"--top-drawer-height-opened" = "70vh"
+"--top-drawer-height-opened" = "85vh"
 "--top-drawer-overflow" = "auto hidden"
 
 "--top-drawer-border" = "var(--drawer-border)"
@@ -22,6 +22,7 @@
 
 "--top-drawer-trigger-width" = "var(--drawer-trigger-width)"
 "--top-drawer-trigger-height" = "var(--drawer-trigger-height)"
+
 "--top-drawer-trigger-position-top" = "0"
 "--top-drawer-trigger-position-left" = "50%"
 "--top-drawer-trigger-position-bottom" = "unset"
@@ -32,9 +33,14 @@
 "--top-drawer-trigger-border-radius" = """
 0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)
 """
+
+"--top-drawer-trigger-font-size" = "var(--drawer-trigger-font-size)"
+"--top-drawer-trigger-font-style" = "var(--drawer-trigger-font-style)"
+
 "--top-drawer-trigger-color" = "var(--drawer-trigger-color)"
 "--top-drawer-trigger-background" = "var(--drawer-background)"
 "--top-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-trigger-color)"
+
 "--top-drawer-trigger-transform" = "translateX(-50%)"
 "--top-drawer-trigger-transform-focus" = "scale(1.1) translateX(-50%)"
 

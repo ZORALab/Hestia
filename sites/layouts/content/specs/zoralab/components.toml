@@ -68,8 +68,18 @@ Variables = []
 Name = "zoralabDRAWER_LEFT"
 Include = true
 Variables = [
-	{ "--left-drawer-width-opened" = "80vw" },
-	{ "--left-drawer-trigger-position-top" = "0" },
+]
+
+[[List]]
+Name = "zoralabDRAWER_TOP"
+Include = true
+Variables = [
+]
+
+[[List]]
+Name = "zoralabDRAWER_RIGHT"
+Include = true
+Variables = [
 ]
 
 [[List]]

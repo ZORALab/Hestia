@@ -3,10 +3,11 @@
 "--left-drawer-z-index-opened" = "var(--drawer-z-index-opened)"
 
 "--left-drawer-width" = "0"
-"--left-drawer-width-opened" = "90vw"
+"--left-drawer-width-opened" = "85vw"
 "--left-drawer-height" = "100%"
 "--left-drawer-height-opened" = "var(--left-drawer-height)"
 "--left-drawer-overflow" = "hidden auto"
+
 "--left-drawer-border" = "var(--drawer-border)"
 "--left-drawer-border-radius" = "0 var(--drawer-border-radius) var(--drawer-border-radius) 0"
 
@@ -22,7 +23,7 @@
 "--left-drawer-trigger-width" = "var(--drawer-trigger-width)"
 "--left-drawer-trigger-height" = "var(--drawer-trigger-height)"
 
-"--left-drawer-trigger-position-top" = "50%"
+"--left-drawer-trigger-position-top" = "0"
 "--left-drawer-trigger-position-left" = "0"
 "--left-drawer-trigger-position-bottom" = "unset"
 "--left-drawer-trigger-position-right" = "unset"

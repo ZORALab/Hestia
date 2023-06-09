@@ -277,7 +277,7 @@ Affects the width of the rendered component when opened.
 Code = '''
 VARIABLE     : --left-drawer-width-opened
 CSS PROPERTY : width
-DEFAULT      : 90vw (>= v1.2.0)
+DEFAULT      : 85vw (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -296,7 +296,7 @@ Plain = '''
 Code = '''
 变化值     : --left-drawer-width-opened
 CSS属性    : width
-默认数码   : 90vw (>= v1.2.0)
+默认数码   : 85vw (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -745,7 +745,7 @@ Affects the trigger's top position of the rendered component.
 Code = '''
 VARIABLE     : --left-drawer-trigger-position-top
 CSS PROPERTY : top
-DEFAULT      : 50% (>= v1.2.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -764,7 +764,7 @@ Plain = '''
 Code = '''
 变化值     : --left-drawer-trigger-position-top
 CSS属性    : top
-默认数码   : 50% (>= v1.2.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

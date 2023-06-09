@@ -179,7 +179,7 @@
 "--h4-margin" = "4.5rem 0 0"
 "--h4-padding" = "0"
 "--h4-text-decoration" = "underline"
-"--h4-text-align" = "center"
+"--h4-text-align" = "left"
 "--h4-decoration-color" = "initial"
 "--h4-border-bottom" = "initial"
 "--h4-before-content" = ""

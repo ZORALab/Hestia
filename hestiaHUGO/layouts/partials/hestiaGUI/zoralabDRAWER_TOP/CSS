@@ -112,8 +112,8 @@ specific language governing permissions and limitations under the License.
 	width: var(--top-drawer-trigger-width);
 	height: var(--top-drawer-trigger-height);
 
-	font-size: var(--drawer-trigger-font-size);
-	font-style: var(--drawer-trigger-font-style);
+	font-size: var(--top-drawer-trigger-font-size);
+	font-style: var(--top-drawer-trigger-font-style);
 
 	border: var(--top-drawer-trigger-border);
 	border-radius: var(--top-drawer-trigger-border-radius);
