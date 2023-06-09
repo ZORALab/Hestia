@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdrawer_left'
+SKU = 'zoralabDRAWER_LEFT'
+Description = '''
+For styling a left-side navigation drawer.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdrawer_left'
+SKU = 'zoralabDRAWER_LEFT'
+Description = '''
+来渲染左边的导航抽屉。
+'''

@@ -9,10 +9,10 @@
 "--left-drawer-overflow" = "hidden auto"
 "--left-drawer-border" = "var(--drawer-border)"
 "--left-drawer-border-radius" = "0 var(--drawer-border-radius) var(--drawer-border-radius) 0"
-"--left-drawer-box-shadow" = "var(--drawer-box-shadow)"
 
 "--left-drawer-color" = "var(--drawer-color)"
 "--left-drawer-background" = "var(--drawer-background)"
+"--left-drawer-box-shadow" = "var(--drawer-box-shadow)"
 
 "--left-drawer-transition" = "var(--drawer-transition)"
 
