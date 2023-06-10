@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdivider'
+SKU = 'zoralabDIVIDER'
+Description = '''
+For styling a divider syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdivider'
+SKU = 'zoralabDIVIDER'
+Description = '''
+来渲染分界线语法。
+'''
