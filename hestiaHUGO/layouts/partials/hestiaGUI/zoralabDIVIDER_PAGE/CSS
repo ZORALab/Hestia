@@ -15,7 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-hr.page-break {
+hr.page {
 	display: block;
 
 	margin: 0;
@@ -35,7 +35,7 @@ hr.page-break {
 
 
 @media print {
-	hr.page-break {
+	hr.page {
 		break-after: page;
 
 		width: 100% !important;

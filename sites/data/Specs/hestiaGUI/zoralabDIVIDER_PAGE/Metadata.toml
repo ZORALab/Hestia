@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdivider_page'
+SKU = 'zoralabDIVIDER_PAGE'
+Description = '''
+For styling a page break divider syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdivider_dash'
+SKU = 'zoralabDIVIDER_DASH'
+Description = '''
+来渲染纸张分界线语法。
+'''
