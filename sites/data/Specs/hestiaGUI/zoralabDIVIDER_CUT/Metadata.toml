@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdivider_cut'
+SKU = 'zoralabDIVIDER_CUT'
+Description = '''
+For styling a cutting indication divider syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdivider_cut'
+SKU = 'zoralabDIVIDER_CUT'
+Description = '''
+来渲染可剪分界线语法。
+'''
