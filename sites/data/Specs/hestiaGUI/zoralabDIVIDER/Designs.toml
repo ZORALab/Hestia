@@ -346,7 +346,7 @@ Affects the top border of the rendered component.
 '''
 Code = '''
 VARIABLE     : --divider-border-top
-CSS PROPERTY : border
+CSS PROPERTY : border-top
 DEFAULT      : initial (>= v1.0.0)
 '''
 
@@ -365,7 +365,7 @@ Plain = '''
 '''
 Code = '''
 变化值     : --divider-border-top
-CSS属性    : border
+CSS属性    : border-top
 默认数码   : initial (>= v1.0.0)
 '''
 
@@ -560,7 +560,7 @@ Plain = '''
 '''
 Code = '''
 变化值     : --divider-min-height
-CSS属性    : min-hieght
+CSS属性    : min-height
 默认数码   : initial (>= v1.0.0)
 '''
 
