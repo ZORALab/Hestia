@@ -176,3 +176,8 @@ Variables = []
 Name = "zoralabDIVIDER_DASH"
 Include = true
 Variables = []
+
+[[List]]
+Name = "zoralabDIALOG"
+Include = true
+Variables = []

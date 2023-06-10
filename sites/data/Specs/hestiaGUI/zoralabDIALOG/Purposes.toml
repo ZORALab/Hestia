@@ -1,0 +1,127 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for dialog values. In web UI, it is shown as follows:
+<br/><br/>
+<button onclick='document.getElementById("dialog-example-1").showModal();' >
+	Open Dialog
+</button>
+<dialog id='dialog-example-1'>
+	<div class="row" style='--grid-flex-direction: column;'>
+		<div class="column">
+			<p>This is a text.</p>
+		</div>
+		<div class="column">
+			<p>This is another text.</p>
+		</div>
+		<div class="column">
+			<br/><br/>
+			<form method="dialog"><button>Close</button></form>
+		</div>
+	</div>
+</dialog>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for dialog values. In web UI, it is shown as follows:
+
+<button onclick='document.getElementById("dialog-id-1").showModal();' >
+	Open Dialog
+</button>
+<dialog id="dialog-id-1">
+	...
+	<form method="dialog"><button>Close</button></form>
+</dialog>
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染对话框提示的界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<button onclick='document.getElementById("dialog-example-1").showModal();' >
+	打开
+</button>
+<dialog id='dialog-example-1'>
+	<div class="row" style='--grid-flex-direction: column;'>
+		<div class="column">
+			<p>一个句子。</p>
+		</div>
+		<div class="column">
+			<p>另一个句子。</p>
+		</div>
+		<div class="column">
+			<form method="dialog"><button>关闭</button></form>
+		</div>
+	</div>
+</dialog>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染对话框提示的界面元件。在网络界面世界里，
+这元件的成果如下：
+
+<button onclick='document.getElementById("dialog-id-1").showModal();' >
+	打开
+</button>
+<dialog id="dialog-id-1">
+	...
+	<form method="dialog"><button>关闭</button></form>
+</dialog>
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>dialog_hestiaUI</code> before ZORALab's Hestia
+<code>v1.2.0</code>. The transformation was due to someone attempting to steal
+the copyrights and makes way for programming package's documentation
+restructuring.
+'''
+Plain = '''
+This package was known as 'dialog_hestiaUI' before ZORALab's Hestia 'v1.2.0'.
+The transformation was due to someone attempting to steal the design copyrights
+and makes way for programming package's documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>dialog_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程文件
+编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为dialog_hestiaUI。改名的目的是
+有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

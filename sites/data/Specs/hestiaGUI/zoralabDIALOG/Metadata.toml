@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdialog'
+SKU = 'zoralabDIALOG'
+Description = '''
+For styling a dialog syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdialog'
+SKU = 'zoralabDIALOG'
+Description = '''
+来渲染对话框提示的码语法。
+'''
