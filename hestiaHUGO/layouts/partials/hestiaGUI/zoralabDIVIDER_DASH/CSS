@@ -15,12 +15,12 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-
-hr.dashed {
-	border-bottom: var(--divider-dashed-border-bottom);
+hr.dash {
+	border-bottom: var(--divider-dash-border-bottom);
 }
 
-footer hr.dashed,
-.footer hr.dashed {
-	border-bottom: var(--divider-dashed-border-bottom-inverted);
+.inverted hr.dash,
+footer hr.dash,
+.footer hr.dash {
+	border-bottom: var(--divider-dash-border-bottom-inverted);
 }

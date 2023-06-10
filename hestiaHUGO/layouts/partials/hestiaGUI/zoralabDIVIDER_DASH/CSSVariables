@@ -1,0 +1,3 @@
+[CSS.Variables]
+"--divider-dash-border-bottom" = "2px dashed var(--divider-color)"
+"--divider-dash-border-bottom-inverted" = "2px dashed var(--divider-color-inverted)"
