@@ -1,0 +1,2190 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Plain = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Plain = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<a href='...'>...</a>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<a href='...'>...</a>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Wrapping HTML'
+HTML = '''
+The wrapping anchor (e.g. clickable graphics) HTML codes are shown below:
+'''
+Plain = '''
+The wrapping anchor (e.g. clickable graphics) HTML codes are shown below:
+'''
+Code = '''
+<a class='wrap' href='...'>...</a>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'HTML'
+HTML = '''
+那包装性的链接像(如：可按的图画)HTML代码运用方法如下：
+'''
+Plain = '''
+那包装性的链接像(如：可按的图画)HTML代码运用方法如下：
+'''
+Code = '''
+<a class='wrap' href='...'>...</a>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Prestige HTML'
+HTML = '''
+The prestige styled anchor HTML codes are shown below:
+'''
+Plain = '''
+The prestige styled anchor HTML codes are shown below:
+'''
+Code = '''
+<a class='prestige' href='...'>...</a>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'HTML'
+HTML = '''
+那盛誉渲染的链接像HTML代码运用方法如下：
+'''
+Plain = '''
+那盛誉渲染的链接像HTML代码运用方法如下：
+'''
+Code = '''
+<a class='prestige' href='...'>...</a>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Display'
+HTML = '''
+Affects the display mode of the rendered component.
+'''
+Plain = '''
+Affects the display mode of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-display
+CSS PROPERTY : display
+DEFAULT      : inline-block (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Display'
+HTML = '''
+影响元件的显示模式。
+'''
+Plain = '''
+影响元件的显示模式。
+'''
+Code = '''
+变化值     : --anchor-display
+CSS属性    : display
+默认数码   : inline-block (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin'
+HTML = '''
+Affects the margin of the rendered component.
+'''
+Plain = '''
+Affects the margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-margin
+CSS PROPERTY : margin
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin'
+HTML = '''
+影响元件的外向边距空间。
+'''
+Plain = '''
+影响元件的外向边距空间。
+'''
+Code = '''
+变化值     : --anchor-margin
+CSS属性    : margin
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding'
+HTML = '''
+Affects the padding of the rendered component.
+'''
+Plain = '''
+Affects the padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 .15rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding'
+HTML = '''
+影响元件的内向边距空间。
+'''
+Plain = '''
+影响元件的内向边距空间。
+'''
+Code = '''
+变化值     : --anchor-padding
+CSS属性    : padding
+默认数码   : 0 .15rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+Affects the minimum width of the rendered component.
+'''
+Plain = '''
+Affects the minimum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-min-width
+CSS PROPERTY : min-width
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+影响元件的最少宽度。
+'''
+Plain = '''
+影响元件的最少宽度。
+'''
+Code = '''
+变化值     : --anchor-min-width
+CSS属性    : min-width
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width'
+HTML = '''
+Affects the width of the rendered component.
+'''
+Plain = '''
+Affects the width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-width
+CSS PROPERTY : width
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width'
+HTML = '''
+影响元件的宽度。
+'''
+Plain = '''
+影响元件的宽度。
+'''
+Code = '''
+变化值     : --anchor-width
+CSS属性    : width
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+Affects the maximum width of the rendered component.
+'''
+Plain = '''
+Affects the maximum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-max-width
+CSS PROPERTY : max-width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+影响元件的宽度。
+'''
+Plain = '''
+影响元件的宽度。
+'''
+Code = '''
+变化值     : --anchor-max-width
+CSS属性    : max-width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+Affects the minimum height of the rendered component.
+'''
+Plain = '''
+Affects the minimum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-min-height
+CSS PROPERTY : min-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+影响元件的最少高度。
+'''
+Plain = '''
+影响元件的最少高度。
+'''
+Code = '''
+变化值     : --anchor-min-height
+CSS属性    : min-hieght
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height'
+HTML = '''
+Affects the height of the rendered component.
+'''
+Plain = '''
+Affects the height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-height
+CSS PROPERTY : height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Height'
+HTML = '''
+影响元件的高度。
+'''
+Plain = '''
+影响元件的高度。
+'''
+Code = '''
+变化值     : --anchor-height
+CSS属性    : height
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+Affects the maximum height of the rendered component.
+'''
+Plain = '''
+Affects the maximum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-max-height
+CSS PROPERTY : max-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+影响元件的最大高度。
+'''
+Plain = '''
+影响元件的最大高度。
+'''
+Code = '''
+变化值     : --anchor-max-height
+CSS属性    : max-height
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border'
+HTML = '''
+Affects the border of the rendered component.
+'''
+Plain = '''
+Affects the border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-border
+CSS PROPERTY : border
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border'
+HTML = '''
+影响元件的边界线。
+'''
+Plain = '''
+影响元件的边界线。
+'''
+Code = '''
+变化值     : --anchor-border
+CSS属性    : border
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Top'
+HTML = '''
+Affects the top border of the rendered component.
+'''
+Plain = '''
+Affects the top border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-border-top
+CSS PROPERTY : border-top
+DEFAULT      : 2px solid transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Top'
+HTML = '''
+影响元件的顶部边界线。
+'''
+Plain = '''
+影响元件的顶部边界线。
+'''
+Code = '''
+变化值     : --anchor-border-top
+CSS属性    : border-top
+默认数码   : 2px solid transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Left'
+HTML = '''
+Affects the left border of the rendered component.
+'''
+Plain = '''
+Affects the left border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-border-left
+CSS PROPERTY : border-left
+DEFAULT      : 2px solid transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Left'
+HTML = '''
+影响元件的左部边界线。
+'''
+Plain = '''
+影响元件的左部边界线。
+'''
+Code = '''
+变化值     : --anchor-border-left
+CSS属性    : border-top
+默认数码   : 2px solid transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Bottom'
+HTML = '''
+Affects the bottom border of the rendered component.
+'''
+Plain = '''
+Affects the bottom border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-border-bottom
+CSS PROPERTY : border-bottom
+DEFAULT      : 2px solid var(--anchor-color) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Bottom'
+HTML = '''
+影响元件的底部边界线。
+'''
+Plain = '''
+影响元件的底部边界线。
+'''
+Code = '''
+变化值     : --anchor-border-bottom
+CSS属性    : border-top
+默认数码   : 2px solid var(--anchor-color) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Right'
+HTML = '''
+Affects the right border of the rendered component.
+'''
+Plain = '''
+Affects the right border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-border-right
+CSS PROPERTY : border-right
+DEFAULT      : 2px solid transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Right'
+HTML = '''
+影响元件的右部边界线。
+'''
+Plain = '''
+影响元件的右部边界线。
+'''
+Code = '''
+变化值     : --anchor-border-right
+CSS属性    : border-right
+默认数码   : 2px solid transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Radius'
+HTML = '''
+Affects the border radius of the rendered component.
+'''
+Plain = '''
+Affects the border radius of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-border-radius
+CSS PROPERTY : border-radius
+DEFAULT      : .3rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Radius'
+HTML = '''
+影响元件边界线的角落圆形度。
+'''
+Plain = '''
+影响元件边界线的角落圆形度。
+'''
+Code = '''
+变化值     : --anchor-border-radius
+CSS属性    : border-radius
+默认数码   : .3rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Size'
+HTML = '''
+Affects the font size of the rendered component.
+'''
+Plain = '''
+Affects the font size of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-font-size
+CSS PROPERTY : font-size
+DEFAULT      : var(--body-font-size) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Size'
+HTML = '''
+影响元件的字形的大小。
+'''
+Plain = '''
+影响元件的字形的大小。
+'''
+Code = '''
+变化值     : --anchor-font-size
+CSS属性    : font-size
+默认数码   : var(--body-font-size) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Family'
+HTML = '''
+Affects the font family of the rendered component.
+'''
+Plain = '''
+Affects the font family of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-font-family
+CSS PROPERTY : font-family
+DEFAULT      : var(--body-font-family) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Family'
+HTML = '''
+影响元件的字形的系列。
+'''
+Plain = '''
+影响元件的字形的系列。
+'''
+Code = '''
+变化值     : --anchor-font-family
+CSS属性    : font-family
+默认数码   : var(--body-font-family) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Weight'
+HTML = '''
+Affects the font weight of the rendered component.
+'''
+Plain = '''
+Affects the font weight of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Weight'
+HTML = '''
+影响元件的字形的厚度。
+'''
+Plain = '''
+影响元件的字形的厚度。
+'''
+Code = '''
+变化值     : --anchor-font-weight
+CSS属性    : font-weight
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Decoration'
+HTML = '''
+Affects the text decoration of the rendered component.
+'''
+Plain = '''
+Affects the text decoration of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-text-decoration
+CSS PROPERTY : text-decoration
+DEFAULT      : none (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Decoration'
+HTML = '''
+影响元件的字形的装饰。
+'''
+Plain = '''
+影响元件的字形的装饰。
+'''
+Code = '''
+变化值     : --anchor-text-decoration
+CSS属性    : text-decoration
+默认数码   : none (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Transformation'
+HTML = '''
+Affects the text transformation of the rendered component.
+'''
+Plain = '''
+Affects the text transformation of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-text-transform
+CSS PROPERTY : text-transform
+DEFAULT      : normal (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Transformation'
+HTML = '''
+影响元件的字形的变形条件。
+'''
+Plain = '''
+影响元件的字形的变形条件。
+'''
+Code = '''
+变化值     : --anchor-text-transform
+CSS属性    : text-transform
+默认数码   : normal (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Overflow Wrap'
+HTML = '''
+Affects the overflow wrapping behavior of the rendered component.
+'''
+Plain = '''
+Affects the overflow wrapping behavior of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-overflow-wrap
+CSS PROPERTY : overflow-wrap
+DEFAULT      : break-word (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Overflow Wrap'
+HTML = '''
+影响元件的在溢出包装时的反应。
+'''
+Plain = '''
+影响元件的在溢出包装时的反应。
+'''
+Code = '''
+变化值     : --anchor-overflow-wrap
+CSS属性    : overflow-wrap
+默认数码   : break-word (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Overflow Wrap (Print)'
+HTML = '''
+Affects the overflow wrapping behavior of the rendered component while in print mode.
+'''
+Plain = '''
+Affects the overflow wrapping behavior of the rendered component while in print mode.
+'''
+Code = '''
+VARIABLE     : --anchor-overflow-wrap-print
+CSS PROPERTY : overflow-wrap
+DEFAULT      : break-word (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Overflow Wrap（印刷）'
+HTML = '''
+影响元件在印刷溢出包装时的反应。
+'''
+Plain = '''
+影响元件在印刷溢出包装时的反应。
+'''
+Code = '''
+变化值     : --anchor-overflow-wrap-print
+CSS属性    : overflow-wrap
+默认数码   : break-word (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Word Break'
+HTML = '''
+Affects the word breaking behavior of the rendered component.
+'''
+Plain = '''
+Affects the word breaking behavior of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-word-break
+CSS PROPERTY : word-break
+DEFAULT      : break-word (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Word Break'
+HTML = '''
+影响元件句子断裂的反应和条件。
+'''
+Plain = '''
+影响元件句子断裂的反应和条件。
+'''
+Code = '''
+变化值     : --anchor-word-break
+CSS属性    : word-break
+默认数码   : break-word (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Word Break (Print)'
+HTML = '''
+Affects the word breaking behavior of the rendered component.
+'''
+Plain = '''
+Affects the word breaking behavior of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-word-break
+CSS PROPERTY : word-break
+DEFAULT      : break-word (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Word Break（印刷）'
+HTML = '''
+影响元件在印刷时句子断裂的反应和条件。
+'''
+Plain = '''
+影响元件在印刷时句子断裂的反应和条件。
+'''
+Code = '''
+变化值     : --anchor-word-break
+CSS属性    : word-break
+默认数码   : break-word (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Letter Spacing'
+HTML = '''
+Affects the letter spacing of the rendered component.
+'''
+Plain = '''
+Affects the letter spacing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-letter-spacing
+CSS PROPERTY : letter-spacing
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Letter Spacing'
+HTML = '''
+影响元件的字形的字母间距。
+'''
+Plain = '''
+影响元件的字形的字母间距。
+'''
+Code = '''
+变化值     : --anchor-letter-spacing
+CSS属性    : letter-spacing
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Line Height'
+HTML = '''
+Affects the line height of the rendered component.
+'''
+Plain = '''
+Affects the line height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-line-height
+CSS PROPERTY : line-height
+DEFAULT      : var(--body-line-height) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Line Height'
+HTML = '''
+影响元件的字形的句子高度。
+'''
+Plain = '''
+影响元件的字形的句子高度。
+'''
+Code = '''
+变化值     : --anchor-line-height
+CSS属性    : line-height
+默认数码   : var(--body-line-height) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Align'
+HTML = '''
+Affects the text alignment of the rendered component.
+'''
+Plain = '''
+Affects the text alignment of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-text-align
+CSS PROPERTY : text-align
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Align'
+HTML = '''
+影响元件的字形的对齐方式。
+'''
+Plain = '''
+影响元件的字形的对齐方式。
+'''
+Code = '''
+变化值     : --anchor-text-align
+CSS属性    : text-align
+默认数码   : initial (>= v1.2.0)
+'''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color'
+HTML = '''
+Affects the color of the rendered component.
+'''
+Plain = '''
+Affects the color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-color
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color'
+HTML = '''
+影响元件的颜色。
+'''
+Plain = '''
+影响元件的颜色。
+'''
+Code = '''
+变化值     : --anchor-color
+CSS属性    : color
+默认数码   : var(--color-primary-300) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Inverted)'
+HTML = '''
+Affects the color of the rendered component during inverted mode.
+'''
+Plain = '''
+Affects the color of the rendered component during inverted mode.
+'''
+Code = '''
+VARIABLE     : --anchor-color-inverted
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-200) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color(反转环境)'
+HTML = '''
+影响元件在反转环境里的颜色。
+'''
+Plain = '''
+影响元件在反转环境里的颜色。
+'''
+Code = '''
+变化值     : --anchor-color-inverted
+CSS属性    : color
+默认数码   : var(--color-primary-200) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Focused)'
+HTML = '''
+Affects the color of the rendered component when focused.
+'''
+Plain = '''
+Affects the color of the rendered component when focused.
+'''
+Code = '''
+VARIABLE     : --anchor-color-focus
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（被关注）'
+HTML = '''
+影响元件在被关注时的颜色。
+'''
+Plain = '''
+影响元件在被关注时的颜色。
+'''
+Code = '''
+变化值     : --anchor-color-focus
+CSS属性    : color
+默认数码   : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Inverted + Focused)'
+HTML = '''
+Affects the color of the rendered component when focused during inverted mode.
+'''
+Plain = '''
+Affects the color of the rendered component when focused during inverted mode.
+'''
+Code = '''
+VARIABLE     : --anchor-color-focus-inverted
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（反转环境+被关注）'
+HTML = '''
+影响元件在反转环境里被关注时的颜色。
+'''
+Plain = '''
+影响元件在反转环境里被关注时的颜色。
+'''
+Code = '''
+变化值     : --anchor-color-focus-inverted
+CSS属性    : color
+默认数码   : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Print Mode)'
+HTML = '''
+Affects the color of the rendered component during print mode.
+'''
+Plain = '''
+Affects the color of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --anchor-color-print
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（印刷）'
+HTML = '''
+影响元件在印刷中的颜色。
+'''
+Plain = '''
+影响元件在印刷中的颜色。
+'''
+Code = '''
+变化值     : --anchor-color-print
+CSS属性    : color
+默认数码   : var(--body-color-print) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Decoration Color'
+HTML = '''
+Affects the text decoration color of the rendered component.
+'''
+Plain = '''
+Affects the text decoration color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-text-decoration-color
+CSS PROPERTY : text-decoration-color
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Decoration Color'
+HTML = '''
+影响元件字体装饰的颜色。
+'''
+Plain = '''
+影响元件字体装饰的颜色。
+'''
+Code = '''
+变化值     : --anchor-text-decoration-color
+CSS属性    : text-decoration-color
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Decoration Color (Inverted)'
+HTML = '''
+Affects the text decoration color of the rendered component during inverted mode.
+'''
+Plain = '''
+Affects the text decoration color of the rendered component during inverted mode.
+'''
+Code = '''
+VARIABLE     : --anchor-text-decoration-color-inverted
+CSS PROPERTY : text-decoration-color
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Decoration Color（反转环境）'
+HTML = '''
+影响元件在反转环境里字体装饰的颜色。
+'''
+Plain = '''
+影响元件在反转环境里字体装饰的颜色。
+'''
+Code = '''
+变化值     : --anchor-text-decoration-color-inverted
+CSS属性    : text-decoration-color
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background'
+HTML = '''
+Affects the background of the rendered component.
+'''
+Plain = '''
+Affects the background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-background
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background'
+HTML = '''
+影响元件的背景。
+'''
+Plain = '''
+影响元件的背景。
+'''
+Code = '''
+变化值     : --anchor-background
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Inverted)'
+HTML = '''
+Affects the background of the rendered component during inverted mode.
+'''
+Plain = '''
+Affects the background of the rendered component during inverted mode.
+'''
+Code = '''
+VARIABLE     : --anchor-background-inverted
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（反转环境）'
+HTML = '''
+影响元件在反转环境里的颜色。
+'''
+Plain = '''
+影响元件在反转环境里的颜色。
+'''
+Code = '''
+变化值     : --anchor-background-inverted
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Focused)'
+HTML = '''
+Affects the background of the rendered component when focused.
+'''
+Plain = '''
+Affects the background of the rendered component when focused.
+'''
+Code = '''
+VARIABLE     : --anchor-background-focus
+CSS PROPERTY : background
+DEFAULT      : var(--color-contrast-50) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（被关注）'
+HTML = '''
+影响元件在被关注时的背景。
+'''
+Plain = '''
+影响元件在被关注时的背景。
+'''
+Code = '''
+变化值     : --anchor-background-focus
+CSS属性    : background
+默认数码   : var(--color-contrast-50) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Inverted - Focused)'
+HTML = '''
+Affects the background of the rendered component when focused during inverted mode.
+'''
+Plain = '''
+Affects the background of the rendered component when focused during inverted mode.
+'''
+Code = '''
+VARIABLE     : --anchor-background-focus-inverted
+CSS PROPERTY : background
+DEFAULT      : var(--color-contrast-50) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（反转环境+被关注）'
+HTML = '''
+影响元件在反转环境里被关注时的背景。
+'''
+Plain = '''
+影响元件在反转环境里被关注时的背景。
+'''
+Code = '''
+变化值     : --anchor-background-focus-inverted
+CSS属性    : background
+默认数码   : var(--color-contrast-50) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Print Mode)'
+HTML = '''
+Affects the background of the rendered component during print mode.
+'''
+Plain = '''
+Affects the background of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --anchor-background-print
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（印刷）'
+HTML = '''
+影响元件在印刷中的背景。
+'''
+Plain = '''
+影响元件在印刷中的背景。
+'''
+Code = '''
+变化值     : --anchor-background-print
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Box Shadow'
+HTML = '''
+Affects the box shadowing of the rendered component.
+'''
+Plain = '''
+Affects the box shadowing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-box-shadow
+CSS PROPERTY : box-shadow
+DEFAULT      : 0 .5rem 1rem transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '影子'
+HTML = '''
+影响元件的影子。
+'''
+Plain = '''
+影响元件的影子。
+'''
+Code = '''
+变化值     : --anchor-box-shadow
+CSS属性    : box-shadow
+默认数码   : 0 .5rem 1rem transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Box Shadow (Focused)'
+HTML = '''
+Affects the box shadowing of the rendered component when focused.
+'''
+Plain = '''
+Affects the box shadowing of the rendered component when focused.
+'''
+Code = '''
+VARIABLE     : --anchor-box-shadow-focus
+CSS PROPERTY : box-shadow
+DEFAULT      : 0 .5rem 1rem var(--color-typography-800) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Box Shadow（被关注）'
+HTML = '''
+影响元件在被关注时的影子。
+'''
+Plain = '''
+影响元件在被关注时的影子。
+'''
+Code = '''
+变化值     : --anchor-box-shadow-focus
+CSS属性    : box-shadow
+默认数码   : 0 .5rem 1rem var(--color-typography-800) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Box Shadow (Inverted + Focused)'
+HTML = '''
+Affects the box shadowing of the rendered component when focused during inverted mode.
+'''
+Plain = '''
+Affects the box shadowing of the rendered component when focused during inverted mode.
+'''
+Code = '''
+VARIABLE     : --anchor-box-shadow-focus-inverted
+CSS PROPERTY : box-shadow
+DEFAULT      : 0 .5rem 1rem var(--color-typography-200) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Box Shadow (反转环境+被关注)'
+HTML = '''
+影响元件在反转环境里被关注时的影子。
+'''
+Plain = '''
+影响元件在反转环境里被关注时的影子。
+'''
+Code = '''
+变化值     : --anchor-box-shadow-focus-inverted
+CSS属性    : box-shadow
+默认数码   : 0 .5rem 1rem var(--color-typography-200) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Transition'
+HTML = '''
+Affects the animation timing of the rendered component.
+'''
+Plain = '''
+Affects the animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --anchor-transition
+CSS PROPERTY : transition
+DEFAULT      : var(--timing-rapid) (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Transition'
+HTML = '''
+影响元件在印刷环境里的动画定时。
+'''
+Plain = '''
+影响元件在印刷环境里的动画定时。
+'''
+Code = '''
+变化值     : --anchor-transition
+CSS属性    : transition
+默认数码   : var(--timing-rapid) (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Transform (Focused)'
+HTML = '''
+Affects the transformation of the rendered component when focused.
+'''
+Plain = '''
+Affects the transformation of the rendered component when focused.
+'''
+Code = '''
+VARIABLE     : --anchor-transform-focus
+CSS PROPERTY : transform
+DEFAULT      : scale(1.1) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Transform（被关注）'
+HTML = '''
+影响元件在被关注时的变化条件。
+'''
+Plain = '''
+影响元件在被关注时的变化条件。
+'''
+Code = '''
+变化值     : --anchor-transform-focus
+CSS属性    : transform
+默认数码   : scale(1.1) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Prestige Font Weight'
+HTML = '''
+Affects the font weight of the rendered component in prestige style.
+'''
+Plain = '''
+Affects the font weight of the rendered component in prestige style.
+'''
+Code = '''
+VARIABLE     : --anchor-prestige-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : 800 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '盛誉Font Weight'
+HTML = '''
+影响元件在盛誉风格里的字形的厚度。
+'''
+Plain = '''
+影响元件在盛誉风格里的字形的厚度。
+'''
+Code = '''
+变化值     : --anchor-prestige-font-weight
+CSS属性    : font-weight
+默认数码   : 800 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Prestige Text Transformation'
+HTML = '''
+Affects the text transformation of the rendered component in prestige style.
+'''
+Plain = '''
+Affects the text transformation of the rendered component in prestige style.
+'''
+Code = '''
+VARIABLE     : --anchor-prestige-text-transform
+CSS PROPERTY : text-transform
+DEFAULT      : uppercase (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '盛誉Text Transformation'
+HTML = '''
+影响元件在盛誉风格里的字形的变形条件。
+'''
+Plain = '''
+影响元件在盛誉风格里的字形的变形条件。
+'''
+Code = '''
+变化值     : --anchor-prestige-text-transform
+CSS属性    : text-transform
+默认数码   : uppercase (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Prestige Color (Focused)'
+HTML = '''
+Affects the color of the rendered component when focused.
+'''
+Plain = '''
+Affects the color of the rendered component when focused.
+'''
+Code = '''
+VARIABLE     : --anchor-prestige-color-focus
+CSS PROPERTY : color
+DEFAULT      : var(--color-contrast-300) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '盛誉Color（被关注）'
+HTML = '''
+影响元件在盛誉风格里被关注时的颜色。
+'''
+Plain = '''
+影响元件在盛誉风格里被关注时的颜色。
+'''
+Code = '''
+变化值     : --anchor-prestige-color-focus
+CSS属性    : color
+默认数码   : var(--color-contrast-300) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Prestige Background'
+HTML = '''
+Affects the background of the rendered component in prestige style.
+'''
+Plain = '''
+Affects the background of the rendered component in prestige style.
+'''
+Code = '''
+VARIABLE     : --anchor-prestige-background
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '盛誉Background'
+HTML = '''
+影响元件在盛誉风格里被关注时的背景。
+'''
+Plain = '''
+影响元件在盛誉风格里被关注时的背景。
+'''
+Code = '''
+变化值     : --anchor-prestige-background
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Prestige Background (Focused)'
+HTML = '''
+Affects the background of the rendered component when focused in prestige style.
+'''
+Plain = '''
+Affects the background of the rendered component when focused in prestige style.
+'''
+Code = '''
+VARIABLE     : --anchor-prestige-background-focus
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '盛誉Background（被关注）'
+HTML = '''
+影响元件在盛誉风格里被关注时的背景。
+'''
+Plain = '''
+影响元件在盛誉风格里被关注时的背景。
+'''
+Code = '''
+变化值     : --anchor-prestige-background-focus
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

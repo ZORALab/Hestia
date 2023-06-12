@@ -397,10 +397,10 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Letter Spacing'
 HTML = '''
-影响元件的字形的厚度。
+影响元件的字形的字母间距。
 '''
 Plain = '''
-影响元件的字形的厚度。
+影响元件的字形的字母间距。
 '''
 Code = '''
 变化值     : --code-letter-spacing
@@ -454,7 +454,7 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Color in Print Mode'
+Title = 'Color (Print Mode)'
 HTML = '''
 Affects the color of the rendered component during print mode.
 '''

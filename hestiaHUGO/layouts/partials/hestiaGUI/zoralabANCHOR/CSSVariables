@@ -1,6 +1,9 @@
 [CSS.Variables]
 "--anchor-display" = "inline-block"
 
+"--anchor-margin" = "initial"
+"--anchor-padding" = "0 .15rem"
+
 "--anchor-min-width" = "initial"
 "--anchor-width" = "initial"
 "--anchor-max-width" = "initial"
@@ -8,15 +11,12 @@
 "--anchor-height" = "initial"
 "--anchor-max-height" = "initial"
 
-"--anchor-margin" = "initial"
-"--anchor-padding" = "0 .3rem"
-"--anchor-padding-focus" = "0 .3rem"
-
 "--anchor-border" = "initial"
 "--anchor-border-top" = "2px solid transparent"
-"--anchor-border-left" = "initial"
+"--anchor-border-left" = "2px solid transparent"
 "--anchor-border-bottom" = "2px solid var(--anchor-color)"
-"--anchor-border-right" = "initial"
+"--anchor-border-right" = "2px solid transparent"
+"--anchor-border-radius" = ".3rem"
 
 "--anchor-font-size" = "var(--body-font-size)"
 "--anchor-font-family" = "var(--body-font-family)"
@@ -34,14 +34,14 @@
 "--anchor-color" = "var(--color-primary-300)"
 "--anchor-color-inverted" = "var(--color-primary-200)"
 "--anchor-color-focus" = "var(--color-primary-400)"
-"--anchor-color-focus-inverted" = "var(--color-primary-50)"
+"--anchor-color-focus-inverted" = "var(--color-primary-400)"
 "--anchor-color-print" = "var(--body-color-print)"
 "--anchor-text-decoration-color" = "initial"
 "--anchor-text-decoration-color-inverted" = "initial"
 "--anchor-background" = "transparent"
 "--anchor-background-inverted" = "transparent"
-"--anchor-background-focus" = "var(--body-background)"
-"--anchor-background-focus-inverted" = "var(--body-background-inverted)"
+"--anchor-background-focus" = "var(--color-contrast-50)"
+"--anchor-background-focus-inverted" = "var(--color-contrast-50)"
 "--anchor-background-print" = "transparent"
 "--anchor-box-shadow" = "0 .5rem 1rem transparent"
 "--anchor-box-shadow-focus" = "0 .5rem 1rem var(--color-typography-800)"

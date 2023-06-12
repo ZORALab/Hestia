@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabanchor'
+SKU = 'zoralabANCHOR'
+Description = '''
+For styling an anchor link syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabanchor'
+SKU = 'zoralabANCHOR'
+Description = '''
+来渲染链接像语法。
+'''

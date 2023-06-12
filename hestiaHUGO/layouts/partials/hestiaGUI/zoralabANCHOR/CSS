@@ -33,6 +33,7 @@ a {
 	border-left: var(--anchor-border-left);
 	border-bottom: var(--anchor-border-bottom);
 	border-right: var(--anchor-border-right);
+	border-radius: var(--anchor-border-radius);
 
 	font-size: var(--anchor-font-size);
 	font-family: var(--anchor-font-family);
@@ -53,33 +54,25 @@ a {
 	transition: var(--anchor-transition);
 }
 
-footer a,
-.footer a {
-	color: var(--anchor-color-inverted);
-	border-color: var(--anchor-color-inverted);
+:is(.inverted, footer, .footer) a {
+	--anchor-color: var(--anchor-color-inverted);
+	--anchor-background: var(--anchor-background-inverted);
+
 	text-decoration-color: var(--anchor-text-decoration-color-inverted);
-	background: var(--anchor-background-inverted);
 }
 
-a:not(.button):hover, a:not(.button):focus {
-	padding: var(--anchor-padding-focus);
-
+a:is(:hover, :focus) {
 	color: var(--anchor-color-focus);
-	border-top-color: var(--anchor-color-focus);
-	border-bottom-color: var(--anchor-color-focus);
+	border-color: var(--anchor-color-focus);
 	background: var(--anchor-background-focus);
 	box-shadow: var(--anchor-box-shadow-focus);
 
 	transform: var(--anchor-transform-focus);
 }
 
-footer a:not(.button):hover,
-.footer a:not(.button):hover,
-footer a:not(.button):focus,
-.footer a:not(.button):focus {
+:is(.inverted, footer, .footer) a:is(:hover, :focus) {
 	color: var(--anchor-color-focus-inverted);
-	border-top-color: var(--anchor-color-focus-inverted);
-	border-bottom-color: var(--anchor-color-focus-inverted);
+	border-color: var(--anchor-color-focus-inverted);
 	box-shadow: var(--anchor-box-shadow-focus-inverted);
 	background: var(--anchor-background-focus-inverted);
 }
@@ -88,9 +81,7 @@ a:active {
 	box-shadow: none;
 }
 
-a.wrap,
-a.wrap:hover,
-a.warp:focus {
+:is(a.warp, a.wrap:hover, a.wrap:focus) {
 	color: transparent;
 	background: transparent;
 	border-top: none;
@@ -105,8 +96,7 @@ a.prestige {
 	background: var(--anchor-prestige-background);
 }
 
-a.prestige:hover,
-a.prestige:focus {
+a.prestige:is(:hover, :focus) {
 	color: var(--anchor-prestige-color-focus);
 	border-color: var(--anchor-prestige-color-focus);
 	background: var(--anchor-prestige-background-focus);
