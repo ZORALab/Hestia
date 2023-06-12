@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdlist'
+SKU = 'zoralabDLIST'
+Description = '''
+For styling a definitions list syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdlist'
+SKU = 'zoralabDLIST'
+Description = '''
+来渲染定义列表。
+'''

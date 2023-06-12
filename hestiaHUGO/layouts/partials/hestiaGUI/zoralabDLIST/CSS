@@ -1,0 +1,135 @@
+{{- /*
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+dl {
+	display: var(--dlist-display);
+
+	margin: var(--dlist-margin);
+	padding: var(--dlist-padding);
+
+	border-top: var(--dlist-border);
+	border-bottom: var(--dlist-border);
+
+	min-width: var(--dlist-min-width);
+	width: var(--dlist-width);
+	max-width: var(--dlist-max-width);
+	min-height: var(--dlist-min-height);
+	height: var(--dlist-height);
+	max-height: var(--dlist-max-height);
+
+	color: var(--dlist-color);
+	background: var(--dlist-background);
+
+	counter-reset: var(--dlist-counter);
+}
+
+dl dt {
+	margin: var(--dlist-dt-margin);
+	padding: var(--dlist-dt-padding);
+
+	border-bottom: var(--dlist-dt-border);
+
+	font-size: var(--dlist-dt-font-size);
+	font-weight: var(--dlist-dt-font-weight);
+	font-style: var(--dlist-dt-font-style);
+	text-align: var(--dlist-dt-text-align);
+
+	color: var(--dlist-dt-color);
+	background: var(--dlist-dt-background);
+
+	counter-reset: var(--dlist-counter);
+}
+
+dl dd {
+	margin-inline-start: 0;
+	margin: var(--dlist-dd-margin);
+	padding: var(--dlist-dd-padding);
+
+	position: relative;
+
+	border-bottom: var(--dlist-dd-border);
+
+	font-size: var(--dlist-dd-font-size);
+	font-weight: var(--dlist-dd-font-weight);
+	font-style: var(--dlist-dd-font-style);
+	text-align: var(--dlist-dd-text-align);
+
+	color: var(--dlist-dd-color);
+	background: var(--dlist-dd-background);
+
+	counter-increment: var(--dlist-counter);
+}
+
+dl dd:before {
+	display: block;
+	content: "("counter(var(--dlist-counter)) ")";
+}
+
+dl dt:first-of-type,
+dl dd:first-of-type {
+	margin-top: 0;
+}
+
+.inverted dl,
+footer dl,
+.footer dl {
+	color: var(--dlist-color-inverted);
+	border-color: var(--dlist-color-inverted);
+	background: var(--dlist-background-inverted);
+}
+
+.inverted dt,
+footer dl dt,
+.footer dl dt {
+	color: var(--dlist-dt-color-inverted);
+	border-color: var(--dlist-dt-border-color-inverted);
+	background: var(--dlist-dt-background-inverted);
+}
+
+.inverted dd,
+footer dl dd,
+.footer dl dd {
+	color: var(--dlist-dd-color-inverted);
+	border-color: var(--dlist-dd-border-color-inverted);
+	background: var(--dlist-dd-background-inverted);
+}
+
+@media print {
+	dl {
+		color: var(--dlist-color-print) !important;
+		border-color: var(--dlist-color-print) !important;
+		background: var(--dlist-background-print) !important;
+
+		break-inside: avoid;
+	}
+
+	dl dt {
+		color: var(--dlist-dt-color-print) !important;
+		border-color: var(--dlist-dt-color-print) !important;
+		background: var(--dlist-dt-background-print) !important;
+
+		break-inside: avoid;
+	}
+
+	dl dd {
+		color: var(--dlist-dd-color-print) !important;
+		border-color: var(--dlist-dd-color-print) !important;
+		background: var(--dlist-dd-background-print) !important;
+
+		break-inside: avoid;
+	}
+}

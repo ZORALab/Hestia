@@ -1,0 +1,154 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for definitions list values. In web UI, it is shown as follows:
+<br/><br/>
+<dl>
+	<dt>Sun</dt>
+	<dd>The core of our solar system.</dd>
+	<dd>
+		Primary source of energy. Its body is primarily consisting of
+		hot plasma consistently dumping light and heat energies to its
+		surrounding.
+	</dd>
+	<dd>Provides heats and gives life to plants on Earth.</dd>
+
+	<dt>Mercury</dt>
+	<dd>FIRST planet away from Sun.</dd>
+
+	<dt>Venus</dt>
+	<dd>SECOND planet away from Sun.</dd>
+	<dt>Earth</dt><dd>THIRD planet away from the Sun.</dd>
+	<dd>Contains organic life on and inside the planet.</dd>
+</dl>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for definitions list values. In web UI, it is shown as follows:
+
+<dl>
+	<dt>Sun</dt>
+	<dd>The core of our solar system.</dd>
+	<dd>
+		Primary source of energy. Its body is primarily consisting of
+		hot plasma consistently dumping light and heat energies to its
+		surrounding.
+	</dd>
+	<dd>Provides heats and gives life to plants on Earth.</dd>
+
+	<dt>Mercury</dt>
+	<dd>FIRST planet away from Sun.</dd>
+
+	<dt>Venus</dt>
+	<dd>SECOND planet away from Sun.</dd>
+	<dt>Earth</dt><dd>THIRD planet away from the Sun.</dd>
+	<dd>Contains organic life on and inside the planet.</dd>
+</dl>
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染定义列表界面元件。在网络界面世界里，这元件的成果如
+下：
+<br/><br/>
+<dl>
+	<dt>太阳</dt>
+	<dd>太阳系中心点</dd>
+	<dd>
+		主要能源出产点。它是主由热等离子体组成让它时时刻刻都在四处发出
+		它的光能量。
+	</dd>
+	<dd>为在地球的生命和植物提供热能量。</dd>
+
+	<dt>水星</dt>
+	<dd>第一个离开太阳的星球。</dd>
+
+	<dt>金星</dt>
+	<dd>第二个离开太阳的星球。</dd>
+
+	<dt>地球</dt>
+	<dd>第三个离开太阳的星球。</dd>
+	<dd>拥有有机生命和植物。</dd>
+</dl>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染定义列表界面元件。在网络界面世界里，这元件的成果如
+下：
+
+<dl>
+	<dt>太阳</dt>
+	<dd>太阳系中心点</dd>
+	<dd>
+		主要能源出产点。它是主由热等离子体组成让它时时刻刻都在四处发出
+		它的光能量。
+	</dd>
+	<dd>为在地球的生命和植物提供热能量。</dd>
+
+	<dt>水星</dt>
+	<dd>第一个离开太阳的星球。</dd>
+
+	<dt>金星</dt>
+	<dd>第二个离开太阳的星球。</dd>
+
+	<dt>地球</dt>
+	<dd>第三个离开太阳的星球。</dd>
+	<dd>拥有有机生命和植物。</dd>
+</dl>
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>deflist_hestiaUI</code> before ZORALab's Hestia
+<code>v1.2.0</code>. The transformation was due to someone attempting to steal
+the copyrights and makes way for programming package's documentation
+restructuring.
+'''
+Plain = '''
+This package was known as 'deflist_hestiaUI' before ZORALab's Hestia 'v1.2.0'.
+The transformation was due to someone attempting to steal the design copyrights
+and makes way for programming package's documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>deflist_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程
+文件编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为deflist_hestiaUI。改名的目的是
+有人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

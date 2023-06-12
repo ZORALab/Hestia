@@ -181,3 +181,8 @@ Variables = []
 Name = "zoralabDIALOG"
 Include = true
 Variables = []
+
+[[List]]
+Name = "zoralabDLIST"
+Include = true
+Variables = []

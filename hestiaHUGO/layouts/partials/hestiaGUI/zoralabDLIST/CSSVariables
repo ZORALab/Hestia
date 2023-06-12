@@ -1,0 +1,75 @@
+[CSS.Variables]
+"--dlist-display" = "block"
+
+"--dlist-margin" = "3rem auto"
+"--dlist-padding" = "0 5rem"
+
+"--dlist-border" = "2px solid var(--dlist-color)"
+
+"--dlist-min-width" = "initial"
+"--dlist-width" = "100%"
+"--dlist-max-width" = "100%"
+"--dlist-min-height" = "initial"
+"--dlist-height" = "initial"
+"--dlist-max-height" = "initial"
+
+"--dlist-counter" = "dd-items"
+
+"--dlist-color" = "var(--color-primary-400)"
+"--dlist-color-inverted" = "var(--color-primary-100)"
+"--dlist-color-print" = "var(--body-color-print)"
+"--dlist-background" = "var(--body-background)"
+"--dlist-background-inverted" = "var(--body-background-inverted)"
+"--dlist-background-print" = "var(--body-background-print)"
+
+
+
+
+"--dlist-dt-margin" = "3rem auto 0"
+"--dlist-dt-padding" = "0"
+
+
+"--dlist-dt-border" = ".5px solid var(--dlist-dt-border-color)"
+
+
+"--dlist-dt-font-size" = "2.5rem"
+"--dlist-dt-font-weight" = "600"
+"--dlist-dt-font-style" = "italic"
+"--dlist-dt-text-align" = "justify"
+
+
+"--dlist-dt-color" = "var(--dlist-color)"
+"--dlist-dt-color-inverted" = "var(--dlist-color-inverted)"
+"--dlist-dt-color-print" = "var(--body-color-print)"
+"--dlist-dt-border-color" = "var(--dlist-color)"
+"--dlist-dt-border-color-inverted" = "var(--dlist-color-inverted)"
+"--dlist-dt-border-color-print" = "var(--body-color-print)"
+"--dlist-dt-background" = "transparent"
+"--dlist-dt-background-inverted" = "transparent"
+"--dlist-dt-background-print" = "transparent"
+
+
+
+
+"--dlist-dd-margin" = ".5rem auto"
+"--dlist-dd-padding" = "0"
+
+
+"--dlist-dd-border" = ".5px solid var(--dlist-dd-border-color)"
+
+
+"--dlist-dd-font-size" = "var(--body-font-size)"
+"--dlist-dd-font-weight" = "var(--body-font-weight)"
+"--dlist-dd-font-style" = "normal"
+"--dlist-dd-text-align" = "justify"
+
+
+"--dlist-dd-color" = "var(--body-color)"
+"--dlist-dd-color-inverted" = "var(--body-color-inverted)"
+"--dlist-dd-color-print" = "var(--body-color-print)"
+"--dlist-dd-border-color" = "var(--dlist-color)"
+"--dlist-dd-border-color-inverted" = "var(--dlist-color-inverted)"
+"--dlist-dd-border-color-print" = "var(--body-color-print)"
+"--dlist-dd-background" = "transparent"
+"--dlist-dd-background-inverted" = "transparent"
+"--dlist-dd-background-print" = "transparent"
