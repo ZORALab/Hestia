@@ -502,7 +502,7 @@ Plain = '''
 '''
 Code = '''
 变化值     : --dlist-min-height
-CSS属性    : min-hieght
+CSS属性    : min-height
 默认数码   : initial (>= v1.2.0)
 '''
 
@@ -855,6 +855,84 @@ Code = '''
 变化值     : --dlist-background-print
 CSS属性    : background
 默认数码   : var(--body-background-print) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Term Margin'
+HTML = '''
+Affects the term's margin of the rendered component.
+'''
+Plain = '''
+Affects the terms' margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --dlist-dt-margin
+CSS PROPERTY : margin
+DEFAULT      : 3rem auto 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '术语Margin'
+HTML = '''
+影响元件术语的外向边距空间。
+'''
+Plain = '''
+影响元件术语的外向边距空间。
+'''
+Code = '''
+变化值     : --dlist-dt-margin
+CSS属性    : margin
+默认数码   : 3rem auto 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Term Padding'
+HTML = '''
+Affects the term's padding of the rendered component.
+'''
+Plain = '''
+Affects the term's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --dlist-dt-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '术语Padding'
+HTML = '''
+影响元件术语的内向边距空间。
+'''
+Plain = '''
+影响元件术语的内向边距空间。
+'''
+Code = '''
+变化值     : --dlist-dt-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1401,6 +1479,84 @@ Code = '''
 变化值     : --dlist-dt-background-print
 CSS属性    : background
 默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Definition Margin'
+HTML = '''
+Affects the definition's margin of the rendered component.
+'''
+Plain = '''
+Affects the definition' margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --dlist-dd-margin
+CSS PROPERTY : margin
+DEFAULT      : .5rem auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '定义Margin'
+HTML = '''
+影响元件定义的外向边距空间。
+'''
+Plain = '''
+影响元件定义的外向边距空间。
+'''
+Code = '''
+变化值     : --dlist-dd-margin
+CSS属性    : margin
+默认数码   : .5rem auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Definition Padding'
+HTML = '''
+Affects the definition's padding of the rendered component.
+'''
+Plain = '''
+Affects the definition's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --dlist-dd-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '定义Padding'
+HTML = '''
+影响元件定义的内向边距空间。
+'''
+Plain = '''
+影响元件定义的内向边距空间。
+'''
+Code = '''
+变化值     : --dlist-dd-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
