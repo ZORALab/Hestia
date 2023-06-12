@@ -6,7 +6,7 @@
 
 "--anchor-min-width" = "initial"
 "--anchor-width" = "initial"
-"--anchor-max-width" = "initial"
+"--anchor-max-width" = "100%"
 "--anchor-min-height" = "initial"
 "--anchor-height" = "initial"
 "--anchor-max-height" = "initial"
