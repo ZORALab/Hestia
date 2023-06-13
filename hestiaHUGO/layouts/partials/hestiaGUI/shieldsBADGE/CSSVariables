@@ -10,14 +10,14 @@
 "--badge-width-shine" = ".6rem"
 
 
-"--badge-font-size" = "var(--body-font-size)"
+"--badge-font-size" = "18px"
 
 
-"--badge-color" = "var(--color-typography-50)"
-"--badge-color-shine" = "var(--color-contrast-400)"
-"--badge-color-print" = "var(--body-color-print)"
-"--badge-background" = "var(--color-primary-400)"
-"--badge-background-print" = "var(--body-background-print)"
+"--badge-color" = "#fafafa"
+"--badge-color-shine" = "#ffff27"
+"--badge-color-print" = "#101010"
+"--badge-background" = "#0000d1"
+"--badge-background-print" = "#fff"
 "--badge-box-shadow" = "0 .2rem 1rem transparent"
 "--badge-box-shadow-shine" = "0 .2rem 1rem var(--badge-color-shine)"
 
@@ -35,8 +35,8 @@
 "--badge-title-text-align" = "left"
 
 
-"--badge-title-color" = "var(--color-typography-50)"
-"--badge-title-background" = "var(--color-typography-900)"
+"--badge-title-color" = "#fafafa"
+"--badge-title-background" = "#282828"
 
 
 
