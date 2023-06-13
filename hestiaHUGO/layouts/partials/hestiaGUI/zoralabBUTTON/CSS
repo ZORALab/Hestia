@@ -28,11 +28,6 @@ button,
 
 	border: var(--button-border);
 	border-radius: var(--button-border-radius);
-	box-shadow: var(--button-box-shadow);
-
-	color: var(--button-color);
-	background: var(--button-background);
-	border-color: var(--button-color);
 
 	font-size: var(--button-font-size);
 	font-weight: var(--button-font-weight);
@@ -44,56 +39,61 @@ button,
 	word-break: var(--button-word-break);
 	line-height: var(--button-line-height);
 
+	color: var(--button-color);
+	background: var(--button-background);
+	border-color: var(--button-color);
+	box-shadow: var(--button-box-shadow);
+
 	transition: var(--button-transition);
 }
 
-input[type='button'].emphasize,
-input[type='reset'].emphasize,
-input[type='submit'].emphasize,
-button.emphasize,
-.button.emphasize {
+:is(input[type='button'],
+	input[type='reset'],
+	input[type='submit'],
+	button,
+	.button
+).emphasize {
 	color: var(--button-color-inverted);
 	background: var(--button-color);
 }
 
-input[type='button']:disabled,
-input[type='reset']:disabled,
-input[type='submit']:disabled,
-button:disabled,
-.button:disabled {
+:is(input[type='button'],
+	input[type='reset'],
+	input[type='submit'],
+	button,
+	.button
+):disabled {
 	box-shadow: none;
 	opacity: var(--button-opacity-disabled);
 }
 
-input[type='button']:not([disabled]):hover, input[type='button']:not([disabled]):focus,
-input[type='reset']:not([disabled]):hover, input[type='reset']:not([disabled]):focus,
-input[type='submit']:not([disabled]):hover, input[type='submit']:not([disabled]):focus,
-button:not([disabled]):hover, button:not([disabled]):focus,
-.button:not([disabled]):hover, .button:not([disabled]):focus {
+:is(input[type='button'],
+	input[type='reset'],
+	input[type='submit'],
+	button,
+	.button
+):not([disabled]):is(:hover, :focus) {
 	border: var(--button-border);
 	border-color: var(--button-color);
 	transform: var(--button-transform-focus);
 }
 
-input[type='button']:not(.emphasize):not([disabled]):hover,
-input[type='button']:not(.emphasize):not([disabled]):focus,
-input[type='reset']:not(.emphasize):not([disabled]):hover,
-input[type='reset']:not(.emphasize):not([disabled]):focus,
-input[type='submit']:not(.emphasize):not([disabled]):hover,
-input[type='submit']:not(.emphasize):not([disabled]):focus,
-button:not(.emphasize):not([disabled]):hover,
-button:not(.emphasize):not([disabled]):focus,
-.button:not(.emphasize):not([disabled]):hover,
-.button:not(.emphasize):not([disabled]):focus {
+:is(input[type='button'],
+	input[type='reset'],
+	input[type='submit'],
+	button,
+	.button
+):not(.emphasize):not([disabled]):is(:hover, :focus) {
 	color: var(--button-color-inverted);
 	background: var(--button-color);
 }
 
-input[type='button']:not([disabled]):active,
-input[type='reset']:not([disabled]):active,
-input[type='submit']:not([disabled]):active,
-button:not(disabled):active,
-.button:not(disabled):active {
+:is(input[type='button'],
+	input[type='reset'],
+	input[type='submit'],
+	button,
+	.button
+):not([disabled]):active {
 	box-shadow: none;
 }
 

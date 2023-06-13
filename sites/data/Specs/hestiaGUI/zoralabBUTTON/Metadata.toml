@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabbutton'
+SKU = 'zoralabBUTTON'
+Description = '''
+For styling a button syntax.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabbutton'
+SKU = 'zoralabBUTTON'
+Description = '''
+来渲染按钮。
+'''
