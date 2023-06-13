@@ -186,3 +186,8 @@ Variables = []
 Name = "zoralabDLIST"
 Include = true
 Variables = []
+
+[[List]]
+Name = "shieldsBADGE"
+Include = true
+Variables = []

@@ -1,0 +1,794 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has no dependencies.
+'''
+Plain = '''
+This component has no dependencies.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是没有依赖其他元件。
+'''
+Plain = '''
+这个元件是没有依赖其他元件。
+'''
+Code = '''
+'''
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<div class='badge'>
+	<p>...first child is the title...</p>
+	<p>...last child is the value...</p>
+</div>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<div class='badge'>
+	<p>...第一个是标题...</p>
+	<p>...最后一个是数据价值...</p>
+</div>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Customize Color HTML'
+HTML = '''
+The color customization HTML codes are shown below:
+'''
+Plain = '''
+The color customization HTML codes are shown below:
+'''
+Code = '''
+<div class='badge' style='--badge-background: #f00;'>
+	...
+</div>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '改变徽章颜色HTML'
+HTML = '''
+要改变徽章颜色HTML代码运用方法如下：
+'''
+Plain = '''
+要改变徽章颜色HTML代码运用方法如下：
+'''
+Code = '''
+<div class='badge' style='--badge-background: #f00;'>
+	...
+</div>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin'
+HTML = '''
+Affects the margin of the rendered component.
+'''
+Plain = '''
+Affects the margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-margin
+CSS PROPERTY : margin
+DEFAULT      : .2rem .5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin'
+HTML = '''
+影响元件的外向边距空间。
+'''
+Plain = '''
+影响元件的外向边距空间。
+'''
+Code = '''
+变化值     : --badge-margin
+CSS属性    : margin
+默认数码   : .2rem .5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border'
+HTML = '''
+Affects the border of the rendered component.
+'''
+Plain = '''
+Affects the border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-border
+CSS PROPERTY : border
+DEFAULT      : 2px solid transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border'
+HTML = '''
+影响元件的边界线。
+'''
+Plain = '''
+影响元件的边界线。
+'''
+Code = '''
+变化值     : --badge-border
+CSS属性    : border
+默认数码   : 2px solid transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Radius'
+HTML = '''
+Affects the border radius of the rendered component.
+'''
+Plain = '''
+Affects the border radius of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-border-radius
+CSS PROPERTY : border-radius
+DEFAULT      : .4rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Radius'
+HTML = '''
+影响元件边界线的角落圆形度。
+'''
+Plain = '''
+影响元件边界线的角落圆形度。
+'''
+Code = '''
+变化值     : --badge-border-radius
+CSS属性    : border-radius
+默认数码   : .4rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Ray Width'
+HTML = '''
+Affects the shining ray's of the rendered component.
+'''
+Plain = '''
+Affects the shining ray's of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-width-shine
+CSS PROPERTY : width
+DEFAULT      : .6rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '照光Width'
+HTML = '''
+影响元件照光线的厚度。
+'''
+Plain = '''
+影响元件照光线的厚度。
+'''
+Code = '''
+变化值     : --badge-width-shine
+CSS属性    : width
+默认数码   : .6rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Size'
+HTML = '''
+Affects the font size of the rendered component.
+'''
+Plain = '''
+Affects the font size of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-font-size
+CSS PROPERTY : font-size
+DEFAULT      : 18px (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Size'
+HTML = '''
+影响元件的字形的大小。
+'''
+Plain = '''
+影响元件的字形的大小。
+'''
+Code = '''
+变化值     : --badge-font-size
+CSS属性    : font-size
+默认数码   : 18px (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color'
+HTML = '''
+Affects the color of the rendered component.
+'''
+Plain = '''
+Affects the color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-color
+CSS PROPERTY : color
+DEFAULT      : #fafafa (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color'
+HTML = '''
+影响元件的颜色。
+'''
+Plain = '''
+影响元件的颜色。
+'''
+Code = '''
+变化值     : --badge-color
+CSS属性    : color
+默认数码   : #fafafa (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Shine Color'
+HTML = '''
+Affects the shining color of the rendered component.
+'''
+Plain = '''
+Affects the color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-color-shine
+CSS PROPERTY : color
+DEFAULT      : #ffff27 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '照光Color'
+HTML = '''
+影响元件照光的颜色。
+'''
+Plain = '''
+影响元件照光的颜色。
+'''
+Code = '''
+变化值     : --badge-color-shine
+CSS属性    : color
+默认数码   : #ffff27 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Print Mode)'
+HTML = '''
+Affects the color of the rendered component during print mode.
+'''
+Plain = '''
+Affects the color of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --badge-color-print
+CSS PROPERTY : color
+DEFAULT      : #101010 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（印刷）'
+HTML = '''
+影响元件在印刷中的颜色。
+'''
+Plain = '''
+影响元件在印刷中的颜色。
+'''
+Code = '''
+变化值     : --badge-color-print
+CSS属性    : color
+默认数码   : #101010 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background'
+HTML = '''
+Affects the background of the rendered component.
+'''
+Plain = '''
+Affects the background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-background
+CSS PROPERTY : background
+DEFAULT      : #0000d1 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background'
+HTML = '''
+影响元件的背景。
+'''
+Plain = '''
+影响元件的背景。
+'''
+Code = '''
+变化值     : --badge-background
+CSS属性    : background
+默认数码   : #0000d1 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Print Mode)'
+HTML = '''
+Affects the background of the rendered component during print mode.
+'''
+Plain = '''
+Affects the background of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --badge-background-print
+CSS PROPERTY : background
+DEFAULT      : #fff (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（印刷）'
+HTML = '''
+影响元件在印刷中的背景。
+'''
+Plain = '''
+影响元件在印刷中的背景。
+'''
+Code = '''
+变化值     : --badge-background-print
+CSS属性    : background
+默认数码   : #fff (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Transition'
+HTML = '''
+Affects the animation timing of the rendered component.
+'''
+Plain = '''
+Affects the animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-transition
+CSS PROPERTY : transition
+DEFAULT      : 1.3s (>= v1.0.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Transition'
+HTML = '''
+影响元件的动画定时。
+'''
+Plain = '''
+影响元件的动画定时。
+'''
+Code = '''
+变化值     : --badge-transition
+CSS属性    : transition
+默认数码   : 1.3s (>= v1.0.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Color'
+HTML = '''
+Affects the title color of the rendered component.
+'''
+Plain = '''
+Affects the title color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-title-color
+CSS PROPERTY : color
+DEFAULT      : #fafafa (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题Color'
+HTML = '''
+影响元件标题的颜色。
+'''
+Plain = '''
+影响元件标题的颜色。
+'''
+Code = '''
+变化值     : --badge-title-color
+CSS属性    : color
+默认数码   : #fafafa (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Background'
+HTML = '''
+Affects the title background of the rendered component.
+'''
+Plain = '''
+Affects the title background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-title-background
+CSS PROPERTY : background
+DEFAULT      : #282828 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题Background'
+HTML = '''
+影响元件标题的背景。
+'''
+Plain = '''
+影响元件标题的背景。
+'''
+Code = '''
+变化值     : --badge-title-background
+CSS属性    : background
+默认数码   : #282828 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Value Font Weight'
+HTML = '''
+Affects the value's font family of the rendered component.
+'''
+Plain = '''
+Affects the value's font family of the rendered component.
+'''
+Code = '''
+VARIABLE     : --badge-value-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : 800 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '数据值Font Weight'
+HTML = '''
+影响元件数据值的字体系列。
+'''
+Plain = '''
+影响元件数据值的字体系列。
+'''
+Code = '''
+变化值     : --badge-value-font-weight
+CSS属性    : font-weight
+默认数码   : 800 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

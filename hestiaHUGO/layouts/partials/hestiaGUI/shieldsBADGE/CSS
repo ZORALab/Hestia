@@ -27,6 +27,8 @@ specific language governing permissions and limitations under the License.
 	max-width: 100%;
 	height: max-content;
 
+	font-size: var(--badge-font-size);
+
 	border: var(--badge-border);
 	border-radius: var(--badge-border-radius);
 	box-shadow: var(--badge-box-shadow);
@@ -36,7 +38,7 @@ specific language governing permissions and limitations under the License.
 
 	position: relative;
 
-	transition: var(--badge-timing);
+	transition: var(--badge-transition);
 }
 
 .badge:before {
@@ -51,24 +53,20 @@ specific language governing permissions and limitations under the License.
 
 	background: var(--badge-color-shine);
 
+	transition: var(--badge-transition);
 	transform: skewX(30deg);
-	transition: var(--badge-timing-shine);
 }
 
-.badge:hover {
-	border: 0;
-
+.badge:is(:hover, :focus) {
 	box-shadow: var(--badge-box-shadow-shine);
-
-	transform: scale(1.1);
 }
 
-.badge:hover:before {
+.badge:is(:hover, :focus):before {
 	left: 200%;
 	background: var(--badge-color-shine);
 }
 
-.badge .title {
+.badge :first-child {
 	grid-area: title;
 
 	display: flex;
@@ -80,15 +78,14 @@ specific language governing permissions and limitations under the License.
 	margin: var(--badge-title-margin);
 	padding: var(--badge-title-padding);
 
-	color: var(--badge-title-color);
-	background: var(--badge-title-background);
-
-	font-size: var(--badge-title-font-size);
 	text-transform: var(--badge-title-text-transform);
 	text-align: var(--badge-title-text-align);
+
+	color: var(--badge-title-color);
+	background: var(--badge-title-background);
 }
 
-.badge .value {
+.badge :last-child {
 	grid-area: content;
 
 	display: flex;
@@ -100,6 +97,8 @@ specific language governing permissions and limitations under the License.
 
 	margin: var(--badge-value-margin);
 	padding: var(--badge-value-padding);
+
+	font-weight: var(--badge-value-font-weight);
 
 	color: var(--badge-color);
 	background: var(--badge-background);

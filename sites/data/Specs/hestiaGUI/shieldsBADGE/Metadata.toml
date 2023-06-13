@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabbadge'
+SKU = 'zoralabBADGE'
+Description = '''
+For styling a badge.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabbadge'
+SKU = 'zoralabBADGE'
+Description = '''
+来渲染徽章。
+'''

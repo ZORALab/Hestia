@@ -2,22 +2,27 @@
 "--badge-margin" = ".2rem .5rem"
 "--badge-padding" = "0"
 
+
 "--badge-border" = "2px solid transparent"
 "--badge-border-radius" = ".4rem"
 
+
 "--badge-width-shine" = ".6rem"
 
-"--badge-box-shadow" = "0 .2rem 1rem transparent"
-"--badge-box-shadow-shine" = "0 .2rem 1rem var(--badge-color-shine)"
+
+"--badge-font-size" = "var(--body-font-size)"
+
 
 "--badge-color" = "var(--color-typography-50)"
 "--badge-color-shine" = "var(--color-contrast-400)"
 "--badge-color-print" = "var(--body-color-print)"
 "--badge-background" = "var(--color-primary-400)"
 "--badge-background-print" = "var(--body-background-print)"
+"--badge-box-shadow" = "0 .2rem 1rem transparent"
+"--badge-box-shadow-shine" = "0 .2rem 1rem var(--badge-color-shine)"
 
-"--badge-timing" = "var(--timing-normal)"
-"--badge-timing-shine" = "1.3s"
+
+"--badge-transition" = "1.3s"
 
 
 
@@ -25,9 +30,10 @@
 "--badge-title-margin" = "0"
 "--badge-title-padding" = ".5rem 1rem"
 
-"--badge-title-font-size" = "var(--body-font-size)"
+
 "--badge-title-text-transform" = "uppercase"
 "--badge-title-text-align" = "left"
+
 
 "--badge-title-color" = "var(--color-typography-50)"
 "--badge-title-background" = "var(--color-typography-900)"
@@ -37,3 +43,6 @@
 
 "--badge-value-margin" = "0"
 "--badge-value-padding" = ".5rem 1rem"
+
+
+"--badge-value-font-weight" = "800"

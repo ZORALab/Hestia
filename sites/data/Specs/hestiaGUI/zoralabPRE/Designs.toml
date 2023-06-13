@@ -1279,7 +1279,7 @@ Affects the animation timing of the rendered component.
 Code = '''
 VARIABLE     : --pre-transition
 CSS PROPERTY : transition
-DEFAULT      : var(--timing-rapid) (>= v1.0.0)
+DEFAULT      : var(--timing-rapid) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1290,15 +1290,15 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Transition'
 HTML = '''
-影响元件在印刷环境里的动画定时。
+影响元件的动画定时。
 '''
 Plain = '''
-影响元件在印刷环境里的动画定时。
+影响元件的动画定时。
 '''
 Code = '''
 变化值     : --pre-transition
 CSS属性    : transition
-默认数码   : var(--timing-rapid) (>= v1.0.0)
+默认数码   : var(--timing-rapid) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
