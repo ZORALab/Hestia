@@ -1,0 +1,1452 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Plain = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Plain = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<figure class="card">
+	<picture class="thumbnail">
+		...
+	</picture>
+	<div class="content">
+		...
+	</div>
+	<div class="actions">
+		...
+	</div>
+</figure>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<figure class="card">
+	<picture class="thumbnail">
+		...
+	</picture>
+	<div class="content">
+		...
+	</div>
+	<div class="actions">
+		...
+	</div>
+</figure>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Layout'
+HTML = '''
+Affects the grid layout of the rendered component.
+'''
+Plain = '''
+Affects the grid layout of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-layout
+CSS PROPERTY : grid
+DEFAULT      :
+(>= v1.2.0)
+"thumbnail" minmax(0, var(--card-thumbnail-height))
+"content" minmax(0, var(--card-content-height))
+"actions" minmax(0, var(--card-actions-height))
+/ minmax(var(--card-width), 100%)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Layout'
+HTML = '''
+影响元件的外向边距空间。
+'''
+Plain = '''
+影响元件的外向边距空间。
+'''
+Code = '''
+变化值     : --card-layout
+CSS属性    : grid
+默认数码   :
+(>= v1.2.0)
+"thumbnail" minmax(0, var(--card-thumbnail-height))
+"content" minmax(0, var(--card-content-height))
+"actions" minmax(0, var(--card-actions-height))
+/ minmax(var(--card-width), 100%)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Overflow'
+HTML = '''
+Affects the overflow of the rendered component.
+'''
+Plain = '''
+Affects the overflow of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-overflow
+CSS PROPERTY : overflow
+DEFAULT      : hidden (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Overflow'
+HTML = '''
+影响元件的溢出反应。
+'''
+Plain = '''
+影响元件的溢出反应。
+'''
+Code = '''
+变化值     : --card-overflow
+CSS属性    : overflow
+默认数码   : hidden (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin'
+HTML = '''
+Affects the margin of the rendered component.
+'''
+Plain = '''
+Affects the margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-margin
+CSS PROPERTY : margin
+DEFAULT      : 2rem auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin'
+HTML = '''
+影响元件的外向边距空间。
+'''
+Plain = '''
+影响元件的外向边距空间。
+'''
+Code = '''
+变化值     : --card-margin
+CSS属性    : margin
+默认数码   : 2rem auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding'
+HTML = '''
+Affects the padding of the rendered component.
+'''
+Plain = '''
+Affects the padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding'
+HTML = '''
+影响元件的内向边距空间。
+'''
+Plain = '''
+影响元件的内向边距空间。
+'''
+Code = '''
+变化值     : --card-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width'
+HTML = '''
+Affects the width of the rendered component.
+'''
+Plain = '''
+Affects the width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-width
+CSS PROPERTY : width
+DEFAULT      : clamp(22rem, 28rem, 100%) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width'
+HTML = '''
+影响元件的宽度。
+'''
+Plain = '''
+影响元件的宽度。
+'''
+Code = '''
+变化值     : --card-width
+CSS属性    : width
+默认数码   : clamp(22rem, 28rem, 100%) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border'
+HTML = '''
+Affects the border of the rendered component.
+'''
+Plain = '''
+Affects the border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-border
+CSS PROPERTY : border
+DEFAULT      : 1px solid var(--color-typography-200) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border'
+HTML = '''
+影响元件的边界线。
+'''
+Plain = '''
+影响元件的边界线。
+'''
+Code = '''
+变化值     : --card-border
+CSS属性    : border
+默认数码   : 1px solid var(--color-typography-200) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border (Focused)'
+HTML = '''
+Affects the border of the rendered component when focused.
+'''
+Plain = '''
+Affects the border of the rendered component when focused.
+'''
+Code = '''
+VARIABLE     : --card-border-focus
+CSS PROPERTY : border
+DEFAULT      : none (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border（被关注）'
+HTML = '''
+影响元件在被关注时的边界线。
+'''
+Plain = '''
+影响元件在被关注时的边界线。
+'''
+Code = '''
+变化值     : --card-border-focus
+CSS属性    : border
+默认数码   : none (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border (Inverted)'
+HTML = '''
+Affects the border of the rendered component while in inverted mode.
+'''
+Plain = '''
+Affects the border of the rendered component while in inverted mode.
+'''
+Code = '''
+VARIABLE     : --card-border-inverted
+CSS PROPERTY : border
+DEFAULT      : none (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border（反转环境）'
+HTML = '''
+影响元件在反转环境里的边界线。
+'''
+Plain = '''
+影响元件在反转环境里的边界线。
+'''
+Code = '''
+变化值     : --card-border-inverted
+CSS属性    : border
+默认数码   : none (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border (Inverted+Focused)'
+HTML = '''
+Affects the border of the rendered component when focused in the inverted mode.
+'''
+Plain = '''
+Affects the border of the rendered component when focused in the inverted mode.
+'''
+Code = '''
+VARIABLE     : --card-border-inverted-focus
+CSS PROPERTY : border
+DEFAULT      : none (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border（反转环境+被关注）'
+HTML = '''
+影响元件在反转环境里被关注时的边界线。
+'''
+Plain = '''
+影响元件在反转环境里被关注时的边界线。
+'''
+Code = '''
+变化值     : --card-border-inverted-focus
+CSS属性    : border
+默认数码   : none (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Radius'
+HTML = '''
+Affects the border radius of the rendered component.
+'''
+Plain = '''
+Affects the border radius of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-border-radius
+CSS PROPERTY : border-radius
+DEFAULT      : 1rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Radius'
+HTML = '''
+影响元件边界线的角落圆形度。
+'''
+Plain = '''
+影响元件边界线的角落圆形度。
+'''
+Code = '''
+变化值     : --card-border-radius
+CSS属性    : border-radius
+默认数码   : 1rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color'
+HTML = '''
+Affects the color of the rendered component.
+'''
+Plain = '''
+Affects the color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-color
+CSS PROPERTY : color
+DEFAULT      : var(--body-color) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color'
+HTML = '''
+影响元件的颜色。
+'''
+Plain = '''
+影响元件的颜色。
+'''
+Code = '''
+变化值     : --card-color
+CSS属性    : color
+默认数码   : var(--body-color) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Print Mode)'
+HTML = '''
+Affects the color of the rendered component during print mode.
+'''
+Plain = '''
+Affects the color of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --card-color-print
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（印刷）'
+HTML = '''
+影响元件在印刷中的颜色。
+'''
+Plain = '''
+影响元件在印刷中的颜色。
+'''
+Code = '''
+变化值     : --card-color-print
+CSS属性    : color
+默认数码   : var(--body-color-print) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background'
+HTML = '''
+Affects the background of the rendered component.
+'''
+Plain = '''
+Affects the background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-background
+CSS PROPERTY : background
+DEFAULT      : var(--body-background) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background'
+HTML = '''
+影响元件的背景。
+'''
+Plain = '''
+影响元件的背景。
+'''
+Code = '''
+变化值     : --card-background
+CSS属性    : background
+默认数码   : var(--body-background) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Print Mode)'
+HTML = '''
+Affects the background of the rendered component during print mode.
+'''
+Plain = '''
+Affects the background of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --card-background-print
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-print) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（印刷）'
+HTML = '''
+影响元件在印刷中的背景。
+'''
+Plain = '''
+影响元件在印刷中的背景。
+'''
+Code = '''
+变化值     : --card-background-print
+CSS属性    : background
+默认数码   : var(--body-background-print) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Transition'
+HTML = '''
+Affects the animation timing of the rendered component.
+'''
+Plain = '''
+Affects the animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-transition
+CSS PROPERTY : transition
+DEFAULT      : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Transition'
+HTML = '''
+影响元件的动画定时。
+'''
+Plain = '''
+影响元件的动画定时。
+'''
+Code = '''
+变化值     : --card-transition
+CSS属性    : transition
+默认数码   : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Filter (Focused)'
+HTML = '''
+Affects the animation behavior of the rendered component when focused.
+'''
+Plain = '''
+Affects the animation behavior of the rendered component when focused.
+'''
+Code = '''
+VARIABLE     : --card-filter-focus
+CSS PROPERTY : filter
+DEFAULT      : drop-shadow(0 1rem 2rem var(--color-typography-800)) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Filter（被关注）'
+HTML = '''
+影响元件在被关注事的滤波方式。
+'''
+Plain = '''
+影响元件在被关注事的滤波方式。
+'''
+Code = '''
+变化值     : --card-filter-focus
+CSS属性    : filter
+默认数码   : drop-shadow(0 1rem 2rem var(--color-typography-800)) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Filter (Inverted + Focused)'
+HTML = '''
+Affects the animation timing of the rendered component when focused while in inverted mode.
+'''
+Plain = '''
+Affects the animation timing of the rendered component when focused while in inverted mode.
+'''
+Code = '''
+VARIABLE     : --card-filter-inverted-focus
+CSS PROPERTY : filter
+DEFAULT      : drop-shadow(0 1rem 2rem var(--color-typography-50)) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Filter（反转环境+被关注）'
+HTML = '''
+影响元件在反转环境被关注时的滤波方式。
+'''
+Plain = '''
+影响元件在反转环境被关注时的滤波方式。
+'''
+Code = '''
+变化值     : --card-filter-inverted-focus
+CSS属性    : filter
+默认数码   : drop-shadow(0 1rem 2rem var(--color-typography-50)) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Thumbnail Overflow'
+HTML = '''
+Affects the thumbnail's overflow of the rendered component.
+'''
+Plain = '''
+Affects the thumbnail's overflow of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-thumbnail-overflow
+CSS PROPERTY : overflow
+DEFAULT      : hidden (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '缩略像Overflow'
+HTML = '''
+影响元件缩略像的溢出反应。
+'''
+Plain = '''
+影响元件缩略像的溢出反应。
+'''
+Code = '''
+变化值     : --card-thumbnail-overflow
+CSS属性    : overflow
+默认数码   : hidden (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Thumbnail Object-Fit'
+HTML = '''
+Affects the thumbnail's object fitting condition of the rendered component.
+'''
+Plain = '''
+Affects the thumbnail's object fitting condition of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-thumbnail-object-fit
+CSS PROPERTY : object-fit
+DEFAULT      : contain (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '缩略像Object-Fit'
+HTML = '''
+影响元件缩略像的溢出反应。
+'''
+Plain = '''
+影响元件缩略像的溢出反应。
+'''
+Code = '''
+变化值     : --card-thumbnail-overflow
+CSS属性    : object-fit
+默认数码   : contain (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Thumbnail Height'
+HTML = '''
+Affects the thumbnail's height of the rendered component.
+'''
+Plain = '''
+Affects the thumbnail's height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-thumbnail-height
+CSS PROPERTY : height
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '缩略像Height'
+HTML = '''
+影响元件缩略像的高度。
+'''
+Plain = '''
+影响元件缩略像的高度。
+'''
+Code = '''
+变化值     : --card-thumbnail-height
+CSS属性    : height
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Thumbnail Margin'
+HTML = '''
+Affects the thumbnail's margin of the rendered component.
+'''
+Plain = '''
+Affects the thumbnail's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-thumbnail-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '缩略像Margin'
+HTML = '''
+影响元件缩略像的外向边距空间。
+'''
+Plain = '''
+影响元件缩略像的外向边距空间。
+'''
+Code = '''
+变化值     : --card-thumbnail-margin
+CSS属性    : margin
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Thumbnail Padding'
+HTML = '''
+Affects the thumbnail's padding of the rendered component.
+'''
+Plain = '''
+Affects the thumbnail's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-thumbnail-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '缩略像Padding'
+HTML = '''
+影响元件缩略像的内向边距空间。
+'''
+Plain = '''
+影响元件缩略像的内向边距空间。
+'''
+Code = '''
+变化值     : --card-thumbnail-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Overflow'
+HTML = '''
+Affects the content's overflow of the rendered component.
+'''
+Plain = '''
+Affects the content's overflow of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-content-overflow
+CSS PROPERTY : overflow
+DEFAULT      : auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容层Overflow'
+HTML = '''
+影响元件内容层的溢出反应。
+'''
+Plain = '''
+影响元件内容层的溢出反应。
+'''
+Code = '''
+变化值     : --card-content-overflow
+CSS属性    : overflow
+默认数码   : auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Height'
+HTML = '''
+Affects the content's height of the rendered component.
+'''
+Plain = '''
+Affects the content's height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-content-height
+CSS PROPERTY : height
+DEFAULT      : max-content (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容层Height'
+HTML = '''
+影响元件内容层的高度。
+'''
+Plain = '''
+影响元件内容层的高度。
+'''
+Code = '''
+变化值     : --card-content-height
+CSS属性    : height
+默认数码   : max-content (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Margin'
+HTML = '''
+Affects the content's margin of the rendered component.
+'''
+Plain = '''
+Affects the content's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-content-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容层Margin'
+HTML = '''
+影响元件内容层的外向边距空间。
+'''
+Plain = '''
+影响元件内容层的外向边距空间。
+'''
+Code = '''
+变化值     : --card-content-margin
+CSS属性    : margin
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Content Padding'
+HTML = '''
+Affects the content's padding of the rendered component.
+'''
+Plain = '''
+Affects the content's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-content-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '内容层Padding'
+HTML = '''
+影响元件内容层的内向边距空间。
+'''
+Plain = '''
+影响元件内容层的内向边距空间。
+'''
+Code = '''
+变化值     : --card-content-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Actions Overflow'
+HTML = '''
+Affects the actions' overflow of the rendered component.
+'''
+Plain = '''
+Affects the actions' overflow of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-actions-overflow
+CSS PROPERTY : overflow
+DEFAULT      : hidden (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '行动层Overflow'
+HTML = '''
+影响元件行动层的溢出反应。
+'''
+Plain = '''
+影响元件行动层的溢出反应。
+'''
+Code = '''
+变化值     : --card-actions-overflow
+CSS属性    : overflow
+默认数码   : hidden (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Actions Height'
+HTML = '''
+Affects the actions' height of the rendered component.
+'''
+Plain = '''
+Affects the actions' height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-actions-height
+CSS PROPERTY : height
+DEFAULT      : max-content (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '行动层Height'
+HTML = '''
+影响元件行动层的高度。
+'''
+Plain = '''
+影响元件行动层的高度。
+'''
+Code = '''
+变化值     : --card-actions-height
+CSS属性    : height
+默认数码   : max-content (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Actions Margin'
+HTML = '''
+Affects the actions margin of the rendered component.
+'''
+Plain = '''
+Affects the actions margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-actions-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '行动层Margin'
+HTML = '''
+影响元件行动层的外向边距空间。
+'''
+Plain = '''
+影响元件行动层的外向边距空间。
+'''
+Code = '''
+变化值     : --card-actions-margin
+CSS属性    : margin
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Actions Padding'
+HTML = '''
+Affects the actions' padding of the rendered component.
+'''
+Plain = '''
+Affects the actions' padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-actions-padding
+CSS PROPERTY : padding
+DEFAULT      : 3.5rem 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '行动层Padding'
+HTML = '''
+影响元件行动层的内向边距空间。
+'''
+Plain = '''
+影响元件行动层的内向边距空间。
+'''
+Code = '''
+变化值     : --card-actions-padding
+CSS属性    : padding
+默认数码   : 3.5rem 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Title Margin'
+HTML = '''
+Affects the title's margin of the rendered component.
+'''
+Plain = '''
+Affects the title's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --card-title-margin
+CSS PROPERTY : margin
+DEFAULT      : .3rem auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标题Margin'
+HTML = '''
+影响元件标题的外向边距空间。
+'''
+Plain = '''
+影响元件标题的外向边距空间。
+'''
+Code = '''
+变化值     : --card-title-margin
+CSS属性    : margin
+默认数码   : .3rem auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

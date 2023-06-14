@@ -7,19 +7,16 @@
 """
 "--card-overflow" = "hidden"
 
-"--card-width" = "22rem"
-"--card-height" = "fit-content"
-
 "--card-margin" = "2rem auto"
 "--card-padding" = "0"
 
-"--card-border" = "1px solid var(--color-typography-300)"
-"--card-border-focus" = "1px solid var(--color-typography-300)"
+"--card-width" = "clamp(22rem, 28rem, 100%)"
+
+"--card-border" = "1px solid var(--color-typography-200)"
+"--card-border-focus" = "none"
+"--card-border-inverted" = "none"
+"--card-border-inverted-focus" = "none"
 "--card-border-radius" = "1rem"
-"--card-box-shadow" = "0 1rem 2rem transparent"
-"--card-box-shadow-print" = "0 1rem 2rem var(--color-typography-800)"
-"--card-box-shadow-focus" = "0 1rem 2rem var(--color-typography-800)"
-"--card-box-shadow-focus-inverted" = "0 1rem 2rem var(--color-typography-50)"
 
 "--card-color" = "var(--body-color)"
 "--card-color-print" = "var(--body-color-print)"
@@ -27,18 +24,16 @@
 "--card-background-print" = "var(--body-background-print)"
 
 "--card-timing" = "var(--timing-normal)"
+"--card-filter-focus" = "drop-shadow(0 1rem 2rem var(--color-typography-800))"
+"--card-filter-inverted-focus" = "drop-shadow(0 1rem 2rem var(--color-typography-50))"
 
 
 
 
 "--card-thumbnail-overflow" = "hidden"
-"--card-thumbnail-object-fit" = "cover"
+"--card-thumbnail-object-fit" = "contain"
 
-"--card-thumbnail-min-width" = "100%"
-"--card-thumbnail-max-width" = "100%"
-"--card-thumbnail-min-height" = "100%"
-"--card-thumbnail-height" = "max-content"
-"--card-thumbnail-max-height" = "100%"
+"--card-thumbnail-height" = "100%"
 
 "--card-thumbnail-margin" = "0"
 "--card-thumbnail-padding" = "0"
@@ -48,11 +43,7 @@
 
 "--card-content-overflow" = "auto"
 
-"--card-content-min-width" = "initial"
-"--card-content-max-width" = "100%"
-"--card-content-min-height" = "initial"
-"--card-content-height" = "auto"
-"--card-content-max-height" = "initial"
+"--card-content-height" = "max-content"
 
 "--card-content-margin" = "0"
 "--card-content-padding" = "0"
@@ -60,13 +51,14 @@
 
 
 
-"--card-actions-overflow" = "initial"
+"--card-actions-overflow" = "hidden"
 
-"--card-actions-min-width" = "initial"
-"--card-actions-max-width" = "100%"
-"--card-actions-min-height" = "initial"
 "--card-actions-height" = "max-content"
-"--card-actions-max-height" = "initial"
 
-"--card-actions-margin" = "3.5rem 0 0"
-"--card-actions-padding" = "0"
+"--card-actions-margin" = "0"
+"--card-actions-padding" = "3.5rem 0"
+
+
+
+
+"--card-title-margin" = ".3rem auto"

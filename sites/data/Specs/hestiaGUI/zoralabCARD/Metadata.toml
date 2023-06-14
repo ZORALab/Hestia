@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabcard'
+SKU = 'zoralabCARD'
+Description = '''
+For styling a card.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabcard'
+SKU = 'zoralabCARD'
+Description = '''
+来渲染卡片。
+'''

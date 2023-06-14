@@ -20,15 +20,13 @@ specific language governing permissions and limitations under the License.
 	grid: var(--card-layout);
 	overflow: var(--card-overflow);
 
-	width: var(--card-width);
-	height: var(--card-height);
-
 	margin: var(--card-margin);
 	padding: var(--card-padding);
 
+	width: var(--card-width);
+
 	border: var(--card-border);
 	border-radius: var(--card-border-radius);
-	box-shadow: var(--card-box-shadow);
 
 	color: var(--card-color);
 	background: var(--card-background);
@@ -36,12 +34,27 @@ specific language governing permissions and limitations under the License.
 	transition: var(--card-timing);
 }
 
-.card:hover,
-.card:focus {
-	border: var(--card-border-focus);
-	box-shadow: var(--card-box-shadow-focus);
+.card:is(:hover, :focus) {
+	border: (--card-border-focus);
+	filter: var(--card-filter-focus);
 
 	transform: scale(1.1);
+}
+
+:is(.inverted, footer, .footer) .card {
+	border: var(--card-border-inverted);
+}
+
+:is(.inverted, footer, .footer) .card:is(:hover, :focus) {
+	border: (--card-border-inverted-focus);
+	filter: var(--card-filter-inverted-focus);
+}
+
+.card :is(.thumbnail, .content, .actions) {
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 0;
+	max-height: max-content;
 }
 
 .card .thumbnail {
@@ -49,27 +62,21 @@ specific language governing permissions and limitations under the License.
 	overflow: var(--card-thumbnail-overflow);
 	object-fit: var(--card-thumbnail-object-fit);
 
-	min-width: var(--card-thumbnail-min-width);
-	width: var(--card-width);
-	max-width: var(--card-thumbnail-max-width);
-	min-height: var(--card-thumbnail-min-height);
-	height: var(--card-thumbnail-height);
-	max-height: var(--card-thumbnail-max-height);
-
 	margin: var(--card-thumbnail-margin);
 	padding: var(--card-thumbnail-padding);
+}
+
+.card :is(.thumbnail, picture.thumbnail > img) {
+	width: 100%;
+	height: var(--card-thumbnail-height);
 }
 
 .card .content {
 	grid-area: content;
 	overflow: var(--card-content-overflow);
 
-	min-width: var(--card-content-min-width);
-	width: var(--card-width);
-	max-width: var(--card-content-max-width);
-	min-height: var(--card-content-min-height);
+	width: 100%;
 	height: var(--card-content-height);
-	max-height: var(--card-content-max-height);
 
 	margin: var(--card-content-margin);
 	padding: var(--card-content-padding);
@@ -79,16 +86,24 @@ specific language governing permissions and limitations under the License.
 	grid-area: actions;
 	overflow: var(--card-actions-overflow);
 
-	min-width: var(--card-actions-min-width);
-	width: var(--card-width);
-	max-width: var(--card-actions-max-width);
-	min-height: var(--card-actions-min-height);
+	width: 100%;
 	height: var(--card-actions-height);
-	max-height: var(--card-actions-max-height);
 
 	margin: var(--card-actions-margin);
 	padding: var(--card-actions-padding);
 }
+
+.card :is(.content, .actions) :is(
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6
+):first-child {
+	margin: var(--card-title-margin);
+}
+
 
 @media print {
 	.card {
@@ -98,5 +113,8 @@ specific language governing permissions and limitations under the License.
 
 		color: var(--card-color-print) !important;
 		background: var(--card-background-print) !important;
+
+		filter: none !important;
+		transform: none !important;
 	}
 }
