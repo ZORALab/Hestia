@@ -34,7 +34,7 @@
 "--button-color" = "var(--color-primary-600)"
 "--button-color-inverted" = "var(--color-typography-100)"
 "--button-color-print" = "var(--body-color-print)"
-"--button-background" = "color-mix(in srgb, var(--button-color) 9%, #fff)"
+"--button-background" = "color-mix(in srgb, currentColor 9%, #fff)"
 "--button-background-print" = "var(--body-background-print)"
 "--button-box-shadow" = "0 .5rem 1rem var(--color-typography-400)"
 

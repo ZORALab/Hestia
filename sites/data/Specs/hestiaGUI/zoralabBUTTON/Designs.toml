@@ -936,7 +936,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --button-background
 CSS PROPERTY : background
-DEFAULT      : color-mix(in srgb, var(--button-color) 9%, #fff) (>= v1.2.0)
+DEFAULT      : color-mix(in srgb, currentColor 9%, #fff) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -955,7 +955,7 @@ Plain = '''
 Code = '''
 变化值     : --button-background
 CSS属性    : background
-默认数码   : color-mix(in srgb, var(--button-color) 9%, #fff) (>= v1.2.0)
+默认数码   : color-mix(in srgb, currentColor 9%, #fff) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
