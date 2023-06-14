@@ -940,7 +940,7 @@ Plain = '''
 影响元件缩略像的溢出反应。
 '''
 Code = '''
-变化值     : --card-thumbnail-overflow
+变化值     : --card-thumbnail-object-fit
 CSS属性    : object-fit
 默认数码   : contain (>= v1.2.0)
 '''
