@@ -644,15 +644,15 @@ HTML = '''
 <tbody>
 	<tr>
 		<th><code>--body-color-indicator-</code></th>
-		<th style="background:var(--body-color-indicator-red)"></th>
-		<th style="background:var(--body-color-indicator-yellow)"></th>
-		<th style="background:var(--body-color-indicator-green)"></th>
+		<td style="background:var(--body-color-indicator-red)"></td>
+		<td style="background:var(--body-color-indicator-yellow)"></td>
+		<td style="background:var(--body-color-indicator-green)"></td>
 	</tr>
 	<tr>
 		<th><code>--body-background-indicator-</code></th>
-		<th style="background:var(--body-background-indicator-red)"></th>
-		<th style="background:var(--body-background-indicator-yellow)"></th>
-		<th style="background:var(--body-background-indicator-green)"></th>
+		<td style="background:var(--body-background-indicator-red)"></td>
+		<td style="background:var(--body-background-indicator-yellow)"></td>
+		<td style="background:var(--body-background-indicator-green)"></td>
 	</tr>
 </tbody>
 </table></div>

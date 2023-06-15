@@ -50,10 +50,10 @@ Plain = '''
 
 
 [ZH-HANS.Purposes]
-ID = '主要目的'
-Label = '目的'
-Title = '主要目的'
-NoList = '这个代码包没有写出它的目的规范。'
+ID = '创史来历'
+Label = '创史来历'
+Title = '创史来历'
+NoList = '这个代码包没有写出它的创史来历记录。'
 HTML = '''
 '''
 Plain = '''
