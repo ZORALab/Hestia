@@ -19,7 +19,7 @@ specific language governing permissions and limitations under the License.
 	padding: 0;
 	margin: 0;
 
-	box-sizing: var(--html-box-sizing);
+	box-sizing: border-box;
 
 	transition: var(--timing-normal);
 }
@@ -28,16 +28,16 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	width: 100%;
 }
 
 html {
 	font-size: 62.5%; /* 1.6rem = 16px */
 
+	width: 100%;
 	height: 100%; /* fallback if calc fails */
 	height: calc(100vh - calc(100vh - 100%));
 
-	scroll-behavior: var(--body-scroll-behavior);
+	scroll-behavior: var(--html-scroll-behavior);
 }
 
 body {
@@ -111,12 +111,11 @@ footer, .footer {
 
 .inverted,
 footer, .footer {
-	color: var(--inverted-color);
-	background: var(--inverted-background);
+	color: var(--body-color-inverted);
+	background: var(--body-background-inverted);
 }
 
-main > *,
-footer > * {
+:is(main, footer) > * {
 	flex: 0 1 100%;
 	width: 100%;
 }
@@ -132,30 +131,24 @@ footer > * {
 }
 
 main, .content {
-	grid-area: var(--content-grid-area);
+	grid-area: var(--main-grid-area);
 }
 
 footer, .footer {
 	grid-area: var(--footer-grid-area);
 }
 
-nav.leftnav, .leftnav {
-	grid-area: var(--leftnav-grid-area);
-}
-
-nav.rightnav, .rightnav {
-	grid-area: var(--rightnav-grid-area);
-}
-
-nav.topnav, .topnav {
-	grid-area: var(--topnav-grid-area);
-}
-
-h1, h2, h3, h4, h5, h6, p {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+p {
 	width: 100%;
 }
 
-h1 {
+h1, .h1 {
 	margin: var(--h1-margin);
 
 	border-bottom: var(--h1-border-bottom);
@@ -166,36 +159,16 @@ h1 {
 	letter-spacing: var(--h1-letter-spacing);
 	text-decoration: var(--h1-text-decoration);
 	text-align: var(--h1-text-align);
+	word-wrap: var(--h1-word-wrap);
 
 	text-decoration-color: var(--h1-decoration-color);
 }
 
-h1:before {
-	content: var(--h1-before-content);
-
-	margin: var(--h1-before-margin);
-
-	text-align: var(--h1-before-text-align);
-
-	color: var(--h1-before-color);
-}
-
-h1:after {
-	content: var(--h1-after-content);
-
-	margin: var(--h1-after-margin);
-
-	text-align: var(--h1-after-text-align);
-
-	color: var(--h1-after-color);
-	background: var(--h1-after-background);
-}
-
-h2 {
-	border-bottom: var(--h2-border-bottom);
-
+h2, .h2 {
 	margin: var(--h2-margin);
 	padding: var(--h2-padding);
+
+	border-bottom: var(--h2-border-bottom);
 
 	font-size: var(--h2-font-size);
 	font-style: var(--h2-font-style);
@@ -203,60 +176,16 @@ h2 {
 	letter-spacing: var(--h2-letter-spacing);
 	text-align: var(--h2-text-align);
 	text-decoration: var(--h2-text-decoration);
+	word-wrap: var(--h2-word-wrap);
+
 	text-decoration-color: var(--h2-decoration-color);
 }
 
-h2:before {
-	content: var(--h2-before-content);
-
-	margin: var(--h2-before-margin);
-
-	text-align: var(--h2-before-text-align);
-
-	color: var(--h2-before-color);
-	background: var(--h2-before-background);
-}
-
-h2:after {
-	text-align: var(--h2-after-text-align);
-}
-
-h2:not(.clean):after {
-	display: block;
-	content: var(--h2-after-content);
-
-	margin: 0;
-	padding: .8rem 0 0;
-
-	height: 7rem;
-	width: 7.8rem;
-
-	font-size: 5rem;
-
-	color: var(--h2-after-color);
-	background: var(--h2-after-background);
-
-	border: var(--h2-after-border);
-	border-radius: 50%;
-
-	position: relative;
-	left: 50%;
-	transform: translate(-50%, 50%);
-}
-
-.inverted h2,
-footer h2 {
+:is(.inverted, footer, .footer) h2 {
 	border-bottom: var(--h2-border-bottom-inverted);
 }
 
-.inverted h2:not(.clean):after,
-footer h2:not(.clean):after {
-	color: var(--h2-after-color-inverted);
-	background: var(--h2-after-background-inverted);
-	border: var(--h2-after-border-inverted);
-}
-
-h3 {
+:is(h3, .h3) {
 	margin: var(--h3-margin);
 	padding: var(--h3-padding);
 
@@ -268,38 +197,16 @@ h3 {
 	letter-spacing: var(--h3-letter-spacing);
 	text-decoration: var(--h3-text-decoration);
 	text-align: var(--h3-text-align);
+	word-wrap: var(--h3-word-wrap);
 
 	text-decoration-color: var(--h3-decoration-color);
 }
 
-h3:before {
-	content: var(--h3-before-content);
-
-	margin: var(--h3-before-margin);
-
-	text-align: var(--h3-before-text-align);
-
-	color: var(--h3-before-color);
-	background: var(--h3-before-background);
-}
-
-h3:after {
-	content: var(--h3-after-content);
-
-	margin: var(--h3-after-margin);
-
-	text-align: var(--h3-after-text-align);
-
-	color: var(--h3-after-color);
-	background: var(--h3-after-background);
-}
-
-.inverted h3,
-footer h3 {
+:is(.inverted, footer, .footer) h3 {
 	border-bottom: var(--h3-border-bottom-inverted);
 }
 
-h4 {
+h4, .h4 {
 	margin: var(--h4-margin);
 	padding: var(--h4-padding);
 
@@ -311,33 +218,12 @@ h4 {
 	letter-spacing: var(--h4-letter-spacing);
 	text-decoration: var(--h4-text-decoration);
 	text-align: var(--h4-text-align);
+	word-wrap: var(--h4-word-wrap);
 
 	text-decoration-color: var(--h4-decoration-color);
 }
 
-h4:before {
-	content: var(--h4-before-content);
-
-	margin: var(--h4-before-margin);
-
-	text-align: var(--h4-before-text-align);
-
-	color: var(--h4-before-color);
-	background: var(--h4-before-background);
-}
-
-h4:after {
-	content: var(--h4-after-content);
-
-	margin: var(--h4-after-margin);
-
-	text-align: var(--h4-after-text-align);
-
-	color: var(--h4-after-color);
-	background: var(--h4-after-background);
-}
-
-h5 {
+h5, .h5 {
 	margin: var(--h5-margin);
 	padding: var(--h5-padding);
 
@@ -349,33 +235,12 @@ h5 {
 	letter-spacing: var(--h5-letter-spacing);
 	text-decoration: var(--h5-text-decoration);
 	text-align: var(--h5-text-align);
+	word-wrap: var(--h5-word-wrap);
 
 	text-decoration-color: var(--h5-decoration-color);
 }
 
-h5:before {
-	content: var(--h5-before-content);
-
-	margin: var(--h5-before-margin);
-
-	text-align: var(--h5-before-text-align);
-
-	color: var(--h5-before-color);
-	background: var(--h5-before-background);
-}
-
-h5:after {
-	content: var(--h5-after-content);
-
-	margin: var(--h5-after-margin);
-
-	text-align: var(--h5-after-text-align);
-
-	color: var(--h5-after-color);
-	background: var(--h5-after-background);
-}
-
-h6 {
+h6, .h6 {
 	margin: var(--h6-margin);
 	padding: var(--h6-padding);
 
@@ -387,30 +252,9 @@ h6 {
 	letter-spacing: var(--h6-letter-spacing);
 	text-decoration: var(--h6-text-decoration);
 	text-align: var(--h6-text-align);
+	word-wrap: var(--h6-word-wrap);
 
 	text-decoration-color: var(--h6-decoration-color);
-}
-
-h6:before {
-	content: var(--h6-before-content);
-
-	margin: var(--h6-before-margin);
-
-	text-align: var(--h6-before-text-align);
-
-	color: var(--h6-before-color);
-	background: var(--h6-before-background);
-}
-
-h6:after {
-	content: var(--h6-after-content);
-
-	margin: var(--h6-after-margin);
-
-	text-align: var(--h6-after-text-align);
-
-	color: var(--h6-after-color);
-	background: var(--h6-after-background);
 }
 
 p {
@@ -504,24 +348,35 @@ p {
 		background: var(--body-background-print) !important;
 	}
 
+	.inverted,
 	footer, .footer {
 		break-before: always;
 
 		border-top: 2rem double var(--body-color-print);
 	}
 
-	h1, h2, h3, h4, h5, h6, p {
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6,
+	p {
 		break-inside: avoid;
 
 		display: block;
 	}
 
-	h1 {
+	h1, .h1 {
 		break-before: page;
 		break-after: avoid;
 	}
 
-	h2, h3, h4, h5, h6 {
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
 		break-after: avoid;
 	}
 
@@ -532,9 +387,7 @@ p {
 	}
 
 	h2:after,
-	.inverted h2:after,
-	footer  h2:after,
-	.footer h2:after, {
+	:is(.inverted, footer, .footer) h2:after {
 		color: var(--h2-after-color-print) !important;
 		background: var(--h2--after-background-print);
 		border: var(--h2-after-border-print);

@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabcore'
+SKU = 'zoralabCORE'
+Description = '''
+For providing fundamental UI control variables and values.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabcore'
+SKU = 'zoralabCORE'
+Description = '''
+来供应需要的基本控制数据值。
+'''

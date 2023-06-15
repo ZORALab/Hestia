@@ -1,7 +1,7 @@
 [CSS.Variables]
-"--note-title-warning-border-color" = "var(--body-color-indicator-yellow-inverted)"
-"--note-title-warning-color" = "var(--body-color-indicator-yellow-inverted)"
-"--note-title-warning-indicator-color" = "var(--body-color-indicator-yellow-inverted)"
-"--note-title-warning-background" = "var(--body-background-indicator-yellow-inverted)"
-"--note-content-warning-color" = "var(--body-color-indicator-yellow-inverted)"
+"--note-title-warning-border-color" = "var(--body-color-indicator-yellow)"
+"--note-title-warning-color" = "#FFF"
+"--note-title-warning-indicator-color" = "#FFF"
+"--note-title-warning-background" = "var(--body-color-indicator-yellow)"
+"--note-content-warning-color" = "var(--body-color-indicator-yellow)"
 "--note-content-warning-background" = "var(--body-background-indicator-yellow)"

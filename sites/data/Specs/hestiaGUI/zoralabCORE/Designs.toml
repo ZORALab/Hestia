@@ -1,0 +1,1641 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has no dependency.
+'''
+Plain = '''
+This component has no dependency.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是没有依赖其他元件。
+'''
+Plain = '''
+这个元件是没有依赖其他元件。
+'''
+Code = '''
+'''
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Page Structure HTML'
+HTML = '''
+The compliant HTML page structure is shown below:
+'''
+Plain = '''
+The compliant HTML page structure is shown below:
+'''
+Code = '''
+<!DOCTYPE html>
+<html lang="...">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>...</title>
+	...
+	<style>...</style>
+	<script defer>...</script>
+	...
+</head>
+<body>
+	<main>
+		<section ...>
+			...
+		</section>
+
+		<section ...>
+			...
+		</section>
+
+		...
+	</main>
+
+	<footer>
+		<section ...>
+			...
+		</section>
+
+		<section ...>
+			...
+		</section>
+
+		...
+	</footer>
+
+	<nav class='top-drawer'>
+		...
+	</nav>
+
+	<nav class='left-drawer'>
+		...
+	</nav>
+
+	<nav class='right-drawer'>
+		...  <!-- THE LAST DRAWER HAS THE HIGHEST PRIORITY -->
+	</nav>
+</body>
+</html>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '兼容的网页面结构HTML'
+HTML = '''
+兼容的网页面结构的HTML代码如下：
+'''
+Plain = '''
+兼容的网页面结构的HTML代码如下：
+'''
+Code = '''
+<!DOCTYPE html>
+<html lang="...">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>...</title>
+	...
+	<style>...</style>
+	<script defer>...</script>
+	...
+</head>
+<body>
+	<main>
+		<section ...>
+			...
+		</section>
+
+		<section ...>
+			...
+		</section>
+
+		...
+	</main>
+
+	<footer>
+		<section ...>
+			...
+		</section>
+
+		<section ...>
+			...
+		</section>
+
+		...
+	</footer>
+
+	<nav class='top-drawer'>
+		...
+	</nav>
+
+	<nav class='left-drawer'>
+		...
+	</nav>
+
+	<nav class='right-drawer'>
+		...  <!-- 最后一个柜是最大权利 -->
+	</nav>
+</body>
+</html>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Grid System HTML'
+HTML = '''
+The grid system HTML codes are shown below:
+'''
+Plain = '''
+The grid system HTML codes are shown below:
+'''
+Code = '''
+<!-- NOTE: PLEASE USE <div> FOR PROPER AND CONSISTENT CONTAINMENT. -->
+<div class='row'>
+	<div class='column'>
+		...
+	</div>
+
+	<div class='column'>
+		...
+	</div>
+
+	<div class='column'>
+		...
+	</div>
+
+	...
+</div>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '网格空间控制系统HTML'
+HTML = '''
+网格空间控制系统的HTML代码如下：
+'''
+Plain = '''
+网格空间控制系统的HTML代码如下：
+'''
+Code = '''
+<!-- 切记：请运用<div>来适当和一致的遏制内容代码 -->
+<div class='row'>
+	<div class='column'>
+		...
+	</div>
+
+
+	<div class='column'>
+		...
+	</div>
+
+
+	<div class='column'>
+		...
+	</div>
+
+
+	...
+</div>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'GUI界面一定要自选性'
+HTML = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Plain = '''
+GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
+产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color System'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal. (Example: row 1 column 2 is
+<code>--color-typography-100</code>).
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th><code>50</code></th>
+		<th><code>100</code></th>
+		<th><code>200</code></th>
+		<th><code>300</code></th>
+		<th><code>400</code></th>
+		<th><code>500</code></th>
+		<th><code>600</code></th>
+		<th><code>700</code></th>
+		<th><code>800</code></th>
+		<th><code>900</code></th>
+		<th><code>950</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--color-typography-</code></th>
+		<td style="background:var(--color-typography-50)"></td>
+		<td style="background:var(--color-typography-100)"></td>
+		<td style="background:var(--color-typography-200)"></td>
+		<td style="background:var(--color-typography-300)"></td>
+		<td style="background:var(--color-typography-400)"></td>
+		<td style="background:var(--color-typography-500)"></td>
+		<td style="background:var(--color-typography-600)"></td>
+		<td style="background:var(--color-typography-700)"></td>
+		<td style="background:var(--color-typography-800)"></td>
+		<td style="background:var(--color-typography-900)"></td>
+		<td style="background:var(--color-typography-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-dark-typography-</code></th>
+		<td style="background:var(--color-dark-typography-50)"></td>
+		<td style="background:var(--color-dark-typography-100)"></td>
+		<td style="background:var(--color-dark-typography-200)"></td>
+		<td style="background:var(--color-dark-typography-300)"></td>
+		<td style="background:var(--color-dark-typography-400)"></td>
+		<td style="background:var(--color-dark-typography-500)"></td>
+		<td style="background:var(--color-dark-typography-600)"></td>
+		<td style="background:var(--color-dark-typography-700)"></td>
+		<td style="background:var(--color-dark-typography-800)"></td>
+		<td style="background:var(--color-dark-typography-900)"></td>
+		<td style="background:var(--color-dark-typography-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-contrast-</code></th>
+		<td style="background:var(--color-contrast-50)"></td>
+		<td style="background:var(--color-contrast-100)"></td>
+		<td style="background:var(--color-contrast-200)"></td>
+		<td style="background:var(--color-contrast-300)"></td>
+		<td style="background:var(--color-contrast-400)"></td>
+		<td style="background:var(--color-contrast-500)"></td>
+		<td style="background:var(--color-contrast-600)"></td>
+		<td style="background:var(--color-contrast-700)"></td>
+		<td style="background:var(--color-contrast-800)"></td>
+		<td style="background:var(--color-contrast-900)"></td>
+		<td style="background:var(--color-contrast-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-dark-contrast-</code></th>
+		<td style="background:var(--color-dark-contrast-50)"></td>
+		<td style="background:var(--color-dark-contrast-100)"></td>
+		<td style="background:var(--color-dark-contrast-200)"></td>
+		<td style="background:var(--color-dark-contrast-300)"></td>
+		<td style="background:var(--color-dark-contrast-400)"></td>
+		<td style="background:var(--color-dark-contrast-500)"></td>
+		<td style="background:var(--color-dark-contrast-600)"></td>
+		<td style="background:var(--color-dark-contrast-700)"></td>
+		<td style="background:var(--color-dark-contrast-800)"></td>
+		<td style="background:var(--color-dark-contrast-900)"></td>
+		<td style="background:var(--color-dark-contrast-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-primary-</code></th>
+		<td style="background:var(--color-primary-50)"></td>
+		<td style="background:var(--color-primary-100)"></td>
+		<td style="background:var(--color-primary-200)"></td>
+		<td style="background:var(--color-primary-300)"></td>
+		<td style="background:var(--color-primary-400)"></td>
+		<td style="background:var(--color-primary-500)"></td>
+		<td style="background:var(--color-primary-600)"></td>
+		<td style="background:var(--color-primary-700)"></td>
+		<td style="background:var(--color-primary-800)"></td>
+		<td style="background:var(--color-primary-900)"></td>
+		<td style="background:var(--color-primary-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-dark-primary-</code></th>
+		<td style="background:var(--color-dark-primary-50)"></td>
+		<td style="background:var(--color-dark-primary-100)"></td>
+		<td style="background:var(--color-dark-primary-200)"></td>
+		<td style="background:var(--color-dark-primary-300)"></td>
+		<td style="background:var(--color-dark-primary-400)"></td>
+		<td style="background:var(--color-dark-primary-500)"></td>
+		<td style="background:var(--color-dark-primary-600)"></td>
+		<td style="background:var(--color-dark-primary-700)"></td>
+		<td style="background:var(--color-dark-primary-800)"></td>
+		<td style="background:var(--color-dark-primary-900)"></td>
+		<td style="background:var(--color-dark-primary-950)"></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List.SubList]]
+Title = '颜色系统'
+HTML = '''
+这元件有供应自己的颜色系统如下（例子：第 1 行 第 2 列是
+<code>--color-typography-100</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>50</code></th>
+		<th><code>100</code></th>
+		<th><code>200</code></th>
+		<th><code>300</code></th>
+		<th><code>400</code></th>
+		<th><code>500</code></th>
+		<th><code>600</code></th>
+		<th><code>700</code></th>
+		<th><code>800</code></th>
+		<th><code>900</code></th>
+		<th><code>950</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--color-typography-</code></th>
+		<td style="background:var(--color-typography-50)"></td>
+		<td style="background:var(--color-typography-100)"></td>
+		<td style="background:var(--color-typography-200)"></td>
+		<td style="background:var(--color-typography-300)"></td>
+		<td style="background:var(--color-typography-400)"></td>
+		<td style="background:var(--color-typography-500)"></td>
+		<td style="background:var(--color-typography-600)"></td>
+		<td style="background:var(--color-typography-700)"></td>
+		<td style="background:var(--color-typography-800)"></td>
+		<td style="background:var(--color-typography-900)"></td>
+		<td style="background:var(--color-typography-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-dark-typography-</code></th>
+		<td style="background:var(--color-dark-typography-50)"></td>
+		<td style="background:var(--color-dark-typography-100)"></td>
+		<td style="background:var(--color-dark-typography-200)"></td>
+		<td style="background:var(--color-dark-typography-300)"></td>
+		<td style="background:var(--color-dark-typography-400)"></td>
+		<td style="background:var(--color-dark-typography-500)"></td>
+		<td style="background:var(--color-dark-typography-600)"></td>
+		<td style="background:var(--color-dark-typography-700)"></td>
+		<td style="background:var(--color-dark-typography-800)"></td>
+		<td style="background:var(--color-dark-typography-900)"></td>
+		<td style="background:var(--color-dark-typography-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-contrast-</code></th>
+		<td style="background:var(--color-contrast-50)"></td>
+		<td style="background:var(--color-contrast-100)"></td>
+		<td style="background:var(--color-contrast-200)"></td>
+		<td style="background:var(--color-contrast-300)"></td>
+		<td style="background:var(--color-contrast-400)"></td>
+		<td style="background:var(--color-contrast-500)"></td>
+		<td style="background:var(--color-contrast-600)"></td>
+		<td style="background:var(--color-contrast-700)"></td>
+		<td style="background:var(--color-contrast-800)"></td>
+		<td style="background:var(--color-contrast-900)"></td>
+		<td style="background:var(--color-contrast-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-dark-contrast-</code></th>
+		<td style="background:var(--color-dark-contrast-50)"></td>
+		<td style="background:var(--color-dark-contrast-100)"></td>
+		<td style="background:var(--color-dark-contrast-200)"></td>
+		<td style="background:var(--color-dark-contrast-300)"></td>
+		<td style="background:var(--color-dark-contrast-400)"></td>
+		<td style="background:var(--color-dark-contrast-500)"></td>
+		<td style="background:var(--color-dark-contrast-600)"></td>
+		<td style="background:var(--color-dark-contrast-700)"></td>
+		<td style="background:var(--color-dark-contrast-800)"></td>
+		<td style="background:var(--color-dark-contrast-900)"></td>
+		<td style="background:var(--color-dark-contrast-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-primary-</code></th>
+		<td style="background:var(--color-primary-50)"></td>
+		<td style="background:var(--color-primary-100)"></td>
+		<td style="background:var(--color-primary-200)"></td>
+		<td style="background:var(--color-primary-300)"></td>
+		<td style="background:var(--color-primary-400)"></td>
+		<td style="background:var(--color-primary-500)"></td>
+		<td style="background:var(--color-primary-600)"></td>
+		<td style="background:var(--color-primary-700)"></td>
+		<td style="background:var(--color-primary-800)"></td>
+		<td style="background:var(--color-primary-900)"></td>
+		<td style="background:var(--color-primary-950)"></td>
+	</tr>
+	<tr>
+		<th><code>--color-dark-primary-</code></th>
+		<td style="background:var(--color-dark-primary-50)"></td>
+		<td style="background:var(--color-dark-primary-100)"></td>
+		<td style="background:var(--color-dark-primary-200)"></td>
+		<td style="background:var(--color-dark-primary-300)"></td>
+		<td style="background:var(--color-dark-primary-400)"></td>
+		<td style="background:var(--color-dark-primary-500)"></td>
+		<td style="background:var(--color-dark-primary-600)"></td>
+		<td style="background:var(--color-dark-primary-700)"></td>
+		<td style="background:var(--color-dark-primary-800)"></td>
+		<td style="background:var(--color-dark-primary-900)"></td>
+		<td style="background:var(--color-dark-primary-950)"></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+这元件有供应自己的颜色系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Indicator Color System'
+HTML = '''
+The standard engineering indication system are also supplied for safety use.
+The are shown as follows (E.g. row 1 column 2 is
+<code>--body-color-indicator-yellow</code>):
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th><code>red</code></th>
+		<th><code>yellow</code></th>
+		<th><code>green</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--body-color-indicator-</code></th>
+		<td style="background:var(--body-color-indicator-red)"></td>
+		<td style="background:var(--body-color-indicator-yellow)"></td>
+		<td style="background:var(--body-color-indicator-green)"></td>
+	</tr>
+	<tr>
+		<th><code>--body-background-indicator-</code></th>
+		<td style="background:var(--body-background-indicator-red)"></td>
+		<td style="background:var(--body-background-indicator-yellow)"></td>
+		<td style="background:var(--body-background-indicator-green)"></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+The standard engineering indication system are also supplied for safety use.
+See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '标准工程颜色系统'
+HTML = '''
+这元件有供应标准工程颜色系统如下（例子：第 1 行 第 2 列是
+<code>--body-color-indicator-yellow</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>red</code></th>
+		<th><code>yellow</code></th>
+		<th><code>green</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--body-color-indicator-</code></th>
+		<th style="background:var(--body-color-indicator-red)"></th>
+		<th style="background:var(--body-color-indicator-yellow)"></th>
+		<th style="background:var(--body-color-indicator-green)"></th>
+	</tr>
+	<tr>
+		<th><code>--body-background-indicator-</code></th>
+		<th style="background:var(--body-background-indicator-red)"></th>
+		<th style="background:var(--body-background-indicator-yellow)"></th>
+		<th style="background:var(--body-background-indicator-green)"></th>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+这元件有供应标准工程颜色系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Unified Typography Color System'
+HTML = '''
+The unified typography color system are also supplied for common readability.
+The are shown as follows (E.g. row 1 column 2 is
+<code>--body-color-inverted</code>):
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th><code>color</code></th>
+		<th><code>color-inverted</code></th>
+		<th><code>color-print</code></th>
+		<th><code>background</code></th>
+		<th><code>background-inverted</code></th>
+		<th><code>background-print</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--body-</code></th>
+		<td style="background:var(--body-color)"></td>
+		<td style="background:var(--body-color-inverted)"></td>
+		<td style="background:var(--body-color-print)"></td>
+		<td style="background:var(--body-background)"></td>
+		<td style="background:var(--body-background-inverted)"></td>
+		<td style="background:var(--body-background-print)"></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+The unified typography color system are also supplied for readability.
+See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '统一字形颜色系统'
+HTML = '''
+这元件有供应统一字形颜色系统如下（例子：第 1 行 第 2 列是
+<code>--body-color-inverted</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>color</code></th>
+		<th><code>color-inverted</code></th>
+		<th><code>color-print</code></th>
+		<th><code>background</code></th>
+		<th><code>background-inverted</code></th>
+		<th><code>background-print</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--body-</code></th>
+		<td style="background:var(--body-color)"></td>
+		<td style="background:var(--body-color-inverted)"></td>
+		<td style="background:var(--body-color-print)"></td>
+		<td style="background:var(--body-background)"></td>
+		<td style="background:var(--body-background-inverted)"></td>
+		<td style="background:var(--body-background-print)"></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+这元件有供应统一字形颜色系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Animation Timing System'
+HTML = '''
+This component also supplies consistent animation timing system.
+The are shown as follows (E.g. row 1 column 2 is
+<code>--timing-fast</code>):
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th><code>rapid</code></th>
+		<th><code>fast</code></th>
+		<th><code>normal</code></th>
+		<th><code>slow</code></th>
+		<th><code>slowest</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--timing-</code></th>
+		<td><code>.2s</code></td>
+		<td><code>.3s</code></td>
+		<td><code>.4s</code></td>
+		<td><code>.5s</code></td>
+		<td><code>.8s</code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+This component also supplies consistent animation timing system.
+See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '动画定时系统'
+HTML = '''
+这元件有供应动画定时系统如下（例子：第 1 行 第 2 列是
+<code>--timing-fast</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>rapid</code></th>
+		<th><code>fast</code></th>
+		<th><code>normal</code></th>
+		<th><code>slow</code></th>
+		<th><code>slowest</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--timing-</code></th>
+		<td><code>.2s</code></td>
+		<td><code>.3s</code></td>
+		<td><code>.4s</code></td>
+		<td><code>.5s</code></td>
+		<td><code>.8s</code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+
+这元件有供应动画定时系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Base Font System'
+HTML = '''
+The base font system are supplied for basic use. The are shown as follows
+(E.g. row 1 column 2 is <code>--body-font-size</code>):
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th><code>font-family</code></th>
+		<th><code>font-size</code></th>
+		<th><code>font-size-print</code></th>
+		<th><code>font-weight</code></th>
+		<th><code>letter-spacing</code></th>
+		<th><code>line-height</code></th>
+		<th><code>text-align</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--body-</code></th>
+		<td><code>"Roboto", "Helvetica Neue", "sans-serif"</code></td>
+		<td><code>1.8rem</code></td>
+		<td><code>12pt</code></td>
+		<td><code>normal</code></td>
+		<td><code>.01rem</code></td>
+		<td><code>1.6</code></td>
+		<td><code>center</code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+The base font system are supplied for basic use.
+See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '基本字体系统'
+HTML = '''
+这元件有供应基本字体系统如下（例子：第 1 行 第 2 列是
+<code>--body-font-size</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>font-family</code></th>
+		<th><code>font-size</code></th>
+		<th><code>font-size-print</code></th>
+		<th><code>font-weight</code></th>
+		<th><code>letter-spacing</code></th>
+		<th><code>line-height</code></th>
+		<th><code>text-align</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--body-</code></th>
+		<td><code>\"Roboto\", \"Helvetica Neue\", \"sans-serif\"</code></td>
+		<td><code>1.8rem</code></td>
+		<td><code>12pt</code></td>
+		<td><code>normal</code></td>
+		<td><code>.01rem</code></td>
+		<td><code>1.6</code></td>
+		<td><code>center</code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+这元件有供应基本字体系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Typography System'
+HTML = '''
+This component also supplies a consistent typography system.
+They are shown as follows (E.g. row 1 column 2 is
+<code>--h1-font-style</code>):
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th><code>font-size</code></th>
+		<th><code>font-style</code></th>
+		<th><code>line-height</code></th>
+		<th><code>letter-spacing</code></th>
+		<th><code>margin</code></th>
+		<th><code>padding</code></th>
+		<th><code>text-decoration</code></th>
+		<th><code>text-align</code></th>
+		<th><code>word-wrap</code></th>
+		<th><code>decoration-color</code></th>
+		<th><code>border-bottom</code></th>
+		<th><code>border-bottom-inverted</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--h1-</code></th>
+		<td><code>4rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.2</code></td>
+		<td><code>-.1rem</code></td>
+		<td><code>2rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>underline</code></td>
+		<td><code>left</code></td>
+		<td><code>break-word</code></td>
+		<td><code>var(--color-primary-300)</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h2-</code></th>
+		<td><code>3.5rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.25</code></td>
+		<td><code>-.1rem</code></td>
+		<td><code>10rem 0 2rem</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>break-word</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h3-</code></th>
+		<td><code>2.5rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.3</code></td>
+		<td><code>-.1rem</code></td>
+		<td><code>7rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>break-word</code></td>
+		<td><code>initial</code></td>
+		<td><code>1px solid var(--color-primary-500)</code></td>
+		<td><code>1px solid var(--color-primary-300)</code></td>
+	</tr>
+	<tr>
+		<th><code>--h4-</code></th>
+		<td><code>2.2rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.35</code></td>
+		<td><code>-.08rem</code></td>
+		<td><code>4.5rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>underline</code></td>
+		<td><code>left</code></td>
+		<td><code>normal</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h5-</code></th>
+		<td><code>1.8rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.5</code></td>
+		<td><code>-.05rem</code></td>
+		<td><code>4.5rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>normal</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h6-</code></th>
+		<td><code>1.8rem</code></td>
+		<td><code>italic</code></td>
+		<td><code>1.5</code></td>
+		<td><code>0</code></td>
+		<td><code>4.5rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>normal</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--p-</code></th>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code>0</code></td>
+		<td><code>1rem</code></td>
+		<td><code></code></td>
+		<td><code>left</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+This component also supplies a consistent typography system.
+See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '字形系统'
+HTML = '''
+这元件有供应字形系统如下（例子：第 1 行 第 2 列是
+<code>--h1-font-style</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>font-size</code></th>
+		<th><code>font-style</code></th>
+		<th><code>line-height</code></th>
+		<th><code>letter-spacing</code></th>
+		<th><code>margin</code></th>
+		<th><code>padding</code></th>
+		<th><code>text-decoration</code></th>
+		<th><code>text-align</code></th>
+		<th><code>word-wrap</code></th>
+		<th><code>decoration-color</code></th>
+		<th><code>border-bottom</code></th>
+		<th><code>border-bottom-inverted</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--h1-</code></th>
+		<td><code>4rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.2</code></td>
+		<td><code>-.1rem</code></td>
+		<td><code>2rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>underline</code></td>
+		<td><code>left</code></td>
+		<td><code>break-word</code></td>
+		<td><code>var(--color-primary-300)</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h2-</code></th>
+		<td><code>3.5rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.25</code></td>
+		<td><code>-.1rem</code></td>
+		<td><code>12rem 0 2rem</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>break-word</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h3-</code></th>
+		<td><code>2.5rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.3</code></td>
+		<td><code>-.1rem</code></td>
+		<td><code>7rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>break-word</code></td>
+		<td><code>initial</code></td>
+		<td><code>1px solid var(--color-primary-500)</code></td>
+		<td><code>1px solid var(--color-primary-300)</code></td>
+	</tr>
+	<tr>
+		<th><code>--h4-</code></th>
+		<td><code>2.2rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.35</code></td>
+		<td><code>-.08rem</code></td>
+		<td><code>4.5rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>underline</code></td>
+		<td><code>left</code></td>
+		<td><code>normal</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h5-</code></th>
+		<td><code>1.8rem</code></td>
+		<td><code>normal</code></td>
+		<td><code>1.5</code></td>
+		<td><code>-.05rem</code></td>
+		<td><code>4.5rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>normal</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--h6-</code></th>
+		<td><code>1.8rem</code></td>
+		<td><code>italic</code></td>
+		<td><code>1.5</code></td>
+		<td><code>0</code></td>
+		<td><code>4.5rem 0 0</code></td>
+		<td><code>0</code></td>
+		<td><code>none</code></td>
+		<td><code>left</code></td>
+		<td><code>normal</code></td>
+		<td><code>initial</code></td>
+		<td><code>none</code></td>
+		<td><code>none</code></td>
+	</tr>
+	<tr>
+		<th><code>--p-</code></th>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code>0</code></td>
+		<td><code>1rem</code></td>
+		<td><code></code></td>
+		<td><code>left</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+这元件有供应字形系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Z-Index System'
+HTML = '''
+This component also supplies its own z-index layering system where it is applied
+by default to the page entirely. It is designed to use the uppermost layer and
+subtraction from there (e.g.
+<code>calc(var(--z-index-max) - var(--z-index-content))</code>). The 2
+exceptions are <code>--z-index-hidden</code> and <code>--z-index-max</code>
+where they can be used directly.
+They are shown as follows:
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th>Value</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--z-index-max</code></th>
+		<td><code>2147483647</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-max-overlay</code></th>
+		<td><code>1</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-nav-top</code></th>
+		<td><code>2</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-nav</code></th>
+		<td><code>3</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-nav-overlay</code></th>
+		<td><code>4</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-content-top</code></th>
+		<td><code>5</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-content</code></th>
+		<td><code>6</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-content-overlay</code></th>
+		<td><code>7</code></td>
+	</tr>
+	<tr>
+		<th><code>--z-index-hidden</code></th>
+		<td><code>-1</code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+This component also supplies consistent animation timing system.
+See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '动画定时系统'
+HTML = '''
+这元件有供应动画定时系统如下（例子：第 1 行 第 2 列是
+<code>--timing-fast</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>rapid</code></th>
+		<th><code>fast</code></th>
+		<th><code>normal</code></th>
+		<th><code>slow</code></th>
+		<th><code>slowest</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--timing-</code></th>
+		<td><code>.2s</code></td>
+		<td><code>.3s</code></td>
+		<td><code>.4s</code></td>
+		<td><code>.5s</code></td>
+		<td><code>.8s</code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+
+这元件有供应动画定时系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Layout System'
+HTML = '''
+This component also supplies some customizable layout system. They are shown as
+follows (e.g. row 1 column 2 is <code>--main-min-width</code>):
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>Variant</th>
+		<th><code>grid-area</code></th>
+		<th><code>min-width</code></th>
+		<th><code>width</code></th>
+		<th><code>max-width</code></th>
+		<th><code>padding-top</code></th>
+		<th><code>padding-left</code></th>
+		<th><code>padding-bottom</code></th>
+		<th><code>padding-right</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--main</code></th>
+		<td><code>content</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>10rem</code></td>
+		<td><code>10%</code></td>
+		<td><code>10rem</code></td>
+		<td><code>10%</code></td>
+	</tr>
+	<tr>
+		<th><code>--footer</code></th>
+		<td><code>footer</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>3.5rem</code></td>
+		<td><code>10%</code></td>
+		<td><code>3.5rem</code></td>
+		<td><code>10%</code></td>
+	</tr>
+	<tr>
+		<th><code>--leftnav</code></th>
+		<td><code>leftnav</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+	<tr>
+		<th><code>--rightnav</code></th>
+		<td><code>rightnav</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+	<tr>
+		<th><code>--topnav</code></th>
+		<td><code>topnav</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+This component also supplies consistent animation timing system.
+See HTML page for list of variables.
+'''
+Code = '''
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '布局系统'
+HTML = '''
+这元件有供可自定的布局系统如下（例子：第 1 行 第 2 列是
+<code>--main-min-width</code>）：
+<br/><br/>
+<div style="display:flex;justify-content:center"><table>
+<thead>
+	<tr>
+		<th>类型</th>
+		<th><code>grid-area</code></th>
+		<th><code>min-width</code></th>
+		<th><code>width</code></th>
+		<th><code>max-width</code></th>
+		<th><code>padding-top</code></th>
+		<th><code>padding-left</code></th>
+		<th><code>padding-bottom</code></th>
+		<th><code>padding-right</code></th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th><code>--main</code></th>
+		<td><code>content</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>10rem</code></td>
+		<td><code>10%</code></td>
+		<td><code>10rem</code></td>
+		<td><code>10%</code></td>
+	</tr>
+	<tr>
+		<th><code>--footer</code></th>
+		<td><code>footer</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>100%</code></td>
+		<td><code>3.5rem</code></td>
+		<td><code>10%</code></td>
+		<td><code>3.5rem</code></td>
+		<td><code>10%</code></td>
+	</tr>
+	<tr>
+		<th><code>--leftnav</code></th>
+		<td><code>leftnav</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+	<tr>
+		<th><code>--rightnav</code></th>
+		<td><code>rightnav</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+	<tr>
+		<th><code>--topnav</code></th>
+		<td><code>topnav</code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+		<td><code></code></td>
+	</tr>
+</tbody>
+</table></div>
+'''
+Plain = '''
+
+这元件有供应动画定时系统。请详寻HTML网页查询数码值。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Scroll Behavior'
+HTML = '''
+Affects the scrolling behavior of the page.
+'''
+Plain = '''
+Affects the scrolling behavior of the page.
+'''
+Code = '''
+VARIABLE     : --html-scroll-behavior
+CSS PROPERTY : scroll-behavior
+DEFAULT      : smooth (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Scroll Behavior'
+HTML = '''
+影响网页的移动反应。
+'''
+Plain = '''
+影响网页的移动反应。
+'''
+Code = '''
+变化值     : --html-scroll-behavior
+CSS属性    : scroll-behavior
+默认数码   : smooth (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Page Grid'
+HTML = '''
+Affects the base grid layout definition of the page.
+'''
+Plain = '''
+Affects the base grid layout definition of the page.
+'''
+Code = '''
+VARIABLE     : --body-grid
+CSS PROPERTY : grid
+DEFAULT      :
+(>= v1.2.0)
+	"content" auto
+	"footer" minmax(0, max-content)
+	"topnav" minmax(0, auto)
+	"leftnav" minmax(0, auto)
+	"rightnav" minmax(0, auto)
+	/ 100%
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '网页Grid'
+HTML = '''
+影响网页的移动反应。
+'''
+Plain = '''
+影响网页的移动反应。
+'''
+Code = '''
+变化值     : --body-grid
+CSS属性    : grid
+默认数码   :
+(>= v1.2.0)
+	"content" auto
+	"footer" minmax(0, max-content)
+	"topnav" minmax(0, auto)
+	"leftnav" minmax(0, auto)
+	"rightnav" minmax(0, auto)
+	/ 100%
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

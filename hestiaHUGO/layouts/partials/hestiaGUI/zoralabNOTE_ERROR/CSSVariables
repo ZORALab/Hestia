@@ -2,6 +2,6 @@
 "--note-title-error-border-color" = "var(--body-color-indicator-red)"
 "--note-title-error-color" = "#fff"
 "--note-title-error-indicator-color" = "#fff"
-"--note-title-error-background" = "var(--body-background-indicator-red-inverted)"
+"--note-title-error-background" = "var(--body-color-indicator-red)"
 "--note-content-error-color" = "var(--body-color-indicator-red)"
 "--note-content-error-background" = "var(--body-background-indicator-red)"

@@ -50,9 +50,7 @@
 [[List]]
 Name = "zoralabCORE"
 Include = true
-Variables = [
-	{ "--body-scroll-behavior" = "smooth" },
-]
+Variables = []
 
 [[List]]
 Name = "googleFONT_NOTOSANS"
@@ -67,20 +65,17 @@ Variables = []
 [[List]]
 Name = "zoralabDRAWER_LEFT"
 Include = true
-Variables = [
-]
+Variables = []
 
 [[List]]
 Name = "zoralabDRAWER_TOP"
 Include = true
-Variables = [
-]
+Variables = []
 
 [[List]]
 Name = "zoralabDRAWER_RIGHT"
 Include = true
-Variables = [
-]
+Variables = []
 
 [[List]]
 Name = "zoralabANCHOR"

@@ -203,7 +203,7 @@ Affects the title's border color of the rendered component.
 Code = '''
 VARIABLE     : --note-title-warning-border-color
 CSS PROPERTY : border-color
-DEFAULT      : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+DEFAULT      : var(--body-color-indicator-yellow) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -222,7 +222,7 @@ Plain = '''
 Code = '''
 变化值     : --note-title-warning-border-color
 CSS属性    : border-color
-默认数码   : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+默认数码   : var(--body-color-indicator-yellow) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -242,7 +242,7 @@ Affects the title's color of the rendered component.
 Code = '''
 VARIABLE     : --note-title-warning-color
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+DEFAULT      : #FFF (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -261,7 +261,7 @@ Plain = '''
 Code = '''
 变化值     : --note-title-warning-color
 CSS属性    : color
-默认数码   : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+默认数码   : #FFF (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -281,7 +281,7 @@ Affects the title indicator's color of the rendered component.
 Code = '''
 VARIABLE     : --note-title-warning-indicator-color
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+DEFAULT      : #FFF (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -300,7 +300,7 @@ Plain = '''
 Code = '''
 变化值     : --note-title-warning-indicator-color
 CSS属性    : color
-默认数码   : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+默认数码   : #FFF (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -320,7 +320,7 @@ Affects the title's background of the rendered component.
 Code = '''
 VARIABLE     : --note-title-warning-background
 CSS PROPERTY : background
-DEFAULT      : var(--body-background-indicator-yellow-inverted) (>= v1.0.0)
+DEFAULT      : var(--body-color-indicator-yellow) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -339,7 +339,7 @@ Plain = '''
 Code = '''
 变化值     : --note-title-warning-background
 CSS属性    : background
-默认数码   : var(--body-background-indicator-yellow-inverted) (>= v1.0.0)
+默认数码   : var(--body-color-indicator-yellow) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -359,7 +359,7 @@ Affects the content's color of the rendered component.
 Code = '''
 VARIABLE     : --note-content-warning-color
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+DEFAULT      : var(--body-color-indicator-yellow) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -378,7 +378,7 @@ Plain = '''
 Code = '''
 变化值     : --note-content-warning-color
 CSS属性    : color
-默认数码   : var(--body-color-indicator-yellow-inverted) (>= v1.0.0)
+默认数码   : var(--body-color-indicator-yellow) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -398,7 +398,7 @@ Affects the content's background of the rendered component.
 Code = '''
 VARIABLE     : --note-content-warning-background
 CSS PROPERTY : background
-DEFAULT      : var(--body-background-indicator-yellow) (>= v1.0.0)
+DEFAULT      : var(--body-background-indicator-yellow) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -417,7 +417,7 @@ Plain = '''
 Code = '''
 变化值     : --note-content-warning-background
 CSS属性    : background
-默认数码   : var(--body-background-indicator-yellow) (>= v1.0.0)
+默认数码   : var(--body-background-indicator-yellow) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
