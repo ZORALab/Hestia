@@ -109,10 +109,13 @@ footer, .footer {
 	padding-right: 0;
 }
 
-.inverted,
-footer, .footer {
+.inverted, footer, .footer {
 	color: var(--body-color-inverted);
 	background: var(--body-background-inverted);
+}
+
+:is(main, footer) * {
+	transform-style: preserve-3d;
 }
 
 :is(main, footer) > * {

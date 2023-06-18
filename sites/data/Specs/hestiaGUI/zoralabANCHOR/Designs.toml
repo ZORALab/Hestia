@@ -1378,84 +1378,6 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Color (Focused)'
-HTML = '''
-Affects the color of the rendered component when focused.
-'''
-Plain = '''
-Affects the color of the rendered component when focused.
-'''
-Code = '''
-VARIABLE     : --anchor-color-focus
-CSS PROPERTY : color
-DEFAULT      : var(--color-primary-400) (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Color（被关注）'
-HTML = '''
-影响元件在被关注时的颜色。
-'''
-Plain = '''
-影响元件在被关注时的颜色。
-'''
-Code = '''
-变化值     : --anchor-color-focus
-CSS属性    : color
-默认数码   : var(--color-primary-400) (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Color (Inverted + Focused)'
-HTML = '''
-Affects the color of the rendered component when focused during inverted mode.
-'''
-Plain = '''
-Affects the color of the rendered component when focused during inverted mode.
-'''
-Code = '''
-VARIABLE     : --anchor-color-focus-inverted
-CSS PROPERTY : color
-DEFAULT      : var(--color-primary-400) (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Color（反转环境+被关注）'
-HTML = '''
-影响元件在反转环境里被关注时的颜色。
-'''
-Plain = '''
-影响元件在反转环境里被关注时的颜色。
-'''
-Code = '''
-变化值     : --anchor-color-focus-inverted
-CSS属性    : color
-默认数码   : var(--color-primary-400) (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
 Title = 'Color (Print Mode)'
 HTML = '''
 Affects the color of the rendered component during print mode.
@@ -1505,7 +1427,7 @@ Affects the text decoration color of the rendered component.
 Code = '''
 VARIABLE     : --anchor-text-decoration-color
 CSS PROPERTY : text-decoration-color
-DEFAULT      : initial (>= v1.2.0)
+DEFAULT      : var(--anchor-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1524,46 +1446,7 @@ Plain = '''
 Code = '''
 变化值     : --anchor-text-decoration-color
 CSS属性    : text-decoration-color
-默认数码   : initial (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Text Decoration Color (Inverted)'
-HTML = '''
-Affects the text decoration color of the rendered component during inverted mode.
-'''
-Plain = '''
-Affects the text decoration color of the rendered component during inverted mode.
-'''
-Code = '''
-VARIABLE     : --anchor-text-decoration-color-inverted
-CSS PROPERTY : text-decoration-color
-DEFAULT      : initial (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Text Decoration Color（反转环境）'
-HTML = '''
-影响元件在反转环境里字体装饰的颜色。
-'''
-Plain = '''
-影响元件在反转环境里字体装饰的颜色。
-'''
-Code = '''
-变化值     : --anchor-text-decoration-color-inverted
-CSS属性    : text-decoration-color
-默认数码   : initial (>= v1.2.0)
+默认数码   : var(--anchor-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1612,45 +1495,6 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Background (Inverted)'
-HTML = '''
-Affects the background of the rendered component during inverted mode.
-'''
-Plain = '''
-Affects the background of the rendered component during inverted mode.
-'''
-Code = '''
-VARIABLE     : --anchor-background-inverted
-CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Background（反转环境）'
-HTML = '''
-影响元件在反转环境里的颜色。
-'''
-Plain = '''
-影响元件在反转环境里的颜色。
-'''
-Code = '''
-变化值     : --anchor-background-inverted
-CSS属性    : background
-默认数码   : transparent (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
 Title = 'Background (Focused)'
 HTML = '''
 Affects the background of the rendered component when focused.
@@ -1679,45 +1523,6 @@ Plain = '''
 '''
 Code = '''
 变化值     : --anchor-background-focus
-CSS属性    : background
-默认数码   : var(--color-contrast-50) (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Background (Inverted - Focused)'
-HTML = '''
-Affects the background of the rendered component when focused during inverted mode.
-'''
-Plain = '''
-Affects the background of the rendered component when focused during inverted mode.
-'''
-Code = '''
-VARIABLE     : --anchor-background-focus-inverted
-CSS PROPERTY : background
-DEFAULT      : var(--color-contrast-50) (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Background（反转环境+被关注）'
-HTML = '''
-影响元件在反转环境里被关注时的背景。
-'''
-Plain = '''
-影响元件在反转环境里被关注时的背景。
-'''
-Code = '''
-变化值     : --anchor-background-focus-inverted
 CSS属性    : background
 默认数码   : var(--color-contrast-50) (>= v1.2.0)
 '''
@@ -1846,45 +1651,6 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Box Shadow (Inverted + Focused)'
-HTML = '''
-Affects the box shadowing of the rendered component when focused during inverted mode.
-'''
-Plain = '''
-Affects the box shadowing of the rendered component when focused during inverted mode.
-'''
-Code = '''
-VARIABLE     : --anchor-box-shadow-focus-inverted
-CSS PROPERTY : box-shadow
-DEFAULT      : 0 .5rem 1rem var(--color-typography-200) (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Box Shadow (反转环境+被关注)'
-HTML = '''
-影响元件在反转环境里被关注时的影子。
-'''
-Plain = '''
-影响元件在反转环境里被关注时的影子。
-'''
-Code = '''
-变化值     : --anchor-box-shadow-focus-inverted
-CSS属性    : box-shadow
-默认数码   : 0 .5rem 1rem var(--color-typography-200) (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
 Title = 'Transition'
 HTML = '''
 Affects the animation timing of the rendered component.
@@ -1895,7 +1661,7 @@ Affects the animation timing of the rendered component.
 Code = '''
 VARIABLE     : --anchor-transition
 CSS PROPERTY : transition
-DEFAULT      : var(--timing-rapid) (>= v1.0.0)
+DEFAULT      : var(--timing-rapid) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1914,7 +1680,7 @@ Plain = '''
 Code = '''
 变化值     : --anchor-transition
 CSS属性    : transition
-默认数码   : var(--timing-rapid) (>= v1.0.0)
+默认数码   : var(--timing-rapid) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -2041,15 +1807,15 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Prestige Color (Focused)'
+Title = 'Prestige Color'
 HTML = '''
-Affects the color of the rendered component when focused.
+Affects the color of the rendered component in prestige style.
 '''
 Plain = '''
-Affects the color of the rendered component when focused.
+Affects the color of the rendered component in prestige style.
 '''
 Code = '''
-VARIABLE     : --anchor-prestige-color-focus
+VARIABLE     : --anchor-prestige-color
 CSS PROPERTY : color
 DEFAULT      : var(--color-contrast-300) (>= v1.2.0)
 '''
@@ -2060,95 +1826,17 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = '盛誉Color（被关注）'
+Title = '盛誉Color'
 HTML = '''
-影响元件在盛誉风格里被关注时的颜色。
+影响元件在盛誉风格里的颜色。
 '''
 Plain = '''
-影响元件在盛誉风格里被关注时的颜色。
+影响元件在盛誉风格里的颜色。
 '''
 Code = '''
-变化值     : --anchor-prestige-color-focus
+变化值     : --anchor-prestige-color
 CSS属性    : color
 默认数码   : var(--color-contrast-300) (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Prestige Background'
-HTML = '''
-Affects the background of the rendered component in prestige style.
-'''
-Plain = '''
-Affects the background of the rendered component in prestige style.
-'''
-Code = '''
-VARIABLE     : --anchor-prestige-background
-CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = '盛誉Background'
-HTML = '''
-影响元件在盛誉风格里被关注时的背景。
-'''
-Plain = '''
-影响元件在盛誉风格里被关注时的背景。
-'''
-Code = '''
-变化值     : --anchor-prestige-background
-CSS属性    : background
-默认数码   : transparent (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Prestige Background (Focused)'
-HTML = '''
-Affects the background of the rendered component when focused in prestige style.
-'''
-Plain = '''
-Affects the background of the rendered component when focused in prestige style.
-'''
-Code = '''
-VARIABLE     : --anchor-prestige-background-focus
-CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = '盛誉Background（被关注）'
-HTML = '''
-影响元件在盛誉风格里被关注时的背景。
-'''
-Plain = '''
-影响元件在盛誉风格里被关注时的背景。
-'''
-Code = '''
-变化值     : --anchor-prestige-background-focus
-CSS属性    : background
-默认数码   : transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

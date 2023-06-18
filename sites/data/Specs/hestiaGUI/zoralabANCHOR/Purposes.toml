@@ -4,17 +4,19 @@ HTML = '''
 This package's primary purpose is to provide user interface (UI) styling
 specifically for anchor link values. In web UI, it is shown as follows:
 <br/><br/>
-<span>
-'<i>This paragraph has an anchor link which looks like <a href="#">this</a> and
-ends with a clean paragraph.</i>'
-</span>
+<p>
+<i>This paragraph has an anchor link which looks like <a href="#">this</a> and
+ends with a clean paragraph.</i>
+</p>
+<br/><br/>
+<div class='inverted'><p>
+<i>This paragraph has an anchor link which looks like <a href="#">this</a> and
+ends with a clean paragraph.</i>
+</p></div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for anchor link values. In web UI, it is shown as follows:
-
-'<i>This paragraph has an anchor link which looks like <a href="#">this</a> and
-ends with a clean paragraph.</i>'
+specifically for anchor link values.
 '''
 Code = '''
 '''
@@ -30,16 +32,16 @@ HTML = '''
 这个软件包的出生主要是支持渲染链接像界面元件。在网络界面世界里，这元件的成果如
 下：
 <br/><br/>
-<span>
-'<i>这段文字有链接像<a href='#'>这个</a>然后以普通文字来终结啦。</i>'
-</span>
+<p>
+<i>这段文字有链接像<a href='#'>这个</a>然后以普通文字来终结啦。</i>
+</p>
 <br/><br/>
+<div class='inverted'><p>
+<i>这段文字有链接像<a href='#'>这个</a>然后以普通文字来终结啦。</i>
+</p></div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染链接像界面元件。在网络界面世界里，这元件的成果如
-下：
-
-'<i>这段文字有链接像<a href='#'>这个</a>然后以普通文字来终结啦。</i>'
+这个软件包的出生主要是支持渲染链接像界面元件。
 '''
 Code = '''
 '''

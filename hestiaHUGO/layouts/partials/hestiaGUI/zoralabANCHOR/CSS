@@ -55,26 +55,14 @@ a {
 }
 
 :is(.inverted, footer, .footer) a {
-	--anchor-color: var(--anchor-color-inverted);
-	--anchor-background: var(--anchor-background-inverted);
-
-	text-decoration-color: var(--anchor-text-decoration-color-inverted);
+	color: var(--anchor-color-inverted);
 }
 
 a:is(:hover, :focus) {
-	color: var(--anchor-color-focus);
-	border-color: var(--anchor-color-focus);
+	color: var(--anchor-color);
+	border-color: currentColor;
 	background: var(--anchor-background-focus);
-	box-shadow: var(--anchor-box-shadow-focus);
-
 	transform: var(--anchor-transform-focus);
-}
-
-:is(.inverted, footer, .footer) a:is(:hover, :focus) {
-	color: var(--anchor-color-focus-inverted);
-	border-color: var(--anchor-color-focus-inverted);
-	box-shadow: var(--anchor-box-shadow-focus-inverted);
-	background: var(--anchor-background-focus-inverted);
 }
 
 a:active {
@@ -84,22 +72,15 @@ a:active {
 :is(a.warp, a.wrap:hover, a.wrap:focus) {
 	color: transparent;
 	background: transparent;
-	border-top: none;
-	border-bottom: none;
+	border-color: transparent;
 	box-shadow: none;
 }
 
 a.prestige {
 	font-weight: var(--anchor-prestige-font-weight);
 	text-transform: var(--anchor-prestige-text-transform);
-
-	background: var(--anchor-prestige-background);
-}
-
-a.prestige:is(:hover, :focus) {
-	color: var(--anchor-prestige-color-focus);
-	border-color: var(--anchor-prestige-color-focus);
-	background: var(--anchor-prestige-background-focus);
+	color: var(--anchor-prestige-color);
+	background: transparent;
 }
 
 @media print {
@@ -107,10 +88,8 @@ a.prestige:is(:hover, :focus) {
 		overflow-wrap: var(--anchor-overflow-wrap-print) !important;
 		word-break: var(--anchor-overflow-word-break) !important;
 
-		border-top: none !important;
-		border-color: var(--anchor-color-print) !important;
-
 		color: var(--anchor-color-print) !important;
+		border-color: var(--anchor-color-print) !important;
 		background: var(--anchor-color-background-print) !important;
 	}
 
