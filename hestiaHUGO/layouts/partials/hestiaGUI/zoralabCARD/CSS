@@ -100,6 +100,17 @@ specific language governing permissions and limitations under the License.
 	h4, .h4,
 	h5, .h5,
 	h6, .h6
+) {
+	padding: var(--card-content-padding);
+}
+
+.card :is(.content, .actions) :is(
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6
 ):first-child {
 	margin: var(--card-title-margin);
 }

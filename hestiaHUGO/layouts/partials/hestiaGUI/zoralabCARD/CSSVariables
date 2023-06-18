@@ -46,7 +46,7 @@
 "--card-content-height" = "max-content"
 
 "--card-content-margin" = "0"
-"--card-content-padding" = "0"
+"--card-content-padding" = "0 1rem"
 
 
 
