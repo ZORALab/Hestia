@@ -191,20 +191,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -265,7 +265,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --badge-border
 CSS PROPERTY : border
-DEFAULT      : 2px solid transparent (>= v1.2.0)
+DEFAULT      : none (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -284,7 +284,7 @@ Plain = '''
 Code = '''
 变化值     : --badge-border
 CSS属性    : border
-默认数码   : 2px solid transparent (>= v1.2.0)
+默认数码   : none (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -304,7 +304,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --badge-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : .4rem (>= v1.2.0)
+DEFAULT      : .8rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -323,7 +323,7 @@ Plain = '''
 Code = '''
 变化值     : --badge-border-radius
 CSS属性    : border-radius
-默认数码   : .4rem (>= v1.2.0)
+默认数码   : .8rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -333,12 +333,12 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Ray Width'
+Title = 'Shining Ray Width'
 HTML = '''
-Affects the shining ray's of the rendered component.
+Affects the shining ray's width of the rendered component.
 '''
 Plain = '''
-Affects the shining ray's of the rendered component.
+Affects the shining ray's width of the rendered component.
 '''
 Code = '''
 VARIABLE     : --badge-width-shine
@@ -450,12 +450,12 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Shine Color'
+Title = 'Shining Ray Color'
 HTML = '''
-Affects the shining color of the rendered component.
+Affects the shining ray's color of the rendered component.
 '''
 Plain = '''
-Affects the color of the rendered component.
+Affects the shining ray's color of the rendered component.
 '''
 Code = '''
 VARIABLE     : --badge-color-shine
@@ -577,7 +577,7 @@ Affects the background of the rendered component during print mode.
 Code = '''
 VARIABLE     : --badge-background-print
 CSS PROPERTY : background
-DEFAULT      : #fff (>= v1.0.0)
+DEFAULT      : #fff (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -596,7 +596,7 @@ Plain = '''
 Code = '''
 变化值     : --badge-background-print
 CSS属性    : background
-默认数码   : #fff (>= v1.0.0)
+默认数码   : #fff (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -616,7 +616,7 @@ Affects the animation timing of the rendered component.
 Code = '''
 VARIABLE     : --badge-transition
 CSS PROPERTY : transition
-DEFAULT      : 1.3s (>= v1.0.0)
+DEFAULT      : 1.3s (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -635,7 +635,7 @@ Plain = '''
 Code = '''
 变化值     : --badge-transition
 CSS属性    : transition
-默认数码   : 1.3s (>= v1.0.0)
+默认数码   : 1.3s (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -694,7 +694,7 @@ Affects the title background of the rendered component.
 Code = '''
 VARIABLE     : --badge-title-background
 CSS PROPERTY : background
-DEFAULT      : #282828 (>= v1.2.0)
+DEFAULT      : #585858 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -713,7 +713,7 @@ Plain = '''
 Code = '''
 变化值     : --badge-title-background
 CSS属性    : background
-默认数码   : #282828 (>= v1.2.0)
+默认数码   : #585858 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

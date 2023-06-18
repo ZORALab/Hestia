@@ -27,16 +27,16 @@ specific language governing permissions and limitations under the License.
 	max-width: 100%;
 	height: max-content;
 
+	position: relative;
+	z-index: calc(var(--z-index-max) - var(--z-index-content));
+
 	font-size: var(--badge-font-size);
 
 	border: var(--badge-border);
 	border-radius: var(--badge-border-radius);
 	box-shadow: var(--badge-box-shadow);
-	box-shadow-color: transparent;
 
 	background: transparent;
-
-	position: relative;
 
 	transition: var(--badge-transition);
 }
@@ -45,11 +45,12 @@ specific language governing permissions and limitations under the License.
 	content: '';
 
 	width: var(--badge-width-shine);
-	height: 100%;
+	min-height: 100%;
 
 	position: absolute;
 	top: 0;
 	left: -50%;
+	z-index: calc(var(--z-index-max) - var(--z-index-content-top));
 
 	background: var(--badge-color-shine);
 
@@ -58,12 +59,12 @@ specific language governing permissions and limitations under the License.
 }
 
 .badge:is(:hover, :focus) {
+	border-color: var(--badge-color-shine);
 	box-shadow: var(--badge-box-shadow-shine);
 }
 
 .badge:is(:hover, :focus):before {
 	left: 200%;
-	background: var(--badge-color-shine);
 }
 
 .badge :first-child {
@@ -103,7 +104,6 @@ specific language governing permissions and limitations under the License.
 	color: var(--badge-color);
 	background: var(--badge-background);
 }
-
 
 @media print {
 	.badge {

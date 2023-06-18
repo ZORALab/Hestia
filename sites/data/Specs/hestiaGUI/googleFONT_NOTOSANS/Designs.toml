@@ -119,7 +119,7 @@ Value = ''
 Label = ''
 
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
 庆幸的是这个元件没有任何CSS改造的需求。放心吧！
 '''

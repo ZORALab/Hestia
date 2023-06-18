@@ -3,8 +3,8 @@
 "--badge-padding" = "0"
 
 
-"--badge-border" = "2px solid transparent"
-"--badge-border-radius" = ".4rem"
+"--badge-border" = "none"
+"--badge-border-radius" = ".8rem"
 
 
 "--badge-width-shine" = ".6rem"
@@ -36,7 +36,7 @@
 
 
 "--badge-title-color" = "#fafafa"
-"--badge-title-background" = "#282828"
+"--badge-title-background" = "#585858"
 
 
 
