@@ -15,11 +15,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-input[type='button'],
-input[type='reset'],
-input[type='submit'],
-button,
-.button {
+button, .button {
 	display: var(--button-display);
 	opacity: var(--button-opacity);
 
@@ -47,62 +43,33 @@ button,
 	transition: var(--button-transition);
 }
 
-:is(input[type='button'],
-	input[type='reset'],
-	input[type='submit'],
-	button,
-	.button
-).emphasize {
+:is(button, .button).emphasize {
 	color: var(--button-color-inverted);
 	background: var(--button-color);
 }
 
-:is(input[type='button'],
-	input[type='reset'],
-	input[type='submit'],
-	button,
-	.button
-):disabled {
+:is(button, .button):disabled {
 	box-shadow: none;
 	opacity: var(--button-opacity-disabled);
 }
 
-:is(input[type='button'],
-	input[type='reset'],
-	input[type='submit'],
-	button,
-	.button
-):not([disabled]):is(:hover, :focus) {
+:is(button, .button):not([disabled]):is(:hover, :focus) {
 	border: var(--button-border);
 	border-color: var(--button-color);
 	transform: var(--button-transform-focus);
 }
 
-:is(input[type='button'],
-	input[type='reset'],
-	input[type='submit'],
-	button,
-	.button
-):not(.emphasize):not([disabled]):is(:hover, :focus) {
+:is(button, .button):not(.emphasize):not([disabled]):is(:hover, :focus) {
 	color: var(--button-color-inverted);
 	background: var(--button-color);
 }
 
-:is(input[type='button'],
-	input[type='reset'],
-	input[type='submit'],
-	button,
-	.button
-):not([disabled]):active {
+:is(button, .button):not([disabled]):active {
 	box-shadow: none;
 }
 
 @media print {
-	input[type='button'],
-	input[type='reset'],
-	input[type='submit'],
-	button,
-	.button {
+	button, .button {
 		color: var(--button-color-print) !important;
 		border-color: var(--button-color-print) !important;
 		background: var(--button-background-print) !important;

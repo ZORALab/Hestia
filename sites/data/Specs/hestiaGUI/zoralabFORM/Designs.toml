@@ -1,0 +1,6245 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Plain = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Plain = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<form method='...' action='...'>
+	<fieldset>
+		<legend>Category Title</legend>
+		<fieldset>
+			<label>Field 1</label>
+			<input ...>
+		</fieldset>
+
+
+		<fieldset>
+			<label>Field 2</label>
+			<input ...>
+		</fieldset>
+
+
+		...
+	</fieldset>
+
+	...
+</form>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '最小的HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<form method='...' action='...'>
+	<fieldset>
+		<legend>类型标题</legend>
+		<fieldset>
+			<label>数据格1</label>
+			<input ...>
+		</fieldset>
+
+
+		<fieldset>
+			<label>数据格2</label>
+			<input ...>
+		</fieldset>
+
+
+		...
+	</fieldset>
+
+	...
+</form>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Responsive Grid Layout HTML'
+HTML = '''
+The responsive grid layout HTML codes are shown below:
+'''
+Plain = '''
+The responsive grid layout HTML codes are shown below:
+'''
+Code = '''
+<form method='...' action='...'><div class='row'>
+	<div class='column'><fieldset>
+		<legend>Category Title</legend>
+
+
+		<div class='row'>
+			<div class='column'><fieldset>
+				<label>Field 1</label>
+				<input ...>
+			</fieldset></div>
+
+			<div class='column'><fieldset>
+				<label>Field 2</label>
+				<input ...>
+			</fieldset></div>
+
+			...
+		</div>
+	</fieldset></div>
+
+	...
+</div></form>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '响应性网格布局的HTML'
+HTML = '''
+响应性网格布局的HTML代码运用方法如下：
+'''
+Plain = '''
+响应性网格布局的HTML代码运用方法如下：
+'''
+Code = '''
+<form method='...' action='...'><div class='row'>
+	<div class='column'><fieldset>
+		<legend>类型标题</legend>
+
+
+		<div class='row'>
+			<div class='column'><fieldset>
+				<label>数据格1</label>
+				<input ...>
+			</fieldset></div>
+
+			<div class='column'><fieldset>
+				<label>数据格2</label>
+				<input ...>
+			</fieldset></div>
+
+			...
+		</div>
+	</fieldset></div>
+
+	...
+</div></form>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Disabled Field HTML'
+HTML = '''
+The disabled field HTML codes are shown below:
+'''
+Plain = '''
+The disabled field HTML codes are shown below:
+'''
+Code = '''
+<input ... disabled />
+<textarea ... disabled />...</textarea>
+<select ... disabled />...</select>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '禁用化数据格的HTML'
+HTML = '''
+禁用化数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+禁用化数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<input ... disabled />
+<textarea ... disabled />...</textarea>
+<select ... disabled />...</select>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Autofocus Field HTML'
+HTML = '''
+The autofocus field HTML codes are shown below:
+'''
+Plain = '''
+The autofocus field HTML codes are shown below:
+'''
+Code = '''
+<input ... autofocus />
+<textarea ... autofocus />...</textarea>
+<select ... autofocus />...</select>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '自动关注数据格的HTML'
+HTML = '''
+自动关注数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+自动关注据格的HTML代码运用方法如下：
+'''
+Code = '''
+<input ... autofocus />
+<textarea ... autofocus />...</textarea>
+<select ... autofocus />...</select>
+'''
+
+
+
+[[EN.List.SubList]]
+Title = 'Autocomplete Field HTML'
+HTML = '''
+The autocomplete field HTML codes are shown below:
+'''
+Plain = '''
+The autocomplete field HTML codes are shown below:
+'''
+Code = '''
+<input ... autocomplete />
+<textarea ... autocomplete />...</textarea>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '自动完整数据格的HTML'
+HTML = '''
+自动完整数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+自动完整据格的HTML代码运用方法如下：
+'''
+Code = '''
+<input ... autocomplete />
+<textarea ... autocomplete />...</textarea>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Range Limiting Field HTML'
+HTML = '''
+The range limiting field HTML codes are shown below:
+'''
+Plain = '''
+The range limiting field HTML codes are shown below:
+'''
+Code = '''
+<input ... min='0' max='100' />
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '范围限制数据格的HTML'
+HTML = '''
+范围限制数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+范围限制数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<input ... min='0' max='100' />
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Stepper Field HTML'
+HTML = '''
+The value stepping field HTML codes are shown below:
+'''
+Plain = '''
+The value stepping field HTML codes are shown below:
+'''
+Code = '''
+<input ... step='0.05' />
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '步进数据格的HTML'
+HTML = '''
+步进数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+步进数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<input ... step='0.05' />
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Placeholder Field HTML'
+HTML = '''
+The placeholder field HTML codes are shown below:
+'''
+Plain = '''
+The placeholder field HTML codes are shown below:
+'''
+Code = '''
+<input ... placeholder='...' />
+<textarea ... placeholder='...'></textarea>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '占位符数据格的HTML'
+HTML = '''
+占位符数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+占位符数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<input ... placeholder='...' />
+<textarea ... placeholder='...'></textarea>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Data Recommendation Field HTML'
+HTML = '''
+The data recommendation field HTML codes are shown below:
+'''
+Plain = '''
+The data recommendation field HTML codes are shown below:
+'''
+Code = '''
+<input ... list='...list-ID1...' />
+<datalist id='...list-ID1...'>
+	<option value='...' label='...' />
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '数据推荐数据格的HTML'
+HTML = '''
+数据推荐数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+数据推荐数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<input ... list='...list-ID1...' />
+<datalist id='...list-ID1...'>
+	<option value='...' label='...' />
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Checkbox Field HTML'
+HTML = '''
+The checkbox field HTML codes are shown below:
+'''
+Plain = '''
+The checkbox field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<label>
+	<input type='checkbox' name='...' />
+	<span>...</span>
+</label>
+
+
+<!-- MINIMUM (DEFAULT CHECKED) -->
+<label>
+	<input type='checkbox' name='...' checked />
+	<span>...</span>
+</label>
+
+
+<!-- ALL PROPERTIES -->
+<label>
+	<input type='checkbox'
+		name='...'
+		checked
+		required
+		disabled
+		autofocus
+	/>
+	<span>...</span>
+</label>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '投格框数据格的HTML'
+HTML = '''
+投格框数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+投格框数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<label>
+	<input type='checkbox' name='...' />
+	<span>...</span>
+</label>
+
+
+<!-- 最少 （默认：已经投入） -->
+<label>
+	<input type='checkbox' name='...' checked />
+	<span>...</span>
+</label>
+
+
+<!-- 全部性能 -->
+<label>
+	<input type='checkbox'
+		name='...'
+		checked
+		required
+		disabled
+		autofocus
+	/>
+	<span>...</span>
+</label>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Colorpicker Field HTML'
+HTML = '''
+The colorpicker field HTML codes are shown below:
+'''
+Plain = '''
+The colorpicker field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='color' id='...INPUT_ID1...' name='...' />
+
+
+<!-- MINIMUM (DEFAULT VALUE) -->
+<input type='color' id='...INPUT_ID1...' name='...' value='#fefefe' />
+
+
+<!-- ALL PROPERTIES -->
+<label for='...INPUT_ID1...'>...</label>
+<input type='color'
+	id='...INPUT_ID1...'
+	name='...'
+	value='#fefefe'
+	required
+	disabled
+	autofocus
+	autocomplete
+	list='...DATALIST_ID1...'
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...'>
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '颜色选择数据格的HTML'
+HTML = '''
+颜色选择数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+颜色选择数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='color' id='...INPUT_ID1...' name='...' />
+
+
+<!-- 最少 （默认：数据） -->
+<input type='color' id='...INPUT_ID1...' name='...' value='#fefefe' />
+
+
+<!-- 全部性能 -->
+<label for='...INPUT_ID1...'>...</label>
+<input type='color'
+	id='...INPUT_ID1...'
+	name='...'
+	value='#fefefe'
+	required
+	disabled
+	autofocus
+	autocomplete
+	list='...DATALIST_ID1...'
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...'>
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Submit Button HTML'
+HTML = '''
+The submit button HTML codes are shown below:
+'''
+Plain = '''
+The submit button HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type="submit" name="..." value="Submit" />
+
+
+<!-- ALL PROPERTIES -->
+<input type="submit"
+	name="submit[type]"
+	value="...AN IDENTIFIABLE VALUE..."
+	formaction="...OVERRIDE FORM ACTION..."
+	formtype="...OVERRIDE FORM SUBMISSION TYPE..."
+	formmethod="...OVERRIDE FORM METHOD (GET|POST|dialog|...)"
+	formnovalidate="true"
+	formtarget="...AN IFRAME ID..."
+	disabled
+/>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '成交数据格按钮的HTML'
+HTML = '''
+成交数据格按钮的HTML代码运用方法如下：
+'''
+Plain = '''
+成交数据格按钮的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type="submit" name="..." value="Submit" />
+
+
+<!-- 全部性能 -->
+<input type="submit"
+	name="submit[type]"
+	value="...一个可以查询的数据价值..."
+	formaction="...覆盖表格原本的行动URL链接..."
+	formtype="...覆盖表格原本的成交类型..."
+	formmethod="...覆盖表格原本的方式 (e.g. GET|POST|dialog|...)"
+	formnovalidate="true"
+	formtarget="...AN IFRAME ID..."
+	disabled
+/>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Date Field HTML'
+HTML = '''
+The date field HTML codes are shown below:
+'''
+Plain = '''
+The date field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='date'
+	id='...INPUT_ID1...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM-DD'
+/>
+
+
+<!-- MINIMUM (DEFAULT VALUE) -->
+<input type='date'
+	id='...INPUT_ID1...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM-DD'
+	value='1985-06-11'
+/>
+
+
+<!-- ALL PROPERTIES -->
+<input type="date"
+	id="..."
+	name="..."
+	value="2016-06-01"
+	pattern="(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)"
+	placeholder='YYYY-MM-DD'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list="...DATALIST_ID1..."
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...'>
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '日期数据格的HTML'
+HTML = '''
+日期数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+日期数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='date'
+	id='...INPUT_ID1...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM-DD'
+/>
+
+
+<!-- 最少 （默认：数据） -->
+<input type='date'
+	id='...INPUT_ID1...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM-DD'
+	value='1985-06-11'
+/>
+
+
+<!-- 全部性能 -->
+<input type="date"
+	id="..."
+	name="..."
+	value="2016-06-01"
+	pattern="(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)"
+	placeholder='YYYY-MM-DD'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list="...DATALIST_ID1..."
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...'>
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Local Datetime Field HTML'
+HTML = '''
+The local datetime field HTML codes are shown below:
+'''
+Plain = '''
+The local datetime field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='datetime-local'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+	placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+/>
+
+
+<!-- MINIMUM (DEFAULT VALUE) -->
+<input type='datetime-local'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+	placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+	value='2016-06-01'
+/>
+
+
+<!-- ALL PROPERTIES -->
+<input type='datetime-local'
+	id='...'
+	name='...'
+	value='2016-06-01'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+	placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...DATALIST_ID1...'
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '本地日期时间数据格的HTML'
+HTML = '''
+本地日期时间数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+本地日期时间数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='datetime-local'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+	placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+/>
+
+
+<!-- 最少 （默认：数据） -->
+<input type='datetime-local'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+	placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+	value='2016-06-01'
+/>
+
+
+<!-- 全部性能 -->
+<input type='datetime-local'
+	id='...'
+	name='...'
+	value='2016-06-01'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+	placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...DATALIST_ID1...'
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Email Field HTML'
+HTML = '''
+The email field HTML codes are shown below:
+'''
+Plain = '''
+The email field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM (ACCEPTS: 'last.first+nickname@internet.domain' FORMAT) -->
+<input type='email'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@((?!-)((?!--)[a-z\d-]){0,63}[a-z\d]\.){1,2}([a-z]{2,14}\.)?[a-z]{2,14}'
+	placeholder='...' />
+
+
+<!-- MINIMUM (ACCEPTS: 'last.first+nickname@local' FORMAT) -->
+<input type='email'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+	placeholder='...' />
+
+
+<!-- MINIMUM (ACCEPTS: LOCKED DOMAIN LIKE 'last.first+nickname@zoralab.com' FORMAT) -->
+<input type='email'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@zoralab.com'
+	placeholder='...' />
+
+
+<!-- ALL PROPERTIES -->
+<label for='...INPUT-ID1...'>...</label>
+<input type="email"
+	id='...INPUT-ID1...'
+	name='...'
+	value='...'
+	pattern='...'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...DATALIST_ID1...'
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '电邮数据格的HTML'
+HTML = '''
+电邮数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+电邮数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少（接受：'last.first+nickname@internet.domain' 格式） -->
+<input type='email'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@((?!-)((?!--)[a-z\d-]){0,63}[a-z\d]\.){1,2}([a-z]{2,14}\.)?[a-z]{2,14}'
+	placeholder='...' />
+
+
+<!-- 最少（接受：'last.first+nickname@local' 格式） -->
+<input type='email'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'
+	placeholder='...' />
+
+
+<!-- 最少（接受：域名锁定如last.first+nickname@zoralab.com格式） -->
+<input type='email'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@zoralab.com'
+	placeholder='...' />
+
+
+<!-- 全部性能 -->
+<label for='...INPUT-ID1...'>...</label>
+<input type="email"
+	id='...INPUT-ID1...'
+	name='...'
+	value='...'
+	pattern='...'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...DATALIST_ID1...'
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'File Selection Field HTML'
+HTML = '''
+The file selection field HTML codes are shown below:
+'''
+Plain = '''
+The file selection field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<label>
+	<input type='file'
+		id='...INPUT-ID1...'
+		name='...'
+		accept='...'
+	/>
+	<span>Button Title Here</span>
+</label>
+
+
+<!-- MINIMUM (FORMAT FILTRATION e.g: all images + .m4a audio + .avi, .mkv, .mp4 video) -->
+<label>
+	<input type='file'
+		id='...INPUT-ID1...'
+		name='...'
+		accept='image/*,audio/mp4,.avi,.mkv,.mp4'
+	/>
+	<span>Button Title Here</span>
+</label>
+
+
+<!-- ALL PROPERTIES -->
+<label>
+	<input type='file'
+		id='...INPUT-ID1...'
+		name='...'
+		accept='...'
+		capture
+		multiple
+		required
+		disabled
+		autofocus
+		autocomplete
+	/>
+	<span>... BUTTON TITLE ...</span>
+</label>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '文件选择数据格的HTML'
+HTML = '''
+文件选择数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+文件选择数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<label>
+	<input type='file'
+		id='...INPUT-ID1...'
+		name='...'
+		accept='...'
+	/>
+	<span>...按钮标题...</span>
+</label>
+
+
+<!-- 最少（文件类型过滤格式如：所有图像、.m4a音像、.avi影像、.mkv影像和.mp4影像） -->
+<label>
+	<input type='file'
+		id='...INPUT-ID1...'
+		name='...'
+		accept='image/*,audio/mp4,.avi,.mkv,.mp4'
+	/>
+	<span>...按钮标题...</span>
+</label>
+
+
+<!-- 全部性能 -->
+<label>
+	<input type='file'
+		id='...INPUT-ID1...'
+		name='...'
+		accept='...'
+		capture
+		multiple
+		required
+		disabled
+		autofocus
+		autocomplete
+	/>
+	<span>...按钮标题...</span>
+</label>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Month Field HTML'
+HTML = '''
+The month field HTML codes are shown below:
+'''
+Plain = '''
+The month field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='month'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM'
+/>
+
+
+<!-- RECOMMENDED -->
+<!-- Don't use it. Use 'date' instead. Firefox is not ready. -->
+
+
+<!-- ALL PROPERTIES -->
+<input type='month'
+	id='...'
+	name='...'
+	value='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM-DD'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list="...DATALIST-ID1..."
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '月份数据格的HTML'
+HTML = '''
+月份数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+月份数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='month'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM'
+/>
+
+
+<!-- 推荐 -->
+<!-- 别用。用日期数据格（date）代替。Firefox还没开源这个数据格。
+
+
+<!-- 全部性能 -->
+<input type='month'
+	id='...'
+	name='...'
+	value='...'
+	pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+	placeholder='YYYY-MM-DD'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list="...DATALIST-ID1..."
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Number Field HTML'
+HTML = '''
+The number field HTML codes are shown below:
+'''
+Plain = '''
+The number field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+/>
+
+
+<!-- RECOMMENDED (Set range & stepper) -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+	min='0'
+	max='100'
+	step='0.01'
+/>
+
+
+<!-- ALL PROPERTIES -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+	value='...'
+	min='0'
+	max='100'
+	step='0.01'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list="...DATALIST-ID1..."
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '号码数据格的HTML'
+HTML = '''
+号码数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+号码数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+/>
+
+
+<!-- 推荐（设置号码范围和步进数值） -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+	min='0'
+	max='100'
+	step='0.01'
+/>
+
+
+<!-- 全部性能 -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+	value='...'
+	min='0'
+	max='100'
+	step='0.01'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list="...DATALIST-ID1..."
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Password Field HTML'
+HTML = '''
+The password field HTML codes are shown below:
+'''
+Plain = '''
+The password field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM (1 'a-z' and 1 'A-Z'; 1 '0-9'; 1 SYMBOL; 8-16 CHARS) -->
+<input type='password'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{8,16}'
+/>
+
+
+<!-- RECOMMENDED (1 'a-z' and 1 'A-Z'; 1 '0-9'; 1 SYMBOL; >= 33 CHARS) -->
+<!-- WHY: ASK USER TO USE PASSWORD BANK LIKE BITWARDEN FOR SAFER COMMUNITY -->
+<input type='password'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{33,}'
+	minlength='33'
+	placeholder='Password Here'
+/>
+
+
+<!-- ALL PROPERTIES -->
+<label for='...INPUT-ID1...'>...</label>
+<input type='password'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{33,}'
+	minlength='33'
+	maxlength='...'
+	placeholder='Password Here'
+	required
+	disabled
+	autofocus
+	readonly
+/>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '密码数据格的HTML'
+HTML = '''
+密码数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+密码数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 (1个a-z、1个A-Z、1个0-9、1个象征符号和8-16字) -->
+<input type='password'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{8,16}'
+/>
+
+
+<!-- 推荐 (1个a-z、1个A-Z、1个0-9、1个象征符号和最少33字) -->
+<!-- 原因: 要求用户运用密码银行如Bitwarden来建设安全的社区 -->
+<input type='password'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{33,}'
+	minlength='33'
+	placeholder='Password Here'
+/>
+
+
+<!-- 全部性能 -->
+<label for='...INPUT-ID1...'>...</label>
+<input type='password'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{33,}'
+	minlength='33'
+	maxlength='...'
+	placeholder='Password Here'
+	required
+	disabled
+	autofocus
+	readonly
+/>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Radio Field HTML'
+HTML = '''
+The radio field HTML codes are shown below:
+'''
+Plain = '''
+The radio field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<label>
+	<input type='radio' name='...DECISION_A...' value='...CHOICE_1...' />
+	<span>...LABEL SHOWCASE HERE...</span>
+</label>
+
+
+<!-- MINIMUM (DEFAULT: CHECKED) -->
+<label>
+	<input type='radio' name='...DECISION_A...' value='...CHOICE_2...' checked />
+	<span>...LABEL SHOWCASE HERE...</span>
+</label>
+
+
+<!-- ALL PROPERTIES -->
+<label>
+	<input type='radio'
+		id='...'
+		name='...SAME NAME MEANS SAME GROUP OF CHOICES...'
+		value='...CHOICE...'
+		checked
+		required
+		disabled
+		autofocus
+	/>
+	<span>...LABEL SHOWCASE HERE...</span>
+</label>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '多选择数据格的HTML'
+HTML = '''
+多选择数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+多选择数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<label>
+	<input type='radio' name='...DECISION_A...' value='...CHOICE_1...' />
+	<span>...LABEL SHOWCASE HERE...</span>
+</label>
+
+
+<!-- 最少（默认值：已选择了） -->
+<label>
+	<input type='radio' name='...DECISION_A...' value='...CHOICE_2...' checked />
+	<span>...LABEL SHOWCASE HERE...</span>
+</label>
+
+
+<!-- 全部性能 -->
+<label>
+	<input type='radio'
+		id='...'
+		name='...SAME NAME MEANS SAME GROUP OF CHOICES...'
+		value='...CHOICE...'
+		checked
+		required
+		disabled
+		autofocus
+	/>
+	<span>...LABEL SHOWCASE HERE...</span>
+</label>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Select Field HTML'
+HTML = '''
+The select field HTML codes are shown below:
+'''
+Plain = '''
+The select field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<select id='...INPUT-ID1...' name='...' size='5'>
+	<option value='...'>...</option>
+	<option value='...'>...</option>
+	...
+</select>
+
+
+<!-- MINIMUM (DEFAULT: SELECTED) -->
+<select id='...INPUT-ID1...' name='...' size='5'>
+	<option value='...' selected>...</option>
+	...
+</select>
+
+
+<!-- MINIMUM (MULTIPLE SELECTIONS) -->
+<select id='...INPUT-ID1...' name='...' size='5' multiple>
+	...
+</select>
+
+
+<!-- RECOMMENDED (USE OPTGROUP) -->
+<select id='...INPUT-ID1...' name='...' size='5'>
+	<optgroup label='...'>
+		<option value='...'>...</option>
+		<option value='...'>...</option>
+		...
+	</optgroup>
+
+
+	<optgroup label='...'>
+		<option value='...'>...</option>
+		<option value='...'>...</option>
+		...
+	</optgroup>
+
+
+	...
+</select>
+
+
+<!-- ALL PROPERTIES -->
+<select id='...INPUT-ID1...'
+	name='...'
+	autocomplete
+	multiple
+	required
+	disabled
+	autofocus
+	size='...DISPLAY SIZE...'
+>
+	<optgroup label='...'>
+		<option value='...' selected>...</option>
+
+		...
+	</optgroup>
+
+	...
+</select>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '号码数据格的HTML'
+HTML = '''
+号码数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+号码数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+/>
+
+
+<!-- 推荐（设置号码范围和步进数值） -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+	min='0'
+	max='100'
+	step='0.01'
+/>
+
+
+<!-- 全部性能 -->
+<input type='number'
+	id='...INPUT-ID1...'
+	name='...'
+	value='...'
+	min='0'
+	max='100'
+	step='0.01'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list="...DATALIST-ID1..."
+/>
+<datalist id='...DATALIST_ID1...'>
+	<option value='...' label='...'>
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Field HTML'
+HTML = '''
+The text field HTML codes are shown below:
+'''
+Plain = '''
+The text field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='text'
+	id='...'
+	name='...'
+	spellcheck />
+
+
+<!-- ALL PROPERTIES -->
+<input type='text'
+	id='...'
+	name='...'
+	value='...'
+	pattern='...'
+	minlength='...'
+	maxlength='...'
+	spellcheck
+	placeholder='...'
+	required
+	autofocus
+	autocomplete
+	readonly
+	list='...datalist-ID1...'
+/>
+<datalist id='...datalist-ID1...'>
+	<option value='...' label='...' />
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '字体数据格的HTML'
+HTML = '''
+字体数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+字体数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='text'
+	id='...'
+	name='...'
+	spellcheck />
+
+
+<!-- 全部性能 -->
+<input type='text'
+	id='...'
+	name='...'
+	value='...'
+	pattern='...'
+	minlength='...'
+	maxlength='...'
+	spellcheck
+	placeholder='...'
+	required
+	autofocus
+	autocomplete
+	readonly
+	list='...datalist-ID1...'
+/>
+<datalist id='...datalist-ID1...'>
+	<option value='...' label='...' />
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Textarea Field HTML'
+HTML = '''
+The textarea field HTML codes are shown below:
+'''
+Plain = '''
+The textarea field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<textarea id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	rows='10'
+	wrap='hard'
+	spellcheck></textarea>
+
+
+<!-- ALL PROPERTIES -->
+<textarea id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	cols='...'
+	rows='...'
+	wrap='hard'
+	minlength='...'
+	maxlength='...'
+	spellcheck
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+>
+	...
+</textarea>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '大量字体数据格的HTML'
+HTML = '''
+大量字体数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+大量号码数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<textarea id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	rows='10'
+	wrap='hard'
+	spellcheck></textarea>
+
+
+<!-- 全部性能 -->
+<textarea id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	cols='...'
+	rows='...'
+	wrap='hard'
+	minlength='...'
+	maxlength='...'
+	spellcheck
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+>
+	...
+</textarea>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Time Field HTML'
+HTML = '''
+The time field HTML codes are shown below:
+'''
+Plain = '''
+The time field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='time' id='...INPUT-ID1...' name='...' />
+
+
+<!-- MINIMUM (SET RANGE) -->
+<input type='time' id='...INPUT-ID1...' name='...' min='05:00' max='23:00' />
+
+
+<!-- ALL PROPERTIES -->
+<input type='time'
+	id='...INPUT-ID1...'
+	name='...'
+	value='...'
+	min='...'
+	max='...'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+/>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '时间数据格的HTML'
+HTML = '''
+时间数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+时间数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='time' id='...INPUT-ID1...' name='...' />
+
+
+<!-- 最少（设下范围） -->
+<input type='time' id='...INPUT-ID1...' name='...' min='05:00' max='23:00' />
+
+
+<!-- 全部性能 -->
+<input type='time'
+	id='...INPUT-ID1...'
+	name='...'
+	value='...'
+	min='...'
+	max='...'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+/>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'URL Field HTML'
+HTML = '''
+The url field HTML codes are shown below:
+'''
+Plain = '''
+The url field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='...' />
+
+
+<!-- MINIMUM (HTTPS ONLY) -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(https)(:\/\/)([a-zA-Z]?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?' />
+
+
+<!-- MINIMUM (HTTP/HTTPS ONLY) -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(http(s?))(:\/\/)([a-zA-Z]?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?' />
+
+
+<!-- MINIMUM (TEL ONLY - 'tel:+XXXX...' OR 'tel:00XXXX...' ) -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(tel)(:\/\/)(\+?)([0-9\-_]+)' />
+
+
+<!-- MINIMUM (EMAIL ONLY - 'mailto://xxx@internet.domain' OR 'mailto://xxx@local') -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(mailto)(:\/\/)([a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+)@([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)' />
+
+
+<!-- ALL PROPERTIES -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='...'
+	placeholder='...'
+	value='...'
+	minlength='...'
+	maxlength='...'
+	spellcheck
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...datalist-ID1...'
+/>
+<datalist id='...datalist-ID1...'>
+	<option value='...' label='...' />
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'URL链接地址数据格的HTML'
+HTML = '''
+URL链接地址数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+URL链接地址数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='...' />
+
+
+<!-- 最少（HTTPS而已） -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(https)(:\/\/)([a-zA-Z]?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?' />
+
+
+<!-- 最少（HTTP或HTTPS而已） -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(http(s?))(:\/\/)([a-zA-Z]?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?' />
+
+
+<!-- 最少（TEL而已 - 'tel:+XXXX...'或'tel:00XXXX...'） -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(tel)(:\/\/)(\+?)([0-9\-_]+)' />
+
+
+<!-- 最少（电邮而已 - 'mailto://xxx@internet.domain'或'mailto://xxx@local'） -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	placeholder='...'
+	pattern='(mailto)(:\/\/)([a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+)@([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)' />
+
+
+<!-- 全部性能 -->
+<input type='url'
+	id='...INPUT-ID1...'
+	name='...'
+	pattern='...'
+	placeholder='...'
+	value='...'
+	minlength='...'
+	maxlength='...'
+	spellcheck
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...datalist-ID1...'
+/>
+<datalist id='...datalist-ID1...'>
+	<option value='...' label='...' />
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Week Field HTML'
+HTML = '''
+The week field HTML codes are shown below:
+'''
+Plain = '''
+The week field HTML codes are shown below:
+'''
+Code = '''
+<!-- MINIMUM -->
+<input type='week'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-W(?:([0-4][0-9])|5[0-2]))'
+	placeholder='YYYY-Wnn'
+/>
+
+
+<!-- RECOMMENDED -->
+<!-- Don't use it. Use 'date' instead. Firefox is not ready. -->
+
+
+<!-- ALL PROPERTIES -->
+<input type='week'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-W(?:([0-4][0-9])|5[0-2]))'
+	placeholder='YYYY-Wnn'
+	value='...'
+	min='...'
+	max='...'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...datalist-ID1...'
+/>
+<datalist id='...datalist-ID1...'>
+	<option value='...' label='...' />
+	...
+</datalist>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '周时数据格的HTML'
+HTML = '''
+周时数据格的HTML代码运用方法如下：
+'''
+Plain = '''
+周时数据格的HTML代码运用方法如下：
+'''
+Code = '''
+<!-- 最少 -->
+<input type='week'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-W(?:([0-4][0-9])|5[0-2]))'
+	placeholder='YYYY-Wnn'
+/>
+
+
+<!-- 推荐 -->
+<!-- 别用。用日期数据格（date）代替。Firefox还没开源这个数据格。
+
+
+<!-- 全部性能 -->
+<input type='week'
+	id='...'
+	name='...'
+	pattern='(?:^\d*\-W(?:([0-4][0-9])|5[0-2]))'
+	placeholder='YYYY-Wnn'
+	value='...'
+	min='...'
+	max='...'
+	required
+	disabled
+	autofocus
+	autocomplete
+	readonly
+	list='...datalist-ID1...'
+/>
+<datalist id='...datalist-ID1...'>
+	<option value='...' label='...' />
+	...
+</datalist>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+[[ZH-HANS.List]]
+Title = 'CSS界面自选性'
+HTML = '''
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
+'''
+Plain = '''
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin'
+HTML = '''
+Affects the margin of the rendered component.
+'''
+Plain = '''
+Affects the margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-margin
+CSS PROPERTY : margin
+DEFAULT      : 2rem auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin'
+HTML = '''
+影响元件的外向边距空间。
+'''
+Plain = '''
+影响元件的外向边距空间。
+'''
+Code = '''
+变化值     : --form-margin
+CSS属性    : margin
+默认数码   : 2rem auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding'
+HTML = '''
+Affects the padding of the rendered component.
+'''
+Plain = '''
+Affects the padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-padding
+CSS PROPERTY : padding
+DEFAULT      : .5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding'
+HTML = '''
+影响元件的内向边距空间。
+'''
+Plain = '''
+影响元件的内向边距空间。
+'''
+Code = '''
+变化值     : --form-padding
+CSS属性    : padding
+默认数码   : .5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Toggle Spacing'
+HTML = '''
+Affects the toggle spacing of the rendered component.
+'''
+Plain = '''
+Affects the toggle spacing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-toggle-spacing
+CSS PROPERTY : column-gap
+DEFAULT      : 1rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Toggle Spacing'
+HTML = '''
+影响元件切换之间的空间。
+'''
+Plain = '''
+影响元件切换之间的空间。
+'''
+Code = '''
+变化值     : --form-toggle-spacing
+CSS属性    : column-gap
+默认数码   : 1rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+Affects the minimum width of the rendered component.
+'''
+Plain = '''
+Affects the minimum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-min-width
+CSS PROPERTY : min-width
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Width'
+HTML = '''
+影响元件的最少宽度。
+'''
+Plain = '''
+影响元件的最少宽度。
+'''
+Code = '''
+变化值     : --form-min-width
+CSS属性    : min-width
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width'
+HTML = '''
+Affects the width of the rendered component.
+'''
+Plain = '''
+Affects the width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-width
+CSS PROPERTY : width
+DEFAULT      : auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width'
+HTML = '''
+影响元件的宽度。
+'''
+Plain = '''
+影响元件的宽度。
+'''
+Code = '''
+变化值     : --form-width
+CSS属性    : width
+默认数码   : auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+Affects the maximum width of the rendered component.
+'''
+Plain = '''
+Affects the maximum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-max-width
+CSS PROPERTY : max-width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Width'
+HTML = '''
+影响元件的宽度。
+'''
+Plain = '''
+影响元件的宽度。
+'''
+Code = '''
+变化值     : --form-max-width
+CSS属性    : max-width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+Affects the minimum height of the rendered component.
+'''
+Plain = '''
+Affects the minimum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-min-height
+CSS PROPERTY : min-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Height'
+HTML = '''
+影响元件的最少高度。
+'''
+Plain = '''
+影响元件的最少高度。
+'''
+Code = '''
+变化值     : --form-min-height
+CSS属性    : min-hieght
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height'
+HTML = '''
+Affects the height of the rendered component.
+'''
+Plain = '''
+Affects the height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-height
+CSS PROPERTY : height
+DEFAULT      : auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Height'
+HTML = '''
+影响元件的高度。
+'''
+Plain = '''
+影响元件的高度。
+'''
+Code = '''
+变化值     : --form-height
+CSS属性    : height
+默认数码   : auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+Affects the maximum height of the rendered component.
+'''
+Plain = '''
+Affects the maximum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-max-height
+CSS PROPERTY : max-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Height'
+HTML = '''
+影响元件的最大高度。
+'''
+Plain = '''
+影响元件的最大高度。
+'''
+Code = '''
+变化值     : --form-max-height
+CSS属性    : max-height
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color'
+HTML = '''
+Affects the color of the rendered component.
+'''
+Plain = '''
+Affects the color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-color
+CSS PROPERTY : color
+DEFAULT      : var(--body-color) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color'
+HTML = '''
+影响元件的颜色。
+'''
+Plain = '''
+影响元件的颜色。
+'''
+Code = '''
+变化值     : --form-color
+CSS属性    : color
+默认数码   : var(--body-color) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Inverted)'
+HTML = '''
+Affects the color of the rendered component while in inverted mode.
+'''
+Plain = '''
+Affects the color of the rendered component while in inverted mode.
+'''
+Code = '''
+VARIABLE     : --form-color-inverted
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-inverted) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（反转环境）'
+HTML = '''
+影响元件在反转环境里的颜色。
+'''
+Plain = '''
+影响元件在反转环境里的颜色。
+'''
+Code = '''
+变化值     : --form-color-inverted
+CSS属性    : color
+默认数码   : var(--body-color-inverted) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Primary)'
+HTML = '''
+Affects the primary color of the rendered component.
+'''
+Plain = '''
+Affects the primary color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-color-primary
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（主要）'
+HTML = '''
+影响元件的主要颜色。
+'''
+Plain = '''
+影响元件的主要颜色。
+'''
+Code = '''
+变化值     : --form-color-primary
+CSS属性    : color
+默认数码   : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Primary + Inverted)'
+HTML = '''
+Affects the primary color of the rendered component while in inverted mode.
+'''
+Plain = '''
+Affects the primary color of the rendered component while in inverted mode.
+'''
+Code = '''
+VARIABLE     : --form-color-primary-inverted
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（主要+反转环境）'
+HTML = '''
+影响元件在反转环境里的主要颜色。
+'''
+Plain = '''
+影响元件在反转环境里的主要颜色。
+'''
+Code = '''
+变化值     : --form-color-primary-inverted
+CSS属性    : color
+默认数码   : var(--color-primary-300) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Valid)'
+HTML = '''
+Affects the valid value's color of the rendered component.
+'''
+Plain = '''
+Affects the valid value's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-color-valid
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-indicator-green) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（对的数据）'
+HTML = '''
+影响元件确对的数据情况里的颜色。
+'''
+Plain = '''
+影响元件确对的数据情况里的颜色。
+'''
+Code = '''
+变化值     : --form-color-valid
+CSS属性    : color
+默认数码   : var(--body-color-indicator-green) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Invalid)'
+HTML = '''
+Affects the invalid value's color of the rendered component.
+'''
+Plain = '''
+Affects the invalid value's color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-color-invalid
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-indicator-red) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（错误数据）'
+HTML = '''
+影响元件错误数据的颜色。
+'''
+Plain = '''
+影响元件错误数据的颜色。
+'''
+Code = '''
+变化值     : --form-color-invalid
+CSS属性    : color
+默认数码   : var(--body-color-indicator-red) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Focused)'
+HTML = '''
+Affects the color of the rendered component when being focused.
+'''
+Plain = '''
+Affects the color of the rendered component when being focused.
+'''
+Code = '''
+VARIABLE     : --form-color-focus
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（被关注）'
+HTML = '''
+影响元件在被关注时的颜色。
+'''
+Plain = '''
+影响元件在被关注时的颜色。
+'''
+Code = '''
+变化值     : --form-color-focus
+CSS属性    : color
+默认数码   : var(--color-primary-400) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Print Mode)'
+HTML = '''
+Affects the color of the rendered component during print mode.
+'''
+Plain = '''
+Affects the color of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --form-color-print
+CSS PROPERTY : color
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（印刷）'
+HTML = '''
+影响元件在印刷中的颜色。
+'''
+Plain = '''
+影响元件在印刷中的颜色。
+'''
+Code = '''
+变化值     : --form-color-print
+CSS属性    : color
+默认数码   : var(--body-color-print) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background'
+HTML = '''
+Affects the background of the rendered component.
+'''
+Plain = '''
+Affects the background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-background
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background'
+HTML = '''
+影响元件的背景。
+'''
+Plain = '''
+影响元件的背景。
+'''
+Code = '''
+变化值     : --form-background
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Inverted)'
+HTML = '''
+Affects the background of the rendered component while in inverted mode.
+'''
+Plain = '''
+Affects the background of the rendered component while in inverted mode.
+'''
+Code = '''
+VARIABLE     : --form-background-inverted
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（反转环境）'
+HTML = '''
+影响元件在反转环境里的背景。
+'''
+Plain = '''
+影响元件在反转环境里的背景。
+'''
+Code = '''
+变化值     : --form-background-inverted
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Valid)'
+HTML = '''
+Affects the valid value's background of the rendered component.
+'''
+Plain = '''
+Affects the valid value's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-background-valid
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-indicator-green) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（对的数据）'
+HTML = '''
+影响元件确对的数据情况里的背景。
+'''
+Plain = '''
+影响元件确对的数据情况里的背景。
+'''
+Code = '''
+变化值     : --form-background-valid
+CSS属性    : background
+默认数码   : var(--body-background-indicator-green) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Invalid)'
+HTML = '''
+Affects the invalid value's background of the rendered component.
+'''
+Plain = '''
+Affects the invalid value's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-background-invalid
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-indicator-red) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（错误数据）'
+HTML = '''
+影响元件错误数据的背景。
+'''
+Plain = '''
+影响元件错误数据的背景。
+'''
+Code = '''
+变化值     : --form-background-invalid
+CSS属性    : background
+默认数码   : var(--body-background-indicator-red) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Focused)'
+HTML = '''
+Affects the background of the rendered component when being focused.
+'''
+Plain = '''
+Affects the background of the rendered component when being focused.
+'''
+Code = '''
+VARIABLE     : --form-background-focus
+CSS PROPERTY : background
+DEFAULT      : var(--body-background-indicator-yellow) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（被关注）'
+HTML = '''
+影响元件在被关注时的背景。
+'''
+Plain = '''
+影响元件在被关注时的背景。
+'''
+Code = '''
+变化值     : --form-background-focus
+CSS属性    : background
+默认数码   : var(--body-background-indicator-yellow) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Print Mode)'
+HTML = '''
+Affects the background of the rendered component during print mode.
+'''
+Plain = '''
+Affects the background of the rendered component during print mode.
+'''
+Code = '''
+VARIABLE     : --form-background-print
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（印刷）'
+HTML = '''
+影响元件在印刷中的背景。
+'''
+Plain = '''
+影响元件在印刷中的背景。
+'''
+Code = '''
+变化值     : --form-background-print
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Box Shadow'
+HTML = '''
+Affects the shadow of the rendered component.
+'''
+Plain = '''
+Affects the shadow of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-box-shadow
+CSS PROPERTY : box-shadow
+DEFAULT      : 0 .5rem 1rem var(--form-color) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Box Shadow'
+HTML = '''
+影响元件的影子。
+'''
+Plain = '''
+影响元件的影子。
+'''
+Code = '''
+变化值     : --form-box-shadow
+CSS属性    : box-shadow
+默认数码   : 0 .5rem 1rem var(--form-color) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Box Shadow (Inverted)'
+HTML = '''
+Affects the shadow of the rendered component while in inverted mode.
+'''
+Plain = '''
+Affects the shadow of the rendered component while in inverted mode.
+'''
+Code = '''
+VARIABLE     : --form-box-shadow-inverted
+CSS PROPERTY : box-shadow
+DEFAULT      : 0 .5rem 1rem var(--form-color-inverted) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Box Shadow（反转环境）'
+HTML = '''
+影响元件在反转环境里的影子。
+'''
+Plain = '''
+影响元件在反转环境里的影子。
+'''
+Code = '''
+变化值     : --form-box-shadow-inverted
+CSS属性    : box-shadow
+默认数码   : 0 .5rem 1rem var(--form-color-inverted) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Timing'
+HTML = '''
+Affects the animation timing of the rendered component.
+'''
+Plain = '''
+Affects the animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-timing
+CSS PROPERTY : transition
+DEFAULT      : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Timing'
+HTML = '''
+影响元件的动画定时。
+'''
+Plain = '''
+影响元件的动画定时。
+'''
+Code = '''
+变化值     : --form-timing
+CSS属性    : transition
+默认数码   : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin (Fieldset)'
+HTML = '''
+Affects the fieldset's margin of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-margin
+CSS PROPERTY : margin
+DEFAULT      : 1rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin（数码格套装）'
+HTML = '''
+影响元件数码格套装的外向边距空间。
+'''
+Plain = '''
+影响元件数码格套装的外向边距空间。
+'''
+Code = '''
+变化值     : --form-fieldset-margin
+CSS属性    : margin
+默认数码   : 1rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding (Fieldset)'
+HTML = '''
+Affects the fieldset's padding of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding（数码格套装）'
+HTML = '''
+影响元件数码格套装的内向边距空间。
+'''
+Plain = '''
+影响元件数码格套装的内向边距空间。
+'''
+Code = '''
+变化值     : --form-fieldset-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Width (Fieldset)'
+HTML = '''
+Affects the fieldset's minimum width of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's minimum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-min-width
+CSS PROPERTY : min-width
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Width（数码格套装）'
+HTML = '''
+影响元件数码格套装的最少宽度。
+'''
+Plain = '''
+影响元件数码格套装的最少宽度。
+'''
+Code = '''
+变化值     : --form-fieldset-min-width
+CSS属性    : min-width
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (Fieldset)'
+HTML = '''
+Affects the fieldset's width of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-width
+CSS PROPERTY : width
+DEFAULT      : auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width（数码格套装）'
+HTML = '''
+影响元件数码格套装的宽度。
+'''
+Plain = '''
+影响元件数码格套装的宽度。
+'''
+Code = '''
+变化值     : --form-fieldset-width
+CSS属性    : width
+默认数码   : auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Width (Fieldset)'
+HTML = '''
+Affects the fieldset's maximum width of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's maximum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-max-width
+CSS PROPERTY : max-width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Width（数码格套装）'
+HTML = '''
+影响元件数码格套装的宽度。
+'''
+Plain = '''
+影响元件数码格套装的宽度。
+'''
+Code = '''
+变化值     : --form-fieldset-max-width
+CSS属性    : max-width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Height (Fieldset)'
+HTML = '''
+Affects the fieldset's minimum height of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's minimum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-min-height
+CSS PROPERTY : min-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Height（数码格套装）'
+HTML = '''
+影响元件数码格套装的最少高度。
+'''
+Plain = '''
+影响元件数码格套装的最少高度。
+'''
+Code = '''
+变化值     : --form-fieldset-min-height
+CSS属性    : min-hieght
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height (Fieldset)'
+HTML = '''
+Affects the fieldset's height of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-height
+CSS PROPERTY : height
+DEFAULT      : auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Height（数码格套装）'
+HTML = '''
+影响元件数码格套装的高度。
+'''
+Plain = '''
+影响元件数码格套装的高度。
+'''
+Code = '''
+变化值     : --form-fieldset-height
+CSS属性    : height
+默认数码   : auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Height (Fieldset)'
+HTML = '''
+Affects the fieldset's maximum height of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's maximum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-max-height
+CSS PROPERTY : max-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Height（数码格套装）'
+HTML = '''
+影响元件数码格套装的最大高度。
+'''
+Plain = '''
+影响元件数码格套装的最大高度。
+'''
+Code = '''
+变化值     : --form-fieldset-max-height
+CSS属性    : max-height
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border (Fieldset)'
+HTML = '''
+Affects the fieldset's border of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-border
+CSS PROPERTY : border
+DEFAULT      : none (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border（数码格套装）'
+HTML = '''
+影响元件数码格套装的边界线。
+'''
+Plain = '''
+影响元件数码格套装的边界线。
+'''
+Code = '''
+变化值     : --form-fieldset-border
+CSS属性    : border
+默认数码   : none (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Radius (Fieldset)'
+HTML = '''
+Affects the border radius of the rendered component.
+'''
+Plain = '''
+Affects the border radius of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-border-radius
+CSS PROPERTY : border-radius
+DEFAULT      : .5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Radius（数码格套装）'
+HTML = '''
+影响元件边界线的角落圆形度。
+'''
+Plain = '''
+影响元件边界线的角落圆形度。
+'''
+Code = '''
+变化值     : --form-fieldset-border-radius
+CSS属性    : border-radius
+默认数码   : .5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin (Legend)'
+HTML = '''
+Affects the fieldset's legend's margin of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's legend's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-legend-margin
+CSS PROPERTY : margin
+DEFAULT      : 2rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin（数码格套装标题）'
+HTML = '''
+影响元件数码格套装标题的外向边距空间。
+'''
+Plain = '''
+影响元件数码格套装标题的外向边距空间。
+'''
+Code = '''
+变化值     : --form-fieldset-legend-margin
+CSS属性    : margin
+默认数码   : 2rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Size (Legend)'
+HTML = '''
+Affects the fieldset's legend's font size of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's legend's font size of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-legend-font-size
+CSS PROPERTY : font-size
+DEFAULT      : 2rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Size（数码格套装标题）'
+HTML = '''
+影响元件数码格套装标题的字体大小。
+'''
+Plain = '''
+影响元件数码格套装标题的字体大小。
+'''
+Code = '''
+变化值     : --form-fieldset-legend-font-size
+CSS属性    : font-size
+默认数码   : 2rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Weight (Legend)'
+HTML = '''
+Affects the fieldset's legend's font weight of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's legend's font weight of the rendered component.
+'''
+Code = '''
+VARIABLE     : --font-fieldset-legend-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : 700 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Weight（数码格套装标题)'
+HTML = '''
+影响元件数码格套装标题的字体厚度。
+'''
+Plain = '''
+影响元件数码格套装标题的字体厚度。
+'''
+Code = '''
+变化值     : ---font-fieldset-legend-font-weight
+CSS属性    : font-family
+默认数码   : 700 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Transformation (Legend)'
+HTML = '''
+Affects the fieldset's legend's text transformation of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's legend's text transformation of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-legend-text-decoration
+CSS PROPERTY : text-decoration
+DEFAULT      : uppercase (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Transformation（数码格套装标题）'
+HTML = '''
+影响元件数码格套装标题的字体装饰。
+'''
+Plain = '''
+影响元件数码格套装标题的字体装饰。
+'''
+Code = '''
+变化值     : --form-fieldset-legend-text-decoration
+CSS属性    : text-decoration
+默认数码   : uppercase (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Align (Legend)'
+HTML = '''
+Affects the fieldset's legend's text alignment of the rendered component.
+'''
+Plain = '''
+Affects the fieldset's legend's text alignment of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-fieldset-legend-text-align
+CSS PROPERTY : text-align
+DEFAULT      : left (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Align（数码格套装标题）'
+HTML = '''
+影响元件数码格套装标题的字体对齐方式。
+'''
+Plain = '''
+影响元件数码格套装标题的字体对齐方式。
+'''
+Code = '''
+变化值     : --form-fieldset-legend-text-align
+CSS属性    : text-align
+默认数码   : left (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Display (Label)'
+HTML = '''
+Affects the label's display mode of the rendered component.
+'''
+Plain = '''
+Affects the label's display mode of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-display
+CSS PROPERTY : display
+DEFAULT      : block (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Display（纸条）'
+HTML = '''
+影响元件字条的显示模式。
+'''
+Plain = '''
+影响元件字条的显示模式。
+'''
+Code = '''
+变化值     : --form-label-display
+CSS属性    : display
+默认数码   : block (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Width (Label)'
+HTML = '''
+Affects the label's minimum width of the rendered component.
+'''
+Plain = '''
+Affects the label's minimum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-min-width
+CSS PROPERTY : min-width
+DEFAULT      : 5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Width（字条）'
+HTML = '''
+影响元件字条的最少宽度。
+'''
+Plain = '''
+影响元件字条的最少宽度。
+'''
+Code = '''
+变化值     : --form-label-min-width
+CSS属性    : min-width
+默认数码   : 5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (Label)'
+HTML = '''
+Affects the label's width of the rendered component.
+'''
+Plain = '''
+Affects the label's width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-width
+CSS PROPERTY : width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width（字条）'
+HTML = '''
+影响元件字条的宽度。
+'''
+Plain = '''
+影响元件字条的宽度。
+'''
+Code = '''
+变化值     : --form-label-width
+CSS属性    : width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Width (Label)'
+HTML = '''
+Affects the label's maximum width of the rendered component.
+'''
+Plain = '''
+Affects the label's maximum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-max-width
+CSS PROPERTY : max-width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Width（字条）'
+HTML = '''
+影响元件字条的宽度。
+'''
+Plain = '''
+影响元件字条的宽度。
+'''
+Code = '''
+变化值     : --form-label-max-width
+CSS属性    : max-width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Height (Label)'
+HTML = '''
+Affects the label's minimum height of the rendered component.
+'''
+Plain = '''
+Affects the label's minimum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-min-height
+CSS PROPERTY : min-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Height（字条）'
+HTML = '''
+影响元件字条的最少高度。
+'''
+Plain = '''
+影响元件字条的最少高度。
+'''
+Code = '''
+变化值     : --form-label-min-height
+CSS属性    : min-hieght
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height (Label)'
+HTML = '''
+Affects the label's height of the rendered component.
+'''
+Plain = '''
+Affects the label's height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-height
+CSS PROPERTY : height
+DEFAULT      : max-content (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Height（字条）'
+HTML = '''
+影响元件字条的高度。
+'''
+Plain = '''
+影响元件字条的高度。
+'''
+Code = '''
+变化值     : --form-label-height
+CSS属性    : height
+默认数码   : max-content (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Height (Label)'
+HTML = '''
+Affects the maximum height of the rendered component.
+'''
+Plain = '''
+Affects the maximum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-max-height
+CSS PROPERTY : max-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Height（字条）'
+HTML = '''
+影响元件字条的最大高度。
+'''
+Plain = '''
+影响元件字条的最大高度。
+'''
+Code = '''
+变化值     : --form-label-max-height
+CSS属性    : max-height
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin (Label)'
+HTML = '''
+Affects the label's margin of the rendered component.
+'''
+Plain = '''
+Affects the margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin （字条）'
+HTML = '''
+影响元件字条的外向边距空间。
+'''
+Plain = '''
+影响元件字条的外向边距空间。
+'''
+Code = '''
+变化值     : --form-label-margin
+CSS属性    : margin
+默认数码   : 0 auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding (Label)'
+HTML = '''
+Affects the label's padding of the rendered component.
+'''
+Plain = '''
+Affects the label's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding (字条)'
+HTML = '''
+影响元件字条的内向边距空间。
+'''
+Plain = '''
+影响元件字条的内向边距空间。
+'''
+Code = '''
+变化值     : --form-label-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Size (Label)'
+HTML = '''
+Affects the label's font size of the rendered component.
+'''
+Plain = '''
+Affects the label's font size of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-font-size
+CSS PROPERTY : font-size
+DEFAULT      : 1.6rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Size（字条）'
+HTML = '''
+影响元件字条的字体大小。
+'''
+Plain = '''
+影响元件字条的字体大小。
+'''
+Code = '''
+变化值     : --form-label-font-size
+CSS属性    : font-size
+默认数码   : 1.6rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Style (Label)'
+HTML = '''
+Affects the label's font styling of the rendered component.
+'''
+Plain = '''
+Affects the label's font styling of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-font-style
+CSS PROPERTY : font-style
+DEFAULT      : normal (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Style（字条）'
+HTML = '''
+影响元件字条的字体风格。
+'''
+Plain = '''
+影响元件字条的字体风格。
+'''
+Code = '''
+变化值     : --form-label-font-style
+CSS属性    : font-style
+默认数码   : normal (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Weight (Label)'
+HTML = '''
+Affects the label's font weight of the rendered component.
+'''
+Plain = '''
+Affects the label's font weight of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : 700 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Weight（字条)'
+HTML = '''
+影响元件字条的字体厚度。
+'''
+Plain = '''
+影响元件字条的字体厚度。
+'''
+Code = '''
+变化值     : ---form-label-font-weight
+CSS属性    : font-family
+默认数码   : 700 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Transformation (Label)'
+HTML = '''
+Affects the label's text transformation of the rendered component.
+'''
+Plain = '''
+Affects the label's text transformation of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-text-transform
+CSS PROPERTY : text-transform
+DEFAULT      : titlecase (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Transformation（字条）'
+HTML = '''
+影响元件字条的字体装饰。
+'''
+Plain = '''
+影响元件字条的字体装饰。
+'''
+Code = '''
+变化值     : --form-label-text-transform
+CSS属性    : text-transform
+默认数码   : titlecase (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Align (Label)'
+HTML = '''
+Affects the label's text alignment of the rendered component.
+'''
+Plain = '''
+Affects the label's text alignment of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-label-text-align
+CSS PROPERTY : text-align
+DEFAULT      : left (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Align（字条）'
+HTML = '''
+影响元件字条的字体对齐方式。
+'''
+Plain = '''
+影响元件字条的字体对齐方式。
+'''
+Code = '''
+变化值     : --form-label-text-align
+CSS属性    : text-align
+默认数码   : left (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Display (Field)'
+HTML = '''
+Affects the field's display mode of the rendered component.
+'''
+Plain = '''
+Affects the field's display mode of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-display
+CSS PROPERTY : display
+DEFAULT      : block (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Display（数据格）'
+HTML = '''
+影响元件数据格的显示模式。
+'''
+Plain = '''
+影响元件数据格的显示模式。
+'''
+Code = '''
+变化值     : --form-field-display
+CSS属性    : display
+默认数码   : block (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Opacity (Field)'
+HTML = '''
+Affects the field's opacity of the rendered component.
+'''
+Plain = '''
+Affects the field's display mode of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-opacity
+CSS PROPERTY : opacity
+DEFAULT      : 1 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Opacity（数据格）'
+HTML = '''
+影响元件数据格的透明度。
+'''
+Plain = '''
+影响元件数据格的透明度。
+'''
+Code = '''
+变化值     : --form-field-opacity
+CSS属性    : opacity
+默认数码   : 1 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Opacity (Field + Disabled)'
+HTML = '''
+Affects the field's opacity of the rendered component when disabled.
+'''
+Plain = '''
+Affects the field's opacity of the rendered component when disabled.
+'''
+Code = '''
+VARIABLE     : --form-field-opacity-disabled
+CSS PROPERTY : opacity
+DEFAULT      : .3 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Opacity（数据格+被禁用）'
+HTML = '''
+影响元件数据格在被禁用时的透明度。
+'''
+Plain = '''
+影响元件数据格在被禁用时的透明度。
+'''
+Code = '''
+变化值     : --form-field-opacity-disabled
+CSS属性    : opacity
+默认数码   : .3 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin (Field)'
+HTML = '''
+Affects the field's margin of the rendered component.
+'''
+Plain = '''
+Affects the fields' margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-margin
+CSS PROPERTY : margin
+DEFAULT      : 0 auto (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin（数据格）'
+HTML = '''
+影响元件数据格的外向边距空间。
+'''
+Plain = '''
+影响元件数据格的外向边距空间。
+'''
+Code = '''
+变化值     : --form-field-margin
+CSS属性    : margin
+默认数码   : 0 auto (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding (Field)'
+HTML = '''
+Affects the field's padding of the rendered component.
+'''
+Plain = '''
+Affects the field's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-padding
+CSS PROPERTY : padding
+DEFAULT      : 1rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding（数据格）'
+HTML = '''
+影响元件的内向边距空间。
+'''
+Plain = '''
+影响元件的内向边距空间。
+'''
+Code = '''
+变化值     : --form-field-padding
+CSS属性    : padding
+默认数码   : 1rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Width (Field)'
+HTML = '''
+Affects the field's minimum width of the rendered component.
+'''
+Plain = '''
+Affects the field's minimum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-min-width
+CSS PROPERTY : min-width
+DEFAULT      : 5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Width（数据格）'
+HTML = '''
+影响元件数据格的最少宽度。
+'''
+Plain = '''
+影响元件数据格的最少宽度。
+'''
+Code = '''
+变化值     : --form-field-min-width
+CSS属性    : min-width
+默认数码   : 5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (Field)'
+HTML = '''
+Affects the field's width of the rendered component.
+'''
+Plain = '''
+Affects the field's width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-width
+CSS PROPERTY : width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width（数据格）'
+HTML = '''
+影响元件数据格的宽度。
+'''
+Plain = '''
+影响元件数据格的宽度。
+'''
+Code = '''
+变化值     : --form-field-width
+CSS属性    : width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Width (Field)'
+HTML = '''
+Affects the field's maximum width of the rendered component.
+'''
+Plain = '''
+Affects the field's maximum width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-max-width
+CSS PROPERTY : max-width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Width（数据格）'
+HTML = '''
+影响元件数据格的宽度。
+'''
+Plain = '''
+影响元件数据格的宽度。
+'''
+Code = '''
+变化值     : --form-field-max-width
+CSS属性    : max-width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Min-Height (Field)'
+HTML = '''
+Affects the field's minimum height of the rendered component.
+'''
+Plain = '''
+Affects the field's minimum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-min-height
+CSS PROPERTY : min-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Min-Height（数据格）'
+HTML = '''
+影响元件数据格的最少高度。
+'''
+Plain = '''
+影响元件数据格的最少高度。
+'''
+Code = '''
+变化值     : --form-field-min-height
+CSS属性    : min-hieght
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height (Field)'
+HTML = '''
+Affects the field's height of the rendered component.
+'''
+Plain = '''
+Affects the field's height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-height
+CSS PROPERTY : height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Height（数据格）'
+HTML = '''
+影响元件数据格的高度。
+'''
+Plain = '''
+影响元件数据格的高度。
+'''
+Code = '''
+变化值     : --form-field-height
+CSS属性    : height
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Max-Height (Field)'
+HTML = '''
+Affects the maximum height of the rendered component.
+'''
+Plain = '''
+Affects the maximum height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-max-height
+CSS PROPERTY : max-height
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Max-Height（数据格）'
+HTML = '''
+影响元件数据格的最大高度。
+'''
+Plain = '''
+影响元件数据格的最大高度。
+'''
+Code = '''
+变化值     : --form-field-max-height
+CSS属性    : max-height
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border (Field)'
+HTML = '''
+Affects the field's border of the rendered component.
+'''
+Plain = '''
+Affects the field's border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-border
+CSS PROPERTY : border
+DEFAULT      : 2px solid currentColor (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border（数码格）'
+HTML = '''
+影响元件数码格的边界线。
+'''
+Plain = '''
+影响元件数码格的边界线。
+'''
+Code = '''
+变化值     : --form-field-border
+CSS属性    : border
+默认数码   : 2px solid currentColor (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Radius (Field)'
+HTML = '''
+Affects the field's border radius of the rendered component.
+'''
+Plain = '''
+Affects the field's border radius of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-border-radius
+CSS PROPERTY : border-radius
+DEFAULT      : .2rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Radius（数码格）'
+HTML = '''
+影响元件数码格边界线的角落圆形度。
+'''
+Plain = '''
+影响元件数码格边界线的角落圆形度。
+'''
+Code = '''
+变化值     : --form-field-border-radius
+CSS属性    : border-radius
+默认数码   : .2rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Family (Field)'
+HTML = '''
+Affects the field's font family of the rendered component.
+'''
+Plain = '''
+Affects the field's font family of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-font-family
+CSS PROPERTY : font-family
+DEFAULT      : var(--body-font-family) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Family（数据格）'
+HTML = '''
+影响元件数据格的字体系列。
+'''
+Plain = '''
+影响元件数据格的字体系列。
+'''
+Code = '''
+变化值     : --form-field-font-family
+CSS属性    : font-family
+默认数码   : var(--body-font-family) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Size (Field)'
+HTML = '''
+Affects the field's font size of the rendered component.
+'''
+Plain = '''
+Affects the field's font size of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-font-size
+CSS PROPERTY : font-size
+DEFAULT      : var(--body-font-size) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Size（数据格）'
+HTML = '''
+影响元件数据格的字体大小。
+'''
+Plain = '''
+影响元件数据格的字体大小。
+'''
+Code = '''
+变化值     : --form-field-font-size
+CSS属性    : font-size
+默认数码   : var(--body-font-size) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Style (Field)'
+HTML = '''
+Affects the field's font styling of the rendered component.
+'''
+Plain = '''
+Affects the field's font styling of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-font-style
+CSS PROPERTY : font-style
+DEFAULT      : normal (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Style（数据格）'
+HTML = '''
+影响元件数据格的字体风格。
+'''
+Plain = '''
+影响元件数据格的字体风格。
+'''
+Code = '''
+变化值     : --form-field-font-style
+CSS属性    : font-style
+默认数码   : normal (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Style (Field + Placeholder)'
+HTML = '''
+Affects the field's placeholder's font styling of the rendered component.
+'''
+Plain = '''
+Affects the field's placeholder's font styling of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-placeholder-font-style
+CSS PROPERTY : font-style
+DEFAULT      : italic (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Style（数据格+占位符）'
+HTML = '''
+影响元件数据格占位符的字体风格。
+'''
+Plain = '''
+影响元件数据格占位符的字体风格。
+'''
+Code = '''
+变化值     : --form-field-placeholder-font-style
+CSS属性    : font-style
+默认数码   : italic (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Weight (Field)'
+HTML = '''
+Affects the field's font weight of the rendered component.
+'''
+Plain = '''
+Affects the field's font weight of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Weight（数据格)'
+HTML = '''
+影响元件数据格的字体厚度。
+'''
+Plain = '''
+影响元件数据格的字体厚度。
+'''
+Code = '''
+变化值     : ---form-field-font-weight
+CSS属性    : font-family
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Transformation (Field)'
+HTML = '''
+Affects the field's text transformation of the rendered component.
+'''
+Plain = '''
+Affects the field's text transformation of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-text-decoration
+CSS PROPERTY : text-decoration
+DEFAULT      : initial (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Transformation（数据格）'
+HTML = '''
+影响元件数据格的字体装饰。
+'''
+Plain = '''
+影响元件数据格的字体装饰。
+'''
+Code = '''
+变化值     : --form-field-text-decoration
+CSS属性    : text-decoration
+默认数码   : initial (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Align (Field)'
+HTML = '''
+Affects the field's text alignment of the rendered component.
+'''
+Plain = '''
+Affects the field's text alignment of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-field-text-align
+CSS PROPERTY : text-align
+DEFAULT      : left (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Align（数据格）'
+HTML = '''
+影响元件数据格的字体对齐方式。
+'''
+Plain = '''
+影响元件数据格的字体对齐方式。
+'''
+Code = '''
+变化值     : --form-field-text-align
+CSS属性    : text-align
+默认数码   : left (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin (Option Group)'
+HTML = '''
+Affects the option group's margin of the rendered component.
+'''
+Plain = '''
+Affects the option group's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-optgroup-margin
+CSS PROPERTY : margin
+DEFAULT      : 2rem 1rem 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin（选择组合）'
+HTML = '''
+影响元件选择组合的外向边距空间。
+'''
+Plain = '''
+影响元件选择组合的外向边距空间。
+'''
+Code = '''
+变化值     : --form-optgroup-margin
+CSS属性    : margin
+默认数码   : 2rem 1rem 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding (Option Group)'
+HTML = '''
+Affects the option group's padding of the rendered component.
+'''
+Plain = '''
+Affects the option group's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-optgroup-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding（选择组合）'
+HTML = '''
+影响元件选择组合的内向边距空间。
+'''
+Plain = '''
+影响元件选择组合的内向边距空间。
+'''
+Code = '''
+变化值     : --form-optgroup-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Style (Option Group)'
+HTML = '''
+Affects the option group's font styling of the rendered component.
+'''
+Plain = '''
+Affects the option group's font styling of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-optgroup-font-style
+CSS PROPERTY : font-style
+DEFAULT      : italic (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Style（选择组合）'
+HTML = '''
+影响元件选择组合的字体风格。
+'''
+Plain = '''
+影响元件选择组合的字体风格。
+'''
+Code = '''
+变化值     : --form-optgroup-font-style
+CSS属性    : font-style
+默认数码   : italic (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Align (Option Group)'
+HTML = '''
+Affects the option group's text alignment of the rendered component.
+'''
+Plain = '''
+Affects the option group's text alignment of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-optgroup-text-align
+CSS PROPERTY : text-align
+DEFAULT      : left (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Align（选择组合）'
+HTML = '''
+影响元件选择组合的字体对齐方式。
+'''
+Plain = '''
+影响元件选择组合的字体对齐方式。
+'''
+Code = '''
+变化值     : --form-optgroup-text-align
+CSS属性    : text-align
+默认数码   : left (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding (Option)'
+HTML = '''
+Affects the option's padding of the rendered component.
+'''
+Plain = '''
+Affects the option's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-option-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 0 0 1.5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding（选择格）'
+HTML = '''
+影响元件选择格的内向边距空间。
+'''
+Plain = '''
+影响元件选择格的内向边距空间。
+'''
+Code = '''
+变化值     : --form-option-padding
+CSS属性    : padding
+默认数码   : 0 0 0 1.5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Style (Option)'
+HTML = '''
+Affects the label's font styling of the rendered component.
+'''
+Plain = '''
+Affects the label's font styling of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-option-font-style
+CSS PROPERTY : font-style
+DEFAULT      : normal (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Style（选择格）'
+HTML = '''
+影响元件选择格的字体风格。
+'''
+Plain = '''
+影响元件选择格的字体风格。
+'''
+Code = '''
+变化值     : --form-option-font-style
+CSS属性    : font-style
+默认数码   : normal (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Align (Option)'
+HTML = '''
+Affects the option group's text alignment of the rendered component.
+'''
+Plain = '''
+Affects the option group's text alignment of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-optgroup-text-align
+CSS PROPERTY : text-align
+DEFAULT      : left (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Align（选择格）'
+HTML = '''
+影响元件选择格的字体对齐方式。
+'''
+Plain = '''
+影响元件选择格的字体对齐方式。
+'''
+Code = '''
+变化值     : --form-option-text-align
+CSS属性    : text-align
+默认数码   : left (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding (Color Picker)'
+HTML = '''
+Affects the color picker's padding of the rendered component.
+'''
+Plain = '''
+Affects the color picker's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-color-picker-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding（颜色选择格）'
+HTML = '''
+影响元件颜色选择格的内向边距空间。
+'''
+Plain = '''
+影响元件颜色选择格的内向边距空间。
+'''
+Code = '''
+变化值     : --form-color-picker-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (Color Picker)'
+HTML = '''
+Affects the color picker's width of the rendered component.
+'''
+Plain = '''
+Affects the color picker's width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-color-picker-width
+CSS PROPERTY : width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width（颜色选择格）'
+HTML = '''
+影响元件颜色选择格的宽度。
+'''
+Plain = '''
+影响元件颜色选择格的宽度。
+'''
+Code = '''
+变化值     : --form-color-picker-width
+CSS属性    : width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height (Color Picker)'
+HTML = '''
+Affects the color picker's height of the rendered component.
+'''
+Plain = '''
+Affects the color picker's height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-color-picker-height
+CSS PROPERTY : height
+DEFAULT      : 5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Height（颜色选择格）'
+HTML = '''
+影响元件颜色选择格的高度。
+'''
+Plain = '''
+影响元件颜色选择格的高度。
+'''
+Code = '''
+变化值     : --form-color-picker-height
+CSS属性    : height
+默认数码   : 5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin (Switchbox)'
+HTML = '''
+Affects the switchbox's margin of the rendered component.
+'''
+Plain = '''
+Affects the switchbox's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-switchbox-margin
+CSS PROPERTY : margin
+DEFAULT      : 1rem 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin（开关格）'
+HTML = '''
+影响元件开关格的外向边距空间。
+'''
+Plain = '''
+影响元件开关格的外向边距空间。
+'''
+Code = '''
+变化值     : --form-switchbox-margin
+CSS属性    : margin
+默认数码   : 1rem 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (Switchbox Toggle)'
+HTML = '''
+Affects the switchbox toggle's width of the rendered component.
+'''
+Plain = '''
+Affects the switchbox toggle's width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-switchbox-toggle-width
+CSS PROPERTY : width
+DEFAULT      : 70px (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width（开关格切换扭）'
+HTML = '''
+影响元件开关格切换扭的宽度。
+'''
+Plain = '''
+影响元件开关格切换扭的宽度。
+'''
+Code = '''
+变化值     : --form-switchbox-toggle-width
+CSS属性    : width
+默认数码   : 70px (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Switchbox Off Mode)'
+HTML = '''
+Affects the switchbox's background of the rendered component in off mode.
+'''
+Plain = '''
+Affects the switchbox's background of the rendered component in off mode.
+'''
+Code = '''
+VARIABLE     : --form-switchbox-background-off
+CSS PROPERTY : background
+DEFAULT      : #a8a8a8 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（开关格关闭模式）'
+HTML = '''
+影响元件开关格关闭模式的背景。
+'''
+Plain = '''
+影响元件开关格关闭模式的背景。
+'''
+Code = '''
+变化值     : --form-switchbox-background-off
+CSS属性    : background
+默认数码   : #a8a8a8 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Switchbox On Mode)'
+HTML = '''
+Affects the switchbox's background of the rendered component in on mode.
+'''
+Plain = '''
+Affects the switchbox's background of the rendered component in on mode.
+'''
+Code = '''
+VARIABLE     : --form-switchbox-background-on
+CSS PROPERTY : background
+DEFAULT      : var(--form-color-valid) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（开关格开着模式）'
+HTML = '''
+影响元件开关格开着模式的背景。
+'''
+Plain = '''
+影响元件开关格开着模式的背景。
+'''
+Code = '''
+变化值     : --form-switchbox-background-on
+CSS属性    : background
+默认数码   : var(--form-color-valid) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Timing (Switchbox)'
+HTML = '''
+Affects the switchbox's animation timing of the rendered component.
+'''
+Plain = '''
+Affects the switchbox's animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-switchbox-timing
+CSS PROPERTY : transition
+DEFAULT      : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Timing（开关格）'
+HTML = '''
+影响元件开关格的动画定时。
+'''
+Plain = '''
+影响元件开关格的动画定时。
+'''
+Code = '''
+变化值     : --form-switchbox-timing
+CSS属性    : transition
+默认数码   : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (Radio Toggle)'
+HTML = '''
+Affects the radio toggle's width of the rendered component.
+'''
+Plain = '''
+Affects the radio toggle's width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-radio-toggle-width
+CSS PROPERTY : width
+DEFAULT      : 30px (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width（多选择格切换扭）'
+HTML = '''
+影响元件多选择格切换扭的宽度。
+'''
+Plain = '''
+影响元件多选择格切换扭的宽度。
+'''
+Code = '''
+变化值     : --form-radio-toggle-width
+CSS属性    : width
+默认数码   : 30px (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Timing (Radio)'
+HTML = '''
+Affects the radio's animation timing of the rendered component.
+'''
+Plain = '''
+Affects the radio's animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-radio-timing
+CSS PROPERTY : transition
+DEFAULT      : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Timing（多选择格）'
+HTML = '''
+影响元件多选择格的动画定时。
+'''
+Plain = '''
+影响元件多选择格的动画定时。
+'''
+Code = '''
+变化值     : --form-radio-timing
+CSS属性    : transition
+默认数码   : var(--timing-normal) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Display (Button)'
+HTML = '''
+Affects the button's display mode of the rendered component.
+'''
+Plain = '''
+Affects the button's display mode of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-display
+CSS PROPERTY : display
+DEFAULT      : inline-block (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Display（按钮）'
+HTML = '''
+影响元件按钮的显示模式。
+'''
+Plain = '''
+影响元件按钮的显示模式。
+'''
+Code = '''
+变化值     : --form-button-display
+CSS属性    : display
+默认数码   : inline-block (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Margin (Button)'
+HTML = '''
+Affects the button's margin of the rendered component.
+'''
+Plain = '''
+Affects the button's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-margin
+CSS PROPERTY : margin
+DEFAULT      : .5rem 1.2rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin（按钮）'
+HTML = '''
+影响元件按钮的外向边距空间。
+'''
+Plain = '''
+影响元件按钮的外向边距空间。
+'''
+Code = '''
+变化值     : --form-button-margin
+CSS属性    : margin
+默认数码   : .5rem 1.2rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Padding (Button)'
+HTML = '''
+Affects the button's padding of the rendered component.
+'''
+Plain = '''
+Affects the button's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-padding
+CSS PROPERTY : padding
+DEFAULT      : 1.3rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Padding（按钮）'
+HTML = '''
+影响元件按钮的内向边距空间。
+'''
+Plain = '''
+影响元件按钮的内向边距空间。
+'''
+Code = '''
+变化值     : --form-button-padding
+CSS属性    : padding
+默认数码   : 1.3rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Width (Button)'
+HTML = '''
+Affects the button's width of the rendered component.
+'''
+Plain = '''
+Affects the button's width of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-width
+CSS PROPERTY : width
+DEFAULT      : 100% (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Width（按钮）'
+HTML = '''
+影响元件按钮的宽度。
+'''
+Plain = '''
+影响元件按钮的宽度。
+'''
+Code = '''
+变化值     : --form-button-width
+CSS属性    : width
+默认数码   : 100% (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border (Button)'
+HTML = '''
+Affects the button's border of the rendered component.
+'''
+Plain = '''
+Affects the button's border of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-border
+CSS PROPERTY : border
+DEFAULT      : 2px solid currentColor (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border（按钮）'
+HTML = '''
+影响元件按钮的边界线。
+'''
+Plain = '''
+影响元件按钮的边界线。
+'''
+Code = '''
+变化值     : --form-button-border
+CSS属性    : border
+默认数码   : 2px solid currentColor (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Border Radius (Button)'
+HTML = '''
+Affects the button's border radius of the rendered component.
+'''
+Plain = '''
+Affects the button's border radius of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-border-radius
+CSS PROPERTY : border-radius
+DEFAULT      : .5rem (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Border Radius（按钮）'
+HTML = '''
+影响元件按钮边界线的角落圆形度。
+'''
+Plain = '''
+影响元件按钮边界线的角落圆形度。
+'''
+Code = '''
+变化值     : --form-button-border-radius
+CSS属性    : border-radius
+默认数码   : .5rem (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Font Weight (Button)'
+HTML = '''
+Affects the button's font weight of the rendered component.
+'''
+Plain = '''
+Affects the button's font weight of the rendered component.
+'''
+Code = '''
+VARIABLE     : --font-button-font-weight
+CSS PROPERTY : font-weight
+DEFAULT      : 700 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Font Weight（按钮)'
+HTML = '''
+影响元件按钮的字体厚度。
+'''
+Plain = '''
+影响元件按钮的字体厚度。
+'''
+Code = '''
+变化值     : ---font-button-font-weight
+CSS属性    : font-family
+默认数码   : 700 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Transformation (Button)'
+HTML = '''
+Affects the button's text transformation of the rendered component.
+'''
+Plain = '''
+Affects the button's text transformation of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-text-transform
+CSS PROPERTY : text-transform
+DEFAULT      : uppercase (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Transformation（按钮）'
+HTML = '''
+影响元件按钮的字体装饰。
+'''
+Plain = '''
+影响元件按钮的字体装饰。
+'''
+Code = '''
+变化值     : --form-button-text-transform
+CSS属性    : text-transform
+默认数码   : uppercase (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Text Align (Button)'
+HTML = '''
+Affects the button's text alignment of the rendered component.
+'''
+Plain = '''
+Affects the button's text alignment of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-text-align
+CSS PROPERTY : text-align
+DEFAULT      : center (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Text Align（按钮）'
+HTML = '''
+影响元件按钮的字体对齐方式。
+'''
+Plain = '''
+影响元件按钮的字体对齐方式。
+'''
+Code = '''
+变化值     : --form-button-text-align
+CSS属性    : text-align
+默认数码   : center (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Timing (Button)'
+HTML = '''
+Affects the button's animation timing of the rendered component.
+'''
+Plain = '''
+Affects the button's animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --form-button-timing
+CSS PROPERTY : transition
+DEFAULT      : var(--timing-rapid) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Timing（按钮）'
+HTML = '''
+影响元件按钮的动画定时。
+'''
+Plain = '''
+影响元件按钮的动画定时。
+'''
+Code = '''
+变化值     : --form-button-timing
+CSS属性    : transition
+默认数码   : var(--timing-rapid) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

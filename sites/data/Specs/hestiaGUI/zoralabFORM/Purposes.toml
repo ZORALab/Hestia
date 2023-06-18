@@ -1,0 +1,899 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for form values. In web UI, it is shown as follows:
+<br/><br/>
+<form>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>Biodata</legend>
+			<fieldset>
+				<label for='form-person-name'>Legal Name</label>
+				<input id='form-person-name'
+					type='text'
+					name='person[name]'
+					required>
+			</fieldset>
+			<fieldset>
+				<legend>Gender</legend>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='male'
+						required>
+					<span>Male</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='female'
+						required>
+					<span>Female</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='n/a'
+						required>
+					<span>Prefer Not To Say</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='non-binary'
+						required>
+					<span>Non-Binary</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<legend>Date of Birth</legend>
+				<div class='row'>
+					<div class='column'>
+						<input id='form-person-dob'
+							type='date'
+							name='person[dob]'
+							pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+							placeholder='YYYY-MM-DD'
+							list='form-person-dob-list'
+							required>
+						<datalist id='form-person-dob-list'>
+							<option value='1988-11-11'></option>
+							<option value='1988-11-12'></option>
+							<option value='1988-11-13'></option>
+						</datalist>
+					</div>
+					<div class='column'>
+						<input id='form-person-time'
+							type='time'
+							name='person[dob-time]'
+							pattern='(?:[01]|2(?![4-9]))\d:[0-5]\d'>
+					</div>
+				</div>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>Profile</legend>
+			<fieldset>
+				<label for='form-person-mobile'>Mobile Number</label>
+				<input id='form-person-mobile'
+					type='tel'
+					name='person[mobile]'
+					pattern='(\+?)([0-9\-]+)'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-website'>Website</label>
+				<input id='form-person-website'
+					type='url'
+					name='person[website]'
+					pattern='(https)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-desc'>Description</label>
+				<textarea id='form-person-desc'
+					name='person[description]'
+					rows='10'
+					wrap='hard'
+					spellcheck=''
+					placeholder='Pitch yourself here!'
+					required></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>Photo</legend>
+				<label>
+					<input type='file'
+						name='person[photo]'
+						accept='image/*'
+						required
+					>
+					<span>Upload</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-worksite'>Preferred Worksite (CTRL for multiple)</label>
+				<select id='form-person-worksite'
+					name='person[worksite]'
+					multiple=''
+					required>
+					<optgroup label='Offsite'>
+						<option value='o1'>O1</option>
+						<option value='o2'>O2</option>
+						<option value='o3'>O3</option>
+					</optgroup>
+					<optgroup label="Onsite">
+						<option value='office A'>Office A</option>
+						<option value='office B'>Office B</option>
+						<option value='lab C'>Lab C</option>
+					</optgroup>
+				</select>
+			</fieldset>
+			<fieldset>
+				<legend>First Work</legend>
+				<input type='datetime-local'
+					id='form-person-first-work'
+					name='person[first-work]'
+					pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+					placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+					required>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>Login Credentials</legend>
+			<fieldset>
+				<label for='form-person-email'>Email</label>
+				<input id='form-person-email'
+					type='email'
+					name='person[login-email]'
+					pattern='^(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@((?!-)((?!--)[a-z\d-]){0,63}[a-z\d]\.){1,2}([a-z]{2,14}\.)?[a-z]{2,14}$'
+					placeholder='john.smith@domain.com'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-password'>Password</label>
+				<input id='form-person-password'
+					type='password'
+					name='person[login-password]'
+					pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&amp;\*\)]).{33,}'
+					placeholder='Your Secret Password'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-secret-color'>Secret Color</label>
+				<input id='form-person-secret-color'
+					type='color'
+					name='person[login-color]'
+					list='form-person-secret-color-list'
+					required>
+				<datalist id='form-person-secret-color-list'>
+					<option value='#ff0000'></option>
+					<option value='#00ff00'></option>
+					<option value='#0000ff'></option>
+				</datalist>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-secret-number'>Secret Number</label>
+				<input id='form-person-secret-number'
+					type='number'
+					name='person[login-number]'
+					step='0.01'
+					required>
+			</fieldset>
+			<fieldset>
+				<label>
+					<input id='form-person-prepared'
+						type='checkbox'
+						name='person[prepared]'
+						required>
+					<span>Prepared</span>
+				</label>
+				<label>
+					<input id='form-person-equipped'
+						type='checkbox'
+						name='person[equipped]'>
+					<span>Equipped</span>
+				</label>
+			</fieldset>
+		</fieldset></div>
+	</div>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>Ready?</legend>
+			<input id='form-person-submit'
+				type='submit'
+				name='person[submit]'
+				value='Submit'
+				required
+				disabled>
+		</fieldset></div>
+	</div>
+</form>
+<br/><br/>
+<div class='inverted'><form>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>Biodata</legend>
+			<fieldset>
+				<label for='inverted-form-person-name'>Legal Name</label>
+				<input id='inverted-form-person-name'
+					type='text'
+					name='iperson[name]'
+					required>
+			</fieldset>
+			<fieldset>
+				<legend>Gender</legend>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='male'
+						required>
+					<span>Male</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='female'
+						required>
+					<span>Female</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='n/a'
+						required>
+					<span>Prefer Not To Say</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='non-binary'
+						required>
+					<span>Non-Binary</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<legend>Date of Birth</legend>
+				<div class='row'>
+					<div class='column'>
+						<input id='inverted-form-person-dob'
+							type='date'
+							name='iperson[dob]'
+							pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+							placeholder='YYYY-MM-DD'
+							list='inverted-form-person-dob-list'
+							required>
+						<datalist id='inverted-form-person-dob-list'>
+							<option value='1988-11-11'></option>
+							<option value='1988-11-12'></option>
+							<option value='1988-11-13'></option>
+						</datalist>
+					</div>
+					<div class='column'>
+						<input id='inverted-form-person-time'
+							type='time'
+							name='person[dob-time]'
+							pattern='(?:[01]|2(?![4-9]))\d:[0-5]\d'>
+					</div>
+				</div>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>Profile</legend>
+			<fieldset>
+				<label for='inverted-form-person-mobile'>Mobile Number</label>
+				<input id='inverted-form-person-mobile'
+					type='tel'
+					name='iperson[mobile]'
+					pattern='(\+?)([0-9\-]+)'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-website'>Website</label>
+				<input id='inverted-form-person-website'
+					type='url'
+					name='iperson[website]'
+					pattern='(https)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-desc'>Description</label>
+				<textarea id='inverted-form-person-desc'
+					name='iperson[description]'
+					rows='10'
+					wrap='hard'
+					spellcheck=''
+					placeholder='Pitch yourself here!'
+					required></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>Photo</legend>
+				<label>
+					<input type='file'
+						name='iperson[photo]'
+						accept='image/*'
+						required
+					>
+					<span>Upload</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-worksite'>Preferred Worksite (CTRL for multiple)</label>
+				<select id='inverted-form-person-worksite'
+					name='iperson[worksite]'
+					multiple=''
+					required>
+					<optgroup label='Offsite'>
+						<option value='o1'>O1</option>
+						<option value='o2'>O2</option>
+						<option value='o3'>O3</option>
+					</optgroup>
+					<optgroup label="Onsite">
+						<option value='office A'>Office A</option>
+						<option value='office B'>Office B</option>
+						<option value='lab C'>Lab C</option>
+					</optgroup>
+				</select>
+			</fieldset>
+			<fieldset>
+				<legend>First Work</legend>
+				<input type='datetime-local'
+					id='inverted-form-person-first-work'
+					name='iperson[first-work]'
+					pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+					placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+					required>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>Login Credentials</legend>
+			<fieldset>
+				<label for='inverted-form-person-email'>Email</label>
+				<input id='inverted-form-person-email'
+					type='email'
+					name='iperson[login-email]'
+					pattern='^(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@((?!-)((?!--)[a-z\d-]){0,63}[a-z\d]\.){1,2}([a-z]{2,14}\.)?[a-z]{2,14}$'
+					placeholder='john.smith@domain.com'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-password'>Password</label>
+				<input id='inverted-form-person-password'
+					type='password'
+					name='iperson[login-password]'
+					pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&amp;\*\)]).{33,}'
+					placeholder='Your Secret Password'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-secret-color'>Secret Color</label>
+				<input id='inverted-form-person-secret-color'
+					type='color'
+					name='iperson[login-color]'
+					list='inverted-form-person-secret-color-list'
+					required>
+				<datalist id='inverted-form-person-secret-color-list'>
+					<option value='#ff0000'></option>
+					<option value='#00ff00'></option>
+					<option value='#0000ff'></option>
+				</datalist>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-secret-number'>Secret Number</label>
+				<input id='inverted-form-person-secret-number'
+					type='number'
+					name='iperson[login-number]'
+					step='0.01'
+					required>
+			</fieldset>
+			<fieldset>
+				<label>
+					<input id='inverted-form-person-prepared'
+						type='checkbox'
+						name='iperson[prepared]'
+						required>
+					<span>Prepared</span>
+				</label>
+				<label>
+					<input id='inverted-form-person-equipped'
+						type='checkbox'
+						name='iperson[equipped]'>
+					<span>Equipped</span>
+				</label>
+			</fieldset>
+		</fieldset></div>
+	</div>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>Ready?</legend>
+			<input id='inverted-form-person-submit'
+				type='submit'
+				name='iperson[submit]'
+				value='Submit'
+				required
+				disabled>
+		</fieldset></div>
+	</div>
+</form></div>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for form values.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染表格界面元件。在网络界面世界里，这元件的成果如
+下：
+<br/><br/>
+<form>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>个人资料</legend>
+			<fieldset>
+				<label for='form-person-name'>法律全名</label>
+				<input id='form-person-name'
+					type='text'
+					name='person[name]'
+					required>
+			</fieldset>
+			<fieldset>
+				<legend>性别</legend>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='male'
+						required>
+					<span>男</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='female'
+						required>
+					<span>女</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='n/a'
+						required>
+					<span>不想透露</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='person[gender]'
+						value='non-binary'
+						required>
+					<span>非二进制</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<legend>出生日期</legend>
+				<div class='row'>
+					<div class='column'>
+						<input id='form-person-dob'
+							type='date'
+							name='person[dob]'
+							pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+							placeholder='YYYY-MM-DD'
+							list='form-person-dob-list'
+							required>
+						<datalist id='form-person-dob-list'>
+							<option value='1988-11-11'></option>
+							<option value='1988-11-12'></option>
+							<option value='1988-11-13'></option>
+						</datalist>
+					</div>
+					<div class='column'>
+						<input id='form-person-time'
+							type='time'
+							name='person[dob-time]'
+							pattern='(?:[01]|2(?![4-9]))\d:[0-5]\d'>
+					</div>
+				</div>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>个人资料</legend>
+			<fieldset>
+				<label for='form-person-mobile'>电话</label>
+				<input id='form-person-mobile'
+					type='tel'
+					name='person[mobile]'
+					pattern='(\+?)([0-9\-]+)'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-website'>网页</label>
+				<input id='form-person-website'
+					type='url'
+					name='person[website]'
+					pattern='(https)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-desc'>自介</label>
+				<textarea id='form-person-desc'
+					name='person[description]'
+					rows='10'
+					wrap='hard'
+					spellcheck=''
+					placeholder='Pitch yourself here!'
+					required></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>相片</legend>
+				<label>
+					<input type='file'
+						name='person[photo]'
+						accept='image/*'
+						required
+					>
+					<span>Upload</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-worksite'>工作选择（按CTRL来选多）</label>
+				<select id='form-person-worksite'
+					name='person[worksite]'
+					multiple=''
+					required>
+					<optgroup label='Offsite'>
+						<option value='o1'>O1</option>
+						<option value='o2'>O2</option>
+						<option value='o3'>O3</option>
+					</optgroup>
+					<optgroup label="Onsite">
+						<option value='office A'>公楼A</option>
+						<option value='office B'>公楼B</option>
+						<option value='lab C'>实验室C</option>
+					</optgroup>
+				</select>
+			</fieldset>
+			<fieldset>
+				<legend>第一工作</legend>
+				<input type='datetime-local'
+					id='form-person-first-work'
+					name='person[first-work]'
+					pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+					placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+					required>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>登录凭据</legend>
+			<fieldset>
+				<label for='form-person-email'>电邮</label>
+				<input id='form-person-email'
+					type='email'
+					name='person[login-email]'
+					pattern='^(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@((?!-)((?!--)[a-z\d-]){0,63}[a-z\d]\.){1,2}([a-z]{2,14}\.)?[a-z]{2,14}$'
+					placeholder='john.smith@domain.com'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-password'>密码</label>
+				<input id='form-person-password'
+					type='password'
+					name='person[login-password]'
+					pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&amp;\*\)]).{33,}'
+					placeholder='您的保密密码'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-secret-color'>密集颜色</label>
+				<input id='form-person-secret-color'
+					type='color'
+					name='person[login-color]'
+					list='form-person-secret-color-list'
+					required>
+				<datalist id='form-person-secret-color-list'>
+					<option value='#ff0000'></option>
+					<option value='#00ff00'></option>
+					<option value='#0000ff'></option>
+				</datalist>
+			</fieldset>
+			<fieldset>
+				<label for='form-person-secret-number'>密集号码</label>
+				<input id='form-person-secret-number'
+					type='number'
+					name='person[login-number]'
+					step='1'
+					required>
+			</fieldset>
+			<fieldset>
+				<label>
+					<input id='form-person-prepared'
+						type='checkbox'
+						name='person[prepared]'
+						required>
+					<span>准备好了</span>
+				</label>
+				<label>
+					<input id='form-person-equipped'
+						type='checkbox'
+						name='person[equipped]'>
+					<span>装备好了</span>
+				</label>
+			</fieldset>
+		</fieldset></div>
+	</div>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>好了?</legend>
+			<input id='form-person-submit'
+				type='submit'
+				name='person[submit]'
+				value='成交'
+				required
+				disabled>
+		</fieldset></div>
+	</div>
+</form>
+<br/><br/>
+<div class='inverted'><form>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>个人资料</legend>
+			<fieldset>
+				<label for='inverted-form-person-name'>法律全名</label>
+				<input id='inverted-form-person-name'
+					type='text'
+					name='iperson[name]'
+					required>
+			</fieldset>
+			<fieldset>
+				<legend>性别</legend>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='male'
+						required>
+					<span>男</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='female'
+						required>
+					<span>女</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='n/a'
+						required>
+					<span>不想透露</span>
+				</label>
+				<label>
+					<input type='radio'
+						name='iperson[gender]'
+						value='non-binary'
+						required>
+					<span>非二进制</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<legend>出生日期</legend>
+				<div class='row'>
+					<div class='column'>
+						<input id='inverted-form-person-dob'
+							type='date'
+							name='iperson[dob]'
+							pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))$)'
+							placeholder='YYYY-MM-DD'
+							list='inverted-form-person-dob-list'
+							required>
+						<datalist id='inverted-form-person-dob-list'>
+							<option value='1988-11-11'></option>
+							<option value='1988-11-12'></option>
+							<option value='1988-11-13'></option>
+						</datalist>
+					</div>
+					<div class='column'>
+						<input id='inverted-form-person-time'
+							type='time'
+							name='iperson[dob-time]'
+							pattern='(?:[01]|2(?![4-9]))\d:[0-5]\d'>
+					</div>
+				</div>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>个人资料</legend>
+			<fieldset>
+				<label for='inverted-form-person-mobile'>电话</label>
+				<input id='inverted-form-person-mobile'
+					type='tel'
+					name='iperson[mobile]'
+					pattern='(\+?)([0-9\-]+)'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-website'>网页</label>
+				<input id='inverted-form-person-website'
+					type='url'
+					name='iperson[website]'
+					pattern='(https)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.*)?(\/[^\s]*)?'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-desc'>自介</label>
+				<textarea id='inverted-form-person-desc'
+					name='iperson[description]'
+					rows='10'
+					wrap='hard'
+					spellcheck=''
+					placeholder='Pitch yourself here!'
+					required></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>相片</legend>
+				<label>
+					<input type='file'
+						name='iperson[photo]'
+						accept='image/*'
+						required
+					>
+					<span>Upload</span>
+				</label>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-worksite'>工作选择（按CTRL来选多）</label>
+				<select id='inverted-form-person-worksite'
+					name='iperson[worksite]'
+					multiple=''
+					required>
+					<optgroup label='Offsite'>
+						<option value='o1'>O1</option>
+						<option value='o2'>O2</option>
+						<option value='o3'>O3</option>
+					</optgroup>
+					<optgroup label="Onsite">
+						<option value='office A'>公楼A</option>
+						<option value='office B'>公楼B</option>
+						<option value='lab C'>实验室C</option>
+					</optgroup>
+				</select>
+			</fieldset>
+			<fieldset>
+				<legend>第一工作</legend>
+				<input type='datetime-local'
+					id='inverted-form-person-first-work'
+					name='iperson[first-work]'
+					pattern='(?:^\d*\-(?:(01|03|05|07|08|10|12)\-(?:(0[1-9]|[1-2][0-9]|3[0-1]))|(04|06|09|11)\-(?:(0[1-9]|[1-2][0-9]|30))|(02\-(?:(0[1-9]|[1-2][0-9]))))(T(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9](\:[0-5][0-9])?(\+|\-)(?:([0-1][0-9]|2[0-3]))\:[0-5][0-9])?$)'
+					placeholder='YYYY-MM-DDThh:mm:ss±hh:mm'
+					required>
+			</fieldset>
+		</fieldset></div>
+		<div class='column'><fieldset>
+			<legend>登录凭据</legend>
+			<fieldset>
+				<label for='inverted-form-person-email'>电邮</label>
+				<input id='inverted-form-person-email'
+					type='email'
+					name='iperson[login-email]'
+					pattern='^(?![_.-])((?![_.-][_.-])[a-z\d_.-]){0,63}[a-z\d]@((?!-)((?!--)[a-z\d-]){0,63}[a-z\d]\.){1,2}([a-z]{2,14}\.)?[a-z]{2,14}$'
+					placeholder='john.smith@domain.com'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-password'>密码</label>
+				<input id='inverted-form-person-password'
+					type='password'
+					name='iperson[login-password]'
+					pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&amp;\*\)]).{33,}'
+					placeholder='您的保密密码'
+					required>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-secret-color'>密集颜色</label>
+				<input id='inverted-form-person-secret-color'
+					type='color'
+					name='iperson[login-color]'
+					list='form-person-secret-color-list'
+					required>
+				<datalist id='iform-person-secret-color-list'>
+					<option value='#ff0000'></option>
+					<option value='#00ff00'></option>
+					<option value='#0000ff'></option>
+				</datalist>
+			</fieldset>
+			<fieldset>
+				<label for='inverted-form-person-secret-number'>密集号码</label>
+				<input id='inverted-form-person-secret-number'
+					type='number'
+					name='iperson[login-number]'
+					step='1'
+					required>
+			</fieldset>
+			<fieldset>
+				<label>
+					<input id='inverted-form-person-prepared'
+						type='checkbox'
+						name='iperson[prepared]'
+						required>
+					<span>准备好了</span>
+				</label>
+				<label>
+					<input id='inverted-form-person-equipped'
+						type='checkbox'
+						name='iperson[equipped]'>
+					<span>装备好了</span>
+				</label>
+			</fieldset>
+		</fieldset></div>
+	</div>
+	<div class='row'>
+		<div class='column'><fieldset>
+			<legend>好了?</legend>
+			<input id='inverted-form-person-submit'
+				type='submit'
+				name='iperson[submit]'
+				value='成交'
+				required
+				disabled>
+		</fieldset></div>
+	</div>
+</form>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染表格界面元件。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was known as <code>form_hestiaUI</code> before ZORALab's Hestia
+<code>v1.2.0</code>. The transformation was due to someone attempting to steal
+the copyrights and makes way for programming package's documentation
+restructuring.
+'''
+Plain = '''
+This package was known as 'form_hestiaUI' before ZORALab's Hestia 'v1.2.0'. The
+transformation was due to someone attempting to steal the design copyrights and
+makes way for programming package's documentation restructuring.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
+<code>form_hestiaUI</code>。改名的目的是有人要横行强盗设计的版权和为了编程文件
+编写能力而整理过。
+'''
+Plain = '''
+这个软件包在ZORALab赫斯提亚v1.2.0版本之前曾经被名为form_hestiaUI。改名的目的是有
+人要横行强盗设计的版权和为了编程文件编写能力而整理过。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

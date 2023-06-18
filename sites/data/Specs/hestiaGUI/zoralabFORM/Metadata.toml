@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabform'
+SKU = 'zoralabFORM'
+Description = '''
+For styling a form.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabform'
+SKU = 'zoralabFORM'
+Description = '''
+来渲染表格。
+'''
