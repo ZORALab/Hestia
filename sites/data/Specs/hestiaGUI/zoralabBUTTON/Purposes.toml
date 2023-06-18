@@ -6,13 +6,14 @@ specifically for button values. In web UI, it is shown as follows:
 <br/><br/>
 <a href='#' class='button'>An Enabled Button</a>
 <button disabled>A Disabled Button</button>
+<div class='inverted'>
+	<a href='#' class='button'>An Enabled Button</a>
+	<button disabled>A Disabled Button</button>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for button values. In web UI, it is shown as follows:
-
-<a href='#' class='button'>An Enabled Button</a>
-<button disabled>A Disabled Button</button>
+specifically for button values.
 '''
 Code = '''
 '''
@@ -30,13 +31,13 @@ HTML = '''
 <br/><br/>
 <a href='#' class='button'>一个启用的按钮</a>
 <button disabled>一个禁用的按钮</button>
+<div class='inverted'>
+	<a href='#' class='button'>一个启用的按钮</a>
+	<button disabled>一个禁用的按钮</button>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染按钮的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<a href='#' class='button'>一个启用的按钮</a>
-<button disabled>一个禁用的按钮</button>
+这个软件包的出生主要是支持渲染按钮的界面元件。
 '''
 Code = '''
 '''

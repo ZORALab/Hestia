@@ -36,16 +36,16 @@ button, .button {
 	line-height: var(--button-line-height);
 
 	color: var(--button-color);
-	background: var(--button-background);
+	background: color-mix(in srgb, var(--button-color) 10%, #fff);
 	border-color: var(--button-color);
 	box-shadow: var(--button-box-shadow);
 
 	transition: var(--button-transition);
 }
 
-:is(button, .button).emphasize {
-	color: var(--button-color-inverted);
-	background: var(--button-color);
+:is(.inverted, footer, .footer) :is(button, .button) {
+	color: var(--button-color);
+	background: color-mix(in srgb, var(--button-color) 10%, #fff);
 }
 
 :is(button, .button):disabled {
@@ -54,14 +54,9 @@ button, .button {
 }
 
 :is(button, .button):not([disabled]):is(:hover, :focus) {
-	border: var(--button-border);
+	color: var(--button-color);
 	border-color: var(--button-color);
 	transform: var(--button-transform-focus);
-}
-
-:is(button, .button):not(.emphasize):not([disabled]):is(:hover, :focus) {
-	color: var(--button-color-inverted);
-	background: var(--button-color);
 }
 
 :is(button, .button):not([disabled]):active {

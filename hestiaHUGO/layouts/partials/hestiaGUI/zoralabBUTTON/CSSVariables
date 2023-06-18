@@ -24,8 +24,8 @@
 "--button-text-align" = "center"
 "--button-text-decoration" = "none"
 "--button-text-transform" = "uppercase"
-"--button-overflow-wrap" = "normal"
 "--button-word-break" = "normal"
+"--button-overflow-wrap" = "normal"
 "--button-line-height" = "var(--body-line-height)"
 
 
@@ -34,7 +34,6 @@
 "--button-color" = "var(--color-primary-600)"
 "--button-color-inverted" = "var(--color-typography-100)"
 "--button-color-print" = "var(--body-color-print)"
-"--button-background" = "color-mix(in srgb, currentColor 9%, #fff)"
 "--button-background-print" = "var(--body-background-print)"
 "--button-box-shadow" = "0 .5rem 1rem var(--color-typography-400)"
 

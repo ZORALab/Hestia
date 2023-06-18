@@ -117,8 +117,6 @@ Code = '''
 <a class="button" ...>...</a>
 
 <button>...</button>
-
-<input type="submit" ... />
 '''
 
 [[EN.List.SubList.URL]]
@@ -138,8 +136,6 @@ Code = '''
 <a class="button" ...>...</a>
 
 <button>...</button>
-
-<input type="submit" ... />
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -199,20 +195,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -565,7 +561,7 @@ Plain = '''
 Code = '''
 变化值     : --button-font-weight
 CSS属性    : font-weight
-默认数码   : 700 (>= v1.0.0)
+默认数码   : 700 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -917,45 +913,6 @@ Code = '''
 变化值     : --button-color-print
 CSS属性    : color
 默认数码   : var(--body-color-print) (>= v1.2.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Background'
-HTML = '''
-Affects the background of the rendered component.
-'''
-Plain = '''
-Affects the background of the rendered component.
-'''
-Code = '''
-VARIABLE     : --button-background
-CSS PROPERTY : background
-DEFAULT      : color-mix(in srgb, currentColor 9%, #fff) (>= v1.2.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Background'
-HTML = '''
-影响元件的背景。
-'''
-Plain = '''
-影响元件的背景。
-'''
-Code = '''
-变化值     : --button-background
-CSS属性    : background
-默认数码   : color-mix(in srgb, currentColor 9%, #fff) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
