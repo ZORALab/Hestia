@@ -446,7 +446,7 @@ The placeholder field HTML codes are shown below:
 '''
 Code = '''
 <input ... placeholder='...' />
-<textarea ... placeholder='...'></textarea>
+<textarea ... placeholder='...'>...</textarea>
 '''
 
 [[EN.List.SubList.URL]]
@@ -464,7 +464,7 @@ Plain = '''
 '''
 Code = '''
 <input ... placeholder='...' />
-<textarea ... placeholder='...'></textarea>
+<textarea ... placeholder='...'>...</textarea>
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -732,7 +732,7 @@ Code = '''
 	formtype="...覆盖表格原本的成交类型..."
 	formmethod="...覆盖表格原本的方式 (e.g. GET|POST|dialog|...)"
 	formnovalidate="true"
-	formtarget="...AN IFRAME ID..."
+	formtarget="...一个IFRAME的ID..."
 	disabled
 />
 '''
@@ -1454,7 +1454,7 @@ Code = '''
 	name='...'
 	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{33,}'
 	minlength='33'
-	placeholder='Password Here'
+	placeholder='请在这儿填入密码'
 />
 
 
@@ -1466,7 +1466,7 @@ Code = '''
 	pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\(!@#\$%\^&\*\)]).{33,}'
 	minlength='33'
 	maxlength='...'
-	placeholder='Password Here'
+	placeholder='...'
 	required
 	disabled
 	autofocus
@@ -1535,14 +1535,14 @@ Code = '''
 <!-- 最少 -->
 <label>
 	<input type='radio' name='...DECISION_A...' value='...CHOICE_1...' />
-	<span>...LABEL SHOWCASE HERE...</span>
+	<span>...字条内容...</span>
 </label>
 
 
 <!-- 最少（默认值：已选择了） -->
 <label>
 	<input type='radio' name='...DECISION_A...' value='...CHOICE_2...' checked />
-	<span>...LABEL SHOWCASE HERE...</span>
+	<span>...字条内容...</span>
 </label>
 
 
@@ -1557,7 +1557,7 @@ Code = '''
 		disabled
 		autofocus
 	/>
-	<span>...LABEL SHOWCASE HERE...</span>
+	<span>...字条内容...</span>
 </label>
 '''
 
@@ -3621,10 +3621,10 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Border Radius（数码格套装）'
 HTML = '''
-影响元件边界线的角落圆形度。
+影响元件数码格套装边界线的角落圆形度。
 '''
 Plain = '''
-影响元件边界线的角落圆形度。
+影响元件数码格套装边界线的角落圆形度。
 '''
 Code = '''
 变化值     : --form-fieldset-border-radius
@@ -3736,7 +3736,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Font Weight（数码格套装标题)'
+Title = 'Font Weight（数码格套装标题）'
 HTML = '''
 影响元件数码格套装标题的字体厚度。
 '''
@@ -3764,8 +3764,8 @@ Plain = '''
 Affects the fieldset's legend's text transformation of the rendered component.
 '''
 Code = '''
-VARIABLE     : --form-fieldset-legend-text-decoration
-CSS PROPERTY : text-decoration
+VARIABLE     : --form-fieldset-legend-text-transform
+CSS PROPERTY : text-transform
 DEFAULT      : uppercase (>= v1.2.0)
 '''
 
@@ -3783,8 +3783,8 @@ Plain = '''
 影响元件数码格套装标题的字体装饰。
 '''
 Code = '''
-变化值     : --form-fieldset-legend-text-decoration
-CSS属性    : text-decoration
+变化值     : --form-fieldset-legend-text-transform
+CSS属性    : text-transform
 默认数码   : uppercase (>= v1.2.0)
 '''
 
@@ -4165,7 +4165,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Padding (字条)'
+Title = 'Padding （字条）'
 HTML = '''
 影响元件字条的内向边距空间。
 '''
@@ -4282,7 +4282,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Font Weight（字条)'
+Title = 'Font Weight（字条）'
 HTML = '''
 影响元件字条的字体厚度。
 '''
@@ -4291,7 +4291,7 @@ Plain = '''
 '''
 Code = '''
 变化值     : ---form-label-font-weight
-CSS属性    : font-family
+CSS属性    : font-weight
 默认数码   : 700 (>= v1.2.0)
 '''
 
@@ -5090,8 +5090,8 @@ Plain = '''
 Affects the field's text transformation of the rendered component.
 '''
 Code = '''
-VARIABLE     : --form-field-text-decoration
-CSS PROPERTY : text-decoration
+VARIABLE     : --form-field-text-transform
+CSS PROPERTY : text-transform
 DEFAULT      : initial (>= v1.2.0)
 '''
 
@@ -5109,8 +5109,8 @@ Plain = '''
 影响元件数据格的字体装饰。
 '''
 Code = '''
-变化值     : --form-field-text-decoration
-CSS属性    : text-decoration
+变化值     : --form-field-text-transform
+CSS属性    : text-transform
 默认数码   : initial (>= v1.2.0)
 '''
 
@@ -6076,7 +6076,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Font Weight（按钮)'
+Title = 'Font Weight（按钮）'
 HTML = '''
 影响元件按钮的字体厚度。
 '''
