@@ -162,20 +162,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -197,7 +197,7 @@ Affects the display mode of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -216,7 +216,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -238,7 +238,7 @@ component.
 Code = '''
 VARIABLE     : --blockquote-before-content
 CSS PROPERTY : content
-DEFAULT      : \"❝\" (>= v1.0.0)
+DEFAULT      : "❝" (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -257,7 +257,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-before-content
 CSS属性    : content
-默认数码   : \"❝\" (>= v1.0.0)
+默认数码   : "❝" (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -277,7 +277,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-margin
 CSS PROPERTY : margin
-DEFAULT      : 2rem auto (>= v1.0.0)
+DEFAULT      : 0 0 3rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -296,7 +296,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-margin
 CSS属性    : margin
-默认数码   : 0 0 3rem (>= v1.0.0)
+默认数码   : 0 0 3rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -316,7 +316,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-padding
 CSS PROPERTY : padding
-DEFAULT      : 4rem 3rem 3rem 10rem (>= v1.0.0)
+DEFAULT      : 4rem 3rem 3rem 10rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -335,7 +335,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-padding
 CSS属性    : padding
-默认数码   : 4rem 3rem 3rem 10rem (>= v1.0.0)
+默认数码   : 4rem 3rem 3rem 10rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -355,7 +355,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-border
 CSS PROPERTY : border
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : none (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -374,7 +374,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-border
 CSS属性    : border
-默认数码   : 0 (>= v1.0.0)
+默认数码   : none (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -394,7 +394,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : 1rem (>= v1.0.0)
+DEFAULT      : 1rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -413,7 +413,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-border-radius
 CSS属性    : border-radius
-默认数码   : 1rem (>= v1.0.0)
+默认数码   : 1rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -433,7 +433,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-min-width
 CSS PROPERTY : min-width
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -452,7 +452,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-min-width
 CSS属性    : min-width
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -472,7 +472,7 @@ Affects the width of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-width
 CSS PROPERTY : width
-DEFAULT      : initial (<= v1.0.0)
+DEFAULT      : initial (<= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -491,7 +491,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-width
 CSS属性    : width
-默认数码   : initial (<= v1.0.0)
+默认数码   : initial (<= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -511,7 +511,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-max-width
 CSS PROPERTY : max-width
-DEFAULT      : initial (<= v1.0.0)
+DEFAULT      : initial (<= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -530,7 +530,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-max-width
 CSS属性    : max-width
-默认数码   : initial (<= v1.0.0)
+默认数码   : initial (<= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -550,7 +550,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -569,7 +569,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-min-height
 CSS属性    : min-hieght
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -589,7 +589,7 @@ Affects the height of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-height
 CSS PROPERTY : height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -608,7 +608,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-height
 CSS属性    : height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -628,7 +628,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -647,7 +647,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -667,7 +667,7 @@ Affects the text alignment of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-text-align
 CSS PROPERTY : text-align
-DEFAULT      : justify (>= v1.0.0)
+DEFAULT      : justify (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -686,7 +686,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-text-align
 CSS属性    : text-align
-默认数码   : justify (>= v1.0.0)
+默认数码   : justify (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -706,7 +706,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-color
 CSS PROPERTY : color
-DEFAULT      : var(--color-typography-900) (>= v1.0.0)
+DEFAULT      : var(--color-typography-900) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -725,7 +725,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-color
 CSS属性    : color
-默认数码   : var(--color-typography-900) (>= v1.0.0)
+默认数码   : var(--color-typography-900) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -745,7 +745,7 @@ Affects the color of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --blockquote-color-print
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-print) (>= v1.0.0)
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -764,7 +764,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-color-print
 CSS属性    : color
-默认数码   : var(--body-color-print) (>= v1.0.0)
+默认数码   : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -784,7 +784,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-background
 CSS PROPERTY : background
-DEFAULT      : var(--color-primary-100) (>= v1.0.0)
+DEFAULT      : var(--color-primary-100) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -803,7 +803,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-background
 CSS属性    : background
-默认数码   : var(--color-primary-100) (>= v1.0.0)
+默认数码   : var(--color-primary-100) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -823,7 +823,7 @@ Affects the background of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --blockquote-background-print
 CSS PROPERTY : background
-DEFAULT      : var(--body-background-print) (>= v1.0.0)
+DEFAULT      : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -842,7 +842,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-background-print
 CSS属性    : background
-默认数码   : var(--body-background-print) (>= v1.0.0)
+默认数码   : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -862,7 +862,7 @@ Affects the animation timing of the rendered component.
 Code = '''
 VARIABLE     : --blockquote-timing
 CSS PROPERTY : transition
-DEFAULT      : var(--timing-rapid) (>= v1.0.0)
+DEFAULT      : var(--timing-rapid) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -881,7 +881,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-timing
 CSS属性    : transition
-默认数码   : var(--timing-rapid) (>= v1.0.0)
+默认数码   : var(--timing-rapid) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -901,7 +901,7 @@ Affects the margin of the rendered component's cite syntax.
 Code = '''
 VARIABLE     : --blockquote-cite-margin
 CSS PROPERTY : margin
-DEFAULT      : 2rem 0 0 (>= v1.0.0)
+DEFAULT      : 2rem 0 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -920,7 +920,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-cite-margin
 CSS属性    : margin
-默认数码   : 2rem 0 0 (>= v1.0.0)
+默认数码   : 2rem 0 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -940,7 +940,7 @@ Affects the top border of the rendered component's cite syntax.
 Code = '''
 VARIABLE     : --blockquote-cite-border-top
 CSS PROPERTY : border-top
-DEFAULT      : 2px solid var(--blockquote-color) (>= v1.0.0)
+DEFAULT      : 2px solid var(--blockquote-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -959,7 +959,7 @@ Plain = '''
 Code = '''
 变化值     : --blockquote-cite-border-top
 CSS属性    : border-top
-默认数码   : 2px solid var(--blockquote-color) (>= v1.0.0)
+默认数码   : 2px solid var(--blockquote-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

@@ -9,16 +9,16 @@ specifically for blockquote values. In web UI, it is shown as follows:
 	sane to think clearly, but one can think deeply and be quite insane.
 	<cite>Nikolai Tesla</cite>
 </blockquote>
-'''
-Plain = '''
-This package's primary purpose is to provide user interface (UI) styling
-specifically for blockquote values. In web UI, it is shown as follows:
-
-<blockquote>
+<br/><br/>
+<div class='inverted' style='padding: 2rem;'><blockquote>
 	The scientists of today think deeply instead of clearly. One must be
 	sane to think clearly, but one can think deeply and be quite insane.
 	<cite>Nikolai Tesla</cite>
-</blockquote>
+</blockquote></div>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for blockquote values.
 '''
 Code = '''
 '''
@@ -39,16 +39,15 @@ HTML = '''
 	sane to think clearly, but one can think deeply and be quite insane.
 	<cite>Nikolai Tesla</cite>
 </blockquote>
-'''
-Plain = '''
-这个软件包的出生主要是支持渲染引用方块的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<blockquote>
+<br/><br/>
+<div class='inverted' style='padding: 2rem;'><blockquote>
 	The scientists of today think deeply instead of clearly. One must be
 	sane to think clearly, but one can think deeply and be quite insane.
 	<cite>Nikolai Tesla</cite>
-</blockquote>
+</blockquote></div>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染引用方块的界面元件。
 '''
 Code = '''
 '''
