@@ -156,20 +156,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -191,7 +191,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --code-margin
 CSS PROPERTY : margin
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -210,7 +210,7 @@ Plain = '''
 Code = '''
 变化值     : --code-margin
 CSS属性    : margin
-默认数码   : initial (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -230,7 +230,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --code-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 .2rem (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -249,7 +249,7 @@ Plain = '''
 Code = '''
 变化值     : --code-padding
 CSS属性    : padding
-默认数码   : 0 .2rem (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -269,7 +269,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --code-border
 CSS PROPERTY : border
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -288,7 +288,7 @@ Plain = '''
 Code = '''
 变化值     : --code-border
 CSS属性    : border
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -308,7 +308,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --code-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : .4rem (>= v1.0.0)
+DEFAULT      : .4rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -327,7 +327,7 @@ Plain = '''
 Code = '''
 变化值     : --code-border-radius
 CSS属性    : border-radius
-默认数码   : .4rem (>= v1.0.0)
+默认数码   : .4rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -347,7 +347,7 @@ Affects the font weight of the rendered component.
 Code = '''
 VARIABLE     : --code-font-weight
 CSS PROPERTY : font-weight
-DEFAULT      : 700 (>= v1.0.0)
+DEFAULT      : 700 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -366,7 +366,7 @@ Plain = '''
 Code = '''
 变化值     : --code-font-weight
 CSS属性    : font-weight
-默认数码   : 700 (>= v1.0.0)
+默认数码   : 700 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -386,7 +386,7 @@ Affects the letter spacing of the rendered component.
 Code = '''
 VARIABLE     : --code-letter-spacing
 CSS PROPERTY : letter-spacing
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -405,7 +405,7 @@ Plain = '''
 Code = '''
 变化值     : --code-letter-spacing
 CSS属性    : letter-spacing
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -425,7 +425,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --code-color
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -444,7 +444,46 @@ Plain = '''
 Code = '''
 变化值     : --code-color
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--color-primary-300) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Inverted)'
+HTML = '''
+Affects the color of the rendered component in inverted mode.
+'''
+Plain = '''
+Affects the color of the rendered component in inverted mode.
+'''
+Code = '''
+VARIABLE     : --code-color-inverted
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-200) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（反转环境）'
+HTML = '''
+影响元件反转环境的颜色。
+'''
+Plain = '''
+影响元件反转环境的颜色。
+'''
+Code = '''
+变化值     : --code-color-inverted
+CSS属性    : color
+默认数码   : var(--color-primary-200) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -464,7 +503,7 @@ Affects the color of the rendered component during print mode.
 Code = '''
 VARIABLE     : --code-color-print
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-print) (>= v1.0.0)
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -483,7 +522,7 @@ Plain = '''
 Code = '''
 变化值     : --code-color-print
 CSS属性    : color
-默认数码   : var(--body-color-print) (>= v1.0.0)
+默认数码   : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -503,7 +542,7 @@ Affects the overflow wrapping behavior of the rendered component.
 Code = '''
 VARIABLE     : --code-overflow-wrap
 CSS PROPERTY : overflow-wrap
-DEFAULT      : break-word (>= v1.0.0)
+DEFAULT      : break-word (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -522,7 +561,7 @@ Plain = '''
 Code = '''
 变化值     : --code-overflow-wrap
 CSS属性    : overflow-wrap
-默认数码   : break-word (>= v1.0.0)
+默认数码   : break-word (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

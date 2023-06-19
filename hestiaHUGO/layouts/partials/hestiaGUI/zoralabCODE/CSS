@@ -27,9 +27,12 @@ code {
 	letter-spacing: var(--code-letter-spacing);
 
 	color: var(--code-color);
-	background: var(--code-background);
 
 	overflow-wrap: var(--code-overflow-wrap);
+}
+
+:is(.inverted, footer, .footer) code {
+	color: var(--code-color-inverted);
 }
 
 @media print {
@@ -38,6 +41,5 @@ code {
 
 		color: var(--code-color-print) !important;
 		border-color: var(--code-color-print) !important;
-		background: var(--code-background-print) !important;
 	}
 }
