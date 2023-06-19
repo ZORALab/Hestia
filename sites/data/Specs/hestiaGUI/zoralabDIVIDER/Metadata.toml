@@ -2,7 +2,7 @@
 ID = 'zoralabdivider'
 SKU = 'zoralabDIVIDER'
 Description = '''
-For styling a divider syntax.
+For styling a divider.
 '''
 
 
@@ -10,5 +10,5 @@ For styling a divider syntax.
 ID = 'zoralabdivider'
 SKU = 'zoralabDIVIDER'
 Description = '''
-来渲染分界线语法。
+来渲染分界线。
 '''
