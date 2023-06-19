@@ -6,12 +6,13 @@ specifically for divider values. In web UI, it is shown as follows:
 <br/><br/>
 <hr class='cut' />
 <br/><br/>
+<div class='inverted' style='min-height: 10rem; display: flex; align-items: center;'>
+	<hr class='cut' />
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for divider values. In web UI, it is shown as follows:
-
-'<hr class='cut' />'
+specifically for divider values.
 '''
 Code = '''
 '''
@@ -29,12 +30,12 @@ HTML = '''
 <br/><br/>
 <hr class='cut' />
 <br/><br/>
+<div class='inverted' style='min-height: 10rem; display: flex; align-items: center;'>
+	<hr class='cut' />
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染可剪分界线界面元件。在网络界面世界里，这元件的成果
-如下：
-
-'<hr class='cut' />'
+这个软件包的出生主要是支持渲染可剪分界线界面元件。
 '''
 Code = '''
 '''

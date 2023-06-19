@@ -8,6 +8,6 @@
 "--divider-cut-font-size" = "3.5rem"
 
 "--divider-cut-color" = "var(--color-typography-300)"
-"--divider-cut-color-inverted" = "var(--color-typography-600)"
+"--divider-cut-color-inverted" = "var(--color-typography-200)"
 "--divider-cut-background" = "transparent"
 "--divider-cut-background-inverted" = "transparent"
