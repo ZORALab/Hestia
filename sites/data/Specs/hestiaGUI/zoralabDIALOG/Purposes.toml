@@ -24,15 +24,7 @@ specifically for dialog values. In web UI, it is shown as follows:
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for dialog values. In web UI, it is shown as follows:
-
-<button onclick='document.getElementById("dialog-id-1").showModal();' >
-	Open Dialog
-</button>
-<dialog id="dialog-id-1">
-	...
-	<form method="dialog"><button>Close</button></form>
-</dialog>
+specifically for dialog values.
 '''
 Code = '''
 '''
@@ -45,7 +37,7 @@ Label = ''
 [[ZH-HANS.List]]
 Title = '主要目的'
 HTML = '''
-这个软件包的出生主要是支持渲染对话框提示的界面元件。在网络界面世界里，
+这个软件包的出生主要是支持渲染对话框的界面元件。在网络界面世界里，
 这元件的成果如下：
 <br/><br/>
 <button onclick='document.getElementById("dialog-example-1").showModal();' >
@@ -66,16 +58,7 @@ HTML = '''
 </dialog>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染对话框提示的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<button onclick='document.getElementById("dialog-id-1").showModal();' >
-	打开
-</button>
-<dialog id="dialog-id-1">
-	...
-	<form method="dialog"><button>关闭</button></form>
-</dialog>
+这个软件包的出生主要是支持渲染对话框的界面元件。
 '''
 Code = '''
 '''

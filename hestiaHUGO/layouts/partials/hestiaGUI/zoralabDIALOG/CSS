@@ -27,26 +27,39 @@ dialog {
 	padding: 0;
 
 	min-width: var(--dialog-min-width);
-	max-width: var(--dialog-max-width);
+	max-width: 0;
 	min-height: var(--dialog-min-height);
-	max-height: var(--dialog-max-height);
+	max-height: 0;
 
 	border: var(--dialog-border);
 	border-radius: var(--dialog-border-radius);
 
 	color: var(--dialog-color);
 	background: var(--dialog-background);
+
+	opacity: 0;
+	transition: opacity var(--dialog-timing);
 }
 
 dialog form[method='dialog'] {
 	background: transparent;
 }
 
+dialog[open] {
+	max-width: var(--dialog-max-width);
+	max-height: var(--dialog-max-height);
+
+	opacity: 1;
+	pointer-events: inherit;
+}
+
 dialog::backdrop {
-	background: rgba(0,0,0,.7);
+	background: rgba(255,255,255,.8);
 	backdrop-filter: blur(.5rem);
 }
 
-dialog:not([open]) {
-	display: none;
+@media (prefers-color-scheme: dark) {
+	dialog::backdrop {
+		background: rgba(0,0,0,.3);
+	}
 }

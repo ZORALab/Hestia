@@ -2,7 +2,7 @@
 ID = 'zoralabdialog'
 SKU = 'zoralabDIALOG'
 Description = '''
-For styling a dialog syntax.
+For styling a dialog.
 '''
 
 
@@ -10,5 +10,5 @@ For styling a dialog syntax.
 ID = 'zoralabdialog'
 SKU = 'zoralabDIALOG'
 Description = '''
-来渲染对话框提示的码语法。
+来渲染对话框。
 '''

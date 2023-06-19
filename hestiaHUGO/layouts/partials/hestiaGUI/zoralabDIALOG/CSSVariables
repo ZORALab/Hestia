@@ -9,3 +9,5 @@
 
 "--dialog-color" = "var(--body-color)"
 "--dialog-background" = "var(--body-background)"
+
+"--dialog-timing" = "var(--timing-rapid)"

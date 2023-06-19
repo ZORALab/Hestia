@@ -114,9 +114,22 @@ Plain = '''
 The minimum required HTML codes are shown below:
 '''
 Code = '''
-<button onclick='document.getElementById("...ID1...").showModal()'>
-<dialog id="...ID1...">
+<main>
 	...
+	<button onclick='document.getElementById("...DIALOG_ID1...").showModal()'>Open</button>
+	...
+</main>
+<footer>
+	...
+	<button onclick='document.getElementById("...DIALOG_ID1...").showModal()'>Open</button>
+	...
+</footer>
+
+...
+
+<dialog id="...DIALOG_ID1...">
+	...
+	<form method="dialog"><button>Close</button></form>
 </dialog>
 '''
 
@@ -134,15 +147,78 @@ Plain = '''
 在最小的HTML代码运用方法如下：
 '''
 Code = '''
-<button onclick='document.getElementById("...ID1...").showModal()'>
-<dialog id="...ID1...">
+<main>
 	...
+	<button onclick='document.getElementById("...DIALOG_ID1...").showModal()'>打开</button>
+	...
+</main>
+<footer>
+	...
+	<button onclick='document.getElementById("...DIALOG_ID1...").showModal()'>打开</button>
+	...
+</footer>
+
+...
+
+<dialog id="...DIALOG_ID1...">
+	...
+	<form method="dialog"><button>关闭</button></form>
 </dialog>
 '''
 
 [[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = "REMEMBER: It's A Special HTML"
+HTML = '''
+You must keep in mind that the dialog HTML syntax is a very special one where
+its operating CSS and Javascript variables and control values are reserved for
+proper operations. Known CSS attributes that are forbidden from overriding are:
+'''
+Plain = '''
+You must keep in mind that the dialog HTML syntax is a very special one where
+its operating CSS and Javascript variables and control values are reserved for
+proper operations. Known CSS attributes that are forbidden from overriding are:
+'''
+Code = '''
+display
+width
+height
+tabindex (completely forbidden)
+::backdrop (only in CSS 'style' syntax)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '切记：它是个特别的HTML'
+HTML = '''
+您要永远记住那dialog的HTML语法是个特别的HTML。它控制相当多和重要的CSS和JavaScript
+的控制值和变化值等等。这些是已经查询过不能自由掌控的CSS控制值：
+'''
+Plain = '''
+您要永远记住那dialog的HTML语法是个特别的HTML。它控制相当多和重要的CSS和JavaScript
+的控制值和变化值等等。这些是已经查询过不能自由掌控的CSS控制值：
+'''
+Code = '''
+display
+width
+height
+tabindex （完全不可）
+::backdrop （只能在CSS的style语法里）
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
 
 
 
@@ -161,20 +237,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -196,7 +272,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --dialog-border
 CSS PROPERTY : border
-DEFAULT      : 2px solid transparent (>= v1.0.0)
+DEFAULT      : 2px solid transparent (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -215,7 +291,7 @@ Plain = '''
 Code = '''
 变化值     : --dialog-border
 CSS属性    : border
-默认数码   : 2px solid transparent (>= v1.0.0)
+默认数码   : 2px solid transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -235,7 +311,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --dialog-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : .5rem (>= v1.0.0)
+DEFAULT      : .5rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -254,7 +330,7 @@ Plain = '''
 Code = '''
 变化值     : --dialog-border-radius
 CSS属性    : border-radius
-默认数码   : .5rem (>= v1.0.0)
+默认数码   : .5rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -274,7 +350,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --dialog-min-width
 CSS PROPERTY : min-width
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -293,7 +369,7 @@ Plain = '''
 Code = '''
 变化值     : --dialog-min-width
 CSS属性    : min-width
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -313,7 +389,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --dialog-max-width
 CSS PROPERTY : max-width
-DEFAULT      : initial
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -332,7 +408,7 @@ Plain = '''
 Code = '''
 变化值     : --dialog-max-width
 CSS属性    : max-width
-默认数码   : initial
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -352,7 +428,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --dialog-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -371,7 +447,7 @@ Plain = '''
 Code = '''
 变化值     : --dialog-min-height
 CSS属性    : min-hieght
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -391,7 +467,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --dialog-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -410,7 +486,7 @@ Plain = '''
 Code = '''
 变化值     : --dialog-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -430,7 +506,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --dialog-color
 CSS PROPERTY : color
-DEFAULT      : var(--body-color) (>= v1.0.0)
+DEFAULT      : var(--body-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -449,7 +525,7 @@ Plain = '''
 Code = '''
 变化值     : --dialog-color
 CSS属性    : color
-默认数码   : var(--body-color) (>= v1.0.0)
+默认数码   : var(--body-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -469,7 +545,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --dialog-background
 CSS PROPERTY : background
-DEFAULT      : var(--body-background) (>= v1.0.0)
+DEFAULT      : var(--body-background) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -488,12 +564,52 @@ Plain = '''
 Code = '''
 变化值     : --dialog-background
 CSS属性    : background
-默认数码   : var(--body-background) (>= v1.0.0)
+默认数码   : var(--body-background) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
 Value = ''
 Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Timing'
+HTML = '''
+Affects the animation timing of the rendered component.
+'''
+Plain = '''
+Affects the animation timing of the rendered component.
+'''
+Code = '''
+VARIABLE     : --dialog-timing
+CSS PROPERTY : transition (opacity)
+DEFAULT      : var(--timing-rapid) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '动画定时'
+HTML = '''
+影响元件的动画定时。
+'''
+Plain = '''
+影响元件的动画定时。
+'''
+Code = '''
+变化值     : --dialog-timing
+CSS属性    : transition (opacity)
+默认数码   : var(--timing-rapid) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
 
 
 
