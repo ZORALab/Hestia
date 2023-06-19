@@ -164,20 +164,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -238,7 +238,7 @@ Affects the bottom border of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --divider-dash-border-bottom-inverted
 CSS PROPERTY : border-bottom
-DEFAULT      : 2px dashed var(--divider-color-inverted) (>= v1.0.0)
+DEFAULT      : 2px dashed var(--divider-color-inverted) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -257,7 +257,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-dash-border-bottom-inverted
 CSS属性    : border-bottom
-默认数码   : 2px dashed var(--divider-color-inverted) (>= v1.0.0)
+默认数码   : 2px dashed var(--divider-color-inverted) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
