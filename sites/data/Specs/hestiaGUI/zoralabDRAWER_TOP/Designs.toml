@@ -125,20 +125,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -208,7 +208,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Z-Index (Opened)'
+Title = 'Z-Index（打开）'
 HTML = '''
 影响元件在打开情况里的z-index设置。
 '''
@@ -286,7 +286,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Width (Opened)'
+Title = 'Width（打开）'
 HTML = '''
 影响元件在打开时的宽度。
 '''
@@ -364,7 +364,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Height (Opened)'
+Title = 'Height（打开）'
 HTML = '''
 影响元件在打开时的长度。
 '''
@@ -754,7 +754,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Top Position (Trigger)'
+Title = 'Top Position（触发器）'
 HTML = '''
 影响元件触发器的顶向位置。
 '''
@@ -793,7 +793,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Left Position (Trigger)'
+Title = 'Left Position（触发器）'
 HTML = '''
 影响元件触发器的左向位置。
 '''
@@ -832,7 +832,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Bottom Position (Trigger)'
+Title = 'Bottom Position（触发器）'
 HTML = '''
 影响元件触发器的底向位置。
 '''
@@ -871,7 +871,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Right Position (Trigger)'
+Title = 'Right Position（触发器）'
 HTML = '''
 影响元件触发器的右向位置。
 '''
@@ -910,7 +910,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Z-Index (Trigger)'
+Title = 'Z-Index（触发器）'
 HTML = '''
 影响元件触发器的z-index设置。
 '''
@@ -1105,7 +1105,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color （触发器）'
+Title = 'Color（触发器）'
 HTML = '''
 影响元件触发器的颜色。
 '''
@@ -1242,7 +1242,7 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Transform (Trigger - Focus)'
+Title = 'Transform (Trigger + Focus)'
 HTML = '''
 Affects the trigger's transform of the rendered component while being focused.
 '''
@@ -1252,7 +1252,7 @@ Affects the trigger's transform of the rendered component while being focused.
 Code = '''
 VARIABLE     : --top-drawer-trigger-transform-focus
 CSS PROPERTY : transform
-DEFAULT      : scale(1.1) translateX(-50%) (>= v1.2.0)
+DEFAULT      : scale(1.3) translateX(-50%) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1261,7 +1261,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Transform（触发器 - Focus）'
+Title = 'Transform（触发器+被关注）'
 HTML = '''
 影响元件触发器在被关注时的变换形态。
 '''
@@ -1271,7 +1271,7 @@ Plain = '''
 Code = '''
 变化值     : --top-drawer-trigger-transform-focus
 CSS属性    : transform
-默认数码   : scale(1.1) translateX(-50%) (>= v1.2.0)
+默认数码   : scale(1.3) translateX(-50%) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1300,7 +1300,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Z-Index (叠加层)'
+Title = 'Z-Index （叠加层）'
 HTML = '''
 影响元件叠加层的z-index设置。
 '''
@@ -1417,7 +1417,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Transition (叠加层)'
+Title = 'Transition （叠加层）'
 HTML = '''
 影响元件叠加层的动画定时。
 '''

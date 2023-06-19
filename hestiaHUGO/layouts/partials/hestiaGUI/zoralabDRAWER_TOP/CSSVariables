@@ -42,7 +42,7 @@
 "--top-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-trigger-color)"
 
 "--top-drawer-trigger-transform" = "translateX(-50%)"
-"--top-drawer-trigger-transform-focus" = "scale(1.1) translateX(-50%)"
+"--top-drawer-trigger-transform-focus" = "scale(1.3) translateX(-50%)"
 
 
 
