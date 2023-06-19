@@ -15,7 +15,6 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-
 hr.cut {
 	margin: var(--divider-cut-margin);
 
@@ -42,8 +41,7 @@ hr.cut:after {
 	transform: translate(-50%, -50%);
 }
 
-footer hr.cut,
-.footer hr.cut {
+:is(.inverted, footer, .footer) hr.cut {
 	border-bottom: var(--divider-cut-border-bottom-inverted);
 	color: var(--divider-cut-color-inverted);
 	background: var(--divider-cut-background-inverted);

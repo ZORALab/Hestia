@@ -2,7 +2,7 @@
 ID = 'zoralabdivider_cut'
 SKU = 'zoralabDIVIDER_CUT'
 Description = '''
-For styling a cutting indication divider syntax.
+For styling a cutting indication divider.
 '''
 
 
@@ -10,5 +10,5 @@ For styling a cutting indication divider syntax.
 ID = 'zoralabdivider_cut'
 SKU = 'zoralabDIVIDER_CUT'
 Description = '''
-来渲染可剪分界线语法。
+来渲染可被剪的分界线。
 '''
