@@ -19,8 +19,6 @@ hr.dash {
 	border-bottom: var(--divider-dash-border-bottom);
 }
 
-.inverted hr.dash,
-footer hr.dash,
-.footer hr.dash {
+:is(.inverted, footer, .footer) hr.dash {
 	border-bottom: var(--divider-dash-border-bottom-inverted);
 }

@@ -2,7 +2,7 @@
 ID = 'zoralabdivider_dash'
 SKU = 'zoralabDIVIDER_DASH'
 Description = '''
-For styling a dashing indication divider syntax.
+For styling a dash-line divider.
 '''
 
 
@@ -10,5 +10,5 @@ For styling a dashing indication divider syntax.
 ID = 'zoralabdivider_dash'
 SKU = 'zoralabDIVIDER_DASH'
 Description = '''
-来渲染斑点分界线语法。
+来渲染斑点虚线的分界线。
 '''
