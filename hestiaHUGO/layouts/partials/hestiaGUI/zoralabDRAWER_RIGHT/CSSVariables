@@ -41,7 +41,7 @@ var(--drawer-trigger-border-radius) 0 0 var(--drawer-trigger-border-radius)
 "--right-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-trigger-color)"
 
 "--right-drawer-trigger-transform" = ""
-"--right-drawer-trigger-transform-focus" = "scale(1.1)"
+"--right-drawer-trigger-transform-focus" = "scale(1.3)"
 
 
 
