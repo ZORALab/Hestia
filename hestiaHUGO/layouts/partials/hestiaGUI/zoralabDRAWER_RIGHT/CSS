@@ -37,7 +37,16 @@ specific language governing permissions and limitations under the License.
 }
 
 .right-drawer > input[type='checkbox'] {
-	display: none;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	z-index: -1;
+
+	width: 0;
+	height: 0;
+
+	opacity: 0;
+	transform: translate(-50%, -50%);
 }
 
 .right-drawer > .content {
@@ -64,25 +73,25 @@ specific language governing permissions and limitations under the License.
 	transition: var(--right-drawer-transition);
 }
 
-.right-drawer > *:not(label) {
+.right-drawer > *:not(:is(input, .trigger)) {
 	visibility: hidden;
 	opacity: 0;
 }
 
-.right-drawer > *:not(label) > * {
+.right-drawer > *:not(.trigger) > * {
 	z-index: var(--right-drawer-z-index);
 
 	transition: var(--right-drawer-transition);
 }
 
-.right-drawer > input[type='checkbox']:checked ~ *:not(label) {
+.right-drawer > input[type='checkbox']:checked ~ *:not(.trigger) {
 	z-index: var(--right-drawer-z-index-opened);
 
 	visibility: visible;
 	opacity: 1;
 }
 
-.right-drawer > input[type='checkbox']:checked ~ *:not(label) > * {
+.right-drawer > input[type='checkbox']:checked ~ *:not(.trigger) > * {
 	z-index: var(--right-drawer-z-index-opened);
 }
 
@@ -90,12 +99,12 @@ specific language governing permissions and limitations under the License.
 	box-shadow: var(--right-drawer-box-shadow);
 }
 
-.right-drawer > input[type='checkbox']:checked ~ *:not(label) {
+.right-drawer > input[type='checkbox']:checked ~ *:not(.trigger) {
 	width: var(--right-drawer-width-opened);
 	height: var(--right-drawer-height-opened);
 }
 
-.right-drawer > label.trigger {
+.right-drawer > .trigger {
 	display: flex;
 	justify-content: center;
 	align-content: center;
@@ -126,19 +135,18 @@ specific language governing permissions and limitations under the License.
 	transform: var(--right-drawer-trigger-transform);
 }
 
-.right-drawer > label.trigger:hover,
-.right-drawer > label.trigger:focus {
+.right-drawer > input[type='checkbox']:is(:hover, :focus) ~ .trigger,
+.right-drawer:is(:hover, :focus) > .trigger {
 	transform: var(--right-drawer-trigger-transform-focus);
 }
 
-.right-drawer > input[type='checkbox']:checked ~ label.trigger {
+.right-drawer > input[type='checkbox']:checked ~ .trigger {
 	z-index: var(--right-drawer-overlay-z-index);
 
 	right: var(--right-drawer-width-opened);
 }
 
-.right-drawer > label.trigger > .open,
-.right-drawer > label.trigger > .close {
+.right-drawer > label.trigger > :is(.open, .close) {
 	display: block;
 
 	margin: auto;
@@ -153,16 +161,14 @@ specific language governing permissions and limitations under the License.
 	background: transparent;
 }
 
-.right-drawer > label.trigger > .open,
-.right-drawer > input[type='checkbox']:checked ~ label.trigger > .close {
+.right-drawer > .trigger > .open,
+.right-drawer > input[type='checkbox']:checked ~ .trigger > .close {
 	opacity: 1;
-	visibility: visible;
 }
 
-.right-drawer > input[type='checkbox']:checked ~ label.trigger > .open,
-.right-drawer > label.trigger > .close {
+.right-drawer > input[type='checkbox']:checked ~ .trigger > .open,
+.right-drawer > .trigger > .close {
 	opacity: 0;
-	visibility: hidden;
 }
 
 .right-drawer .overlay {
@@ -184,7 +190,7 @@ specific language governing permissions and limitations under the License.
 	transition: var(--right-drawer-overlay-transition);
 }
 
-.right-drawer > input[type='checkbox']:checked ~ label.overlay {
+.right-drawer > input[type='checkbox']:checked ~ .overlay {
 	width: 200%;
 }
 
