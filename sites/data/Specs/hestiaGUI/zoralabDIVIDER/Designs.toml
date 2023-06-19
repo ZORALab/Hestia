@@ -156,20 +156,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -191,7 +191,7 @@ Affects the display mode of the rendered component.
 Code = '''
 VARIABLE     : --divider-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -210,7 +210,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -230,7 +230,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --divider-margin
 CSS PROPERTY : margin
-DEFAULT      : 0 auto (>= v1.0.0)
+DEFAULT      : 0 auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -249,7 +249,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-margin
 CSS属性    : margin
-默认数码   : 0 auto (>= v1.0.0)
+默认数码   : 0 auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -269,7 +269,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --divide-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -288,7 +288,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-padding
 CSS属性    : padding
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -308,7 +308,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --divider-border
 CSS PROPERTY : border
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -327,7 +327,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-border
 CSS属性    : border
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -347,7 +347,7 @@ Affects the top border of the rendered component.
 Code = '''
 VARIABLE     : --divider-border-top
 CSS PROPERTY : border-top
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -366,7 +366,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-border-top
 CSS属性    : border-top
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -386,7 +386,7 @@ Affects the bottom border of the rendered component.
 Code = '''
 VARIABLE     : --divider-border-bottom
 CSS PROPERTY : border-bottom
-DEFAULT      : 1px solid var(--divider-color) (>= v1.0.0)
+DEFAULT      : 1px solid var(--divider-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -405,7 +405,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-border-bottom
 CSS属性    : border-bottom
-默认数码   : 1px solid var(--divider-color) (>= v1.0.0)
+默认数码   : 1px solid var(--divider-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -425,7 +425,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --divider-min-width
 CSS PROPERTY : min-width
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -444,7 +444,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-min-width
 CSS属性    : min-width
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -464,7 +464,7 @@ Affects the width of the rendered component.
 Code = '''
 VARIABLE     : --divider-width
 CSS PROPERTY : width
-DEFAULT      : 100% (>= v1.0.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -483,7 +483,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-width
 CSS属性    : width
-默认数码   : 100% (>= v1.0.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -503,7 +503,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --divider-max-width
 CSS PROPERTY : max-width
-DEFAULT      : 100% (>= v1.0.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -522,7 +522,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-max-width
 CSS属性    : max-width
-默认数码   : 100% (>= v1.0.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -542,7 +542,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --divider-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -561,7 +561,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-min-height
 CSS属性    : min-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -581,7 +581,7 @@ Affects the height of the rendered component.
 Code = '''
 VARIABLE     : --divider-height
 CSS PROPERTY : height
-DEFAULT      : 1px (>= v1.0.0)
+DEFAULT      : 1px (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -600,7 +600,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-height
 CSS属性    : height
-默认数码   : 1px (>= v1.0.0)
+默认数码   : 1px (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -620,7 +620,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --divider-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -639,7 +639,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -659,7 +659,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --divider-color
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-600) (>= v1.0.0)
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -678,7 +678,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-color
 CSS属性    : color
-默认数码   : var(--color-primary-600) (>= v1.0.0)
+默认数码   : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -698,7 +698,7 @@ Affects the color of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --divider-color-inverted
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -717,7 +717,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-color-inverted
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -737,7 +737,7 @@ Affects the color of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --divider-color-print
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-print) (>= v1.0.0)
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -756,7 +756,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-color-print
 CSS属性    : color
-默认数码   : var(--body-color-print) (>= v1.0.0)
+默认数码   : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -776,7 +776,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --divider-background
 CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.0.0)
+DEFAULT      : transparent (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -795,7 +795,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-background
 CSS属性    : background
-默认数码   : transparent (>= v1.0.0)
+默认数码   : transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -815,7 +815,7 @@ Affects the background of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --divider-background-inverted
 CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.0.0)
+DEFAULT      : transparent (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -834,7 +834,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-background-inverted
 CSS属性    : background
-默认数码   : transparent (>= v1.0.0)
+默认数码   : transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -854,7 +854,7 @@ Affects the background of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --divider-background-print
 CSS PROPERTY : background
-DEFAULT      : var(--body-background-print) (>= v1.0.0)
+DEFAULT      : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -873,7 +873,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-background-print
 CSS属性    : background
-默认数码   : var(--body-background-print) (>= v1.0.0)
+默认数码   : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -893,7 +893,7 @@ Affects the border color of the rendered component.
 Code = '''
 VARIABLE     : --divider-border-color
 CSS PROPERTY : border-color
-DEFAULT      : var(--divider-color) (>= v1.0.0)
+DEFAULT      : var(--divider-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -912,7 +912,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-border-color
 CSS属性    : border-color
-默认数码   : var(--divider-color) (>= v1.0.0)
+默认数码   : var(--divider-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -932,7 +932,7 @@ Affects the color of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --divider-color-inverted
 CSS PROPERTY : border-color
-DEFAULT      : var(--divider-color-inverted) (>= v1.0.0)
+DEFAULT      : var(--divider-color-inverted) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -951,7 +951,7 @@ Plain = '''
 Code = '''
 变化值     : --divider-color-inverted
 CSS属性    : border-color
-默认数码   : var(--divider-color-inverted) (>= v1.0.0)
+默认数码   : var(--divider-color-inverted) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
