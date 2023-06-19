@@ -152,26 +152,26 @@ Label = ''
 [[EN.List]]
 Title = 'CSS'
 HTML = '''
-Fortunately, this component does not need additional CSS customization. Relax.
+Fortunately, this component does need any customziable CSS. Relax.
 '''
 Plain = '''
-Fortunately, this component does not need additional CSS customization. Relax.
+Fortunately, this component does need any customziable CSS. Relax.
 '''
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-庆幸的是这个元件没有运用到任何CSS自选。放心吧！
+庆幸的是这个元件没有运用到任何CSS界面自选变化。放心吧！
 '''
 Plain = '''
-庆幸的是这个元件没有运用到任何CSS自选。放心吧！
+庆幸的是这个元件没有运用到任何CSS界面自选变化。放心吧！
 '''
 Code = '''
 '''
