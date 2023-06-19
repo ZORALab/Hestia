@@ -22,12 +22,8 @@ specifically for definitions list values. In web UI, it is shown as follows:
 	<dt>Earth</dt><dd>THIRD planet away from the Sun.</dd>
 	<dd>Contains organic life on and inside the planet.</dd>
 </dl>
-'''
-Plain = '''
-This package's primary purpose is to provide user interface (UI) styling
-specifically for definitions list values. In web UI, it is shown as follows:
-
-<dl>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'><dl>
 	<dt>Sun</dt>
 	<dd>The core of our solar system.</dd>
 	<dd>
@@ -44,7 +40,11 @@ specifically for definitions list values. In web UI, it is shown as follows:
 	<dd>SECOND planet away from Sun.</dd>
 	<dt>Earth</dt><dd>THIRD planet away from the Sun.</dd>
 	<dd>Contains organic life on and inside the planet.</dd>
-</dl>
+</dl></div>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for definitions list values.
 '''
 Code = '''
 '''
@@ -79,12 +79,8 @@ HTML = '''
 	<dd>第三个离开太阳的星球。</dd>
 	<dd>拥有有机生命和植物。</dd>
 </dl>
-'''
-Plain = '''
-这个软件包的出生主要是支持渲染定义列表界面元件。在网络界面世界里，这元件的成果如
-下：
-
-<dl>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'><dl>
 	<dt>太阳</dt>
 	<dd>太阳系中心点</dd>
 	<dd>
@@ -102,7 +98,10 @@ Plain = '''
 	<dt>地球</dt>
 	<dd>第三个离开太阳的星球。</dd>
 	<dd>拥有有机生命和植物。</dd>
-</dl>
+</dl></div>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染定义列表界面元件。
 '''
 Code = '''
 '''

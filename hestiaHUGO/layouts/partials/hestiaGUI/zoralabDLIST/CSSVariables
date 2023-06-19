@@ -15,8 +15,8 @@
 
 "--dlist-counter" = "dd-items"
 
-"--dlist-color" = "var(--color-primary-400)"
-"--dlist-color-inverted" = "var(--color-primary-100)"
+"--dlist-color" = "var(--color-primary-300)"
+"--dlist-color-inverted" = "var(--color-primary-200)"
 "--dlist-color-print" = "var(--body-color-print)"
 "--dlist-background" = "var(--body-background)"
 "--dlist-background-inverted" = "var(--body-background-inverted)"
