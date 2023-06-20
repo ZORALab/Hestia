@@ -8,8 +8,8 @@
 #   3. Date should ONLY comply to this pattern when manually constructed:
 #                    Thu 21 Jul 2022 14:27:39 PM +08
 [Date]
-Created   = 'Mon 12 Dec 2022 05:43:35 AM +08'
-Published = 'Mon 12 Dec 2022 05:43:35 AM +08'
+Created   = "Mon 12 Dec 2022 03:13:50 PM +08"
+Published = "Mon 12 Dec 2022 03:13:50 PM +08"
 
 
 
@@ -21,9 +21,9 @@ Published = 'Mon 12 Dec 2022 05:43:35 AM +08'
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "zoralabPRE科技规范 - ZORALab赫斯提亚"
+Title = "zoralabNOTE科技规范 - ZORALab赫斯提亚"
 Keywords = [
-	'zoralabPRE',
+	'zoralabNOTE',
 	'hestiaGUI',
 	'科技规范',
 	'规范',
