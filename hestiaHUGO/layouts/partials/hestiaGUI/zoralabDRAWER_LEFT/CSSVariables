@@ -42,7 +42,7 @@
 "--left-drawer-trigger-box-shadow" = "0 0 2rem var(--drawer-trigger-color)"
 
 "--left-drawer-trigger-transform" = ""
-"--left-drawer-trigger-transform-focus" = "scale(1.1)"
+"--left-drawer-trigger-transform-focus" = "scale(1.3)"
 
 
 
