@@ -160,12 +160,12 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = '最小的HTML'
 HTML = '''
-在最小的HTML代码（请通过<code>max-height</code>来控制布局响应性自动调整的最大元
-素）运用方法如下：
+在最小的HTML代码（请通过<code>max-height</code>
+来控制布局响应性自动调整的最大元素）运用方法如下：
 '''
 Plain = '''
-在最小的HTML代码（请通过max-height来控制布局响应性自动调整的最大元素）运用方法如
-下：
+在最小的HTML代码（请通过max-height来控制布局响应性自动调整的最大元素）
+运用方法如下：
 '''
 Code = '''
 <picture style='max-height: 630px;'>
@@ -189,7 +189,7 @@ Code = '''
 
 	...
 
-	<!-- 最后关头的方案 -->
+	<!-- 最后关头方案 -->
 	<source srcset="/URL/to/image-1200x630.jpg 1x,
 			/URL/to/image-2400x1260.jpg 2x,
 			/URL/to/image-3600x1890.jpg 3x"
@@ -209,6 +209,7 @@ Label = ''
 
 
 
+
 [[EN.List]]
 Title = 'CSS'
 HTML = '''
@@ -224,20 +225,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -259,7 +260,7 @@ Affects the display mode of the rendered component.
 Code = '''
 VARIABLE     : --picture-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -278,7 +279,7 @@ Plain = '''
 Code = '''
 变化值     : --picture-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -298,7 +299,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --picture-margin
 CSS PROPERTY : margin
-DEFAULT      : 2rem auto (>= v1.0.0)
+DEFAULT      : 2rem auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -317,7 +318,7 @@ Plain = '''
 Code = '''
 变化值     : --picture-margin
 CSS属性    : margin
-默认数码   : 2rem auto (>= v1.0.0)
+默认数码   : 2rem auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -337,7 +338,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --picture-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -356,7 +357,7 @@ Plain = '''
 Code = '''
 变化值     : --picture-padding
 CSS属性    : padding
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -376,7 +377,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --picture-min-width
 CSS PROPERTY : min-width
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -395,7 +396,7 @@ Plain = '''
 Code = '''
 变化值     : --picture-min-width
 CSS属性    : min-width
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -454,7 +455,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --picture-max-width
 CSS PROPERTY : max-width
-DEFAULT      : 100% (>= v1.0.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -473,7 +474,7 @@ Plain = '''
 Code = '''
 变化值     : --picture-max-width
 CSS属性    : max-width
-默认数码   : 100% (>= v1.0.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -493,7 +494,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --picture-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -512,7 +513,7 @@ Plain = '''
 Code = '''
 变化值     : --picture-min-height
 CSS属性    : min-hieght
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -571,7 +572,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --picture-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -590,7 +591,7 @@ Plain = '''
 Code = '''
 变化值     : --picture-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -600,7 +601,7 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'User Select'
+Title = 'User Select Capability'
 HTML = '''
 Affects the selecting behavior of the rendered component.
 '''
@@ -619,7 +620,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'User Select'
+Title = 'User Select能力'
 HTML = '''
 影响元件选择能力的控制条件。
 '''
@@ -639,7 +640,7 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'User Drag'
+Title = 'User Drag Capability'
 HTML = '''
 Affects the dragging behavior of the rendered component.
 '''
@@ -658,7 +659,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'User Drag'
+Title = 'User Drag能力'
 HTML = '''
 影响元件拖动能力的控制条件。
 '''

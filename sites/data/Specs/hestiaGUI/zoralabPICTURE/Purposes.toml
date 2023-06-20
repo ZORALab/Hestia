@@ -6,8 +6,7 @@ specifically for picture values. In web UI, it is shown as follows:
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for picture values. In web UI, it is shown as follows:
-
+specifically for picture values.
 '''
 Code = '''
 '''
@@ -64,8 +63,7 @@ HTML = '''
 这元件的成果如下：
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染画像的界面元件。在网络界面世界里，
-这元件的成果如下：
+这个软件包的出生主要是支持渲染画像的界面元件。
 '''
 Code = '''
 '''
@@ -139,7 +137,7 @@ Code = '''
 
 [[EN.List.URL]]
 Value = '/en/specs/hestiaMEDIA/'
-Label = 'hestiaMEDIA Package'
+Label = 'hestiaMEDIA'
 
 
 [[ZH-HANS.List]]
@@ -160,7 +158,7 @@ Code = '''
 
 [[ZH-HANS.List.URL]]
 Value = '/zh-hans/specs/hestiaMEDIA/'
-Label = 'hestiaMEDIA Package'
+Label = 'hestiaMEDIA'
 
 
 
