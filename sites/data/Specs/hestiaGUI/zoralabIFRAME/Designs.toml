@@ -175,16 +175,68 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = '推荐的HTML'
+Title = '隐形内嵌框架的HTML'
 HTML = '''
-推荐的HTML代码运用方法如下：
+隐形内嵌框架的HTML代码运用方法如下：
 '''
 Plain = '''
-推荐的HTML代码运用方法如下：
+隐形内嵌框架的HTML代码运用方法如下：
 '''
 Code = '''
 <iframe ... 和最小的HTML一样 ...
 	class="hidden">
+	...
+</iframe>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'REMEMBER: SPECIFY DIMENSION AT HTML'
+HTML = '''
+This component is a special html where its CSS's <code>width</code> and
+<code>height</code> are very dictative even their values are in
+<code>auto</code> mode. Hence, please <b>only set them at the HTML side</b>.
+'''
+Plain = '''
+This component is a special html where its CSS's 'width' and 'height' are very
+dictative even their values are in 'auto' mode. Hence, please **only set them at
+the HTML side**.
+'''
+Code = '''
+<iframe ...
+	width="..."
+	height="..."
+>
+	...
+</iframe>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '切记：在HTML方面设入尺寸'
+HTML = '''
+这个元件是个特别HTML控制的。它的CSS尺寸如<code>width</code>和<code>height</code>
+即使设下<code>auto</code>价值还是挺非常称霸的。如此以来，
+您<b>只能在HTML方面设入尺寸了</b>。
+'''
+Plain = '''
+这个元件是个特别HTML控制的。它的CSS尺寸如width和height即使设下auto价值还是
+挺非常称霸的。如此以来，您**只能在HTML方面设入尺寸了**。
+'''
+Code = '''
+<iframe ...
+	width="..."
+	height="..."
+>
 	...
 </iframe>
 '''
@@ -211,20 +263,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -246,7 +298,7 @@ Affects the display mode of the rendered component.
 Code = '''
 VARIABLE     : --iframe-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -265,7 +317,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -285,7 +337,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --iframe-margin
 CSS PROPERTY : margin
-DEFAULT      : 0 auto (>= v1.0.0)
+DEFAULT      : 0 auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -304,7 +356,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-margin
 CSS属性    : margin
-默认数码   : 0 auto (>= v1.0.0)
+默认数码   : 0 auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -324,7 +376,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --iframe-border
 CSS PROPERTY : border
-DEFAULT      : none (>= v1.0.0)
+DEFAULT      : none (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -343,7 +395,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-border
 CSS属性    : border
-默认数码   : none (>= v1.0.0)
+默认数码   : none (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -363,7 +415,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --iframe-min-width
 CSS PROPERTY : min-width
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -382,7 +434,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-min-width
 CSS属性    : min-width
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -402,7 +454,7 @@ Affects the width of the rendered component while in hidden mode.
 Code = '''
 VARIABLE     : --iframe-width-hidden
 CSS PROPERTY : width
-DEFAULT      : 1px (>= v1.0.0)
+DEFAULT      : 1px (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -421,7 +473,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-width
 CSS属性    : width
-默认数码   : 1px (>= v1.0.0)
+默认数码   : 1px (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -441,7 +493,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --iframe-max-width
 CSS PROPERTY : max-width
-DEFAULT      : 100% (>= v1.0.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -460,7 +512,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-max-width
 CSS属性    : max-width
-默认数码   : 100% (>= v1.0.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -480,7 +532,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --iframe-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -499,7 +551,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-min-height
 CSS属性    : min-hieght
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -519,7 +571,7 @@ Affects the height of the rendered component while in hidden mode.
 Code = '''
 VARIABLE     : --iframe-height-hidden
 CSS PROPERTY : height
-DEFAULT      : 1px (>= v1.0.0)
+DEFAULT      : 1px (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -538,7 +590,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-height-hidden
 CSS属性    : height
-默认数码   : 1px (>= v1.0.0)
+默认数码   : 1px (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -558,7 +610,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --iframe-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -577,7 +629,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -597,7 +649,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --iframe-background
 CSS PROPERTY : background
-DEFAULT      : inherit (>= v1.0.0)
+DEFAULT      : inherit (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -616,7 +668,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-background
 CSS属性    : background
-默认数码   : inherit (>= v1.0.0)
+默认数码   : inherit (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -636,7 +688,7 @@ Affects the visibility of the rendered component.
 Code = '''
 VARIABLE     : --iframe-visibility
 CSS PROPERTY : visibility
-DEFAULT      : visible (>= v1.0.0)
+DEFAULT      : visible (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -655,7 +707,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-visibility
 CSS属性    : visibility
-默认数码   : visible (>= v1.0.0)
+默认数码   : visible (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -675,7 +727,7 @@ Affects the visibility of the rendered component while in hidden mode.
 Code = '''
 VARIABLE     : --iframe-visibility-hidden
 CSS PROPERTY : visibility
-DEFAULT      : hidden (>= v1.0.0)
+DEFAULT      : hidden (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -694,7 +746,7 @@ Plain = '''
 Code = '''
 变化值     : --iframe-visibility-hidden
 CSS属性    : visibility
-默认数码   : hidden (>= v1.0.0)
+默认数码   : hidden (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

@@ -12,19 +12,21 @@ specifically for iframe values. In web UI, it is shown as follows:
 >
 	<p>Appearently, iframe is not supported on your browser.</p>
 </iframe>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0; display:flex; align-items: center;'>
+	<iframe id="frame-show-01" title="ZORALab Home" class="my-class"
+		src="https://www.zoralab.com/en"
+		sandbox="allow-scripts allow-same-origin"
+		width="600" height="600"
+		loading="lazy"
+	>
+		<p>Appearently, iframe is not supported on your browser.</p>
+	</iframe>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for iframe values. In web UI, it is shown as follows:
-
-<iframe id="frame-show-01" title="ZORALab Home" class="my-class"
-	src="https://www.zoralab.com/en"
-	sandbox="allow-scripts allow-same-origin"
-	width="600" height="600"
-	loading="lazy"
->
-	<p>Appearently, iframe is not supported on your browser.</p>
-</iframe>
+specifically for iframe values.
 '''
 Code = '''
 '''
@@ -48,19 +50,20 @@ HTML = '''
 >
 	<p>Appearently, iframe is not supported on your browser.</p>
 </iframe>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0; display:flex; align-items: center;'>
+	<iframe id="frame-show-01" title="ZORALab Home" class="my-class"
+		src="https://www.zoralab.com/en"
+		sandbox="allow-scripts allow-same-origin"
+		width="600" height="600"
+		loading="lazy"
+	>
+		<p>Appearently, iframe is not supported on your browser.</p>
+	</iframe>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染内嵌框架的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<iframe id="frame-show-01" title="ZORALab Home" class="my-class"
-	src="https://www.zoralab.com/en"
-	sandbox="allow-scripts allow-same-origin"
-	width="600" height="600"
-	loading="lazy"
->
-	<p>Appearently, iframe is not supported on your browser.</p>
-</iframe>
+这个软件包的出生主要是支持渲染内嵌框架的界面元件。
 '''
 Code = '''
 '''
