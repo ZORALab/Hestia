@@ -2,7 +2,7 @@
 Title = 'Main Purpose'
 HTML = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for unordered list values. In web UI, it is shown as follows:
+specifically for ordered list values. In web UI, it is shown as follows:
 <br/><br/>
 <ol>
 	<li>
@@ -19,26 +19,28 @@ specifically for unordered list values. In web UI, it is shown as follows:
 		<p>Mars</p>
 	</li>
 </ol>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<ol>
+		<li>
+			<p>Sun</p>
+		</li>
+		<li>
+			<p>Earth</p>
+			<ol>
+				<li><p>Human</p></li>
+				<li><p>Trees</p></li>
+			</ol>
+		</li>
+		<li>
+			<p>Mars</p>
+		</li>
+	</ol>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for unordered values. In web UI, it is shown as follows:
-
-<ol>
-	<li>
-		<p>Sun</p>
-	</li>
-	<li>
-		<p>Earth</p>
-		<ol>
-			<li><p>Human</p></li>
-			<li><p>Trees</p></li>
-		</ol>
-	</li>
-	<li>
-		<p>Mars</p>
-	</li>
-</ol>
+specifically for ordered list values.
 '''
 Code = '''
 '''
@@ -51,13 +53,11 @@ Label = ''
 [[ZH-HANS.List]]
 Title = '主要目的'
 HTML = '''
-这个软件包的出生主要是支持渲染无序列表的界面元件。在网络界面世界里，
+这个软件包的出生主要是支持渲染有序列表的界面元件。在网络界面世界里，
 这元件的成果如下：
 <br/><br/>
 <ol>
-	<li>
-		<p>太阳</p>
-	</li>
+	<li><p>太阳</p></li>
 	<li>
 		<p>地球</p>
 		<ol>
@@ -65,30 +65,25 @@ HTML = '''
 			<li><p>树木</p></li>
 		</ol>
 	</li>
-	<li>
-		<p>木星</p>
-	</li>
+	<li><p>木星</p></li>
 </ol>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<ol>
+		<li><p>太阳</p></li>
+		<li>
+			<p>地球</p>
+			<ol>
+				<li><p>人类</p></li>
+				<li><p>树木</p></li>
+			</ol>
+		</li>
+		<li><p>木星</p></li>
+	</ol>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染无序列表的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<ol>
-	<li>
-		<p>太阳</p>
-	</li>
-	<li>
-		<p>地球</p>
-		<ol>
-			<li><p>人类</p></li>
-			<li><p>树木</p></li>
-		</ol>
-	</li>
-	<li>
-		<p>木星</p>
-	</li>
-</ol>
+这个软件包的出生主要是支持渲染有序列表的界面元件。
 '''
 Code = '''
 '''

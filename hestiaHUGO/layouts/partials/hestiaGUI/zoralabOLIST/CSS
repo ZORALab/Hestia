@@ -24,7 +24,7 @@ ol {
 	text-align: var(--olist-text-align);
 
 	list-style-type: none;
-	counter-reset: ol-counters 0;
+	counter-reset: olist;
 }
 
 ol li {
@@ -33,15 +33,23 @@ ol li {
 }
 
 ol li:before {
+	counter-increment: olist;
+	content: counters(olist, ".") ".";
 	display: block;
 
 	margin: var(--olist-li-before-margin);
 	padding: var(--olist-li-before-padding);
 
-	counter-increment: ol-counters;
-	content: "(" counters(ol-counters, ".") ")";
-
 	font-size: var(--olist-li-before-font-size);
 	font-weight: var(--olist-li-before-font-weight);
 	text-align: var(--olist-li-before-text-align);
+}
+
+:is(.inverted, footer, .footer) ol {
+	counter-reset: inverted-olist;
+}
+
+:is(.inverted, footer, .footer) ol li:before {
+	counter-increment: inverted-olist;
+	content: counters(inverted-olist, ".") ".";
 }

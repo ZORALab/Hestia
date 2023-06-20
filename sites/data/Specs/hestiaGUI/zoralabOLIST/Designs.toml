@@ -227,20 +227,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -248,6 +248,7 @@ Code = '''
 [[ZH-HANS.List.URL]]
 Value = ''
 Label = ''
+
 
 
 
@@ -262,7 +263,7 @@ Affects the display mode of the rendered component.
 Code = '''
 VARIABLE     : --olist-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -281,7 +282,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -301,7 +302,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --olist-margin
 CSS PROPERTY : margin
-DEFAULT      : 0 auto (>= v1.0.0)
+DEFAULT      : 0 auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -320,7 +321,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-margin
 CSS属性    : margin
-默认数码   : 0 auto (>= v1.0.0)
+默认数码   : 0 auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -340,7 +341,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --olist-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 auto (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -359,46 +360,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-padding
 CSS属性    : padding
-默认数码   : 0 auto (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Spacing'
-HTML = '''
-Affects the margin and padding's spacing value of the rendered component.
-'''
-Plain = '''
-Affects the margin and padding's spacing value of the rendered component.
-'''
-Code = '''
-VARIABLE     : --olist-spacing
-CSS PROPERTY : margin; padding
-DEFAULT      : REMOVED (>= 1.2.0); 2rem (<= v1.1.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Spacing'
-HTML = '''
-影响元件的外向和内向边距空间。
-'''
-Plain = '''
-影响元件的外向和内向边距空间。
-'''
-Code = '''
-变化值     : --olist-spacing
-CSS属性    : margin; padding
-默认数码   : 删除了 (>= 1.2.0); 2rem (<= v1.1.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -418,7 +380,7 @@ Affects the text alignment of the rendered component.
 Code = '''
 VARIABLE     : --ulist-text-align
 CSS PROPERTY : text-align
-DEFAULT      : left (>= v1.0.0)
+DEFAULT      : left (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -437,7 +399,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-text-align
 CSS属性    : text-align
-默认数码   : left (>= v1.0.0)
+默认数码   : left (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -457,7 +419,7 @@ Affects the list item's margin of for the rendered component.
 Code = '''
 VARIABLE     : --olist-li-margin
 CSS PROPERTY : margin
-DEFAULT      : 4rem 0 (>= v1.2.0); var(--olist-spacing) 0 (<= v1.1.0)
+DEFAULT      : 4rem 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -476,7 +438,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-li-margin
 CSS属性    : margin
-默认数码   : 4rem 0 (>= v1.2.0); var(--olist-spacing) 0 (<= v1.1.0)
+默认数码   : 4rem 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -496,7 +458,7 @@ Affects the list item's padding of for the rendered component.
 Code = '''
 VARIABLE     : --olist-li-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -515,7 +477,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-li-padding
 CSS属性    : padding
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -537,7 +499,7 @@ rendered component.
 Code = '''
 VARIABLE     : --olist-li-before-margin
 CSS PROPERTY : margin
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -556,7 +518,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-li-before-margin
 CSS属性    : margin
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -578,7 +540,7 @@ rendered component.
 Code = '''
 VARIABLE     : --olist-li-before-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -597,7 +559,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-li-before-padding
 CSS属性    : padding
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -619,7 +581,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --olist-li-before-font-size
 CSS PROPERTY : font-size
-DEFAULT      : 2rem (>= v1.0.0)
+DEFAULT      : 2.6rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -638,7 +600,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-li-before-font-size
 CSS属性    : font-size
-默认数码   : 2rem (>= v1.0.0)
+默认数码   : 2.6rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -660,7 +622,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --olist-li-before-font-weight
 CSS PROPERTY : font-weight
-DEFAULT      : 700 (>= v1.0.0)
+DEFAULT      : 800 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -679,7 +641,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-li-before-font-weight
 CSS属性    : font-weight
-默认数码   : 700 (>= v1.0.0)
+默认数码   : 800 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -701,7 +663,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --olist-li-before-text-align
 CSS PROPERTY : text-align
-DEFAULT      : center (>= v1.0.0)
+DEFAULT      : left (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -720,7 +682,7 @@ Plain = '''
 Code = '''
 变化值     : --olist-li-before-text-align
 CSS属性    : text-align
-默认数码   : center (>= v1.0.0)
+默认数码   : left (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
