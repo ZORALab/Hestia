@@ -13,20 +13,22 @@ specifically for yellow notice values. In web UI, it is shown as follows:
 		by default. Try clicking on the title.
 	</p>
 </div>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0; display: flex; align-items: center;'>
+	<div class="note warning">
+		<input id="note-inverted-example-uid1" type="checkbox" checked="">
+		<label for="note-inverted-example-uid1">A Moment Please</label>
+		<p class="content">
+			This is an important note for you to pay attention to. Just in
+			case, you can minimize this note if required. It is set to open
+			by default. Try clicking on the title.
+		</p>
+	</div>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for yellow notice values. In web UI, it is shown as follows:
-
-<div class="note warning">
-	<input id="note-example-uid1" type="checkbox" checked="">
-	<label for="note-example-uid1">A Moment Please</label>
-	<p class="content">
-		This is an important note for you to pay attention to. Just in
-		case, you can minimize this note if required. It is set to open
-		by default. Try clicking on the title.
-	</p>
-</div>
+specifically for yellow notice values.
 '''
 Code = '''
 '''
@@ -50,19 +52,20 @@ HTML = '''
 		那标题按一按。
 	</p>
 </div>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0; display: flex; align-items: center;'>
+	<div class="note warning">
+		<input id="note-inverted-example-uid1" type="checkbox" checked="">
+		<label for="note-inverted-example-uid1">请稍等一下</label>
+		<p class="content">
+			这是个很重要的通告。如果您还没注意到，它是可以开关的。请试试往
+			那标题按一按。
+		</p>
+	</div>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染红色通告的界面元件。在网络界面世界里，这元件的成果
-如下：
-
-<div class="note warning">
-	<input id="note-example-uid1" type="checkbox" checked="">
-	<label for="note-example-uid1">请稍等一下</label>
-	<p class="content">
-		这是个很重要的通告。如果您还没注意到，它是可以开关的。请试试往
-		那标题按一按。
-	</p>
-</div>
+这个软件包的出生主要是支持渲染黄色通告的界面元件。
 '''
 Code = '''
 '''
