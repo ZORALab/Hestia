@@ -2,7 +2,7 @@
 ID = 'zoralabdrawer'
 SKU = 'zoralabDRAWER'
 Description = '''
-For styling a navigation drawer.
+For providing standardized values needed for styling a navigation drawer.
 '''
 
 
@@ -10,5 +10,5 @@ For styling a navigation drawer.
 ID = 'zoralabdrawer'
 SKU = 'zoralabDRAWER'
 Description = '''
-来渲染导航抽屉。
+来供应渲染导航抽屉所需要的控制数据值。
 '''

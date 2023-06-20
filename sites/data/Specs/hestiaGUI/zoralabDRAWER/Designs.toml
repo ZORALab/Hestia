@@ -117,20 +117,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -161,7 +161,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Z-Index (Trigger)'
+Title = 'Z-Index（触发器）'
 HTML = '''
 影响元件触发器的z-index设置。
 '''
@@ -171,7 +171,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-trigger-z-index
 CSS属性    : z-index
-默认数码   : calc(var(--z-index-max) - var(--z-index-nav-top)) (>= v1.0.0)
+默认数码   : calc(var(--z-index-max) - var(--z-index-nav-top)) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -210,7 +210,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-z-index
 CSS属性    : z-index
-默认数码   : var(--z-index-hidden) (>= v1.0.0)
+默认数码   : var(--z-index-hidden) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -239,7 +239,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Z-Index (Opened)'
+Title = 'Z-Index（打开）'
 HTML = '''
 影响元件在打开情况里的z-index设置。
 '''
@@ -249,7 +249,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-z-index-opened
 CSS属性    : z-index
-默认数码   : calc(var(--z-index-max) - var(--z-index-nav)) (>= v1.0.0)
+默认数码   : calc(var(--z-index-max) - var(--z-index-nav)) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -288,7 +288,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-overlay-z-index
 CSS属性    : z-index
-默认数码   : calc(var(--z-index-max) - var(--z-index-nav-overlay)) (>= v1.0.0)
+默认数码   : calc(var(--z-index-max) - var(--z-index-nav-overlay)) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -308,7 +308,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --drawer-border
 CSS PROPERTY : border
-DEFAULT      : .2rem solid var(--drawer-trigger-color) (>= v1.0.0)
+DEFAULT      : .2rem solid var(--drawer-trigger-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -327,7 +327,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-border
 CSS属性    : border
-默认数码   : .2rem solid var(--drawer-trigger-color) (>= v1.0.0)
+默认数码   : .2rem solid var(--drawer-trigger-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -347,7 +347,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --drawer-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : .5rem (>= v1.0.0)
+DEFAULT      : .5rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -366,7 +366,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-border-radius
 CSS属性    : border-radius
-默认数码   : .5rem (>= v1.0.0)
+默认数码   : .5rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -386,7 +386,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --drawer-color
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-inverted) (>= v1.0.0)
+DEFAULT      : var(--body-color-inverted) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -405,7 +405,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-color
 CSS属性    : color
-默认数码   : var(--body-color-inverted) (>= v1.0.0)
+默认数码   : var(--body-color-inverted) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -425,7 +425,7 @@ Affects the color of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --drawer-color-inverted
 CSS PROPERTY : color
-DEFAULT      : var(--body-color) (>= v1.0.0)
+DEFAULT      : var(--body-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -444,7 +444,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-color-inverted
 CSS属性    : color
-默认数码   : var(--body-color) (>= v1.0.0)
+默认数码   : var(--body-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -464,7 +464,7 @@ Affects the primary color of the rendered component.
 Code = '''
 VARIABLE     : --drawer-color-primary
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-600) (>= v1.0.0)
+DEFAULT      : var(--color-primary-600) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -483,7 +483,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-color-primary
 CSS属性    : color
-默认数码   : var(--color-primary-600) (>= v1.0.0)
+默认数码   : var(--color-primary-600) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -503,7 +503,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --drawer-background
 CSS PROPERTY : background
-DEFAULT      : var(--color-primary-800) (>= v1.0.0)
+DEFAULT      : var(--color-primary-800) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -522,7 +522,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-background
 CSS属性    : background
-默认数码   : var(--color-primary-800) (>= v1.0.0)
+默认数码   : var(--color-primary-800) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -542,7 +542,7 @@ Affects the animation timing of the rendered component.
 Code = '''
 VARIABLE     : --drawer-transition
 CSS PROPERTY : transition
-DEFAULT      : var(--timing-normal) (>= v1.0.0)
+DEFAULT      : var(--timing-normal) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -561,7 +561,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-transition
 CSS属性    : transition
-默认数码   : var(--timing-normal) (>= v1.0.0)
+默认数码   : var(--timing-normal) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -581,7 +581,7 @@ Affects the trigger's width of the rendered component.
 Code = '''
 VARIABLE     : --drawer-trigger-width
 CSS PROPERTY : width
-DEFAULT      : 5rem (>= v1.0.0)
+DEFAULT      : 5rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -600,7 +600,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-trigger-width
 CSS属性    : width
-默认数码   : 5rem (>= v1.0.0)
+默认数码   : 5rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -620,7 +620,7 @@ Affects the trigger's height of the rendered component.
 Code = '''
 VARIABLE     : --drawer-trigger-height
 CSS PROPERTY : height
-DEFAULT      : 5rem (>= v1.0.0)
+DEFAULT      : 5rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -639,7 +639,7 @@ Plain = '''
 Code = '''
 变化值     : --drawer-trigger-height
 CSS属性    : height
-默认数码   : 5rem (>= v1.0.0)
+默认数码   : 5rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -766,7 +766,7 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Box Shadow (Trigger - Focused)'
+Title = 'Box Shadow (Trigger + Focused)'
 HTML = '''
 Affects the trigger's box shadow of the rendered component.
 '''
@@ -785,7 +785,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Box Shadow（触发器 - 被关注）'
+Title = 'Box Shadow（触发器+被关注）'
 HTML = '''
 影响元件触发器在被关注时的影子。
 '''
@@ -902,7 +902,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color （触发器）'
+Title = 'Color（触发器）'
 HTML = '''
 影响元件触发器的颜色。
 '''
@@ -941,7 +941,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color （叠加层）'
+Title = 'Color（叠加层）'
 HTML = '''
 影响元件叠加层的颜色。
 '''
@@ -980,7 +980,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Background （叠加层）'
+Title = 'Background（叠加层）'
 HTML = '''
 影响元件叠加层的背景。
 '''
@@ -1019,7 +1019,7 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Transition (叠加层)'
+Title = 'Transition（叠加层）'
 HTML = '''
 影响元件叠加层的动画定时。
 '''
