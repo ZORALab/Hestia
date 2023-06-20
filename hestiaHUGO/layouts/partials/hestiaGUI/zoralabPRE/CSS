@@ -48,8 +48,7 @@ pre {
 	transition: var(--pre-transition);
 }
 
-footer pre,
-.footer pre {
+:is(.inverted, footer, .footer) pre {
 	border-color: var(--pre-color-inverted);
 	color: var(--pre-color-inverted);
 	background: var(--pre-background-inverted);

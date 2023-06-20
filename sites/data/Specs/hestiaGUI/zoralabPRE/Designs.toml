@@ -140,41 +140,6 @@ Label = ''
 
 
 
-[[EN.List.SubList]]
-Title = 'Recommended HTML'
-HTML = '''
-The recomemnded HTML codes are shown below:
-'''
-Plain = '''
-The recommended HTML codes are shown below:
-'''
-Code = '''
-<pre><code>...</code></pre>
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = '推荐的HTML'
-HTML = '''
-推荐的HTML代码运用方法如下：
-'''
-Plain = '''
-推荐的HTML代码运用方法如下：
-'''
-Code = '''
-<pre><code>...</code></pre>
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
 
 [[EN.List]]
 Title = 'CSS'
@@ -191,20 +156,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -226,7 +191,7 @@ Affects the display mode of the rendered component.
 Code = '''
 VARIABLE     : --pre-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -245,7 +210,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -265,7 +230,7 @@ Affects the box-sizing behavior of the rendered component.
 Code = '''
 VARIABLE     : --pre-box-sizing
 CSS PROPERTY : box-sizing
-DEFAULT      : border-box (>= v1.0.0)
+DEFAULT      : border-box (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -284,7 +249,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-box-sizing
 CSS属性    : box-sizing
-默认数码   : border-box (>= v1.0.0)
+默认数码   : border-box (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -304,7 +269,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --pre-margin
 CSS PROPERTY : margin
-DEFAULT      : 2rem auto (>= v1.0.0)
+DEFAULT      : 2rem auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -323,7 +288,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-margin
 CSS属性    : margin
-默认数码   : 2rem auto (>= v1.0.0)
+默认数码   : 2rem auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -343,7 +308,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --pre-padding
 CSS PROPERTY : padding
-DEFAULT      : 2rem (>= v1.0.0)
+DEFAULT      : 2rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -362,7 +327,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-padding
 CSS属性    : padding
-默认数码   : 2rem (>= v1.0.0)
+默认数码   : 2rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -382,7 +347,7 @@ Affects the overflow behavior of the rendered component.
 Code = '''
 VARIABLE     : --pre-overflow
 CSS PROPERTY : overflow
-DEFAULT      : auto auto (>= v1.0.0)
+DEFAULT      : auto auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -401,7 +366,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-overflow
 CSS属性    : overflow
-默认数码   : auto auto (>= v1.0.0)
+默认数码   : auto auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -421,7 +386,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --pre-border
 CSS PROPERTY : border
-DEFAULT      : .3rem solid var(--pre-color) (>= v1.0.0)
+DEFAULT      : .3rem solid var(--pre-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -440,7 +405,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-border
 CSS属性    : border
-默认数码   : .3rem solid var(--pre-color) (>= v1.0.0)
+默认数码   : .3rem solid var(--pre-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -460,7 +425,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --pre-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : .5rem (>= v1.0.0)
+DEFAULT      : .5rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -479,7 +444,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-border-radius
 CSS属性    : border-radius
-默认数码   : .5rem (>= v1.0.0)
+默认数码   : .5rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -499,7 +464,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --pre-min-width
 CSS PROPERTY : min-width
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -518,7 +483,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-min-width
 CSS属性    : min-width
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -538,7 +503,7 @@ Affects the width of the rendered component.
 Code = '''
 VARIABLE     : --pre-width
 CSS PROPERTY : width
-DEFAULT      : 100% (>= v1.2.0), 80% (<= v1.1.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -557,7 +522,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-width
 CSS属性    : width
-默认数码   : 100% (>= v1.2.0), 80% (<= v1.1.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -577,7 +542,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --pre-max-width
 CSS PROPERTY : max-width
-DEFAULT      : 100% (>= v1.2.0), 80% (<= v1.1.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -596,7 +561,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-max-width
 CSS属性    : max-width
-默认数码   : 100% (>= v1.2.0), 80% (<= v1.1.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -616,7 +581,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --pre-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -635,7 +600,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-min-height
 CSS属性    : min-hieght
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -655,7 +620,7 @@ Affects the height of the rendered component.
 Code = '''
 VARIABLE     : --pre-height
 CSS PROPERTY : height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -674,7 +639,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-height
 CSS属性    : height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -694,7 +659,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --pre-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -713,7 +678,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -733,7 +698,7 @@ Affects the font size of the rendered component.
 Code = '''
 VARIABLE     : --pre-font-size
 CSS PROPERTY : font-size
-DEFAULT      : var(--body-font-size) (>= v1.0.0)
+DEFAULT      : var(--body-font-size) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -752,7 +717,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-font-size
 CSS属性    : font-size
-默认数码   : var(--body-font-size) (>= v1.0.0)
+默认数码   : var(--body-font-size) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -772,7 +737,7 @@ Affects the font family of the rendered component.
 Code = '''
 VARIABLE     : --pre-font-family
 CSS PROPERTY : font-family
-DEFAULT      : monospace (>= v1.0.0)
+DEFAULT      : monospace (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -791,7 +756,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-font-family
 CSS属性    : font-family
-默认数码   : monospace (>= v1.0.0)
+默认数码   : monospace (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -811,7 +776,7 @@ Affects the text decoration of the rendered component.
 Code = '''
 VARIABLE     : --pre-text-decoration
 CSS PROPERTY : text-decoration
-DEFAULT      : normal (>= v1.0.0)
+DEFAULT      : normal (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -830,7 +795,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-text-decoration
 CSS属性    : text-decoration
-默认数码   : normal (>= v1.0.0)
+默认数码   : normal (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -850,7 +815,7 @@ Affects the word breaking behavior of the rendered component.
 Code = '''
 VARIABLE     : --pre-word-break
 CSS PROPERTY : word-break
-DEFAULT      : keep-all (>= v1.0.0)
+DEFAULT      : keep-all (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -869,7 +834,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-word-break
 CSS属性    : word-break
-默认数码   : keep-all (>= v1.0.0)
+默认数码   : keep-all (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -889,7 +854,7 @@ Affects the letter spacing of the rendered component.
 Code = '''
 VARIABLE     : --pre-letter-spacing
 CSS PROPERTY : letter-spacing
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -908,7 +873,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-letter-spacing
 CSS属性    : letter-spacing
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -928,7 +893,7 @@ Affects the line height of the rendered component.
 Code = '''
 VARIABLE     : --pre-line-height
 CSS PROPERTY : line-height
-DEFAULT      : var(--body-line-height) (>= v1.0.0)
+DEFAULT      : var(--body-line-height) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -947,7 +912,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-line-height
 CSS属性    : line-height
-默认数码   : var(--body-line-height) (>= v1.0.0)
+默认数码   : var(--body-line-height) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -967,7 +932,7 @@ Affects the text alignment of the rendered component.
 Code = '''
 VARIABLE     : --pre-text-align
 CSS PROPERTY : text-align
-DEFAULT      : justify (>= v1.0.0)
+DEFAULT      : justify (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -986,7 +951,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-text-align
 CSS属性    : text-align
-默认数码   : justify (>= v1.0.0)
+默认数码   : justify (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1006,7 +971,7 @@ Affects the white-spacing behavior of the rendered component.
 Code = '''
 VARIABLE     : --pre-white-space
 CSS PROPERTY : white-space
-DEFAULT      : pre (>= v1.0.0)
+DEFAULT      : pre (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1025,7 +990,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-white-space
 CSS属性    : white-space
-默认数码   : pre (>= v1.0.0)
+默认数码   : pre (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1045,7 +1010,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --pre-color
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1064,7 +1029,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-color
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1084,7 +1049,7 @@ Affects the color of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --pre-color-inverted
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1103,7 +1068,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-color-inverted
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1123,7 +1088,7 @@ Affects the color of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --pre-color-print
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-300) (>= v1.0.0)
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1142,7 +1107,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-color-print
 CSS属性    : color
-默认数码   : var(--color-primary-300) (>= v1.0.0)
+默认数码   : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1162,7 +1127,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --pre-background
 CSS PROPERTY : background
-DEFAULT      : var(--color-contrast-50) (>= v1.0.0)
+DEFAULT      : var(--color-contrast-50) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1181,7 +1146,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-background
 CSS属性    : background
-默认数码   : var(--color-contrast-50) (>= v1.0.0)
+默认数码   : var(--color-contrast-50) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1201,7 +1166,7 @@ Affects the background of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --pre-background-inverted
 CSS PROPERTY : background
-DEFAULT      : var(--color-contrast-50) (>= v1.0.0)
+DEFAULT      : var(--color-contrast-50) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1220,7 +1185,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-background-inverted
 CSS属性    : background
-默认数码   : var(--color-contrast-50) (>= v1.0.0)
+默认数码   : var(--color-contrast-50) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1240,7 +1205,7 @@ Affects the background of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --pre-background-print
 CSS PROPERTY : background
-DEFAULT      : var(--body-background-print) (>= v1.0.0)
+DEFAULT      : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1259,7 +1224,7 @@ Plain = '''
 Code = '''
 变化值     : --pre-background-print
 CSS属性    : background
-默认数码   : var(--body-background-print) (>= v1.0.0)
+默认数码   : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

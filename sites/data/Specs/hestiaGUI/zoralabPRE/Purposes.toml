@@ -5,12 +5,14 @@ This package's primary purpose is to provide user interface (UI) styling
 specifically for preformatted values. In web UI, it is shown as follows:
 <br/><br/>
 <pre>This is a pre-formatted paragraph.</pre>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<pre>This is a pre-formatted paragraph.</pre>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for preformatted values. In web UI, it is shown as follows:
-
-'<pre>This is a pre-formatted paragraph.</pre>'
+specifically for preformatted values.
 '''
 Code = '''
 '''
@@ -27,12 +29,13 @@ HTML = '''
 这元件的成果如下：
 <br/><br/>
 <pre>这是个预格式化的文字。</pre>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<pre>这是个预格式化的文字。</pre>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染代码预格式化的码语法的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<pre>这是个预格式化的文字。</pre>
+这个软件包的出生主要是支持渲染代码预格式化的码语法的界面元件。
 '''
 Code = '''
 '''
