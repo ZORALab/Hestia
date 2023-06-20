@@ -39,15 +39,14 @@ specific language governing permissions and limitations under the License.
 
 .top-drawer > input[type='checkbox'] {
 	position: absolute;
-	top: 0;
-	left: 50%;
+	top: -9999px;
+	left: -9999px;
 	z-index: -1;
 
 	width: 0;
 	height: 0;
 
 	opacity: 0;
-	transform: translateX(-50%);
 }
 
 .top-drawer > .content {
