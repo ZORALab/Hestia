@@ -144,6 +144,7 @@ Label = ''
 
 
 
+
 [[EN.List]]
 Title = 'CSS'
 HTML = '''
@@ -159,20 +160,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -233,7 +234,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --toc-margin
 CSS PROPERTY : margin
-DEFAULT      : 2rem auto (>= v1.0.0)
+DEFAULT      : 2rem auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -252,7 +253,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-margin
 CSS属性    : margin
-默认数码   : 2rem auto (>= v1.0.0)
+默认数码   : 2rem auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -272,7 +273,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --toc-padding
 CSS PROPERTY : padding
-DEFAULT      : 2rem auto (>= v1.0.0)
+DEFAULT      : 2rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -291,7 +292,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-padding
 CSS属性    : padding
-默认数码   : 2rem auto (>= v1.0.0)
+默认数码   : 2rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -311,7 +312,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --toc-min-width
 CSS PROPERTY : min-width
-DEFAULT      : 20rem (>= v1.0.0)
+DEFAULT      : 20rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -330,7 +331,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-min-width
 CSS属性    : min-width
-默认数码   : 20rem (>= v1.0.0)
+默认数码   : 20rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -350,7 +351,7 @@ Affects the width of the rendered component.
 Code = '''
 VARIABLE     : --toc-width
 CSS PROPERTY : width
-DEFAULT      : fit-content (>= v1.0.0)
+DEFAULT      : fit-content (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -369,7 +370,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-width
 CSS属性    : width
-默认数码   : fit-content (>= v1.0.0)
+默认数码   : fit-content (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -389,7 +390,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --toc-max-width
 CSS PROPERTY : max-width
-DEFAULT      : 100% (>= v1.0.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -408,7 +409,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-max-width
 CSS属性    : max-width
-默认数码   : 100% (>= v1.0.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -428,7 +429,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --toc-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -447,7 +448,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-min-height
 CSS属性    : min-hieght
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -467,7 +468,7 @@ Affects the height of the rendered component.
 Code = '''
 VARIABLE     : --toc-height
 CSS PROPERTY : height
-DEFAULT      : fit-content (>= v1.0.0)
+DEFAULT      : fit-content (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -486,7 +487,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-height
 CSS属性    : height
-默认数码   : fit-content (>= v1.0.0)
+默认数码   : fit-content (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -506,7 +507,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --toc-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -525,7 +526,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -545,7 +546,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --toc-border
 CSS PROPERTY : border
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : 1px solid currentColor (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -564,7 +565,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-border
 CSS属性    : border
-默认数码   : initial (>= v1.0.0)
+默认数码   : 1px solid currentColor (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -584,7 +585,7 @@ Affects the border radius of the rendered component.
 Code = '''
 VARIABLE     : --toc-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : .5rem (>= v1.0.0)
+DEFAULT      : .5rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -603,7 +604,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-border-radius
 CSS属性    : border-radius
-默认数码   : .5rem (>= v1.0.0)
+默认数码   : .5rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -623,7 +624,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --toc-color
 CSS PROPERTY : color
-DEFAULT      : var(--body-color) (>= v1.0.0)
+DEFAULT      : var(--body-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -642,7 +643,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-color
 CSS属性    : color
-默认数码   : var(--body-color) (>= v1.0.0)
+默认数码   : var(--body-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -662,7 +663,7 @@ Affects the color of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --toc-color-inverted
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-inverted) (>= v1.0.0)
+DEFAULT      : var(--body-color-inverted) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -681,7 +682,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-color-inverted
 CSS属性    : color
-默认数码   : var(--body-color-inverted) (>= v1.0.0)
+默认数码   : var(--body-color-inverted) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -701,7 +702,7 @@ Affects the color of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --toc-color-print
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-print) (>= v1.0.0)
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -720,7 +721,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-color-print
 CSS属性    : color
-默认数码   : var(--body-color-print) (>= v1.0.0)
+默认数码   : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -740,7 +741,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --toc-background
 CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.0.0)
+DEFAULT      : transparent (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -759,7 +760,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-background
 CSS属性    : background
-默认数码   : transparent (>= v1.0.0)
+默认数码   : transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -779,7 +780,7 @@ Affects the background of the rendered component while in inverted mode.
 Code = '''
 VARIABLE     : --toc-background-inverted
 CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.0.0)
+DEFAULT      : transparent (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -798,7 +799,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-background-inverted
 CSS属性    : background
-默认数码   : transparent (>= v1.0.0)
+默认数码   : transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -818,7 +819,7 @@ Affects the background of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --toc-background-print
 CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.0.0)
+DEFAULT      : transparent (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -837,7 +838,7 @@ Plain = '''
 Code = '''
 变化值     : --toc-background-print
 CSS属性    : background
-默认数码   : transparent (>= v1.0.0)
+默认数码   : transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

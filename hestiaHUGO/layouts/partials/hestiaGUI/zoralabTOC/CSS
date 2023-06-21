@@ -35,8 +35,11 @@ specific language governing permissions and limitations under the License.
 	background: var(--toc-background);
 }
 
-footer .toc,
-.inverted .toc {
+.toc *:first-child {
+	margin-top: 0;
+}
+
+:is(.inverted, footer, .footer) .toc {
 	color: var(--toc-color-inverted);
 	background: var(--toc-background-inverted);
 }

@@ -19,7 +19,7 @@
 
 
 
-"--toc-border" = "1px solid var(--toc-color)"
+"--toc-border" = "1px solid currentColor"
 "--toc-border-radius" = ".5rem"
 
 

@@ -10,17 +10,19 @@ specifically for table of content values. In web UI, it is shown as follows:
 	<p>Item 2</p>
 	<p>Item 3</p>
 </nav>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<nav class='toc'>
+		<p class='h3'>Synopsis</p>
+		<p>Item 1</p>
+		<p>Item 2</p>
+		<p>Item 3</p>
+	</nav>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for table of content values. In web UI, it is shown as follows:
-
-<nav class='toc'>
-	<p class='h3'>Synopsis</p>
-	<p>Item 1</p>
-	<p>Item 2</p>
-	<p>Item 3</p>
-</nav>
+specifically for table of content values.
 '''
 Code = '''
 '''
@@ -38,20 +40,22 @@ HTML = '''
 <br/><br/>
 <nav class='toc'>
 	<p class='h3'>大纲</p>
-	<p>Item 1</p>
-	<p>Item 2</p>
-	<p>Item 3</p>
+	<p>条文 1</p>
+	<p>条文 2</p>
+	<p>条文 3</p>
 </nav>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<nav class='toc'>
+		<p class='h3'>大纲</p>
+		<p>条文 1</p>
+		<p>条文 2</p>
+		<p>条文 3</p>
+	</nav>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染无序列表的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<nav class='toc'>
-	<p>条文1</p>
-	<p>条文2</p>
-	<p>条文3</p>
-</nav>
+这个软件包的出生主要是支持渲染无序列表的界面元件。
 '''
 Code = '''
 '''
