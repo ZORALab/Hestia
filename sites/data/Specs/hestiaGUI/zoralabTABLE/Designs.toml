@@ -277,20 +277,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -351,7 +351,7 @@ Affects the overflow behavior of the rendered component.
 Code = '''
 VARIABLE     : --table-overflow
 CSS PROPERTY : overflow
-DEFAULT      : auto (>= v1.0.0)
+DEFAULT      : auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -370,7 +370,7 @@ Plain = '''
 Code = '''
 变化值     : --table-overflow
 CSS属性    : overflow
-默认数码   : auto (>= v1.0.0)
+默认数码   : auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -390,7 +390,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --table-margin
 CSS PROPERTY : margin
-DEFAULT      : 2rem auto (>= v1.0.0)
+DEFAULT      : 2rem auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -409,7 +409,7 @@ Plain = '''
 Code = '''
 变化值     : --table-margin
 CSS属性    : margin
-默认数码   : 2rem auto (>= v1.0.0)
+默认数码   : 2rem auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -429,7 +429,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --table-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -448,7 +448,7 @@ Plain = '''
 Code = '''
 变化值     : --table-padding
 CSS属性    : padding
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -468,7 +468,7 @@ Affects the minimum width of the rendered component.
 Code = '''
 VARIABLE     : --table-min-width
 CSS PROPERTY : min-width
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -487,7 +487,7 @@ Plain = '''
 Code = '''
 变化值     : --table-min-width
 CSS属性    : min-width
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -507,7 +507,7 @@ Affects the maximum width of the rendered component.
 Code = '''
 VARIABLE     : --table-max-width
 CSS PROPERTY : max-width
-DEFAULT      : 100% (>= v1.0.0)
+DEFAULT      : 100% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -526,7 +526,7 @@ Plain = '''
 Code = '''
 变化值     : --table-max-width
 CSS属性    : max-width
-默认数码   : 100% (>= v1.0.0)
+默认数码   : 100% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -546,7 +546,7 @@ Affects the minimum height of the rendered component.
 Code = '''
 VARIABLE     : --table-min-height
 CSS PROPERTY : min-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -565,7 +565,7 @@ Plain = '''
 Code = '''
 变化值     : --table-min-height
 CSS属性    : min-hieght
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -585,7 +585,7 @@ Affects the maximum height of the rendered component.
 Code = '''
 VARIABLE     : --table-max-height
 CSS PROPERTY : max-height
-DEFAULT      : initial (>= v1.0.0)
+DEFAULT      : initial (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -604,7 +604,7 @@ Plain = '''
 Code = '''
 变化值     : --table-max-height
 CSS属性    : max-height
-默认数码   : initial (>= v1.0.0)
+默认数码   : initial (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -624,7 +624,7 @@ Affects the border of the rendered component.
 Code = '''
 VARIABLE     : --table-border
 CSS PROPERTY : border
-DEFAULT      : 1px solid var(--color-primary-900) (>= v1.0.0)
+DEFAULT      : 1px solid var(--table-color-primary) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -643,7 +643,7 @@ Plain = '''
 Code = '''
 变化值     : --table-border
 CSS属性    : border
-默认数码   : 1px solid var(--color-primary-900) (>= v1.0.0)
+默认数码   : 1px solid var(--table-color-primary) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -663,7 +663,7 @@ Affects the color of the rendered component.
 Code = '''
 VARIABLE     : --table-color
 CSS PROPERTY : color
-DEFAULT      : var(--body-color) (>= v1.0.0)
+DEFAULT      : var(--body-color) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -682,7 +682,7 @@ Plain = '''
 Code = '''
 变化值     : --table-color
 CSS属性    : color
-默认数码   : var(--body-color) (>= v1.0.0)
+默认数码   : var(--body-color) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -692,17 +692,17 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Color (Inverted Mode)'
+Title = 'Color (Header)'
 HTML = '''
-Affects the color of the rendered component while in inverted mode.
+Affects the header cell's color of the rendered component.
 '''
 Plain = '''
-Affects the color of the rendered component while in inverted mode.
+Affects the header cell's color of the rendered component.
 '''
 Code = '''
-VARIABLE     : --table-color-inverted
+VARIABLE     : --table-color-header
 CSS PROPERTY : color
-DEFAULT      : var(--color-primary-200) (>= v1.0.0)
+DEFAULT      : var(--color-typography-100) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -711,17 +711,56 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color （反转环境）'
+Title = 'Color（标题元格）'
 HTML = '''
-影响元件在反转环境里的颜色。
+影响元件标题元格的颜色。
 '''
 Plain = '''
-影响元件在反转环境里的颜色。
+影响元件标题元格的颜色。
 '''
 Code = '''
-变化值     : --table-color-inverted
+变化值     : --table-color-header
 CSS属性    : color
-默认数码   : var(--color-primary-200) (>= v1.0.0)
+默认数码   : var(--color-typography-100) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Color (Primary)'
+HTML = '''
+Affects the primary color of the rendered component.
+'''
+Plain = '''
+Affects the primary color of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-color-primary
+CSS PROPERTY : color
+DEFAULT      : var(--color-primary-300) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Color（主要）'
+HTML = '''
+影响元件主要的颜色。
+'''
+Plain = '''
+影响元件主要的颜色。
+'''
+Code = '''
+变化值     : --table-color-primary
+CSS属性    : color
+默认数码   : var(--color-primary-300) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -741,7 +780,7 @@ Affects the color of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --table-color-print
 CSS PROPERTY : color
-DEFAULT      : var(--body-color-print) (>= v1.0.0)
+DEFAULT      : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -760,7 +799,7 @@ Plain = '''
 Code = '''
 变化值     : --table-color-print
 CSS属性    : color
-默认数码   : var(--body-color-print) (>= v1.0.0)
+默认数码   : var(--body-color-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -780,7 +819,7 @@ Affects the background of the rendered component.
 Code = '''
 VARIABLE     : --table-background
 CSS PROPERTY : background
-DEFAULT      : var(--body-background) (>= v1.0.0)
+DEFAULT      : var(--body-background) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -799,7 +838,204 @@ Plain = '''
 Code = '''
 变化值     : --table-background
 CSS属性    : background
-默认数码   : var(--body-background) (>= v1.0.0)
+默认数码   : var(--body-background) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Row Header)'
+HTML = '''
+Affects the table first row header's background of the rendered component.
+'''
+Plain = '''
+Affects the table first row header's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-background-header-row
+CSS PROPERTY : background
+DEFAULT      : var(--color-primary-900) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（表格头列标题）'
+HTML = '''
+影响元件表格头列标题的背景。
+'''
+Plain = '''
+影响元件表格头列标题的背景。
+'''
+Code = '''
+变化值     : --table-background-header-row
+CSS属性    : background
+默认数码   : var(--color-primary-900) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Column Header)'
+HTML = '''
+Affects the table first column header's background of the rendered component.
+'''
+Plain = '''
+Affects the table first column header's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-background-header-column
+CSS PROPERTY : background
+DEFAULT      : var(--color-primary-700) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（表格头排标题）'
+HTML = '''
+影响元件表格头排标题的背景。
+'''
+Plain = '''
+影响元件表格头排标题的背景。
+'''
+Code = '''
+变化值     : --table-background-header-column
+CSS属性    : background
+默认数码   : var(--color-primary-700) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Odd Elements)'
+HTML = '''
+Affects the odd number positioned data cell's background of the rendered
+component.
+'''
+Plain = '''
+Affects the odd number positioned data cell's background of the rendered
+component.
+'''
+Code = '''
+VARIABLE     : --table-background-odd
+CSS PROPERTY : background
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（排序单数）'
+HTML = '''
+影响元件排序单数元格的背景。
+'''
+Plain = '''
+影响元件排序单数元格的背景。
+'''
+Code = '''
+变化值     : --table-background-odd
+CSS属性    : background
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Even Elements)'
+HTML = '''
+Affects the even number positioned cell's background of the rendered component.
+'''
+Plain = '''
+Affects the even number positioned cell's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --table-background-even
+CSS PROPERTY : background
+DEFAULT      : var(--color-primary-50) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（排序双数）'
+HTML = '''
+影响元件排序双数元格的背景。
+'''
+Plain = '''
+影响元件排序双数元格的背景。
+'''
+Code = '''
+变化值     : --table-background-even
+CSS属性    : background
+默认数码   : var(--color-primary-50) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Focused)'
+HTML = '''
+Affects the cell's background of the rendered component while being focused.
+'''
+Plain = '''
+Affects the cell's background of the rendered component while being focused.
+'''
+Code = '''
+VARIABLE     : --table-background-focus
+CSS PROPERTY : background
+DEFAULT      : var(--color-contrast-500) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（被关注）'
+HTML = '''
+影响元件元格在被关注时的背景。
+'''
+Plain = '''
+影响元件元格在被关注时的背景。
+'''
+Code = '''
+变化值     : --table-background-focus
+CSS属性    : background
+默认数码   : var(--color-contrast-500) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -819,7 +1055,7 @@ Affects the background of the rendered component when in print mode.
 Code = '''
 VARIABLE     : --table-background-print
 CSS PROPERTY : background
-DEFAULT      : var(--body-background-print) (>= v1.0.0)
+DEFAULT      : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -838,7 +1074,7 @@ Plain = '''
 Code = '''
 变化值     : --table-background-print
 CSS属性    : background
-默认数码   : var(--body-background-print) (>= v1.0.0)
+默认数码   : var(--body-background-print) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -858,7 +1094,7 @@ Affects the table cell's margin of the rendered component.
 Code = '''
 VARIABLE     : --table-cell-margin
 CSS PROPERTY : margin
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -877,7 +1113,7 @@ Plain = '''
 Code = '''
 变化值     : --table-cell-margin
 CSS属性    : margin
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -897,7 +1133,7 @@ Affects the table cell's padding of the rendered component.
 Code = '''
 VARIABLE     : --table-cell-padding
 CSS PROPERTY : padding
-DEFAULT      : 1rem (>= v1.0.0)
+DEFAULT      : 1rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -916,7 +1152,7 @@ Plain = '''
 Code = '''
 变化值     : --table-cell-padding
 CSS属性    : padding
-默认数码   : 1rem (>= v1.0.0)
+默认数码   : 1rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -936,7 +1172,7 @@ Affects the cell's border of the rendered component.
 Code = '''
 VARIABLE     : --table-cell-border
 CSS PROPERTY : border
-DEFAULT      : var(--table-border) (>= v1.0.0)
+DEFAULT      : var(--table-border) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -955,286 +1191,7 @@ Plain = '''
 Code = '''
 变化值     : --table-cell-border
 CSS属性    : border
-默认数码   : var(--table-border) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'THead Header Cell Color'
-HTML = '''
-Affects the thead's header cell's color of the rendered component.
-'''
-Plain = '''
-Affects the thead's header cell's color of the rendered component.
-'''
-Code = '''
-VARIABLE     : --table-thead-th-color
-CSS PROPERTY : color
-DEFAULT      : var(--color-typography-100) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'THead表格单标题元格Color'
-HTML = '''
-影响元件thead表格单标题元格的颜色。
-'''
-Plain = '''
-影响元件thead表格单标题元格的颜色。
-'''
-Code = '''
-变化值     : --table-thead-th-color
-CSS属性    : color
-默认数码   : var(--color-typography-100) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'THead Header Cell Background'
-HTML = '''
-Affects the thead's header cell's background of the rendered component.
-'''
-Plain = '''
-Affects the thead's header cell's background of the rendered component.
-'''
-Code = '''
-VARIABLE     : --table-thead-th-background
-CSS PROPERTY : background
-DEFAULT      : var(--color-primary-900) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'THead表格单标题元格Background'
-HTML = '''
-影响元件thead表格单标题元格的背景。
-'''
-Plain = '''
-影响元件thead表格单标题元格的背景。
-'''
-Code = '''
-变化值     : --table-thead-th-background
-CSS属性    : background
-默认数码   : var(--color-primary-900) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'TBody Header Cell Color'
-HTML = '''
-Affects the tbody's header cell's color of the rendered component.
-'''
-Plain = '''
-Affects the tbody's header cell's color of the rendered component.
-'''
-Code = '''
-VARIABLE     : --table-tbody-th-color
-CSS PROPERTY : color
-DEFAULT      : var(--color-typography-100) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'TBody表格单标题元格Color'
-HTML = '''
-影响元件tbody表格单标题元格的颜色。
-'''
-Plain = '''
-影响元件tbody表格单标题元格的颜色。
-'''
-Code = '''
-变化值     : --table-tbody-th-color
-CSS属性    : color
-默认数码   : var(--color-typography-100) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'TBody Header Cell Background'
-HTML = '''
-Affects the tbody's header cell's background of the rendered component.
-'''
-Plain = '''
-Affects the tbody's header cell's background of the rendered component.
-'''
-Code = '''
-VARIABLE     : --table-tbody-th-background
-CSS PROPERTY : background
-DEFAULT      : var(--color-primary-700) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'TBody表格单标题元格Background'
-HTML = '''
-影响元件tbody表格单标题元格的背景。
-'''
-Plain = '''
-影响元件tbody表格单标题元格的背景。
-'''
-Code = '''
-变化值     : --table-tbody-th-background
-CSS属性    : background
-默认数码   : var(--color-primary-700) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'TBody Data Cell Background (Focused)'
-HTML = '''
-Affects the tbody's data cell's background of the rendered component while being
-focused.
-'''
-Plain = '''
-Affects the tbody's data cell's background of the rendered component while being
-focused.
-'''
-Code = '''
-VARIABLE     : --table-tbody-td-focus-background
-CSS PROPERTY : background
-DEFAULT      : var(--color-contrast-500) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'TBody表格单数码元格Background'
-HTML = '''
-在被关注的情况内影响元件tbody表格单数码元格的背景。
-'''
-Plain = '''
-在被关注的情况内影响元件tbody表格单数码元格的背景。
-'''
-Code = '''
-变化值     : --table-tbody-td-focus-background
-CSS属性    : background
-默认数码   : var(--color-contrast-500) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'TBody Data Cell Background (Odd Elements)'
-HTML = '''
-Affects the tbody's data cell's background of the rendered component while being
-arranged in odd number position.
-'''
-Plain = '''
-Affects the tbody's data cell's background of the rendered component while being
-arranged in odd number position.
-'''
-Code = '''
-VARIABLE     : --table-tbody-td-odd-background
-CSS PROPERTY : background
-DEFAULT      : transparent (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'TBody表格单数码元格Background (排序单数)'
-HTML = '''
-影响排序单数元件tbody表格单数码元格的背景。
-'''
-Plain = '''
-影响排序单数元件tbody表格单数码元格的背景。
-'''
-Code = '''
-变化值     : --table-tbody-td-odd-background
-CSS属性    : background
-默认数码   : transparent (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'TBody Data Cell Background (Even Elements)'
-HTML = '''
-Affects the tbody's data cell's background of the rendered component while being
-arranged in even number position.
-'''
-Plain = '''
-Affects the tbody's data cell's background of the rendered component while being
-arranged in even number position.
-'''
-Code = '''
-VARIABLE     : --table-tbody-td-even-background
-CSS PROPERTY : background
-DEFAULT      : var(--color-primary-50) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'TBody表格单数码元格Background (排序双数)'
-HTML = '''
-影响排序双数元件tbody表格单数码元格的背景。
-'''
-Plain = '''
-影响排序双数元件tbody表格单数码元格的背景。
-'''
-Code = '''
-变化值     : --table-tbody-td-even-background
-CSS属性    : background
-默认数码   : var(--color-primary-50) (>= v1.0.0)
+默认数码   : var(--table-border) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

@@ -45,52 +45,54 @@ specifically for table values. In web UI, it is shown as follows:
 		</tr>
 	</tbody>
 </table></div>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<div style="display:flex;justify-content:center"><table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Alpha</th>
+				<th>Bravo</th>
+				<th>Charlie</th>
+				<th>Delta</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Projected</th>
+				<td>12</td>
+				<td>12</td>
+				<td>12</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<th>Actual</th>
+				<td>2</td>
+				<td>5</td>
+				<td>8</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<th>Balance</th>
+				<td>10</td>
+				<td>7</td>
+				<td>4</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<th>Members</th>
+				<td>2</td>
+				<td>2</td>
+				<td>2</td>
+				<td>2</td>
+			</tr>
+		</tbody>
+	</table></div>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for table values. In web UI, it is shown as follows:
-
-<table>
-	<thead>
-		<tr>
-			<th></th>
-			<th>Alpha</th>
-			<th>Bravo</th>
-			<th>Charlie</th>
-			<th>Delta</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th>Projected</th>
-			<td>12</td>
-			<td>12</td>
-			<td>12</td>
-			<td>12</td>
-		</tr>
-		<tr>
-			<th>Actual</th>
-			<td>2</td>
-			<td>5</td>
-			<td>8</td>
-			<td>10</td>
-		</tr>
-		<tr>
-			<th>Balance</th>
-			<td>10</td>
-			<td>7</td>
-			<td>4</td>
-			<td>2</td>
-		</tr>
-		<tr>
-			<th>Members</th>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-		</tr>
-	</tbody>
-</table>
+specifically for table values.
 '''
 Code = '''
 '''
@@ -147,52 +149,53 @@ HTML = '''
 		</tr>
 	</tbody>
 </table></div>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<div style="display:flex;justify-content:center"><table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Alpha</th>
+				<th>Bravo</th>
+				<th>Charlie</th>
+				<th>Delta</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>预测</th>
+				<td>12</td>
+				<td>12</td>
+				<td>12</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<th>证实</th>
+				<td>2</td>
+				<td>5</td>
+				<td>8</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<th>平衡</th>
+				<td>10</td>
+				<td>7</td>
+				<td>4</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<th>队员</th>
+				<td>2</td>
+				<td>2</td>
+				<td>2</td>
+				<td>2</td>
+			</tr>
+		</tbody>
+	</table></div>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染表格的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<table>
-	<thead>
-		<tr>
-			<th></th>
-			<th>Alpha</th>
-			<th>Bravo</th>
-			<th>Charlie</th>
-			<th>Delta</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th>预测</th>
-			<td>12</td>
-			<td>12</td>
-			<td>12</td>
-			<td>12</td>
-		</tr>
-		<tr>
-			<th>证实</th>
-			<td>2</td>
-			<td>5</td>
-			<td>8</td>
-			<td>10</td>
-		</tr>
-		<tr>
-			<th>平衡</th>
-			<td>10</td>
-			<td>7</td>
-			<td>4</td>
-			<td>2</td>
-		</tr>
-		<tr>
-			<th>队员</th>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-		</tr>
-	</tbody>
-</table>
+这个软件包的出生主要是支持渲染表格的界面元件。
 '''
 Code = '''
 '''

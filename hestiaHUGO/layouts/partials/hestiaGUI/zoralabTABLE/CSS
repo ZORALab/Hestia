@@ -34,20 +34,21 @@ table {
 	background: var(--table-background);
 }
 
-table th,
-table td {
+table :is(th, td) {
 	margin: var(--table-cell-margin);
 	padding: var(--table-cell-padding);
 }
 
 table thead th {
-	color: var(--table-thead-th-color);
-	background: var(--table-thead-th-background);
+	color: var(--table-color-header);
+	background: var(--table-background-header-row);
 }
 
 table tbody th {
-	color: var(--table-tbody-th-color);
-	background: var(--table-tbody-th-background);
+	border: var(--table-cell-border);
+
+	color: var(--table-color-header);
+	background: var(--table-background-header-column);
 }
 
 table tbody td {
@@ -56,44 +57,37 @@ table tbody td {
 	background: transparent;
 }
 
-table tbody tr:nth-child(odd) {
-	background: var(--table-tbody-td-odd-background);
+table tbody :is(tr:nth-child(odd), tr td:nth-child(odd)) {
+	background: var(--table-background-odd);
 }
 
-table tbody tr td:nth-child(odd) {
-	background: var(--table-tbody-td-odd-background);
+table tbody :is(tr:nth-child(even), tr td:nth-child(even)) {
+	background: var(--table-background-even);
 }
 
-table tbody tr:nth-child(even) {
-	background: var(--table-tbody-td-even-background);
+table tbody :is(tr:nth-child(odd), tr:nth-child(even)) :is(td:hover, td:focus),
+table tbody tr :is(td:nth-child(even), td:nth-child(odd)) :is(:hover, :focus) {
+	background: var(--table-background-focus);
 }
 
-table tbody tr td:nth-child(even) {
-	background: var(--table-tbody-td-even-background);
+table thead tr:first-child :is(th, td) {
+	border-top: var(--table-cell-border);
 }
 
-table tbody tr:nth-child(even) td:hover,
-table tbody tr:nth-child(even) td:focus,
-table tbody tr:nth-child(odd) td:hover,
-table tbody tr:nth-child(odd) td:focus,
-table tbody tr td:nth-child(even):hover,
-table tbody tr td:nth-child(odd):focus {
-	background: var(--table-tbody-td-focus-background);
+table tbody tr:last-child :is(th, td) {
+	border-bottom: var(--table-cell-border);
 }
 
-footer table {
-	border-color: var(--table-color-inverted);
+table tr :is(th, td):first-child {
+	border-left: var(--table-cell-border);
 }
 
-footer table tbody td {
-	border-color: var(--table-color-inverted);
+table tr :is(th, td):last-child {
+	border-right: var(--table-cell-border);
 }
 
 @media print {
-	table,
-	table th,
-	table tr,
-	table td {
+	table, table :is(th, tr, td) {
 		border-color: var(--table-color-print) !important;
 		color: var(--table-color-print) !important;
 		background: var(--table-background-print) !important;
