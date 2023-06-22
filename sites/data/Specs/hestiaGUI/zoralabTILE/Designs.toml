@@ -227,10 +227,10 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Layout'
 HTML = '''
-影响元件的外向边距空间。
+影响元件的空间设计。
 '''
 Plain = '''
-影响元件的外向边距空间。
+影响元件的空间设计。
 '''
 Code = '''
 变化值     : --tile-layout
