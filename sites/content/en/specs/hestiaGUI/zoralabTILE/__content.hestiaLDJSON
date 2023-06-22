@@ -1,0 +1,22 @@
+{{- /*
+Page's HTML's LD+JSON Output Prime Control
+
+This file is your LD+JSON output that will be deployed into your HTML meta page.
+Hugo's and Go's template processors are available at your disposal in case of
+mathematical or logical algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (partial "hestiaJSON/schemaorgLDJSON/WebPage" .) -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}

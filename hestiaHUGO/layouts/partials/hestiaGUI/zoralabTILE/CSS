@@ -1,6 +1,6 @@
 {{- /*
-Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
-Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+Copyright 2022 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2022 ZORALab Enterprise <tech@zoralab.com>
 
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -20,15 +20,13 @@ specific language governing permissions and limitations under the License.
 	grid: var(--tile-layout);
 	overflow: var(--tile-overflow);
 
-	width: var(--tile-width);
-	height: var(--tile-height);
-
 	margin: var(--tile-margin);
 	padding: var(--tile-padding);
 
+	width: var(--tile-width);
+
 	border: var(--tile-border);
 	border-radius: var(--tile-border-radius);
-	box-shadow: var(--tile-box-shadow);
 
 	color: var(--tile-color);
 	background: var(--tile-background);
@@ -36,32 +34,39 @@ specific language governing permissions and limitations under the License.
 	transition: var(--tile-timing);
 }
 
+:is(.inverted, footer, .footer) .tile {
+	border: var(--tile-border-inverted);
+	color: var(--tile-color-inverted);
+	background: var(--tile-background-inverted);
+}
+
+.tile :is(.thumbnail, .content, .actions) {
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 0;
+	max-height: max-content;
+}
+
 .tile .thumbnail {
 	grid-area: thumbnail;
 	overflow: var(--tile-thumbnail-overflow);
 	object-fit: var(--tile-thumbnail-object-fit);
 
-	min-width: var(--tile-thumbnail-min-width);
-	width: var(--tile-width);
-	max-width: var(--tile-thumbnail-max-width);
-	min-height: var(--tile-thumbnail-min-height);
-	height: var(--tile-thumbnail-height);
-	max-height: var(--tile-thumbnail-max-height);
-
 	margin: var(--tile-thumbnail-margin);
 	padding: var(--tile-thumbnail-padding);
+}
+
+.tile :is(.thumbnail, picture.thumbnail > img) {
+	width: 100%;
+	height: var(--tile-thumbnail-height);
 }
 
 .tile .content {
 	grid-area: content;
 	overflow: var(--tile-content-overflow);
 
-	min-width: var(--tile-content-min-width);
-	width: var(--tile-width);
-	max-width: var(--tile-content-max-width);
-	min-height: var(--tile-content-min-height);
+	width: 100%;
 	height: var(--tile-content-height);
-	max-height: var(--tile-content-max-height);
 
 	margin: var(--tile-content-margin);
 	padding: var(--tile-content-padding);
@@ -71,16 +76,35 @@ specific language governing permissions and limitations under the License.
 	grid-area: actions;
 	overflow: var(--tile-actions-overflow);
 
-	min-width: var(--tile-actions-min-width);
-	width: var(--tile-width);
-	max-width: var(--tile-actions-max-width);
-	min-height: var(--tile-actions-min-height);
+	width: 100%;
 	height: var(--tile-actions-height);
-	max-height: var(--tile-actions-max-height);
 
 	margin: var(--tile-actions-margin);
 	padding: var(--tile-actions-padding);
 }
+
+.tile :is(.content, .actions) :is(
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6
+) {
+	padding: var(--tile-content-padding);
+}
+
+.tile :is(.content, .actions) :is(
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6
+):first-child {
+	margin: var(--tile-title-margin);
+}
+
 
 @media print {
 	.tile {

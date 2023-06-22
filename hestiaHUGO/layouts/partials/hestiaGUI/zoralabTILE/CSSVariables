@@ -3,24 +3,23 @@
 	"thumbnail" minmax(0, var(--tile-thumbnail-height))
 	"content" minmax(0, var(--tile-content-height))
 	"actions" minmax(0, var(--tile-actions-height))
-	/ minmax(var(--tile-width), 100%)
+	/ 100%
 """
 "--tile-overflow" = "hidden"
-
-"--tile-width" = "22rem"
-"--tile-height" = "fit-content"
 
 "--tile-margin" = "2rem auto"
 "--tile-padding" = "0"
 
+"--tile-width" = "clamp(22rem, 28rem, 100%)"
+
 "--tile-border" = "none"
-"--tile-border-radius" = "0"
-"--tile-box-shadow" = "none"
-"--tile-box-shadow-print" = "none"
+"--tile-border-radius" = "1rem"
 
 "--tile-color" = "var(--body-color)"
+"--tile-color-inverted" = "var(--body-color-inverted)"
 "--tile-color-print" = "var(--body-color-print)"
 "--tile-background" = "var(--body-background)"
+"--tile-background-inverted" = "var(--body-background-inverted)"
 "--tile-background-print" = "var(--body-background-print)"
 
 "--tile-timing" = "var(--timing-normal)"
@@ -29,13 +28,9 @@
 
 
 "--tile-thumbnail-overflow" = "hidden"
-"--tile-thumbnail-object-fit" = "cover"
+"--tile-thumbnail-object-fit" = "contain"
 
-"--tile-thumbnail-min-width" = "100%"
-"--tile-thumbnail-max-width" = "100%"
-"--tile-thumbnail-min-height" = "100%"
 "--tile-thumbnail-height" = "max-content"
-"--tile-thumbnail-max-height" = "100%"
 
 "--tile-thumbnail-margin" = "0"
 "--tile-thumbnail-padding" = "0"
@@ -45,25 +40,22 @@
 
 "--tile-content-overflow" = "auto"
 
-"--tile-content-min-width" = "initial"
-"--tile-content-max-width" = "100%"
-"--tile-content-min-height" = "initial"
 "--tile-content-height" = "auto"
-"--tile-content-max-height" = "initial"
 
 "--tile-content-margin" = "0"
-"--tile-content-padding" = "0"
+"--tile-content-padding" = "0 1rem"
 
 
 
 
-"--tile-actions-overflow" = "initial"
+"--tile-actions-overflow" = "hidden"
 
-"--tile-actions-min-width" = "initial"
-"--tile-actions-max-width" = "100%"
-"--tile-actions-min-height" = "initial"
 "--tile-actions-height" = "max-content"
-"--tile-actions-max-height" = "initial"
 
-"--tile-actions-margin" = "3.5rem 0 0"
-"--tile-actions-padding" = "0"
+"--tile-actions-margin" = "0"
+"--tile-actions-padding" = "3.5rem 0"
+
+
+
+
+"--tile-title-margin" = ".3rem auto"

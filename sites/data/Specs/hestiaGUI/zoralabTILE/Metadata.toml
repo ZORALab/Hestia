@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabtile'
+SKU = 'zoralabTILE'
+Description = '''
+For styling a tile.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabtile'
+SKU = 'zoralabTILE'
+Description = '''
+来渲染瓦片。
+'''
