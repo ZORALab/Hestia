@@ -10,7 +10,7 @@ specifically for unordered list values. In web UI, it is shown as follows:
 	</li>
 	<li>
 		<p>Earth</p>
-		<ul style="--ulist-li-before-background:red">
+		<ul style="--ulist-li-before-background-image: linear-gradient(to bottom, yellow, orangered);">
 			<li><p>Human</p></li>
 			<li><p>Trees</p></li>
 		</ul>
@@ -19,26 +19,28 @@ specifically for unordered list values. In web UI, it is shown as follows:
 		<p>Mars</p>
 	</li>
 </ul>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<ul>
+		<li>
+			<p>Sun</p>
+		</li>
+		<li>
+			<p>Earth</p>
+			<ul style="--ulist-li-before-background-image: linear-gradient(to bottom, yellow, orangered);">
+				<li><p>Human</p></li>
+				<li><p>Trees</p></li>
+			</ul>
+		</li>
+		<li>
+			<p>Mars</p>
+		</li>
+	</ul>
+</div>
 '''
 Plain = '''
 This package's primary purpose is to provide user interface (UI) styling
-specifically for unordered values. In web UI, it is shown as follows:
-
-<ul>
-	<li>
-		<p>Sun</p>
-	</li>
-	<li>
-		<p>Earth</p>
-		<ul style="--ulist-li-before-background:red">
-			<li><p>Human</p></li>
-			<li><p>Trees</p></li>
-		</ul>
-	</li>
-	<li>
-		<p>Mars</p>
-	</li>
-</ul>
+specifically for unordered list values.
 '''
 Code = '''
 '''
@@ -60,7 +62,7 @@ HTML = '''
 	</li>
 	<li>
 		<p>地球</p>
-		<ul style="--ulist-li-before-background:red">
+		<ul style="--ulist-li-before-background-image: linear-gradient(to bottom, yellow, orangered);">
 			<li><p>人类</p></li>
 			<li><p>树木</p></li>
 		</ul>
@@ -69,26 +71,27 @@ HTML = '''
 		<p>木星</p>
 	</li>
 </ul>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<ul>
+		<li>
+			<p>太阳</p>
+		</li>
+		<li>
+			<p>地球</p>
+			<ul style="--ulist-li-before-background-image: linear-gradient(to bottom, yellow, orangered);">
+				<li><p>人类</p></li>
+				<li><p>树木</p></li>
+			</ul>
+		</li>
+		<li>
+			<p>木星</p>
+		</li>
+	</ul>
+</div>
 '''
 Plain = '''
-这个软件包的出生主要是支持渲染无序列表的界面元件。在网络界面世界里，
-这元件的成果如下：
-
-<ul>
-	<li>
-		<p>太阳</p>
-	</li>
-	<li>
-		<p>地球</p>
-		<ul style="--ulist-li-before-background:red">
-			<li><p>人类</p></li>
-			<li><p>树木</p></li>
-		</ul>
-	</li>
-	<li>
-		<p>木星</p>
-	</li>
-</ul>
+这个软件包的出生主要是支持渲染无序列表的界面元件。
 '''
 Code = '''
 '''

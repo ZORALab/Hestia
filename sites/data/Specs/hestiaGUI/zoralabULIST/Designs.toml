@@ -163,7 +163,7 @@ Code = '''
 	</li>
 	<li>
 		...
-		<ul style="--ulist-li-before-background:red;">
+		<ul style="--ulist-li-before-background-image: linear-gradient(to bottom, yellow, orangered);">
 			<li>...</li>
 			<li>...</li>
 		</ul>
@@ -194,7 +194,7 @@ Code = '''
 	</li>
 	<li>
 		...
-		<ul style="--ulist-li-before-background:red;">
+		<ul style="--ulist-li-before-background-image: linear-gradient(to bottom, yellow, orangered);">
 			<li>...</li>
 			<li>...</li>
 		</ul>
@@ -227,20 +227,20 @@ at your disposal.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.List.URL]]
 Value = ''
 Label = ''
 
+
 [[ZH-HANS.List]]
-Title = 'GUI界面一定要自选性'
+Title = 'CSS界面自选性'
 HTML = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Plain = '''
-GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
-产品必须能处理和互相交易数据就行了。然后呢，GUI界面就有用户者来自选服务就行了。
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
 '''
 Code = '''
 '''
@@ -262,7 +262,7 @@ Affects the display mode of the rendered component.
 Code = '''
 VARIABLE     : --ulist-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -281,7 +281,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -301,7 +301,7 @@ Affects the margin of the rendered component.
 Code = '''
 VARIABLE     : --ulist-margin
 CSS PROPERTY : margin
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -320,7 +320,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-margin
 CSS属性    : margin
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -340,7 +340,7 @@ Affects the padding of the rendered component.
 Code = '''
 VARIABLE     : --ulist-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 0 0 2rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -359,46 +359,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-padding
 CSS属性    : padding
-默认数码   : 0 (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Spacing'
-HTML = '''
-Affects the margin and padding's spacing value of the rendered component.
-'''
-Plain = '''
-Affects the margin and padding's spacing value of the rendered component.
-'''
-Code = '''
-VARIABLE     : --ulist-spacing
-CSS PROPERTY : margin; padding
-DEFAULT      : 2rem (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Spacing'
-HTML = '''
-影响元件的外向和内向边距空间。
-'''
-Plain = '''
-影响元件的外向和内向边距空间。
-'''
-Code = '''
-变化值     : --ulist-spacing
-CSS属性    : margin; padding
-默认数码   : 2rem (>= v1.0.0)
+默认数码   : 0 0 0 2rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -418,7 +379,7 @@ Affects the text alignment of the rendered component.
 Code = '''
 VARIABLE     : --ulist-text-align
 CSS PROPERTY : text-align
-DEFAULT      : left (>= v1.0.0)
+DEFAULT      : left (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -437,7 +398,85 @@ Plain = '''
 Code = '''
 变化值     : --ulist-text-align
 CSS属性    : text-align
-默认数码   : left (>= v1.0.0)
+默认数码   : left (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'List Item Margin'
+HTML = '''
+Affects the list item's margin of the rendered component.
+'''
+Plain = '''
+Affects the list item's margin of the rendered component.
+'''
+Code = '''
+VARIABLE     : --olist-li-margin
+CSS PROPERTY : margin
+DEFAULT      : 2rem 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '条文Margin'
+HTML = '''
+影响元件条文的外向边距空间。
+'''
+Plain = '''
+影响元件条文的外向边距空间。
+'''
+Code = '''
+变化值     : --olist-li-margin
+CSS属性    : margin
+默认数码   : 2rem 0 (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'List Item Padding'
+HTML = '''
+Affects the list item's padding of the rendered component.
+'''
+Plain = '''
+Affects the list item's padding of the rendered component.
+'''
+Code = '''
+VARIABLE     : --olist-li-padding
+CSS PROPERTY : padding
+DEFAULT      : 0 (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '条文Padding'
+HTML = '''
+影响元件条文的内向边距空间。
+'''
+Plain = '''
+影响元件条文的内向边距空间。
+'''
+Code = '''
+变化值     : --olist-li-padding
+CSS属性    : padding
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -459,7 +498,7 @@ rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-content
 CSS PROPERTY : content
-DEFAULT      : \"Ψ\" (>= v1.0.0)
+DEFAULT      : "❡" (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -478,7 +517,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-content
 CSS属性    : content
-默认数码   : \"Ψ\" (>= v1.0.0)
+默认数码   : "❡" (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -500,7 +539,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-display
 CSS PROPERTY : display
-DEFAULT      : block (>= v1.0.0)
+DEFAULT      : block (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -519,48 +558,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-display
 CSS属性    : display
-默认数码   : block (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Bullet Size'
-HTML = '''
-Affects the before-pseudo-element's width and height dimensional value of the
-list item (bullet) for the rendered component.
-'''
-Plain = '''
-Affects the before-pseudo-element's width and height dimensional value of the
-list item (bullet) for the rendered component.
-'''
-Code = '''
-VARIABLE     : --ulist-li-before-size
-CSS PROPERTY : width; height
-DEFAULT      : 3rem (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = '目符号大小'
-HTML = '''
-影响元件的列表项Before伪元素（目符号）的长度和宽度。
-'''
-Plain = '''
-影响元件的列表项Before伪元素（目符号）的长度和宽度。
-'''
-Code = '''
-变化值     : --ulist-li-before-size
-CSS属性    : width; height
-默认数码   : 3rem (>= v1.0.0)
+默认数码   : block (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -582,7 +580,7 @@ rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-margin
 CSS PROPERTY : margin
-DEFAULT      : .5rem auto (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -601,7 +599,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-margin
 CSS属性    : margin
-默认数码   : .5rem auto (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -623,7 +621,7 @@ rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-padding
 CSS PROPERTY : padding
-DEFAULT      : 0 (>= v1.0.0)
+DEFAULT      : 0 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -642,7 +640,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-padding
 CSS属性    : padding
-默认数码   : 0 (>= v1.0.0)
+默认数码   : 0 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -664,7 +662,7 @@ rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-border
 CSS PROPERTY : border
-DEFAULT      : 1px solid transparent (>= v1.0.0)
+DEFAULT      : 1px solid transparent (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -683,7 +681,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-border-radius
 CSS属性    : border-radius
-默认数码   : 1px solid transparent (>= v1.0.0)
+默认数码   : 1px solid transparent (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -705,7 +703,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-border-radius
 CSS PROPERTY : border-radius
-DEFAULT      : 50% (>= v1.0.0)
+DEFAULT      : 50% (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -724,7 +722,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-border-radius
 CSS属性    : border-radius
-默认数码   : 50% (>= v1.0.0)
+默认数码   : 50% (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -746,7 +744,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-font-size
 CSS PROPERTY : font-size
-DEFAULT      : 2rem (>= v1.0.0)
+DEFAULT      : 2.8rem (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -765,7 +763,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-font-size
 CSS属性    : font-size
-默认数码   : 2rem (>= v1.0.0)
+默认数码   : 2.8rem (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -787,7 +785,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-font-weight
 CSS PROPERTY : font-weight
-DEFAULT      : 700 (>= v1.0.0)
+DEFAULT      : 800 (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -806,7 +804,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-font-weight
 CSS属性    : font-weight
-默认数码   : 700 (>= v1.0.0)
+默认数码   : 800 (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -828,7 +826,7 @@ the rendered component.
 Code = '''
 VARIABLE     : --ulist-li-before-text-align
 CSS PROPERTY : text-align
-DEFAULT      : center (>= v1.0.0)
+DEFAULT      : left (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -847,7 +845,7 @@ Plain = '''
 Code = '''
 变化值     : --ulist-li-before-text-align
 CSS属性    : text-align
-默认数码   : center (>= v1.0.0)
+默认数码   : left (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -857,19 +855,21 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Bullet Color'
+Title = 'Bullet Background Image'
 HTML = '''
-Affects the before-pseudo-element's color of the list item (bullet) for the
+Affects the before-pseudo-element's coloration of the list item (bullet) for the
 rendered component.
 '''
 Plain = '''
-Affects the before-pseudo-element's color of the list item (bullet) for the
+Affects the before-pseudo-element's coloration of the list item (bullet) for the
 rendered component.
 '''
 Code = '''
-VARIABLE     : --ulist-li-before-color
-CSS PROPERTY : color
-DEFAULT      : var(--color-typography-50) (>= v1.0.0)
+VARIABLE     : --ulist-li-background-image
+CSS PROPERTY : background-image
+DEFAULT      :
+(>= v1.2.0)
+linear-gradient(to bottom, var(--color-primary-200), var(--color-primary-400))
 '''
 
 [[EN.List.SubList.URL]]
@@ -878,17 +878,19 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = '目符号Color'
+Title = '目符号Background Image'
 HTML = '''
-影响元件的列表项Before伪元素（目符号）的颜色。
+影响元件的列表项Before伪元素（目符号）的配色。
 '''
 Plain = '''
-影响元件的列表项Before伪元素（目符号）的颜色。
+影响元件的列表项Before伪元素（目符号）的配色。
 '''
 Code = '''
-变化值     : --ulist-li-before-color
-CSS属性    : color
-默认数码   : var(--color-typography-50) (>= v1.0.0)
+变化值     : --ulist-li-background-image
+CSS属性    : background-image
+默认数码   :
+(>= v1.2.0)
+linear-gradient(to bottom, var(--color-primary-200), var(--color-primary-400))
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -898,19 +900,21 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Bullet Color (Inverted Mode)'
+Title = 'Bullet Background Image (Inverted)'
 HTML = '''
-Affects the before-pseudo-element's color of the list item (bullet) for the
+Affects the before-pseudo-element's coloration of the list item (bullet) for the
 rendered component while in inverted mode.
 '''
 Plain = '''
-Affects the before-pseudo-element's color of the list item (bullet) for the
+Affects the before-pseudo-element's coloration of the list item (bullet) for the
 rendered component while in inverted mode.
 '''
 Code = '''
-VARIABLE     : --ulist-li-color-inverted
-CSS PROPERTY : color
-DEFAULT      : var(--color-contrast-50) (>= v1.0.0)
+VARIABLE     : --ulist-li-background-image-inverted
+CSS PROPERTY : background-image-inverted
+DEFAULT      :
+(>= v1.2.0)
+linear-gradient(to bottom, var(--color-primary-200), var(--color-primary-400))
 '''
 
 [[EN.List.SubList.URL]]
@@ -919,17 +923,19 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = '目符号Color（反转环境）'
+Title = '目符号Background Image（反转环境）'
 HTML = '''
-影响元件的列表项Before伪元素（目符号）在反转环境里的颜色。
+影响元件的列表项Before伪元素（目符号）在反转环境里的配色。
 '''
 Plain = '''
-影响元件的列表项Before伪元素（目符号）在反转环境里的颜色。
+影响元件的列表项Before伪元素（目符号）在反转环境里的配色。
 '''
 Code = '''
-变化值     : --ulist-li-color-inverted
-CSS属性    : color
-默认数码   : var(--color-contrast-50) (>= v1.0.0)
+变化值     : --ulist-li-background-image-inverted
+CSS属性    : background-image-inverted
+默认数码   :
+(>= v1.2.0)
+linear-gradient(to bottom, var(--color-primary-200), var(--color-primary-400))
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -939,19 +945,21 @@ Label = ''
 
 
 [[EN.List.SubList]]
-Title = 'Bullet Color (Print Mode)'
+Title = 'Bullet Background Image (Print Mode)'
 HTML = '''
-Affects the before-pseudo-element's color of the list item (bullet) for the
+Affects the before-pseudo-element's coloration of the list item (bullet) for the
 rendered component while in print mode.
 '''
 Plain = '''
-Affects the before-pseudo-element's color of the list item (bullet) for the
+Affects the before-pseudo-element's coloration of the list item (bullet) for the
 rendered component while in print mode.
 '''
 Code = '''
-VARIABLE     : --ulist-li-color-print
-CSS PROPERTY : color
-DEFAULT      : var(--body-color-print) (>= v1.0.0)
+VARIABLE     : --ulist-li-background-image-print
+CSS PROPERTY : background-image-print
+DEFAULT      :
+(>= v1.2.0)
+linear-gradient(to bottom, var(--body-color-print), var(--body-color-print))
 '''
 
 [[EN.List.SubList.URL]]
@@ -960,140 +968,19 @@ Label = ''
 
 
 [[ZH-HANS.List.SubList]]
-Title = 'Color（印刷）'
+Title = '目符号Background Image（印刷）'
 HTML = '''
-影响元件的列表项Before伪元素（目符号）在印刷环境里的颜色。
+影响元件的列表项Before伪元素（目符号）在印刷时的配色。
 '''
 Plain = '''
-影响元件的列表项Before伪元素（目符号）在印刷环境里的颜色。
+影响元件的列表项Before伪元素（目符号）在印刷时的配色。
 '''
 Code = '''
-变化值     : --ulist-li-color-print
-CSS属性    : color
-默认数码   : var(--body-color-print) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Bullet Background'
-HTML = '''
-Affects the before-pseudo-element's background of the list item (bullet) for the
-rendered component.
-'''
-Plain = '''
-Affects the before-pseudo-element's background of the list item (bullet) for the
-rendered component.
-'''
-Code = '''
-VARIABLE     : --ulist-li-background
-CSS PROPERTY : background
-DEFAULT      : var(--color-primary-400) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = '目符号Background'
-HTML = '''
-影响元件的列表项Before伪元素（目符号）的背景。
-'''
-Plain = '''
-影响元件的列表项Before伪元素（目符号）的背景。
-'''
-Code = '''
-变化值     : --ulist-li-background
-CSS属性    : background
-默认数码   : var(--color-primary-400) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Bullet Background (Inverted Mode)'
-HTML = '''
-Affects the before-pseudo-element's background of the list item (bullet) for the
-rendered component while in inverted mode.
-'''
-Plain = '''
-Affects the before-pseudo-element's background of the list item (bullet) for the
-rendered component while in inverted mode.
-'''
-Code = '''
-VARIABLE     : --ulist-li-background-inverted
-CSS PROPERTY : background
-DEFAULT      : var(--color-primary-400) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Background（反转环境）'
-HTML = '''
-影响元件的列表项Before伪元素（目符号）在反转环境里的背景。
-'''
-Plain = '''
-影响元件的列表项Before伪元素（目符号）在反转环境里的背景。
-'''
-Code = '''
-变化值     : --ulist-li-background-inverted
-CSS属性    : background
-默认数码   : var(--color-primary-400) (>= v1.0.0)
-'''
-
-[[ZH-HANS.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-
-[[EN.List.SubList]]
-Title = 'Bullet Background (Print Mode)'
-HTML = '''
-Affects the before-pseudo-element's background of the list item (bullet) for the
-rendered component while in print mode.
-'''
-Plain = '''
-Affects the before-pseudo-element's background of the list item (bullet) for the
-rendered component while in print mode.
-'''
-Code = '''
-VARIABLE     : --ulist-li-background-print
-CSS PROPERTY : background
-DEFAULT      : var(--body-background-print) (>= v1.0.0)
-'''
-
-[[EN.List.SubList.URL]]
-Value = ''
-Label = ''
-
-
-[[ZH-HANS.List.SubList]]
-Title = 'Bullet Background（印刷）'
-HTML = '''
-影响元件的列表项Before伪元素（目符号）在印刷环境里的背景。
-'''
-Plain = '''
-影响元件的列表项Before伪元素（目符号）在印刷环境里的背景。
-'''
-Code = '''
-变化值     : --ulist-li-background-print
-CSS属性    : background
-默认数码   : var(--body-background-print) (>= v1.0.0)
+变化值     : --ulist-li-background-image-print
+CSS属性    : background-image-print
+默认数码   :
+(>= v1.2.0)
+linear-gradient(to bottom, var(--body-color-print), var(--body-color-print))
 '''
 
 [[ZH-HANS.List.SubList.URL]]

@@ -36,8 +36,8 @@ ul li:before {
 	content: var(--ulist-li-before-content);
 	display: var(--ulist-li-before-display);
 
-	width: var(--ulist-li-before-size);
-	height: var(--ulist-li-before-size);
+	width: max-content;
+	height: max-content;
 
 	margin: var(--ulist-li-before-margin);
 	padding: var(--ulist-li-before-padding);
@@ -49,21 +49,16 @@ ul li:before {
 	font-weight: var(--ulist-li-before-font-weight);
 	text-align: var(--ulist-li-before-text-align);
 
-	color: var(--ulist-li-before-color);
-	background: var(--ulist-li-before-background);
-}
-
-.inverted ul li:before,
-footer ul li:before,
-.footer ul li:before {
-	color: var(--ulist-li-before-color-inverted);
-	background: var(--ulist-li-before-background-inverted);
+	background-image: var(--ulist-li-before-background-image);
+	background-attachment: fixed;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 @media print {
 	ul li:before {
 		color: var(--ulist-li-before-color-print) !important;
 		border-color: var(--ulist-li-before-color-print) !important;
-		background: var(--ulist-li-before-background-print) !important;
+		background-image: var(--ulist-li-before-background-image-print) !important;
 	}
 }
