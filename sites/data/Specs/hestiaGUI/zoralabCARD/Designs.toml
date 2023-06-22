@@ -216,7 +216,7 @@ DEFAULT      :
 "thumbnail" minmax(0, var(--card-thumbnail-height))
 "content" minmax(0, var(--card-content-height))
 "actions" minmax(0, var(--card-actions-height))
-/ minmax(var(--card-width), 100%)
+/ 100%
 '''
 
 [[EN.List.SubList.URL]]
@@ -227,10 +227,10 @@ Label = ''
 [[ZH-HANS.List.SubList]]
 Title = 'Layout'
 HTML = '''
-影响元件的外向边距空间。
+影响元件的空间设计。
 '''
 Plain = '''
-影响元件的外向边距空间。
+影响元件的空间设计。
 '''
 Code = '''
 变化值     : --card-layout
@@ -240,7 +240,7 @@ CSS属性    : grid
 "thumbnail" minmax(0, var(--card-thumbnail-height))
 "content" minmax(0, var(--card-content-height))
 "actions" minmax(0, var(--card-actions-height))
-/ minmax(var(--card-width), 100%)
+/ 100%
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -962,7 +962,7 @@ Affects the thumbnail's height of the rendered component.
 Code = '''
 VARIABLE     : --card-thumbnail-height
 CSS PROPERTY : height
-DEFAULT      : 100% (>= v1.2.0)
+DEFAULT      : max-content (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -981,7 +981,7 @@ Plain = '''
 Code = '''
 变化值     : --card-thumbnail-height
 CSS属性    : height
-默认数码   : 100% (>= v1.2.0)
+默认数码   : max-content (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1118,7 +1118,7 @@ Affects the content's height of the rendered component.
 Code = '''
 VARIABLE     : --card-content-height
 CSS PROPERTY : height
-DEFAULT      : max-content (>= v1.2.0)
+DEFAULT      : auto (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1137,7 +1137,7 @@ Plain = '''
 Code = '''
 变化值     : --card-content-height
 CSS属性    : height
-默认数码   : max-content (>= v1.2.0)
+默认数码   : auto (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
