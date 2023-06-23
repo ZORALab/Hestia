@@ -153,22 +153,33 @@
 	{{- end }}
 
 
-	{{- $nav = append (dict
-		"ID" $i18n.Epilogue.ID
-		"Label" $i18n.Epilogue.Title
-	) $nav -}}
-
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+	{{- $nav = append (dict "ID" $i18n.Epilogue.ID "Label" $i18n.Epilogue.Title) $nav }}
+	{{- $ret = merge $Page (dict "Input" (dict "Data"
+		"img/backgrounds/matrix-cube-lorenzo-verzini.svg"
+	)) -}}
 	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-	{{- $dataset = dict
-		"ID" $i18n.Epilogue.ID
-		"Background" $Page.URL.Base
-		"Title" $i18n.Epilogue.Title
-		"Description" $i18n.Epilogue.Description
-		"URL" (string $ret.Output)
-		"CTA" $i18n.Epilogue.CTA
-	-}}
-	{{- partial "common/epilogue.html" $dataset -}}
+	{{- $ret = string $ret.Output }}
+	<section id='{{- .ID -}}' class='inverted' style='
+		margin-top: 10rem;
+		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
+			no-repeat
+			fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2>{{- $i18n.Epilogue.Title -}}</h2>
+		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<br/>
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output }}
+		<a href='{{- $ret -}}' class='button' style='
+			--button-color: white;
+			background: green;
+			border: none;
+		'>{{- $i18n.Epilogue.CTA -}}</a>
+	</section>
 </main>
 {{ partial "common/footer.html" $Page }}
 <nav class='right-drawer'>
