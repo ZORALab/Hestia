@@ -58,7 +58,7 @@ the pages you need while online within the app:
 
 ## Roadmaps
 This project is a huge and ambitious. It aims to be inter-operable between
-**Hugo**, **Go**, **TinyGo**, and **Rust** covering outputs like `Backend`,
+**Hugo**, **Go**, **TinyGo**, and **Nim** covering outputs like `Backend`,
 `Frontend UI`, `PWA`, `WASM`, and `Embedded` (microcontrollers). We divided the
 tasks into phases viewable in our
 [GitHub Project](https://github.com/orgs/ZORALab/projects/6).
@@ -87,14 +87,14 @@ STATUS: **[COMPLETED] Febuary 9, 2023; `v1.X.X`**
 Capable of:
 
 1. Building the entire page or application (frontend UI) using `Go`, `TinyGo`,
-   and `Rust` backend-oriented programming languages into a WASM binary output.
+   and `Nim` backend-oriented programming languages into a WASM binary output.
 2. Seamlessly fed into the content servers and operate natively without external
    interventions.
 3. Permits UI development capability.
 4. Backward-compatible for non-WASM users.
 
 * Key technologies: [Hugo](https://gohugo.io/), [Go](https://go.dev/),
-  [TinyGo](https://tinygo.org/), and [Rust](https://rust-lang.org/).
+  [TinyGo](https://tinygo.org/), and [Nim](https://nim-lang.org/).
 
 STATUS: **[WORKING] to-date; `v2.X.X`**
 
@@ -103,12 +103,12 @@ STATUS: **[WORKING] to-date; `v2.X.X`**
 Capable of:
 
 1. Libraries can be used on (8/16/32) microcontrollers ELF and binaries natively
-   using `TinyGo` and `Rust` backend programming languages.
+   using `TinyGo` and `Nim` backend programming languages.
 2. Optimized libraries for small footprints.
 3. Enhances CI automations for reproducible builds.
 
 * Key technologies: [TinyGo](https://tinygo.org/), and
-  [Rust](https://rust-lang.org/).
+  [Nim](https://nim-lang.org/).
 
 STATUS: **[PLANNED] to-date; `v3.X.X`**
 
@@ -122,6 +122,6 @@ Capable of:
    augmented reality.
 
 * Key technologies: [Hugo](https://gohugo.io/), [Go](https://go.dev/),
-  [TinyGo](https://tinygo.org/), and [Rust](https://rust-lang.org/).
+  [TinyGo](https://tinygo.org/), and [Nim](https://nim-lang.org/).
 
 STATUS: **[PLANNED] to-date; `v4.X.X`**

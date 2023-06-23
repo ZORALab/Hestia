@@ -5,13 +5,12 @@ ID = 'hestia'
 Version = 'v1.1.0'
 Category = 'devel'
 Suite = ''
-Abstract = 'unified software library for a stable and peaceful development.'
+Abstract = 'frontend+backend in 1 peaceful suite by developers for developers.'
 Description = """
-Hestia focuses on uniting software library under a same family pattern to allow
-its user to have a peaceful development experiences. The goal is to structure
-the learning experience align to a single pattern and deployment, allowing
-anyone with different languages and understanding to shine at his/her own way
-without worrying about stability.
+ZORALab's Hestia focuses on unifying all common libraries and data structure
+into 1 single repository for highest attributes of reusablity, smoother learning
+curves, and a more wholesome tools alignments. Develop and learn advanced
+products easily with less worries about supply chain problems.
 """
 Website = 'https://hestia.zoralab.com/'
 
