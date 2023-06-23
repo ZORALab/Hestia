@@ -54,14 +54,15 @@ Label = ''
 Title = 'Stream Vs. Memory'
 HTML = '''
 For ZORALab's Hestia, there are 2 orientations when it comes to designing
-algorithm: (1) stream-oriented [S] focuses on extremely low memory footprint
-but takes more time for processing; (2) memory-oriented [M] focuses on maximum
-memory usage for faster speed. The default everyone practice is usually
-memory-oriented where most people would care less about how much the memory is
-used in a 64-bit operating system. Microcontrollers and embedded folks however,
-tend to prefer stream-oriented due to the memory size limitations. Hence, all
-functions and methods **MUST** cater both stream-oriented and memory-oriented
-executions, whichever comes first.
+algorithm: (1) stream-oriented <code>[S]</code> focuses on extremely low memory
+footprint but takes more time for processing; (2) memory-oriented
+<code>[M]</code> focuses on maximum memory usage for faster speed. The default
+everyone practice is usually memory-oriented where most people would care less
+about how much the memory is used in a 64-bit operating system.
+Microcontrollers and embedded folks however, tend to prefer stream-oriented
+due to the memory size limitations. Hence, all functions and methods
+<b>**MUST**</b>cater both stream-oriented and memory-oriented executions,
+whichever comes first.
 '''
 Plain = '''
 For ZORALab's Hestia, there are 2 orientations when it comes to designing
@@ -85,19 +86,22 @@ Label = ''
 [[ZH-HANS.List]]
 Title = '流动式vs记忆式'
 HTML = '''
-在ZORALab赫斯提亚设计算法，基本上有2种方式：（1）流动式[S]专注于运用非常少的记忆
-空间但可以用长一点的时间来完成任务。（2）记忆式[M]专注于运用多记忆空间来快速地把
-任务完成。通常大多数的开发者是建设记忆式的计算法（设计时是没有顾虑到运用多少记忆
-空间）。在微型控制器和嵌入式的世界里，由于记忆空间通常是实在太小了，多数人都会使
-用流动式。如此，ZORALab赫斯提亚所写的功能和运作方法··一定··要双双供应记忆式和流
-动式的方式以先到者为准。
+在ZORALab赫斯提亚设计算法，基本上有2种方式：
+（1）流动式<code>[S]</code>专注于运用非常少的记忆空间但可以用长一点的时间来完成
+任务。
+（2）记忆式<code>[M]</code>专注于运用多记忆空间来快速地把任务完成。
+通常大多数的开发者是建设记忆式的计算法（设计时是没有顾虑到运用多少记忆空间）。
+在微型控制器和嵌入式的世界里，由于记忆空间通常是实在太小了，
+多数人都会使用流动式。
+如此，ZORALab赫斯提亚所写的功能和运作方法<b>**一定**</b>要
+双双供应记忆式和流动式的方式以先到者为准。
 '''
 Plain = '''
 在ZORALab赫斯提亚设计算法，基本上有2种方式：（1）流动式[S]专注于运用非常少的记忆
 空间但可以用长一点的时间来完成任务。（2）记忆式[M]专注于运用多记忆空间来快速地把
 任务完成。通常大多数的开发者是建设记忆式的计算法（设计时是没有顾虑到运用多少记忆
 空间）。在微型控制器和嵌入式的世界里，由于记忆空间通常是实在太小了，多数人都会使
-用流动式。如此，ZORALab赫斯提亚所写的功能和运作方法··一定··要双双供应记忆式和流
+用流动式。如此，ZORALab赫斯提亚所写的功能和运作方法**一定**要双双供应记忆式和流
 动式的方式以先到者为准。
 '''
 Code = '''
@@ -167,8 +171,8 @@ Title = 'Import Direction'
 HTML = '''
 For ZORALab's Hestia, ALWAYS LET USER TO ONLY IMPORT LEAF PACKAGES WHENEVER
 AVAILABLE. Build the leaf package to the point of self-sufficient manner. As for
-the parent packages, **they are there to facilitate common utilities among the
-children packages**. Below is the import pattern:
+the parent packages, <b>**they are there to facilitate common utilities among
+the children packages**</b>. Below is the import pattern:
 '''
 Plain = '''
 For ZORALab's Hestia, ALWAYS LET USER TO ONLY IMPORT LEAF PACKAGES WHENEVER
@@ -206,12 +210,13 @@ Title = '导入方向'
 HTML = '''
 在ZORALab赫斯提亚里，××永远让顾客导入最后端的代码包（统称‘叶子包’）××。开发者永
 远都要把叶子包给写得自给自足方式。至于前一层的代码包（统称‘树枝包’或‘父母包’），
-××它们的责任是为他们所有的叶子包供应共同数据和功能××。以下是导入方向的模式：
+<b>**它们的责任是为他们所有的叶子包供应共同数据和功能**</b>。
+以下是导入方向的模式：
 '''
 Plain = '''
 在ZORALab赫斯提亚里，××永远让顾客导入最后端的代码包（统称‘叶子包’）××。开发者永
 远都要把叶子包给写得自给自足方式。至于前一层的代码包（统称‘树枝包’或‘父母包’），
-××它们的责任是为他们所有的叶子包供应共同数据和功能××。以下是导入方向的模式：
+**它们的责任是为他们所有的叶子包供应共同数据和功能**。以下是导入方向的模式：
 '''
 Code = '''
 PATTERN
@@ -404,8 +409,8 @@ HTML = '''
 Error string returning as practiced in Go is actually quite expensive when
 deployed in low memory footprint environment. Hence, we only use back the
 conventional  internal 'hestiaERROR' error codes (2 bytes) instead. Also,
-DO NOT PANIC. All functions and methods must be as deterministic as possible.
-The lesser the abstraction, the better.
+<b>DO NOT PANIC</b>. All functions and methods must be as deterministic as
+possible. The lesser the abstraction, the better.
 '''
 Plain = '''
 Error string returning as practiced in Go is actually quite expensive when
@@ -426,8 +431,8 @@ Label = ''
 Title = '错误代码和不可恐慌'
 HTML = '''
 通过窜字符串来表达错误在记忆空间稀少的环境里是蛮昂贵的。如此以来，我们就只能运用
-传统的错误（hestiaERROR代码包-2个字节位）代码来表啦。还有：千万不可恐慌。所有的
-功能和格式都必须越有确定性越好。基本上，越少抽象化越好。
+传统的错误（hestiaERROR代码包-2个字节位）代码来表啦。还有：<b>千万不可恐慌</b>。
+所有的功能和格式都必须越有确定性越好。基本上，越少抽象化越好。
 '''
 Plain = '''
 通过窜字符串来表达错误在记忆空间稀少的环境里是蛮昂贵的。如此以来，我们就只能运用
@@ -450,8 +455,8 @@ HTML = '''
 Generics is only serving 1 specific type of meta-programming and
 monomorphization. The problem is that at each cpu size, the monomorphic
 algorithm can be very different and in most cases generics can't cater such
-capability. THEREFORE, DO NOT USE IT. If the language provides macro system,
-use that instead.
+capability. <b>THEREFORE, DO NOT USE IT. If the language provides macro system,
+use that instead</b>.
 '''
 Plain = '''
 Generics is only serving 1 specific type of meta-programming and
@@ -473,7 +478,8 @@ Title = '使用Macro和避免使用Generics'
 HTML = '''
 Generics只能在1中元编程的用法条件下可使用。头痛的问题是在不同的中央处理器的位大小
 单位算法里，各有不同的运行方式。Generics是不可能做到的。这种情况下，唯有Macro才能
-有这个能力。所以呢，如果支持的语言有Macro功能，那就运用吧。千万不可使用Generics。
+有这个能力。所以呢，
+<b>如果支持的语言有Macro功能，那就运用吧。千万不可使用Generics</b>。
 '''
 Plain = '''
 Generics只能在1中元编程的用法条件下可使用。头痛的问题是在不同的中央处理器的位大小
@@ -533,6 +539,7 @@ Sort(VARIANT)
 Split(VARIANT)
 String
 To[OBJECT]
+Validate(VARIANT)
 Zero
 
 
@@ -587,6 +594,7 @@ Sort(类型)
 Split(类型)
 String
 To[对象]
+Validate(类型)
 Zero
 
 

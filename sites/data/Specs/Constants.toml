@@ -32,6 +32,41 @@ Label = ''
 
 
 [[EN.List.SubList]]
+Title = 'Hugo'
+HTML = '''
+Usage example:
+'''
+Plain = '''
+Usage example:
+'''
+Code = '''
+fmt.printf("%#v\n", .Vendors.ZORALab.Hestia.Version)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Hugo'
+HTML = '''
+用法：
+'''
+Plain = '''
+用法：
+'''
+Code = '''
+warnf("%#v\n", .Vendors.ZORALab.Hestia.Version)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
 Title = 'Go'
 HTML = '''
 Usage example:
