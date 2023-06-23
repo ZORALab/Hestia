@@ -146,6 +146,9 @@ specific language governing permissions and limitations under the License.
 
 			{{- $ret = dict "DebugKey" ".Descriptions" "DebugValue" .Descriptions -}}
 			{{- template "renderDebugValue" $ret -}}
+
+			{{- $ret = dict "DebugKey" ".URL" "DebugValue" .URL -}}
+			{{- template "renderDebugValue" $ret -}}
 		</div>
 
 
