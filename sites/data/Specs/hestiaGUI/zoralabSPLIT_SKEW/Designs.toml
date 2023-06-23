@@ -1,0 +1,433 @@
+[[EN.List]]
+Title = 'Designers'
+HTML = '''
+This component was designed by the following creators:
+'''
+Plain = '''
+This component was designed by the following creators:
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = 'https://www.hollowaykeanho.com/en/'
+Label = '(Holloway) Chew, Kean Ho'
+
+
+[[ZH-HANS.List]]
+Title = '设计师'
+HTML = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Plain = '''
+这个元件的设计是由以下的创造者所建设的：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = 'https://www.hollowaykeanho.com/zh-hans/'
+Label = '(Holloway) 周健豪'
+
+
+
+
+[[EN.List]]
+Title = 'Dependencies'
+HTML = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Plain = '''
+This component has the following dependencies (arranged in the order from
+left-top to right-bottom):
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = '/en/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+[[ZH-HANS.List]]
+Title = '依赖其他元件'
+HTML = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Plain = '''
+这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = '/zh-hans/specs/hestiagui/zoralabcore/'
+Label = 'zoralabCORE'
+
+
+
+
+[[EN.List]]
+Title = 'HTML'
+HTML = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Plain = '''
+For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
+maximum compatibility sakes. ZORALab's Hestia recommends the following HTML code
+structure for this component.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'HTML'
+HTML = '''
+至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
+推荐您用以下的HTML代码来运用这个界面元件。
+'''
+Plain = '''
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Minimum HTML'
+HTML = '''
+The minimum required HTML codes are shown below:
+'''
+Plain = '''
+The minimum required HTML codes are shown below:
+'''
+Code = '''
+<div style='background: [BACKGROUND_HERE];'>
+	<div class='split skew' style='
+		--split-skew-angle: [ANGLE_OF_CHOICE: to left bottom | to right bottom];
+		--split-skew-upper-background: [BACKGROUND_COLOR_OF_UPPER_CONTAINER];
+		--split-skew-lower-background: transparent;
+		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+	'></div>
+
+
+	... CONTENT OF THE SECTION/CONTAINER ...
+
+
+	<div class='split skew' style='
+		--split-skew-angle: [ANGLE_OF_CHOICE: to left bottom | to right bottom];
+		--split-skew-upper-background: transparent;
+		--split-skew-lower-background: [BACKGROUND_COLOR_OF_LOWER_CONTAINER];
+	'></div>
+</div>
+
+<!-- NOTE: SECTION EXTERIOR BOUNDARY BACKGROUND MUST BE OF A COLOR. -->
+
+<div style='background: [BACKGROUND_HERE];'>
+	<div class='split skew' style='
+		--split-skew-angle: [ANGLE_OF_CHOICE: to left bottom | to right bottom];
+		--split-skew-upper-background: [BACKGROUND_COLOR_OF_UPPER_CONTAINER];
+		--split-skew-lower-background: transparent;
+		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+	'></div>
+
+	...
+</div>
+
+...
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'HTML'
+HTML = '''
+在最小的HTML代码运用方法如下：
+'''
+Plain = '''
+在最小的HTML代码运用方法如下：
+'''
+Code = '''
+<div style='background: [背景设置];'>
+	<div class='split skew' style='
+		--split-skew-angle: [角度选择: to left bottom | to right bottom];
+		--split-skew-upper-background: [上任背景颜色设置];
+		--split-skew-lower-background: transparent;
+		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+	'></div>
+
+
+	... CONTENT OF THE SECTION/CONTAINER ...
+
+
+	<div class='split skew' style='
+		--split-skew-angle: [ANGLE_OF_CHOICE: to left bottom | to right bottom];
+		--split-skew-upper-background: transparent;
+		--split-skew-lower-background: [下任背景颜色设置];
+	'></div>
+</div>
+
+<!-- 切记：内容外向的背景一定要是个颜色。 -->
+
+<div style='background: [背景设置];'>
+	<div class='split skew' style='
+		--split-skew-angle: [角度选择: to left bottom | to right bottom];
+		--split-skew-upper-background: [上任背景颜色设置];
+		--split-skew-lower-background: transparent;
+		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+	'></div>
+
+	...
+</div>
+
+...
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'CSS'
+HTML = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Plain = '''
+ZORALab's Hestia heavily rely on CSS to style this component and offering its
+css variables for customizations. Below are the list of available CSS variables
+at your disposal.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'CSS界面自选性'
+HTML = '''
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
+'''
+Plain = '''
+ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
+以下是所有界面自选性CSS变化值任您发挥。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Height'
+HTML = '''
+Affects the height of the rendered component.
+'''
+Plain = '''
+Affects the height of the rendered component.
+'''
+Code = '''
+VARIABLE     : --split-skew-height
+CSS PROPERTY : margin
+DEFAULT      : 150px (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Margin'
+HTML = '''
+影响元件的高度。
+'''
+Plain = '''
+影响元件的高度。
+'''
+Code = '''
+变化值     : --split-skew-height
+CSS属性    : margin
+默认数码   : 150px (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Skew Angle'
+HTML = '''
+Affects the skew angle of the rendered component.
+'''
+Plain = '''
+Affects the skew angle of the rendered component.
+'''
+Code = '''
+VARIABLE     : --split-skew-angle
+CSS PROPERTY : background (linear-gradient)
+DEFAULT      : to left bottom (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Skew Angle'
+HTML = '''
+影响元件的倾斜角度。
+'''
+Plain = '''
+影响元件的倾斜角度。
+'''
+Code = '''
+变化值     : --split-skew-angle
+CSS属性    : background (linear-gradient)
+默认数码   : to left bottom (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Upper)'
+HTML = '''
+Affects the upper container's background of the rendered component.
+'''
+Plain = '''
+Affects the upper container's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --split-skew-upper-background
+CSS PROPERTY : background (linear-gradient)
+DEFAULT      : var(--body-background) (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（上任）'
+HTML = '''
+影响元件上任内容的背景。
+'''
+Plain = '''
+影响元件上任内容的背景。
+'''
+Code = '''
+变化值     : --split-skew-upper-background
+CSS属性    : background (linear-gradient)
+默认数码   : var(--body-background) (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
+Title = 'Background (Lower)'
+HTML = '''
+Affects the lower container's background of the rendered component.
+'''
+Plain = '''
+Affects the lower container's background of the rendered component.
+'''
+Code = '''
+VARIABLE     : --split-skew-lower-background
+CSS PROPERTY : background (linear-gradient)
+DEFAULT      : transparent (>= v1.2.0)
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = 'Background（下任）'
+HTML = '''
+影响元件下任内容的背景。
+'''
+Plain = '''
+影响元件下任内容的背景。
+'''
+Code = '''
+变化值     : --split-skew-lower-background
+CSS属性    : background (linear-gradient)
+默认数码   : transparent (>= v1.2.0)
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'JavaScript'
+HTML = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Plain = '''
+Fortunately, this component does not use any JavaScript. Relax.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = 'JavaScript'
+HTML = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Plain = '''
+庆幸的是这个元件没有运用到任何JavaScript。放心吧！
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

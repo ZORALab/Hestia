@@ -1,0 +1,6 @@
+[CSS.Variables]
+"--split-skew-height" = "150px"
+"--split-skew-angle" = "to left bottom"
+
+"--split-skew-upper-background" = "var(--body-background)"
+"--split-skew-lower-background" = "transparent"

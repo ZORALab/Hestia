@@ -1,0 +1,211 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for creative section splitting. In web UI, it is shown as follows:
+<br/><br/>
+<div style='background: #231223;'>
+	<div class='split skew' style='
+		--split-skew-upper-background: white;
+		--split-skew-lower-background: transparent;
+		margin-bottom: 150px;
+	'></div>
+
+	<p style='color: white; min-height: 100px;'>
+		This is a container.
+	</p>
+
+	<div class='split skew' style='
+		--split-skew-angle: to right bottom;
+		--split-skew-upper-background: transparent;
+		--split-skew-lower-background: white;
+	'></div>
+</div>
+
+<div style='background: cyan;'>
+	<div class='split skew' style='
+		--split-skew-angle: to right bottom;
+		--split-skew-upper-background: white;
+		--split-skew-lower-background: transparent;
+		margin-bottom: 150px;
+	'></div>
+
+	<p style='color: #231223; min-height:100px;'>
+		This is a container.
+	</p>
+
+	<div class='split skew' style='
+		--split-skew-angle: to right bottom;
+		--split-skew-upper-background: transparent;
+		--split-skew-lower-background: white;
+	'></div>
+</div>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<div style='background: #231223;'>
+		<div class='split skew' style='
+			--split-skew-upper-background: var(--body-background-inverted);
+			--split-skew-lower-background: transparent;
+			margin-bottom: 150px;
+		'></div>
+
+		<p style='color: white; min-height: 100px;'>
+			This is a container.
+		</p>
+
+		<div class='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: transparent;
+			--split-skew-lower-background: var(--body-background-inverted);
+		'></div>
+	</div>
+
+	<div style='background: cyan;'>
+		<div class='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: var(--body-background-inverted);
+			--split-skew-lower-background: transparent;
+			margin-bottom: 150px;
+		'></div>
+
+		<p style='color: #231223; min-height:100px;'>
+			This is a container.
+		</p>
+
+		<div class='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: transparent;
+			--split-skew-lower-background: var(--body-background-inverted);
+		'></div>
+	</div>
+</div>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for creative section splitting.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染创造性的内容分开界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<div style='background: #231223;'>
+	<div class='split skew' style='
+		--split-skew-upper-background: white;
+		--split-skew-lower-background: transparent;
+		margin-bottom: 150px;
+	'></div>
+
+	<p style='color: white; min-height: 100px;'>这是个内容。</p>
+
+	<div class='split skew' style='
+		--split-skew-angle: to right bottom;
+		--split-skew-upper-background: transparent;
+		--split-skew-lower-background: white;
+	'></div>
+</div>
+
+<div style='background: cyan;'>
+	<div class='split skew' style='
+		--split-skew-angle: to right bottom;
+		--split-skew-upper-background: white;
+		--split-skew-lower-background: transparent;
+		margin-bottom: 150px;
+	'></div>
+
+	<p style='color: #231223; min-height:100px;'>这是个内容。</p>
+
+	<div class='split skew' style='
+		--split-skew-angle: to right bottom;
+		--split-skew-upper-background: transparent;
+		--split-skew-lower-background: white;
+	'></div>
+</div>
+<br/><br/>
+<div class='inverted' style='padding: 5rem 0;'>
+	<div style='background: #231223;'>
+		<div class='split skew' style='
+			--split-skew-upper-background: var(--body-background-inverted);
+			--split-skew-lower-background: transparent;
+			margin-bottom: 150px;
+		'></div>
+
+		<p style='color: white; min-height: 100px;'>这是个内容。</p>
+
+		<div class='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: transparent;
+			--split-skew-lower-background: var(--body-background-inverted);
+		'></div>
+	</div>
+
+	<div style='background: cyan;'>
+		<div class='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: var(--body-background-inverted);
+			--split-skew-lower-background: transparent;
+			margin-bottom: 100px;
+		'></div>
+
+		<p style='color: #231223; min-height:100px;'>这是个内容。</p>
+
+		<div class='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: transparent;
+			--split-skew-lower-background: var(--body-background-inverted);
+		'></div>
+	</div>
+</div>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染创造性的内容分开界面元件。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was first released in ZORALab's Hestia <code>v1.2.0</code>.
+'''
+Plain = '''
+This package was first released in ZORALab's Hestia 'v1.2.0'.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包首次在ZORALab赫斯提亚<code>v1.2.0</code>版本出产。
+'''
+Plain = '''
+这个软件包首次在ZORALab赫斯提亚<code>v1.2.0</code>版本出产。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

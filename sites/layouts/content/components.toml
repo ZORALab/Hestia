@@ -95,7 +95,7 @@ Include = true
 Variables = []
 
 [[List]]
-Name = "zoralabSECTION_SPLIT_SKEW"
+Name = "zoralabSPLIT_SKEW"
 Include = true
 Variables = []
 

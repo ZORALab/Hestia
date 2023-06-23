@@ -15,17 +15,17 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 */ -}}
 {{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
-.section-split-skew {
+.split.skew {
 	min-width: 100%;
 	width: 100%;
 	max-width: 100%;
-	min-height: var(--section-split-skew-height);
+	min-height: var(--split-skew-height);
 	height: var(--section-split-skew-height);
-	max-height: var(--section-split-skew-height);
+	max-height: var(--split-skew-height);
 
 	background: linear-gradient(
-		var(--section-split-skew-angle),
-		var(--section-split-skew-upper-background) 49%,
-		var(--section-split-skew-lower-background) 50%
+		var(--split-skew-angle),
+		var(--split-skew-upper-background) 49%,
+		var(--split-skew-lower-background) 50%
 	);
 }

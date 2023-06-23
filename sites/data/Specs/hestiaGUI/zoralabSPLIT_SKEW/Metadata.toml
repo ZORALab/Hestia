@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabsplit_skew'
+SKU = 'zoralabSPLIT_SKEW'
+Description = '''
+For styling a skew design section splitter.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabsplit_skew'
+SKU = 'zoralabSPLIT_SKEW'
+Description = '''
+来渲染创造性的内容分开界面元件。
+'''
