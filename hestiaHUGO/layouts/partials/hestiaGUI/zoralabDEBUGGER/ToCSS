@@ -109,7 +109,6 @@ specific language governing permissions and limitations under the License.
 	to { transform: rotate(360deg); }
 }
 
-.zoralab-hestia-debugger-console-trigger:hover:before,
 .zoralab-hestia-debugger-console-trigger:hover:before {
 	opacity: 1 !important;
 }
@@ -175,14 +174,13 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-header {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-header {
 	grid-area: header !important;
 
 	display: grid;
 	grid: "title close" 100%
 		/
-		auto 30pt !important;
+		auto max-content !important;
 	justify-items: stretch !important;
 	align-items: stretch !important;
 	gap: 0 !important;
@@ -193,8 +191,7 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-header p {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-header p {
 	grid-area: title !important;
 
 	display: flex !important;
@@ -216,14 +213,13 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-header form {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-header form {
 	grid-area: close !important;
 
 	display: flex !important;
 	justify-content: center !important;
 	align-items: flex-start !important;
-	overflow: auto !important;
+	overflow: hidden !important;
 
 	margin: 0 !important;
 	padding: 0 !important;
@@ -231,19 +227,18 @@ specific language governing permissions and limitations under the License.
 	border: none !important;
 	border-radius: 0 !important;
 
-	min-width: 100% !important;
-	width: 100% !important;
-	max-width: 100% !important;
-	min-height: 100% !important;
-	height: 100% !important;
-	max-height: 100% !important;
+	min-width: max-content !important;
+	width: max-content !important;
+	max-width: max-content !important;
+	min-height: max-content !important;
+	height: max-content !important;
+	max-height: max-content !important;
 
 	color: var(--zoralab-hestia-debugger-color) !important;
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-header form button {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-header form button {
 	display: flex !important;
 	justify-content: center !important;
 	align-items: center !important;
@@ -272,10 +267,8 @@ specific language governing permissions and limitations under the License.
 	box-shadow: none !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-header form button:hover,
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-header form button:focus {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-header
+	form button:is(:hover, :focus) {
 	border: var(--zoralab-hestia-debugger-border-focus) !important;
 
 	color: var(--zoralab-hestia-debugger-color-focus) !important;
@@ -283,8 +276,7 @@ specific language governing permissions and limitations under the License.
 	box-shadow: var(--zoralab-hestia-debugger-box-shadow) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-selector {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-selector {
 	grid-area: selector !important;
 
 	display: flex !important;
@@ -303,8 +295,7 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-selector > * {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-selector > * {
 	display: block !important;
 
 	margin: var(--zoralab-hestia-debugger-margin-content) !important;
@@ -319,18 +310,15 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-selector > *:hover,
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-selector > *:focus {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-selector >
+	*:is(:hover, :focus) {
 	border: var(--zoralab-hestia-debugger-border-focus) !important;
 
 	color: var(--zoralab-hestia-debugger-color-focus) !important;
 	box-shadow: var(--zoralab-hestia-debugger-box-shadow) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content {
 	grid-area: content !important;
 	position: relative !important;
 
@@ -344,8 +332,7 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content > * {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content > * {
 	position: absolute !important;
 	top: 0 !important;
 	left: 0 !important;
@@ -353,8 +340,7 @@ specific language governing permissions and limitations under the License.
 	min-width: 100% !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content
 	.zoralab-hestia-console-content-container {
 	display: none !important;
 	justify-content: center !important;
@@ -369,19 +355,16 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg-inverted) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content > input {
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content > input {
 	visibility: hidden !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content >
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content >
 	input:checked + *.zoralab-hestia-console-content-container {
 	display: flex !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content
 	.zoralab-hestia-debugger-console-content-image {
 	min-width: 100px !important;
 	width: auto !important;
@@ -396,8 +379,7 @@ specific language governing permissions and limitations under the License.
 	background: var(--zoralab-hestia-debugger-bg) !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content
 	.zoralab-hestia-debugger-console-content-data {
 	display: flex !important;
 	justify-content: center !important;
@@ -420,10 +402,7 @@ specific language governing permissions and limitations under the License.
 
 #zoralab-hestia-debugger-console
 	.zoralab-hestia-debugger-console-content
-	.zoralab-hestia-debugger-console-content-data code,
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content
-	.zoralab-hestia-debugger-console-content-data pre {
+	.zoralab-hestia-debugger-console-content-data :is(code, pre) {
 	margin: var(--zoralab-hestia-debugger-margin-content) !important;
 	padding: var(--zoralab-hestia-debugger-padding-content) !important;
 
@@ -438,8 +417,7 @@ specific language governing permissions and limitations under the License.
 	background: none !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content
 	.zoralab-hestia-debugger-console-content-data-key {
 	margin: var(--zoralab-hestia-debugger-margin-content) !important;
 
@@ -447,8 +425,7 @@ specific language governing permissions and limitations under the License.
 	user-select: all !important;
 }
 
-#zoralab-hestia-debugger-console
-	.zoralab-hestia-debugger-console-content
+#zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-content
 	.zoralab-hestia-debugger-console-content-data-value {
 	user-select: all !important;
 }

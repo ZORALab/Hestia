@@ -1,0 +1,68 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling an
+in-page debugger panel. This is enabled automatically in Hugo's server mode.
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling an
+in-page debugger panel. This is enabled automatically in Hugo's server mode.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染内嵌调试器界面元件。
+这个元件是在Hugo的Server行动里自动运行。
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染内嵌调试器界面元件。
+这个元件是在Hugo的Server行动里自动运行。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was first released in ZORALab's Hestia <code>v1.2.0</code>.
+'''
+Plain = '''
+This package was first released in ZORALab's Hestia 'v1.2.0'.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包首次在ZORALab赫斯提亚<code>v1.2.0</code>版本出产。
+'''
+Plain = '''
+这个软件包首次在ZORALab赫斯提亚<code>v1.2.0</code>版本出产。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

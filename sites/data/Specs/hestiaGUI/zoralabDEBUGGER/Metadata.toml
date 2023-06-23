@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabdebugger'
+SKU = 'zoralabDEBUGGER'
+Description = '''
+For styling a in-page debugger.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabdebugger'
+SKU = 'zoralabDEBUGGER'
+Description = '''
+来渲染内嵌调试器。
+'''
