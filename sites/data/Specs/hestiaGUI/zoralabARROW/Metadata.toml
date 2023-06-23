@@ -1,0 +1,14 @@
+[EN.Brand]
+ID = 'zoralabarrow'
+SKU = 'zoralabARROW'
+Description = '''
+For styling a creative arrow.
+'''
+
+
+[ZH-HANS.Brand]
+ID = 'zoralabarrow'
+SKU = 'zoralabARROW'
+Description = '''
+来渲染创意性箭头。
+'''

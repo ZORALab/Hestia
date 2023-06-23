@@ -1,0 +1,86 @@
+{{- /*
+Copyright 2023 "Holloway" Chew, Kean Ho <kean.ho.chew@zoralab.com>
+Copyright 2023 ZORALab Enterprise <tech@zoralab.com>
+Copyright 2023 Joshua MacDonald (https://codepen.io/JoshMac/pen/MaYEmJ)
+
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+                 http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+*/ -}}
+{{- /* WARNING: Auto-generated file. DO NOT EDIT! */ -}}
+.arrow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	margin: var(--arrow-margin);
+	padding: 0;
+
+	border: var(--arrow-border);
+	border-radius: var(--arrow-border-radius);
+
+	width: var(--arrow-size);
+	height: var(--arrow-size);
+
+	color: var(--arrow-color);
+	background: transparent;
+
+	transform: rotate(var(--arrow-angle));
+}
+
+:is(.inverted, footer, .footer) .arrow {
+	color: var(--arrow-color-inverted);
+}
+
+.arrow:before, .arrow:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	width: var(--arrow-content-size);
+	height: var(--arrow-content-size);
+
+	border-top: var(--arrow-content-border);
+	border-right: var(--arrow-content-border);
+	border-bottom: none;
+	border-left: none;
+
+	transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.arrow:after {
+	animation-duration: var(--arrow-timing);
+	animation-iteration-count: infinite;
+	animation-name: arrow-animation;
+}
+
+
+@keyframes arrow-animation {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		top: var(--arrow-translate-factor);
+	}
+}
+
+@media print {
+	.arrow {
+		color: transparent !important;
+		border-color: var(--arrow-color-print) !important;
+		background: transparent !important;
+	}
+}

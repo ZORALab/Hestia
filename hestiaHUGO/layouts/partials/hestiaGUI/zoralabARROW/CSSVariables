@@ -1,0 +1,27 @@
+[CSS.Variables]
+"--arrow-size" = "60px"
+"--arrow-angle" = "0deg"
+
+
+"--arrow-margin" = "0"
+
+
+"--arrow-border" = "2px currentColor solid"
+"--arrow-border-radius" = "50%"
+
+
+"--arrow-color" = "var(--body-color)"
+"--arrow-color-inverted" = "var(--body-color-inverted)"
+"--arrow-color-print" = "var(--body-color-print)"
+
+
+"--arrow-timing" = "1.7s"
+"--arrow-translate-factor" = "80%"
+
+
+
+
+"--arrow-content-size" = "35%"
+
+
+"--arrow-content-border" = "2px currentColor solid"

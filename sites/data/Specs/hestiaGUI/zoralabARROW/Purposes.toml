@@ -1,0 +1,87 @@
+[[EN.List]]
+Title = 'Main Purpose'
+HTML = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for animated arrow value. In web UI, it is shown as follows:
+<br/><br/>
+<p>This is a paragraph.</p>
+<div class='arrow'></div>
+<p>This is a paragraph.</p>
+<br/><br/>
+<div class='inverted'>
+	<p>This is a paragraph.</p>
+	<div class='arrow'></div>
+	<p>This is a paragraph.</p>
+</div>
+'''
+Plain = '''
+This package's primary purpose is to provide user interface (UI) styling
+specifically for animated arrow value.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '主要目的'
+HTML = '''
+这个软件包的出生主要是支持渲染创意性箭头界面元件。在网络界面世界里，
+这元件的成果如下：
+<br/><br/>
+<p>这是一段文字。</p>
+<div class='arrow'></div>
+<p>这是一段文字。</p>
+<br/><br/>
+<div class='inverted'>
+	<p>这是一段文字。</p>
+	<div class='arrow'></div>
+	<p>这是一段文字。</p>
+</div>
+'''
+Plain = '''
+这个软件包的出生主要是支持渲染创意性箭头界面元件。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Legacy Recording'
+HTML = '''
+This package was first released in ZORALab's Hestia <code>v1.2.0</code>.
+'''
+Plain = '''
+This package was first released in ZORALab's Hestia 'v1.2.0'.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '历史遗录'
+HTML = '''
+这个软件包首次在ZORALab赫斯提亚<code>v1.2.0</code>版本出产。
+'''
+Plain = '''
+这个软件包首次在ZORALab赫斯提亚<code>v1.2.0</code>版本出产。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
