@@ -22,7 +22,7 @@ Latest = 'Latest'
 
 [i18n.Introduction]
 ID = 'introduction'
-Title = 'v1.0.0 Release Note'
+Title = 'Introduction'
 Description = '''
 The technical summary about ZORALab's Hestia version v1.0.0 release covering
 its related technologies.

@@ -51,10 +51,10 @@ Label = ''
 [[Metadata.Languages.EN.Hugo.Highlights]]
 HTML = '''
 <span style='color: red;'><b>(NON-BACKWARD COMPATIBLE)</b></span>
-Fixed hestiaHUGO sluggish performance when the repository is over 80 pages.
+Fixed hestiaHUGO sluggish performance when the repository is over 60 pages.
 '''
 Plain = '''
-Fixed hestiaHUGO sluggish performance when the repository is over 80 pages.
+Fixed hestiaHUGO sluggish performance when the repository is over 60 pages.
 (NON-BACKWARD COMPATIBLE).
 '''
 
@@ -65,44 +65,16 @@ Label = 'GitHub Issue#59'
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
-<span style='color: red;'><b>(不向后兼容)</b></span>
-解决hestiaHUGO在多个80页的缓慢问题。
+<span style='color: red;'><b>（不向后兼容）</b></span>
+解决hestiaHUGO在多个60页的缓慢问题。
 '''
 Plain = '''
-解决hestiaHUGO在多个80页的缓慢问题（ 不向后兼容 ）。
+解决hestiaHUGO在多个60页的缓慢问题（ 不向后兼容 ）。
 '''
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
 Value = 'https://github.com/ZORALab/Hestia/issues/59'
 Label = 'GitHub问题#59'
-
-
-
-
-[[Metadata.Languages.EN.Hugo.Highlights]]
-HTML = '''
-Added standard implementation of on-screen data debugger console.
-'''
-Plain = '''
-Added standard implementation of on-screen data debugger console.
-'''
-
-[[Metadata.Languages.EN.Hugo.Highlights.URL]]
-Value = 'https://github.com/ZORALab/Hestia/issues/77'
-Label = 'GitHub Issue#77'
-
-
-[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
-HTML = '''
-加入标准数据试器控制台。
-'''
-Plain = '''
-加入标准数据试器控制台。
-'''
-
-[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
-Value = 'https://github.com/ZORALab/Hestia/issues/77'
-Label = 'GitHub问题#77'
 
 
 
@@ -116,8 +88,8 @@ Added zoralabDEBUGGER UI component.
 '''
 
 [[Metadata.Languages.EN.Hugo.Highlights.URL]]
-Value = ''
-Label = ''
+Value = 'https://github.com/ZORALab/Hestia/issues/77'
+Label = 'GitHub Issue#77'
 
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
@@ -129,15 +101,16 @@ Plain = '''
 '''
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
-Value = ''
-Label = ''
+Value = 'https://github.com/ZORALab/Hestia/issues/77'
+Label = 'GitHub问题#77'
 
 
 
 
 [[Metadata.Languages.EN.Hugo.Highlights]]
 HTML = '''
-Changed all content filenames to <code>__content.hestia[FORMAT]</code> naming convention.
+Changed all <code>__content</code> filenames to
+<code>__content.hestia[FORMAT]</code> naming convention.
 '''
 Plain = '''
 Changed all content filenames to __content.hestia[FORMAT] naming convention.
@@ -154,7 +127,8 @@ Label = 'GitHub Issue#86'
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
-改换所有的__content文件名字一律配合<code>__content.hestia[FORMAT]</code>的名字模式。
+改换所有的<code>__content</code>文件名字一律配合
+<code>__content.hestia[FORMAT]</code>的名字模式。
 '''
 Plain = '''
 改换所有的__content文件名字一律配合__content.hestia[FORMAT]的名字模式。
@@ -494,10 +468,10 @@ Label = 'GitHub问题#99'
 
 [[Metadata.Languages.EN.Hugo.Highlights]]
 HTML = '''
-Added <code>joshuamacdonaldDOWNARROW</code> UI component.
+Added <code>zoralabARROW</code> UI component.
 '''
 Plain = '''
-Added joshuamacdonaldDOWNARROW UI component.
+Added zoralabARROW UI component.
 '''
 
 [[Metadata.Languages.EN.Hugo.Highlights.URL]]
@@ -507,10 +481,10 @@ Label = 'GitHub Issue #98'
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
 HTML = '''
-加入<code>joshuamacdonaldDOWNARROW</code>界面元件。
+加入<code>zoralabARROW</code>界面元件。
 '''
 Plain = '''
-加入joshuamacdonaldDOWNARROW界面元件。
+加入zoralabARROW界面元件。
 '''
 
 [[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
@@ -545,6 +519,63 @@ Plain = '''
 Value = 'https://github.com/ZORALab/Hestia/issues/103'
 Label = 'GitHub问题#103'
 
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Added <code>zoralabSPLIT_SKEW</code> UI component.
+'''
+Plain = '''
+Added zoralabSPLIT_SKEW UI component.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/102'
+Label = 'GitHub Issue #102'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+加入<code>zoralabSPLIT_SKEW</code>界面元件。
+'''
+Plain = '''
+加入zoralabSPLIT_SKEW界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/102'
+Label = 'GitHub问题#102'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+<span style='color: red;'><b>(NON-BACKWARD COMPATIBLE)</b></span>
+Use RFC-Email Timestamp over existing one.
+'''
+Plain = '''
+Use RFC-Email Timestamp over existing one (NON-BACKWARD COMPATIBLE).
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/351'
+Label = 'GitHub Issue#351'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+<span style='color: red;'><b>(不向后兼容)</b></span>
+运用RFC5322时间规范。
+'''
+Plain = '''
+运用RFC5322时间规范（不向后兼容）。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/351'
+Label = 'GitHub问题#351'
 
 
 
@@ -643,8 +674,8 @@ Removed from being supported - added to archive (non-backward compatible).
 '''
 
 [[Metadata.Languages.EN.Rust.Highlights.URL]]
-Value = ''
-Label = ''
+Value = 'https://github.com/ZORALab/Hestia/issues/104'
+Label = 'GitHub Issue#104'
 
 
 [[Metadata.Languages.ZH-HANS.Rust.Highlights]]
@@ -657,8 +688,8 @@ Plain = '''
 '''
 
 [[Metadata.Languages.ZH-HANS.Rust.Highlights.URL]]
-Value = ''
-Label = ''
+Value = 'https://github.com/ZORALab/Hestia/issues/104'
+Label = 'GitHub问题#104'
 
 
 
