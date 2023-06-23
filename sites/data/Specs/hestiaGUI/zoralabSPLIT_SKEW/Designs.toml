@@ -119,7 +119,7 @@ Code = '''
 		--split-skew-angle: [ANGLE_OF_CHOICE: to left bottom | to right bottom];
 		--split-skew-upper-background: [BACKGROUND_COLOR_OF_UPPER_CONTAINER];
 		--split-skew-lower-background: transparent;
-		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+		margin-bottom: [ADJUST_PRESENTATION_ACCORDINGLY];
 	'></div>
 
 
@@ -140,7 +140,7 @@ Code = '''
 		--split-skew-angle: [ANGLE_OF_CHOICE: to left bottom | to right bottom];
 		--split-skew-upper-background: [BACKGROUND_COLOR_OF_UPPER_CONTAINER];
 		--split-skew-lower-background: transparent;
-		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+		margin-bottom: [ADJUST_PRESENTATION_ACCORDINGLY];
 	'></div>
 
 	...
@@ -168,7 +168,7 @@ Code = '''
 		--split-skew-angle: [角度选择: to left bottom | to right bottom];
 		--split-skew-upper-background: [上任背景颜色设置];
 		--split-skew-lower-background: transparent;
-		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+		margin-bottom: [调整显示合适的空间];
 	'></div>
 
 
@@ -189,7 +189,7 @@ Code = '''
 		--split-skew-angle: [角度选择: to left bottom | to right bottom];
 		--split-skew-upper-background: [上任背景颜色设置];
 		--split-skew-lower-background: transparent;
-		margin-bottom: ...ADJUST PRESENTATION ACCORDINGLY...;
+		margin-bottom: [调整显示合适的空间];
 	'></div>
 
 	...
