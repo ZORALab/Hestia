@@ -126,3 +126,155 @@ Code = '''
 [[ZH-HANS.List.URL]]
 Value = ''
 Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Extended Naming Convention'
+HTML = '''
+Aside complying to the naming convention stated in the main spec, hestiaGUI
+extends from it to include some artistic related aspects. Due to GUI being an
+artwork as its core, all leaf packages shall lead with the main artist's handle
+instead of the conventional <code>hestia-</code> prefix. That way, we can
+automatically credit the designer.
+'''
+Plain = '''
+Aside complying to the naming convention stated in the main spec, hestiaGUI
+extends from it to include some artistic related aspects. Due to GUI being an
+artwork as its core, all leaf packages shall lead with the main artist's handle
+instead of the conventional 'hestia-' prefix. That way, we can automatically
+credit the designer.
+'''
+Code = '''
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '额外命名规范'
+HTML = '''
+除了要遵从原本的命名规范，hestiaGUI拥有额外的命名规范条例得加入遵从。由于GUI界面
+是艺术设计为主，与其运用原本的hestia-带头名字，所有的叶子性格的代码包需要运用原
+本艺术家的名字来代替hestia-名字。这样以来当我们运用界面元件时，我们自动已经贷记
+这些艺术家了。
+'''
+Plain = '''
+除了要遵从原本的命名规范，hestiaGUI拥有额外的命名规范条例得加入遵从。由于GUI界面
+是艺术设计为主，与其运用原本的hestia-带头名字，所有的叶子性格的代码包需要运用原
+本艺术家的名字来代替hestia-名字。这样以来当我们运用界面元件时，我们自动已经贷记
+这些艺术家了。
+'''
+Code = '''
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Common Design Practice'
+HTML = '''
+Normally, the design direction shall always be as little as dependency as
+possible. However, for coloring and site-wide control values, it's best to use
+a <code>-CORE</code> UI component to unify them instead. It's easier to maintain
+and is easier to manage as well. Each commonly used components only use the
+following APIs:
+'''
+Plain = '''
+Normally, the design direction shall always be as little as dependency as
+possible. However, for coloring and site-wide control values, it's best to use
+a '-CORE' UI component to unify them instead. It's easier to maintain
+and is easier to manage as well. Each commonly used components only use the
+following APIs:
+'''
+Code = '''
+ToCSS
+ToCSS_VARIABLES
+ToJS (If possible, don't use it)
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '常用的设计观点'
+HTML = '''
+通常在界面元件设计里，尽量能依赖越少其他的元件越好。但是，如果碰到统一的数据如
+颜色和控制等等，那最好是运用一个<code>-CORE</code>界面元件统一它们。这样会比较
+容易修理和管理。一般的元件只运用以下的API：
+'''
+Plain = '''
+通常在界面元件设计里，尽量能依赖越少其他的元件越好。但是，如果碰到统一的数据如
+颜色和控制等等，那最好是运用一个<code>-CORE</code>界面元件统一它们。这样会比较
+容易修理和管理。一般的元件只运用以下的API：
+'''
+Code = '''
+ToCSS
+ToCSS_VARIABLES
+ToJS （能的话，尽量别用）
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[EN.List]]
+Title = 'Debugger Design Practice'
+HTML = '''
+Normally, the debugger design direction shall always be <b>NO dependency and
+all settings must be independent / design resistance</b>. The UI shall survive
+even in brutal design deployment. All CSS variables shall be used inside its
+elements and are not exported. A common one uses the following APIs:
+'''
+Plain = '''
+Normally, the debugger design direction shall always be 'NO dependency and
+all settings must be independent / design resistance'. The UI shall survive
+even in brutal design deployment. All CSS variables shall be used inside its
+elements and are not exported. A common one uses the following APIs:
+'''
+Code = '''
+ToCSS
+ToJS (If possible, don't use it)
+ToHTML (Generate the HTML codes based on technologies)
+'''
+
+[[EN.List.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List]]
+Title = '调试器的设计观点'
+HTML = '''
+通常在调试器界面元件设计里是<b>必须不能依靠任何元件和可以拥有强大的设计阻力</b>。
+这种元件必须在最恐怖的设计环境里都能正常使用。
+所有的CSS变化值必须是内涵性和不可以被外界自选。
+一般的元件只运用以下的API：
+'''
+Plain = '''
+通常在调试器界面元件设计里是**必须不能依靠任何元件和可以拥有强大的设计阻力**。
+这种元件必须在最恐怖的设计环境里都能正常使用。
+所有的CSS变化值必须是内涵性和不可以被外界自选。
+一般的元件只运用以下的API：
+'''
+Code = '''
+ToCSS
+ToJS （能的话，尽量别用）
+ToHTML （出产所需要的HTML代码）
+'''
+
+[[ZH-HANS.List.URL]]
+Value = ''
+Label = ''

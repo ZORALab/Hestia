@@ -63,10 +63,10 @@ Plain = '''
 
 
 [EN.Designs]
-ID = 'package-designs'
+ID = 'product-designs'
 Label = 'Designs'
-Title = 'Package Designs'
-NoList = 'This package does not specify any design.'
+Title = 'Product Designs'
+NoList = 'This product does not specify any design.'
 HTML = '''
 '''
 Plain = '''
@@ -74,7 +74,7 @@ Plain = '''
 
 
 [ZH-HANS.Designs]
-ID = '软件包的设计'
+ID = '产品设计'
 Label = '设计'
 Title = '软件包的设计'
 NoList = '这个代码包没有写出它的设计规范。'
