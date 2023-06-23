@@ -377,7 +377,7 @@ Affects the width of the rendered component.
 Code = '''
 VARIABLE     : --card-width
 CSS PROPERTY : width
-DEFAULT      : clamp(22rem, 28rem, 100%) (>= v1.2.0)
+DEFAULT      : clamp(22rem, 28rem, 32rem) (>= v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -396,7 +396,7 @@ Plain = '''
 Code = '''
 变化值     : --card-width
 CSS属性    : width
-默认数码   : clamp(22rem, 28rem, 100%) (>= v1.2.0)
+默认数码   : clamp(22rem, 28rem, 32rem) (>= v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

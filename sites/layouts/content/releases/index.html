@@ -2,6 +2,7 @@
 {{- $Page := . -}}
 {{- $i18n := .Data.Page.i18n -}}
 {{- $lang := false -}}
+{{- $nav := slice -}}
 {{- $ret := false -}}
 
 
@@ -9,32 +10,36 @@
 
 {{- /* render output */ -}}
 <main style='padding-bottom: 0;'>
+	{{- $nav = append (dict
+		"ID" $i18n.Introduction.ID
+		"Label" $i18n.Introduction.Title
+	) $nav -}}
 	<section id='{{- $i18n.Introduction.ID -}}'>
 		<h1>{{- .Titles.Page -}}</h1>
 		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Catalog.ID "Label" $i18n.Catalog.Title) $nav -}}
 	<section id='{{- $i18n.Catalog.ID -}}'>
 		<div>
 			<h2>{{- $i18n.Catalog.Title -}}</h2>
 			<p>{{- $i18n.Catalog.Description -}}</p>
 		</div>
 
-		<div class='row' style='--h3-margin: 0;--picture-margin: auto;'>
+		<div class='row'>
 			{{- range $i, $v := (sort .Data.Store.Releases "" "desc") }}
 				{{- $lang = index
 					$v.Metadata.Languages
 					$Page.Languages.Current.ID
 				}}
 			<div class='column'><div id='{{- $v.Metadata.ID -}}' class='card'>
-				<div class='thumbnail'>
-					{{- $ret = merge $Page (dict "Input"
-						(dict "Data" $v.Image)
-					) -}}
-					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-					{{- partial "hestiaMEDIA/ToHTML" $ret.Output }}
-				</div>
+				{{- $ret = merge $Page (dict "Input"
+					(dict "Data" $v.Image)
+				) -}}
+				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+				{{- $ret = merge $ret.Output (dict "Class" "thumbnail") }}
+				{{ partial "hestiaMEDIA/ToHTML" $ret }}
 				<div class='content'>
 					<h3>{{- $lang.Title -}}</h3>
 					{{- if $v.Metadata.Latest }}
@@ -63,30 +68,47 @@
 	</section>
 
 
-	{{- $ret = merge $Page (dict "Input" (dict "Data"
-		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
-	)) -}}
+	{{- $nav = append (dict
+		"ID" $i18n.Epilogue.ID
+		"Label" $i18n.Epilogue.Title
+	) $nav -}}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
 	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-	{{- $ret = string $ret.Output -}}
-	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
-		margin-top: 10rem;
-		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
-				no-repeat
-				fixed;
-		background-position: center center;
-		background-size: cover;
-		padding-bottom: var(--main-padding-top);
-	'>
-		<h2>{{- $i18n.Epilogue.Title -}}</h2>
-		<p>{{- $i18n.Epilogue.Description -}}</p>
-		<br/>
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
-		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-		{{- $ret = string $ret.Output -}}
-		<a href='{{- $ret -}}' class='button' style='
-			--button-color: green;
-		'>{{- $i18n.Epilogue.CTA -}}</a>
+	{{- $ret = dict
+		"ID" $i18n.Epilogue.ID
+		"Background" $Page.URL.Base
+		"Title" $i18n.Epilogue.Title
+		"Description" $i18n.Epilogue.Description
+		"URL" (string $ret.Output)
+		"CTA" $i18n.Epilogue.CTA
+	-}}
+	{{- partial "common/epilogue.html" $ret -}}
 	</section>
 </main>
 {{ partial "common/footer.html" $Page }}
+<nav class='right-drawer'>
+	<input id='nav-secondary-drawer' type='checkbox' />
+	<label class='trigger' for='nav-secondary-drawer'>
+		<span class='open'>§</span>
+		<span class='close'>𝖷</span>
+	</label>
+	<label class='overlay' for='nav-secondary-drawer'></label>
+
+
+	<div class='content'><div class='row' style='
+		margin-top: 6rem;
+		--grid-flex-direction: column;
+		--grid-gap: 30px;
+		--anchor-color: white;
+	'>
+		{{- range $i, $v := $nav }}
+		<div class='column'>
+			<a href='#{{- $v.ID -}}'
+				onclick='document.getElementById("nav-secondary-drawer").checked = false;'
+				class='prestige'>{{- $v.Label -}}</a>
+		</div>
+		{{- end }}
+	</div></div>
+</nav>
 {{ partial "common/nav-prime.html" $Page }}

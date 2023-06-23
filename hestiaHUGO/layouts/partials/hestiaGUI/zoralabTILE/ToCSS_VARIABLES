@@ -10,7 +10,7 @@
 "--tile-margin" = "2rem auto"
 "--tile-padding" = "0"
 
-"--tile-width" = "clamp(22rem, 28rem, 100%)"
+"--tile-width" = "clamp(22rem, 28rem, 32rem)"
 
 "--tile-border" = "none"
 "--tile-border-radius" = "1rem"

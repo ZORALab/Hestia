@@ -10,7 +10,7 @@
 "--card-margin" = "2rem auto"
 "--card-padding" = "0"
 
-"--card-width" = "clamp(22rem, 28rem, 100%)"
+"--card-width" = "clamp(22rem, 28rem, 32rem)"
 
 "--card-border" = "1px solid var(--color-typography-200)"
 "--card-border-focus" = "none"
