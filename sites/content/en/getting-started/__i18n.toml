@@ -16,13 +16,8 @@ This supporting feature is currently under development.
 
 
 [i18n.Introduction]
-ID = 'getting-started-catalog'
-Title = 'Getting Started Catalog'
-Description = '''
-The content here are written in a non-technical tone and presentations making
-them friendly for new comer attempting technologies for their first time. For
-technical specification, please refer to documentation section.
-'''
+ID = 'introduction'
+Title = 'Introduction'
 
 
 

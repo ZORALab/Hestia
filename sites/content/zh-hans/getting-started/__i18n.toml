@@ -16,12 +16,8 @@ Description = '''
 
 
 [i18n.Introduction]
-ID = '开始指南菜单'
-Title = '开始指南菜单'
-Description = '''
-这里的内容是为了好让新手容易使用而以非技术性的语气和演示所写。如有询问技术文件，
-请参阅文档部分。
-'''
+ID = '自介'
+Title = '自介'
 
 
 

@@ -1,6 +1,7 @@
 {{- /* prepare variables for function */ -}}
 {{- $Page := . -}}
 {{- $i18n := .Data.Page.i18n -}}
+{{- $nav := slice -}}
 {{- $lang := false -}}
 {{- $ret := false -}}
 
@@ -9,14 +10,19 @@
 
 {{- /* render output */ -}}
 <main style='padding-bottom: 0;'>
+	{{- $nav = append (dict
+		"ID" $i18n.Introduction.ID
+		"Label" $i18n.Introduction.Title
+	) $nav -}}
 	<section id='{{- $i18n.Introduction.ID -}}'>
 		<div>
-			<h1>{{- $i18n.Introduction.Title -}}</h1>
-			<p>{{- $i18n.Introduction.Description -}}</p>
+			<h1>{{- .Titles.Page -}}</h1>
+			<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
 		</div>
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Hugo.ID "Label" $i18n.Hugo.Title) $nav }}
 	<section id='{{- $i18n.Hugo.ID -}}'>
 		<h2>{{- $i18n.Hugo.Title -}}</h2>
 		<p>{{- $i18n.Hugo.Description -}}</p>
@@ -63,6 +69,7 @@
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Go.ID "Label" $i18n.Go.Title) $nav }}
 	<section id='{{- $i18n.Go.ID -}}'>
 		<h2>{{- $i18n.Go.Title -}}</h2>
 		<p>{{- $i18n.Go.Description -}}</p>
@@ -119,6 +126,7 @@
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Nim.ID "Label" $i18n.Nim.Title) $nav }}
 	<section id='{{- $i18n.Nim.ID -}}'>
 		<h2>{{- $i18n.Nim.Title -}}</h2>
 		<p>{{- $i18n.Nim.Description -}}</p>
@@ -175,6 +183,7 @@
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Epilogue.ID "Label" $i18n.Epilogue.Title) $nav }}
 	{{- $ret = merge $Page (dict "Input" (dict "Data"
 		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
 	)) -}}
@@ -196,9 +205,35 @@
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 		{{- $ret = string $ret.Output -}}
 		<a href='{{- $ret -}}' class='button' style='
-			--button-color: green;
+			--button-color: white;
+			background: green;
+			border: none;
 		'>{{- $i18n.Epilogue.CTA -}}</a>
 	</section>
 </main>
 {{ partial "common/footer.html" $Page }}
+<nav class='right-drawer'>
+	<input id='nav-secondary-drawer' type='checkbox' />
+	<label class='trigger' for='nav-secondary-drawer'>
+		<span class='open'>§</span>
+		<span class='close'>𝖷</span>
+	</label>
+	<label class='overlay' for='nav-secondary-drawer'></label>
+
+
+	<div class='content'><div class='row' style='
+		margin-top: 6rem;
+		--grid-flex-direction: column;
+		--grid-gap: 30px;
+		--anchor-color: white;
+	'>
+		{{- range $i, $v := $nav }}
+		<div class='column'>
+			<a href='#{{- $v.ID -}}'
+				onclick='document.getElementById("nav-secondary-drawer").checked = false;'
+				class='prestige'>{{- $v.Label -}}</a>
+		</div>
+		{{- end }}
+	</div></div>
+</nav>
 {{ partial "common/nav-prime.html" $Page }}
