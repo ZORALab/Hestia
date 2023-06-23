@@ -1,6 +1,7 @@
 {{- /* prepare variables for function */ -}}
 {{- $Page := . -}}
 {{- $i18n := .Data.Page.i18n -}}
+{{- $nav := slice -}}
 {{- $lang := false -}}
 {{- $ret := false -}}
 
@@ -9,12 +10,20 @@
 
 {{- /* render output */ -}}
 <main style='padding-bottom: 0;'>
+	{{- $nav = append (dict
+		"ID" $i18n.Introduction.ID
+		"Label" $i18n.Introduction.Title
+	) $nav -}}
 	<section id='{{- $i18n.Introduction.ID -}}'>
-		<h1>{{- $i18n.Introduction.Title -}}</h1>
-		<p>{{- $i18n.Introduction.Description -}}</p>
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
 	</section>
 
 
+	{{- $nav = append (dict
+		"ID" $i18n.Documentations.ID
+		"Label" $i18n.Documentations.Title
+	) $nav }}
 	<section id='{{- $i18n.Documentations.ID -}}'>
 		<h2>{{- $i18n.Documentations.Title -}}</h2>
 		<p>{{- $i18n.Documentations.Description -}}</p>
@@ -64,6 +73,7 @@
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Guidelines.ID "Label" $i18n.Guidelines.Title) $nav }}
 	<section id='{{- $i18n.Guidelines.ID -}}'>
 		<h2>{{- $i18n.Guidelines.Title -}}</h2>
 		<p>{{- $i18n.Guidelines.Description -}}</p>
@@ -72,7 +82,7 @@
 			<h3>{{- $i18n.Guidelines.Labels.Do -}}</h3>
 			<ul style='
 				--ulist-li-before-content: "✓";
-				--ulist-li-before-background: var(--body-color-indicator-green-inverted);
+				--ulist-li-before-background-image: linear-gradient(to bottom, rgba(155,254,23,1) 45.5%, rgba(36,243,8,1) 97.9%);
 			'>
 				{{- range $i, $v := $i18n.Guidelines.DO }}
 				<li><p>
@@ -86,7 +96,7 @@
 			<h3>{{- $i18n.Guidelines.Labels.Dont -}}</h3>
 			<ul style='
 				--ulist-li-before-content: "𝖷";
-				--ulist-li-before-background: var(--body-background-indicator-red-inverted);
+				--ulist-li-before-background-image: linear-gradient(to top, rgba(134,15,15,1) 24.9%, rgba(183,10,10,1) 46.9%, rgba(210,70,0,1) 85.1%);
 			'>
 				{{- range $i, $v := $i18n.Guidelines.DONT }}
 				<li><p>
@@ -98,12 +108,14 @@
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.COC.ID "Label" $i18n.COC.Title) $nav }}
 	<section id='{{- $i18n.COC.ID -}}'>
 		<h2>{{- $i18n.COC.Title -}}</h2>
 		<p>{{- $i18n.COC.Description -}}</p>
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Epilogue.ID "Label" $i18n.Epilogue.Title) $nav }}
 	{{- $ret = merge $Page (dict "Input" (dict "Data"
 		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
 	)) -}}
@@ -125,9 +137,35 @@
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 		{{- $ret = string $ret.Output -}}
 		<a href='{{- $ret -}}' class='button' style='
-			--button-color: green;
+			--button-color: white;
+			background: green;
+			border: none;
 		'>{{- $i18n.Epilogue.CTA -}}</a>
 	</section>
 </main>
 {{ partial "common/footer.html" $Page }}
+<nav class='right-drawer'>
+	<input id='nav-secondary-drawer' type='checkbox' />
+	<label class='trigger' for='nav-secondary-drawer'>
+		<span class='open'>§</span>
+		<span class='close'>𝖷</span>
+	</label>
+	<label class='overlay' for='nav-secondary-drawer'></label>
+
+
+	<div class='content'><div class='row' style='
+		margin-top: 6rem;
+		--grid-flex-direction: column;
+		--grid-gap: 30px;
+		--anchor-color: white;
+	'>
+		{{- range $i, $v := $nav }}
+		<div class='column'>
+			<a href='#{{- $v.ID -}}'
+				onclick='document.getElementById("nav-secondary-drawer").checked = false;'
+				class='prestige'>{{- $v.Label -}}</a>
+		</div>
+		{{- end }}
+	</div></div>
+</nav>
 {{ partial "common/nav-prime.html" $Page }}

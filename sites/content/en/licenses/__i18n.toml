@@ -6,8 +6,8 @@ Description = 'Description'
 
 
 [i18n.Introduction]
-ID = 'zoralab-hestia-licenses'
-Title = "ZORALab's Hestia Authorized Licenses"
+ID = 'introduction'
+Title = "Introduction"
 
 
 

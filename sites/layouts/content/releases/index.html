@@ -74,7 +74,7 @@
 	)) -}}
 	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
 	{{- $ret = string $ret.Output }}
-	<section id='{{- .ID -}}' class='inverted' style='
+	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
 		margin-top: 10rem;
 		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
 			no-repeat
