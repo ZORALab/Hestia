@@ -56,10 +56,9 @@ specific language governing permissions and limitations under the License.
 
 	{{- /* check component's proper existence */ -}}
 	{{- $path = printf "layouts/partials/hestiaGUI/%s" $v.Name -}}
-	{{- $ret = (fileExists (printf "%s/CSS" $path))
-			| and (fileExists (printf "%s/CSSVariables" $path))
-			| and (fileExists (printf "%s/JS" $path))
-			| and (fileExists (printf "%s/HTML" $path))
+	{{- $ret = (fileExists (printf "%s/ToCSS" $path))
+			| and (fileExists (printf "%s/ToCSS_VARIABLES" $path))
+			| and (fileExists (printf "%s/ToJS" $path))
 	-}}
 	{{- if not $ret -}}
 		{{- $error = printf ".Components: '%v' component does not exist!\n" $v.Name -}}
@@ -70,7 +69,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* parse component's CSS variables data */ -}}
-	{{- $list = printf "%s/CSSVariables" $path -}}
+	{{- $list = printf "%s/ToCSS_VARIABLES" $path -}}
 	{{- $list = merge $Page (dict "Input" (dict "Path" $list)) -}}
 	{{- $list = partial "hestiaIO/hestiaFS/ParseDataFile" $list -}}
 	{{- $list = default dict $list.Output.CSS -}}
@@ -123,7 +122,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* process component's .CSS.Inline */ -}}
-	{{- $ret = printf "%s/CSS" $path -}}
+	{{- $ret = printf "%s/ToCSS" $path -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
 	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
@@ -137,7 +136,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* process component's .JS.Inline */ -}}
-	{{- $ret = printf "%s/JS" $path -}}
+	{{- $ret = printf "%s/ToJS" $path -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
 	{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
@@ -760,10 +759,9 @@ specific language governing permissions and limitations under the License.
 {{- if $Page.Debugger.Name -}}
 	{{- /* check component's proper existence */ -}}
 	{{- $path = printf "layouts/partials/hestiaGUI/%s" $Page.Debugger.Name -}}
-	{{- $ret = (fileExists (printf "%s/CSS" $path))
-			| and (fileExists (printf "%s/CSSVariables" $path))
-			| and (fileExists (printf "%s/JS" $path))
-			| and (fileExists (printf "%s/HTML" $path))
+	{{- $ret = (fileExists (printf "%s/ToCSS" $path))
+			| and (fileExists (printf "%s/ToJS" $path))
+			| and (fileExists (printf "%s/ToHTML" $path))
 	-}}
 
 	{{- if not $ret -}}
@@ -774,10 +772,10 @@ specific language governing permissions and limitations under the License.
 		{{- $error = merge $Page (dict "Error" $error) -}}
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 	{{- else -}}
-		{{- $ret = printf "hestiaGUI/%s/HTML" $Page.Debugger.Name -}}
+		{{- $ret = printf "hestiaGUI/%s/ToHTML" $Page.Debugger.Name -}}
 		{{- $Page = merge $Page (dict "Debugger" (dict "HTML" $ret)) -}}
 
-		{{- $ret = printf "%s/CSS" $path -}}
+		{{- $ret = printf "%s/ToCSS" $path -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
 		{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
@@ -793,7 +791,7 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 		{{- $Page = merge $Page (dict "Debugger" (dict "CSS" $ret.Output)) -}}
 
-		{{- $ret = printf "%s/JS" $path -}}
+		{{- $ret = printf "%s/ToJS" $path -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Path" $ret)) -}}
 		{{- $ret = partial "hestiaIO/hestiaFS/ParseFile" $ret -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $ret.Output)) -}}
