@@ -1,0 +1,18 @@
+<section id='{{- .ID -}}' class='inverted' style='
+	margin-top: 10rem;
+	background: url({{- .Background -}}img/backgrounds/matrix-cube-lorenzo-verzini.svg),linear-gradient(to top,#010329,#000005)
+		no-repeat
+		fixed;
+	background-position: center center;
+	background-size: cover;
+	padding-bottom: var(--main-padding-top);
+'>
+	<h2>{{- .Title -}}</h2>
+	<p>{{- .Description -}}</p>
+	<br/>
+	<a href='{{- .URL -}}' class='button' style='
+		--button-color: white;
+		background: green;
+		border: none;
+	'>{{- .CTA -}}</a>
+</section>

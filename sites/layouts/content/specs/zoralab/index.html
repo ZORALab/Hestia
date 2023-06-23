@@ -121,65 +121,60 @@
 	<section id='{{- $i18n.Catalog.ID -}}'>
 		<h2>{{- $i18n.Catalog.Title -}}</h2>
 		<p>{{- $i18n.Catalog.Description -}}</p>
-		<div class='row' style='--h3-margin: 0;'>{{- range $i, $v := .Nav.Children }}
-			{{- $dataset = $Page.Data.Store.Specs -}}
-			{{- range $j, $w := (split $v.Data.Page.Dataset.Path ".") -}}
-				{{- if $dataset -}}
-					{{- $dataset = index $dataset $w -}}
-				{{- end -}}
-			{{- end -}}
-			{{- $dataset = index $dataset.Metadata $Page.Languages.Current.ID }}
-			<div class='column'><div class='card'>
-				<div class='content'>
-					<h3>{{- $dataset.Brand.SKU -}}</h3>
-					<p>{{- $dataset.Brand.Description -}}</p>
-				</div>
-				<div class='actions'>
-					<a href='{{- $v.URL.Current.Absolute -}}'
-						class='button'>
-						{{- $i18n.Catalog.CTA -}}
-					</a>
-				</div>
-			</div></div>
-		{{- end }}</div>
+		<table>
+			<thead>
+				<tr>
+					<th>{{- $i18n.Catalog.Package -}}</th>
+					<th>{{- $i18n.Catalog.Details -}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{- range $i, $v := .Nav.Children }}
+					{{- $dataset = $Page.Data.Store.Specs -}}
+					{{- range $j, $w := (split $v.Data.Page.Dataset.Path ".") -}}
+						{{- if $dataset -}}
+							{{- $dataset = index $dataset $w -}}
+						{{- end -}}
+					{{- end -}}
+					{{- $dataset = index $dataset.Metadata
+						$Page.Languages.Current.ID }}
+				<tr>
+					<td><a href='{{- $v.URL.Current.Absolute -}}'>
+						<b>{{- $dataset.Brand.SKU -}}</b>
+					</a></td>
+					<td><p>
+						{{- $dataset.Brand.Description -}}
+					</p></td>
+				</tr>
+				{{- end }}
+			</tbody>
+		</table>
 	</section>
 	{{- end }}
 
 
-	{{- $ret = merge $Page (dict "Input" (dict "Data"
-		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
-	)) -}}
-	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-	{{- $ret = string $ret.Output -}}
 	{{- $nav = append (dict
 		"ID" $i18n.Epilogue.ID
 		"Label" $i18n.Epilogue.Title
 	) $nav -}}
-	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
-		margin-top: 10rem;
-		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
-				no-repeat
-				fixed;
-		background-position: center center;
-		background-size: cover;
-		padding-bottom: var(--main-padding-top);
-	'>
-		<h2>{{- $i18n.Epilogue.Title -}}</h2>
-		<p>{{- $i18n.Epilogue.Description -}}</p>
-		<br/>
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
-		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-		{{- $ret = string $ret.Output -}}
-		<a href='{{- $ret -}}' class='button' style='
-			--button-color: green;
-		'>{{- $i18n.Epilogue.CTA -}}</a>
-	</section>
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $dataset = dict
+		"ID" $i18n.Epilogue.ID
+		"Background" $Page.URL.Base
+		"Title" $i18n.Epilogue.Title
+		"Description" $i18n.Epilogue.Description
+		"URL" (string $ret.Output)
+		"CTA" $i18n.Epilogue.CTA
+	-}}
+	{{- partial "common/epilogue.html" $dataset -}}
 </main>
 {{ partial "common/footer.html" $Page }}
 <nav class='right-drawer'>
 	<input id='nav-secondary-drawer' type='checkbox' />
 	<label class='trigger' for='nav-secondary-drawer'>
-		<span class='open'>¶</span>
+		<span class='open'>§</span>
 		<span class='close'>𝖷</span>
 	</label>
 	<label class='overlay' for='nav-secondary-drawer'></label>
@@ -193,7 +188,9 @@
 	'>
 		{{- range $i, $v := $nav }}
 		<div class='column'>
-			<a href='#{{- $v.ID -}}' class='prestige'>{{- $v.Label -}}</a>
+			<a href='#{{- $v.ID -}}'
+				onclick='document.getElementById("nav-secondary-drawer").checked = false;'
+				class='prestige'>{{- $v.Label -}}</a>
 		</div>
 		{{- end }}
 	</div></div>

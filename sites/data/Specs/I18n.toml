@@ -187,9 +187,10 @@ ID = 'catalog'
 Label = 'Catalog'
 Title = 'Catalog'
 Description = '''
-Here's all of our libraries' specifications for you to browse through. They're
-starting from the root level.
+Here are all of the leaf libraries' specifications for you to browse through.
 '''
+Package = 'Package'
+Details = 'Details'
 CTA = 'Read More'
 
 
@@ -198,8 +199,10 @@ ID = '菜单'
 Label = '菜单'
 Title = '菜单'
 Description = '''
-以下是我们所有的代码包规范让您去询问。它们是从跟根级开始。
+以下是所有叶子象征性的代码包规范让您去询问。
 '''
+Package = '代码包'
+Details = '详情'
 CTA = '了解更多'
 
 
