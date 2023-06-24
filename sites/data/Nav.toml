@@ -42,7 +42,7 @@ Title = "Hugo"
 URL = '/en/getting-started/#hugo'
 
 [[Languages.EN.Items]]
-Title = "Go"
+Title = "Go (Language)"
 URL = '/en/getting-started/#go'
 
 [[Languages.EN.Items]]
@@ -156,7 +156,7 @@ Title = "Hugo"
 URL = '/zh-hans/getting-started/#hugo'
 
 [[Languages.ZH-HANS.Items]]
-Title = "Go"
+Title = "Go（语言）"
 URL = '/zh-hans/getting-started/#go'
 
 [[Languages.ZH-HANS.Items]]

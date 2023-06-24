@@ -29,7 +29,7 @@ Value = ''
 
 [Metadata.Languages.EN.Web]
 Label = 'Pexels'
-URL = 'https://www.pexels.com/@kelly-1179532/'
+Value = 'https://www.pexels.com/@kelly-1179532/'
 
 [[Metadata.Languages.EN.Social]]
 Label = 'Instagram'
@@ -58,7 +58,7 @@ Value = ''
 
 [Metadata.Languages.ZH-HANS.Web]
 Label = 'Pexels'
-URL = 'https://www.pexels.com/@kelly-1179532/'
+Value = 'https://www.pexels.com/@kelly-1179532/'
 
 [[Metadata.Languages.ZH-HANS.Social]]
 Label = 'Instagram'
