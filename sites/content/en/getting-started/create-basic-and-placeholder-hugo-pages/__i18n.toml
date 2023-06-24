@@ -15,12 +15,8 @@ Guides = 'Guides'
 
 
 [i18n.Introduction]
-ID = 'create-basic-and-placeholder-hugo-pages'
-Title = "Create Basic and Placeholder Hugo Pages"
-Description = '''
-Through creating simple pages, we learn how hestiaHUGO operates. A step-by-step
-guide for hestiaHUGO — ZORALab's Hestia Hugo module
-'''
+ID = 'introduction'
+Title = 'Introduction'
 
 
 

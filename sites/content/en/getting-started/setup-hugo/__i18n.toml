@@ -15,12 +15,8 @@ Guides = 'Guides'
 
 
 [i18n.Introduction]
-ID = 'setup-hugo'
-Title = "Setup Hugo with hestiaHUGO — a ZORALab's Hestia Module"
-Description = '''
-A step-by-step tutorial on how to setup your hugo git repository with hestiaHUGO
-from scratch.
-'''
+ID = 'introduction'
+Title = 'Introduction'
 
 
 

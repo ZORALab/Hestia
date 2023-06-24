@@ -15,12 +15,8 @@ Guides = '指南'
 
 
 [i18n.Introduction]
-ID = '建设简单和占位符性的Hugo网页'
-Title = "建设简单和占位符性的Hugo网页"
-Description = '''
-通过建设简单网页来学习hesitaHUGO操作。一个一步一步为hestiaHUGO编好的指南 —
-ZORALab赫斯提亚的Hugo模块。
-'''
+ID = '自介'
+Title = '自介'
 
 
 

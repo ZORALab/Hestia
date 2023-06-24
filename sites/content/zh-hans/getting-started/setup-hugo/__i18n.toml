@@ -15,11 +15,8 @@ Guides = '指南'
 
 
 [i18n.Introduction]
-ID = '设置hugo'
-Title = "设置拥有hestiaHUGO的Hugo"
-Description = '''
-一个一步一步为hestiaHUGO编好的指南 — ZORALab赫斯提亚的Hugo模块。
-'''
+ID = '自介'
+Title = '自介'
 
 
 
