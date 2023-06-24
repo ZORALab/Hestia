@@ -2,6 +2,7 @@
 {{- $Page := . -}}
 {{- $i18n := .Data.Page.i18n -}}
 {{- $lang := false -}}
+{{- $nav := slice -}}
 {{- $ret := false -}}
 
 
@@ -9,6 +10,10 @@
 
 {{- /* render output */ -}}
 <main style='padding:0;'>
+	{{- $nav = append (dict
+		"ID" $i18n.Introduction.ID
+		"Label" $i18n.Introduction.Title
+	) $nav -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data"
 		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
 	)) -}}
@@ -34,30 +39,18 @@
 			</p>
 		{{- end }}
 
-		<a href='#{{- $i18n.WhyItMatters.ID -}}'
-			style='
-				display: block;
-
-				position: relative;
-
-				border: 2px solid var(--color-typography-50);
-				border-radius: 50%;
-
-				margin: var(--paragraph-padding);
-				margin-top: 2rem;
-
-				width: 60px;
-				height: 60px;
-				--downarrow-joshuaMcD-size: 20px;
-				--downarrow-joshuaMcD-margin-vertical: -11px;
-				--downarrow-joshuaMcD-margin-horizontal: -11px;
-				--downarrow-joshuaMcD-animation-translate-factor: 1.2;
-				color: var(--color-typography-50);
-				background: transparent;
-		'><div class='downarrow-joshuaMcD'></div></a>
+		<a class='warp' href='#{{- $i18n.WhyItMatters.ID -}}' style='
+			margin: 1.8rem 100% 0 0;
+		'>
+			<div class='arrow' style='--arrow-angle: 180deg;'></div>
+		</a>
 	</section>
 
 
+	{{- $nav = append (dict
+		"ID" $i18n.WhyItMatters.ID
+		"Label" $i18n.WhyItMatters.Title
+	) $nav }}
 	<section id='{{- $i18n.WhyItMatters.ID -}}'>
 		<h2>{{- $i18n.WhyItMatters.Title -}}</h2>
 		{{- if $i18n.WhyItMatters.Description }}
@@ -108,20 +101,21 @@
 		$Page.Data.Store.Programming.Hugo.Metadata.Languages
 		$Page.Languages.Current.ID
 	}}
-	<section id='{{- $lang.ID -}}' class='inverted' style='
+	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
+	<section id='{{- $lang.ID -}}' style='
 		margin-top: 5rem;
 		background: {{ $ret -}};
 		background-size: cover;
 		position: relative;
-		padding: var(--section-split-skew-height)
+		padding: var(--split-skew-height)
 				var(--main-padding-left)
-				calc(var(--section-split-skew-height)*2)
+				calc(var(--split-skew-height)*2)
 				var(--main-padding-right);
 	'>
-		<div class ='section-split-skew' style='
-			--section-split-skew-angle: to right bottom;
-			--section-split-skew-upper-background: var(--body-background);
-			--section-split-skew-lower-background: transparent;
+		<div class ='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: var(--body-background);
+			--split-skew-lower-background: transparent;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -133,13 +127,17 @@
 		{{- $ret = $ret.Output }}
 		{{ partial "hestiaMEDIA/ToHTML" $ret }}
 
-		<h2 style='margin-top: 0;'>{{- $lang.Title -}}</h2>
-		<p>{{- $lang.Description -}}</p>
+		<h2 style='margin-top: 0; color: #fafafa; text-align: center;'>
+			{{- $lang.Title -}}
+		</h2>
+		<p style='margin: 2rem 0; color: #fafafa; text-align: center;'>
+			{{- $lang.Description -}}
+		</p>
 
 		<div class='row'>
 		{{- range $i, $v := $lang.Strengths -}}
 			<div class='column'>
-				<p style='margin: 2rem 0;'>
+				<p style='margin: 2rem 0; color: #fafafa; text-align: center;'>
 					<b>{{- $v.Pitch -}}</b>
 				</p>
 			</div>
@@ -149,33 +147,31 @@
 		<div class='row'>
 		{{- range $i, $v := $lang.Features -}}
 			<div class= 'column'><div class='tile' style='
-				--h3-margin: 0;
-				--picture-margin: 0;
-				--picture-padding: 0;
-				--tile-border-radius: .5rem;
+				border-radius: .5rem;
+				background: #fafafa;
 			'>
 				{{- if $v.Image -}}
 					{{- $ret = merge $Page (dict "Input"
 						(dict "Data" $v.Image)
 					) -}}
 					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-					{{- $ret = $ret.Output }}
-				<div class='thumbnail'>
+					{{- $ret = merge $ret.Output (dict
+						"Class" "thumbnail"
+					) }}
 					{{ partial "hestiaMEDIA/ToHTML" $ret }}
-				</div>
 				{{- end }}
 				<div class='content'>
-					<h3>{{- $v.Pitch -}}</h3>
-					<p>{{- $v.Summary -}}</p>
+					<h3 style='color: #3c3c3c;'>{{- $v.Pitch -}}</h3>
+					<p style='color: #3c3c3c;'>{{- $v.Summary -}}</p>
 				</div>
 			</div></div>
 		{{- end }}
 		</div>
 
-		<div class ='section-split-skew' style='
-			--section-split-skew-angle: to left bottom;
-			--section-split-skew-upper-background: transparent;
-			--section-split-skew-lower-background: var(--body-background);
+		<div class ='split skew' style='
+			--split-skew-angle: to left bottom;
+			--split-skew-upper-background: transparent;
+			--split-skew-lower-background: var(--body-background);
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -195,20 +191,21 @@
 		$Page.Data.Store.Programming.Go.Metadata.Languages
 		$Page.Languages.Current.ID
 	-}}
+	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
 	<section id='{{- $lang.ID -}}' style='
 		margin-top: 5rem;
 		background: {{ $ret -}};
 		background-size: cover;
 		position: relative;
-		padding: var(--section-split-skew-height)
+		padding: var(--split-skew-height)
 				var(--main-padding-left)
-				calc(var(--section-split-skew-height)*2)
+				calc(var(--split-skew-height)*2)
 				var(--main-padding-right);
 	'>
-		<div class ='section-split-skew' style='
-			--section-split-skew-angle: to left bottom;
-			--section-split-skew-upper-background: var(--body-background);
-			--section-split-skew-lower-background: transparent;
+		<div class ='split skew' style='
+			--split-skew-angle: to left bottom;
+			--split-skew-upper-background: var(--body-background);
+			--split-skew-lower-background: transparent;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -233,13 +230,17 @@
 			</div>
 		</div>
 
-		<h2 style='margin-top: 0;'>{{- $lang.Title -}}</h2>
-		<p>{{- $lang.Description -}}</p>
+		<h2 style='margin-top: 0; color: #3c3c3c; text-align: center;'>
+			{{- $lang.Title -}}
+		</h2>
+		<p style='color: #3c3c3c; text-align: center;'>{{- $lang.Description -}}</p>
 
 		<div class='row' style='--grid-align-items: center;'>
 		{{- range $i, $v := $lang.Strengths -}}
 			<div class='column'>
-				<p style='margin: 2rem 0;'><b>{{- $v.Pitch -}}</b></p>
+				<p style='margin: 2rem 0; text-align: center; color: #3c3c3c'>
+					<b>{{- $v.Pitch -}}</b>
+				</p>
 			</div>
 		{{- end }}
 		</div>
@@ -247,24 +248,26 @@
 		<div class='row'>
 		{{- range $i, $v := $lang.Features -}}
 			<div class= 'column'><div class='tile' style='
-				--h3-margin: 0;
-				--picture-margin: 0;
-				--picture-padding: 0;
-				--tile-border-radius: .5rem;
+				border-radius: .5rem;
+				background: #fafafa;
 			'>
 				{{- if $v.Image -}}
 					{{- $ret = merge $Page (dict "Input"
 						(dict "Data" $v.Image)
 					) -}}
 					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-					{{- $ret = $ret.Output }}
-				<div class='thumbnail'>
+					{{- $ret = merge $ret.Output (dict
+						"Class" "thumbnail"
+					) -}}
 					{{ partial "hestiaMEDIA/ToHTML" $ret }}
-				</div>
 				{{- end }}
 				<div class='content'>
-					<h3>{{- $v.Pitch -}}</h3>
-					<p>{{- $v.Summary -}}</p>
+					<h3 style='color: #3c3c3c;'>
+						{{- $v.Pitch -}}
+					</h3>
+					<p style='color: #3c3c3c;'>
+						{{- $v.Summary -}}
+					</p>
 				</div>
 			</div></div>
 		{{- end }}
@@ -284,10 +287,10 @@
 			</div>
 		</div>
 
-		<div class ='section-split-skew' style='
-			--section-split-skew-angle: to right bottom;
-			--section-split-skew-upper-background: transparent;
-			--section-split-skew-lower-background: var(--body-background);
+		<div class ='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: transparent;
+			--split-skew-lower-background: var(--body-background);
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -307,20 +310,21 @@
 		$Page.Data.Store.Programming.Nim.Metadata.Languages
 		$Page.Languages.Current.ID
 	}}
+	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
 	<section id='{{- $lang.ID -}}' style='
 		margin-top: 5rem;
 		background: {{ $ret -}};
 		background-size: cover;
 		position: relative;
-		padding: var(--section-split-skew-height)
+		padding: var(--split-skew-height)
 				var(--main-padding-left)
-				calc(var(--section-split-skew-height)*2)
+				calc(var(--split-skew-height)*2)
 				var(--main-padding-right);
 	'>
-		<div class ='section-split-skew' style='
-			--section-split-skew-angle: to right bottom;
-			--section-split-skew-upper-background: var(--body-background);
-			--section-split-skew-lower-background: transparent;
+		<div class ='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: var(--body-background);
+			--split-skew-lower-background: transparent;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -331,13 +335,17 @@
 		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
 		{{- $ret = $ret.Output }}
 		{{ partial "hestiaMEDIA/ToHTML" $ret }}
-		<h2 style='margin-top: 0;'>{{- $lang.Title -}}</h2>
-		<p>{{- $lang.Description -}}</p>
+		<h2 style='margin-top: 0; text-align: center; color: #3c3c3c;'>
+			{{- $lang.Title -}}
+		</h2>
+		<p style='margin-top: 0; text-align: center; color: #3c3c3c;'>
+			{{- $lang.Description -}}
+		</p>
 
 		<div class='row'>
 		{{- range $i, $v := $lang.Strengths -}}
 			<div class='column'>
-				<p style='margin: 2rem 0;'>
+				<p style='margin: 2rem 0; color: #3c3c3c;'>
 					<b>{{- $v.Pitch -}}</b>
 				</p>
 			</div>
@@ -347,24 +355,22 @@
 		<div class='row'>
 		{{- range $i, $v := $lang.Features -}}
 			<div class= 'column'><div class='tile' style='
-				--h3-margin: 0;
-				--picture-margin: 0;
-				--picture-padding: 0;
-				--tile-border-radius: .5rem;
+				border-radius: .5rem;
+				background: #fafafa;
 			'>
 				{{- if $v.Image -}}
 					{{- $ret = merge $Page (dict "Input"
 						(dict "Data" $v.Image)
 					) -}}
 					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-					{{- $ret = $ret.Output }}
-				<div class='thumbnail'>
+					{{- $ret = merge $ret.Output (dict
+						"Class" "thumbnail"
+					) -}}
 					{{ partial "hestiaMEDIA/ToHTML" $ret }}
-				</div>
 				{{- end }}
 				<div class='content'>
-					<h3>{{- $v.Pitch -}}</h3>
-					<p>{{- $v.Summary -}}</p>
+					<h3 style='color: #3c3c3c;'>{{- $v.Pitch -}}</h3>
+					<p style='color: #3c3c3c;'>{{- $v.Summary -}}</p>
 				</div>
 			</div></div>
 		{{- end }}
@@ -373,8 +379,8 @@
 		<div class='row'>
 			<div class='column'>
 				<div class="note warning">
-					<input id="note-under-dev-go" type="checkbox" checked>
-					<label for="note-under-dev-go">
+					<input id="note-under-dev-nim" type="checkbox" checked>
+					<label for="note-under-dev-nim">
 						{{- $i18n.UnderConstruction.Title -}}
 					</label>
 					<p class="content">
@@ -399,20 +405,18 @@
 		$Page.Data.Store.Licenses.Apache2.Metadata.Languages
 		$Page.Languages.Current.ID
 	}}
+	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
 	<section id='{{- $lang.ID -}}' style='
 		background: {{ $ret -}};
 		background-size: cover;
 		position: relative;
-		padding: var(--section-split-skew-height)
-				var(--main-padding-left)
-				calc(var(--section-split-skew-height)*2)
-				var(--main-padding-right);
+		padding: 5rem var(--main-padding-left) 15rem var(--main-padding-right);
 	'>
-		<h2 class='clean' style='border: none; text-align: left;'>
+		<h2 class='clean' style='border: none; color: #3c3c3c;'>
 			{{- $lang.Title -}}
 		</h2>
 		{{- range $i, $v := $lang.Descriptions }}
-			<p style='margin-top: 2rem; font-size:1.8rem;'>
+			<p style='margin-top: 2rem; font-size:1.8rem; color: #3c3c3c;'>
 				<b>{{- $v.Pitch -}}</b>
 			</p>
 		{{- end }}
@@ -456,6 +460,10 @@
 			{{- $developers = merge $developers (dict $i $v) -}}
 		{{- end -}}
 	{{- end -}}
+	{{- $nav = append (dict
+		"ID" $i18n.Contributors.ID
+		"Label" $i18n.Contributors.Title
+	) $nav }}
 	<section id='{{- $i18n.Contributors.ID -}}'>
 		<h2>{{- $i18n.Contributors.Title -}}</h2>
 
@@ -610,30 +618,57 @@
 	</section>
 
 
+	{{- $nav = append (dict "ID" $i18n.Epilogue.ID "Label" $i18n.Epilogue.Title) $nav }}
 	{{- $ret = merge $Page (dict "Input" (dict "Data"
 		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
 	)) -}}
 	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-	{{- $ret = string $ret.Output -}}
+	{{- $ret = string $ret.Output }}
 	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
-		min-height: 20vh;
+		margin-top: 10rem;
 		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
-				no-repeat
-				fixed;
+			no-repeat
+			fixed;
 		background-position: center center;
 		background-size: cover;
 		padding-bottom: var(--main-padding-top);
 	'>
-		<h2>{{- $i18n.Epilogue.Title -}}</h2>
-		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<h2 style='color: #fafafa;'>{{- $i18n.Epilogue.Title -}}</h2>
+		<p style='color: #fafafa;'>{{- $i18n.Epilogue.Description -}}</p>
 		<br/>
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-		{{- $ret = string $ret.Output -}}
+		{{- $ret = string $ret.Output }}
 		<a href='{{- $ret -}}' class='button' style='
-			--button-color: green;
+			--button-color: white;
+			background: green;
+			border: none;
 		'>{{- $i18n.Epilogue.CTA -}}</a>
 	</section>
 </main>
 {{ partial "common/footer.html" $Page }}
+<nav class='right-drawer'>
+	<input id='nav-secondary-drawer' type='checkbox' />
+	<label class='trigger' for='nav-secondary-drawer'>
+		<span class='open'>§</span>
+		<span class='close'>𝖷</span>
+	</label>
+	<label class='overlay' for='nav-secondary-drawer'></label>
+
+
+	<div class='content'><div class='row' style='
+		margin-top: 6rem;
+		--grid-flex-direction: column;
+		--grid-gap: 30px;
+		--anchor-color: white;
+	'>
+		{{- range $i, $v := $nav }}
+		<div class='column'>
+			<a href='#{{- $v.ID -}}'
+				onclick='document.getElementById("nav-secondary-drawer").checked = false;'
+				class='prestige'>{{- $v.Label -}}</a>
+		</div>
+		{{- end }}
+	</div></div>
+</nav>
 {{ partial "common/nav-prime.html" $Page }}
