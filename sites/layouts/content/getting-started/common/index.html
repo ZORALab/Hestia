@@ -73,8 +73,8 @@
 		background-size: cover;
 		padding-bottom: var(--main-padding-top);
 	'>
-		<h2>{{- $i18n.Epilogue.Title -}}</h2>
-		<p>{{- $i18n.Epilogue.Description -}}</p>
+		<h2 style='color: #fafafa;'>{{- $i18n.Epilogue.Title -}}</h2>
+		<p style='color: #fafafa;'>{{- $i18n.Epilogue.Description -}}</p>
 		<br/>
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
