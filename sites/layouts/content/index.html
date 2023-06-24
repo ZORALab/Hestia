@@ -68,14 +68,14 @@
 				<div class='column'><div class='tile' style='
 					--tile-width: 35rem;
 				'>
-					<div class='thumbnail'>
 					{{- $ret = merge $Page (dict "Input"
 						(dict "Data" $v.Thumbnail)
 					) -}}
 					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-					{{- $ret = $ret.Output }}
+					{{- $ret = merge $ret.Output (dict
+						"Class" "thumbnail"
+					) -}}
 					{{ partial "hestiaMEDIA/ToHTML" $ret }}
-					</div>
 					<div class='content'>
 						<h3>{{- $lang.Name -}}</h3>
 						{{- range $j, $w := $lang.Descriptions }}
@@ -488,9 +488,9 @@
 				--card-border-radius: .5rem;
 			'>
 				{{- if $ret.Image -}}
-				<div class='thumbnail'>
-					{{ partial "hestiaMEDIA/ToHTML" $ret.Image }}
-				</div>
+					{{ partial "hestiaMEDIA/ToHTML" (merge $ret.Image
+						(dict "Class" "thumbnail")
+					) }}
 				{{- end }}
 				<div class='content'>
 					<h3>{{- $ret.Name -}}</h3>
@@ -538,9 +538,9 @@
 				--card-border-radius: .5rem;
 			'>
 				{{- if $ret.Image -}}
-				<div class='thumbnail'>
-					{{ partial "hestiaMEDIA/ToHTML" $ret.Image }}
-				</div>
+				{{ partial "hestiaMEDIA/ToHTML" (merge $ret.Image
+					(dict "Class" "thumbnail")
+				) }}
 				{{- end }}
 				<div class='content'>
 					<h3>{{- $ret.Name -}}</h3>
@@ -587,9 +587,9 @@
 				--card-border-radius: .5rem;
 			'>
 				{{- if $ret.Image -}}
-				<div class='thumbnail'>
-					{{ partial "hestiaMEDIA/ToHTML" $ret.Image }}
-				</div>
+					{{ partial "hestiaMEDIA/ToHTML" (merge $ret.Image
+						(dict "Class" "thumbnail")
+					) }}
 				{{- end }}
 				<div class='content'>
 					<h3>{{- $ret.Name -}}</h3>
