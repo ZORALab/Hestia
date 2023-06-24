@@ -14,7 +14,7 @@ while true; do
                 --port 8080 \
                 --renderToDisk \
                 --gc &
-        sleep 120
+        sleep 180
 done
 ################################################################################
 # Unix Main Codes                                                              #
@@ -36,7 +36,7 @@ hugo server --noBuildLock ^
         --port 8080 ^
         --renderToDisk ^
         --gc &
-timeout /t 120
+timeout /t 180
 goto loop
 ::##############################################################################
 :: Windows Main Codes                                                          #
