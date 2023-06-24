@@ -105,6 +105,10 @@ URL = '/en/specs'
 Title = "Technical Properties"
 URL = '/en/specs'
 
+[[Languages.EN.Items]]
+Title = "GUI Components"
+URL = '/en/specs/hestiagui/'
+
 
 
 
@@ -214,3 +218,7 @@ URL = '/zh-hans/specs'
 [[Languages.ZH-HANS.Items]]
 Title = "所有科技术性"
 URL = '/zh-hans/specs'
+
+[[Languages.ZH-HANS.Items]]
+Title = "GUI界面元件"
+URL = '/zh-hans/specs/hestiagui/'
