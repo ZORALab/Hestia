@@ -66,7 +66,9 @@ specific language governing permissions and limitations under the License.
 
 {{- /* initialize .Time data type */ -}}
 {{- if and (not $error) $dataList -}}
-	{{- $ret = split $dataList " " -}}
+	{{- $ret = strings.Replace $dataList "," "" -}}
+	{{- $ret = split $ret " " -}}
+
 	{{- if eq (len $ret) 7 -}}
 		{{- $data = dict
 			"Day" (index $ret 1)
@@ -75,7 +77,17 @@ specific language governing permissions and limitations under the License.
 			"Time" (index $ret 4)
 			"Zone" (index $ret 6)
 		-}}
+	{{- else if eq (len $ret) 6 -}}
+		{{- $data = dict
+			"Day" (index $ret 1)
+			"Month" (index $ret 2)
+			"Year" (index $ret 3)
+			"Time" (index $ret 4)
+			"Zone" (index $ret 5)
+		-}}
+	{{- end -}}
 
+	{{- if $data -}}
 		{{- if eq (upper $data.Month) "JAN" -}}
 			{{- $data = merge $data (dict "Month" "01") -}}
 		{{- else if eq (upper $data.Month) "FEB" -}}
@@ -104,7 +116,19 @@ specific language governing permissions and limitations under the License.
 			{{- $data = merge $data (dict "Month" "01") -}}
 		{{- end -}}
 
-		{{- $ret = printf "%s-%s-%sT%s%s:00"
+		{{- if not $data.Zone -}}
+			{{- $data = merge $data (dict
+				"Zone" "+0000"
+			) -}}
+		{{- else -}}
+			{{- range $i := seq (sub 5 (len $data.Zone)) -}}
+				{{- $data = merge $data (dict
+					"Zone" (printf "%s0" $data.Zone)
+				) -}}
+			{{- end -}}
+		{{- end -}}
+
+		{{- $ret = printf "%s-%s-%sT%s%s"
 			$data.Year
 			$data.Month
 			$data.Day

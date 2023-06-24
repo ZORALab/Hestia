@@ -3,13 +3,13 @@
 # Date fields.
 #
 # NOTE:
-#   1. You can generate date easily on linux using '$ date' command.
+#   1. You can generate date easily on linux using '$ date --rfc-email' command.
 #   2. If date field is left blank, the current time shall be used instead.
-#   3. Date should ONLY comply to this pattern when manually constructed:
-#                    Thu 21 Jul 2022 14:27:39 PM +08
+#   3. Date should ONLY comply to RFC5322 format when manually constructed:
+#                    Thu, 21 Jul 2022 14:27:39 +0800
 [Date]
-Created   = "Fri 16 Dec 2022 06:01:48 AM +08"
-Published = "Fri 16 Dec 2022 06:01:48 AM +08"
+Created   = "Fri, 16 Dec 2022 06:01:48 +0800"
+Published = "Fri, 16 Dec 2022 06:01:48 +0800"
 
 
 

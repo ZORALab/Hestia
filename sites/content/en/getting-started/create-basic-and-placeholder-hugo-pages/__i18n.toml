@@ -211,8 +211,8 @@ Code = """
 ...
 
 [Date]
-Created   = 'Sat 05 Mar 2023 11:22:21 AM +08'  # update to today's time obviously
-Published = 'Sat 05 Mar 2023 11:22:21 AM +08'  # update to today's time obviously
+Created   = 'Sat, 05 Mar 2023 11:22:21 +0800'  # update to today's time obviously
+Published = 'Sat, 05 Mar 2023 11:22:21 +0800'  # update to today's time obviously
 
 ...
 
