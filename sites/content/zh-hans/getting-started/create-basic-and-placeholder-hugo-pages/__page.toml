@@ -46,10 +46,10 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = '''
-Through creating simple pages, we learn how hestiaHUGO operates.
+通过建设简单的网页，我们学习hestiaHUGO如何运行。
 '''
 Summary = '''
-A step-by-step guide for hestiaHUGO — ZORALab's Hestia Hugo module from scratch.
+一个一步一步编好的ZORALab赫斯提亚Hugo从新设置指南。
 '''
 
 

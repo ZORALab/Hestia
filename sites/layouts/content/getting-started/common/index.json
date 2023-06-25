@@ -10,7 +10,10 @@ algorithms development.
 {{- $dataList := dict -}}
 {{- $i18n := .Data.Page.i18n -}}
 {{- $list := slice -}}
-{{- $data := dict -}}
+{{- $l2 := slice -}}
+{{- $l3 := slice -}}
+{{- $l4 := slice -}}
+{{- $media := false -}}
 {{- $ret := false -}}
 
 
@@ -18,58 +21,118 @@ algorithms development.
 
 {{- /* execute function */ -}}
 {{- $dataList = merge $dataList (dict
-	$i18n.Title .Titles.Page
-	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+	$i18n.Labels.Title .Titles.Page
+	$i18n.Labels.Description
+		(printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
 ) -}}
 
 
 
 
-{{- $list = slice -}}
-{{- range $i, $v := $i18n.Objectives.Outcomes -}}
-	{{- $list = append $v.Value $list -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict $i18n.Objectives.Title $list) -}}
+{{- /* render content */ -}}
+{{- $l2 = slice -}}
+{{- range $unused2, $h2 := $i18n.H2 -}}
+	{{- $l3 = slice -}}
+	{{- range $unused3, $h3 := $h2.H3 -}}
+		{{- $l4 = slice -}}
+		{{- range $unused4, $h4 := $h3.H4 -}}
+			{{- $list = slice -}}
+			{{- range $i, $v := $h4.URL -}}
+				{{- if and (not $v.Value) (not $v.Label) -}}
+					{{- continue -}}
+				{{- end -}}
+
+				{{- $ret = merge $Page (dict
+					"Input" (dict "Data" $v.Value)
+				) -}}
+				{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+				{{- $list = append (dict
+					$i18n.Labels.URL (string $ret.Output)
+					$i18n.Labels.Label $v.Label
+				) $list -}}
+			{{- end -}}
 
 
+			{{- $media = merge $Page (dict "Input" (dict "Data" $h4.Media)) -}}
+			{{- $media = partial "hestiaMEDIA/Sanitize" $media -}}
+			{{- $media = $media.Output -}}
 
 
-{{- $list = slice -}}
-{{- range $i, $v := $i18n.Steps -}}
-	{{- $ret = "" -}}
-	{{- if $v.Code -}}
-		{{- $ret = $v.Code -}}
+			{{- $l4 = append (dict
+				$i18n.Labels.Title $h4.Title
+				$i18n.Labels.Description $h4.Plain
+				$i18n.Labels.Code $h4.Code
+				$i18n.Labels.URL $list
+				$i18n.Labels.Media $media
+			) $l4 -}}
+		{{- end -}}
+
+
+		{{- $list = slice -}}
+		{{- range $i, $v := $h3.URL -}}
+			{{- if and (not $v.Value) (not $v.Label) -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- $ret = merge $Page (dict
+				"Input" (dict "Data" $v.Value)
+			) -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+			{{- $list = append (dict
+				$i18n.Labels.URL (string $ret.Output)
+				$i18n.Labels.Label $v.Label
+			) $list -}}
+		{{- end -}}
+
+
+		{{- $media = merge $Page (dict "Input" (dict "Data" $h3.Media)) -}}
+		{{- $media = partial "hestiaMEDIA/Sanitize" $media -}}
+		{{- $media = $media.Output -}}
+
+
+		{{- $l3 = append (dict
+			$i18n.Labels.Title $h3.Title
+			$i18n.Labels.Description $h3.Plain
+			$i18n.Labels.Code $h3.Code
+			$i18n.Labels.URL $list
+			$i18n.Labels.Content $l4
+			$i18n.Labels.Media $media
+		) $l3 -}}
 	{{- end -}}
 
 
-	{{- $data = dict
-		$i18n.Title $v.Title
-		$i18n.Description $v.Description
-		$i18n.Labels.Code $ret
-	-}}
+	{{- $list = slice -}}
+	{{- range $i, $v := $h2.URL -}}
+		{{- if and (not $v.Value) (not $v.Label) -}}
+			{{- continue -}}
+		{{- end -}}
 
-
-	{{- $ret = "" -}}
-	{{- if $v.URL -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.URL)) -}}
+		{{- $ret = merge $Page (dict
+			"Input" (dict "Data" $v.Value)
+		) -}}
 		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-		{{- $ret = string $ret.Output -}}
+		{{- $list = append (dict
+			$i18n.Labels.URL (string $ret.Output)
+			$i18n.Labels.Label $v.Label
+		) $list -}}
 	{{- end -}}
-	{{- $data = merge $data (dict $i18n.Labels.URL $ret) -}}
 
 
-	{{- $ret = dict -}}
-	{{- if $v.Image -}}
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Image)) -}}
-		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-		{{- $ret = $ret.Output -}}
-	{{- end -}}
-	{{- $data = merge $data (dict $i18n.Labels.Image $ret) -}}
+	{{- $media = merge $Page (dict "Input" (dict "Data" $h2.Media)) -}}
+	{{- $media = partial "hestiaMEDIA/Sanitize" $media -}}
+	{{- $media = $media.Output -}}
 
 
-	{{- $list = append $data $list -}}
+	{{- $l2 = append (dict
+		$i18n.Labels.Title $h2.Title
+		$i18n.Labels.Description $h2.Plain
+		$i18n.Labels.Code $h2.Code
+		$i18n.Labels.URL $list
+		$i18n.Labels.Content $l3
+		$i18n.Labels.Media $media
+	) $l2 -}}
 {{- end -}}
-{{- $dataList = merge $dataList (dict $i18n.Labels.Guides $list) -}}
+{{- $dataList = merge $dataList (dict $i18n.Labels.Content $l2) -}}
 
 
 
