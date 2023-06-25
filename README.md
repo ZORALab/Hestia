@@ -1,7 +1,7 @@
 # ZORALab's Hestia
 [![Banner](artworks/logos/zoralab-hestia-1200x630.svg)](https://hestia.zoralab.com)
 
-Frontend+Backend in One Peaceful Suite; by Developers; for Developers.
+One Peaceful Frontend+Backend Library Suite; by Developers, for Developers.
 
 The project is to unify all common libraries and data structure into 1 single
 repository for highest attributes of reusablity, smoother learning curves, and a
