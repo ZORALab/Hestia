@@ -40,7 +40,7 @@ Plain = '''
 Usage example:
 '''
 Code = '''
-fmt.printf("%#v\n", .Vendors.ZORALab.Hestia.Version)
+{{- warnf "%#v\n" .Vendors.ZORALab.Hestia.Version -}}
 '''
 
 [[EN.List.SubList.URL]]
@@ -57,7 +57,7 @@ Plain = '''
 用法：
 '''
 Code = '''
-warnf("%#v\n", .Vendors.ZORALab.Hestia.Version)
+{{- warnf "%#v\n" .Vendors.ZORALab.Hestia.Version -}}
 '''
 
 [[ZH-HANS.List.SubList.URL]]
