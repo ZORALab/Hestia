@@ -1,0 +1,154 @@
+[[Assets]]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v2.0.0/hestiaHUGO-v2.0.0.zip'
+Label = 'hestiaHUGO-v2.0.0.zip'
+
+[Assets.SHA512]
+Value = '...'
+Label = 'SHA512'
+
+[Assets.GPG]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v2.0.0/hestiaHUGO-v2.0.0.zip.asc'
+
+
+
+
+[Metadata]
+ID = 'v2.0.0'
+URL = 'v2p0p0'
+BackwardCompatible = true
+Development = true
+Latest = false
+Retired = false
+
+
+
+
+[Metadata.Languages.EN]
+Title = 'Version 2.0.0'
+Summary = '''
+Major patches against version 1.2.0. Its main focus are enabling pure WASM web
+frontend development.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+
+
+[Metadata.Languages.ZH-HANS]
+Title = '2.2.0版'
+Summary = '''
+针对1.2.0版大型补丁。它的主要工程是提供完全WASM运作功能。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Coming soon.
+'''
+Plain = '''
+Comming soon.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+将会来临。
+'''
+Plain = '''
+将会来临。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.jpg"
+Type = "image/jpg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.jpg"
+Type = "image/jpg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

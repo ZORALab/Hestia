@@ -49,7 +49,7 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = '''
-The release note about ZORALab's Hestia version v1.2.0 technical specification.
+The release note about ZORALab's Hestia technical specification.
 '''
 Summary = '''
 Readily available for download securely.

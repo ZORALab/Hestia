@@ -49,7 +49,7 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = '''
-ZORALab赫斯提亚v1.0.0版的发行说明。
+ZORALab赫斯提亚的发行说明。
 '''
 Summary = '''
 随时可以安全地下载。

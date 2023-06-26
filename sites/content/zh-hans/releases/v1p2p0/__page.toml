@@ -21,7 +21,7 @@ Published = 'Thu, 01 Jun 2023 11:21:10 +0800'
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "ZORALab赫斯提亚v1.2.0版发行说明"
+Title = "ZORALab赫斯提亚的发行说明"
 Keywords = [
 	'v1.2.0',
 	'发行说明',

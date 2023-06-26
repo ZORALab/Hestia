@@ -2,7 +2,7 @@ name = "ZORALab's Hestia"
 license = "Apache-2.0"
 licenselink = "https://hestia.zoralab.com/en/license/"
 description = """
-One peaceful library for building infinite possibilities - ZORALab's Hestia
+One Peaceful Frontend+Backend Library Suite; by Developers, for Developers.
 """
 homepage = "https://hestia.zoralab.com/"
 tags = [
@@ -31,7 +31,7 @@ features = [
         "JSON Data-Driven Capable",
         "PWA Offline Mode Supports",
 ]
-min_version = "0.101.0"
+min_version = "0.111.3"
 
 authors = [
 	{name = "ZORALab Enterprise", homepage = "https://www.zoralab.com"},

@@ -8,8 +8,8 @@
 #   3. Date should ONLY comply to RFC5322 format when manually constructed:
 #                    Thu, 21 Jul 2022 14:27:39 +0800
 [Date]
-Created   = 'Fri, 24 Feb 2023 11:55:22 +0800'
-Published = 'Fri, 24 Feb 2023 11:55:22 +0800'
+Created   = 'Mon, 26 Jun 2023 07:49:41 +0800'
+Published = 'Mon, 26 Jun 2023 07:49:41 +0800'
 
 
 
@@ -21,21 +21,21 @@ Published = 'Fri, 24 Feb 2023 11:55:22 +0800'
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "ZORALab赫斯提亚v1.1.0版发行说明"
+Title = "ZORALab's Hestia v2.0.0 Release Note"
 Keywords = [
-	'v1.1.0',
-	'发行说明',
-	'网站',
-	'科技',
+	'v2.0.0',
+	'Release Note',
+	'Web',
+	'Tech',
 	'PWA',
 	'WASM',
-	'代码库',
+	'Software Libraries',
 	'Hugo',
 	'Go',
 	'TinyGo',
 	'Nim',
 	'ZORALab',
-	'ZORALab赫斯提亚',
+	"ZORALab's Hestia",
 ]
 
 
@@ -49,10 +49,10 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = '''
-ZORALab赫斯提亚的发行说明。
+The release note about ZORALab's Hestia technical specification.
 '''
 Summary = '''
-随时可以安全地下载。
+Readily available for download securely.
 '''
 
 

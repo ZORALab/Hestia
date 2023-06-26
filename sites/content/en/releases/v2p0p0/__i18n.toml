@@ -1,0 +1,89 @@
+[i18n]
+Title = 'Title'
+Description = 'Description'
+Version = 'v2p0p0'
+
+
+
+
+[i18n.Labels]
+Assets = 'Assets'
+Statement = 'Statement'
+References = 'References'
+Notes = 'Notes'
+Status = 'Status'
+BackwardCompatible = 'Backward Compatible'
+Development = 'Development'
+Retired = 'Retired'
+Latest = 'Latest'
+
+
+
+
+[i18n.Introduction]
+ID = 'introduction'
+Title = 'Introduction'
+
+
+
+
+[i18n.Notices.NonBackwardCompatible]
+Title = 'WARNING: NOT BACKWARD COMPATIBLE'
+Text = '''
+This release contains non-backward compatible implementations. Use with extreme
+care.
+'''
+
+
+[i18n.Notices.Development]
+Title = 'IMPORTANT: UNDER DEVELOPMENT'
+Text = '''
+This release is still under development and is subjected to change.
+'''
+
+
+[i18n.Notices.Retired]
+Title = 'WARNING: Retired Package'
+Text = '''
+This release is retired and will no longer be supported. Please use the latest.
+'''
+
+
+
+
+[i18n.Downloads]
+ID = 'downloads'
+Title = 'All Available Downloads'
+Description = '''
+All available downloads for using ZORALab's Hestia with this version:
+'''
+Package = 'Package'
+Certificate = 'Certificate'
+GPGKey = 'GPG Key'
+SHA512 = 'SHA512'
+Download = 'Download'
+
+
+
+
+[i18n.Highlights]
+ID = 'highlights'
+Title = 'Notable Highlights'
+Description = '''
+Some notable changes you should know before deploying into your project. They
+are organized based on technological grouping in a non-chornological manner.
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+We have reach the end of the release note for this version of
+ZORALab's Hestia Project. If you have any query, please feel free to contact us
+at our following portal:
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub Discussion Portal'

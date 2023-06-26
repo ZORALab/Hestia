@@ -3,7 +3,7 @@ URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.0/hestiaHUGO-v1.
 Label = 'hestiaHUGO-v1.2.0.zip'
 
 [Assets.SHA512]
-Value = 'TBD'
+Value = '4ef05bfaeafc09778cff470dc1eee5a73e5c6f07d91bce78ee5ae3c95fb0bfa3338bae682ca2b0782eff16cf77573a7223b4b959c0af86fe4574baf376bdc0c3'
 Label = 'SHA512'
 
 [Assets.GPG]
@@ -16,8 +16,8 @@ URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.0/hestiaHUGO-v1.
 ID = 'v1.2.0'
 URL = 'v1p2p0'
 BackwardCompatible = false
-Development = true
-Latest = false
+Development = false
+Latest = true
 Retired = false
 
 

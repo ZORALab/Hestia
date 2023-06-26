@@ -8,8 +8,8 @@
 #   3. Date should ONLY comply to RFC5322 format when manually constructed:
 #                    Thu, 21 Jul 2022 14:27:39 +0800
 [Date]
-Created   = 'Fri, 24 Feb 2023 11:55:22 +0800'
-Published = 'Fri, 24 Feb 2023 11:55:22 +0800'
+Created   = 'Mon, 26 Jun 2023 07:49:41 +0800'
+Published = 'Mon, 26 Jun 2023 07:49:41 +0800'
 
 
 
@@ -21,9 +21,9 @@ Published = 'Fri, 24 Feb 2023 11:55:22 +0800'
 #   2. For .Keywords, Hestia's string processing using page variables are
 #      allowed but strongly discouraged.
 [Content]
-Title = "ZORALab赫斯提亚v1.1.0版发行说明"
+Title = "ZORALab赫斯提亚v2.0.0版发行说明"
 Keywords = [
-	'v1.1.0',
+	'v2.0.0',
 	'发行说明',
 	'网站',
 	'科技',

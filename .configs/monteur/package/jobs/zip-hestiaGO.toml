@@ -10,10 +10,10 @@ Type = 'manual'
 
 [Variables]
 Product = 'hestiaGO'
-LicenseSourcePath = 'licenses/hestia-software-license.pdf'
+LicenseSourcePath = 'hestia-software-license.pdf'
 
 [FMTVariables]
-LicenseSourceDir = '{{- .RootDir -}}/sites/content'
+LicenseSourceDir = '{{- .RootDir -}}/sites/static/docs/licenses'
 PackageDir = '{{- .WorkingDir -}}/{{- .Product -}}'
 
 
@@ -75,7 +75,7 @@ Source = 'cp -r "{{- .RootDir -}}/{{- .Product -}}"/* "{{- .PackageDir -}}/."'
 Name = 'Copy English License File into Packaging Directory'
 Type = 'copy'
 Condition = [ 'all-all' ]
-Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}'
+Source = '{{- .LicenseSourceDir -}}/{{- .LicenseSourcePath -}}'
 Target = '{{- .PackageDir -}}/License-en.pdf'
 
 
@@ -83,7 +83,7 @@ Target = '{{- .PackageDir -}}/License-en.pdf'
 Name = 'Copy English License Signature File into Packaging Directory'
 Type = 'copy'
 Condition = [ 'all-all' ]
-Source = '{{- .LicenseSourceDir -}}/en/{{- .LicenseSourcePath -}}.asc'
+Source = '{{- .LicenseSourceDir -}}/{{- .LicenseSourcePath -}}.asc'
 Target = '{{- .PackageDir -}}/License-en.pdf.asc'
 
 
