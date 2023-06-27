@@ -5,7 +5,7 @@ ID = 'hestia'
 Version = 'v1.2.0'
 Category = 'devel'
 Suite = ''
-Abstract = 'one peaceful frontend+backend library suite by devs for devs'
+Abstract = 'One Peaceful Frontend+Backend Software Library Suite.'
 Description = """
 ZORALab's Hestia focuses on unifying all common libraries and data structure
 into 1 single repository for highest attributes of reusablity, smoother learning

@@ -1,15 +1,20 @@
 # ZORALab's Hestia
 [![Banner](artworks/logos/zoralab-hestia-1200x630.svg)](https://hestia.zoralab.com)
 
-One Peaceful Frontend+Backend Library Suite; by Developers, for Developers.
+One Peaceful Frontend+Backend Software Library Suite.
 
 The project is to unify all common libraries and data structure into 1 single
 repository for highest attributes of reusablity, smoother learning curves, and a
 more wholesome tools alignments. Develop and learn advanced products easily with
 less worries about supply chain problems.
 
-Visit the [Official Website](https://hestia.zoralab.com) for its documentations,
-getting started guides, and etc.
+Visit the official Website for its live deployment, documentations,
+getting started guides, and etc!
+
+| Language          | URL                                |
+|:------------------|:-----------------------------------|
+| English (Global)  | https://hestia.zoralab.com/en      |
+| 华语（国际）      | https://hestia.zoralab.com/zh-hans |
 
 
 
@@ -17,7 +22,7 @@ getting started guides, and etc.
 ## Why It Matters
 This project was initiated primarily because of:
 
-1. **Resolve supply chain threats** caused by geo-political nuisance, dirty
+1. **Be done with supply chain threats** caused by geo-political nuisance, dirty
    after the fact shenanigans, or cut-throat charges.
 2. **Simple to integrate** with a simple `zip` archive format + its GPG
    cryptography signature for integrity checking.

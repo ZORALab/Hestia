@@ -46,7 +46,7 @@ Keywords = [
 #   3. The .Description.Summary is at maximum of 250 characters.
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
-Pitch = 'One Peaceful Frontend+Backend Library Suite; by Developers, for Developers.'
+Pitch = 'One Peaceful Frontend+Backend Software Library Suite.'
 Summary = """\
 The project is to unify all common libraries and data structure into 1 single
 repository for highest attributes of reusablity, smoother learning curves, and a
