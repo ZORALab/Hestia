@@ -299,13 +299,14 @@ form input[type='checkbox'] + *:after {
 	grid-area: toggle;
 
 	position: relative;
-	top: 0;
 
 	transition: var(--form-switchbox-timing);
+	transform: translateY(-50%);
 }
 
 form input[type='checkbox'] + *:before {
 	left: 0;
+	top: 50%;
 
 	border-radius: calc(var(--form-switchbox-toggle-width) / 2);
 
@@ -320,7 +321,8 @@ form input[type='checkbox']:checked + *:before {
 }
 
 form input[type='checkbox'] + *:after {
-	left: 5%;
+	left: 6%;
+	top: 40%;
 
 	border-radius: 50%;
 
@@ -332,7 +334,7 @@ form input[type='checkbox'] + *:after {
 }
 
 form input[type='checkbox']:checked + *:after {
-	left: 55%;
+	left: 54%;
 }
 
 form input[type='radio'] + * {
