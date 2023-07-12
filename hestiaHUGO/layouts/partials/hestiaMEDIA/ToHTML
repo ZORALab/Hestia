@@ -61,7 +61,7 @@ specific language governing permissions and limitations under the License.
 {{- if $isVideo -}}
 <video {{- if $media.ID }} id='{{- $media.ID -}}' {{- end }}
 	{{ if $media.Class -}} class='{{- $media.Class -}}' {{- end }}
-	{{ if $media.Style -}} style='{{- $media.Style -}}' {{- end }}
+	{{ if $media.Style -}} style='{{- safeCSS $media.Style -}}' {{- end }}
 	{{ if $media.Decorative -}} aria-hidden="true" {{- end }}
 	{{ if $media.Autoplay -}} autoplay {{- end }}
 	{{ if $media.Control -}} controls {{- end }}
@@ -90,7 +90,7 @@ specific language governing permissions and limitations under the License.
 {{- else if $isImage -}}
 <picture {{- if $media.ID }} id='{{- $media.ID -}}' {{- end }}
 	{{ if $media.Class -}} class='{{- $media.Class -}}' {{- end }}
-	{{ if $media.Style -}} style='{{- $media.Style -}}' {{- end }}
+	{{ if $media.Style -}} style='{{- safeCSS $media.Style -}}' {{- end }}
 	{{ if $media.Decorative -}} aria-hidden="true" {{- end }} />
 
 
@@ -123,7 +123,7 @@ specific language governing permissions and limitations under the License.
 {{- else if $isAudio -}}
 <audio {{- if $media.ID }} id='{{- $media.ID -}}' {{- end }}
 	{{ if $media.Class -}} class='{{- $media.Class -}}' {{- end }}
-	{{ if $media.Style -}} style='{{- $media.Style -}}' {{- end }}
+	{{ if $media.Style -}} style='{{- safeCSS $media.Style -}}' {{- end }}
 	{{ if $media.Decorative -}} aria-hidden="true" {{- end }}
 	{{ if $media.Autoplay -}} autoplay {{- end }}
 	{{ if $media.Control -}} controls {{- end }}
