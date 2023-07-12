@@ -39,15 +39,17 @@ table :is(th, td) {
 	padding: var(--table-cell-padding);
 }
 
-table thead th {
+table :is(thead, tbody) :is(th, th code, th pre) {
 	color: var(--table-color-header);
+}
+
+table thead th {
 	background: var(--table-background-header-row);
 }
 
 table tbody th {
 	border: var(--table-cell-border);
 
-	color: var(--table-color-header);
 	background: var(--table-background-header-column);
 }
 
