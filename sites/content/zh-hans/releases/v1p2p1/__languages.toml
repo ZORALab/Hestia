@@ -1,0 +1,25 @@
+# AVAILABLE TRANSLATION PAGES
+# ===========================
+# Data pattern:
+#                [{[code]}{-[Script]}{-[COUNTRY]}]
+#                URL = "[URL]"
+# Examples:
+#                [en]
+#                URL = "/en/my-page-here/"
+#
+#                [zh-Hans]
+#                URL = "/zh-hans/我的网站这儿/"
+#
+# NOTE:
+#   1. The language code **MUST** be one of the Hestia site-level languages.
+#      Otherwise, error shall be thrown.
+#   2. If you need to use external pages, set the internal page's settings to
+#      redirect immediately towards it.
+#   3. If the URL is left empty (""), that translation page is disabled.
+#   4. Hestia compatible URL (ONLY .Languages data structure is usable) can
+#      be accepted in the .Lang.URL fields (see example above).
+[en]
+URL = '/en/releases/v1p2p1/'
+
+[zh-Hans]
+URL = '/zh-hans/releases/v1p2p1/'

@@ -17,8 +17,8 @@ ID = 'v1.2.0'
 URL = 'v1p2p0'
 BackwardCompatible = false
 Development = false
-Latest = true
-Retired = false
+Latest = false
+Retired = true
 
 
 

@@ -1,0 +1,383 @@
+[[Assets]]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.1/hestiaHUGO-v1.2.1.zip'
+Label = 'hestiaHUGO-v1.2.1.zip'
+
+[Assets.SHA512]
+Value = '0dd3d1325024c0a1149f52dcf2649b681e48652202481e67f0c751ee1665682e9dc13b9715d006c5d25f395e32b96aeee78d8d347fc17d9f6ba9429fb242029c'
+Label = 'SHA512'
+
+[Assets.GPG]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.1/hestiaHUGO-v1.2.1.zip.asc'
+
+
+
+
+[Metadata]
+ID = 'v1.2.1'
+URL = 'v1p2p1'
+BackwardCompatible = true
+Development = false
+Latest = true
+Retired = false
+
+
+
+
+[Metadata.Languages.EN]
+Title = 'Version 1.2.1'
+Summary = '''
+Minor patches against version 1.2.0.
+Its main focus are to patch some small bug fixes related to deployed UI components.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+
+
+[Metadata.Languages.ZH-HANS]
+Title = '1.2.1版'
+Summary = '''
+针对1.2.0版小型补丁。它的主要工程是解决一些已经开发的界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>zoralabTABLE</code>'s header when it is using <code>code</code> and
+<code>pre</code>.
+'''
+Plain = '''
+Fixed **zoralabTABLE**'s header when it is using 'code' and 'pre'.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/385'
+Label = 'GitHub Issue#385'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决<code>zoralabTABLE</code>的header运用<code>code</code>和<code>pre</code>
+的界面设计问题。
+'''
+Plain = '''
+解决**zoralabTABLE**的header运用'code'和'pre'的界面设计问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/385'
+Label = 'GitHub问题#385'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>zoralabDEBUGGER</code> UI component's close button animation bug.
+'''
+Plain = '''
+Fixed **zoralabDEBUGGER*** UI component's close button animation bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/386'
+Label = 'GitHub Issue#386'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决<code>zoralabDEBUGGER</code>界面元件的关扭动画问题。
+'''
+Plain = '''
+解决**zoralabDEBUGGER**界面元件的关扭动画问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/386'
+Label = 'GitHub问题#386'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Adjusted font color to avoid grey color.
+'''
+Plain = '''
+Adjusted font color to avoid grey color.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/387'
+Label = 'GitHub Issue#387'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+改换字体的颜色深度（离开灰色）。
+'''
+Plain = '''
+改换字体的颜色深度（离开灰色）。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/387'
+Label = 'GitHub问题#387'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>hestiaMEDIA.ToHTML</code> to render inline <code>style=</code>
+value bug.
+'''
+Plain = '''
+Fixed **hestiaMEDIA.ToHTML** to render inline 'style=' value bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/388'
+Label = 'GitHub Issue#388'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决<code>hestiaMEDIA.ToHTML</code>去渲染<code>style=</code>值的问题。
+'''
+Plain = '''
+解决**hestiaMEDIA.ToHTML**去渲染'style='值的问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/388'
+Label = 'Github问题#388'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>zoralabFORM</code>'s toggle checkbox animation and design bug.
+'''
+Plain = '''
+Fixed **zoralabFORM**'s toggle checkbox animation and design bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/389'
+Label = 'GitHub Issue#389'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决掉<code>zoralabFORM</code>开关扭的动态和界面设计问题。
+'''
+Plain = '''
+解决掉**zoralabFORM**开关扭的动态和界面设计问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/389'
+Label = 'GitHub问题#389'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed LD+JSON <code>breadcrumb</code> data rendering bug for
+<code>WebPage</code> data structure.
+'''
+Plain = '''
+Fixed LD+JSON **breadcrumb** data rendering bug for **WebPage** data structure.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/391'
+Label = 'GitHub Issue#391'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决掉LD+JSON的<code>WebPage</code>数据构架的<code>breadcrumb</code>数据处理的问题。
+'''
+Plain = '''
+解决掉LD+JSON的**WebPage**数据构架的**breadcrumb**数据处理的问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/391'
+Label = 'GitHub问题#391'
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>zoralabBUTTON</code> and <code>zoralabANCHOR</code> content overflow
+behavior.
+'''
+Plain = '''
+Fixed **zoralabBUTTON** and **zoralabANCHOR** content overflow behavior.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/398'
+Label = 'GitHub Issue#398'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决掉<code>zoralabBUTTON</code>和<code>zoralabANCHOR</code>内容溢出处理方式。
+'''
+Plain = '''
+解决掉**zoralabBUTTON**和**zoralabANCHOR**内容溢出处理方式。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/398'
+Label = 'GitHub问题#398'
+
+
+
+
+[[Metadata.Languages.EN.Go.Highlights]]
+HTML = '''
+No change.
+'''
+Plain = '''
+No change.
+'''
+
+[[Metadata.Languages.EN.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights]]
+HTML = '''
+没有改变。
+'''
+Plain = '''
+没有改变。
+'''
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Nim.Highlights]]
+HTML = '''
+No change.
+'''
+Plain = '''
+No change.
+'''
+
+[[Metadata.Languages.EN.Nim.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Nim.Highlights]]
+HTML = '''
+没有改变。
+'''
+Plain = '''
+没有改变。
+'''
+
+[[Metadata.Languages.ZH-HANS.Nim.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.jpg"
+Type = "image/jpg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.jpg"
+Type = "image/jpg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
