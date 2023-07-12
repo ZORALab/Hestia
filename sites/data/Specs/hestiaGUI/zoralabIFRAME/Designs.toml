@@ -155,6 +155,52 @@ Label = ''
 
 
 [[EN.List.SubList]]
+Title = 'Responsive HTML'
+HTML = '''
+The responsive HTML codes are shown below:
+'''
+Plain = '''
+The responsive HTML codes are shown below:
+'''
+Code = '''
+<iframe ...
+	width="100%"
+	style="aspect-ratio: [WIDTH]/[HEIGHT];"
+>
+	...
+</iframe>
+'''
+
+[[EN.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+[[ZH-HANS.List.SubList]]
+Title = '环境响应的HTML'
+HTML = '''
+环境响应的HTML代码运用方法如下：
+'''
+Plain = '''
+环境响应的HTML代码运用方法如下：
+'''
+Code = '''
+<iframe ...
+	width="100%"
+	style="aspect-ratio: [WIDTH]/[HEIGHT];"
+	...
+>
+	...
+</iframe>
+'''
+
+[[ZH-HANS.List.SubList.URL]]
+Value = ''
+Label = ''
+
+
+
+[[EN.List.SubList]]
 Title = 'Hidden iFrame HTML'
 HTML = '''
 The hidden iframe HTML codes are shown below:
