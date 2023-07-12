@@ -36,18 +36,22 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare breadcrumb as WebPage has such a field */ -}}
 {{- $breadcrumb = dict -}}
 {{- if len $Page.Nav.Parents -}}
-	{{- $breadcrumb = "" -}}
+	{{- $breadcrumb = slice -}}
 	{{- range $i, $v := $Page.Nav.Parents -}}
-		{{- if $i -}}
-			{{- $breadcrumb = printf "%s, " $breadcrumb -}}
-		{{- end -}}
-
-		{{- $breadcrumb = printf "%s%s" $breadcrumb -}}
+		{{- $breadcrumb = append (dict
+			"@type" "ListItem"
+			"item" (dict
+				"@type" "Thing"
+				"name" $v.Titles.Page
+				"url" (string $v.URL.Current.Absolute)
+			)
+			"position" (add 1 (int $i))
+		) $breadcrumb -}}
 	{{- end -}}
 	{{- $breadcrumb = dict
 		"@type" "BreadcrumbList"
 		"itemListElement" $breadcrumb
-		"itemListOrder" "Descending"
+		"itemListOrder" "Ascending"
 		"numberOfItems" (len $Page.Nav.Parents)
 	-}}
 {{- end -}}
