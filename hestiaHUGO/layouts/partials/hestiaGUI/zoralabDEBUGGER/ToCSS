@@ -269,11 +269,13 @@ specific language governing permissions and limitations under the License.
 
 #zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-header
 	form button:is(:hover, :focus) {
-	border: var(--zoralab-hestia-debugger-border-focus) !important;
+	border: none !important;
 
 	color: var(--zoralab-hestia-debugger-color-focus) !important;
 	background: transparent !important;
 	box-shadow: var(--zoralab-hestia-debugger-box-shadow) !important;
+
+	transform: scale(1.5) !important;
 }
 
 #zoralab-hestia-debugger-console .zoralab-hestia-debugger-console-selector {
@@ -283,6 +285,7 @@ specific language governing permissions and limitations under the License.
 	justify-content: center !important;
 	align-items: center !important;
 	flex-direction: row !important;
+	flex-wrap: wrap !important;
 
 	font-family: var(--zoralab-hestia-debugger-font-family) !important;
 	font-size: 20pt !important;
