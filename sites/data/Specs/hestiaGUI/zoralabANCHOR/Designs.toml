@@ -1119,7 +1119,7 @@ Affects the word breaking behavior of the rendered component.
 Code = '''
 VARIABLE     : --anchor-word-break
 CSS PROPERTY : word-break
-DEFAULT      : break-word (>= v1.2.0)
+DEFAULT      : REMOVED (>= v1.2.1) break-word (== v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1138,7 +1138,7 @@ Plain = '''
 Code = '''
 变化值     : --anchor-word-break
 CSS属性    : word-break
-默认数码   : break-word (>= v1.2.0)
+默认数码   : 删除没用了 (>= v1.2.1) break-word (== v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -1158,7 +1158,7 @@ Affects the word breaking behavior of the rendered component.
 Code = '''
 VARIABLE     : --anchor-word-break
 CSS PROPERTY : word-break
-DEFAULT      : break-word (>= v1.2.0)
+DEFAULT      : REMOVED (>= v1.2.1) break-word (== v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -1177,7 +1177,7 @@ Plain = '''
 Code = '''
 变化值     : --anchor-word-break
 CSS属性    : word-break
-默认数码   : break-word (>= v1.2.0)
+默认数码   : 删除没用了 (>= v1.2.1) break-word (== v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

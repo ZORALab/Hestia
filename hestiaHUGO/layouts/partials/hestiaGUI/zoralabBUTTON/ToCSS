@@ -32,7 +32,6 @@ button, .button {
 	text-decoration: var(--button-text-decoration);
 	text-transform: var(--button-text-transform);
 	overflow-wrap: var(--button-overflow-wrap);
-	word-break: var(--button-word-break);
 	line-height: var(--button-line-height);
 
 	color: var(--button-color);

@@ -698,7 +698,7 @@ Affects the word breaking behavior of the rendered component.
 Code = '''
 VARIABLE     : --button-word-break
 CSS PROPERTY : word-break
-DEFAULT      : normal (>= v1.2.0)
+DEFAULT      : REMOVED (>= v1.2.1) normal (== v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -717,7 +717,7 @@ Plain = '''
 Code = '''
 变化值     : --button-word-break
 CSS属性    : word-break
-默认数码   : normal (>= v1.2.0)
+默认数码   : 删除没用了 (>= v1.2.1) normal (== v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]
@@ -737,7 +737,7 @@ Affects the overflow wrapping behavior of the rendered component.
 Code = '''
 VARIABLE     : --button-overflow-wrap
 CSS PROPERTY : overflow-wrap
-DEFAULT      : normal (>= v1.2.0)
+DEFAULT      : break-word (>= v1.2.1) normal (== v1.2.0)
 '''
 
 [[EN.List.SubList.URL]]
@@ -756,7 +756,7 @@ Plain = '''
 Code = '''
 变化值     : --button-overflow-wrap
 CSS属性    : overflow-wrap
-默认数码   : normal (>= v1.2.0)
+默认数码   : break-word (>= v1.2.1) normal (== v1.2.0)
 '''
 
 [[ZH-HANS.List.SubList.URL]]

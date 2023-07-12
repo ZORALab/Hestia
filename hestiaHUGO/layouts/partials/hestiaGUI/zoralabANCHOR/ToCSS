@@ -41,7 +41,6 @@ a {
 	text-decoration: var(--anchor-text-decoration);
 	text-transform: var(--anchor-text-transform);
 	overflow-wrap: var(--anchor-overflow-wrap);
-	word-break: var(--anchor-word-break);
 	letter-spacing: var(--anchor-letter-spacing);
 	line-height: var(--anchor-line-height);
 	text-align: var(--anchor-text-align);
@@ -86,7 +85,6 @@ a.prestige {
 @media print {
 	a {
 		overflow-wrap: var(--anchor-overflow-wrap-print) !important;
-		word-break: var(--anchor-overflow-word-break) !important;
 
 		color: var(--anchor-color-print) !important;
 		border-color: var(--anchor-color-print) !important;
