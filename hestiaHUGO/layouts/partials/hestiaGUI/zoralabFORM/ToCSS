@@ -297,16 +297,18 @@ form input[type='checkbox'] + *:before,
 form input[type='checkbox'] + *:after {
 	content: '';
 	grid-area: toggle;
+	align-self: start;
 
 	position: relative;
+	top: 50%;
 
 	transition: var(--form-switchbox-timing);
+
 	transform: translateY(-50%);
 }
 
 form input[type='checkbox'] + *:before {
 	left: 0;
-	top: 50%;
 
 	border-radius: calc(var(--form-switchbox-toggle-width) / 2);
 
@@ -322,7 +324,6 @@ form input[type='checkbox']:checked + *:before {
 
 form input[type='checkbox'] + *:after {
 	left: 6%;
-	top: 40%;
 
 	border-radius: 50%;
 
@@ -330,7 +331,6 @@ form input[type='checkbox'] + *:after {
 	min-height: calc((var(--form-switchbox-toggle-width) / 2)*.8);
 
 	background: white;
-
 }
 
 form input[type='checkbox']:checked + *:after {
