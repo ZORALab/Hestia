@@ -1,0 +1,86 @@
+[i18n]
+Title = '标题'
+Description = '大纲'
+Version = 'v1p2p2'
+
+
+
+
+[i18n.Labels]
+Assets = '资产'
+Statement = '陈述'
+References = '引用'
+Notes = '笔记'
+Status = '状况'
+BackwardCompatible = '向后兼容'
+Development = '开发'
+Retired = '退化'
+Latest = '最新'
+
+
+
+
+[i18n.Introduction]
+ID = '自介'
+Title = '自介'
+
+
+
+
+[i18n.Notices.NonBackwardCompatible]
+Title = '提警: 不向后兼容'
+Text = '''
+这个发行有不向后兼容的实现开发。请小心运用。
+'''
+
+
+[i18n.Notices.Development]
+Title = '重要:还正在开发'
+Text = '''
+这个发行还正在开发着。一切内容还是会被更改的。
+'''
+
+
+[i18n.Notices.Retired]
+Title = '提警: 已经退化了'
+Text = '''
+这个发行已经退化了。我们是不再支持了。请用最新的版本吧。
+'''
+
+
+
+
+[i18n.Downloads]
+ID = '下载'
+Title = '所有的下载软件包'
+Description = '''
+所有这个ZORALab赫斯提亚版本可下载的软件包：
+'''
+Package = '软件包'
+Certificate = '检验文凭'
+GPGKey = 'GPG钥匙'
+SHA512 = 'SHA512'
+Download = '下载'
+
+
+
+
+[i18n.Highlights]
+ID = '亮点'
+Title = '值得注意的亮点'
+Description = '''
+这些是这个工程版本值得注意的亮点。它们是为科技种类而被整理成的菜单。
+'''
+
+
+
+
+[i18n.Epilogue]
+ID = '终结'
+Title = '终结'
+Description = '''
+我们已经抵达这个ZORALab赫斯提亚版本的发行说明的终结段了。如有询问，您是可以通过
+以下管道来联系我们吧：
+'''
+URL = 'https://github.com/ZORALab/Hestia/discussions'
+CTA = 'GitHub讨论论坛'

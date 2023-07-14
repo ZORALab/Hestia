@@ -2,7 +2,7 @@
 Name = 'Hestia'
 Command = 'hestia'
 ID = 'hestia'
-Version = 'v1.2.1'
+Version = 'v1.2.2'
 Category = 'devel'
 Suite = ''
 Abstract = 'One Peaceful Frontend+Backend Software Library Suite.'

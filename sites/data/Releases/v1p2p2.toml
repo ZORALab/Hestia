@@ -1,0 +1,210 @@
+[[Assets]]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.2/hestiaHUGO-v1.2.2.zip'
+Label = 'hestiaHUGO-v1.2.2.zip'
+
+[Assets.SHA512]
+Value = '14a7689475b1646c76000e6cf242d572c0ccada0c8c630cff133033632c6fef405dd9581a745ad9b2654eb621b549924d23203fd19e64e95f8c6eea708b76cd2'
+Label = 'SHA512'
+
+[Assets.GPG]
+URL = 'https://github.com/ZORALab/Hestia/releases/download/v1.2.2/hestiaHUGO-v1.2.2.zip.asc'
+
+
+
+
+[Metadata]
+ID = 'v1.2.2'
+URL = 'v1p2p2'
+BackwardCompatible = true
+Development = false
+Latest = true
+Retired = false
+
+
+
+
+[Metadata.Languages.EN]
+Title = 'Version 1.2.2'
+Summary = '''
+Minor patches against version 1.2.1.
+Its main focus are to patch some small bug fixes related to deployed UI components.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+
+
+[Metadata.Languages.ZH-HANS]
+Title = '1.2.2版'
+Summary = '''
+针对1.2.1版小型补丁。它的主要工程是解决一些已经开发的界面元件。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Hugo.Highlights]]
+HTML = '''
+Fixed <code>zoralabFORM</code>'s toggle button vertical alignment bug.
+'''
+Plain = '''
+Fixed **zoralabFORM**'s toggle button vertical alignment bug.
+'''
+
+[[Metadata.Languages.EN.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/403'
+Label = 'GitHub Issue#403'
+
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights]]
+HTML = '''
+解决<code>zoralabFORM</code>的开关扭高度自动调整的问题。
+'''
+Plain = '''
+解决**zoralabFORM**的开关扭高度自动调整的问题。
+'''
+
+[[Metadata.Languages.ZH-HANS.Hugo.Highlights.URL]]
+Value = 'https://github.com/ZORALab/Hestia/issues/403'
+Label = 'GitHub问题#403'
+
+
+
+
+[[Metadata.Languages.EN.Go.Highlights]]
+HTML = '''
+No change.
+'''
+Plain = '''
+No change.
+'''
+
+[[Metadata.Languages.EN.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights]]
+HTML = '''
+没有改变。
+'''
+Plain = '''
+没有改变。
+'''
+
+[[Metadata.Languages.ZH-HANS.Go.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[[Metadata.Languages.EN.Nim.Highlights]]
+HTML = '''
+No change.
+'''
+Plain = '''
+No change.
+'''
+
+[[Metadata.Languages.EN.Nim.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+[[Metadata.Languages.ZH-HANS.Nim.Highlights]]
+HTML = '''
+没有改变。
+'''
+Plain = '''
+没有改变。
+'''
+
+[[Metadata.Languages.ZH-HANS.Nim.Highlights.URL]]
+Value = ''
+Label = ''
+
+
+
+
+[Image]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.avif"
+Type = "image/avif"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.webp"
+Type = "image/webp"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-1200x1200.jpg"
+Type = "image/jpg"
+Media = "(min-width: 600px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.avif"
+Type = "image/avif"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.webp"
+Type = "image/webp"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-480x480.jpg"
+Type = "image/jpg"
+Media = "(min-width: 300px)"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.avif"
+Type = "image/avif"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.webp"
+Type = "image/webp"
+Media = "all"
+Descriptor = '1x'
+
+[[Image.Sources]]
+URL = "/img/thumbnails/zoralab-hestia-releases-220x220.jpg"
+Type = "image/jpg"
+Media = "all"
+Descriptor = '1x'
+
+
+[Image.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false
