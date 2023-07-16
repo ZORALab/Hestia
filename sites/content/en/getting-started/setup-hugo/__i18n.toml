@@ -18,7 +18,8 @@ Title = 'Introduction'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'learning-objectives'
 Title = 'Learning Objectives'
 HTML = '''
@@ -40,14 +41,11 @@ At the end of this tutorial, you will learn:
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understanding-the-hestiahugo-way'
 Title = 'Understanding The hestiaHUGO Way'
 HTML = '''
@@ -96,14 +94,11 @@ Code = '''
    supply our own data type+value sanitization functions.
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'download-the-latest-package'
 Title = 'Download the Latest Package'
 HTML = '''
@@ -119,14 +114,15 @@ looking for 'hestiaHUGO'.
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = 'Releases Portal'
+[[i18n.Content.URL]]
 Value = '/en/releases'
+Label = 'Releases Portal'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'check-package-integrity'
 Title = 'Check the Package Integrity'
 HTML = '''
@@ -164,11 +160,7 @@ SHA512 hash of hestiaHUGO-vNNNN.zip:
 [HASHED_VALUE]
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
-
-[i18n.H2.Media]
+[i18n.Content.Media]
 Name = "Screenshot of Comparing SHASUM Values"
 Decorative = false
 Loading = 'lazy'
@@ -184,55 +176,55 @@ Loop = false
 Mute = false
 Inline = false
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.avif"
 Type = "image/avif"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.webp"
 Type = "image/webp"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.avif"
 Type = "image/avif"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.webp"
 Type = "image/webp"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.avif"
 Type = "image/avif"
 Media = "(max-width: 299px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.webp"
 Type = "image/webp"
 Media = "(max-width: 299px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.jpg"
 Type = "image/jpeg"
 Media = "(max-width: 299px)"
@@ -241,7 +233,8 @@ Descriptor = '1x'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'setup-git-repository'
 Title = 'Setup Git Repository'
 HTML = '''
@@ -271,14 +264,11 @@ DemoHestia/
             └── ... all other content ...
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'setup-hugo-config-directory'
 Title = 'Setup Hugo Config Directory'
 HTML = '''
@@ -314,14 +304,11 @@ DemoHestia/
             └── ... all theme content ...
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'configure-hugo'
 Title = 'Configure Hugo'
 HTML = '''
@@ -384,14 +371,11 @@ i18nDir = "i18n"
 ...
 '''
 
-[[i18n.H2.URL]]
-Label = 'Hugo Config Manual'
-Value = 'https://gohugo.io/getting-started/configuration/'
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'start-hugo-server'
 Title = 'Start Hugo Server'
 HTML = '''
@@ -413,14 +397,11 @@ $ cd sites/         # if you haven't do so
 $ ./server.cmd
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'visit-preview-url'
 Title = 'Visit the Preview URL Site'
 HTML = '''
@@ -438,14 +419,11 @@ At this stage, you got a working Hugo repo with hestiaHUGO set nicely.
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'git-commit'
 Title = 'Git Commit'
 HTML = '''
@@ -480,14 +458,11 @@ Signed-off-by: Smith, John ❬john.smith@email.com❭
 $ git push
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'about-updating-hestiaHUGO'
 Title = 'About Updating hestiaHUGO'
 HTML = '''
@@ -517,21 +492,24 @@ DemoHestia/
             └── ...
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[i18n.Epilogue]
-ID = 'epilogue'
-Title = 'Epilogue'
-Description = '''
-Congrats! We have reach the end of this tutorial. At this point, you now have a
-fully functional hestiaHUGO equipped Hugo repository for your frontend website
-or web application construction. Please feel free to take notes before
-proceeding to the next tutorial:
+[[i18n.Content]]
+Level = 2
+ID = 'whats-next'
+Title = "What's Next?"
+HTML = '''
+Now that we had completed the hestiaHUGO setup, the next step is to create a
+simple page. Here's the URL for the next step.
 '''
-URL = '/en/getting-started/create-basic-and-placeholder-hugo-pages'
-CTA = 'Create Basic and Placeholder Hugo Pages'
+Plain = '''
+Now that we had completed the hestiaHUGO setup, the next step is to create a
+simple page. Here's the URL for the next step.
+'''
+Code = '''
+'''
+
+[[i18n.Content.URL]]
+Value = '/en/getting-started/create-basic-and-placeholder-hugo-pages/'
+Label = 'Create Basic and Placeholder Hugo Pages'

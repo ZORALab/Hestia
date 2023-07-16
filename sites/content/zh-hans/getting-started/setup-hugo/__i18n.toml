@@ -18,7 +18,8 @@ Title = '自介'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '学习目标'
 Title = '学习目标'
 HTML = '''
@@ -39,14 +40,10 @@ Plain = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'hestiaHUGO方式'
 Title = 'hestiaHUGO方式'
 HTML = '''
@@ -89,14 +86,10 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '下载最新的包装'
 Title = '下载最新的包装'
 HTML = '''
@@ -111,14 +104,15 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = '下载购物中心'
+[[i18n.Content.URL]]
 Value = '/zh-hans/releases'
+Label = '下载购物中心'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '检查包装完整性'
 Title = '检查包装完整性'
 HTML = '''
@@ -153,12 +147,7 @@ SHA512 hash of hestiaHUGO-vNNNN.zip:
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
-
-
-[i18n.H2.Media]
+[i18n.Content.Media]
 Name = "SHASUM数据比较的屏幕截图"
 Decorative = false
 Loading = 'lazy'
@@ -174,55 +163,55 @@ Loop = false
 Mute = false
 Inline = false
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.avif"
 Type = "image/avif"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.webp"
 Type = "image/webp"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-600x600.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.avif"
 Type = "image/avif"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.webp"
 Type = "image/webp"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-400x400.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.avif"
 Type = "image/avif"
 Media = "(max-width: 299px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.webp"
 Type = "image/webp"
 Media = "(max-width: 299px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/setup-hugo/check-package-integrity-220x220.jpg"
 Type = "image/jpeg"
 Media = "(max-width: 299px)"
@@ -231,7 +220,8 @@ Descriptor = '1x'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '设置git代码库'
 Title = '设置Git代码库'
 HTML = '''
@@ -261,14 +251,10 @@ DemoHestia/
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '设置hugo系统文件夹'
 Title = '设置hugo系统文件夹'
 HTML = '''
@@ -302,14 +288,10 @@ DemoHestia/
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '配置hugo'
 Title = '配置Hugo'
 HTML = '''
@@ -370,14 +352,10 @@ i18nDir = "i18n"
 '''
 
 
-[[i18n.H2.URL]]
-Label = 'Hugo配置指南手册'
-Value = 'https://gohugo.io/getting-started/configuration/'
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '开动Hugo服务器'
 Title = '开动Hugo服务器'
 HTML = '''
@@ -398,14 +376,10 @@ $ ./server.cmd
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '观光服务器的URL链接地址'
 Title = '观光服务器的URL链接地址'
 HTML = '''
@@ -421,14 +395,11 @@ Plain = '''
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'git-commit'
 Title = 'Git Commit'
 HTML = '''
@@ -463,14 +434,10 @@ $ git push
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '有关更新hestiaHUGO'
 Title = '有关更新hestiaHUGO'
 HTML = '''
@@ -498,19 +465,21 @@ DemoHestia/
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[i18n.Epilogue]
-ID = '终结'
-Title = '终结'
-Description = '''
-恭喜！我们也到了这个指南的终结了。在这点，您已经有一份拥有hestiaHUGO的Hugo代码库
-了。请随时点记。当您准备好时，我们就进入下一个指南吧：
+[[i18n.Content]]
+Level = 2
+ID = '下一步'
+Title = "下一步？"
+HTML = '''
+现在hestiaHUGO已经设好了，下一步是建设简单的网页。以下是下一步的URL链接：
 '''
-URL = '/zh-hans/getting-started/create-basic-and-placeholder-hugo-pages'
-CTA = '建设简单和占位符性的Hugo网页'
+Plain = '''
+现在hestiaHUGO已经设好了，下一步是建设简单的网页。以下是下一步的URL链接：
+'''
+Code = '''
+'''
+
+[[i18n.Content.URL]]
+Value = '/zh-hans/getting-started/create-basic-and-placeholder-hugo-pages/'
+Label = '建设简单和占位符性的Hugo网页'

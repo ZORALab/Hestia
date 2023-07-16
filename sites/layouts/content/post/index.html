@@ -1,0 +1,94 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $nav := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+<main style='padding-bottom: 0;'>
+	{{- $nav = append (dict
+		"ID" $i18n.Introduction.ID
+		"Label" $i18n.Introduction.Title
+	) $nav -}}
+	<section id='{{- $i18n.Introduction.ID -}}'>
+		<h1>{{- .Titles.Page -}}</h1>
+		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
+	</section>
+
+
+	{{- range $unused, $v := $i18n.Content -}}
+		{{- $nav = append (dict "ID" $v.ID "Label" $v.Title) $nav }}
+	<section id='{{- $v.ID -}}'>
+		{{- if eq $v.Level 2 }}
+		<h2>{{- $v.Title -}}</h2>
+		{{- else if eq $v.Level 3 }}
+		<h3>{{- $v.Title -}}</h3>
+		{{- else if eq $v.Level 4 }}
+		<h4>{{- $v.Title -}}</h4>
+		{{- else if eq $v.Level 5 }}
+		<h5>{{- $v.Title -}}</h5>
+		{{- else if eq $v.Level 6 }}
+		<h6>{{- $v.Title -}}</h6>
+		{{- else }}
+		<p>{{- $v.Title -}}</p>
+		{{- end }}
+		<p>{{- $v.HTML -}}</p>
+
+		{{- range $j, $w := $v.URL }}
+			{{- if and (not $w.Value) (not $w.Label) -}}
+				{{- continue -}}
+			{{- end -}}
+
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+			{{- $ret = partial "hestiaURL/Sanitize" $ret }}
+		<a href='{{- string $ret.Output -}}' class='button'>{{- $w.Label -}}</a>
+		{{- end }}
+
+		{{- if $v.Code }}
+		<pre>{{- htmlEscape $v.Code -}}</pre>
+		{{- end }}
+
+		{{- if $v.Media }}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Media)) -}}
+			{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+			{{- $ret = $ret.Output }}
+		{{ partial "hestiaMEDIA/ToHTML" $ret }}
+		{{- end }}
+	</section>
+	{{- end }}
+
+
+	{{- $lang = index $Page.Data.Store.Epilogue $Page.Languages.Current.ID -}}
+	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
+	{{- partial "common/epilogue.html" $Page -}}
+</main>
+{{ partial "common/footer.html" $Page }}
+<nav class='right-drawer'>
+	<input id='nav-secondary-drawer' type='checkbox' />
+	<label class='trigger' for='nav-secondary-drawer'>
+		<span class='open'>§</span>
+		<span class='close'>𝖷</span>
+	</label>
+	<label class='overlay' for='nav-secondary-drawer'></label>
+
+
+	<div class='content'><div class='row' style='
+		margin-top: 6rem;
+		--grid-flex-direction: column;
+		--grid-gap: 30px;
+		--anchor-color: white;
+	'>
+		{{- range $i, $v := $nav }}
+		<div class='column'>
+			<a href='#{{- $v.ID -}}'
+				onclick='document.getElementById("nav-secondary-drawer").checked = false;'
+				class='prestige'>{{- $v.Label -}}</a>
+		</div>
+		{{- end }}
+	</div></div>
+</nav>
+{{ partial "common/nav-prime.html" $Page }}

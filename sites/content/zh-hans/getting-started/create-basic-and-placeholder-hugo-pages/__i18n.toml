@@ -18,7 +18,8 @@ Title = '自介'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '学习目标'
 Title = '学习目标'
 HTML = '''
@@ -44,14 +45,10 @@ Plain = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '先决条件'
 Title = '先决条件'
 HTML = '''
@@ -65,14 +62,15 @@ Hugo代码库。不然的话，那就请先完整之前的指南才会来这点�
 Code = ''
 
 
-[[i18n.H2.URL]]
-Label = '设置拥有hestiaHUGO的Hugo'
+[[i18n.Content.URL]]
 Value = '/zh-hans/getting-started/setup-hugo/'
+Label = '设置拥有hestiaHUGO的Hugo'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo如何处理URL地址和文件系统'
 Title = '了解hestiahugo如何处理URL地址和文件系统'
 HTML = '''
@@ -117,14 +115,10 @@ content/zh-hans/releases/v1-2-0/my-file.zip (https://hestia.zoralab.com/zh-hans/
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '制造hugo的content文件夹'
 Title = '制造Hugo的Content文件夹'
 HTML = '''
@@ -157,14 +151,10 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '建设占位符性的网页'
 Title = '建设占位符性的网页'
 HTML = '''
@@ -193,14 +183,11 @@ $ hugo new --kind hestia [filesystem path]
 $ hugo new --kind hestia content/zh-hans
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo如何处理网页的设置'
 Title = '了解hestiahugo如何处理网页的设置'
 HTML = '''
@@ -247,14 +234,11 @@ __twitter.toml           ➤ 这网页的推特设置
 __wasm.toml              ➤ 这网页的WASM设置
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '更新page-toml'
 Title = '更新__page.toml'
 HTML = '''
@@ -293,14 +277,11 @@ Summary = '''
 ...
 """
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'git-commit占位符性的网页'
 Title = 'Git Commit占位符性的网页'
 HTML = '''
@@ -332,14 +313,15 @@ Signed-off-by: Name <EMAIL>
 $ git push
 '''
 
-[[i18n.H2.URL]]
-Label = 'Git手册书'
+[[i18n.Content.URL]]
 Value = 'https://git-scm.com/book/zh/v2'
+Label = 'Git手册书'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '为404网页建设重复所学的技巧'
 Title = '为404网页建设重复所学的技巧'
 HTML = '''
@@ -360,14 +342,11 @@ Code = '''
 (3) $ git add .
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '更新网页推特的设置'
 Title = '更新网页推特的设置'
 HTML = '''
@@ -391,14 +370,11 @@ Handle = 'yourTwitterHandle'    # 有没有@都可以
 ...
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '更新擦寻机械器指南设置'
 Title = '更新擦寻机械器指南设置'
 HTML = '''
@@ -423,14 +399,11 @@ Name = 'robots'
 Content = 'noindex, nofollow'
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '更新网页的语言设置'
 Title = '更新网页的语言设置'
 HTML = '''
@@ -452,14 +425,11 @@ Code = '''
 URL = '/zh-hans/404'
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo如何处理URL'
 Title = '了解hestiahugo如何处理URL'
 HTML = '''
@@ -499,14 +469,16 @@ Code = '''
 输出     : https://hestia.zoralab.com/default-path/this-page/my-page
 '''
 
-[[i18n.H2.URL]]
-Label = 'RFC3986 URL规范'
+
+[[i18n.Content.URL]]
 Value = 'https://www.rfc-editor.org/rfc/rfc3986'
+Label = 'RFC3986 URL规范'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '开发网页的HTML内容模型'
 Title = '开发网页的HTML内容模型'
 HTML = '''
@@ -554,14 +526,11 @@ Code = '''
 </main>
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo如何处理网页数据'
 Title = '了解hestiaHUGO如何处理网页数据'
 HTML = '''
@@ -582,11 +551,8 @@ Plain = '''
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
-[i18n.H2.Image]
+[i18n.Content.Image]
 Name = "调试器控制台的屏幕截图"
 Decorative = false
 Loading = 'lazy'
@@ -602,55 +568,55 @@ Loop = false
 Mute = false
 Inline = false
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-600x600.avif"
 Type = "image/avif"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-600x600.webp"
 Type = "image/webp"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-600x600.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-400x400.avif"
 Type = "image/avif"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-400x400.webp"
 Type = "image/webp"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-400x400.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-220x220.avif"
 Type = "image/avif"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-220x220.webp"
 Type = "image/webp"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-220x220.jpg"
 Type = "image/jpeg"
 Media = "all"
@@ -659,7 +625,8 @@ Descriptor = '1x'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo的数据路径'
 Title = '了解hestiahugo的数据路径'
 HTML = '''
@@ -690,14 +657,15 @@ __data.toml + __i18n.toml + ...   (切记: 跟着__page.toml的[[Data]]数组菜
      {{- .Field.[...] -}}
 '''
 
-[[i18n.H2.URL]]
-Label = 'hestiaHUGO.Page数据架构规范'
+[[i18n.Content.URL]]
 Value = '/zh-hans/specs/hestiacompilers/hestiahugo/'
+Label = 'hestiaHUGO.Page数据架构规范'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo如何授权hugo'
 Title = '了解hestiaHUGO如何授权Hugo'
 HTML = '''
@@ -721,14 +689,15 @@ API规范官方文件。为了这份指南，我们会向前走。待会阅读�
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = '规范'
+[[i18n.Content.URL]]
 Value = '/zh-hans/specs'
+Label = '规范'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '开发网页的界面造型元件菜单'
 Title = '开发网页的界面造型元件菜单'
 HTML = '''
@@ -771,14 +740,11 @@ Include = true
 Variables = []
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiaHUGO如何处理网页造型'
 Title = '了解hestiaHUGO如何处理网页造型'
 HTML = '''
@@ -802,14 +768,15 @@ HTML代码里。那编制出的HTML文件是AMP最初设想自给自足而不再
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = '界面造型元件规范菜单'
+[[i18n.Content.URL]]
 Value = '/zh-hans/specs/hestiagui'
+Label = '界面造型元件规范菜单'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiaHUGO为何集装每个网页的造型'
 Title = '了解hestiaHUGO为何集装每个网页的造型'
 HTML = '''
@@ -828,14 +795,11 @@ Plain = '''
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiaHUGO如何操作界面元件'
 Title = '了解hestiaHUGO如何操作界面元件'
 HTML = '''
@@ -863,14 +827,11 @@ Variables = [
 ...
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解ZORALab赫斯提亚为何只专注HTML和CSS造型而已'
 Title = "了解ZORALab赫斯提亚为何只专注HTML和CSS造型而已"
 HTML = '''
@@ -906,14 +867,11 @@ JS构架和我们的WASM是完全没用但是游客还是要网站可以依然�
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解zoralab和javascript关系'
 Title = '了解zoralab和JavaScript关系'
 HTML = '''
@@ -933,14 +891,11 @@ ZORALab坚决地要迎面地解决这JavaScript的问题啦。我们不是讨厌
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo的未来'
 Title = '了解hestiaHUGO的未来'
 HTML = '''
@@ -966,14 +921,11 @@ Plain = '''
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '通过css再更改进化网页造型'
 Title = '通过CSS再更改进化网页造型'
 HTML = '''
@@ -1030,14 +982,11 @@ main {
 }
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '通过javascript更新进化网页'
 Title = '通过JavaScript更新进化网页'
 HTML = '''
@@ -1061,11 +1010,11 @@ window.onload = function() {
 };
 '''
 
-[[i18n.H2.URL]]
-Label = ''
+[[i18n.Content.URL]]
 Value = ''
+Label = ''
 
-[i18n.H2.Image]
+[i18n.Content.Image]
 Name = "猫喵喵在浏览器的检查器控制台里叫的截图"
 Decorative = false
 Loading = 'lazy'
@@ -1081,55 +1030,55 @@ Loop = false
 Mute = false
 Inline = false
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-600x600.avif"
 Type = "image/avif"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-600x600.webp"
 Type = "image/webp"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-600x600.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-400x400.avif"
 Type = "image/avif"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-400x400.webp"
 Type = "image/webp"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-400x400.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-220x220.avif"
 Type = "image/avif"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-220x220.webp"
 Type = "image/webp"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-220x220.jpg"
 Type = "image/jpeg"
 Media = "all"
@@ -1138,7 +1087,8 @@ Descriptor = '1x'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '为seo更新ldjson数据'
 Title = '为SEO更新LD+JSON数据'
 HTML = '''
@@ -1172,14 +1122,15 @@ Code = '''
 ...
 '''
 
-[[i18n.H2]]
-Label = 'LD+JSON验证室'
+[[i18n.Content.URL]]
 Value = 'https://validator.schema.org/'
+Label = 'LD+JSON验证室'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiahugo如何处理ldjson'
 Title = '了解hestiaHUGO如何处理LD+JSON'
 HTML = '''
@@ -1201,14 +1152,15 @@ Plain = '''
 Code = '''
 '''
 
-[[i18n.H2]]
-Label = 'Schema.org Data Structures'
+[[i18n.Content.URL]]
 Value = 'https://schema.org/docs/full.html'
+Label = 'Schema.org Data Structures'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '暂存当前的状态'
 Title = '暂存当前的状态'
 HTML = '''
@@ -1224,14 +1176,11 @@ Code = '''
 $ git add .
 '''
 
-[[i18n.H2]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '制造json的输出内容'
 Title = '制造JSON的输出内容'
 HTML = '''
@@ -1255,14 +1204,11 @@ hestiaHUGO在默认情况下支持JSON为同时第二输出内容。这是hestia
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '了解hestiaHUGO为何默认情况支持JSON输出内容'
 Title = '了解hestiaHUGO为何默认情况支持JSON输出内容'
 HTML = '''
@@ -1300,14 +1246,11 @@ JSON输出内容，您可以完全不碰那__content.hestiaJSON文件。
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '提交和推送'
 Title = '提交和推送'
 HTML = '''
@@ -1328,14 +1271,11 @@ $ git commit -s
 $ git push
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = '记得hestiaHUGO的强点'
 Title = '记得hestiaHUGO的强点'
 HTML = '''
@@ -1357,19 +1297,24 @@ Plain = '''
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[i18n.Epilogue]
-ID = '终结'
-Title = '终结'
-Description = '''
-恭喜！我们也到了这个指南的终结了。在这点，您已经为您的前端网站建设了一份可以运用
-的’/zh-hans/404‘网页了。请随时点记。当您准备好时，我们就进入下一个指南吧：
+[[i18n.Content]]
+Level = 2
+ID = '下一步'
+Title = "下一步？"
+HTML = '''
+现在您明白如何制作简单的网页了，下一步是如何从一开始就支持多语言系统。
+以下是下一步的URL链接：
 '''
-URL = 'url-redirection-in-hugo'
-CTA = '在Hugo里重定向链接URL地址'
+Plain = '''
+现在您明白如何制作简单的网页了，下一步是如何从一开始就支持多语言系统。
+以下是下一步的URL链接：
+'''
+Code = '''
+'''
+
+[[i18n.Content.URL]]
+Value = '/zh-hans/getting-started/using-multilingual-pages-from-the-get-go/'
+Label = '从一开始就运用多语言系统'

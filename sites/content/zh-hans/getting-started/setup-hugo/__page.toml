@@ -85,16 +85,16 @@ Enabled = false
 #   2. If you're sourcing from static directory, prefix 'static/'.
 #   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
 [Sources]
-HTML = 'layouts/content/getting-started/common/index.html'
-JSON = 'layouts/content/getting-started/common/index.json'
-CSS = 'layouts/content/getting-started/common/index.css'
-JS = 'layouts/content/getting-started/common/index.js'
+HTML = 'layouts/content/post/index.html'
+JSON = 'layouts/content/post/index.json'
+CSS = 'layouts/content/post/index.css'
+JS = 'layouts/content/post/index.js'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
-Assets = 'layouts/content/getting-started/common/assets.toml'
-Components = 'layouts/content/getting-started/common/components.toml'
+Assets = 'layouts/content/post/assets.toml'
+Components = 'layouts/content/post/components.toml'
 
 
 
@@ -117,8 +117,5 @@ Components = 'layouts/content/getting-started/common/components.toml'
 #
 #                             [[data]]
 #                             Filename = 'file2.toml'
-[[Data]]
-Filename = '__data.toml'
-
 [[Data]]
 Filename = '__i18n.toml'
