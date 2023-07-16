@@ -1,0 +1,31 @@
+[Content.Languages.EN]
+ID = 'epilogue'
+Title = 'Epilogue'
+Description = '''
+Looks like we have arrived to the last station. Intrigued to get in touch?
+Please feel free to start contacting us via the following public channels:
+'''
+
+
+[Content.Languages.ZH-HANS]
+ID = '终结'
+Title = '终结'
+Description = '''
+我们已经抵达终结段落了。如有询问，您是可以通过以下管道来联系我们吧：
+'''
+
+
+
+
+[[Content.Languages.EN.URL]]
+Value = 'https://github.com/ZORALab/Hestia/discussions'
+Label = 'GitHub Discussion Portal'
+Color = 'white'
+Background = 'black'
+
+
+[[Content.Languages.ZH-HANS.URL]]
+Value = 'https://github.com/ZORALab/Hestia/discussions'
+Label = 'GitHub论坛'
+Color = 'white'
+Background = 'black'

@@ -1,0 +1,43 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $lang := index $Page.Data.Store.Epilogue.Content.Languages $Page.Languages.Current.ID -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- $ret = strings.TrimRight "/" $Page.URL.Base -}}
+{{- $ret = printf "%s/%s" $ret "/img/backgrounds/matrix-cube-lorenzo-verzini.svg" }}
+	<section id='{{- $lang.ID -}}' class='inverted' style='
+		margin-top: 10rem;
+		background: url({{- $ret -}}),
+				linear-gradient(to top,#0ccda3,#9618f7)
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2 style='color: #fafafa;'>{{- $lang.Title -}}</h2>
+		<p style='color: #fafafa;'>{{- $lang.Description -}}</p>
+		<br/>
+{{- range $unused, $v := $lang.URL }}
+	{{- if not (or $v.Value $v.Label) }}
+		{{- continue -}}
+	{{- end }}
+
+	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Value)) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output }}
+		<a href='{{- $ret -}}' class='button' style='
+			{{- if $v.Color }}
+			--button-color: {{ $v.Color -}};
+			{{- end }}
+			{{- if $v.Background }}
+			background: {{ $v.Background -}};
+			{{- end }}
+			border: none;
+		'>{{- $v.Label -}}</a>
+{{- end }}
+	</section>
