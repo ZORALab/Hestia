@@ -7,6 +7,7 @@ URL = 'URL'
 Media = 'Media'
 Content = 'Content'
 Label = 'Label'
+Level = 'Level'
 
 
 
@@ -18,7 +19,8 @@ Title = 'Introduction'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'learning-objectives'
 Title = 'Learning Objectives'
 HTML = '''
@@ -44,14 +46,11 @@ At the end of this tutorial, you will learn:
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'prerequisite'
 Title = 'Prerequisite'
 HTML = '''
@@ -66,14 +65,15 @@ Otherwise, please complete that lesson and then revert back to this piece:
 '''
 Code = ''
 
-[[i18n.H2.URL]]
-Label = 'Setup Hugo Tutorial'
+[[i18n.Content.URL]]
 Value = '/en/getting-started/setup-hugo/'
+Label = 'Setup Hugo Tutorial'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiahugo-manage-url-with-filesystem'
 Title = 'Understand How hestiaHUGO Manage URL with Filesystem'
 HTML = '''
@@ -118,14 +118,11 @@ content/en/releases/v1-2-0/index.json (https://hestia.zoralab.com/en/releases/v1
 content/en/releases/v1-2-0/my-file.zip (https://hestia.zoralab.com/en/releases/v1-2-0/my-file.zip)
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'create-hugo-content-directory'
 Title = "Create Hugo's Content Directory"
 HTML = '''
@@ -160,14 +157,11 @@ Code = '''
 	> server.cmd       # refer pervious tutorial if you had forgotten
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'create-placeholder-page'
 Title = 'Create Placeholder Page'
 HTML = '''
@@ -197,14 +191,11 @@ COMMAND
 $ hugo new --kind hestia content/en
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiaHUGO-manages-page-configurations'
 Title = 'Understand How hestiaHUGO Manages Page Configurations'
 HTML = '''
@@ -252,14 +243,11 @@ __twitter.toml           ➤ the page's Twitter configuration for sharing
 __wasm.toml              ➤ the page's WASM configurations
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'update-page-toml'
 Title = 'Update the __page.toml'
 HTML = '''
@@ -300,14 +288,11 @@ Will be back later.
 ...
 """
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'git-commit-placeholder-page'
 Title = 'Git Commit Placeholder Page'
 HTML = '''
@@ -341,14 +326,15 @@ Signed-off-by: Name <EMAIL>
 $ git push
 '''
 
-[[i18n.H2.URL]]
-Label = 'Git Manual'
+[[i18n.Content.URL]]
 Value = 'https://git-scm.com/book/en/v2'
+Label = 'Git Manual'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'repeat-for-404-page'
 Title = 'Repeat Page Creation for 404 Page'
 HTML = '''
@@ -370,14 +356,11 @@ HINT
 (3) $ git add .
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'update-page-level-twitter-settings'
 Title = 'Update Page-level Twitter Settings'
 HTML = '''
@@ -401,14 +384,11 @@ Handle = 'yourTwitterHandle'    # with or without @ is ok
 ...
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'update-page-level-robots-settings'
 Title = 'Update Page-level Robots Settings'
 HTML = '''
@@ -435,14 +415,11 @@ Name = 'robots'
 Content = 'noindex, nofollow'
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'update-page-level-language-settings'
 Title = 'Update Page-level Languages Settings'
 HTML = '''
@@ -468,14 +445,11 @@ URL = '/en/404'
 ...
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiahugo-process-url'
 Title = 'Understand How hestiaHUGO Process URL'
 HTML = '''
@@ -517,14 +491,15 @@ INPUT    : my-page
 OUTPUT   : https://hestia.zoralab.com/default-path/this-page/my-page
 '''
 
-[[i18n.H2.URL]]
-Label = 'RFC3986 URL Specification'
+[[i18n.Content.URL]]
 Value = 'https://www.rfc-editor.org/rfc/rfc3986'
+Label = 'RFC3986 URL Specification'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'create-page-html-content'
 Title = 'Create Page HTML Content'
 HTML = '''
@@ -575,14 +550,11 @@ Code = '''
 </main>
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiahugo-renders-page-data'
 Title = 'Understand How hestiaHUGO Renders Page Data'
 HTML = '''
@@ -608,11 +580,8 @@ in the debugger console.
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
-[i18n.H2.Media]
+[i18n.Content.Media]
 Name = "The Screenshot of the Debugger Console"
 Decorative = false
 Loading = 'lazy'
@@ -628,55 +597,55 @@ Loop = false
 Mute = false
 Inline = false
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-600x600.avif"
 Type = "image/avif"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-600x600.webp"
 Type = "image/webp"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-600x600.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-400x400.avif"
 Type = "image/avif"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-400x400.webp"
 Type = "image/webp"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-400x400.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-220x220.avif"
 Type = "image/avif"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-220x220.webp"
 Type = "image/webp"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Media.Sources]]
+[[i18n.Content.Media.Sources]]
 URL = "/img/getting-started/hestiahugo-debugger-console-220x220.jpg"
 Type = "image/jpeg"
 Media = "all"
@@ -685,7 +654,8 @@ Descriptor = '1x'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-hestiahugo-data-path'
 Title = 'Understand hestiaHUGO Data Path'
 HTML = '''
@@ -726,14 +696,15 @@ __data.toml + __i18n.toml + ...   (NOTE: follows __page.toml data files list)
      {{- .Field.[...] -}}
 '''
 
-[[i18n.H2.URL]]
-Label = 'Data Structure & Specs'
+[[i18n.Content.URL]]
 Value = '/en/specs/hestiacompilers/hestiahugo/'
+Label = 'Data Structure & Specs'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiahugo-empowers-hugo'
 Title = 'Understand How hestiaHUGO Empowers Hugo'
 HTML = '''
@@ -765,14 +736,15 @@ we will proceed further.
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = 'Specification'
+[[i18n.Content.URL]]
 Value = '/en/specs'
+Label = 'Specification'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'create-page-ui-components-styling-list'
 Title = 'Create Page UI Components Styling List'
 HTML = '''
@@ -818,14 +790,11 @@ Include = true
 Variables = []
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiaHUGO-manage-page-styling'
 Title = 'Understand How hestiaHUGO Manage Page Styling'
 HTML = '''
@@ -857,14 +826,15 @@ worth the effort.
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = 'UI Components Catalog'
+[[i18n.Content.URL]]
 Value = '/en/specs/hestiagui'
+Label = 'UI Components Catalog'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-why-hestiaHUGO-containerized-page-styling'
 Title = 'Understand Why hestiaHUGO Containerized Page Styling'
 HTML = '''
@@ -888,14 +858,11 @@ to gain experience with a site development.
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiaHUGO-ui-component-works'
 Title = 'Understand How hestiaHUGO UI Component Works'
 HTML = '''
@@ -929,14 +896,10 @@ Variables = [
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-why-zoralab-hestia-only-prioritize-html-and-css'
 Title = "Understand Why ZORALab's Hestia Only Prioritize HTML & CSS"
 HTML = '''
@@ -984,14 +947,10 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-zoralab-and-javascript-relationship'
 Title = 'Understand ZORALab and JavaScript Relationship'
 HTML = '''
@@ -1016,14 +975,10 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-hestiahugo-future'
 Title = 'Understand hestiaHUGO Future'
 HTML = '''
@@ -1056,14 +1011,10 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'customizing-page-styling-with-css'
 Title = 'Customize Page Styling with CSS'
 HTML = '''
@@ -1126,14 +1077,11 @@ main {
 }
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'customizing-page-with-javascript'
 Title = 'Customize Page with JavaScript'
 HTML = '''
@@ -1158,11 +1106,8 @@ window.onload = function() {
 };
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
-[i18n.H2.Image]
+[i18n.Content.Image]
 Name = "The Screenshot of a Cat Meowing at the Browser Console"
 Decorative = false
 Loading = 'lazy'
@@ -1178,55 +1123,55 @@ Loop = false
 Mute = false
 Inline = false
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-600x600.avif"
 Type = "image/avif"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-600x600.webp"
 Type = "image/webp"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-600x600.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 600px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-400x400.avif"
 Type = "image/avif"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-400x400.webp"
 Type = "image/webp"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-400x400.jpg"
 Type = "image/jpeg"
 Media = "(min-width: 300px)"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-220x220.avif"
 Type = "image/avif"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-220x220.webp"
 Type = "image/webp"
 Media = "all"
 Descriptor = '1x'
 
-[[i18n.H2.Image.Sources]]
+[[i18n.Content.Image.Sources]]
 URL = "/img/getting-started/js-output-220x220.jpg"
 Type = "image/jpeg"
 Media = "all"
@@ -1235,7 +1180,8 @@ Descriptor = '1x'
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'update-ldjson-data-for-seo'
 Title = 'Update LD+JSON Data for SEO'
 HTML = '''
@@ -1269,14 +1215,15 @@ Code = '''
 ...
 '''
 
-[[i18n.H2.URL]]
-Label = 'LD+JSON Validator'
+[[i18n.Content.URL]]
 Value = 'https://validator.schema.org/'
+Label = 'LD+JSON Validator'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-how-hestiahugo-handles-ldjson'
 Title = 'Understand How hestiaHUGO Handles LD+JSON'
 HTML = '''
@@ -1304,14 +1251,15 @@ page type, etc); and (2) you need to add in the page context-specific dataset
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = 'Schema.org Data Structures'
+[[i18n.Content.URL]]
 Value = 'https://schema.org/docs/full.html'
+Label = 'Schema.org Data Structures'
 
 
 
 
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'stage-the-current-state'
 Title = 'Stage the Current State'
 HTML = '''
@@ -1327,14 +1275,11 @@ HINT
 $ git add .
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'create-json-output'
 Title = 'Create JSON Output'
 HTML = '''
@@ -1361,14 +1306,11 @@ is. You can study the default codes for educational purposes.
 Code = '''
 '''
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
 
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'understand-why-hestiahugo-natively-supports-json-output'
 Title = 'Understand Why hestiaHUGO Natively Supports JSON Output'
 HTML = '''
@@ -1415,14 +1357,10 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'commit-and-push'
 Title = 'Commit and Push'
 HTML = '''
@@ -1444,14 +1382,10 @@ $ git push
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[[i18n.H2]]
+[[i18n.Content]]
+Level = 2
 ID = 'remember-the-strength-of-hestiaHUGO'
 Title = 'Remember the Strength of hestiaHUGO'
 HTML = '''
@@ -1476,20 +1410,23 @@ Code = '''
 '''
 
 
-[[i18n.H2.URL]]
-Label = ''
-Value = ''
 
 
-
-
-[i18n.Epilogue]
-ID = 'epilogue'
-Title = 'Epilogue'
-Description = '''
-Congrats! We have reach the end of this tutorial. At this point, you now have a
-fully functional '/en/404' page for your frontend website with multiple outputs.
-Please feel free to update your notes before proceeding to the next tutorial:
+[[i18n.Content]]
+Level = 2
+ID = 'whats-next'
+Title = "What's Next?"
+HTML = '''
+Now that we had completed the hestiaHUGO setup, the next step is to make sure
+we support multilingual pages from the get go. Here's the URL for the next step:
 '''
-URL = 'url-redirection-in-hugo'
-CTA = 'URL Redirection in Hugo'
+Plain = '''
+Now that we had completed the hestiaHUGO setup, the next step is to make sure
+we support multilingual pages from the get go. Here's the URL for the next step:
+'''
+Code = '''
+'''
+
+[[i18n.Content.URL]]
+Value = '/en/getting-started/using-multilingual-pages-from-the-get-go/'
+Label = 'Using Multilingual Pages from the Get Go'
