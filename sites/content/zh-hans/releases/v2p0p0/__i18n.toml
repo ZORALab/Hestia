@@ -1,6 +1,4 @@
 [i18n]
-Title = '标题'
-Description = '大纲'
 Version = 'v2p0p0'
 
 
@@ -8,14 +6,16 @@ Version = 'v2p0p0'
 
 [i18n.Labels]
 Assets = '资产'
-Statement = '陈述'
-References = '引用'
-Notes = '笔记'
-Status = '状况'
 BackwardCompatible = '向后兼容'
+Description = '大纲'
 Development = '开发'
-Retired = '退化'
 Latest = '最新'
+Notes = '笔记'
+References = '引用'
+Retired = '退化'
+Statement = '陈述'
+Status = '状况'
+Title = '标题'
 
 
 
@@ -71,16 +71,3 @@ Title = '值得注意的亮点'
 Description = '''
 这些是这个工程版本值得注意的亮点。它们是为科技种类而被整理成的菜单。
 '''
-
-
-
-
-[i18n.Epilogue]
-ID = '终结'
-Title = '终结'
-Description = '''
-我们已经抵达这个ZORALab赫斯提亚版本的发行说明的终结段了。如有询问，您是可以通过
-以下管道来联系我们吧：
-'''
-URL = 'https://github.com/ZORALab/Hestia/discussions'
-CTA = 'GitHub讨论论坛'

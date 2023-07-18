@@ -86,16 +86,16 @@ Enabled = false
 #   2. If you're sourcing from static directory, prefix 'static/'.
 #   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
 [Sources]
-HTML = 'layouts/content/releases/common/index.html'
-JSON = 'layouts/content/releases/common/index.json'
-CSS = 'layouts/content/releases/common/index.css'
-JS = 'layouts/content/releases/common/index.js'
+HTML = 'layouts/content/version/index.html'
+JSON = 'layouts/content/version/index.json'
+CSS = 'layouts/content/version/index.css'
+JS = 'layouts/content/version/index.js'
 LDJSON = '__content.hestiaLDJSON'
 Contributors = '__contributors.toml'
 Thumbnails = '__thumbnails.toml'
 Languages = '__languages.toml'
-Assets = 'layouts/content/releases/common/assets.toml'
-Components = 'layouts/content/releases/common/components.toml'
+Assets = 'layouts/content/version/assets.toml'
+Components = 'layouts/content/version/components.toml'
 
 
 

@@ -21,8 +21,12 @@ algorithms development.
 
 {{- /* execute function */ -}}
 {{- $dataList = merge $dataList (dict
-	$i18n.Title .Titles.Page
-	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+	$i18n.Labels.Title .Titles.Page
+	$i18n.Labels.Description (printf
+		"%s %s"
+		.Descriptions.Page.Pitch
+		.Descriptions.Page.Summary
+	)
 	$i18n.Labels.Status (dict
 		$i18n.Labels.BackwardCompatible $dataset.Metadata.BackwardCompatible
 		$i18n.Labels.Development $dataset.Metadata.Development

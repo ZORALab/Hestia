@@ -1,6 +1,4 @@
 [i18n]
-Title = 'Title'
-Description = 'Description'
 Version = 'v1p2p0'
 
 
@@ -8,14 +6,16 @@ Version = 'v1p2p0'
 
 [i18n.Labels]
 Assets = 'Assets'
-Statement = 'Statement'
-References = 'References'
-Notes = 'Notes'
-Status = 'Status'
 BackwardCompatible = 'Backward Compatible'
+Description = 'Description'
 Development = 'Development'
-Retired = 'Retired'
 Latest = 'Latest'
+Notes = 'Notes'
+References = 'References'
+Retired = 'Retired'
+Statement = 'Statement'
+Status = 'Status'
+Title = 'Title'
 
 
 
@@ -73,17 +73,3 @@ Description = '''
 Some notable changes you should know before deploying into your project. They
 are organized based on technological grouping in a non-chornological manner.
 '''
-
-
-
-
-[i18n.Epilogue]
-ID = 'epilogue'
-Title = 'Epilogue'
-Description = '''
-We have reach the end of the release note for this version of
-ZORALab's Hestia Project. If you have any query, please feel free to contact us
-at our following portal:
-'''
-URL = 'https://github.com/ZORALab/Hestia/discussions'
-CTA = 'GitHub Discussion Portal'
