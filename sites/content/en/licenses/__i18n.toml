@@ -198,17 +198,3 @@ and not your enforcement entity. Please BEHAVE & RESPECT. DO NOT FORCE US to
 write a long restrictive human psychological mind-control manual here ⇒
 PLEASE BRING YOUR OPINIONS AND POLITICS ELSEWHERE.
 '''
-
-
-
-
-[i18n.Epilogue]
-ID = 'epilogue'
-Title = 'Epilogue'
-Description = '''
-That's all for ZORALab's Hestia Project's licenses and all related legal
-documents. When you're ready, we got you covered! Please feel free to start your
-journey here:
-'''
-URL = '/en/getting-started'
-CTA = 'Getting Started'
