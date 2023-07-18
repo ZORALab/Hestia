@@ -1,41 +1,64 @@
 [Metadata]
-Type = 'Core'
+
+
 
 
 [Metadata.Languages.EN]
-Name = 'Deploy Everywhere'
-URL = ''
-Label = ''
+Title = 'Deploy Everywhere'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'Maximizes reusabilities via same tested libraries'
-Summary = 'ensuring using codes with maximum portability and peace in mind.'
+HTML = '''
+<b>MAXIMIZES REUSABILITY</b> — same tested libraries; works everywhere.
+'''
+Plain = '''
+**MAXIMIZES REUSABILITY** — same tested libraries; works everywhere.
+'''
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'Readily working for web and microprocessing technologies'
-Summary = 'where it computes, Hestia is ready.'
+HTML = '''
+<b>READILY FOR WEB</b> — embraces interconnect data processor and network
+interface.
+'''
+Plain = '''
+**READILY FOR WEB** — embraces interconnect data processor and network
+interface.
+'''
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'Aspire to work for microcontroller'
-Summary = 'democratising the computing and control access.'
+HTML = '''
+<b>INTO EMBEDDED</b> — aspire for working in microcontroller and control units.
+'''
+Plain = '''
+**INTO EMBEDDED** — aspire for working in microcontroller and control units.
+'''
 
 
 [Metadata.Languages.ZH-HANS]
-Name = '无论何处可部署'
-URL = ''
-Label = ''
+Title = '无论何处可部署'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '提高重用性和测试过的一样代码库'
-Summary = '确保运用的代码是高转移性和无需担忧的。'
+HTML = '''
+<b>最高重用性</b> — 同样测试过的代码库无论何处都可运用。
+'''
+Plain = '''
+**最高重用性** — 同样测试过的代码库无论何处都可运用。
+'''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '在网络和微处理器轻易地运行'
-Summary = '只要可以处理数据，赫斯提亚随时应付。'
+HTML = '''
+<b>随时网络部署</b> — 欢迎互连网数据处理和网络界面接触。
+'''
+Plain = '''
+**随时网络部署** — 欢迎互连网数据处理和网络界面接触。
+'''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '有志于为微控制器操作'
-Summary = '把电脑代码计算和控制技术民主化。'
+HTML = '''
+<b>进入嵌入式数据处理</b> — 渴望进入微控制器和控制单元器的数据处理。
+'''
+Plain = '''
+**进入嵌入式数据处理** — 渴望进入微控制器和控制单元器的数据处理。
+'''
 
 
 
@@ -111,49 +134,6 @@ Media = "all"
 Descriptor = '1x'
 
 [Thumbnail.Tracks.en]
-URL = ""
-Kind = "subtitles"
-Label = "English"
-Default = false
-
-
-
-
-[Background]
-Name = ""
-Decorative = true
-Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
-Relationship = ""
-Design = ""
-Preload = ""
-Control = false
-Autoplay = false
-Loop = false
-Mute = false
-Inline = false
-
-[[Background.Sources]]
-URL = "/img/thumbnails/microcontroller-1200x630.avif"
-Type = "image/avif"
-Media = "all"
-Descriptor = '1x'
-
-[[Background.Sources]]
-URL = "/img/thumbnails/microcontroller-1200x630.webp"
-Type = "image/webp"
-Media = "all"
-Descriptor = '1x'
-
-[[Background.Sources]]
-URL = "/img/thumbnails/microcontroller-1200x630.jpg"
-Type = "image/jpeg"
-Media = "all"
-Descriptor = '1x'
-
-[Background.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"

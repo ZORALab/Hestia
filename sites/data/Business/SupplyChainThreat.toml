@@ -1,41 +1,68 @@
 [Metadata]
-Type = 'Core'
+
+
 
 
 [Metadata.Languages.EN]
-Name = 'Be Done with Supply Chain Threat'
-URL = 'https://doi.org/10.5281/zenodo.6815013'
-Label = 'Paper'
+Title = 'Mitigate Supply Chain Threats'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'NO MORE geo-political nuisance'
-Summary = 'focus on the job instead.'
+HTML = '''
+<b>ENOUGH WITH GEO-POLITICAL NUISANCES</b> — focus on delivery the values to
+your customers instead.
+'''
+Plain = '''
+**ENOUGH WITH GEO-POLITICAL NUISANCES** — focus on delivery the values to
+your customers instead.
+'''
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'NO MORE dirty and after-the-fact shenanigans'
-Summary = 'focus on the development instead.'
+HTML = '''
+<b>ENOUGH WITH DIRTY AFTER-THE-FACT SHENANIGANS</b> — take full control over
+your critical software libraries' ecosystem.
+'''
+Plain = '''
+**ENOUGH WITH DIRTY AFTER-THE-FACT SHENANIGANS** — take full control over
+your critical software libraries' ecosystem.
+'''
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'NO MORE cut-throat charges'
-Summary = 'focus on the business instead.'
+HTML = '''
+<b>ENOUGH WITH CUT-THROAT CHARGES</b> — focus on building valuable products
+instead of messing with suppliers' dramas.
+'''
+Plain = '''
+'''
 
 
 [Metadata.Languages.ZH-HANS]
-Name = '解决供应链的威胁'
-URL = 'https://doi.org/10.5281/zenodo.6815013'
-Label = '白皮书'
+Title = '解决供应链的威胁'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '不再担忧地缘政治带来无畏无聊的麻烦'
-Summary = '就专心在于工作吧。'
+HTML = '''
+<b>不再担忧地缘政治带来无畏无聊的麻烦</b> — 就专心在于对顾客有利益的工作吧。
+'''
+Plain = '''
+**不再担忧地缘政治带来无畏无聊的麻烦** — 就专心在于对顾客有利益的工作吧。
+'''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '不再担忧事后的肮脏诡计'
-Summary = '就专心在于研制进展吧。'
+HTML = '''
+<b>不再担忧事后的肮脏诡计</b> — 您就完全控制您的代码库的供应生态吧。
+'''
+Plain = '''
+**不再担忧事后的肮脏诡计** — 您就完全控制您的代码库的供应生态吧。
+'''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '不再担忧残酷无情不择手段的价钱更改'
-Summary = '就专心在于生意吧。'
+HTML = '''
+<b>不再担忧残酷无情不择手段的价钱更改</b> —
+就专心在开源有利益的产品而不是忙着供应商的不三不四的戏剧吧。
+'''
+Plain = '''
+**不再担忧残酷无情不择手段的价钱更改** —
+就专心在开源有利益的产品而不是忙着供应商的不三不四的戏剧吧。
+'''
 
 
 
@@ -111,49 +138,6 @@ Media = "all"
 Descriptor = '1x'
 
 [Thumbnail.Tracks.en]
-URL = ""
-Kind = "subtitles"
-Label = "English"
-Default = false
-
-
-
-
-[Background]
-Name = ""
-Decorative = true
-Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
-Relationship = ""
-Design = ""
-Preload = ""
-Control = false
-Autoplay = false
-Loop = false
-Mute = false
-Inline = false
-
-[[Background.Sources]]
-URL = "/img/thumbnails/peace-in-mind-1200x630.avif"
-Type = "image/avif"
-Media = "all"
-Descriptor = '1x'
-
-[[Background.Sources]]
-URL = "/img/thumbnails/peace-in-mind-1200x630.webp"
-Type = "image/webp"
-Media = "all"
-Descriptor = '1x'
-
-[[Background.Sources]]
-URL = "/img/thumbnails/peace-in-mind-1200x630.jpg"
-Type = "image/jpeg"
-Media = "all"
-Descriptor = '1x'
-
-[Background.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"

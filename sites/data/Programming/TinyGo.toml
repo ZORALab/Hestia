@@ -1,0 +1,52 @@
+[Metadata]
+[Metadata.Languages.EN]
+ID = 'tinygo'
+Title = 'TinyGo'
+HTML = '''
+Taking Go beyond computer processing.
+'''
+Plain = '''
+Taking Go beyond computer processing.
+'''
+
+
+[Metadata.Languages.ZH-HANS]
+ID = 'tinygo'
+Title = 'TinyGo'
+HTML = '''
+带领Go超越普通电脑数据处理。
+'''
+Plain = '''
+带领Go超越普通电脑数据处理。
+'''
+
+
+
+
+[Logo]
+Name = "TinyGo Logo"
+Decorative = true
+Loading = 'lazy'
+Width = "200"
+Height = "200"
+CORS = "anonymous"
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Logo.Sources]]
+URL = "/img/logos/tinygo-200x200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Logo.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

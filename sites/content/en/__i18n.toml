@@ -1,24 +1,25 @@
 [i18n]
-Title = 'Title'
-Description = 'Description'
-
-
-
-
 [i18n.Labels]
-Thumbnail = 'Thumbnail'
-Reason = 'Reason'
-Value = 'Value'
 Contributors = 'Contributors'
-Language = 'Language'
-Strengths = 'Strengths'
-Features = 'Features'
-Programming = 'Programming Languages'
-Name = 'Name'
 Coverage = 'Coverage'
-ID = 'ID'
+Delivered = 'DELIVERED'
+Description = 'Description'
+Developing = 'DEVELOPING'
+Features = 'Features'
 Files = 'Files'
+ID = 'ID'
+Language = 'Language'
 Licenses = 'Licenses'
+Name = 'Name'
+Planned = 'PLANNED'
+Programming = 'Programming Languages'
+Reason = 'Reason'
+References = 'References'
+Status = 'Status'
+Strengths = 'Strengths'
+Title = 'Title'
+Thumbnail = 'Thumbnail'
+Value = 'Value'
 
 
 
@@ -34,6 +35,38 @@ Title = 'Introduction'
 ID = "why-zoralab-hestia"
 Title = "Why ZORALab's Hestia"
 Description = '''
+'''
+
+
+
+
+[i18n.Uses]
+ID = "use-cases"
+Title = "Use Cases"
+Description = '''
+All tested, current under field testing, and aspiring use cases benefited from
+using ZORALab's Hestia.
+'''
+
+
+
+
+[i18n.Technologies]
+ID = "supported-technologies"
+Title = "Supported Technologies"
+Description = '''
+All our currently supported technologies for deploying ZORALab's Hestia.
+'''
+
+
+
+
+[i18n.Features]
+ID = "all-features"
+Title = "All Features"
+Description = '''
+All deployed, under development, and planned features for using
+ZORALab's Hestia.
 '''
 
 

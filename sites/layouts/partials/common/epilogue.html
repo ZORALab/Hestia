@@ -8,11 +8,14 @@
 
 {{- /* render output */ -}}
 {{- $ret = strings.TrimRight "/" $Page.URL.Base -}}
-{{- $ret = printf "%s/%s" $ret "/img/backgrounds/matrix-cube-lorenzo-verzini.svg" }}
+{{- $ret = printf "%s/%s" $ret "/img/backgrounds/christina-morillo-programming-1200x630.jpg" }}
 	<section id='{{- $lang.ID -}}' class='inverted' style='
 		margin-top: 10rem;
-		background: url({{- $ret -}}),
-				linear-gradient(to top,#0ccda3,#9618f7)
+		background:	linear-gradient(to top,
+					rgba(12, 205, 163, .9),
+					rgba(150, 24, 247, .9)
+				),
+				url({{- $ret -}})
 				no-repeat
 				fixed;
 		background-position: center center;

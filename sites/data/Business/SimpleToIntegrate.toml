@@ -1,41 +1,67 @@
 [Metadata]
-Type = 'Core'
+
+
 
 
 [Metadata.Languages.EN]
-Name = 'Simple to Integrate'
-URL = ''
-Label = ''
+Title = 'Simple to Integrate'
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'With simple and all familiar .zip archive fromat'
-Summary = 'works on Windows, Linux, and MacOS.'
+HTML = '''
+<b>SIMPLE <code>.zip</code> PACKAGE</b> — easily deployable on Windows, Linux,
+and MacOS.
+'''
+Plain = '''
+**SIMPLE .zip PACKAGE** — easily deployable on Windows, Linux and MacOS.
+'''
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'GPG cryptographically signed'
-Summary = "for mathematically securing the package's originality and genuity."
+HTML = '''
+<b>GPG CRYPTOGRAPHICALLY SIGNED</b> — securing the package's originality and
+genuity with mathematics.
+'''
+Plain = '''
+**GPG CRYPTOGRAPHICALLY SIGNED** — securing the package's originality and
+genuity with mathematics.
+'''
 
 [[Metadata.Languages.EN.Descriptions]]
-Pitch = 'Local hosting capable'
-Summary = 'for securing and stabilizing downstream distributions.'
+HTML = '''
+<b>LOCALIZED REDISTRIBUTABLE</b> — securing and stabilizing downstream
+distributions with greatest freedom.
+'''
+Plain = '''
+**LOCALIZED REDISTRIBUTABLE** — securing and stabilizing downstream
+distributions with greatest freedom.
+'''
 
 
 [Metadata.Languages.ZH-HANS]
-Name = '容易综合化'
-URL = ''
-Label = ''
+Title = '容易综合化'
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '运用最简单和非常见识的.zip压缩包装格式'
-Summary = '可以在Windows，Linux，和MacOS通用。'
+HTML = '''
+<b>简单<code>.zip</code>代码包</b> — 容易在Windows、Linux或MacOS部署运用。
+'''
+Plain = '''
+**简单.zip代码包** — 容易在Windows、Linux或MacOS部署运用。
+'''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '用GPG加密签名'
-Summary = "通过数学来确保分发的代码包装是原装和来自原本制作者。"
+HTML = '''
+<b>GPG加密签名</b> — 通过数学来确保分发的代码包装是原装和来自原本制作者。
+'''
+Plain = '''
+**GPG加密签名** — 通过数学来确保分发的代码包装是原装和来自原本制作者。
+'''
 
 [[Metadata.Languages.ZH-HANS.Descriptions]]
-Pitch = '具有本地托管能力'
-Summary = '确保下游分销稳固和安全。'
+HTML = '''
+<b>本地化再发行</b> — 确保下游分销稳固、安全和有高度性的自由管理。
+'''
+Plain = '''
+**本地化再发行** — 确保下游分销稳固、安全和有高度性的自由管理。
+'''
 
 
 
@@ -111,49 +137,6 @@ Media = "(max-width: 250px)"
 Descriptor = '1x'
 
 [Thumbnail.Tracks.en]
-URL = ""
-Kind = "subtitles"
-Label = "English"
-Default = false
-
-
-
-
-[Background]
-Name = ""
-Decorative = true
-Loading = 'lazy'
-Width = "1200"
-Height = "1200"
-CORS = ""
-Relationship = ""
-Design = ""
-Preload = ""
-Control = false
-Autoplay = false
-Loop = false
-Mute = false
-Inline = false
-
-[[Background.Sources]]
-URL = "/img/thumbnails/common-drink-1200x630.avif"
-Type = "image/avif"
-Media = "all"
-Descriptor = '1x'
-
-[[Background.Sources]]
-URL = "/img/thumbnails/common-drink-1200x630.webp"
-Type = "image/webp"
-Media = "all"
-Descriptor = '1x'
-
-[[Background.Sources]]
-URL = "/img/thumbnails/common-drink-1200x630.jpg"
-Type = "image/jpeg"
-Media = "all"
-Descriptor = '1x'
-
-[Background.Tracks.en]
 URL = ""
 Kind = "subtitles"
 Label = "English"

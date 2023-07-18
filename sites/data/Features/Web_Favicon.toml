@@ -1,0 +1,65 @@
+[Metadata]
+Implemented = true
+Developing = false
+Planned = false
+
+
+[Metadata.Languages.EN]
+Title = 'Algorithmic Favicon Renderer for Web'
+HTML = '''
+Focus on content development; not debugging technicality.
+'''
+Plain = '''
+Focus on content development; not debugging technicality.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+Disabled = false
+
+
+[Metadata.Languages.ZH-HANS]
+Title = '运用渲染算法式来渲染网页Favicon'
+HTML = '''
+专注在内容建设而不是忙着解决科技问题吧。
+'''
+Plain = '''
+专注在内容建设而不是忙着解决科技问题吧。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+Disabled = false
+
+
+
+
+[Thumbnail]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Thumbnail.Sources]]
+URL = "/img/thumbnails/favicon-algorithmic-renderer-600x600.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Thumbnail.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

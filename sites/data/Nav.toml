@@ -10,16 +10,16 @@ Title = "Why ZORALab's Hestia"
 URL = '/en/#why-zoralab-hestia'
 
 [[Languages.EN.Items]]
-Title = "Supporting Hugo"
-URL = '/en/#supporting-hugo'
+Title = "Use Cases"
+URL = '/en/#use-cases'
 
 [[Languages.EN.Items]]
-Title = "Supporting Go & TinyGo"
-URL = '/en/#supporting-go-and-tinygo'
+Title = "Supported Technologies"
+URL = '/en/#supported-technologies'
 
 [[Languages.EN.Items]]
-Title = "Supporting Nim"
-URL = '/en/#supporting-nim'
+Title = "All Features"
+URL = '/en/#all-features'
 
 [[Languages.EN.Items]]
 Title = "Licenses"
@@ -28,6 +28,40 @@ URL = '/en/#apache-2-open-source-licensed'
 [[Languages.EN.Items]]
 Title = "Our Contributors"
 URL = '/en/#our-contributors'
+
+
+[[Languages.ZH-HANS]]
+Title = '主页'
+
+[[Languages.ZH-HANS.Items]]
+Title = "询问"
+URL = '/zh-hans/'
+
+[[Languages.ZH-HANS.Items]]
+Title = "为什么ZORALab赫斯提亚"
+URL = '/zh-hans/#为何选择zoralab赫斯提亚'
+
+[[Languages.ZH-HANS.Items]]
+Title = '所有用例'
+URL = '/zh-hans/#%E6%89%80%E6%9C%89%E7%94%A8%E4%BE%8B'
+
+[[Languages.ZH-HANS.Items]]
+Title = '所有科技支持'
+URL = '/zh-hans/#%E6%89%80%E6%9C%89%E7%A7%91%E6%8A%80%E6%94%AF%E6%8C%81'
+
+[[Languages.ZH-HANS.Items]]
+Title = "所有功能"
+URL = '/zh-hans/#%E6%89%80%E6%9C%89%E5%8A%9F%E8%83%BD'
+
+[[Languages.ZH-HANS.Items]]
+Title = "许可证"
+URL = '/zh-hans/#apache-2开源许可'
+
+[[Languages.ZH-HANS.Items]]
+Title = "我们的贡献者"
+URL = '/zh-hans/#我们的贡献者'
+
+
 
 
 [[Languages.EN]]
@@ -48,6 +82,28 @@ URL = '/en/getting-started/#go'
 [[Languages.EN.Items]]
 Title = "Nim"
 URL = '/en/getting-started/#nim'
+
+
+[[Languages.ZH-HANS]]
+Title = '开始指南菜单'
+
+[[Languages.ZH-HANS.Items]]
+Title = "询问"
+URL = '/zh-hans/getting-started'
+
+[[Languages.ZH-HANS.Items]]
+Title = "Hugo"
+URL = '/zh-hans/getting-started/#hugo'
+
+[[Languages.ZH-HANS.Items]]
+Title = "Go（语言）"
+URL = '/zh-hans/getting-started/#go'
+
+[[Languages.ZH-HANS.Items]]
+Title = "Nim"
+URL = '/zh-hans/getting-started/#nim'
+
+
 
 
 [[Languages.EN]]
@@ -82,96 +138,6 @@ Title = "v1.0.0"
 URL = '/en/releases/v1p0p0'
 
 
-[[Languages.EN]]
-Title = 'Licenses'
-
-[[Languages.EN.Items]]
-Title = "Visit"
-URL = '/en/licenses'
-
-[[Languages.EN.Items]]
-Title = "Documents"
-URL = '/en/licenses/#documentations'
-
-[[Languages.EN.Items]]
-Title = "Guidelines"
-URL = '/en/licenses/#guidelines'
-
-[[Languages.EN.Items]]
-Title = "Code of Conduct"
-URL = '/en/licenses/#code-of-conduct'
-
-
-[[Languages.EN]]
-Title = 'Specifications'
-
-[[Languages.EN.Items]]
-Title = "Visit"
-URL = '/en/specs'
-
-[[Languages.EN.Items]]
-Title = "Technical Properties"
-URL = '/en/specs'
-
-[[Languages.EN.Items]]
-Title = "GUI Components"
-URL = '/en/specs/hestiagui/'
-
-
-
-
-[[Languages.ZH-HANS]]
-Title = '主页'
-
-[[Languages.ZH-HANS.Items]]
-Title = "询问"
-URL = '/zh-hans/'
-
-[[Languages.ZH-HANS.Items]]
-Title = "为什么ZORALab赫斯提亚"
-URL = '/zh-hans/#为何选择zoralab赫斯提亚'
-
-[[Languages.ZH-HANS.Items]]
-Title = "支持Hugo"
-URL = '/zh-hans/#支持hugo'
-
-[[Languages.ZH-HANS.Items]]
-Title = "支持Go & TinyGo"
-URL = '/zh-hans/#支持go和tinygo'
-
-[[Languages.ZH-HANS.Items]]
-Title = "支持Nim"
-URL = '/zh-hans/#支持nim'
-
-[[Languages.ZH-HANS.Items]]
-Title = "许可证"
-URL = '/zh-hans/#apache-2开源许可'
-
-[[Languages.ZH-HANS.Items]]
-Title = "我们的贡献者"
-URL = '/zh-hans/#我们的贡献者'
-
-
-[[Languages.ZH-HANS]]
-Title = '开始指南菜单'
-
-[[Languages.ZH-HANS.Items]]
-Title = "询问"
-URL = '/zh-hans/getting-started'
-
-[[Languages.ZH-HANS.Items]]
-Title = "Hugo"
-URL = '/zh-hans/getting-started/#hugo'
-
-[[Languages.ZH-HANS.Items]]
-Title = "Go（语言）"
-URL = '/zh-hans/getting-started/#go'
-
-[[Languages.ZH-HANS.Items]]
-Title = "Nim"
-URL = '/zh-hans/getting-started/#nim'
-
-
 [[Languages.ZH-HANS]]
 Title = '发行软件包'
 
@@ -204,6 +170,28 @@ Title = "v1.0.0"
 URL = '/zh-hans/releases/v1p0p0'
 
 
+
+
+[[Languages.EN]]
+Title = 'Licenses'
+
+[[Languages.EN.Items]]
+Title = "Visit"
+URL = '/en/licenses'
+
+[[Languages.EN.Items]]
+Title = "Documents"
+URL = '/en/licenses/#documentations'
+
+[[Languages.EN.Items]]
+Title = "Guidelines"
+URL = '/en/licenses/#guidelines'
+
+[[Languages.EN.Items]]
+Title = "Code of Conduct"
+URL = '/en/licenses/#code-of-conduct'
+
+
 [[Languages.ZH-HANS]]
 Title = '许可证'
 
@@ -222,6 +210,24 @@ URL = '/zh-hans/licenses/#指引'
 [[Languages.ZH-HANS.Items]]
 Title = "行为准则"
 URL = '/zh-hans/licenses/#行为准则'
+
+
+
+
+[[Languages.EN]]
+Title = 'Specifications'
+
+[[Languages.EN.Items]]
+Title = "Visit"
+URL = '/en/specs'
+
+[[Languages.EN.Items]]
+Title = "Technical Properties"
+URL = '/en/specs'
+
+[[Languages.EN.Items]]
+Title = "GUI Components"
+URL = '/en/specs/hestiagui/'
 
 
 [[Languages.ZH-HANS]]

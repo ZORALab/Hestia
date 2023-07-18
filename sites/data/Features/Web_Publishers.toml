@@ -1,0 +1,65 @@
+[Metadata]
+Implemented = true
+Developing = false
+Planned = false
+
+
+[Metadata.Languages.EN]
+Title = 'Compatible Web Publishers'
+HTML = '''
+GitHub, GitLab, Cloudflare — works seamlessly.
+'''
+Plain = '''
+GitHub, GitLab, Cloudflare — works seamlessly.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+Disabled = false
+
+
+[Metadata.Languages.ZH-HANS]
+Title = '兼容各种网页发布者'
+HTML = '''
+GitHub, GitLab, Cloudflare — 直接配合。
+'''
+Plain = '''
+GitHub, GitLab, Cloudflare — 直接配合。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+Disabled = false
+
+
+
+
+[Thumbnail]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Thumbnail.Sources]]
+URL = "/img/thumbnails/compatible-publishers-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Thumbnail.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

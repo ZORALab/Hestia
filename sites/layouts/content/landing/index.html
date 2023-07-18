@@ -1,0 +1,576 @@
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := false -}}
+{{- $nav := slice -}}
+{{- $ret := false -}}
+{{- $bg := merge $Page (dict "Input" (dict "Data"
+	"/img/backgrounds/christina-morillo-programming-1200x630.jpg"
+)) -}}
+{{- $bg = partial "hestiaURL/Sanitize" $bg -}}
+{{- $bg = string $bg.Output -}}
+
+
+
+
+{{- /* render output */ -}}
+<main style='padding:0;'>
+	{{- $nav = append (dict
+		"ID" $i18n.Introduction.ID
+		"Label" $i18n.Introduction.Title
+	) $nav -}}
+	<section id='{{- $i18n.Introduction.ID -}}' class='inverted' style='
+		min-height: 100vh;
+		max-height: 100vh;
+		background:	linear-gradient(to top,
+					rgba(12, 205, 163, .3),
+					rgba(150, 24, 247, .8)
+				),
+				url({{- $bg -}})
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-top: var(--main-padding-top);
+
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: flex-start;
+
+		--h1-text-align: right;
+		--paragraph-text-align: right;
+	'>
+		<h1>{{- $Page.Titles.Page -}}</h1>
+		<p>{{- $Page.Descriptions.Page.Pitch -}}</p>
+
+		{{- range $i, $v := $Page.Data.Store.Business }}
+			{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID }}
+			<p style='margin-top: 2rem; font-size:1.8rem;'>
+				<b>{{- $lang.Title -}}</b>
+			</p>
+		{{- end }}
+
+		<a class='warp' href='#{{- $i18n.WhyItMatters.ID -}}' style='margin: 2rem 0;'>
+			<div class='arrow' style='--arrow-angle: 180deg;'></div>
+		</a>
+	</section>
+
+
+	{{- $nav = append (dict
+		"ID" $i18n.WhyItMatters.ID
+		"Label" $i18n.WhyItMatters.Title
+	) $nav }}
+	<section id='{{- $i18n.WhyItMatters.ID -}}'>
+		<h2>{{- $i18n.WhyItMatters.Title -}}</h2>
+		{{- if $i18n.WhyItMatters.Description }}
+		<p>{{- $i18n.WhyItMatters.Description -}}</p>
+		{{- end }}
+
+		<div class='row' style='--grid-gap: 1rem; --h3-margin: 0;'>
+			{{- range $i, $v := $Page.Data.Store.Business -}}
+				{{- $lang = index
+					$v.Metadata.Languages
+					$Page.Languages.Current.ID }}
+				<div class='column'><div class='tile' style='
+					--tile-width: 35rem;
+				'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Thumbnail)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = merge $ret.Output (dict
+						"Class" "thumbnail"
+					) -}}
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+					<div class='content'>
+						<h3>{{- $lang.Title -}}</h3>
+						{{- range $j, $w := $lang.Descriptions }}
+						<p>{{- $w.HTML -}}</p>
+						{{- end }}
+					</div>
+				</div></div>
+			{{- end -}}
+		</div>
+	</section>
+
+
+	{{- $nav = append (dict
+		"ID" $i18n.Uses.ID
+		"Label" $i18n.Uses.Title
+	) $nav }}
+	<section id='{{- $i18n.Uses.ID -}}'>
+		<h2>{{- $i18n.Uses.Title -}}</h2>
+		{{- if $i18n.Uses.Description }}
+		<p>{{- $i18n.Uses.Description -}}</p>
+		{{- end }}
+
+		<div class='row' style='--grid-gap: 1rem; --h3-margin: 0;'>
+			{{- range $unused, $v := $Page.Data.Store.Uses -}}
+				{{- $lang = index
+					$v.Metadata.Languages
+					$Page.Languages.Current.ID }}
+				<div class='column'><div class='tile'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Thumbnail)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = merge $ret.Output (dict
+						"Class" "thumbnail"
+					) -}}
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+					<div class='content'>
+						<h3>{{- $lang.Title -}}</h3>
+						<p>{{- $lang.HTML -}}</p>
+					</div>
+					<div class='actions'>
+						{{- range $j, $w := $lang.URL -}}
+							{{- if $w.Disabled }}
+						<button disabled>
+							{{- $w.Label -}}
+						</button>
+							{{- continue }}
+							{{- end }}
+
+							{{- $ret = merge $Page (dict "Input"
+								(dict "Data" $w.Value)
+							) -}}
+							{{- $ret = partial
+								"hestiaURL/Sanitize"
+								$ret
+							}}
+						<a href='{{- string $ret.Output -}}'
+							class='button'>
+							{{- $w.Label -}}
+						</a>
+						{{- end }}
+					</div>
+				</div></div>
+			{{- end -}}
+		</div>
+	</section>
+
+
+	{{- $nav = append (dict
+		"ID" $i18n.Technologies.ID
+		"Label" $i18n.Technologies.Title
+	) $nav -}}
+	<section id='{{- $i18n.Technologies.ID -}}' style='
+		background:	linear-gradient(to top,
+					rgba(12, 205, 163, .9),
+					rgba(150, 24, 247, .9)
+				),
+				url({{- $bg -}})
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding: var(--split-skew-height)
+				var(--main-padding-left)
+				calc(var(--split-skew-height)*2)
+				var(--main-padding-right);
+	'>
+		<div class ='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: var(--body-background);
+			--split-skew-lower-background: transparent;
+			position: absolute; top: 0; left: 0;
+		'></div>
+
+		<h2 style='color: var(--color-typography-50);'>
+			{{- $i18n.Technologies.Title -}}
+		</h2>
+		<p style='color: var(--color-typography-50);'>
+			{{- $i18n.Technologies.Description -}}
+		</p>
+		<div class='row'>
+			{{- range $unused, $v := $Page.Data.Store.Programming }}
+			<div class='column'><div class='tile' style='background: transparent;'>
+				{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Logo)) -}}
+				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+				{{- $ret = merge $ret.Output (dict "Class" "thumbnail") }}
+				{{ partial "hestiaMEDIA/ToHTML" $ret }}
+
+				{{- $lang = index
+					$v.Metadata.Languages
+					$Page.Languages.Current.ID
+				}}
+				<div class='content' style='color: var(--color-typography-50);'>
+					<h3>{{- $lang.Title -}}</h3>
+					<p>{{- $lang.HTML -}}</p>
+				</div>
+			</div></div>
+			{{- end }}
+		</div>
+
+		<div class ='split skew' style='
+			--split-skew-angle: to right bottom;
+			--split-skew-upper-background: transparent;
+			--split-skew-lower-background: var(--body-background);
+			position: absolute; bottom: 0; left: 0;
+		'></div>
+	</section>
+
+
+	{{- $nav = append (dict "ID" $i18n.Features.ID "Label" $i18n.Features.Title) $nav }}
+	<section id='{{- $i18n.Features.ID -}}'>
+		<h2>{{- $i18n.Features.Title -}}</h2>
+		<p>{{- $i18n.Features.Description -}}</p>
+
+		<div class='row' style='--grid-gap: 1rem; --h3-margin: 0;'>
+			{{- range $unused, $v := $Page.Data.Store.Features -}}
+				{{- $lang = index
+					$v.Metadata.Languages
+					$Page.Languages.Current.ID }}
+				<div class='column'><div class='tile'>
+					{{- $ret = merge $Page (dict "Input"
+						(dict "Data" $v.Thumbnail)
+					) -}}
+					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
+					{{- $ret = merge $ret.Output (dict
+						"Class" "thumbnail"
+					) -}}
+					{{ partial "hestiaMEDIA/ToHTML" $ret }}
+					<div class='content'>
+						<h3>{{- $lang.Title -}}</h3>
+						<p>{{- $lang.HTML -}}</p>
+						{{- if $v.Metadata.Planned }}
+							<p style='
+								color: orange;
+								font-weight: bold;
+								font-size: 1.6rem;
+							'>
+								{{- $i18n.Labels.Planned -}}
+							</p>
+						{{- else if $v.Metadata.Developing }}
+							<p style='
+								color: orange;
+								font-weight: bold;
+								font-size: 1.6rem;
+							'>
+								{{- $i18n.Labels.Developing -}}
+							</p>
+						{{- else }}
+							<p style='
+								color: green;
+								font-weight: bold;
+								font-size: 1.6rem;
+							'>
+								{{- $i18n.Labels.Delivered -}}
+							</p>
+						{{- end }}
+					</div>
+					<div class='actions'>
+						{{- range $j, $w := $lang.URL -}}
+							{{- if or
+								(not $w.Value)
+								(not $w.Label)
+							-}}
+								{{- continue -}}
+							{{- end }}
+
+							{{- if $w.Disabled }}
+						<button disabled>
+							{{- $w.Label -}}
+						</button>
+							{{- continue }}
+							{{- end }}
+
+							{{- $ret = merge $Page (dict "Input"
+								(dict "Data" $w.Value)
+							) -}}
+							{{- $ret = partial
+								"hestiaURL/Sanitize"
+								$ret
+							}}
+						<a href='{{- string $ret.Output -}}'
+							class='button'>
+							{{- $w.Label -}}
+						</a>
+						{{- end }}
+					</div>
+				</div></div>
+			{{- end -}}
+		</div>
+	</section>
+
+
+	{{- $ret = index .Data.Store.Licenses.Apache2.Background.Sources 1 -}}
+	{{- $ret = merge $Page (dict "Input" (dict "Data" (string $ret.URL))) -}}
+	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+	{{- $ret = string $ret.Output -}}
+	{{- if $ret -}}
+		{{- $ret = printf "url(%s)" $ret -}}
+	{{- end }}
+	{{- $ret = printf "linear-gradient(0deg, rgba(255,255,255,.5), rgba(255,255,255,1)),%s"
+		$ret -}}
+	{{- $lang = index
+		$Page.Data.Store.Licenses.Apache2.Metadata.Languages
+		$Page.Languages.Current.ID
+	}}
+	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
+	<section id='{{- $lang.ID -}}' style='
+		background: {{ $ret -}};
+		background-size: cover;
+		position: relative;
+		padding: 5rem var(--main-padding-left) 15rem var(--main-padding-right);
+	'>
+		<h2 class='clean' style='border: none; color: #3c3c3c;'>
+			{{- $lang.Title -}}
+		</h2>
+		{{- range $i, $v := $lang.Descriptions }}
+			<p style='margin-top: 2rem; font-size:1.8rem; color: #3c3c3c;'>
+				<b>{{- $v.Pitch -}}</b>
+			</p>
+		{{- end }}
+	</section>
+
+
+	{{- $sponsors := dict -}}
+	{{- $developers := dict -}}
+	{{- $artists := dict -}}
+	{{- $knowledge := dict -}}
+	{{- range $i, $v := .Data.Store.Hestia.Contributors -}}
+		{{- if or $v.Contribution.Sponsor.Past $v.Contribution.Sponsor.Current -}}
+			{{- $sponsors = merge $sponsors (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Funder.Past $v.Contribution.Funder.Current -}}
+			{{- $sponsors = merge $sponsors (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Artwork.Past $v.Contribution.Artwork.Current -}}
+			{{- $artists = merge $artists (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Knowledge.Past $v.Contribution.Knowledge.Current -}}
+			{{- $knowledge = merge $knowledge (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Developer.Past $v.Contribution.Developer.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Maintainer.Past $v.Contribution.Maintainer.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Editor.Past $v.Contribution.Editor.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+
+		{{- if or $v.Contribution.Creator.Past $v.Contribution.Creator.Current -}}
+			{{- $developers = merge $developers (dict $i $v) -}}
+		{{- end -}}
+	{{- end -}}
+	{{- $nav = append (dict
+		"ID" $i18n.Contributors.ID
+		"Label" $i18n.Contributors.Title
+	) $nav }}
+	<section id='{{- $i18n.Contributors.ID -}}'>
+		<h2>{{- $i18n.Contributors.Title -}}</h2>
+
+		<h3>{{- $i18n.Sponsors.Title -}}</h3>
+		<p>{{- $i18n.Sponsors.Description -}}</p>
+		<div class='row'>
+		{{- range $i, $v := $sponsors -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+			{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+
+			{{- if not $ret -}}
+				{{- continue -}}
+			{{- end }}
+			<div class= 'column'><div class='card' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--card-border-radius: .5rem;
+			'>
+				{{- if $ret.Image -}}
+					{{ partial "hestiaMEDIA/ToHTML" (merge $ret.Image
+						(dict "Class" "thumbnail")
+					) }}
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $ret.Name -}}</h3>
+					<p>{{- $ret.Slogan -}}</p>
+				</div>
+				<div class='actions'>
+					<a class='button' href='{{- $ret.Web.Value -}}'>
+						{{- $ret.Web.Label -}}
+					</a>
+				{{- if $ret.Email.Value }}
+					<a class='button' href='{{- $ret.Email.Value -}}'>
+						{{- $ret.Email.Label -}}
+					</a>
+				{{- end }}
+				{{- if $ret.Phone.Value }}
+					<a class='button' href='{{- $ret.Phone.Value -}}'>
+						{{- $ret.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $ret.Social -}}
+					<a class='button' href='{{- $w.Value -}}'>
+						{{- $w.Label -}}
+					</a>
+				{{- end }}
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+
+		<h3>{{- $i18n.Developers.Title -}}</h3>
+		<p>{{- $i18n.Developers.Description -}}</p>
+		<div class='row'>
+		{{- range $i, $v := $developers -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+			{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+
+			{{- if not $ret -}}
+				{{- continue -}}
+			{{- end }}
+			<div class= 'column'><div class='card' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--card-border-radius: .5rem;
+			'>
+				{{- if $ret.Image -}}
+				{{ partial "hestiaMEDIA/ToHTML" (merge $ret.Image
+					(dict "Class" "thumbnail")
+				) }}
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $ret.Name -}}</h3>
+					<p>{{- $ret.Slogan -}}</p>
+				</div>
+				<div class='actions'>
+					<a class='button' href='{{- $ret.Web.Value -}}'>
+						{{- $ret.Web.Label -}}
+					</a>
+				{{- if $ret.Email.Value }}
+					<a class='button' href='{{- $ret.Email.Value -}}'>
+						{{- $ret.Email.Label -}}
+					</a>
+				{{- end }}
+				{{- if $ret.Phone.Value }}
+					<a class='button' href='{{- $ret.Phone.Value -}}'>
+						{{- $ret.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $ret.Social -}}
+					<a class='button' href='{{- $w.Value -}}'>
+						{{- $w.Label -}}
+					</a>
+				{{- end }}
+				</div>
+			</div></div>
+		{{- end }}
+
+		<h3>{{- $i18n.Artists.Title -}}</h3>
+		<p>{{- $i18n.Artists.Description -}}</p>
+		<div class='row'>
+		{{- range $i, $v := $artists -}}
+			{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
+			{{- $ret = partial "hestiaENTITY/Sanitize" $ret -}}
+			{{- $ret = $ret.Output -}}
+
+			{{- if not $ret -}}
+				{{- continue -}}
+			{{- end }}
+			<div class= 'column'><div class='card' style='
+				--h3-margin: 0;
+				--picture-margin: 0;
+				--picture-padding: 0;
+				--card-border-radius: .5rem;
+			'>
+				{{- if $ret.Image -}}
+					{{ partial "hestiaMEDIA/ToHTML" (merge $ret.Image
+						(dict "Class" "thumbnail")
+					) }}
+				{{- end }}
+				<div class='content'>
+					<h3>{{- $ret.Name -}}</h3>
+					<p>{{- $ret.Slogan -}}</p>
+				</div>
+				<div class='actions'>
+					<a class='button' href='{{- $ret.Web.Value -}}'>
+						{{- $ret.Web.Label -}}
+					</a>
+				{{- if $ret.Email.Value }}
+					<a class='button' href='{{- $ret.Email.Value -}}'>
+						{{- $ret.Email.Label -}}
+					</a>
+				{{- end }}
+				{{- if $ret.Phone.Value }}
+					<a class='button' href='{{- $ret.Phone.Value -}}'>
+						{{- $ret.Phone.Label -}}
+					</a>
+				{{- end }}
+				{{- range $j, $w := $ret.Social -}}
+					<a class='button' href='{{- $w.Value -}}'>
+						{{- $w.Label -}}
+					</a>
+				{{- end }}
+				</div>
+			</div></div>
+		{{- end }}
+		</div>
+	</section>
+
+
+	{{- $nav = append (dict "ID" $i18n.Epilogue.ID "Label" $i18n.Epilogue.Title) $nav }}
+	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
+		margin-top: 10rem;
+		background:	linear-gradient(to top,
+					rgba(12, 205, 163, .9),
+					rgba(150, 24, 247, .9)
+				),
+				url({{- $bg -}})
+				no-repeat
+				fixed;
+		background-position: center center;
+		background-size: cover;
+		padding-bottom: var(--main-padding-top);
+	'>
+		<h2 style='color: #fafafa;'>{{- $i18n.Epilogue.Title -}}</h2>
+		<p style='color: #fafafa;'>{{- $i18n.Epilogue.Description -}}</p>
+		<br/>
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $ret = string $ret.Output }}
+		<a href='{{- $ret -}}' class='button' style='
+			--button-color: white;
+			background: green;
+			border: none;
+		'>{{- $i18n.Epilogue.CTA -}}</a>
+	</section>
+</main>
+{{ partial "common/footer.html" $Page }}
+<nav class='right-drawer'>
+	<input id='nav-secondary-drawer' type='checkbox' />
+	<label class='trigger' for='nav-secondary-drawer'>
+		<span class='open'>§</span>
+		<span class='close'>𝖷</span>
+	</label>
+	<label class='overlay' for='nav-secondary-drawer'></label>
+
+
+	<div class='content'><div class='row' style='
+		margin-top: 6rem;
+		--grid-flex-direction: column;
+		--grid-gap: 30px;
+		--anchor-color: white;
+	'>
+		{{- range $i, $v := $nav }}
+		<div class='column'>
+			<a href='#{{- $v.ID -}}'
+				onclick='document.getElementById("nav-secondary-drawer").checked = false;'
+				class='prestige'>{{- $v.Label -}}</a>
+		</div>
+		{{- end }}
+	</div></div>
+</nav>
+{{ partial "common/nav-prime.html" $Page }}

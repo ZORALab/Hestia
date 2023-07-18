@@ -1,0 +1,65 @@
+[Metadata]
+Implemented = true
+Developing = false
+Planned = false
+
+
+[Metadata.Languages.EN]
+Title = 'PWA Ready'
+HTML = '''
+Offline capable web UI interface.
+'''
+Plain = '''
+Offline capable web UI interface.
+'''
+
+[[Metadata.Languages.EN.URL]]
+Value = ''
+Label = ''
+Disabled = false
+
+
+[Metadata.Languages.ZH-HANS]
+Title = 'PWA准备开动'
+HTML = '''
+开发拥有离线能力和高可用性能的网站。
+'''
+Plain = '''
+开发拥有离线能力和高可用性能的网站。
+'''
+
+[[Metadata.Languages.ZH-HANS.URL]]
+Value = ''
+Label = ''
+Disabled = false
+
+
+
+
+[Thumbnail]
+Name = ""
+Decorative = true
+Loading = 'lazy'
+Width = "1200"
+Height = "1200"
+CORS = ""
+Relationship = ""
+Design = ""
+Preload = ""
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[Thumbnail.Sources]]
+URL = "/img/logos/pwa-1200x1200.svg"
+Type = "image/svg+xml"
+Media = "all"
+Descriptor = '1x'
+
+[Thumbnail.Tracks.en]
+URL = ""
+Kind = "subtitles"
+Label = "English"
+Default = false

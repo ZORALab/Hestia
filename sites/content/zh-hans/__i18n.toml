@@ -1,24 +1,25 @@
 [i18n]
-Title = '标题'
-Description = '大纲'
-
-
-
-
 [i18n.Labels]
-Thumbnail = '缩略图'
-Reason = '原因'
-Value = '据值'
 Contributors = '贡献者'
-Language = '语言'
-Strengths = '强点'
-Features = '功能'
-Programming = '编程语言'
-Name = '名字'
 Coverage = '覆盖范围'
-ID = 'ID'
+Delivered = '成功运出'
+Description = '大纲'
+Developing = '开源着'
+Features = '功能'
 Files = '文件'
+ID = 'ID'
+Language = '语言'
 Licenses = '许可证'
+Name = '名字'
+Planned = '计划里'
+Programming = '编程语言'
+Reason = '原因'
+References = '参考'
+Status = '状况'
+Strengths = '强点'
+Title = '标题'
+Thumbnail = '缩略图'
+Value = '据值'
 
 
 
@@ -34,6 +35,36 @@ Title = '自介'
 ID = "为何选择zoralab赫斯提亚"
 Title = "为何选择zoralab赫斯提亚"
 Description = '''
+'''
+
+
+
+
+[i18n.Uses]
+ID = "所有用例"
+Title = "所有用例"
+Description = '''
+所有实验成功、正在实验和将来设计的zoralab赫斯提亚用例。
+'''
+
+
+
+
+[i18n.Technologies]
+ID = "所有科技支持"
+Title = "所有科技支持"
+Description = '''
+我们所以可以运用zoralab赫斯提亚代码库支持的科技。
+'''
+
+
+
+
+[i18n.Features]
+ID = "所有功能"
+Title = "所有功能"
+Description = '''
+所有已经建设、正在开源和在计划中的zoralab赫斯提亚功能。
 '''
 
 

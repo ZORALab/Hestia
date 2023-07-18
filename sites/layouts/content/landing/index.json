@@ -1,0 +1,134 @@
+{{- /*
+Page's JSON Output Prime Control
+
+This file is your JSON output file (index.html). Hugo's and Go's template
+processors are available at your disposal in case of mathematical or logical
+algorithms development.
+*/ -}}
+{{- /* prepare variables for function */ -}}
+{{- $Page := . -}}
+{{- $dataList := dict -}}
+{{- $i18n := .Data.Page.i18n -}}
+{{- $lang := dict -}}
+{{- $list := slice -}}
+{{- $list2 := slice -}}
+{{- $ret := false -}}
+
+
+
+
+{{- /* execute function */ -}}
+{{- $dataList = merge $dataList (dict
+	$i18n.Labels.Title .Titles.Page
+	$i18n.Labels.Description (printf
+		"%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+	$i18n.Labels.Contributors $Page.Contributors
+) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Store.Business -}}
+	{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID -}}
+
+	{{- $ret = slice -}}
+	{{- range $j, $w := $lang.Descriptions -}}
+		{{- $ret = append $w.Plain $ret -}}
+	{{- end -}}
+
+	{{- $list = append
+		(dict
+			$i18n.Labels.Reason $lang.Title
+			$i18n.Labels.Value $ret
+		)
+	$list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.WhyItMatters.Title $list) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Store.Uses -}}
+	{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID -}}
+
+	{{- $list2 = slice -}}
+	{{- range $j, $w := $lang.URL -}}
+		{{- if or (not $w.Value) (not $w.Label) -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $list2 = append (string $ret.Output) $list2 -}}
+	{{- end -}}
+
+	{{- $list = append (dict
+			$i18n.Labels.Title $lang.Title
+			$i18n.Labels.Description $lang.Plain
+			$i18n.Labels.References $list2
+		)
+	$list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Uses.Title $list) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Store.Technologies -}}
+	{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID -}}
+
+	{{- $list = append (dict
+			$i18n.Labels.Title $lang.Title
+			$i18n.Labels.Description $lang.Plain
+		)
+	$list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Technologies.Title $list) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Store.Features -}}
+	{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID -}}
+
+	{{- $list2 = slice -}}
+	{{- range $j, $w := $lang.URL -}}
+		{{- if or (not $w.Value) (not $w.Label) -}}
+			{{- continue -}}
+		{{- end -}}
+
+		{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Value)) -}}
+		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
+		{{- $list2 = append (string $ret.Output) $list2 -}}
+	{{- end -}}
+
+	{{- if $v.Metadata.Planned -}}
+		{{- $ret = $i18n.Labels.Planned -}}
+	{{- else if $v.Metadata.Developing -}}
+		{{- $ret = $i18n.Labels.Developing -}}
+	{{- else -}}
+		{{- $ret = $i18n.Labels.Delivered -}}
+	{{- end -}}
+
+	{{- $list = append (dict
+			$i18n.Labels.Title $lang.Title
+			$i18n.Labels.Description $lang.Plain
+			$i18n.Labels.References $list2
+			$i18n.Labels.Status $ret
+		)
+	$list -}}
+{{- end -}}
+{{- $dataList = merge $dataList (dict $i18n.Features.Title $list) -}}
+
+
+{{- $list = slice -}}
+{{- range $i, $v := $Page.Data.Store.Licenses -}}
+	{{- $lang = index $v.Metadata.Languages $Page.Languages.Current.ID -}}
+	{{- $dataList = merge $dataList (dict $i18n.Labels.Licenses (dict $v.Metadata.SPDX (dict
+		$i18n.Labels.Name $lang.Name
+		$i18n.Labels.Coverage $lang.Coverage
+		$i18n.Labels.Files $v.Metadata.Files
+	))) -}}
+{{- end -}}
+
+
+
+
+{{- /* render output */ -}}
+{{- jsonify $dataList -}}

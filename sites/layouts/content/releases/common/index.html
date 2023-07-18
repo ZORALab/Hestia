@@ -164,33 +164,9 @@
 	</section>
 
 
-	{{- $nav = append (dict "ID" $i18n.Epilogue.ID "Label" $i18n.Epilogue.Title) $nav }}
-	{{- $ret = merge $Page (dict "Input" (dict "Data"
-		"/img/backgrounds/matrix-cube-lorenzo-verzini.svg"
-	)) -}}
-	{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-	{{- $ret = string $ret.Output -}}
-	<section id='{{- $i18n.Epilogue.ID -}}' class='inverted' style='
-		margin-top: 10rem;
-		background: url({{- $ret -}}),linear-gradient(to top,#010329,#000005)
-				no-repeat
-				fixed;
-		background-position: center center;
-		background-size: cover;
-		padding-bottom: var(--main-padding-top);
-	'>
-		<h2 style='color: #fafafa;'>{{- $i18n.Epilogue.Title -}}</h2>
-		<p style='color: #fafafa;'>{{- $i18n.Epilogue.Description -}}</p>
-		<br/>
-		{{- $ret = merge $Page (dict "Input" (dict "Data" $i18n.Epilogue.URL)) -}}
-		{{- $ret = partial "hestiaURL/Sanitize" $ret -}}
-		{{- $ret = string $ret.Output -}}
-		<a href='{{- $ret -}}' class='button' style='
-			--button-color: white;
-			background: green;
-			border: none;
-		'>{{- $i18n.Epilogue.CTA -}}</a>
-	</section>
+	{{- $lang = index $Page.Data.Store.Epilogue $Page.Languages.Current.ID -}}
+	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
+	{{- partial "common/epilogue.html" $Page -}}
 </main>
 {{ partial "common/footer.html" $Page }}
 <nav class='right-drawer'>
