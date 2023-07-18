@@ -58,17 +58,3 @@ microcontroller's image via C transpilation. The catalog is
 arranged in a very chronological manner prioritizing knowledge absorption
 starting from scratch, how to explore, and how to grow.
 '''
-
-
-
-
-[i18n.Epilogue]
-ID = 'epilogue'
-Title = 'Epilogue'
-Description = '''
-We have reach the end of the catalog for getting started with using
-ZORALab's Hestia Project. If you have any query, please feel free to contact us
-at our following portal:
-'''
-URL = 'https://github.com/ZORALab/Hestia/discussions'
-CTA = 'GitHub Discussion Portal'

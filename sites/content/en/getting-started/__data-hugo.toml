@@ -26,7 +26,7 @@ Mute = false
 Inline = false
 
 [[Hugo.Image.Sources]]
-URL = "/img/logos/gohugo-gohper-200x200.svg"
+URL = "/img/logos/gohugo-1200x1200.svg"
 Type = "image/svg+xml"
 Media = "all"
 Descriptor = '1x'
@@ -62,7 +62,7 @@ Mute = false
 Inline = false
 
 [[Hugo.Image.Sources]]
-URL = "/img/logos/gohugo-gohper-200x200.svg"
+URL = "/img/logos/gohugo-1200x1200.svg"
 Type = "image/svg+xml"
 Media = "all"
 Descriptor = '1x'

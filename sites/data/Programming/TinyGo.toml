@@ -40,7 +40,7 @@ Mute = false
 Inline = false
 
 [[Logo.Sources]]
-URL = "/img/logos/tinygo-200x200.svg"
+URL = "/img/logos/tinygo-1200x1200.svg"
 Type = "image/svg+xml"
 Media = "all"
 Descriptor = '1x'

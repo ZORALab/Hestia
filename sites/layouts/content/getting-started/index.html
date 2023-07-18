@@ -183,7 +183,10 @@
 	</section>
 
 
-	{{- $lang = index $Page.Data.Store.Epilogue $Page.Languages.Current.ID -}}
+	{{- $lang = index
+		$Page.Data.Store.Epilogue.Content.Languages
+		$Page.Languages.Current.ID
+	-}}
 	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
 	{{- partial "common/epilogue.html" $Page -}}
 </main>

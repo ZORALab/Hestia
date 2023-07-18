@@ -54,16 +54,3 @@ Description = '''
 端程序和有信心地建出微控制器的二进元制。这个菜单是按照内容学习范围和步骤考虑好让
 新手如何从零度开始吸收、如何探索资料以及如何成长。
 '''
-
-
-
-
-[i18n.Epilogue]
-ID = '终结'
-Title = '终结'
-Description = '''
-我们已经抵达这个ZORALab赫斯提亚开始指南菜单的终结了。如果您有任何询问，请在一下
-的管道随时联系吧：
-'''
-URL = 'https://github.com/ZORALab/Hestia/discussions'
-CTA = 'GitHub讨论论坛'
