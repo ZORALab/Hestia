@@ -1,0 +1,410 @@
+[[EN.Content]]
+Level = 2
+Title = 'Paragraph 1'
+HTML = '''
+This is the first paragraph in <code>HTML</code> format.
+'''
+Plain = '''
+This is the first paragraph in **plain** format.
+'''
+Code = '''
+Some preformatted pattern here.
+'''
+
+[[EN.Content.URL]]
+Value = '/#first-url'
+Label = 'First URL'
+
+[[EN.Content.URL]]
+Value = '/#second-url'
+Label = 'Second URL'
+
+[[EN.Content.Media]]
+Name = 'Rendered Image 1'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[EN.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+
+[[EN.Content.Media]]
+Name = 'Rendered Image 2'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[EN.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+
+[[ZH-HANS.Content]]
+Level = 2
+Title = '第一条文'
+HTML = '''
+这是第一个在<code>HTML</code>规范的条文。
+'''
+Plain = '''
+这是第一个在普通规范的条文。
+'''
+Code = '''
+一些已经处理的文字代表。
+'''
+
+[[ZH-HANS.Content.URL]]
+Value = '/#first-url'
+Label = '第一个链接'
+
+[[ZH-HANS.Content.URL]]
+Value = '/#second-url'
+Label = '第二个链接'
+
+[[ZH-HANS.Content.Media]]
+Name = '第一个图像'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[ZH-HANS.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+[[ZH-HANS.Content.Media]]
+Name = '第二个图像'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[ZH-HANS.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+
+
+
+[[EN.Content]]
+Level = 3
+Title = 'Paragraph 1.1'
+HTML = '''
+This is the first sub-paragraph in <code>HTML</code> format.
+'''
+Plain = '''
+This is the first sub-paragraph in **plain** format.
+'''
+Code = '''
+Some preformatted pattern here.
+'''
+
+[[EN.Content.URL]]
+Value = '/#first-url'
+Label = 'First URL'
+
+[[EN.Content.URL]]
+Value = '/#second-url'
+Label = 'Second URL'
+
+[[EN.Content.Media]]
+Name = 'Rendered Image 1'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[EN.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+
+[[EN.Content.Media]]
+Name = 'Rendered Image 2'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[EN.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[EN.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+
+[[ZH-HANS.Content]]
+Level = 3
+Title = '第一点一条文'
+HTML = '''
+这是第一个在<code>HTML</code>规范的小条文。
+'''
+Plain = '''
+这是第一个在普通规范的小条文。
+'''
+Code = '''
+一些已经处理的文字代表。
+'''
+
+[[ZH-HANS.Content.URL]]
+Value = '/#first-url'
+Label = '第一个链接'
+
+[[ZH-HANS.Content.URL]]
+Value = '/#second-url'
+Label = '第二个链接'
+
+[[ZH-HANS.Content.Media]]
+Name = '第一个图像'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[ZH-HANS.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
+
+[[ZH-HANS.Content.Media]]
+Name = '第二个图像'
+Decorative = false
+Loading = 'lazy'
+Width = '220'
+Height = '220'
+CORS = 'anonymous'
+Relationship = ''
+Design = ''
+Preload = ''
+Control = false
+Autoplay = false
+Loop = false
+Mute = false
+Inline = false
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-1200x1200.png'
+Type = 'image/png'
+Media = '(min-width: 800px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-480x480.png'
+Type = 'image/png'
+Media = '(min-width: 400px)'
+Descriptor = '1x'
+
+[[ZH-HANS.Content.Media.Sources]]
+URL = '/favicon-384x384.png'
+Type = 'image/png'
+Media = 'all'
+Descriptor = '1x'
+
+[ZH-HANS.Content.Media.Tracks.en]
+URL = ''
+Kind = 'subtitles'
+Label = 'English'
+Default = false
