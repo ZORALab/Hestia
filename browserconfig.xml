@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+	<msapplication>
+		<tile>
+			<square150x150logo src="https://hestia.zoralab.com/mstile-150x150.png"/>
+			<TileImage src="https://hestia.zoralab.com/mstile-150x150.png" />
+			<wide310x150logo src="https://hestia.zoralab.com/mstile-310x150.png"/>
+			<square310x310logo src="https://hestia.zoralab.com/mstile-310x310.png"/>
+			<square70x70logo src="https://hestia.zoralab.com/mstile-70x70.png"/>
+			<TileColor>#0055FF</TileColor>
+		</tile>
+	</msapplication>
+</browserconfig>

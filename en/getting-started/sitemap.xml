@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://hestia.zoralab.com/en/getting-started/sitemap-page.xml</loc>
+		<lastmod>2023-05-24T09:04:09&#43;08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/en/getting-started/create-basic-and-placeholder-hugo-pages/sitemap-page.xml</loc>
+		<lastmod>2023-05-28T14:00:23+08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/en/getting-started/setup-hugo/sitemap-page.xml</loc>
+		<lastmod>2023-05-24T16:29:25+08:00</lastmod>
+	</sitemap>
+</sitemapindex>

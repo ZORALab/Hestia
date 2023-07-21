@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://hestia.zoralab.com/zh-hans/sitemap-page.xml</loc>
+		<lastmod>2023-05-03T14:20:49&#43;08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/zh-hans/404/sitemap-page.xml</loc>
+		<lastmod>2023-05-22T13:19:55+08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/zh-hans/getting-started/sitemap-page.xml</loc>
+		<lastmod>2023-05-24T11:43:07+08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/zh-hans/licenses/sitemap-page.xml</loc>
+		<lastmod>2023-05-23T11:57:07+08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/zh-hans/releases/sitemap-page.xml</loc>
+		<lastmod>2023-05-31T19:53:37+08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/zh-hans/specs/sitemap-page.xml</loc>
+		<lastmod>2023-06-02T10:04:14+08:00</lastmod>
+	</sitemap>
+</sitemapindex>

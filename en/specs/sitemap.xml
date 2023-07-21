@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>https://hestia.zoralab.com/en/specs/sitemap-page.xml</loc>
+		<lastmod>2023-06-02T07:47:45&#43;08:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>https://hestia.zoralab.com/en/specs/hestiagui/sitemap-page.xml</loc>
+		<lastmod>2023-06-03T10:41:54+08:00</lastmod>
+	</sitemap>
+</sitemapindex>
