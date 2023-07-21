@@ -6,10 +6,3 @@ This page constructs the page-specific JS codes that will be appeneded into
 are available at your disposal in case of mathematical or logical algorithms
 development.
 */ -}}
-{{- /* prepare variables for function */ -}}
-{{- $Page := . -}}
-
-
-
-
-{{- /* render your Javascript output */ -}}
