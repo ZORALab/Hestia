@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Main Purpose'
 HTML = '''
 This package's primary purpose is to provide user interface (UI) styling
@@ -11,11 +12,11 @@ specifically for picture values.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
-[EN.List.Image]
+[EN.Content.Image]
 Name = 'Rendered Image'
 Decorative = false
 Loading = 'lazy'
@@ -31,32 +32,33 @@ Loop = false
 Mute = false
 Inline = false
 
-[[EN.List.Image.Sources]]
+[[EN.Content.Image.Sources]]
 URL = '/favicon-1200x1200.png'
 Type = 'image/png'
 Media = '(min-width: 800px)'
 Descriptor = '1x'
 
-[[EN.List.Image.Sources]]
+[[EN.Content.Image.Sources]]
 URL = '/favicon-480x480.png'
 Type = 'image/png'
 Media = '(min-width: 400px)'
 Descriptor = '1x'
 
-[[EN.List.Image.Sources]]
+[[EN.Content.Image.Sources]]
 URL = '/favicon-384x384.png'
 Type = 'image/png'
 Media = 'all'
 Descriptor = '1x'
 
-[EN.List.Image.Tracks.en]
+[EN.Content.Image.Tracks.en]
 URL = ''
 Kind = 'subtitles'
 Label = 'English'
 Default = false
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '主要目的'
 HTML = '''
 这个软件包的出生主要是支持渲染画像的界面元件。在网络界面世界里，
@@ -68,11 +70,11 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
-[ZH-HANS.List.Image]
+[ZH-HANS.Content.Image]
 Name = '渲染出的图像'
 Decorative = false
 Loading = 'lazy'
@@ -88,25 +90,25 @@ Loop = false
 Mute = false
 Inline = false
 
-[[ZH-HANS.List.Image.Sources]]
+[[ZH-HANS.Content.Image.Sources]]
 URL = '/favicon-1200x1200.png'
 Type = 'image/png'
 Media = '(min-width: 800px)'
 Descriptor = '1x'
 
-[[ZH-HANS.List.Image.Sources]]
+[[ZH-HANS.Content.Image.Sources]]
 URL = '/favicon-480x480.png'
 Type = 'image/png'
 Media = '(min-width: 400px)'
 Descriptor = '1x'
 
-[[ZH-HANS.List.Image.Sources]]
+[[ZH-HANS.Content.Image.Sources]]
 URL = '/favicon-384x384.png'
 Type = 'image/png'
 Media = 'all'
 Descriptor = '1x'
 
-[ZH-HANS.List.Image.Tracks.en]
+[ZH-HANS.Content.Image.Tracks.en]
 URL = ''
 Kind = 'subtitles'
 Label = 'English'
@@ -115,7 +117,8 @@ Default = false
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Compliant with hestiaMEDIA Data Structure'
 HTML = '''
 While this package offers picture UI styling, its data structure rendering
@@ -135,12 +138,13 @@ encouraged to use <code>hestiaMEDIA</code> package instead.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = '/en/specs/hestiaMEDIA/'
 Label = 'hestiaMEDIA'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '完全配合hestiaMEDIA数据构架'
 HTML = '''
 虽然这个软件包提供画像的渲染功能，它所需要的数据构架是完全配合
@@ -156,14 +160,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = '/zh-hans/specs/hestiaMEDIA/'
 Label = 'hestiaMEDIA'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Legacy Recording'
 HTML = '''
 This package was known as <code>picture_hestiaUI</code> before
@@ -180,12 +185,13 @@ documentation restructuring.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '历史遗录'
 HTML = '''
 这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
@@ -199,6 +205,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Designers'
 HTML = '''
 This component was designed by the following creators:
@@ -9,12 +10,13 @@ This component was designed by the following creators:
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/en/'
 Label = '(Holloway) Chew, Kean Ho'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '设计师'
 HTML = '''
 这个元件的设计是由以下的创造者所建设的：
@@ -25,14 +27,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/zh-hans/'
 Label = '(Holloway) 周健豪'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Dependencies'
 HTML = '''
 This component has the following dependencies (arranged in the order from
@@ -45,16 +48,17 @@ left-top to right-bottom):
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = '/en/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = '/en/specs/hestiagui/zoralabdrawer/'
 Label = 'zoralabDRAWER'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '依赖其他元件'
 HTML = '''
 这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
@@ -65,18 +69,19 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = '/zh-hans/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = '/zh-hans/specs/hestiagui/zoralabdrawer/'
 Label = 'zoralabDRAWER'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
@@ -91,12 +96,13 @@ structure for this component.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
@@ -107,13 +113,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Minimum HTML'
 HTML = '''
 The minimum required HTML codes are shown below:
@@ -137,12 +144,13 @@ Code = '''
 </nav>
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'HTML'
 HTML = '''
 在最小的HTML代码运用方法如下：
@@ -166,14 +174,15 @@ Code = '''
 </nav>
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'CSS'
 HTML = '''
 ZORALab's Hestia heavily rely on CSS to style this component and offering its
@@ -188,12 +197,13 @@ at your disposal.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'CSS界面自选性'
 HTML = '''
 ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
@@ -206,13 +216,14 @@ ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还�
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Z-Index'
 HTML = '''
 Affects the z-index of the rendered component.
@@ -226,12 +237,13 @@ CSS PROPERTY : z-index
 DEFAULT      : var(--drawer-z-index) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Z-Index'
 HTML = '''
 影响元件的z-index设置。
@@ -245,13 +257,14 @@ CSS属性    : z-index
 默认数码   : var(--drawer-z-index) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Z-Index (Opened)'
 HTML = '''
 Affects the z-index of the rendered component when opened.
@@ -265,12 +278,13 @@ CSS PROPERTY : z-index
 DEFAULT      : var(--drawer-z-index-opened) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Z-Index（打开）'
 HTML = '''
 影响元件在打开情况里的z-index设置。
@@ -284,13 +298,14 @@ CSS属性    : z-index
 默认数码   : var(--drawer-z-index-opened) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Width'
 HTML = '''
 Affects the width of the rendered component (when closed).
@@ -304,12 +319,13 @@ CSS PROPERTY : width
 DEFAULT      : 100vw (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Width'
 HTML = '''
 影响元件（在关闭时）的宽度。
@@ -323,13 +339,14 @@ CSS属性    : width
 默认数码   : 100vw (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Width (Opened)'
 HTML = '''
 Affects the width of the rendered component when opened.
@@ -343,12 +360,13 @@ CSS PROPERTY : width
 DEFAULT      : var(--top-drawer-width) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Width（打开）'
 HTML = '''
 影响元件在打开时的宽度。
@@ -362,13 +380,14 @@ CSS属性    : width
 默认数码   : var(--top-drawer-width) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Height'
 HTML = '''
 Affects the height of the rendered component (when closed).
@@ -382,12 +401,13 @@ CSS PROPERTY : height
 DEFAULT      : 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Height'
 HTML = '''
 影响元件（在关闭时）的长度。
@@ -401,13 +421,14 @@ CSS属性    : height
 默认数码   : 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Height (Opened)'
 HTML = '''
 Affects the height of the rendered component when opened.
@@ -421,12 +442,13 @@ CSS PROPERTY : height
 DEFAULT      : 85vh (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Height（打开）'
 HTML = '''
 影响元件在打开时的长度。
@@ -440,13 +462,14 @@ CSS属性    : height
 默认数码   : 85vh (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Overflow'
 HTML = '''
 Affects the overflow behavior of the rendered component.
@@ -460,12 +483,13 @@ CSS PROPERTY : overflow
 DEFAULT      : auto hidden (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Overflow'
 HTML = '''
 影响元件的边界线。
@@ -479,13 +503,14 @@ CSS属性    : overflow
 默认数码   : auto hidden (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border'
 HTML = '''
 Affects the border of the rendered component.
@@ -499,12 +524,13 @@ CSS PROPERTY : border
 DEFAULT      : var(--drawer-border) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border'
 HTML = '''
 影响元件的边界线。
@@ -518,13 +544,14 @@ CSS属性    : border
 默认数码   : var(--drawer-border) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border Radius'
 HTML = '''
 Affects the border radius of the rendered component.
@@ -538,12 +565,13 @@ CSS PROPERTY : border-radius
 DEFAULT      : 0 0 var(--drawer-border-radius) var(--drawer-border-radius) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border Radius'
 HTML = '''
 影响元件边界线的角落圆形度。
@@ -557,13 +585,14 @@ CSS属性    : border-radius
 默认数码   : 0 0 var(--drawer-border-radius) var(--drawer-border-radius) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Color'
 HTML = '''
 Affects the color of the rendered component.
@@ -577,12 +606,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--drawer-color) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Color'
 HTML = '''
 影响元件的颜色。
@@ -596,13 +626,14 @@ CSS属性    : color
 默认数码   : var(--drawer-color) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Background'
 HTML = '''
 Affects the background of the rendered component.
@@ -616,12 +647,13 @@ CSS PROPERTY : background
 DEFAULT      : var(--drawer-background) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Background'
 HTML = '''
 影响元件的背景。
@@ -635,13 +667,14 @@ CSS属性    : background
 默认数码   : var(--drawer-background) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Box Shadow'
 HTML = '''
 Affects the box shadow of the rendered component.
@@ -655,12 +688,13 @@ CSS PROPERTY : box-shadow
 DEFAULT      : var(--drawer-box-shadow) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Box Shadow'
 HTML = '''
 影响元件的影子。
@@ -674,13 +708,14 @@ CSS属性    : box-shadow
 默认数码   : var(--drawer-box-shadow) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Transition'
 HTML = '''
 Affects the animation timing of the rendered component.
@@ -694,12 +729,13 @@ CSS PROPERTY : transition
 DEFAULT      : var(--drawer-transition) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Transition'
 HTML = '''
 影响元件的动画定时。
@@ -713,13 +749,14 @@ CSS属性    : transition
 默认数码   : var(--drawer-transition) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Width (Trigger)'
 HTML = '''
 Affects the trigger's width of the rendered component.
@@ -733,12 +770,13 @@ CSS PROPERTY : width
 DEFAULT      : var(--drawer-trigger-width) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Width（触发器）'
 HTML = '''
 影响元件触发器的宽度。
@@ -752,13 +790,14 @@ CSS属性    : width
 默认数码   : var(--drawer-trigger-width) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Height (Trigger)'
 HTML = '''
 Affects the trigger's height of the rendered component.
@@ -772,12 +811,13 @@ CSS PROPERTY : height
 DEFAULT      : var(--drawer-trigger-height) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Height（触发器）'
 HTML = '''
 影响元件触发器的长度。
@@ -791,13 +831,14 @@ CSS属性    : height
 默认数码   : var(--drawer-trigger-height) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Top Position (Trigger)'
 HTML = '''
 Affects the trigger's top position of the rendered component.
@@ -811,12 +852,13 @@ CSS PROPERTY : top
 DEFAULT      : 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Top Position（触发器）'
 HTML = '''
 影响元件触发器的顶向位置。
@@ -830,13 +872,14 @@ CSS属性    : top
 默认数码   : 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Left Position (Trigger)'
 HTML = '''
 Affects the trigger's left position of the rendered component.
@@ -850,12 +893,13 @@ CSS PROPERTY : left
 DEFAULT      : 50% (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Left Position（触发器）'
 HTML = '''
 影响元件触发器的左向位置。
@@ -869,13 +913,14 @@ CSS属性    : left
 默认数码   : 50% (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Bottom Position (Trigger)'
 HTML = '''
 Affects the trigger's bottom position of the rendered component.
@@ -889,12 +934,13 @@ CSS PROPERTY : bottom
 DEFAULT      : unset (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Bottom Position（触发器）'
 HTML = '''
 影响元件触发器的底向位置。
@@ -908,13 +954,14 @@ CSS属性    : bottom
 默认数码   : unset (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Right Position (Trigger)'
 HTML = '''
 Affects the trigger's right position of the rendered component.
@@ -928,12 +975,13 @@ CSS PROPERTY : right
 DEFAULT      : unset (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Right Position（触发器）'
 HTML = '''
 影响元件触发器的右向位置。
@@ -947,13 +995,14 @@ CSS属性    : right
 默认数码   : unset (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Z-Index (Trigger)'
 HTML = '''
 Affects the trigger's z-index of the rendered component.
@@ -967,12 +1016,13 @@ CSS PROPERTY : z-index
 DEFAULT      : var(--drawer-trigger-z-index) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Z-Index（触发器）'
 HTML = '''
 影响元件触发器的z-index设置。
@@ -986,13 +1036,14 @@ CSS属性    : z-index
 默认数码   : var(--drawer-trigger-z-index) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border (Trigger)'
 HTML = '''
 Affects the trigger's border of the rendered component.
@@ -1006,12 +1057,13 @@ CSS PROPERTY : border
 DEFAULT      : unset (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border（触发器）'
 HTML = '''
 影响元件触发器的边界线。
@@ -1025,13 +1077,14 @@ CSS属性    : border
 默认数码   : unset (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border Radius (Trigger)'
 HTML = '''
 Affects the trigger's border radius of the rendered component.
@@ -1045,12 +1098,13 @@ CSS PROPERTY : border-radius
 DEFAULT      : 0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border Radius（触发器）'
 HTML = '''
 影响元件触发器的角落圆形度。
@@ -1064,13 +1118,14 @@ CSS属性    : border-radius
 默认数码   : 0 0 var(--drawer-trigger-border-radius) var(--drawer-trigger-border-radius)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Font Size (Trigger)'
 HTML = '''
 Affects the trigger's font size of the rendered component.
@@ -1084,12 +1139,13 @@ CSS PROPERTY : font-size
 DEFAULT      : var(--drawer-trigger-font-size) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Font Size（触发器）'
 HTML = '''
 影响元件触发器的字体大小。
@@ -1103,13 +1159,14 @@ CSS属性    : font-size
 默认数码   : var(--drawer-trigger-font-size) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Font Style (Trigger)'
 HTML = '''
 Affects the trigger's font style of the rendered component.
@@ -1123,12 +1180,13 @@ CSS PROPERTY : font-style
 DEFAULT      : var(--drawer-trigger-font-style) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Font Style（触发器）'
 HTML = '''
 影响元件触发器的字体风格。
@@ -1142,13 +1200,14 @@ CSS属性    : font-style
 默认数码   : var(--drawer-trigger-font-style) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Color (Trigger)'
 HTML = '''
 Affects the trigger's color of the rendered component.
@@ -1162,12 +1221,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--drawer-trigger-color) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Color（触发器）'
 HTML = '''
 影响元件触发器的颜色。
@@ -1181,13 +1241,14 @@ CSS属性    : color
 默认数码   : var(--drawer-trigger-color) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Background (Trigger)'
 HTML = '''
 Affects the trigger's background of the rendered component.
@@ -1201,12 +1262,13 @@ CSS PROPERTY : background
 DEFAULT      : var(--drawer-background) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Background（触发器）'
 HTML = '''
 影响元件触发器的颜色。
@@ -1220,13 +1282,14 @@ CSS属性    : background
 默认数码   : var(--drawer-background) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Box Shadow (Trigger)'
 HTML = '''
 Affects the trigger's box shadow of the rendered component.
@@ -1240,12 +1303,13 @@ CSS PROPERTY : box-shadow
 DEFAULT      : 0 0 2rem var(--drawer-trigger-color) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Box Shadow（触发器）'
 HTML = '''
 影响元件触发器的影子。
@@ -1259,13 +1323,14 @@ CSS属性    : box-shadow
 默认数码   : 0 0 2rem var(--drawer-trigger-color) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Transform (Trigger)'
 HTML = '''
 Affects the trigger's transform of the rendered component.
@@ -1279,12 +1344,13 @@ CSS PROPERTY : transform
 DEFAULT      : translateX(-50%) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Transform（触发器）'
 HTML = '''
 影响元件触发器的变换形态。
@@ -1298,13 +1364,14 @@ CSS属性    : transform
 默认数码   : translateX(-50%) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Transform (Trigger + Focus)'
 HTML = '''
 Affects the trigger's transform of the rendered component while being focused.
@@ -1318,12 +1385,13 @@ CSS PROPERTY : transform
 DEFAULT      : scale(1.3) translateX(-50%) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Transform（触发器+被关注）'
 HTML = '''
 影响元件触发器在被关注时的变换形态。
@@ -1337,13 +1405,14 @@ CSS属性    : transform
 默认数码   : scale(1.3) translateX(-50%) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Z-Index (Overlay)'
 HTML = '''
 Affects the overlay layer's z-index of the rendered component.
@@ -1357,12 +1426,13 @@ CSS PROPERTY : z-index
 DEFAULT      : var(--drawer-overlay-z-index) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Z-Index （叠加层）'
 HTML = '''
 影响元件叠加层的z-index设置。
@@ -1376,13 +1446,14 @@ CSS属性    : z-index
 默认数码   : var(--drawer-overlay-z-index) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Color (Overlay)'
 HTML = '''
 Affects the overlay layer's color of the rendered component.
@@ -1396,12 +1467,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--drawer-overlay-color) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Color （叠加层）'
 HTML = '''
 影响元件叠加层的颜色。
@@ -1415,13 +1487,14 @@ CSS属性    : color
 默认数码   : var(--drawer-overlay-color) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Background (Overlay)'
 HTML = '''
 Affects the overlay layer's background of the rendered component.
@@ -1435,12 +1508,13 @@ CSS PROPERTY : background
 DEFAULT      : var(--drawer-overlay-background) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Background （叠加层）'
 HTML = '''
 影响元件叠加层的背景。
@@ -1454,13 +1528,14 @@ CSS属性    : background
 默认数码   : var(--drawer-overlay-background) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Transition (Overlay)'
 HTML = '''
 Affects the overlay layer's animation timing of the rendered component.
@@ -1474,12 +1549,13 @@ CSS PROPERTY : transition
 DEFAULT      : var(--drawer-overlay-transition) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Transition （叠加层）'
 HTML = '''
 影响元件叠加层的动画定时。
@@ -1493,14 +1569,15 @@ CSS属性    : transition
 默认数码   : var(--drawer-overlay-transition) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 Fortunately, this component does not use any JavaScript. Relax.
@@ -1511,12 +1588,13 @@ Fortunately, this component does not use any JavaScript. Relax.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 庆幸的是这个元件没有运用到任何JavaScript。放心吧！
@@ -1527,6 +1605,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

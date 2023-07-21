@@ -37,8 +37,9 @@ algorithms development.
 
 {{- /* execute function */ -}}
 {{- $dataList = merge $dataList (dict
-	$i18n.Title .Titles.Page
-	$i18n.Description (printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
+	$i18n.Labels.Title .Titles.Page
+	$i18n.Labels.Description
+		(printf "%s %s" .Descriptions.Page.Pitch .Descriptions.Page.Summary)
 ) -}}
 
 
@@ -52,7 +53,7 @@ algorithms development.
 
 	{{- /* construct dataset  */ -}}
 	{{- $list = slice -}}
-	{{- range $i, $v := $dataset.List -}}
+	{{- range $i, $v := $dataset.Content -}}
 		{{- $ret = "" -}}
 		{{- if $v.Code -}}
 			{{- $ret = $v.Code -}}
@@ -80,53 +81,13 @@ algorithms development.
 
 
 		{{- $data = dict
-			$i18n.Title $v.Title
-			$i18n.Description $v.Plain
+			$i18n.Labels.Level $v.Level
+			$i18n.Labels.Title $v.Title
+			$i18n.Labels.Description $v.Plain
 			$i18n.Labels.Code $v.Code
 			$i18n.Labels.URL $URLList
 			$i18n.Labels.Image $ret
 		-}}
-
-
-		{{- $subList = slice -}}
-		{{- range $j, $w := $v.SubList -}}
-			{{- $ret = "" -}}
-			{{- if $w.Code -}}
-				{{- $ret = $w.Code -}}
-			{{- end -}}
-
-
-			{{- $URLList = slice -}}
-			{{- range $k, $x := $w.URL -}}
-				{{- if and (not $x.Value) (not $x.Label) -}}
-					{{- continue -}}
-				{{- end -}}
-
-				{{- $ret = merge $Page (dict "Input" (dict "Data" $x.Value)) -}}
-				{{- $ret = partial "hestiaURL/Sanitize" $ret }}
-				{{- $URLList = append (dict
-					$w.Label (string $ret.Output)
-				) $URLList -}}
-			{{- end -}}
-
-
-			{{- $ret = dict -}}
-			{{- if $w.Image -}}
-				{{- $ret = merge $Page (dict "Input" (dict "Data" $w.Image)) -}}
-				{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-				{{- $ret = $ret.Output -}}
-			{{- end -}}
-
-
-			{{- $subList = append (dict
-				$i18n.Title $w.Title
-				$i18n.Description $w.Plain
-				$i18n.Labels.Code $w.Code
-				$i18n.Labels.URL $URLList
-				$i18n.Labels.Image $ret
-			) $subList -}}
-		{{- end -}}
-		{{- $data = merge $data (dict $i18n.Labels.SubList $subList) -}}
 
 
 		{{- $list = append $data $list -}}
@@ -141,8 +102,8 @@ algorithms development.
 {{- $list = slice -}}
 {{- range $i, $v := .Nav.Children -}}
 	{{- $list = append (dict
-		$i18n.Title $v.Titles.Page
-		$i18n.Description $v.Titles.Description
+		$i18n.Labels.Title $v.Titles.Page
+		$i18n.Labels.Description $v.Titles.Description
 		$i18n.Catalog.CTA $v.URL.Current.Absolute
 	) $list -}}
 {{- end -}}

@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Main Purpose'
 HTML = '''
 This package's primary purpose is to provide user interface (UI) styling
@@ -11,12 +12,13 @@ specifically for facilitating Google's Noto Sans font.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '主要目的'
 HTML = '''
 这个软件包的出生主要是支持渲染供应谷歌的NotoSans字体界面元件。
@@ -27,14 +29,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Hugo User - Action Required'
 HTML = '''
 When using this font, you need to add its actual font files into your
@@ -65,12 +68,13 @@ i18nDir = "i18n"
 ...
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'Hugo用户者 - 需做步骤'
 HTML = '''
 当您运用这个字体元件时，您需要在<code>config/_default/config.toml</code>的
@@ -99,14 +103,15 @@ i18nDir = "i18n"
 ...
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Legacy Recording'
 HTML = '''
 This package was known as <code>font-notosans_hestiaUI</code> before
@@ -123,12 +128,13 @@ documentation restructuring.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '历史遗录'
 HTML = '''
 这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
@@ -142,6 +148,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Main Purpose'
 HTML = '''
 This package's primary purpose is to provide user interface (UI) styling
@@ -71,12 +72,13 @@ specifically for card-oriented values.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '主要目的'
 HTML = '''
 这个软件包的出生主要是支持渲染卡片类型界面元件。在网络界面世界里，这元件的成果如
@@ -146,14 +148,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Legacy Recording'
 HTML = '''
 This package was known as <code>card_hestiaUI</code> before ZORALab's Hestia
@@ -169,12 +172,13 @@ makes way for programming package's documentation restructuring.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '历史遗录'
 HTML = '''
 这个软件包在ZORALab赫斯提亚<code>v1.2.0</code>版本之前曾经被名为
@@ -188,6 +192,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

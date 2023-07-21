@@ -35,23 +35,34 @@
 		<p>{{- .Descriptions.Page.Pitch }} {{ .Descriptions.Page.Summary -}}</p>
 	</section>
 
+
 	{{- range $unused, $type := $SECTIONS -}}
 		{{- $lang = index $i18n $type -}}
 		{{- $dataset = default dict (index $datastore $type) -}}
 		{{- $dataset = index $dataset $Page.Languages.Current.ID -}}
 
-	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav -}}
+		{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav -}}
 	<section id='{{- $lang.ID -}}'>
 		<h2>{{- $lang.Title -}}</h2>
 		<p>{{- safeHTML $lang.HTML -}}</p>
 
-		{{ if $dataset.List -}}
-		{{ range $i, $v := $dataset.List }}
+		{{ if $dataset.Content -}}
+		{{ range $i, $v := $dataset.Content }}
 			{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Title)) -}}
 			{{- $ret = partial "hestiaSTRING/ToID" $ret -}}
 			{{- $ret = $ret.Output }}
 		<section id='{{- $ret -}}'>
+			{{- if eq $v.Level 3 }}
 			<h3>{{- $v.Title -}}</h3>
+			{{- else if eq $v.Level 4 }}
+			<h4>{{- $v.Title -}}</h4>
+			{{- else if eq $v.Level 5 }}
+			<h5>{{- $v.Title -}}</h5>
+			{{- else if eq $v.Level 6 }}
+			<h6>{{- $v.Title -}}</h6>
+			{{- else }}
+			<p>{{- $v.Title -}}</p>
+			{{- end }}
 			<p>{{- safeHTML $v.HTML -}}</p>
 
 			{{- range $j , $w := $v.URL -}}
@@ -74,37 +85,6 @@
 				{{- $ret = $ret.Output }}
 			{{ partial "hestiaMEDIA/ToHTML" $ret }}
 			{{- end }}
-
-			{{ range $j, $w := $v.SubList }}<section>
-				<h4>{{- $w.Title -}}</h4>
-				<p>{{- safeHTML $w.HTML -}}</p>
-
-				{{- range $k , $x := $w.URL -}}
-					{{- if and (not $x.Value) (not $x.Label) -}}
-						{{- continue -}}
-					{{- end -}}
-
-					{{- $ret = merge $Page (dict "Input"
-						(dict "Data" $x.Value)
-					) -}}
-					{{- $ret = partial "hestiaURL/Sanitize" $ret }}
-				<a href='{{- string $ret.Output -}}'
-					class='button'>{{- $x.Label -}}</a>
-				{{- end }}
-
-				{{- if $w.Code }}
-				<pre>{{- htmlEscape $w.Code -}}</pre>
-				{{- end }}
-
-				{{- if $w.Image }}
-					{{- $ret = merge $Page (dict "Input"
-						(dict "Data" $w.Image)
-					) -}}
-					{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
-					{{- $ret = $ret.Output }}
-				{{ partial "hestiaMEDIA/ToHTML" $ret }}
-				{{- end }}
-			</section>{{- end }}
 		</section>{{- end }}
 		{{- else }}
 		<p>{{- $lang.NoList -}}</p>
@@ -153,7 +133,10 @@
 	{{- end }}
 
 
-	{{- $lang = index $Page.Data.Store.Epilogue $Page.Languages.Current.ID -}}
+	{{- $lang = index
+		$Page.Data.Store.Epilogue.Content.Languages
+		$Page.Languages.Current.ID
+	-}}
 	{{- $nav = append (dict "ID" $lang.ID "Label" $lang.Title) $nav }}
 	{{- partial "common/epilogue.html" $Page -}}
 </main>

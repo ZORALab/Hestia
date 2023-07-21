@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Designers'
 HTML = '''
 This component was designed by the following creators:
@@ -9,12 +10,13 @@ This component was designed by the following creators:
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/en/'
 Label = '(Holloway) Chew, Kean Ho'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '设计师'
 HTML = '''
 这个元件的设计是由以下的创造者所建设的：
@@ -25,14 +27,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/zh-hans/'
 Label = '(Holloway) 周健豪'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Dependencies'
 HTML = '''
 This component has the following dependencies (arranged in the order from
@@ -45,12 +48,13 @@ left-top to right-bottom):
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = '/en/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '依赖其他元件'
 HTML = '''
 这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
@@ -61,14 +65,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = '/zh-hans/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 Fortunately, this component does have any HTML code. Relax.
@@ -79,12 +84,13 @@ Fortunately, this component does have any HTML code. Relax.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 庆幸的是这个元件没有运用到任何HTML。放心吧！
@@ -95,14 +101,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'CSS'
 HTML = '''
 Fortunately, this component does have any CSS customization. Relax.
@@ -113,12 +120,13 @@ Fortunately, this component does have any CSS customization. Relax.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
-[[ZH-HANS.List]]
+
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'CSS界面自选性'
 HTML = '''
 庆幸的是这个元件没有任何CSS改造的需求。放心吧！
@@ -129,14 +137,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 Fortunately, this component does not use any JavaScript. Relax.
@@ -147,12 +156,13 @@ Fortunately, this component does not use any JavaScript. Relax.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 庆幸的是这个元件没有运用到任何JavaScript。放心吧！
@@ -163,6 +173,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

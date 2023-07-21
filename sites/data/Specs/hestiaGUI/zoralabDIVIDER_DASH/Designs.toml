@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Designers'
 HTML = '''
 This component was designed by the following creators:
@@ -9,12 +10,13 @@ This component was designed by the following creators:
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/en/'
 Label = '(Holloway) Chew, Kean Ho'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '设计师'
 HTML = '''
 这个元件的设计是由以下的创造者所建设的：
@@ -25,14 +27,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/zh-hans/'
 Label = '(Holloway) 周健豪'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Dependencies'
 HTML = '''
 This component has the following dependencies (arranged in the order from
@@ -45,16 +48,17 @@ left-top to right-bottom):
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = '/en/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = '/en/specs/hestiagui/zoralabdivider/'
 Label = 'zoralabDIVIDER'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '依赖其他元件'
 HTML = '''
 这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
@@ -65,18 +69,19 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = '/zh-hans/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = '/zh-hans/specs/hestiagui/zoralabdivider/'
 Label = 'zoralabDIVIDER'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
@@ -91,12 +96,13 @@ structure for this component.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
@@ -107,13 +113,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Minimum HTML'
 HTML = '''
 The minimum required HTML codes are shown below:
@@ -125,12 +132,13 @@ Code = '''
 <hr class='dash' />
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '最小的HTML'
 HTML = '''
 在最小的HTML代码运用方法如下：
@@ -142,14 +150,15 @@ Code = '''
 <hr class='dash' />
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'CSS'
 HTML = '''
 ZORALab's Hestia heavily rely on CSS to style this component and offering its
@@ -164,12 +173,13 @@ at your disposal.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'CSS界面自选性'
 HTML = '''
 ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
@@ -182,13 +192,14 @@ ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还�
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border Bottom'
 HTML = '''
 Affects the bottom border of the rendered component.
@@ -202,12 +213,13 @@ CSS PROPERTY : border-bottom
 DEFAULT      : 2px dashed var(--divider-color) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border Bottom'
 HTML = '''
 影响元件顶边的边界线。
@@ -221,13 +233,14 @@ CSS属性    : border-bottom
 默认数码   : 2px dashed var(--divider-color) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border Bottom (Inverted)'
 HTML = '''
 Affects the bottom border of the rendered component while in inverted mode.
@@ -241,12 +254,13 @@ CSS PROPERTY : border-bottom
 DEFAULT      : 2px dashed var(--divider-color-inverted) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border Bottom（反转环境）'
 HTML = '''
 影响元件在反转环境里的底边的边界线。
@@ -260,14 +274,15 @@ CSS属性    : border-bottom
 默认数码   : 2px dashed var(--divider-color-inverted) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 Fortunately, this component does not use any JavaScript. Relax.
@@ -278,12 +293,14 @@ Fortunately, this component does not use any JavaScript. Relax.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
+Level = 3
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 庆幸的是这个元件没有运用到任何JavaScript。放心吧！
@@ -294,6 +311,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

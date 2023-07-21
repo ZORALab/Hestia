@@ -19,7 +19,7 @@
 #   4. Hestia compatible URL (ONLY .Languages data structure is usable) can
 #      be accepted in the .Lang.URL fields (see example above).
 [en]
-URL = '/en/specs/hestiagui/zoralabnote_warning'
+URL = '/en/specs/hestiagui/zoralabnote_warning/'
 
 [zh-Hans]
-URL = '/zh-hans/specs/hestiagui/zoralabnote_warning'
+URL = '/zh-hans/specs/hestiagui/zoralabnote_warning/'

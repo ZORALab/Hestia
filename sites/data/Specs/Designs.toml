@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Decentralized Distribution'
 HTML = '''
 By design, ZORALab's Hestia carefully pick programming languages that do not
@@ -21,12 +22,13 @@ simple '.zip' archive format.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '网络HTML+CSS优先'
 HTML = '''
 根据ZORALab赫斯提亚设计，我们是为了防止地缘政治和事后的肮脏诡计带来的无畏无聊的
@@ -43,14 +45,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Stream Vs. Memory'
 HTML = '''
 For ZORALab's Hestia, there are 2 orientations when it comes to designing
@@ -78,12 +81,13 @@ executions, whichever comes first.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '流动式vs记忆式'
 HTML = '''
 在ZORALab赫斯提亚设计算法，基本上有2种方式：
@@ -107,14 +111,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Monomorphize By CPU Size'
 HTML = '''
 One problem ZORALab's Hestia set to solve is to facilitate all functions and
@@ -135,12 +140,13 @@ and methods giving the end users a choice rather than no-choice.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '通过中央处理器的位大小单态化'
 HTML = '''
 有一个问题ZORALab赫斯提亚一定要解决的是能供应各种不同的中央处理器的位大小（如：
@@ -159,14 +165,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Import Direction'
 HTML = '''
 For ZORALab's Hestia, ALWAYS LET USER TO ONLY IMPORT LEAF PACKAGES WHENEVER
@@ -200,12 +207,13 @@ hestiaNET/hestiaHTTP/hestiaPWA
    ⮱ hestiaPWA.ToAppManifest
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '导入方向'
 HTML = '''
 在ZORALab赫斯提亚里，××永远让顾客导入最后端的代码包（统称‘叶子包’）××。开发者永
@@ -238,14 +246,15 @@ hestiaNET/hestiaHTTP/hestiaPWA
    ⮱ hestiaPWA.ToAppManifest
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Naming Convention'
 HTML = '''
 To comply with the import direction above and to avoid conflicting with the
@@ -321,12 +330,13 @@ obj.X_S8_Sanitize_V3           (go-pub, nim-pub*)
 obj.x_S8_Sanitize_V3           (go-priv, nim-priv)
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '命名模范'
 HTML = '''
 为了促进以上的规则和为了供应良好的互操作性体验和避免与标准库冲突，
@@ -396,14 +406,15 @@ obj.X_S8_Sanitize_V3           (go-pub, nim-pub*)
 obj.x_S8_Sanitize_V3           (go-priv, nim-priv)
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Error Code and No Panic'
 HTML = '''
 Error string returning as practiced in Go is actually quite expensive when
@@ -422,12 +433,13 @@ The lesser the abstraction, the better.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '错误代码和不可恐慌'
 HTML = '''
 通过窜字符串来表达错误在记忆空间稀少的环境里是蛮昂贵的。如此以来，我们就只能运用
@@ -442,14 +454,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Use Macro and Avoid Generics'
 HTML = '''
 Generics is only serving 1 specific type of meta-programming and
@@ -468,12 +481,13 @@ use that instead.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '使用Macro和避免使用Generics'
 HTML = '''
 Generics只能在1中元编程的用法条件下可使用。头痛的问题是在不同的中央处理器的位大小
@@ -489,14 +503,15 @@ Generics只能在1中元编程的用法条件下可使用。头痛的问题是�
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Function vs. Method'
 HTML = '''
 Since the package is output oriented: package function by default and method
@@ -548,12 +563,13 @@ Zero
 []     = Compulsory Variable Values
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '功能vs格式'
 HTML = '''
 既然代码包是用输出出产类型而被立名，那我们是先以功能方式为先，格式为有需要鸭子打
@@ -603,14 +619,15 @@ Zero
 []     = 必修的变化值
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'WASM Capable'
 HTML = '''
 All packages shall be usable in WASM. Do not let user to mess with Javascript
@@ -623,12 +640,13 @@ when used including UI rendering (that's what the library for).
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'WASM能力'
 HTML = '''
 所有的代码包必须支持WASM和无条件之下可以运用。我们绝对不可让顾客在用JavaScript去
@@ -641,6 +659,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

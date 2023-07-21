@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Main Purpose'
 HTML = '''
 This package's primary purpose is to provide user interface (UI) styling an
@@ -11,12 +12,13 @@ in-page debugger panel. This is enabled automatically in Hugo's server mode.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '主要目的'
 HTML = '''
 这个软件包的出生主要是支持渲染内嵌调试器界面元件。
@@ -29,14 +31,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Legacy Recording'
 HTML = '''
 This package was first released in ZORALab's Hestia <code>v1.2.0</code>.
@@ -47,12 +50,13 @@ This package was first released in ZORALab's Hestia 'v1.2.0'.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '历史遗录'
 HTML = '''
 这个软件包首次在ZORALab赫斯提亚<code>v1.2.0</code>版本出产。
@@ -63,6 +67,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

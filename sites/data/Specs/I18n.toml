@@ -1,27 +1,23 @@
 [EN]
-Title = 'Title'
+[EN.Labels]
+Code = 'Code'
 Description = 'Description'
+Image = 'Image'
+Level = 'Level'
+SubList = 'Subpoints'
+Title = 'Title'
+URL = 'URL'
 
 
 [ZH-HANS]
-Title = '标题'
-Description = '大纲'
-
-
-
-
-[EN.Labels]
-Code = 'Code'
-URL = 'URL'
-Image = 'Image'
-SubList = 'Subpoints'
-
-
 [ZH-HANS.Labels]
 Code = '代码'
-URL = 'URL'
+Description = '大纲'
 Image = '图像'
+Level = '层度'
 SubList = '子点'
+Title = '标题'
+URL = 'URL'
 
 
 
@@ -204,28 +200,3 @@ Description = '''
 Package = '代码包'
 Details = '详情'
 CTA = '了解更多'
-
-
-
-
-[EN.Epilogue]
-ID = 'epilogue'
-Title = 'Epilogue'
-Description = '''
-We have reach the end of this package's specification for ZORALab's Hestia
-Project. If you have any query, please feel free to contact us at our following
-portal:
-'''
-URL = 'https://github.com/ZORALab/Hestia/discussions'
-CTA = 'GitHub Discussion Portal'
-
-
-[ZH-HANS.Epilogue]
-ID = '终结'
-Title = '终结'
-Description = '''
-我们已经抵达这个ZORALab赫斯提亚的规范终结段了。如有询问，您是可以通过以下管道来
-联系我们吧：
-'''
-URL = 'https://github.com/ZORALab/Hestia/discussions'
-CTA = 'GitHub讨论论坛'

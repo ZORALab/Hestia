@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Designers'
 HTML = '''
 This component was designed by the following creators:
@@ -9,12 +10,13 @@ This component was designed by the following creators:
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/en/'
 Label = '(Holloway) Chew, Kean Ho'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '设计师'
 HTML = '''
 这个元件的设计是由以下的创造者所建设的：
@@ -25,14 +27,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/zh-hans/'
 Label = '(Holloway) 周健豪'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Dependencies'
 HTML = '''
 This component has the following dependencies (arranged in the order from
@@ -45,12 +48,13 @@ left-top to right-bottom):
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = '/en/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '依赖其他元件'
 HTML = '''
 这个元件是需要以下的其他元件才能好好的运行 (排序从‘左上到右下’）：
@@ -61,14 +65,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = '/zh-hans/specs/hestiagui/zoralabcore/'
 Label = 'zoralabCORE'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
@@ -83,12 +88,13 @@ structure for this component.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
@@ -99,13 +105,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Minimum HTML'
 HTML = '''
 The minimum required HTML codes are shown below:
@@ -127,13 +134,14 @@ Code = '''
 </figure>
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
-Title = 'HTML'
+[[ZH-HANS.Content]]
+Level = 4
+Title = '最小的HTML'
 HTML = '''
 在最小的HTML代码运用方法如下：
 '''
@@ -154,14 +162,15 @@ Code = '''
 </figure>
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'CSS'
 HTML = '''
 ZORALab's Hestia heavily rely on CSS to style this component and offering its
@@ -176,12 +185,13 @@ at your disposal.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'CSS界面自选性'
 HTML = '''
 ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
@@ -194,13 +204,14 @@ ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还�
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Layout'
 HTML = '''
 Affects the grid layout of the rendered component.
@@ -219,12 +230,13 @@ DEFAULT      :
 / 100%
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Layout'
 HTML = '''
 影响元件的空间设计。
@@ -243,13 +255,14 @@ CSS属性    : grid
 / 100%
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Overflow'
 HTML = '''
 Affects the overflow of the rendered component.
@@ -263,12 +276,13 @@ CSS PROPERTY : overflow
 DEFAULT      : hidden (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Overflow'
 HTML = '''
 影响元件的溢出反应。
@@ -282,13 +296,14 @@ CSS属性    : overflow
 默认数码   : hidden (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Margin'
 HTML = '''
 Affects the margin of the rendered component.
@@ -302,12 +317,13 @@ CSS PROPERTY : margin
 DEFAULT      : 2rem auto (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Margin'
 HTML = '''
 影响元件的外向边距空间。
@@ -321,13 +337,14 @@ CSS属性    : margin
 默认数码   : 2rem auto (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Padding'
 HTML = '''
 Affects the padding of the rendered component.
@@ -341,12 +358,13 @@ CSS PROPERTY : padding
 DEFAULT      : 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Padding'
 HTML = '''
 影响元件的内向边距空间。
@@ -360,13 +378,14 @@ CSS属性    : padding
 默认数码   : 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Width'
 HTML = '''
 Affects the width of the rendered component.
@@ -380,12 +399,13 @@ CSS PROPERTY : width
 DEFAULT      : clamp(22rem, 28rem, 32rem) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Width'
 HTML = '''
 影响元件的宽度。
@@ -399,13 +419,14 @@ CSS属性    : width
 默认数码   : clamp(22rem, 28rem, 32rem) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border'
 HTML = '''
 Affects the border of the rendered component.
@@ -419,12 +440,13 @@ CSS PROPERTY : border
 DEFAULT      : none (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border'
 HTML = '''
 影响元件的边界线。
@@ -438,13 +460,14 @@ CSS属性    : border
 默认数码   : none (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Border Radius'
 HTML = '''
 Affects the border radius of the rendered component.
@@ -458,12 +481,13 @@ CSS PROPERTY : border-radius
 DEFAULT      : 1rem (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Border Radius'
 HTML = '''
 影响元件边界线的角落圆形度。
@@ -477,13 +501,14 @@ CSS属性    : border-radius
 默认数码   : 1rem (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Color'
 HTML = '''
 Affects the color of the rendered component.
@@ -497,12 +522,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--body-color) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Color'
 HTML = '''
 影响元件的颜色。
@@ -516,13 +542,14 @@ CSS属性    : color
 默认数码   : var(--body-color) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Color (Inverted)'
 HTML = '''
 Affects the color of the rendered component while in inverted mode.
@@ -536,12 +563,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--body-color-inverted) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Color（反转环境）'
 HTML = '''
 影响元件在反转环境里的颜色。
@@ -555,13 +583,14 @@ CSS属性    : color
 默认数码   : var(--body-color-inverted) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Color (Print Mode)'
 HTML = '''
 Affects the color of the rendered component during print mode.
@@ -575,12 +604,13 @@ CSS PROPERTY : color
 DEFAULT      : var(--body-color-print) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Color（印刷）'
 HTML = '''
 影响元件在印刷中的颜色。
@@ -594,13 +624,14 @@ CSS属性    : color
 默认数码   : var(--body-color-print) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Background'
 HTML = '''
 Affects the background of the rendered component.
@@ -614,12 +645,13 @@ CSS PROPERTY : background
 DEFAULT      : var(--body-background) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Background'
 HTML = '''
 影响元件的背景。
@@ -633,13 +665,14 @@ CSS属性    : background
 默认数码   : var(--body-background) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Background (Inverted Mode)'
 HTML = '''
 Affects the background of the rendered component while in inverted mode.
@@ -653,12 +686,13 @@ CSS PROPERTY : background
 DEFAULT      : var(--body-background-inverted) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Background（反转环境）'
 HTML = '''
 影响元件在反转环境里的背景。
@@ -672,13 +706,14 @@ CSS属性    : background
 默认数码   : var(--body-background-inverted) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Background (Print Mode)'
 HTML = '''
 Affects the background of the rendered component during print mode.
@@ -692,12 +727,13 @@ CSS PROPERTY : background
 DEFAULT      : var(--body-background-print) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Background（印刷）'
 HTML = '''
 影响元件在印刷中的背景。
@@ -711,13 +747,14 @@ CSS属性    : background
 默认数码   : var(--body-background-print) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Transition'
 HTML = '''
 Affects the animation timing of the rendered component.
@@ -731,12 +768,13 @@ CSS PROPERTY : transition
 DEFAULT      : var(--timing-normal) (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Transition'
 HTML = '''
 影响元件的动画定时。
@@ -750,13 +788,14 @@ CSS属性    : transition
 默认数码   : var(--timing-normal) (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Thumbnail Overflow'
 HTML = '''
 Affects the thumbnail's overflow of the rendered component.
@@ -770,12 +809,13 @@ CSS PROPERTY : overflow
 DEFAULT      : hidden (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '缩略像Overflow'
 HTML = '''
 影响元件缩略像的溢出反应。
@@ -789,13 +829,14 @@ CSS属性    : overflow
 默认数码   : hidden (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Thumbnail Object-Fit'
 HTML = '''
 Affects the thumbnail's object fitting condition of the rendered component.
@@ -809,12 +850,13 @@ CSS PROPERTY : object-fit
 DEFAULT      : contain (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '缩略像Object-Fit'
 HTML = '''
 影响元件缩略像的溢出反应。
@@ -828,13 +870,14 @@ CSS属性    : object-fit
 默认数码   : contain (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Thumbnail Height'
 HTML = '''
 Affects the thumbnail's height of the rendered component.
@@ -848,12 +891,13 @@ CSS PROPERTY : height
 DEFAULT      : max-content (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '缩略像Height'
 HTML = '''
 影响元件缩略像的高度。
@@ -867,13 +911,14 @@ CSS属性    : height
 默认数码   : max-content (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Thumbnail Margin'
 HTML = '''
 Affects the thumbnail's margin of the rendered component.
@@ -887,12 +932,13 @@ CSS PROPERTY : margin
 DEFAULT      : 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '缩略像Margin'
 HTML = '''
 影响元件缩略像的外向边距空间。
@@ -906,13 +952,14 @@ CSS属性    : margin
 默认数码   : 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Thumbnail Padding'
 HTML = '''
 Affects the thumbnail's padding of the rendered component.
@@ -926,12 +973,13 @@ CSS PROPERTY : padding
 DEFAULT      : 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '缩略像Padding'
 HTML = '''
 影响元件缩略像的内向边距空间。
@@ -945,13 +993,14 @@ CSS属性    : padding
 默认数码   : 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Content Overflow'
 HTML = '''
 Affects the content's overflow of the rendered component.
@@ -965,12 +1014,13 @@ CSS PROPERTY : overflow
 DEFAULT      : auto (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '内容层Overflow'
 HTML = '''
 影响元件内容层的溢出反应。
@@ -984,13 +1034,14 @@ CSS属性    : overflow
 默认数码   : auto (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Content Height'
 HTML = '''
 Affects the content's height of the rendered component.
@@ -1004,12 +1055,13 @@ CSS PROPERTY : height
 DEFAULT      : auto (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '内容层Height'
 HTML = '''
 影响元件内容层的高度。
@@ -1023,13 +1075,14 @@ CSS属性    : height
 默认数码   : auto (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Content Margin'
 HTML = '''
 Affects the content's margin of the rendered component.
@@ -1043,12 +1096,13 @@ CSS PROPERTY : margin
 DEFAULT      : 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '内容层Margin'
 HTML = '''
 影响元件内容层的外向边距空间。
@@ -1062,13 +1116,14 @@ CSS属性    : margin
 默认数码   : 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Content Padding'
 HTML = '''
 Affects the content's padding of the rendered component.
@@ -1082,12 +1137,13 @@ CSS PROPERTY : padding
 DEFAULT      : 0 1rem (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '内容层Padding'
 HTML = '''
 影响元件内容层的内向边距空间。
@@ -1101,13 +1157,14 @@ CSS属性    : padding
 默认数码   : 0 1rem (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Actions Overflow'
 HTML = '''
 Affects the actions' overflow of the rendered component.
@@ -1121,12 +1178,13 @@ CSS PROPERTY : overflow
 DEFAULT      : hidden (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '行动层Overflow'
 HTML = '''
 影响元件行动层的溢出反应。
@@ -1140,13 +1198,14 @@ CSS属性    : overflow
 默认数码   : hidden (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Actions Height'
 HTML = '''
 Affects the actions' height of the rendered component.
@@ -1160,12 +1219,13 @@ CSS PROPERTY : height
 DEFAULT      : max-content (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '行动层Height'
 HTML = '''
 影响元件行动层的高度。
@@ -1179,13 +1239,14 @@ CSS属性    : height
 默认数码   : max-content (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Actions Margin'
 HTML = '''
 Affects the actions margin of the rendered component.
@@ -1199,12 +1260,13 @@ CSS PROPERTY : margin
 DEFAULT      : 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '行动层Margin'
 HTML = '''
 影响元件行动层的外向边距空间。
@@ -1218,13 +1280,14 @@ CSS属性    : margin
 默认数码   : 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Actions Padding'
 HTML = '''
 Affects the actions' padding of the rendered component.
@@ -1238,12 +1301,13 @@ CSS PROPERTY : padding
 DEFAULT      : 3.5rem 0 (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '行动层Padding'
 HTML = '''
 影响元件行动层的内向边距空间。
@@ -1257,13 +1321,14 @@ CSS属性    : padding
 默认数码   : 3.5rem 0 (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Title Margin'
 HTML = '''
 Affects the title's margin of the rendered component.
@@ -1277,12 +1342,13 @@ CSS PROPERTY : margin
 DEFAULT      : .3rem auto (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '标题Margin'
 HTML = '''
 影响元件标题的外向边距空间。
@@ -1296,14 +1362,15 @@ CSS属性    : margin
 默认数码   : .3rem auto (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 Fortunately, this component does not use any JavaScript. Relax.
@@ -1314,12 +1381,13 @@ Fortunately, this component does not use any JavaScript. Relax.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 庆幸的是这个元件没有运用到任何JavaScript。放心吧！
@@ -1330,6 +1398,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

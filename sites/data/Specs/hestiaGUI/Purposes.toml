@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Main Purpose'
 HTML = '''
 This package's primary purpose is to facilitate all graphical user interface
@@ -17,12 +18,13 @@ Code = '''
 Web (HTML+CSS)
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '主要目的'
 HTML = '''
 这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(<code>GUI</code>)。
@@ -38,14 +40,15 @@ Code = '''
 网络 (HTML+CSS)
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'As A Common Utilities Provider'
 HTML = '''
 Since this is a parent package to all GUI component, this package supplies all
@@ -62,12 +65,13 @@ designer.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '主要目的'
 HTML = '''
 这个软件包的出生主要是通过同一种数据来供应不同可以的界面元件(<code>GUI</code>)。
@@ -82,6 +86,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'ToCSS'
 HTML = '''
 Render the CSS output for this UI component.
@@ -9,12 +10,13 @@ Render the CSS output for this UI component.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'ToCSS'
 HTML = '''
 渲染呈现CSS的输出数据。
@@ -25,13 +27,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Hugo'
 HTML = '''
 Usage example:
@@ -44,12 +47,13 @@ Code = '''
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Hugo'
 HTML = '''
 用法：
@@ -62,14 +66,15 @@ Code = '''
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'ToHTML'
 HTML = '''
 Render the HTML output for this UI component.
@@ -80,12 +85,13 @@ Render the HTML output for this UI component.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'ToHTML'
 HTML = '''
 渲染呈现HTML的输出数据。
@@ -96,13 +102,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Hugo'
 HTML = '''
 Usage example:
@@ -115,12 +122,13 @@ Code = '''
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = 'Hugo'
 HTML = '''
 用法：
@@ -133,6 +141,6 @@ Code = '''
 <pre>{{- printf "%#v\n" $ret -}}</pre>
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

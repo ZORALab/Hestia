@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Designers'
 HTML = '''
 This component was designed by the following creators:
@@ -9,12 +10,13 @@ This component was designed by the following creators:
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/en/'
 Label = '(Holloway) Chew, Kean Ho'
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '设计师'
 HTML = '''
 这个元件的设计是由以下的创造者所建设的：
@@ -25,14 +27,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = 'https://www.hollowaykeanho.com/zh-hans/'
 Label = '(Holloway) 周健豪'
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Dependencies'
 HTML = '''
 This component has no dependency.
@@ -44,7 +47,8 @@ Code = '''
 '''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '依赖其他元件'
 HTML = '''
 这个元件是没有依赖其他元件。
@@ -58,7 +62,8 @@ Code = '''
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 For HTML, ZORALab's Hestia employs the W3C native syntax for simplicity and
@@ -73,12 +78,13 @@ structure for this component.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'HTML'
 HTML = '''
 至于HTML，为了简单化和最大的兼容性整个用法，ZORALab赫斯提亚运用W3C的语法。我们
@@ -89,13 +95,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Page Structure HTML'
 HTML = '''
 The compliant HTML page structure is shown below:
@@ -155,12 +162,13 @@ Code = '''
 </html>
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '兼容的网页面结构HTML'
 HTML = '''
 兼容的网页面结构的HTML代码如下：
@@ -220,13 +228,14 @@ Code = '''
 </html>
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Grid System HTML'
 HTML = '''
 The grid system HTML codes are shown below:
@@ -253,12 +262,13 @@ Code = '''
 </div>
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '网格空间控制系统HTML'
 HTML = '''
 网格空间控制系统的HTML代码如下：
@@ -288,14 +298,15 @@ Code = '''
 </div>
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'CSS'
 HTML = '''
 ZORALab's Hestia heavily rely on CSS to style this component and offering its
@@ -310,12 +321,13 @@ at your disposal.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'CSS界面自选性'
 HTML = '''
 ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还推出界面自选性功能。
@@ -328,13 +340,14 @@ ZORALab赫斯提亚非常重用CSS变化值来装置这个界面元件并且还�
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Color System'
 HTML = '''
 ZORALab's Hestia heavily rely on CSS to style this component and offering its
@@ -454,12 +467,13 @@ css variables for customizations. See HTML page for list of variables.
 Code = '''
 '''
 
-
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
-[[ZH-HANS.List.SubList]]
+
+[[ZH-HANS.Content]]
+Level = 4
 Title = '颜色系统'
 HTML = '''
 这元件有供应自己的颜色系统如下（例子：第 1 行 第 2 列是
@@ -576,13 +590,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Indicator Color System'
 HTML = '''
 The standard engineering indication system are also supplied for safety use.
@@ -621,12 +636,13 @@ See HTML page for list of variables.
 Code = '''
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '标准工程颜色系统'
 HTML = '''
 这元件有供应标准工程颜色系统如下（例子：第 1 行 第 2 列是
@@ -663,13 +679,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Unified Typography Color System'
 HTML = '''
 The unified typography color system are also supplied for common readability.
@@ -708,12 +725,13 @@ See HTML page for list of variables.
 Code = '''
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '统一字形颜色系统'
 HTML = '''
 这元件有供应统一字形颜色系统如下（例子：第 1 行 第 2 列是
@@ -750,13 +768,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Animation Timing System'
 HTML = '''
 This component also supplies consistent animation timing system.
@@ -793,12 +812,13 @@ See HTML page for list of variables.
 Code = '''
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '动画定时系统'
 HTML = '''
 这元件有供应动画定时系统如下（例子：第 1 行 第 2 列是
@@ -834,13 +854,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Base Font System'
 HTML = '''
 The base font system are supplied for basic use. The are shown as follows
@@ -880,12 +901,13 @@ See HTML page for list of variables.
 Code = '''
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '基本字体系统'
 HTML = '''
 这元件有供应基本字体系统如下（例子：第 1 行 第 2 列是
@@ -924,13 +946,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Typography System'
 HTML = '''
 This component also supplies a consistent typography system.
@@ -1071,12 +1094,13 @@ See HTML page for list of variables.
 Code = '''
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '字形系统'
 HTML = '''
 这元件有供应字形系统如下（例子：第 1 行 第 2 列是
@@ -1215,13 +1239,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Z-Index System'
 HTML = '''
 This component also supplies its own z-index layering system where it is applied
@@ -1286,12 +1311,13 @@ See HTML page for list of variables.
 Code = '''
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '动画定时系统'
 HTML = '''
 这元件有供应动画定时系统如下（例子：第 1 行 第 2 列是
@@ -1327,13 +1353,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Layout System'
 HTML = '''
 This component also supplies some customizable layout system. They are shown as
@@ -1419,12 +1446,13 @@ See HTML page for list of variables.
 Code = '''
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '布局系统'
 HTML = '''
 这元件有供可自定的布局系统如下（例子：第 1 行 第 2 列是
@@ -1510,13 +1538,14 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Scroll Behavior'
 HTML = '''
 Affects the scrolling behavior of the page.
@@ -1530,13 +1559,14 @@ CSS PROPERTY : scroll-behavior
 DEFAULT      : smooth (>= v1.2.0)
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
-Title = 'Scroll Behavior'
+[[ZH-HANS.Content]]
+Level = 4
+Title = '滚动行为'
 HTML = '''
 影响网页的移动反应。
 '''
@@ -1549,13 +1579,14 @@ CSS属性    : scroll-behavior
 默认数码   : smooth (>= v1.2.0)
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
-[[EN.List.SubList]]
+[[EN.Content]]
+Level = 4
 Title = 'Page Grid'
 HTML = '''
 Affects the base grid layout definition of the page.
@@ -1576,12 +1607,13 @@ DEFAULT      :
 	/ 100%
 '''
 
-[[EN.List.SubList.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List.SubList]]
+[[ZH-HANS.Content]]
+Level = 4
 Title = '网页Grid'
 HTML = '''
 影响网页的移动反应。
@@ -1602,14 +1634,15 @@ CSS属性    : grid
 	/ 100%
 '''
 
-[[ZH-HANS.List.SubList.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 Fortunately, this component does not use any JavaScript. Relax.
@@ -1620,12 +1653,13 @@ Fortunately, this component does not use any JavaScript. Relax.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'JavaScript'
 HTML = '''
 庆幸的是这个元件没有运用到任何JavaScript。放心吧！
@@ -1636,6 +1670,6 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''

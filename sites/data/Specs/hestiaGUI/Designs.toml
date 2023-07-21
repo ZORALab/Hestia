@@ -1,4 +1,5 @@
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Web HTML+CSS First'
 HTML = '''
 While there are various UI systems in the market, ZORALab's Hestia prioritizes
@@ -17,12 +18,13 @@ design, network-based UI is very important than device-based version.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '网络HTML+CSS优先'
 HTML = '''
 虽然在市场有许多的UI系统，ZORALab赫斯提亚还是会因为从2023年开始以多数人已经重用
@@ -37,14 +39,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'GUI As An Option'
 HTML = '''
 The sole reason GUI is made available are mainly to design an product interface
@@ -61,12 +64,13 @@ GUI is only enabled for the user as an option.
 Code = '''
 '''
 
-
-[[ZH-HANS.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
-[[ZH-HANS.List]]
+
+[[ZH-HANS.Content]]
+Level = 3
 Title = 'GUI界面一定要自选性'
 HTML = '''
 GUI界面元件主要是给那些没有科技文学的顾客可以方便使用某个科技。如此以来，一个科技
@@ -79,14 +83,15 @@ GUI界面元件主要是给那些没有科技文学的顾客可以方便使用�
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Capable of Rendering HTML, CSS, and CSS Variables List Outputs Independently'
 HTML = '''
 Aligning to ZORALab's Hestia main purpose, all GUI components MUST support Web
@@ -103,12 +108,13 @@ data structure.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '能独立地呈现HTML、CSS、和CSS变化值菜单输出数据'
 HTML = '''
 为了服从ZORALab赫斯提亚的主要目的，所有的界面元件一定要可以渲染输网络界面和
@@ -123,14 +129,15 @@ HTML、CSS、和CSS变化值菜单各自的数据。
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Extended Naming Convention'
 HTML = '''
 Aside complying to the naming convention stated in the main spec, hestiaGUI
@@ -149,12 +156,13 @@ credit the designer.
 Code = '''
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '额外命名规范'
 HTML = '''
 除了要遵从原本的命名规范，hestiaGUI拥有额外的命名规范条例得加入遵从。由于GUI界面
@@ -171,14 +179,15 @@ Plain = '''
 Code = '''
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Common Design Practice'
 HTML = '''
 Normally, the design direction shall always be as little as dependency as
@@ -200,12 +209,13 @@ ToCSS_VARIABLES
 ToJS (If possible, don't use it)
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '常用的设计观点'
 HTML = '''
 通常在界面元件设计里，尽量能依赖越少其他的元件越好。但是，如果碰到统一的数据如
@@ -223,14 +233,15 @@ ToCSS_VARIABLES
 ToJS （能的话，尽量别用）
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
 
 
 
 
-[[EN.List]]
+[[EN.Content]]
+Level = 3
 Title = 'Debugger Design Practice'
 HTML = '''
 Normally, the debugger design direction shall always be <b>NO dependency and
@@ -250,12 +261,13 @@ ToJS (If possible, don't use it)
 ToHTML (Generate the HTML codes based on technologies)
 '''
 
-[[EN.List.URL]]
+[[EN.Content.URL]]
 Value = ''
 Label = ''
 
 
-[[ZH-HANS.List]]
+[[ZH-HANS.Content]]
+Level = 3
 Title = '调试器的设计观点'
 HTML = '''
 通常在调试器界面元件设计里是<b>必须不能依靠任何元件和可以拥有强大的设计阻力</b>。
@@ -275,6 +287,6 @@ ToJS （能的话，尽量别用）
 ToHTML （出产所需要的HTML代码）
 '''
 
-[[ZH-HANS.List.URL]]
+[[ZH-HANS.Content.URL]]
 Value = ''
 Label = ''
