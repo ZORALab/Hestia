@@ -148,7 +148,8 @@ specific language governing permissions and limitations under the License.
 	{{- /* RENDER '/icons-*.*' or '/favicon-*.*' FILES */ -}}
 	{{- range $i, $v := $Page.PWA.Icons -}}
 		{{- /* load the image */ -}}
-		{{- $data = resources.GetMatch $v.Assets.URL -}}
+		{{- $data = index $v.Assets.Sources 0 -}}
+		{{- $data = resources.GetMatch $data.URL -}}
 		{{- if not $data -}}
 			{{- continue -}}
 		{{- end -}}

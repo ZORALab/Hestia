@@ -43,29 +43,22 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 	{{- $ret = $ret.Output -}}
 
-	{{- $data = dict "HUGO" $ret -}}
-	{{- $data = merge $data
-		(dict "UNIX" $ret.UnixNano) -}}
-	{{- $data = merge $data
-		(dict "ID" ($ret.Format "200601021504050700")) -}}
-	{{- $data = merge $data
-		(dict "RFC3339" ($ret.Format "2006-01-02T15:04:05Z07:00")) -}}
-	{{- $data = merge $data
-		(dict "RFC1123Z" ($ret.Format "Mon, 02 Jan 2006 15:04:05 -0700")) -}}
-	{{- $data = merge $data
-		(dict "ISO8601" ($ret.Format "2006-01-02T15:04:05-07:00")) -}}
-	{{- $data = merge $data
-		(dict "LONG" ($ret.Format "Monday, January 02, 2006 15:04:05 -07:00")) -}}
-	{{- $data = merge $data
-		(dict "Year" ($ret.Format "2006")) -}}
-	{{- $data = merge $data
-		(dict "Month" ($ret.Format "01")) -}}
-	{{- $data = merge $data
-		(dict "Day" ($ret.Format "02")) -}}
-	{{- $data = merge $data
-		(dict "HH::MM::SS" ($ret.Format "15:04:05")) -}}
-	{{- $data = merge $data
-		(dict "GMT" ($ret.Format "-07:00")) -}}
+
+	{{- $data = dict
+		"Day" ($ret.Format "02")
+		"GMT" ($ret.Format "-07:00")
+		"HH::MM::SS" ($ret.Format "15:04:05")
+		"HUGO" $ret
+		"ID" ($ret.Format "200601021504050700")
+		"ISO8601" ($ret.Format "2006-01-02T15:04:05-07:00")
+		"LONG" ($ret.Format "Monday, January 02, 2006 15:04:05 -07:00")
+		"Month" ($ret.Format "01")
+		"RFC1123Z" ($ret.Format "Mon, 02 Jan 2006 15:04:05 -0700")
+		"RFC3339" ($ret.Format "2006-01-02T15:04:05Z07:00")
+		"UNIX" $ret.UnixNano
+		"Year" ($ret.Format "2006")
+	-}}
+
 
 	{{- $dataList = merge $dataList (dict (title (lower $k)) $data) -}}
 {{- end -}}
@@ -91,8 +84,7 @@ specific language governing permissions and limitations under the License.
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $ret = $ret.Output -}}
-	{{- $data = merge $data (dict "Type" $ret) -}}
+	{{- $data = merge $data (dict "Type" $ret.Output) -}}
 
 
 	{{- /* process .Extension */ -}}
@@ -108,8 +100,7 @@ specific language governing permissions and limitations under the License.
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $ret = $ret.Output -}}
-	{{- $data = merge $data (dict "Extension" $ret) -}}
+	{{- $data = merge $data (dict "Extension" $ret.Output) -}}
 
 
 	{{- /* process .Filename */ -}}
@@ -121,10 +112,8 @@ specific language governing permissions and limitations under the License.
 		{{- $error = merge $Page (dict "Error" $error) -}}
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 		{{- continue -}}
-	{{- else -}}
-		{{- $ret = $ret.Output -}}
 	{{- end -}}
-	{{- $data = merge $data (dict "Filename" $ret) -}}
+	{{- $data = merge $data (dict "Filename" $ret.Output) -}}
 
 
 	{{- /* process .Protocol */ -}}
@@ -207,8 +196,7 @@ specific language governing permissions and limitations under the License.
 		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $ret = $ret.Output -}}
-	{{- $data = dict "Code" $ret "ID" (partial "hestiaI18N/ToID" $ret) -}}
+	{{- $data = dict "Code" $ret.Output "ID" (partial "hestiaI18N/ToID" $ret.Output) -}}
 
 
 	{{- /* process .Name */ -}}
@@ -248,14 +236,11 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* process .Default */ -}}
-	{{- $ret = merge $Page (dict "Input" (dict "Data" $v.Default)) -}}
-	{{- $ret = partial "hestiaBOOL/Sanitize" $ret -}}
-	{{- if $ret.Error -}}
-		{{- $error = printf "Languages.List.%v.Default: %v" $data.ID $ret.Error -}}
-		{{- $error = merge $Page (dict "Error" $error) -}}
-		{{- partial "hestiaIO/hestiaTERM/Errorf" $error -}}
+	{{- $ret = false -}}
+	{{- if $v.Default -}}
+		{{- $ret = true -}}
 	{{- end -}}
-	{{- $data = merge $data (dict "Default" $ret.Output) -}}
+	{{- $data = merge $data (dict "Default" $ret) -}}
 
 
 	{{- /* process .URL  */ -}}
@@ -516,7 +501,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .Thumbnails */ -}}
-{{- $dataList = dict -}}
+{{- $dataList = slice -}}
 {{- range $i, $v := $Page.Thumbnails -}}
 	{{- $ret = merge $Page (dict "Input" (dict "Data" $v)) -}}
 	{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
@@ -527,7 +512,7 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $dataList = merge $dataList (dict (string $i) $ret.Output) -}}
+	{{- $dataList = append $ret.Output $dataList -}}
 {{- end -}}
 {{- $Page = merge $Page (dict "Thumbnails" false) -}}
 {{- $Page = merge $Page (dict "Thumbnails" $dataList) -}}
@@ -737,7 +722,7 @@ specific language governing permissions and limitations under the License.
 
 {{- $dataList = dict -}}
 {{- range $i, $v := $Page.Thumbnails -}}
-	{{ $ret = index $v.Sources "0" -}}
+	{{ $ret = index $v.Sources 0 -}}
 	{{- if not (partial "hestiaMIME/IsImage" $ret.Type) -}}
 		{{- continue -}}
 	{{- end -}}
@@ -762,7 +747,7 @@ specific language governing permissions and limitations under the License.
 
 {{- $dataList = dict -}}
 {{- range $i, $v := $Page.Thumbnails -}}
-	{{ $ret = index $v.Sources "0" -}}
+	{{ $ret = index $v.Sources 0 -}}
 	{{- if (partial "hestiaMIME/IsImage" $ret.Type) -}}
 		{{- continue -}}
 	{{- end -}}

@@ -5,7 +5,7 @@
 #      directory. Here, you only list them out using their data filename as the
 #      Key for this page and update their contribution.
 #   2. Example entries:
-#        [[Contributor]]
+#        [[Contributors]]
 #        Key = 'Holloway'
 #
 #        [Contributors.Contribution]
@@ -22,7 +22,7 @@
 #        Funder = false
 #        Sponsor = false
 #
-#        [[Contributor]]
+#        [[Contributors]]
 #        Key = 'CoryGalyna'
 #
 #        [Contributors.Contribution]
@@ -56,6 +56,8 @@ Provider = true
 Publisher = true
 Funder = false
 Sponsor = true
+
+
 
 
 [[Contributors]]

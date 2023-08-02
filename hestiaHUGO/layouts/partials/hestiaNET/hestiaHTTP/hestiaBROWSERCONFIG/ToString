@@ -33,7 +33,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-	{{- $source := index $v.Sources "0" -}}
+	{{- $source := index $v.Sources 0 -}}
 	{{- if eq $v.Sizes "70x70" }}
 			<square70x70logo src="{{- string $source.URL -}}"/>
 	{{- else if eq $v.Sizes "150x150" }}

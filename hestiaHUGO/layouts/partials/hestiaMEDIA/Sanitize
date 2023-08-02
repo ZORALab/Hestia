@@ -51,6 +51,7 @@ specific language governing permissions and limitations under the License.
 {{- $error := "" -}}
 {{- $input := dict -}}
 {{- $dataset := dict -}}
+{{- $list := slice -}}
 {{- $data := dict -}}
 {{- $ret := false -}}
 {{- $isDefaultSet := false -}}
@@ -175,6 +176,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
+	{{- $list = slice -}}
 	{{- range $i, $v := $dataset -}}
 		{{- $data = dict -}}
 
@@ -241,8 +243,9 @@ specific language governing permissions and limitations under the License.
 		{{- $data = merge $data (dict "Descriptor" (default "1x" $ret.Output)) -}}
 
 		{{- /* merge to datalist */ -}}
-		{{- $dataList = merge $dataList (dict "Sources" (dict (string $i) $data)) -}}
+		{{- $list = append $data $list -}}
 	{{- end -}}
+	{{- $dataList = merge $dataList (dict "Sources" $list) -}}
 {{- end -}}
 
 

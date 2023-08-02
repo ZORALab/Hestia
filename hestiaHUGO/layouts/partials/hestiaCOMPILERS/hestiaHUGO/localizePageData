@@ -21,7 +21,6 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* prepare working variables for this function */ -}}
-{{- $FS_PREFIXES := slice "layouts/" "assets/" "static/" -}}
 {{- $Page := . -}}
 {{- $Local := dict -}}
 {{- $dataset := dict -}}
@@ -41,7 +40,7 @@ specific language governing permissions and limitations under the License.
 		if we want a pure Go HTML implementations.
 	*/ -}}
 	{{- $Local = false -}}
-	{{- range $j, $w := $FS_PREFIXES -}}
+	{{- range $j, $w := $Page.Constants.Filesystem.Prefixes -}}
 		{{ if strings.HasPrefix $v $w -}}
 			{{- $Local = true -}}
 		{{- end -}}
@@ -67,7 +66,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse local LDJSON */ -}}
 {{- $Local = false -}}
-{{- range $i, $v := $FS_PREFIXES -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
 	{{ if strings.HasPrefix $Page.LDJSON $v -}}
 		{{- $Local = true -}}
 	{{- end -}}
@@ -88,7 +87,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source .CSS and .JS */ -}}
 {{- $Local = false -}}
-{{- range $i, $v := $FS_PREFIXES -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
 	{{ if strings.HasPrefix $Page.CSS.Source $v -}}
 		{{- $Local = true -}}
 	{{- end -}}
@@ -171,7 +170,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source page-level main CSS file */ -}}
 {{- $Local = false -}}
-{{- range $i, $v := $FS_PREFIXES -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
 	{{ if strings.HasPrefix $Page.CSS.Main $v -}}
 		{{- $Local = true -}}
 	{{- end -}}
@@ -190,7 +189,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source page-level main JS file */ -}}
 {{- $Local = false -}}
-{{- range $i, $v := $FS_PREFIXES -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
 	{{ if strings.HasPrefix $Page.JS.Main $v -}}
 		{{- $Local = true -}}
 	{{- end -}}
@@ -211,7 +210,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* parse .Components */ -}}
 {{- $Local = false -}}
-{{- range $i, $v := $FS_PREFIXES -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
 	{{ if strings.HasPrefix $Page.Components $v -}}
 		{{- $Local = true -}}
 	{{- end -}}
@@ -224,10 +223,10 @@ specific language governing permissions and limitations under the License.
 {{- end -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
 {{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+
+
 {{- $Local = $Local.Output -}}
 {{- $Local = default slice $Local.List -}}
-
-
 {{- $list = slice -}}
 {{- range $i, $v := $Local -}}
 	{{- if not (index $v "Name") -}}
@@ -268,9 +267,14 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $Page = merge $Page (dict "Robots" (dict "List" (
-		(dict "Name" $v.Name "Content" $v.Content)
-	))) -}}
+	{{- $Page = merge $Page (dict
+		"Robots" (dict
+			"List" (dict
+				"Name" $v.Name
+				"Content" $v.Content
+			)
+		)
+	) -}}
 {{- end -}}
 
 
@@ -284,30 +288,38 @@ specific language governing permissions and limitations under the License.
 
 
 {{- if index $Local "Creator" -}}
-	{{- $ret = $Local.Creator -}}
-	{{- if index $ret "Handle" -}}
-		{{- $ret = $ret.Handle -}}
+	{{- if index $Local.Creator "Handle" -}}
+		{{- $ret = $Local.Creator.Handle -}}
 	{{- else -}}
 		{{- $ret = "" -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "Vendors"
-		(dict "Twitter" (dict "Creator" (dict "Handle" $ret)))
+	{{- $Page = merge $Page (dict
+		"Vendors" (dict
+			"Twitter" (dict
+				"Creator" (dict
+					"Handle" $ret
+				)
+			)
+		)
 	) -}}
 {{- end -}}
 
 
 {{- if index $Local "Stores" -}}
 	{{- range $k, $v := $Local.Stores -}}
-		{{- $Page = merge $Page (dict "Vendors"
-			(dict "Twitter" (dict "Stores"
-				(dict (string $k) (dict
-						"ID" (default "" $v.ID)
-						"Name" (default "" $v.Name)
-						"URL" (default $v.URL)
+		{{- $Page = merge $Page (dict
+			"Vendors" (dict
+				"Twitter" (dict
+					"Stores" (dict
+						(string $k) (dict
+							"ID" (default "" $v.ID)
+							"Name" (default "" $v.Name)
+							"URL" (default $v.URL)
+						)
 					)
 				)
-			))
+			)
 		) -}}
 	{{- end -}}
 {{- end -}}
@@ -323,19 +335,25 @@ specific language governing permissions and limitations under the License.
 {{- $Local = default dict $Local.Settings -}}
 
 
-{{- $Page = merge $Page (dict "WASM" (dict
-	"URL" (default "" $Local.URL)
-	"Setup" (default "" $Local.Setup)
-	"Import" (default "" $Local.Import)
-	"Init" (default "" $Local.Init)
-	"Embed" (default "" $Local.Embed)
-)) -}}
+{{- $Page = merge $Page (dict
+	"WASM" (dict
+		"URL" (default "" $Local.URL)
+		"Setup" (default "" $Local.Setup)
+		"Import" (default "" $Local.Import)
+		"Init" (default "" $Local.Init)
+		"Embed" (default "" $Local.Embed)
+	)
+) -}}
 
 
 {{- range $i, $v := index $Local "Dependencies" -}}
-	{{- $Page = merge $Page (dict "WASM" (dict "Dependencies"
-		(dict (string $i) $v)
-	)) -}}
+	{{- $Page = merge $Page (dict
+		"WASM" (dict
+			"Dependencies" (dict
+				(string $i) $v
+			)
+		)
+	) -}}
 {{- end -}}
 
 

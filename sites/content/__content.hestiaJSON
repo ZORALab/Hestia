@@ -1,9 +1,0 @@
-{{- /*
-Page's JSON Output Prime Control
-
-This file is your JSON output file (index.html). Hugo's and Go's template
-processors are available at your disposal in case of mathematical or logical
-algorithms development.
-*/ -}}
-{{- /* render output */ -}}
-{{- jsonify dict -}}

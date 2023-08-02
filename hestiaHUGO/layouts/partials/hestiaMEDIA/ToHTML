@@ -45,6 +45,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* determine type of media */ -}}
 {{- $media := . -}}
+{{- $last := false -}}
 {{- $isImage := false -}}
 {{- $isVideo := false -}}
 {{- $isAudio := false -}}
@@ -94,10 +95,8 @@ specific language governing permissions and limitations under the License.
 	{{ if $media.Decorative -}} aria-hidden="true" {{- end }} />
 
 
-	{{- $last := default dict $media.Sources -}}
-	{{- $last = sub (len $last) 1 -}}
+	{{- $last = sub (len $media.Sources) 1 -}}
 	{{- if lt $last 0 -}}{{- $last = 0 -}}{{- end -}}
-	{{- $last = printf "%d" $last -}}
 	{{- range $i, $v := $media.Sources }}
 	<source srcset='{{- $v.URL -}} {{- if $v.Descriptor }} {{ $v.Descriptor -}}{{- end -}}'
 		type='{{- $v.Type -}}'

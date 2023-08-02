@@ -50,31 +50,32 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source .Sources */ -}}
-{{- $data = default dict $Local.Sources -}}
-
-
-{{- $ret = default "__content.hestiaHTML" $data.HTML -}}
+{{- $ret = default dict $Local.Sources -}}
 {{- $Page = merge $Page (dict
 	"Content" (dict
-		"HTML" (default "__content.hestiaHTML" $data.HTML)
-		"JSON" (default "__content.hestiaJSON" $data.JSON)
+		"HTML" (default "__content.hestiaHTML" $ret.HTML)
+		"JSON" (default "__content.hestiaJSON" $ret.JSON)
 	)
-	"LDJSON" (default "__content.hestiaLDJSON" $data.LDJSON)
+
+	"LDJSON" (default "__content.hestiaLDJSON" $ret.LDJSON)
+
 	"CSS" (dict
-		"Source" (default "__assets.toml" $data.Assets)
-		"Main" (default "__content.hestiaCSS" $data.CSS)
+		"Source" (default "__assets.toml" $ret.Assets)
+		"Main" (default "__content.hestiaCSS" $ret.CSS)
 	)
+
 	"JS" (dict
-		"Main" (default "__content.hestiaJS" $data.JS)
+		"Main" (default "__content.hestiaJS" $ret.JS)
 	)
-	"Components" (default "__components.toml" $data.Components)
+
+	"Components" (default "__components.toml" $ret.Components)
 ) -}}
 
 
 {{- $location = merge $location (dict
-	"Contributors" (default "__contributors.toml" $data.Contributors)
-	"Thumbnails" (default "__thumbnails.toml" $data.Thumbnails)
-	"Languages" (default "__languages.toml" $data.Languages)
+	"Contributors" (default "__contributors.toml" $ret.Contributors)
+	"Thumbnails" (default "__thumbnails.toml" $ret.Thumbnails)
+	"Languages" (default "__languages.toml" $ret.Languages)
 ) -}}
 
 
@@ -82,15 +83,21 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source .Time */ -}}
 {{- if $Local.Date -}}
-	{{- $ret = index $Local.Date "Created" -}}
-	{{- if $ret -}}
-		{{- $Page = merge $Page (dict "Time" (dict "Created" $ret)) -}}
+	{{- if index $Local.Date "Created" -}}
+		{{- $Page = merge $Page (dict
+			"Time" (dict
+				"Created" $Local.Date.Created
+			)
+		) -}}
 	{{- end -}}
 
 
-	{{- $ret = index $Local.Date "Published" -}}
-	{{- if $ret -}}
-		{{- $Page = merge $Page (dict "Time" (dict "Published" $ret)) -}}
+	{{- if index $Local.Date "Published" -}}
+		{{- $Page = merge $Page (dict
+			"Time" (dict
+				"Published" $Local.Date.Published
+			)
+		) -}}
 	{{- end -}}
 {{- end -}}
 
@@ -98,9 +105,14 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source .Data */ -}}
-{{- range $i, $v := (default slice $Local.Data) -}}
-	{{- $ret = printf "%s/%s" $Page.Filesystem.Directory $v.Filename -}}
-	{{- $Page = merge $Page (dict "Data" (dict "Page" (dict (string $i) $ret))) -}}
+{{- range $i, $v := $Local.Data -}}
+	{{- $Page = merge $Page (dict
+		"Data" (dict
+			"Page" (dict
+				(string $i) (printf "%s/%s" $Page.Filesystem.Directory $v.Filename)
+			)
+		)
+	) -}}
 {{- end -}}
 
 
@@ -108,9 +120,12 @@ specific language governing permissions and limitations under the License.
 
 {{- /* source .Titles.Page */ -}}
 {{- if index $Local "Content" -}}
-	{{- $ret = index $Local.Content "Title" -}}
-	{{- if $ret -}}
-		{{- $Page = merge $Page (dict "Titles" (dict "Page" $ret)) -}}
+	{{- if index $Local.Content "Title" -}}
+		{{- $Page = merge $Page (dict
+			"Titles" (dict
+				"Page" $Local.Content.Title
+			)
+		) -}}
 	{{- end -}}
 {{- end -}}
 
@@ -120,17 +135,25 @@ specific language governing permissions and limitations under the License.
 {{- /* source .Description */ -}}
 {{- $data = index $Local "Description" -}}
 {{- if $data -}}
-	{{- $ret = index $data "Pitch" -}}
-	{{- if $ret -}}
-		{{- $Page = merge $Page
-			(dict "Descriptions" (dict "Page" (dict "Pitch" $ret))) -}}
+	{{- if index $data "Pitch" -}}
+		{{- $Page = merge $Page (dict
+			"Descriptions" (dict
+				"Page" (dict
+					"Pitch" $data.Pitch
+				)
+			)
+		) -}}
 	{{- end -}}
 
 
-	{{- $ret = index $data "Summary" -}}
-	{{- if $ret -}}
-		{{- $Page = merge $Page
-			(dict "Descriptions" (dict "Page" (dict "Summary" $ret))) -}}
+	{{- if index $data "Summary" -}}
+		{{- $Page = merge $Page (dict
+			"Descriptions" (dict
+				"Page" (dict
+					"Summary" $data.Summary
+				)
+			)
+		) -}}
 	{{- end -}}
 {{- end -}}
 
@@ -138,42 +161,75 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source .Redirect */ -}}
-{{- $data = index $Local "Redirect" -}}
-{{- if $data -}}
-	{{- $Page = merge $Page (dict "Redirect" (dict
-		"Delay" (default 0 $data.Delay)
-		"URL" (default "" $data.URL)
-		"Enabled" (default false $data.Enabled)
-	)) -}}
-
-
-	{{- $data = index $data "Language" -}}
-	{{- if $data -}}
-		{{- $Page = merge $Page (dict "Redirect" (dict
-			"Language" (dict "Enabled" (default false $data.Enabled))
-		)) -}}
+{{- if index $Local "Redirect" -}}
+	{{- if index $Local.Redirect "Language" -}}
+		{{- $ret = dict
+			"Redirect" (dict
+				"Delay" (default 0 $Local.Redirect.Delay)
+				"URL" (default "" $Local.Redirect.URL)
+				"Enabled" (default false $Local.Redirect.Enabled)
+				"Language" (dict
+					"Enabled" (default false $Local.Redirect.Language.Enabled)
+				)
+			)
+		-}}
+	{{- else -}}
+		{{- $ret = dict
+			"Redirect" (dict
+				"Delay" (default 0 $Local.Redirect.Delay)
+				"URL" (default "" $Local.Redirect.URL)
+				"Enabled" (default false $Local.Redirect.Enabled)
+				"Language" (dict
+					"Enabled" false
+				)
+			)
+		-}}
 	{{- end -}}
+
+
+	{{- $Page = merge $Page $ret -}}
 {{- end -}}
 
 
 
 
 {{- /* source .Keywords */ -}}
-{{- $data = default dict (index $Local "Content") -}}
-{{- range $i, $v := (default slice $data.Keywords) -}}
+{{- $ret = default dict (index $Local "Content") -}}
+{{- range $i, $v := (default slice $ret.Keywords) -}}
 	{{- if not $v -}}
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "Keywords" (dict "List" (dict (string $i) $v))) -}}
+
+	{{- $Page = merge $Page (dict
+		"Keywords" (dict
+			"List" (dict
+				(string $i) $v
+			)
+		)
+	) -}}
 {{- end -}}
 
 
 
 
 {{- /* source .Thumbnails */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory $location.Thumbnails -}}
+{{- $Local = false -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
+	{{ if strings.HasPrefix $location.Thumbnails $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- if $Local -}}
+	{{- $Local = $location.Thumbnails -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $location.Thumbnails -}}
+{{- end -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
+
+
 {{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
 {{- if $Local.Error -}}
 	{{- $Local = slice -}}
@@ -197,30 +253,62 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* source .Languages */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory $location.Languages -}}
+{{- $Local = false -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
+	{{ if strings.HasPrefix $location.Languages $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+{{- if $Local -}}
+	{{- $Local = $location.Languages -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $location.Languages -}}
+{{- end -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
 {{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
 {{- $Local = $Local.Output -}}
 
 
 {{- range $k, $v := $Local -}}
-	{{- $ret = index $v "URL" -}}
-	{{- if not $ret -}}
+	{{- if not (index $v "URL") -}}
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "Languages" (dict "List"
-		(dict (string $k) (dict "URL" (dict "PAGE" (urls.Parse $ret)))
-	))) -}}
+	{{- $Page = merge $Page (dict
+		"Languages" (dict
+			"List" (dict
+				(string $k) (dict
+					"URL" (dict
+						"PAGE" (urls.Parse $v.URL)
+					)
+				)
+			)
+		)
+	) -}}
 {{- end -}}
 
 
 
 
 {{- /* source .Contributors */ -}}
-{{- $Local = printf "%s/%s" .Filesystem.Directory $location.Contributors -}}
+{{- $Local = false -}}
+{{- range $i, $v := $Page.Constants.Filesystem.Prefixes -}}
+	{{ if strings.HasPrefix $location.Contributors $v -}}
+		{{- $Local = true -}}
+	{{- end -}}
+{{- end -}}
+
+
+{{- if $Local -}}
+	{{- $Local = $location.Contributors -}}
+{{- else -}}
+	{{- $Local = printf "%s/%s" $Page.Filesystem.Directory $location.Contributors -}}
+{{- end -}}
 {{- $Local = merge $Page (dict "Input" (dict "Path" (path.Clean $Local))) -}}
 {{- $Local = partial "hestiaIO/hestiaFS/ParseDataFile" $Local -}}
+
+
 {{- if index $Local.Output "Contributors" -}}
 	{{- $Local = $Local.Output.Contributors -}}
 {{- else -}}
@@ -243,11 +331,18 @@ specific language governing permissions and limitations under the License.
 		{{- if index $v.Contribution $w -}}
 			{{- $ret = true -}}
 		{{- end -}}
-		{{- $ret = dict $w $ret -}}
 
-		{{- $Page = merge $Page (dict "Contributors" (dict "Page"
-			(dict $v.Key (dict "Contribution" $ret))
-		)) -}}
+		{{- $Page = merge $Page (dict
+			"Contributors" (dict
+				"Page" (dict
+					$v.Key (dict
+						"Contribution" (dict
+							$w $ret
+						)
+					)
+				)
+			)
+		) -}}
 	{{- end -}}
 {{- end -}}
 

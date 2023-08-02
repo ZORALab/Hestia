@@ -31,37 +31,53 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse all default PWA data */ -}}
-{{- $ret = default "" .Data.Store.Hestia.PWA.Metadata.Name.ID -}}
 {{- $Page = merge $Page (dict "PWA" (dict
+	"Caches" (dict
+		"Default" (dict
+			"Policy" (default "network-first" .Data.Store.Hestia.PWA.Caches.Default.Policy)
+		)
+	)
+
+
+	"Colors" (dict
+		"Theme" (default "#FFFFFF" .Data.Store.Hestia.PWA.Colors.Main.Theme)
+		"Background" (default "#000000" .Data.Store.Hestia.PWA.Colors.Main.Background)
+	)
+
+
+	"Descriptions" (dict
+		"Pitch" (default "" .Data.Store.Hestia.PWA.Metadata.Descriptions.Pitch)
+		"Summary" (default "" .Data.Store.Hestia.PWA.Metadata.Descriptions.Summary)
+	)
+
+
+	"Display" (dict
+		"Main" (default "standalone" .Data.Store.Hestia.PWA.Display.Settings.Main)
+		"Orientation" (default "any" .Data.Store.Hestia.PWA.Display.Orientation.Main)
+	)
+
+
+	"Icons" (partial "hestiaCOMPILERS/hestiaHUGO/parseIcons" .)
+
+
 	"Name" (dict
 		"ID" (default "" .Data.Store.Hestia.PWA.Metadata.Name.ID)
 		"Short" (default "" .Data.Store.Hestia.PWA.Metadata.Name.Short)
 		"Full" (default "" .Data.Store.Hestia.PWA.Metadata.Name.Full)
 	)
+
+
+	"Relations" (dict
+		"PreferInstall" (default false .Data.Store.Hestia.PWA.Relations.Settings.Install.Prefer)
+	)
+
+
 	"URL" (dict
 		"Base" (default "" .Data.Store.Hestia.PWA.Metadata.URL.Base)
 		"Scope" (default "" .Data.Store.Hestia.PWA.Metadata.URL.Scope)
 	)
-	"Descriptions" (dict
-		"Pitch" (default "" .Data.Store.Hestia.PWA.Metadata.Descriptions.Pitch)
-		"Summary" (default "" .Data.Store.Hestia.PWA.Metadata.Descriptions.Summary)
-	)
-	"Display" (dict
-		"Main" (default "standalone" .Data.Store.Hestia.PWA.Display.Settings.Main)
-		"Orientation" (default "any" .Data.Store.Hestia.PWA.Display.Orientation.Main)
-	)
-	"Colors" (dict
-		"Theme" (default "#FFFFFF" .Data.Store.Hestia.PWA.Colors.Main.Theme)
-		"Background" (default "#000000" .Data.Store.Hestia.PWA.Colors.Main.Background)
-	)
-	"Caches" (dict "Default" (dict
-		"Policy" (default "network-first" .Data.Store.Hestia.PWA.Caches.Default.Policy)
-	))
-	"Relations" (dict
-		"PreferInstall" (default false .Data.Store.Hestia.PWA.Relations.Settings.Install.Prefer)
-	)
-	"Icons" (partial "hestiaCOMPILERS/hestiaHUGO/parseIcons" .)
 )) -}}
+
 
 
 
@@ -73,6 +89,7 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 {{- end -}}
 
+
 {{- if not $ret -}}
 	{{- range $i, $v := .Data.Store.Hestia.Metadata -}}
 		{{- range $j, $w := $v.Categories.List -}}
@@ -83,13 +100,18 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 {{- end -}}
 
+
 {{- $list = dict -}}
 {{- $dataset = 0 -}}
 {{- range $k, $v := $ret -}}
 	{{- $list = merge $list (dict (string $dataset) $k) -}}
 	{{- $dataset = add $dataset 1 -}}
 {{- end -}}
-{{- $Page = merge $Page (dict "PWA" (dict "Categories" $list)) -}}
+{{- $Page = merge $Page (dict
+	"PWA" (dict
+		"Categories" $list
+	)
+) -}}
 
 
 
@@ -101,9 +123,15 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $Page = merge $Page (dict "PWA" (dict "Display" (dict "Overrides"
-		(dict (upper (string $i)) $v)
-	))) -}}
+	{{- $Page = merge $Page (dict
+		"PWA" (dict
+			"Display" (dict
+				"Overrides" (dict
+					(upper (string $i)) $v
+				)
+			)
+		)
+	) -}}
 {{- end -}}
 
 
@@ -117,14 +145,17 @@ specific language governing permissions and limitations under the License.
 			{{- $dataset = $v.Contents -}}
 		{{- end -}}
 
+
 		{{- if not (strings.HasPrefix $Page.URL.Current.Relative $w.URL.HOME) -}}
 			{{- continue -}}
 		{{- end -}}
+
 
 		{{- $dataset = $v.Contents -}}
 		{{- break -}}
 	{{- end -}}
 {{- end -}}
+
 
 {{- range $i, $v := $dataset -}}
 	{{- if not (index $v "URL") -}}
@@ -149,14 +180,18 @@ specific language governing permissions and limitations under the License.
 		{{- $data = merge $data (dict (upper (string $j)) $ret) -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "PWA" (dict "Shortcuts"
-		(dict (upper (string $i)) (dict
-			"URL" $v.URL
-			"Name" (dict "Full" $v.Name.Full "Short" $v.Name.Short)
-			"Description" (default "" $v.Description)
-			"Icons" $data
-		))
-	)) -}}
+	{{- $Page = merge $Page (dict
+		"PWA" (dict
+			"Shortcuts" (dict
+				(upper (string $i)) (dict
+					"URL" $v.URL
+					"Name" (dict "Full" $v.Name.Full "Short" $v.Name.Short)
+					"Description" (default "" $v.Description)
+					"Icons" $data
+				)
+			)
+		)
+	) -}}
 {{- end -}}
 
 
@@ -165,9 +200,13 @@ specific language governing permissions and limitations under the License.
 {{- /* parse .PWA.Screenshots */ -}}
 {{- range $i, $v := .Data.Store.Hestia.PWA.Screenshots.Contents -}}
 	{{- $ret = partial "hestiaCOMPILERS/hestiaHUGO/_parseMedia" $v -}}
-	{{- $Page = merge $Page (dict "PWA" (dict "Screenshots"
-		(dict (upper (string $i)) $ret)
-	)) -}}
+	{{- $Page = merge $Page (dict
+		"PWA" (dict
+			"Screenshots" (dict
+				(upper (string $i)) $ret
+			)
+		)
+	) -}}
 {{- end -}}
 
 
@@ -187,13 +226,19 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "PWA" (dict "Relations" (dict "List"
-		(dict (upper (string $i)) (dict
-			"URL" $v.URL
-			"Platform" $v.Platform
-			"ID" $v.ID
-		))
-	))) -}}
+	{{- $Page = merge $Page (dict
+		"PWA" (dict
+			"Relations" (dict
+				"List" (dict
+					(upper (string $i)) (dict
+						"URL" $v.URL
+						"Platform" $v.Platform
+						"ID" $v.ID
+					)
+				)
+			)
+		)
+	) -}}
 {{- end -}}
 
 
@@ -209,9 +254,16 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $Page = merge $Page (dict "PWA" (dict "Protocols"
-		(dict (string $i) (dict "Protocol" $v.Protocol "URL" $v.URL))
-	)) -}}
+	{{- $Page = merge $Page (dict
+		"PWA" (dict
+			"Protocols" (dict
+				(string $i) (dict
+					"Protocol" $v.Protocol
+					"URL" $v.URL
+				)
+			)
+		)
+	) -}}
 {{- end -}}
 
 
@@ -230,9 +282,15 @@ specific language governing permissions and limitations under the License.
 		{{- end -}}
 
 
-		{{- $Page = merge $Page (dict "PWA" (dict "Caches" (dict "List"
-			(dict $w.URL $w.Cache)
-		))) -}}
+		{{- $Page = merge $Page (dict
+			"PWA" (dict
+				"Caches" (dict
+					"List" (dict
+						$w.URL $w.Cache
+					)
+				)
+			)
+		) -}}
 	{{- end -}}
 {{- end -}}
 

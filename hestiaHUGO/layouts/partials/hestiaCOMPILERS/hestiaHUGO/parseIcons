@@ -287,42 +287,30 @@ specific language governing permissions and limitations under the License.
 {{- /* parse .Icons */ -}}
 {{- $dataList = slice -}}
 {{- range $i, $v := $list -}}
-	{{- $data = dict -}}
-
-
-	{{- /* process output URL */ -}}
-	{{- $data = dict
-		"URL" (printf "/%s" (strings.TrimPrefix "/" $v.Filename))
-		"Type" $v.Type
-		"Media" "all"
-	-}}
-	{{- $data = dict "Sources" (slice $data) -}}
-
-
-	{{- /* parse the image metadata */ -}}
-	{{- $data = merge $data (dict
+	{{- $data = partial "hestiaCOMPILERS/hestiaHUGO/_parseMedia" (dict
+		"Sources" (slice
+			(dict
+				"URL" (printf "/%s" (strings.TrimPrefix "/" $v.Filename))
+				"Type" $v.Type
+				"Media" "all"
+			)
+		)
 		"Name" (path.BaseName $v.Filename)
 		"Width" $v.Width
 		"Height" $v.Height
 		"Design" $v.Design
 	) -}}
-	{{- $data = partial "hestiaCOMPILERS/hestiaHUGO/_parseMedia" $data -}}
-
-
-	{{- /* parse the image source */ -}}
-	{{- $ret = index $v.Source.Sources 0 -}}
-	{{- if not $ret -}}
+	{{- if not (index $data.Sources 0) -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $data = merge $data (dict
-		"Asset" $ret
-		"Filename" $v.Filename
-		"Resize" $v.Resize
-	) -}}
 
 
 	{{- /* merge into dataList */ -}}
-	{{- $dataList = append $data $dataList -}}
+	{{- $dataList = append (merge $data (dict
+		"Asset" $v.Source
+		"Filename" $v.Filename
+		"Resize" $v.Resize
+	)) $dataList -}}
 {{- end -}}
 
 

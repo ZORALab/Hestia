@@ -29,7 +29,7 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* parse .Sources */ -}}
-{{- $list = dict -}}
+{{- $list = slice -}}
 {{- range $i, $v := .Sources -}}
 	{{- if not $v.URL -}}
 		{{- continue -}}
@@ -46,12 +46,12 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $list = merge $list (dict (lower $i) (dict
+	{{- $list = append (dict
 		"URL" $v.URL
 		"Type" $v.Type
 		"Media" $v.Media
 		"Descriptor" (default "1x" $v.Descriptor)
-	)) -}}
+	) $list -}}
 {{- end -}}
 
 
@@ -94,13 +94,16 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $ret = dict
-		"URL" $v.URL
-		"Kind" (default "" $v.Kind)
-		"Label" (default "" $v.Label)
-		"Default" (default false $v.Default) -}}
-	-}}
-	{{- $dataList = merge $dataList (dict "Tracks" (dict (lower $k) $ret)) -}}
+	{{- $dataList = merge $dataList (dict
+		"Tracks" (dict
+			(lower $k) (dict
+				"URL" $v.URL
+				"Kind" (default "" $v.Kind)
+				"Label" (default "" $v.Label)
+				"Default" (default false $v.Default)
+			)
+		)
+	) -}}
 {{- end -}}
 
 

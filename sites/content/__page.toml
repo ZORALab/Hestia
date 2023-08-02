@@ -23,17 +23,17 @@ Published = 'Tue, 20 Dec 2022 12:49:49 +0800'
 [Content]
 Title = "ZORALab's Hestia"
 Keywords = [
-        'Web',
-        'Tech',
-        'PWA',
-        'WASM',
-        'Software Libraries',
-        'Hugo',
-        'Go',
-        'TinyGo',
-        'Nim',
-        'ZORALab',
-        "ZORALab's Hestia",
+	'Web',
+	'Tech',
+	'PWA',
+	'WASM',
+	'Software Libraries',
+	'Hugo',
+	'Go',
+	'TinyGo',
+	'Nim',
+	'ZORALab',
+	"ZORALab's Hestia",
 ]
 
 
@@ -47,8 +47,11 @@ Keywords = [
 #   4. All fields shall have their whitespace cleansed during the processing.
 [Description]
 Pitch = 'One Peaceful Frontend+Backend Software Library Suite.'
-Summary = """
-Redirecting to your language.
+Summary = """\
+The project is to unify all common libraries and data structure into 1 single
+repository for highest attributes of reusablity, smoother learning curves, and a
+more wholesome tools alignments. Develop and learn advanced products easily with
+less worries about supply chain problems.
 """
 
 
@@ -82,12 +85,16 @@ Enabled = true
 #   2. If you're sourcing from static directory, prefix 'static/'.
 #   3. If you're sourcing from partial directory, prefix 'layouts/partials/'.
 [Sources]
-HTML = '__content.hestiaHTML'
-JSON = '__content.hestiaJSON'
-LDJSON = '__content.hestiaLDJSON'
-Contributors = '__contributors.toml'
-Thumbnails = '__thumbnails.toml'
-Languages = '__languages.toml'
+HTML = 'layouts/content/redirect/index.html'
+JSON = 'layouts/content/redirect/index.json'
+CSS = 'layouts/content/redirect/index.css'
+JS = 'layouts/content/redirect/index.js'
+LDJSON = 'layouts/content/landing/index.ldjson'
+Contributors = 'layouts/content/redirect/contributors.toml'
+Thumbnails = 'layouts/content/thumbnails.toml'
+Languages = 'layouts/content/landing/languages.toml'
+Assets = 'layouts/content/redirect/assets.toml'
+Components = 'layouts/content/redirect/components.toml'
 
 
 
@@ -110,5 +117,3 @@ Languages = '__languages.toml'
 #
 #                             [[data]]
 #                             Filename = 'file2.toml'
-[[Data]]
-Filename = '__i18n.toml'

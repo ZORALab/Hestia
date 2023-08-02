@@ -23,6 +23,7 @@ specific language governing permissions and limitations under the License.
 {{- /* prepare variables for this function */ -}}
 {{- $Page := . -}}
 {{- $error := false -}}
+{{- $list := slice -}}
 {{- $data := false -}}
 {{- $ret := false -}}
 {{- $ret2 := false -}}
@@ -470,6 +471,7 @@ specific language governing permissions and limitations under the License.
 
 
 	{{- /* process .Icons */ -}}
+	{{- $list = slice -}}
 	{{- range $j, $w := $v.Icons -}}
 		{{- $ret = merge $Page (dict "Input" (dict "Data" $w)) -}}
 		{{- $ret = partial "hestiaMEDIA/Sanitize" $ret -}}
@@ -484,10 +486,9 @@ specific language governing permissions and limitations under the License.
 			{{- continue -}}
 		{{- end -}}
 
-		{{- $data = merge $data (dict "Icons"
-			(dict (upper (string $j)) $ret.Output)
-		) -}}
+		{{- $list = append $ret.Output $list -}}
 	{{- end -}}
+	{{- $data = merge $data (dict "Icons" $list) -}}
 
 
 	{{- $Page = merge $Page (dict "PWA" (dict "Shortcuts"

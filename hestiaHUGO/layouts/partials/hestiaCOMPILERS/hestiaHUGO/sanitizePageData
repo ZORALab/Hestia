@@ -164,9 +164,11 @@ specific language governing permissions and limitations under the License.
 
 
 {{- /* process .CSS.IncludeFirst */ -}}
-{{- $Page = merge $Page (dict "CSS" (dict "IncludeFirst"
-	(default true .CSS.Settings.IncludeFirst)
-)) -}}
+{{- $Page = merge $Page (dict
+	"CSS" (dict
+		"IncludeFirst" (default true .CSS.Settings.IncludeFirst)
+	)
+) -}}
 
 
 
@@ -622,9 +624,13 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 
 
-	{{- $Page = merge $Page (dict "WASM" (dict "Dependencies"
-		(dict (string $i) $ret.Output)
-	)) -}}
+	{{- $Page = merge $Page (dict
+		"WASM" (dict
+			"Dependencies" (dict
+				(string $i) $ret.Output
+			)
+		)
+	) -}}
 {{- end -}}
 
 

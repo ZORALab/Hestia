@@ -31,14 +31,54 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* process .Data.Store */ -}}
-{{- $dataList = merge $dataList (dict "Content" dict) -}}
+{{- /* initialize fundamental data structure */ -}}
+{{- $dataList = dict
+	"Content" dict
 
 
+	"CSS" (dict
+		"Settings" (dict
+			"IncludeFirst" (default false .Site.Data.Hestia.CSS.Settings.Position.IncludeFirst)
+		)
+	)
 
 
-{{- /* process .LDJSON */ -}}
-{{- $dataList = merge $dataList (dict "LDJSON" dict) -}}
+	"JS" (dict
+		"Settings" (dict
+			"IncludeFirst" (default false .Site.Data.Hestia.JS.Settings.Position.IncludeFirst)
+			"Inline" (dict
+				"Timing" (default "defer" .Site.Data.Hestia.JS.Settings.Inline.Timing)
+			)
+		)
+	)
+
+
+	"LDJSON" dict
+
+
+	"Nav" (dict
+		"All" (cond .IsHome .Site.Pages dict)
+		"Children" .Page.Pages
+	)
+
+
+	"Sitemap" (dict
+		"ChangeFreq" (default "" .Page.Sitemap.ChangeFreq)
+		"Priority" (default -1 .Page.Sitemap.Priority)
+		"Filename" "sitemap-page.xml"
+		"Index" "sitemap.xml"
+	)
+
+
+	"WASM" (dict
+		"URL" ""
+		"Setup" ""
+		"Import" ""
+		"Init" ""
+		"Embed" ""
+		"Dependencies" slice
+	)
+-}}
 
 
 
@@ -46,12 +86,12 @@ specific language governing permissions and limitations under the License.
 {{- /* process .CSS.List.Inline */ -}}
 {{- $list = slice -}}
 {{- range $i, $v := .Site.Data.Hestia.CSS.List.Inline -}}
-	{{- $ret = index $v "Path" -}}
-	{{- if not $ret -}}
+	{{- if not (index $v "Path") -}}
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $list = append $ret $list -}}
+
+	{{- $list = append $v.Path $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "CSS" (dict "Inline" $list)) -}}
 
@@ -65,25 +105,14 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $ret = dict
+
+	{{- $list = append (dict
 		"URL" (default "" $v.URL)
 		"Media" (default "" $v.Media)
 		"OnLoad" (default "" $v.OnLoad)
-	-}}
-
-	{{- $list = append $ret $list -}}
+	) $list -}}
 {{- end -}}
 {{- $dataList = merge $dataList (dict "CSS" (dict "Include" $list)) -}}
-
-
-
-
-{{- /* parse .CSS.List.Settings.IncludeFirst flag */ -}}
-{{- $ret = true -}}
-{{- if not .Site.Data.Hestia.CSS.Settings.Position.IncludeFirst -}}
-	{{- $ret = false -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "CSS" (dict "Settings" (dict "IncludeFirst" $ret))) -}}
 
 
 
@@ -122,28 +151,7 @@ specific language governing permissions and limitations under the License.
 
 
 
-{{- /* parse .JS.Settings.IncludeFirst flag */ -}}
-{{- $ret = true -}}
-{{- if not .Site.Data.Hestia.JS.Settings.Position.IncludeFirst -}}
-	{{- $ret = false -}}
-{{- end -}}
-{{- $dataList = merge $dataList (dict "JS" (dict "Settings" (dict "IncludeFirst" $ret))) -}}
-
-
-
-
-{{- /* parse .JS.Settings.Inline.Timing flag */ -}}
-{{- $ret = "defer" -}}
-{{- if .Site.Data.Hestia.JS.Settings.Inline.Timing -}}
-	{{- $ret = .Site.Data.Hestia.JS.Settings.Inline.Timing -}}
-{{- end -}}
-{{- $ret = dict "Inline" (dict "Timing" $ret) -}}
-{{- $dataList = merge $dataList (dict "JS" (dict "Settings" $ret)) -}}
-
-
-
-
-{{- /* parse .Components */ -}}
+{{- /* parse .Debugger */ -}}
 {{- if and .Site.Data.Hestia.Debugger.Default.Type .Site.IsServer -}}
 	{{- $dataList = merge $dataList (dict
 		"Debugger" (dict
@@ -151,21 +159,6 @@ specific language governing permissions and limitations under the License.
 		)
 	) -}}
 {{- end -}}
-
-
-
-
-{{- /* parse .Nav.All */ -}}
-{{- $dataList = merge $dataList (dict "Nav" (dict "All" dict)) -}}
-{{- if .IsHome -}}
-	{{- $dataList = merge $dataList (dict "Nav" (dict "All" .Site.Pages)) -}}
-{{- end -}}
-
-
-
-
-{{- /* parse .Nav.Children */ -}}
-{{- $dataList = merge $dataList (dict "Nav" (dict "Children" .Page.Pages)) -}}
 
 
 
@@ -194,30 +187,6 @@ specific language governing permissions and limitations under the License.
 	{{- end -}}
 	{{- $dataList = merge $dataList (dict "Nav" (dict "Parents" $list)) -}}
 {{- end -}}
-
-
-
-
-{{- /* parse .Sitemap.ChangeFreq */ -}}
-{{- $dataList = merge $dataList (dict "Sitemap" (dict
-	"ChangeFreq" (default "" .Page.Sitemap.ChangeFreq)
-	"Priority" (default -1 .Page.Sitemap.Priority)
-	"Filename" "sitemap-page.xml"
-	"Index" "sitemap.xml"
-)) -}}
-
-
-
-
-{{- /* parse .WASM */ -}}
-{{- $dataList = merge $dataList (dict "WASM" (dict
-	"URL" ""
-	"Setup" ""
-	"Import" ""
-	"Init" ""
-	"Embed" ""
-	"Dependencies" slice
-)) -}}
 
 
 

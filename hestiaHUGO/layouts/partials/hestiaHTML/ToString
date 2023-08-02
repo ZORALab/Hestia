@@ -125,7 +125,7 @@ specific language governing permissions and limitations under the License.
 	{{- else if not (hasPrefix $v.Name "favicon") -}}
 		{{- continue -}}
 	{{- end -}}
-	{{- $ret = index $v.Sources "0" -}}
+	{{- $ret = index $v.Sources 0 -}}
 
 {{- if and (hasPrefix $ret.Type "image/svg") (eq $v.Design "monochrome") }}
 	<link rel='mask-icon'
@@ -279,7 +279,7 @@ specific language governing permissions and limitations under the License.
 
 {{- /* render .Thumbnails meta */}}
 {{- range $k, $v := .Thumbnails }}
-	{{- $ret = index $v.Sources "0" -}}
+	{{- $ret = index $v.Sources 0 -}}
 	{{- if hasPrefix $ret.Type "image" }}
 	<meta property="og:image"
 		content="{{- safeHTMLAttr $ret.URL -}}" />
@@ -338,7 +338,7 @@ specific language governing permissions and limitations under the License.
 {{- end }}
 
 {{- if .Vendors.Twitter.Card.Image }}
-	{{- $ret = index .Vendors.Twitter.Card.Image.Sources "0" }}
+	{{- $ret = index .Vendors.Twitter.Card.Image.Sources 0 }}
 	<meta name="twitter:image"
 		content="{{- safeHTML $ret.URL -}}" />
 {{- end }}
@@ -349,7 +349,7 @@ specific language governing permissions and limitations under the License.
 {{- end }}
 
 {{- if .Vendors.Twitter.Card.Media }}
-	{{- $ret = index .Vendors.Twitter.Card.Media.Sources "0" }}
+	{{- $ret = index .Vendors.Twitter.Card.Media.Sources 0 }}
 	<meta name="twitter:player"
 		content="{{- safeHTML $ret.URL -}}" />
 	<meta name="twitter:player:width"

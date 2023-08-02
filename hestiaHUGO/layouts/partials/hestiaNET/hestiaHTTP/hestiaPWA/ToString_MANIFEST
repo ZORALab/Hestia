@@ -80,7 +80,7 @@ specific language governing permissions and limitations under the License.
 		{{- continue -}}
 	{{- end -}}
 
-	{{- $source = index $v.Sources "0" -}}
+	{{- $source = index $v.Sources 0 -}}
 
 	{{- if eq $v.Sizes "192x192" -}}
 	{{- else if eq $v.Sizes "384x384" -}}
@@ -162,7 +162,7 @@ specific language governing permissions and limitations under the License.
 	{{- $list = slice -}}
 
 	{{- range $i, $v := .PWA.Screenshots -}}
-		{{- $source = index $v.Sources "0" -}}
+		{{- $source = index $v.Sources 0 -}}
 		{{- $data = dict -}}
 
 		{{- $ret = string $source.URL -}}
@@ -207,7 +207,7 @@ specific language governing permissions and limitations under the License.
 
 		{{- $imageList = slice -}}
 		{{- range $j, $w := $v.Icons -}}
-			{{- $source = index $w.Sources "0" -}}
+			{{- $source = index $w.Sources 0 -}}
 			{{- $image = dict -}}
 
 			{{- $ret = string $source.URL -}}
